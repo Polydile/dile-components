@@ -1,0 +1,7 @@
+{
+  "name": "@dile/dile-components",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
