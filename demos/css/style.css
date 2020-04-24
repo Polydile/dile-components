@@ -1,0 +1,42 @@
+body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16pt;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  margin: 0.8rem;
+}
+
+h1 {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 4px 4px 8px #e5e5e5;
+  border-radius: 0.5rem;
+}
+
+ul {
+  padding-left: 0.5rem; 
+}
+
+li {
+  list-style-type: none;
+}
+
+li:before {
+  content: '>';
+  position: relative;
+  top: 2px;
+  margin-right: 0.5rem;
+  font-size: 1.6rem;
+}
