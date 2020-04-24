@@ -14,9 +14,6 @@
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Polydile/dile-components.git"

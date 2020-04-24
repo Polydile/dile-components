@@ -1,7 +1,14 @@
 {
   "version": "independent",
-  "npmClient": "yarn",
   "packages": [
     "packages/*"
-  ]
+  ],
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    }
+  }
 }

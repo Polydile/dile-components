@@ -3,13 +3,11 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
-    "start": "es-dev-server --node-resolve --preserve-symlinks --root-dir demos/ --open"
+    "bootstrap": "lerna bootstrap",
+    "start": "es-dev-server --node-resolve --preserve-symlinks --open demos/"
   },
   "devDependencies": {
     "es-dev-server": "^1.46.5",
     "lerna": "^3.20.2"
-  },
-  "dependencies": {
-    "lit-element": "^2.3.1"
   }
 }
