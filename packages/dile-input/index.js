@@ -1,1 +1,1 @@
-export { DileToast } from './src/DileToast.js';
+export { DileInput } from './src/DileInput.js';
