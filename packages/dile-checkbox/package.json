@@ -1,0 +1,35 @@
+{
+  "name": "@dile/dile-checkbox",
+  "version": "0.0.0",
+  "description": "Webcomponent dile-checkbox to create a custom-styled checkbox element following open-wc recommendations",
+  "keywords": [
+    "LitElement",
+    "Web Component",
+    "Checkbox",
+    "Form",
+    "Input",
+    "Check"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.1.2"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}
