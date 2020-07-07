@@ -1,3 +1,3 @@
-import { DileModal } from './src/DileModal';
+import { DileModal } from './src/DileModal.js';
 
 customElements.define("dile-modal", DileModal);

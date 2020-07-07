@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-modal component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-modal/dile-modal.js" type="module"></script>
+  <style>
+
+    .myModalCustomized {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      --dile-modal-border-radius: 0;
+      --dile-modal-content-background-color: #303030;
+      --dile-modal-width: 200px;
+      --dile-modal-min-width: 100px;
+      text-align: center;
+      --dile-modal-content-shadow-color: #ddd;
+      --dile-modal-background-color: #fff;
+      --dile-modal-animation-duration: 1s;
+    }
+    .myModalCustomized p {
+      color: #f66;
+      font-size: 0.9em;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-modal component</h1>
+    
+    <dile-modal id="elmodal1">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
+      <p>Pariatur vero impedit repudiandae labore modi, at exercitationem quae aut qui aperiam quis, molestias earum fugit totam non omnis. Sint mollitia minima, similique dolores unde nihil dicta commodi quae cum!</p>
+    </dile-modal>
+
+    <dile-modal id="elmodal2" class="myModalCustomized">
+      <p>Hi dile-modal!</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </dile-modal>
+  
+    <button id="modalregular">Open regular modal</button>
+    <button id="modalstyled">Open styled modal</button>
+    
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+        let modal1 = document.getElementById("elmodal1");
+        let modal2 = document.getElementById("elmodal2");
+        document.getElementById("modalregular").addEventListener("click", function() {
+          modal1.open();
+        });
+        document.getElementById("modalstyled").addEventListener("click", function () {
+          modal2.open();
+        });
+      });
+
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
