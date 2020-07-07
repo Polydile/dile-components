@@ -1,0 +1,1 @@
+export { DileModal } from './src/DileModal.js';
