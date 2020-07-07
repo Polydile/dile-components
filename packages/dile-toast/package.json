@@ -1,0 +1,34 @@
+{
+  "name": "@dile/dile-toast",
+  "version": "0.0.0",
+  "description": "Web Component to send feedback to the user, inspired on the Material Design toast component",
+  "keywords": [
+    "feedback",
+    "message",
+    "toast",
+    "display messages",
+    "LitElement",
+    "component"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.1.2"
+  }
+}
