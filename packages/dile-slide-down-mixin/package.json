@@ -1,0 +1,30 @@
+{
+  "name": "@dile/dile-slide-down-mixin",
+  "version": "0.0.0",
+  "description": "Mixin function to create slidedown / slideup effects in Web Components",
+  "keywords": [
+    "slide",
+    "slide down",
+    "slide up",
+    "animation",
+    "effect",
+    "mixin"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  }
+}
