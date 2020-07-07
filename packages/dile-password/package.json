@@ -16,7 +16,7 @@
   "license": "MIT",
   "main": "dile-input.js",
   "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,6 @@
     "@dile/dile-input": "^0.0.2",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.2"
-  }
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }
