@@ -12,6 +12,11 @@ h1 {
   margin-top: 0;
 }
 
+h2 {
+  font-weight: 300;
+  margin: 2.5rem 0 1rem 0;
+}
+
 footer {
   margin-top: 2rem;
 }

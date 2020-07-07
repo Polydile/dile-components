@@ -4,7 +4,7 @@
   "scripts": {
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
-    "start": "es-dev-server --node-resolve --preserve-symlinks --open demos/"
+    "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/"
   },
   "devDependencies": {
     "es-dev-server": "^1.56.0",

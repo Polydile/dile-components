@@ -57,23 +57,26 @@ export class DileInput extends LitElement {
 
     static get properties() {
         return {
-            /** Label to the element */
-            label: { type: String },
+          /** Label to the element */
+          label: { type: String },
 
-            /** Set a placeholder to the input element */
-            placeholder: { type: String },
+          /** Set a placeholder to the input element */
+          placeholder: { type: String },
 
-            /** Disable the input field */
-            disabled: { type: Boolean },
+          /** Disable the input field */
+          disabled: { type: Boolean },
 
-            /** Set initial value to the input. This property syncs to the input field value property */
-            value: { type: String },
+          /** Set initial value to the input. This property syncs to the input field value property */
+          value: { type: String },
 
-            /** Name for this input field */
-            name: { type: String },
+          /** Name for this input field */
+          name: { type: String },
 
-            /** Name for this input field */
-            errored: { type: Boolean },
+          /** Name for this input field */
+          errored: { type: Boolean },
+
+          /** Disable the autocomplete of the input field */
+          disableAutocomplete: { type: Boolean },
         };
     }
     constructor() {
@@ -82,6 +85,7 @@ export class DileInput extends LitElement {
         this.label = '';
         this.value = '';
         this.disabled = false;
+        this.disableAutocomplete = false;
         this.name = '';
     }
     static get styles() {
@@ -128,23 +132,24 @@ export class DileInput extends LitElement {
     }
     render() {
         return html`
-    <div>
-      ${this.label
-                ? html`<label for="textField">${this.label}</label>`
-                : ''
-            }
-      <input
-        type="text"
-        id="textField"
-        name="${this.name}"
-        placeholder="${this.placeholder}"
-        ?disabled="${this.disabled}"
-        @keypress="${this._lookForEnter}"
-        @input="${this._input}"
-        .value="${this.value}"
-        class="${ this.errored ? 'errored' : ''}">
-    </div>
-    `;
+          <div>
+            ${this.label
+              ? html`<label for="textField">${this.label}</label>`
+              : ""}
+            <input
+              type="text"
+              id="textField"
+              name="${this.name}"
+              placeholder="${this.placeholder}"
+              ?disabled="${this.disabled}"
+              autocomplete="${this.disableAutocomplete ? "off" : "on"}"
+              @keypress="${this._lookForEnter}"
+              @input="${this._input}"
+              .value="${this.value}"
+              class="${this.errored ? "errored" : ""}"
+            />
+          </div>
+        `;
     }
     /**
      * Private method to dispatch events on enter key pressed
