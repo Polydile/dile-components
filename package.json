@@ -7,7 +7,7 @@
     "start": "es-dev-server --node-resolve --preserve-symlinks --open demos/"
   },
   "devDependencies": {
-    "es-dev-server": "^1.46.5",
-    "lerna": "^3.20.2"
+    "es-dev-server": "^1.56.0",
+    "lerna": "^3.22.1"
   }
 }

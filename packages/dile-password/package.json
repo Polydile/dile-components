@@ -11,7 +11,7 @@
     "input text",
     "component"
   ],
-  "author": "midesweb <malvarez@desarrolloweb.com>",
+  "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
   "main": "dile-input.js",
