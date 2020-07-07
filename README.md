@@ -54,7 +54,7 @@ To use serve your proyect launch this command on your project root folder.
 
 This is a monorepository managed by [Lerna](https://github.com/lerna/lerna).
 
-To develop web components or run the demos allocated on the demo folder, you need to use Lerna to solve the common dependencies installed on the monorepo.
+To develop web components or run the demos allocated on the ```demo``` folder, you need to use Lerna to solve the common dependencies installed on the monorepo.
 
 1.- Clone this repository
 
