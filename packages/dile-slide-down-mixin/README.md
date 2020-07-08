@@ -1,4 +1,4 @@
-# dile-slide-down-mixin
+# @dile/dile-slide-down-mixin
 
 Mixin to create slidedown / slideup effects in Web Components, useful to easily hide or show elements with a smooth animation.
 
