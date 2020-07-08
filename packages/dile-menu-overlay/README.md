@@ -62,6 +62,11 @@ The component offers several properties to configure the way it works.
 - **closeAll()**: Close all the elements of this type
 - **closeOthers()**: Close the other items of this type (distinct to this)
 
+## Custom events
+
+- **overlay-opened**: dispatched when the overlay opens.
+- **overlay-closed**: dispatched when the overlay closes.
+
 ## Style customization
 
 You can customize the menu box interface by using the CSS custom properties bellow.
