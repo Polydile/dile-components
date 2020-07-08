@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-slide-down-mixin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mixin function to create slidedown / slideup effects in Web Components",
   "keywords": [
     "slide",
