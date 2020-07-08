@@ -1,4 +1,4 @@
-# \<dile-checkbox>
+# @dile/dile-checkbox
 
 Web Component to create a customized checkbox input interface, based on LitElement.
 
