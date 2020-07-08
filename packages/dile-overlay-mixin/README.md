@@ -4,7 +4,47 @@ Mixin to create overlay elements, able to position themselves in a various ways 
 
 ## Requirements
 
-TODO
+This mixin need two elements in the web component to make its work:
+- Overlay layer, to show / hide some content
+- Trigger element, to click and toggle the overlay state
+
+Both elements should be in the shadow DOM of the element and need to have this ids:
+- #overlay for the overlay layer content
+- #trigger for the element to asign the close / hide functions
+
+Also is necessary to asign some styles to the overlay element:
+
+```css
+#overlay {
+  display: none;
+  position: absolute;
+  opacity: 0;
+}
+```
+
+Usually you may also prefer to asign some additional styles, to make a transition between hide / show states:
+
+```css
+#overlay {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  transition: ease 0.5s;
+  transition-property: transform, opacity;
+  transform: translateY(-10px);
+}
+```
+
+To create the smooth animation there is also necessary to create a "opened" CSS class, to asing styles to the open state of the overlay layer.
+
+```css
+#overlay.opened {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+Of course, you can customize your own styles to create your preferred animations.
 
 ## Usage
 
@@ -24,3 +64,24 @@ class NewComponent  extends DileOverlayMixin(LitElement) {
 
 }
 ```
+
+## Properties
+
+The component offers several properties to configure the way it works.
+
+- **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "left", "right" or "center". Default to "left".
+- **verticalAlign**: String property to set the vertical position of the menu. Valid values are "bottom", "center" or "top". Default to "bottom".
+- **moveTop**: Number of pixels to modify the default vertical position of the overlay. Accepts positive (move down) an negative (move up) values. Default 0.
+- **moveLeft**: Number of pixels to modify the default horizontal position of the overlay. Accepts positive (move right) an negative (move left) values. Default 0.
+
+
+## Methods
+
+- **open()**: Use it to open the menu overlay box
+- **close()**: Use it to close the menu overlay box
+- **toggle()**: Toggles the menu-overlay box
+
+## Custom events
+
+- **overlay-opened**: dispatched when the overlay opens.
+- **overlay-closed**: dispatched when the overlay closes.
