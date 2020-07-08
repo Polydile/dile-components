@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-checkbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webcomponent dile-checkbox to create a custom-styled checkbox element following open-wc recommendations",
   "keywords": [
     "LitElement",
