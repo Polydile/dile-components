@@ -1,8 +1,6 @@
 # @dile/dile-close-icon-template
 
-This package only contains a close icon to use in other web components. 
-
-One SVG icon and a LitElement Template to implement a close icon.
+This package only contains two files to implement a simple close icon, to use in other web components: One SVG icon and a LitElement Template to implement a that icon.
 
 ```
 import { closeIcon } from '@dile/dile-close-icon-template';
