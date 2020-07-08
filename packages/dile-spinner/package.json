@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-spinner",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Web Component dile-spinner to create the typical loading spinner with a CSS animation",
   "keywords": [
     "spinner",
