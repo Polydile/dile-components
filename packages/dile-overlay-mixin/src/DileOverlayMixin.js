@@ -4,32 +4,35 @@ export const DileOverlayMixin = function(superClass) {
     static get properties() {
       return {
         _opening: {
-          type: Boolean
+          type: Boolean,
         },
         moveTop: {
-          type: Number
+          type: Number,
         },
         moveLeft: {
-          type: Number
+          type: Number,
         },
         /**
-        * The css class to show or hide the overlay 
-        * @type {String}
-        */
+         * The css class to show or hide the overlay
+         * @type {String}
+         */
         _overlayClass: {
-          type: String
+          type: String,
         },
         /**
-        * The position of the overlay: left, right or center.
-        * @type {String}
-        */
+         * The position of the overlay: left, right or center.
+         * @type {String}
+         */
         horizontalAlign: {
-          type: String
+          type: String,
         },
+        /**
+         * The position of the overlay: bottom, top or center.
+         * @type {String}
+         */
         verticalAlign: {
-          type: String
+          type: String,
         },
-        retardo: Object
       };
     }
 
@@ -41,6 +44,7 @@ export const DileOverlayMixin = function(superClass) {
       this._overlayClass = '';
       this.horizontalAlign = 'left';
       this.verticalAlign = 'bottom';
+      this.delayId = null;
     }
 
     firstUpdated() {
@@ -59,11 +63,11 @@ export const DileOverlayMixin = function(superClass) {
         this.open();
       }
     }
-    cancelRetardo() {
+    cancelDelay() {
       if(this.reardo) {
-        clearTimeout(this.retardo);
+        clearTimeout(this.delayId);
       }
-      this.retardo = null;
+      this.delayId = null;
     }
     /**
     * closes the overlay
@@ -75,8 +79,8 @@ export const DileOverlayMixin = function(superClass) {
       }));
       if(!this._opening && this._overlayClass=='opened') {
         this._overlayClass = '';
-        this.cancelRetardo();
-        this.retardo = setTimeout(() => {
+        this.cancelDelay();
+        this.delayId = setTimeout(() => {
           this.overlay.style.display = 'none'
         }, 500);
       }
@@ -94,8 +98,8 @@ export const DileOverlayMixin = function(superClass) {
         this.updatePosition();
         this.closeAll();
         this.overlay.style.display = 'block';
-        this.cancelRetardo();
-        this.retardo = setTimeout(() => {
+        this.cancelDelay();
+        this.delayId = setTimeout(() => {
           this._overlayClass = 'opened'
           this._opening = false;
           this.overlay.style.display = 'block';
@@ -117,14 +121,14 @@ export const DileOverlayMixin = function(superClass) {
       let overlayHeight = parseInt(this.overlay.offsetHeight);
       
       switch(this.verticalAlign) {
-        case 'bottom':
-          this.overlay.style.top = (triggerHeight + 10 + moveTop) + 'px';
+        case 'top':
+          this.overlay.style.top = (0 - overlayHeight + moveTop) + 'px';
           break;
         case 'center':
           this.overlay.style.top = '-' + (((overlayHeight - (triggerHeight / 2)) / 2) + moveTop) + 'px';
           break;
         default:
-          this.overlay.style.top = (0 - overlayHeight + moveTop) + 'px';
+          this.overlay.style.top = (triggerHeight + 10 + moveTop) + 'px';
       }
       switch(this.horizontalAlign) {
         case 'left':

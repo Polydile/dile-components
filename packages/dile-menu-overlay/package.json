@@ -1,0 +1,36 @@
+{
+  "name": "@dile/dile-menu-overlay",
+  "version": "1.0.0",
+  "description": "Web Component to implement a menu displayed in a overlay layer with a smooth animation",
+  "keywords": [
+    "menu",
+    "user interface",
+    "box",
+    "overlay",
+    "web components",
+    "LitElement"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/dile-close-document-click-mixin": "*",
+    "@dile/dile-overlay-mixin": "*",
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.1.2"
+  }
+}
