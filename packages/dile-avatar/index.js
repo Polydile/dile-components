@@ -1,0 +1,1 @@
+export { DileAvatar } from './src/DileAvatar.js';

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-avatar component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-avatar/dile-avatar.js" type="module"></script>
+  <style>
+    .styled {
+      --dile-avatar-size: 48px;
+      --dile-avatar-background-color: rgb(175, 214, 230);
+      --dile-avatar-color: #ff6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-avatar component</h1>
+    
+    <h2>Default avatar</h2>
+    <p>
+      <dile-avatar></dile-avatar>
+    </p>
+  
+    <h2>Avatar configured with initial letter</h2>
+    <p>
+      <dile-avatar initial="x"></dile-avatar>
+    </p>
+
+    <h2>Image avatar</h2>
+    <p>
+      <dile-avatar src="./images/random-user-21.jpg"></dile-avatar>
+    </p>
+
+    <h2>styled avatars</h2>
+    <p style="line-height: 50px;">
+      <dile-avatar class="styled"></dile-avatar> 
+      <dile-avatar src="./images/random-user-21.jpg"  class="styled"></dile-avatar>
+      <dile-avatar initial="i" class="styled"></dile-avatar> 
+    </p>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
