@@ -1,1 +1,2 @@
-export { closeIcon, closeIconCss } from "./src/dile-close-icon-template";
+export { closeIcon } from "./src/closeIcon";
+export { closeIconCss } from "./src/closeIconCss";
