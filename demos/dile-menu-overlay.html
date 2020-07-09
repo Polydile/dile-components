@@ -16,6 +16,10 @@
       padding: 1rem;
     }
 
+    .centercontent {
+      display: flex;
+      justify-content: center;
+    }
     .styled {
       --dile-menu-overlay-color: #69f;
       --dile-menu-overlay-border-radius: 0;
@@ -61,6 +65,21 @@
       </div>
     </dile-menu-overlay>
 
+    <h2>Change the menu position</h2>
+    <div class="centercontent">
+      <dile-menu-overlay horizontalAlign="center" moveTop="-10" verticalAlign="top">
+        <span slot="trigger" class="trigger">Click to open</span>
+        <div slot="content" class="content">
+          <p>Select one:</p>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </div>
+      </dile-menu-overlay>
+    </div>
+    
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>
