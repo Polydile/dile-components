@@ -1,9 +1,9 @@
 {
   "name": "@dile/dile-hamburger",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A component to show the tipical hamburger menu icon with two states",
   "keywords": [
-   "icon",
+    "icon",
     "hamburger",
     "LitElement",
     "menu",
