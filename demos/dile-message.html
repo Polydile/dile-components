@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-message component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-message/dile-message.js" type="module"></script>
+  <style>  
+    .content {
+      border: 1px solid #ddd;
+      padding: 1rem;
+    }
+    #messageontop {
+      --dile-message-background-color: rgb(170, 21, 5);
+      --dile-message-color: #fff;
+    }
+    #messageonbottom {
+      --dile-message-background-color: rgb(173, 207, 191);
+      --dile-message-color: rgb(23, 45, 83);
+    }
+    blockquote {
+      padding: 2.5rem;
+      border: 1px solid #eee;
+      background-color: #f5f5f5;
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-message component</h1>
+    
+    <p>
+      <button id="theFixedBottomMsg">Show a message fixed on bottom</button>
+    </p>
+
+    <div class="content">
+
+      <dile-message id="message">
+        Hello Polydile friends!!
+      </dile-message>
+      <p>Some text to fill the page with content and make the messages appear in diferent positions</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse soluta voluptatum ipsa quos laudantium. Quo
+        doloremque explicabo veniam necessitatibus harum nobis, pariatur animi cumque facilis dolorem et quas! Pariatur,
+        sapiente.</p>
+      <p>Iure, in aspernatur placeat obcaecati fugiat ducimus reprehenderit, distinctio laudantium, minima inventore
+        consequatur cum recusandae at? Explicabo, quibusdam in, atque ab eaque tenetur recusandae incidunt inventore quia
+        assumenda reiciendis pariatur.</p>
+        <button id="theButton">Open in this box</button>
+        <button id="theButtonMsg">Open with custom message in this box</button>
+    </div>
+    
+    <dile-message id="messageontop" fixedOnTop></dile-message>
+    <dile-message id="messageonbottom" fixedOnBottom></dile-message>
+    <p>
+      <button id="theFixedMsg">Show a message fixed on top</button>
+    </p>
+
+    <p>Eligendi, consequuntur tempore commodi illo iure qui minus aut rerum dolore dolores incidunt, perspiciatis quis
+      ipsum ut ratione dolorem iste? Officiis corrupti officia tempora voluptatem, obcaecati nam earum ut architecto.</p>
+    <blockquote>Numquam recusandae libero quo, suscipit, iste molestiae doloremque ipsam totam pariatur expedita ab alias perferendis voluptas minus sit! Dolores eos fuga veritatis modi consequuntur laborum. Quam rem enim ad illo!</blockquote>
+    <p>Cumque corporis pariatur rerum obcaecati libero aspernatur optio dolorem illum blanditiis ducimus? Quisquam consectetur possimus omnis, cumque atque animi aspernatur error libero, laudantium rerum, maxime molestiae suscipit culpa temporibus assumenda.</p>
+
+    <script>
+      document.getElementById('theButton').addEventListener('click', () => {
+        document.getElementById('message').open();
+      });
+      document.getElementById('theButtonMsg').addEventListener('click', () => {
+        document.getElementById('message').openMessage('This is a custom message');
+      });
+      document.getElementById('theFixedMsg').addEventListener('click', () => {
+        document.getElementById('messageontop').openMessage('This is a custom message on top of the page');
+      });
+      document.getElementById('theFixedBottomMsg').addEventListener('click', () => {
+        document.getElementById('messageonbottom').openMessage('This is a custom message on the bottom of the page');
+      });
+    </script>
+  </div>
+</body>
+</html>

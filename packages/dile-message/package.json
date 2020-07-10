@@ -1,0 +1,34 @@
+{
+  "name": "@dile/dile-message",
+  "version": "0.0.0",
+  "description": "Webcomponent dile-message to create a feedback message and a close button",
+  "keywords": [
+    "message",
+    "feedback",
+    "web components",
+    "LitElement",
+    "custom element"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/dile-close-icon-template": "*",
+    "@dile/dile-slide-down-mixin": "*",
+    "lit-element": "^2.3.1"
+  }
+}
