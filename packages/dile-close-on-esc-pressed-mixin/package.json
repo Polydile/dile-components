@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-close-on-esc-pressed-mixin",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "description": "Mixin function to create components that close themselves pressing the Esc key",
   "keywords": [
     "slide",
