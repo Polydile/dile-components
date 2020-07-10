@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit-element";
-
-export class DileAppDrawer extends LitElement {
+import { DileCloseOnEscPressed } from '@dile/dile-close-on-esc-pressed-mixin'
+export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
   static get properties() {
     return {
       opened: { type: Boolean },
@@ -54,7 +54,10 @@ export class DileAppDrawer extends LitElement {
 
   render() {
     return html`
-      <div class="menu ${this._currentClass}" @click="${this._contentClick}">
+      <div
+        class="menu ${this._currentClass}"
+        @click="${this._contentClick}"
+      >
         <slot></slot>
       </div>
     `;
