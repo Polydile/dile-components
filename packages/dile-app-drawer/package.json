@@ -1,0 +1,35 @@
+{
+  "name": "@dile/dile-app-drawer",
+  "version": "0.0.0",
+  "description": "Webcomponent to create a animated menu similar to the material design navigation drawer component",
+  "keywords": [
+    "menu",
+    "app menu",
+    "app drawer",
+    "menu interface",
+    "navigation",
+    "LitElement",
+    "Web Component"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit-element": "^2.3.1"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}
