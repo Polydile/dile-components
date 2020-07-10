@@ -41,7 +41,7 @@ Use the component
 - **placeholder**: Defines the texts present in the input element when is empty
 - **disabled**: on true, the element is disabled
 - **errored**: on true, the element is marked as error
-- **disabeAutocomplete**: on true, the input autocomplete HTML featured is disabled
+- **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
 
 ## Styling
 
