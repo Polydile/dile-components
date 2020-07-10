@@ -14,24 +14,15 @@ npm install @dile/dile-input
 
 ## Usage
 
-### Import the component
+Import the component.
 
-Into your HTML page
-
-```
-<script src="./node_modules/@dile/dile-input/dile-input.js" type="module"></script>
-
-```
-
-...Or into your module script
-
-```
+```javascript
 import '@dile/dile-input/dile-input';
 ```
 
-## Use the component
+Use the component
 
-```
+```html
 <dile-input
   name="input_name"
   label="Text to the label"
@@ -44,13 +35,13 @@ import '@dile/dile-input/dile-input';
 
 ## Properties
 
-- name: the name of the input element. This is usefull to distinguish the related element in an input event listener.
-- label: the element label
-- value: defines the text inside the input element
-- placeholder: Defines the texts present in the input element when is empty
-- disabled: on true, the element is disabled
-- errored: on true, the element is marked as error
-- disabeAutocomplete: on true, the input autocomplete HTML featured is disabled
+- **name**: the name of the input element. This is usefull to distinguish the related element in an input event listener.
+- **label**: the element label
+- **value**: defines the text inside the input element
+- **placeholder**: Defines the texts present in the input element when is empty
+- **disabled**: on true, the element is disabled
+- **errored**: on true, the element is marked as error
+- **disabeAutocomplete**: on true, the input autocomplete HTML featured is disabled
 
 ## Styling
 
