@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-smooth-scroll component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-smooth-scroll/dile-smooth-scroll.js" type="module"></script>
+  <style>
+    #withScroll {
+      background-color: #efefef;
+      border-radius: 4px;
+      margin: 20px 0 0;
+      max-height: 200px;
+      overflow: scroll;
+      padding: 30px 50px;
+    }
+    #withScroll h2 {
+      margin-top: 0;
+    }
+    button {
+      font-weight: bold;
+      font-size: 1.5rem;
+      background-color: coral;
+      color: #fff;
+      border: 3px solid #422685;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-smooth-scroll component</h1>
+    
+    <dile-smooth-scroll id="scrollelement" scrollToElementOnInit="myP"></dile-smooth-scroll>
+    
+    <p>
+      <button id="scrollToBottom">Scroll to bottom</button>
+    </p>
+
+    <h2>Creating scroll on page initialization</h2>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam aspernatur, ea nisi ullam quasi impedit ducimus
+      exercitationem debitis labore quas est obcaecati quisquam? Quae deleniti explicabo officiis porro alias repudiandae?
+    </p>
+    <p>Ipsam porro minus laboriosam officia tempore neque laudantium, delectus temporibus recusandae! Iure laudantium esse
+      voluptatum fugiat molestias eos velit, porro amet repellendus aperiam consequatur sequi quibusdam eveniet autem quia.
+      Sed.</p>
+    <p>Nisi, libero voluptatem, illo odio voluptates perspiciatis, iusto incidunt ut possimus maxime assumenda non labore
+      mollitia at dicta quis laboriosam consequuntur voluptatum necessitatibus ea aliquam dignissimos sit dolorum! Aperiam,
+      ducimus?</p>
+    <p>Excepturi, consequatur. Praesentium reiciendis soluta architecto numquam cupiditate quaerat nisi exercitationem
+      debitis? Minima possimus officia ipsa amet consequatur dolor, deserunt vel, nobis odit cumque inventore esse delectus
+      id iste tenetur.</p>
+    <p>Consequatur, voluptatibus. Quo voluptatum animi fugit reiciendis sapiente ut similique adipisci dolores aliquam harum
+      cupiditate voluptates itaque quae culpa, nesciunt quia esse commodi quos incidunt, provident doloribus? Tempore, in
+      reiciendis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam aspernatur, ea nisi ullam quasi impedit ducimus
+      exercitationem debitis labore quas est obcaecati quisquam? Quae deleniti explicabo officiis porro alias repudiandae?
+    </p>
+    <p>Ipsam porro minus laboriosam officia tempore neque laudantium, delectus temporibus recusandae! Iure laudantium esse
+      voluptatum fugiat molestias eos velit, porro amet repellendus aperiam consequatur sequi quibusdam eveniet autem quia.
+      Sed.</p>
+    <p>Nisi, libero voluptatem, illo odio voluptates perspiciatis, iusto incidunt ut possimus maxime assumenda non labore
+      mollitia at dicta quis laboriosam consequuntur voluptatum necessitatibus ea aliquam dignissimos sit dolorum! Aperiam,
+      ducimus?</p>
+    <p>Excepturi, consequatur. Praesentium reiciendis soluta architecto numquam cupiditate quaerat nisi exercitationem
+      debitis? Minima possimus officia ipsa amet consequatur dolor, deserunt vel, nobis odit cumque inventore esse delectus
+      id iste tenetur.</p>
+    <p>Consequatur, voluptatibus. Quo voluptatum animi fugit reiciendis sapiente ut similique adipisci dolores aliquam harum
+      cupiditate voluptates itaque quae culpa, nesciunt quia esse commodi quos incidunt, provident doloribus? Tempore, in
+      reiciendis.</p>
+    <p id="myP" style="color: rgb(49, 86, 117);"><b>Scroll on init to this paragraph!!</b></p>
+    <p>
+      <button id="scrollToTop">Scroll to top</button>
+    </p>
+    <p>Cum alias obcaecati magni exercitationem consectetur. Quidem officiis et esse iusto inventore, illum tempore! Placeat
+      esse in explicabo quasi nisi excepturi id delectus aperiam odio. Laborum ea accusantium corrupti et.</p>
+    
+    <ul id="list">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
+      <li>item 6</li>
+      <li>item 7</li>
+      <li>item 8</li>
+      <li>item 9</li>
+      <li>item 10</li>
+      <li>item 11</li>
+      <li>item 12</li>
+      <li>item 13</li>
+      <li>item 14</li>
+      <li>item 15</li>
+      <li>item 16</li>
+      <li>item 17</li>
+      <li>item 18</li>
+    </ul>
+    
+      <p>Eligendi culpa cupiditate a neque provident soluta, fugit tenetur similique necessitatibus impedit harum recusandae
+      nisi, cumque minima ab aperiam ullam nam reprehenderit sapiente, beatae deleniti corrupti facere mollitia. Qui,
+      ducimus?</p>
+    <p>Autem dignissimos consequatur, blanditiis odio voluptates et? Error sunt aliquam mollitia exercitationem at incidunt
+      similique, tempore explicabo magnam maxime necessitatibus odit eos quibusdam libero ipsa, adipisci perferendis
+      delectus laborum non?</p>
+    <p>Corporis eius quibusdam perferendis aut dicta aperiam nam, sed fuga nesciunt! Vel pariatur voluptatibus ut dolorum
+      assumenda atque ullam, alias aliquid doloremque voluptate iste ea, tempora repellendus numquam velit nobis?</p>
+
+      <div id="withScroll">
+        <h2>Block with own scroll</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique praesentium nisi eius vitae architecto dolor
+          nesciunt ipsam delectus sint laboriosam ut sunt ex ipsa reprehenderit quod labore, earum a veritatis.</p>
+        <p>Incidunt natus mollitia commodi? Asperiores voluptatum laborum nesciunt, minima cum qui aspernatur fugiat natus
+          recusandae quisquam quo a omnis praesentium, magnam repudiandae quis, ipsam consectetur est porro sapiente aperiam
+          odit.</p>
+        <p>Necessitatibus aliquam cumque eum porro nostrum earum perspiciatis odit deleniti officia quis nam nisi, repellat
+          totam quod, praesentium enim accusamus doloremque voluptatem natus omnis. Exercitationem dolores veritatis ipsa eum!
+          Voluptas.</p>
+        <p>Ipsam totam omnis officiis beatae sit, eum consequatur debitis illo, nam error nisi laudantium blanditiis mollitia
+          sunt. Quaerat repudiandae repellat animi itaque cupiditate consequuntur, vero ab, ullam numquam, eos distinctio!</p>
+        <p>Assumenda quo debitis sed dolor. Officia eveniet, sequi voluptatum hic suscipit mollitia animi voluptates repellat
+          dignissimos veritatis recusandae illo quaerat blanditiis harum adipisci, quod minus debitis obcaecati porro tempore
+          repudiandae?</p>
+        <p>Mollitia aliquid asperiores, tenetur suscipit fugiat voluptatem iste dolorum sapiente. Dolorem, tenetur amet?
+          Obcaecati perspiciatis ducimus facilis quaerat ipsam. Ad pariatur dolorum explicabo facilis facere voluptates
+          repellendus id voluptatibus animi!</p>
+        <p>Deleniti expedita consequatur accusamus assumenda id neque esse officiis laudantium tempore nam tenetur nesciunt,
+          reiciendis earum mollitia consectetur aspernatur autem quibusdam veritatis placeat delectus adipisci perferendis
+          illum? Fugiat, vel repellendus!</p>
+        <p>Ipsam assumenda rem nihil! Doloribus laboriosam tempore voluptatem incidunt iste facilis, at non alias nobis
+          reiciendis ducimus consequuntur, dicta ipsa blanditiis? Inventore consequatur eligendi incidunt cum itaque sunt
+          impedit minus.</p>
+        <p>Sint molestiae eligendi praesentium sunt soluta dolorum quas quis, libero ad, nobis harum sequi, assumenda beatae
+          fugiat? A et consequatur beatae optio inventore magnam debitis quaerat, aut provident ratione rerum?</p>
+        <p>Quam tempora quaerat beatae fugiat fugit labore necessitatibus officiis, tempore ullam? Sed ducimus cumque
+          excepturi quos iure eos iusto quod veniam reprehenderit doloribus, placeat reiciendis architecto adipisci tempore
+          veritatis fuga!</p>
+      </div>
+
+      <p>
+        <button id="scrollDownSection"> Scroll section 200px down</button>
+        <button id="scrollUpSection"> Scroll section 200px up</button>
+      </p>
+
+    <p>Eum assumenda ipsum dignissimos dolorem perferendis sit quis doloremque, recusandae dolore distinctio accusantium
+      alias eveniet aut maiores quo architecto eius laborum ipsam nobis possimus autem fugit. Vero provident aliquid nulla?
+    </p>
+    
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores aperiam harum sint ipsum, quas saepe, impedit sit distinctio praesentium voluptatem dolores laboriosam consequuntur rerum magni inventore aspernatur ab ea ipsa!</p>
+
+    <p>
+      <button id="scrollTolist">Scroll to the list</button>
+    </p>
+    <footer><a href="index.html">Back</a></footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+          let scrollElement = document.getElementById("scrollelement");
+        
+          document.getElementById("scrollToTop").addEventListener("click", function () {
+            scrollElement.smoothScrollToTop();
+          });
+          document.getElementById("scrollToBottom").addEventListener("click", function () {
+            scrollElement.smoothScrollToBottom();
+          });
+          document.getElementById("scrollTolist").addEventListener("click", function () {
+            let elem = document.getElementById('list');
+            scrollElement.smoothScrollElementIntoView(elem);
+          });
+          
+
+          document.getElementById("scrollDownSection").addEventListener("click", function () {
+            let elem = document.getElementById('withScroll');
+            scrollElement.smoothElementScrollBy(elem, 200, 0);
+          });
+          document.getElementById("scrollUpSection").addEventListener("click", function () {
+            let elem = document.getElementById('withScroll');
+            scrollElement.smoothElementScrollBy(elem, -200, 0);
+          });
+          
+          
+        });
+
+    </script>
+  </div>
+</body>
+</html>
