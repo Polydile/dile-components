@@ -98,6 +98,10 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
 
   close() {
     this.opened = false;
+    this.dispatchEvent(new CustomEvent('dile-app-drawer-closed', {
+      bubbles: true,
+      composed: true,
+    }));
   }
 
   _contentClick(e) {

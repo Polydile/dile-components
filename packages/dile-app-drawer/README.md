@@ -43,6 +43,7 @@ The component also provides a set of useful methods to controls the component st
 
 ## Events
 
+- **dile-app-drawer-closed**: Dispatched when the interface closes by any reason.
 - **dile-app-drawer-click-outside**: This custom event is dispatched when the drawer panel is closed because a user click outside the menu layer.
 
 ## CSS customization
