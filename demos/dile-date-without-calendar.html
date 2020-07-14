@@ -15,23 +15,24 @@
 <body>
 <div class="container">
 
-  <h2>dile-date-without-calendar Default</h2>
+  <h1>dile-date-without-calendar demo</h1>
+  <h2>Default</h2>
   <dile-date-without-calendar value="1977-11-15"></dile-date-without-calendar>
 
-  <h2>dile-date-without-calendar Disabled</h2>
+  <h2>Disabled</h2>
   <dile-date-without-calendar value="1977-11-15" disabled></dile-date-without-calendar>
 
-  <h2>dile-date-without-calendar Readonly</h2>
+  <h2>Readonly</h2>
   <dile-date-without-calendar value="1977-11-15" readonly></dile-date-without-calendar>
 
-  <h2>dile-date-without-calendar Show months names in Popup</h2>
+  <h2>Show months names in Popup</h2>
   <dile-date-without-calendar value="1977-11-15" options='{"monthsNames":true}'></dile-date-without-calendar>
 
-  <h2>dile-date-without-calendar Different language</h2>
+  <h2>Different language</h2>
   <dile-date-without-calendar value="1977-11-15" options='{"monthsNames":true,"locale":{"months":["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],"daysTag":"D&iacute;as","monthsTag":"Meses","yearsTag":"Años"}}'></dile-date-without-calendar>
 
-  <h2>dile-date-without-calendar Events, Change and Error</h2>
-  <p>Show in console</p>
+  <h2>Events, Change and Error</h2>
+  <p>Listeners show messages in the console</p>
   <dile-date-without-calendar value="1977-11-15" options='{"monthsNames":true}' id="events-dile-date-without-calendar"></dile-date-without-calendar>
 
   <script>

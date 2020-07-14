@@ -1,14 +1,15 @@
-# dile-date-without-calendar
+# @dile/dile-date-without-calendar
 
 Web component that shows a date without calendar to a date based on LitElement
 
 ![Presentation](https://raw.githubusercontent.com/Polydile/dile-date-without-calendar/asset/presentation.jpg)
 
+**Important:** this component depends on [MomentJS](https://momentjs.com/). The component by itself does not install the Moment library. You need to install it in your preferred way.
 
 ## Installation
 
 ```bash
-npm install dile-date-without-calendar
+npm install @dile/dile-date-without-calendar
 ```
 ## Usage
 
