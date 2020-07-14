@@ -15,29 +15,50 @@
         }
 
         .custom-countdown {
-            --dile-countdown-time-shape-color: #1b5e20;
+            --dile-countdown-time-shape-color: #192066;
             --dile-countdown-time-number-color: #ffcc80;
-            --dile-countdown-time-word-color: #b71c1c;
+            --dile-countdown-time-word-color: #192066;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>dile-countdown-time demo</h1>
+        
+        <p>All countdowns are configured to the time left until the next year.</p>
+        
+        <h2>Default countdown</h2>
         <p>
-            <dile-countdown-time dateString="31-12-2020 10:00"></dile-countdown-time>
+            <dile-countdown-time dateString="31-12-2030 10:00"></dile-countdown-time>
         </p>
+        <h2>Translated to spanish countdown</h2>
         <p>
             <dile-countdown-time dateString="31-12-2020 10:00" language="es"></dile-countdown-time>
         </p>
+        <h2>Circle shape countdown</h2>
         <p>
-            <dile-countdown-time dateString="31-12-2020 10:00" language="es" shape="circle"></dile-countdown-time>
+            <dile-countdown-time dateString="31-12-2020 10:00" shape="circle"></dile-countdown-time>
         </p>
+        <h2>Styled countdown</h2>
         <p>
             <dile-countdown-time dateString="31-12-2020 10:00" language="es" shape="circle" class="custom-countdown"></dile-countdown-time>
         </p>
 
         <footer><a href="index.html">Back</a></footer>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let date = moment('01-01-2020 00:00', 'DD-MM-YYYY HH:mm');
+            let year = (new Date).getFullYear();
+            year ++;
+            date.year(year);
+            let dateString = date.format('DD-MM-YYYY HH:mm');
+            document.querySelectorAll('dile-countdown-time').forEach( (element) => {
+                element.dateString = dateString;
+            });
+        });
+        
+    </script>
 </body>
 </html>

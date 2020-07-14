@@ -1,30 +1,34 @@
-# dile-countdown-time
+# @dile/dile-countdown-time
 
-Web component that shows a countdown to a date based on LitElement
+Web component to make a countdown of days, hours, minutes and seconds to a date-time.
 
-Go to [DEMOS page](https://dile-countdown-time.polydile.com)!
+## Instalation
 
 ```
+npm install @dile/dile-countdown-time
+```
+
+**Important:** this component depends on [MomentJS](https://momentjs.com/). The component by itself does not install the Moment library. You need to install it in your preferred way.
+
+## Usage
+
+Import the component.
+
+```javascript
+import '@dile/dile-countdown-time/dile-countdown-time.js';
+```
+
+Use the component.
+
+```html
 <dile-countdown-time dateString="31-12-2020 10:00" language="es"></dile-countdown-time>
 ```
 
-## dateString
+## Properties
 
-The dateString property works with the date in "DD-MM-YYYY HH:mm" format
-
-## Languages available
-
-The language property accepts the languages listed bellow:
-
-- en (default)
-- es
-
-## Shapes available
-
-The shape property accepts the shapes listed bellow:
-
-- square (default)
-- circle
+- **dateString**: The dateString property works with the date in "DD-MM-YYYY HH:mm" format.
+- **language**: The language property accepts the languages "en" (default) or "es".
+- **shape**: The shape property accepts the shapes "square" (default) or "circle".
 
 ## Styling
 

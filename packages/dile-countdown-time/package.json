@@ -1,7 +1,7 @@
 {
   "name": "dile-countdown-time",
-  "version": "1.0.2",
-  "description": "Web component that shows a countdown to a date based on LitElement",
+  "version": "0.0.0",
+  "description": "Web component that shows a countdown to a date",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
