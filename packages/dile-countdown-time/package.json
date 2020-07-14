@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-countdown-time",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Web component that shows a countdown to a date",
   "main": "index.js",
   "publishConfig": {
