@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-message",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webcomponent dile-message to create a feedback message and a close button",
   "keywords": [
     "message",
