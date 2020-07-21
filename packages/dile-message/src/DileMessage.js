@@ -88,7 +88,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
   firstUpdated() {
     this.display = this.shadowRoot.getElementById("message");
     if (this.opened) {
-      this.open();
+      this.slideShow(this.display);
     }
   }
 
