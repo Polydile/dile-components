@@ -4,10 +4,12 @@
   "scripts": {
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
-    "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/"
+    "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
+    "audit": "lerna-audit"
   },
   "devDependencies": {
     "es-dev-server": "^1.56.0",
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "lerna-audit": "^1.2.0"
   }
 }

@@ -1,2 +1,2 @@
-export { closeIcon } from "./src/closeIcon";
-export { closeIconCss } from "./src/closeIconCss";
+export { closeIcon } from "./src/closeIcon.js";
+export { closeIconCss } from "./src/closeIconCss.js";
