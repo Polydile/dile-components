@@ -27,8 +27,6 @@
     #menu2 {
       --dile-app-drawer-content-height: 100vh;
       --dile-app-drawer-background-color: #303090;
-      --dile-app-drawer-closed-top: 0;
-      --dile-app-drawer-closed-left: 100%;
     }
   </style>
 </head>
@@ -37,6 +35,15 @@
     <h1>dile-app-drawer component</h1>
     
     <dile-app-drawer id="menu1">
+      <div class="menu-conten1">
+        <p><a href="#">Link 1</a></p>
+        <p><a href="#">Another link</a></p>
+        <p><a href="#">More information</a></p>
+        <p><a href="#">Contact us</a></p>
+      </div>
+    </dile-app-drawer>
+
+    <dile-app-drawer id="menu1left" direction="left">
       <div class="menu-conten1">
         <p><a href="#">Link 1</a></p>
         <p><a href="#">Another link</a></p>
@@ -58,6 +65,7 @@
 
     <p>
       <button id="open1">Show app drawer 1</button>
+      <button id="open1left">Show app drawer from left</button>
       <button id="open2">Show app drawer 2</button>
     </p>
 
@@ -77,6 +85,9 @@
       document.getElementById('open1').addEventListener('click', () => {
         document.getElementById('menu1').open();
       });
+      document.getElementById('open1left').addEventListener('click', () => {
+          document.getElementById('menu1left').open();
+        });
       document.getElementById('open2').addEventListener('click', () => {
         document.getElementById('menu2').open();
       });

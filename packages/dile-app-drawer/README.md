@@ -1,6 +1,6 @@
 # @dile/dile-app-drawer
 
-Web component to create a simple animated menu, useful as app global menu and similar to the material design navigation drawer component.
+Web component to create a simple animated menu, useful as app global menu, with a look & feel similar to the material design navigation drawer component.
 
 ## Installation
 
@@ -29,9 +29,10 @@ Use the component.
 
 ## Properties
 
-This componen only has one property to set the state of the component between opened and closed.
+This componen has two properties:
 
-- **opened**: Boolean property.
+- **opened**: Set the state of the component between opened and closed. Boolean property.
+- **direction**: Defines de animation and direction to open the menú. String property one of "top" or "left". Default is "top".
 
 ## Methods
 
@@ -52,8 +53,12 @@ There are some CSS custom properties to customize the style and the animation.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-app-drawer-content-height | Height of the menu | auto
+--dile-app-drawer-content-height | Height of the menu | auto (or 100vh on "letf" direction)
+--dile-app-drawer-content-width | Width of the menu | 100vw (or auto on "left" direction)
 --dile-app-drawer-background-color | Background color menu layer | #ddd
---dile-app-drawer-z-index | z-index menu layer | 10000
---dile-app-drawer-closed-top | Drawer content top position in closed state | 40vh 
---dile-app-drawer-closed-left | Drawer content left position in closed state | 0 
+--dile-app-drawer-z-index | z-index menu layer | 10001
+--dile-app-drawer-closed-top | Drawer content top position in closed state | -100vh (or 0 on "left" direction) 
+--dile-app-drawer-closed-left | Drawer content left position in closed state | 0 (or -100vw on "left" direction) 
+--dile-app-drawer-box-shadow | Menu shadow | 0 1px 8px #000 (or 1px 0 8px #000 on "left" direction)
+--dile-app-drawer-modal-background-color | Menu modal layer background color | rgba(20, 20, 20, 0.7)
+--dile-app-drawer-modal-z-index | Menu modal layer z-index | 10000
