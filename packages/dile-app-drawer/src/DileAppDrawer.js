@@ -33,6 +33,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         overflow: hidden;
         transition: transform 0.3s ease;
         align-items: flex-end;
+        max-height: 100vh;
       }
       div.top {
         top: var(--dile-app-drawer-closed-top, -100vh);
