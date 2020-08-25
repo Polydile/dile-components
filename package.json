@@ -8,7 +8,7 @@
     "audit": "lerna-audit"
   },
   "devDependencies": {
-    "es-dev-server": "^1.56.0",
+    "es-dev-server": "^1.57.3",
     "lerna": "^3.22.1",
     "lerna-audit": "^1.2.0"
   }
