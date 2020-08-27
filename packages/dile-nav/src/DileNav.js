@@ -38,6 +38,9 @@ export class DileNav extends LitElement {
           grid-column-end: 3;
         }
 
+        .title {
+          overflow: hidden;
+        }
       `
   }
   static get properties() {
