@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-pages component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-pages/dile-pages.js" type="module"></script>
+  
+</head>
+<body>
+  <div class="container">
+    <h1>dile-pages component</h1>
+
+    <button class="changepages" data-page="page1">Show page 1</button>
+    <button class="changepages" data-page="page2">Show page 2</button>
+    <button class="changepages" data-page="page3">Show page 3</button>
+
+    <dile-pages selected="page1" attrforselected="name" id="dilepages">
+      <div name="page1">
+        <h2>Page 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde excepturi atque, et quaerat vero saepe maiores,
+          maxime dolore officiis earum cumque temporibus tenetur, possimus deserunt magni itaque! Reiciendis, assumenda quo?
+        </p>
+      </div>
+      <div name="page2">
+        <h2>Page 2</h2>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde excepturi atque, et quaerat vero saepe maiores,
+          maxime dolore officiis earum cumque temporibus tenetur, possimus deserunt magni itaque! Reiciendis, assumenda quo?
+        </p>
+      </div>
+      <div name="page3">
+        <h2>Page three</h2>
+        <p>Just another page</p>
+      </div>
+    </dile-pages>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        document.querySelectorAll('.changepages').forEach( item => {
+          item.addEventListener('click', (e) => {
+            let page = e.target.dataset.page;
+            document.getElementById('dilepages').selected = page;
+          })
+        })
+
+      })
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
