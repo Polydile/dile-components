@@ -13,7 +13,7 @@ export class DileHamburger extends LitElement {
         display: inline-block;
       }
       .hamburger {
-        padding: 15px 15px;
+        padding: var(--dile-hamburger-padding-y, 15px) var(--dile-hamburger-padding-x, 15px);
         display: inline-block;
         cursor: pointer;
         transition-property: opacity, filter;

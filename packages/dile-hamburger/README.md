@@ -39,6 +39,8 @@ You can customize the icons using this CSS Custom properties;
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-hamburger-color | Icon color | #000
+--dile-hamburger-padding-x | Horizontal icon box padding  | 15px
+--dile-hamburger-padding-y | Vertical icon box padding  | 15px
 --dile-hamburger-active-color | Icon color | #000
 --dile-hamburger-line-size | Width of the icon lines | 3px
 --dile-hamburger-width | Width of the entire icon | 24px
