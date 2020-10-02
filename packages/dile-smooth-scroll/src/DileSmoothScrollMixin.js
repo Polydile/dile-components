@@ -17,6 +17,8 @@ export const DileSmoothScrollMixin = (Superclass) =>
     }
 
     smoothScrollElementIntoView(element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      if (element && element.scrollIntoView) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
