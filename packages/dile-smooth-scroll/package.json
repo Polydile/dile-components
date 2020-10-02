@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-smooth-scroll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webcomponent dile-smooth-scroll and scroll mixins to use in othe components",
   "keywords": [
     "web components",
