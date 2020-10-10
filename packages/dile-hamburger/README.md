@@ -19,7 +19,7 @@ npm i @dile/dile-hamburger
 Import the component.
 
 ```javascript
-import 'dile-hamburger/dile-hamburger.js';
+import '@dile/dile-hamburger/dile-hamburger.js';
 ```
 
 Use the component.

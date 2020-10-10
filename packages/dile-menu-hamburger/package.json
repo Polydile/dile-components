@@ -1,0 +1,35 @@
+{
+  "name": "@dile/dile-menu-hamburger",
+  "version": "0.0.0",
+  "description": "A component to implement a full hamburger menu",
+  "keywords": [
+    "icon",
+    "hamburger",
+    "LitElement",
+    "menu",
+    "Web Components",
+    "animation"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit-element": "^2.3.1",
+    "@dile/dile-hamburger": "*",
+    "@dile/dile-app-drawer": "*"
+  }
+}
