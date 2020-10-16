@@ -25,6 +25,7 @@ Use the component.
   <nav slot="menu">
     <p><a href="one.html">Link one</a></p>
     <p><a href="two.html">Link two</a></p>
+  </nav>
 </dile-menu-hamburger>
 ```
 
