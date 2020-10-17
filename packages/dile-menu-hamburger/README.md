@@ -43,9 +43,14 @@ The component also provides a set of useful methods to controls the component st
 - **close()**: Closes the menu.
 - **toggle()**: Changes the state, from open to close or close to open.
 
+## Events
+
+- **dile-menu-hamburger-opened**: dispatched when the menu opens.
+- **dile-menu-hamburger-closed**: dispatched when the menu closes.
+
 ## Customization
 
 You can customize the icons using this CSS Custom properties defined on this components:
 
-- @dile/dile-app-drawer
-- @dile/dile-hamburger
+- [@dile/dile-app-drawer](https://github.com/Polydile/dile-components/tree/master/packages/dile-app-drawer)
+- [@dile/dile-hamburger](https://github.com/Polydile/dile-components/tree/master/packages/dile-hamburger)
