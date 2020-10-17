@@ -43,6 +43,19 @@ export class DileMenuHamburger extends LitElement {
     this.drawer = this.shadowRoot.getElementById('drawer');
   }
 
+  updated(changedProperties) {
+    if(changedProperties.has('opened')) {
+      let theEvent = this.opened ? 'dile-menu-hamburger-opened' : 'dile-menu-hamburger-closed';
+      this.dispatchEvent(new CustomEvent(theEvent, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          opened: this.opened,
+        }
+      }));
+    }
+  }
+
   render() {
     return html`
       <dile-hamburger @click="${this.toggle}" ?active="${this.opened}"></dile-hamburger>

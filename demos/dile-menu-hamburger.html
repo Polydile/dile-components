@@ -42,7 +42,14 @@
       document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('open1').addEventListener('click', function() {
           document.getElementById('menu1').open();
-        })
+        });
+
+        document.getElementById('menu1').addEventListener('dile-menu-hamburger-opened', function() {
+          console.log('The menu is opened');
+        });
+        document.getElementById('menu1').addEventListener('dile-menu-hamburger-closed', function () {
+          console.log('The menu is closed');
+        });
       })
     </script>
     <p>Some text to fill the page with content and make the messages appear in diferent positions</p>
