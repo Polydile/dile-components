@@ -5,13 +5,15 @@ export class DileCheckbox extends LitElement {
     return {
       checked: { type: Boolean },
       disabled: { type: Boolean },
-      hasInner: { type: Boolean },
+      _hasInner: { type: Boolean },
+      name: { type: String },
     };
   }
 
   constructor() {
     super();
     this.checked = false;
+    this.name = '';
   }
 
   static get styles() {
@@ -68,7 +70,7 @@ export class DileCheckbox extends LitElement {
   }
 
   firstUpdated() {
-    this.hasInner = this.innerHTML.trim().length ? true : false;
+    this._hasInner = this.innerHTML.trim().length ? true : false;
   }
   render() {
     return html`
@@ -76,7 +78,7 @@ export class DileCheckbox extends LitElement {
         <a href="#" @click="${this.linkClick}" @keypress="${this.doKeyPress}" class="checkbox ${this.checked ? "isChecked" : "isUnchecked"}">
           ${this.checked ? this.checkedIcon : this.unCheckedIcon}
         </a>
-        ${this.hasInner
+        ${this._hasInner
           ? html` <span class="label">
               <slot></slot>
             </span>`
@@ -94,7 +96,10 @@ export class DileCheckbox extends LitElement {
       new CustomEvent("dile-checkbox-changed", {
         bubbles: true,
         composed: true,
-        detail: this.checked,
+        detail: {
+          checked: this.checked,
+          name: this.name,
+        }
       })
     );
   }

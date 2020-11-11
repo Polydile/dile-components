@@ -20,10 +20,13 @@ npm i @dile/dile-checkbox
 
 - **checked**: Boolean, defines the checkbox state.
 - **disabled**: Boolean, mark checkbox as disabled.
+- **name**: The name of the checkbox, only for identification purposes
 
 ### Custom events
 
 - **dile-checkbox-changed**: Every time the checkbox changes emits a dile-checkbox-changed event. The checkbox current state is received in the handler usign the event object "detail" property.
+
+when fired, the custom event sends a detail object, containing the checked state of the element and the value of the name property.
 
 ### CSS Custom Properties
 
@@ -39,6 +42,9 @@ Custom property | Description | Default
 --dile-checkbox-label-disabled-color | Label color for disabled status | #303030
 --dile-checkbox-font-weight | Font weight for te label | normal
 --dile-checkbox-size | Checkbox size | 20px
+
+#### Customization example
+
 ```
 <style>
 .customized {
