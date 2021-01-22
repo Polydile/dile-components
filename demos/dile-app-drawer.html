@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="../packages/dile-app-drawer/dile-app-drawer.js" type="module"></script>
-  <style>  
+  <style>
     blockquote {
       padding: 2.5rem;
       border: 1px solid #eee;
@@ -28,12 +28,17 @@
       --dile-app-drawer-content-height: 100vh;
       --dile-app-drawer-background-color: #303090;
     }
+
+    .menu-content3 {
+      margin: 0;
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <h1>dile-app-drawer component</h1>
-    
+
     <dile-app-drawer id="menu1">
       <div class="menu-conten1">
         <p><a href="#">Link 1</a></p>
@@ -63,10 +68,15 @@
       </div>
     </dile-app-drawer>
 
+    <dile-app-drawer id="menu3" opened no-modal>
+      <p class="menu-content3">Drawer example 3 allways on top</p>
+    </dile-app-drawer>
+
     <p>
       <button id="open1">Show app drawer 1</button>
       <button id="open1left">Show app drawer from left</button>
       <button id="open2">Show app drawer 2</button>
+      <button id="toggle3">Toggle app drawer 3</button>
     </p>
 
     <p>Some text to fill the page with content and make the messages appear in diferent positions</p>
@@ -94,7 +104,10 @@
       document.getElementById('closemenu2').addEventListener('click', () => {
         document.getElementById('menu2').close();
       });
-      
+      document.getElementById('toggle3').addEventListener('click', () => {
+        document.getElementById('menu3').toggle();
+      });
+
     </script>
   </div>
 </body>

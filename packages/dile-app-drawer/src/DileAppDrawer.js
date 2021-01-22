@@ -14,6 +14,10 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
       opened: {
         type: Boolean,
         reflect: true
+      },
+      noModal: {
+        type: Boolean,
+        attribute: 'no-modal'
       }
     };
   }
@@ -33,7 +37,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
 
       .modal {
         display: none;
-        position: absolute;
+        position: fixed;
         width: 100vw;
         height: 100vh;
         top: 0;
@@ -48,7 +52,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
       }
 
       .menu {
-        position: absolute;
+        position: fixed;
         box-sizing: border-box;
         z-index: var(--dile-app-drawer-z-index, 10000);
         background-color: var(--dile-app-drawer-background-color, #ddd);
@@ -111,7 +115,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
   }
 
   get modalTemplate() {
-    return html`<div class="modal" @click=${this._documentClose}></div>`;
+    return this.noModal ? '' : html`<div class="modal" @click=${this._documentClose}></div>`;
   }
 
   _documentClose() {
