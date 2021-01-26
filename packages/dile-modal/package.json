@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-modal",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Web Component to implement a dialog box or modal box",
   "keywords": [
     "dialog",
