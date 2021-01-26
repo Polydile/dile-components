@@ -104,7 +104,7 @@ export class DileModal extends LitElement {
           z-index: 1002;
           width: var(--dile-modal-close-icon-size, 24px);
           height: var(--dile-modal-close-icon-size, 24px);
-          cursor: pointer;
+          cursor: var(--dile-modal-close-icon-cursor, pointer);
         }
         .contentIconSeparation {
           padding-top: 10px;

@@ -27,6 +27,9 @@
       margin: 0 0 10px;
       text-transform: uppercase;
     }
+    .myModalCursor {
+      --dile-modal-close-icon-cursor: move;
+    }
 
   </style>
 </head>
@@ -47,20 +50,29 @@
         <li>Item 3</li>
       </ul>
     </dile-modal>
+
+    <dile-modal id="elmodal3" showCloseIcon class="myModalCursor">
+      <p>I have other cursor in the close icon!</p>
+    </dile-modal>
   
     <button id="modalregular">Open regular modal</button>
     <button id="modalstyled">Open styled modal</button>
+    <button id="modalcursor">Open cursor modal</button>
     
     <script>
 
       document.addEventListener("DOMContentLoaded", function() {
         let modal1 = document.getElementById("elmodal1");
         let modal2 = document.getElementById("elmodal2");
+        let modal3 = document.getElementById("elmodal3");
         document.getElementById("modalregular").addEventListener("click", function() {
           modal1.open();
         });
         document.getElementById("modalstyled").addEventListener("click", function () {
           modal2.open();
+        });
+        document.getElementById("modalcursor").addEventListener("click", function () {
+          modal3.open();
         });
       });
 

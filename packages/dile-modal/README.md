@@ -78,3 +78,4 @@ Custom property | Description | Default
 --dile-modal-animation-duration | Duration of the opacity modal animation | 0.3s
 --dile-modal-close-icon-top | Top position applied to the close icon | 5px
 --dile-modal-close-icon-right | Right position applied to the close icon | 18px
+--dile-modal-close-icon-cursor | Cursor style for the close icon | pointer
