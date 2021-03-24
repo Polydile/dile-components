@@ -1,2 +1,7 @@
 node_modules
 .DS_Store
+
+docs/_merged_data/
+docs/_merged_assets/
+docs/_merged_includes/
+_site-dev
