@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Discover",
+    "children": [
+      {
+        "text": "Components",
+        "href": "/components/"
+      },
+      {
+        "text": "Help and Feedback",
+        "href": "https://github.com/Polydile/dile-components/issues"
+      }
+    ]
+  },
+  {
+    "name": "Follow",
+    "children": [
+      {
+        "text": "GitHub",
+        "href": "https://github.com/Polydile/dile-components"
+      },
+      {
+        "text": "Twitter",
+        "href": "https://twitter.com/DileComponents"
+      }
+    ]
+  },
+  {
+    "name": "Support",
+    "children": [
+      {
+        "text": "About",
+        "href": "/about/"
+      },
+      {
+        "text": "Contribute",
+        "href": "https://github.com/Polydile/dile-components/blob/master/CONTRIBUTING.md"
+      }
+    ]
+  }
+]
