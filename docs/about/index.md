@@ -14,3 +14,5 @@ Dile Components is a Web Components library to solve common needs when developin
 Our components are mainly based on [LitElement](https://lit-element.polymer-project.org/), a lightweight library from the @Polymer team. 
 
 Follow [@DileComponents](https://twitter.com/DileComponents) on Twitter to stay informed of our component releases.
+
+Thanks for creating our logo to [Freepik](https://www.freepik.com/).
