@@ -19,6 +19,7 @@ export class DileButton extends LitElement {
         display: inline-block;
       }
       button {
+        cursor: pointer;
         padding-top: var(--dile-button-padding-y, 0.5rem);
         padding-bottom: var(--dile-button-padding-y, 0.5rem);
         padding-right: var(--dile-button-padding-x, 0.8rem);
@@ -45,6 +46,7 @@ export class DileButton extends LitElement {
       }
 
       :host([disabled]) button {
+        cursor: auto;
         background-color: #ccc;
         border-color: #aaa;
         border-style: none;
