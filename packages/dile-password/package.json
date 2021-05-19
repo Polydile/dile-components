@@ -14,7 +14,7 @@
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
-  "main": "dile-input.js",
+  "main": "dile-password.js",
   "publishConfig": {
     "access": "public"
   },
