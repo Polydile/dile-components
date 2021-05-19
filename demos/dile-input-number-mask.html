@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-number-mask component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-input-number-mask/dile-input-number-mask.js" type="module"></script>
+  <style>
+    .account {
+      --dile-input-label-font-size: 2rem;
+      --dile-input-label-color: green;
+      --dile-input-border-width: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-number-mask component</h1>
+    
+    <p>
+      <dile-input-number-mask label="Telephone" placeholder="Write your telephone" mask="00 000-00-00"></dile-input-number-mask>
+    </p>
+
+    <p>
+      <dile-input-number-mask class="account" label="Bank account" placeholder="Write your bank account number" mask="0000 0000 0000 0000"></dile-input-number-mask>
+    </p>
+
+
+  
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
