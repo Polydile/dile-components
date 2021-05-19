@@ -39,6 +39,8 @@ import '@dile/dile-input-number-mask/dile-input-number-mask';
 ></dile-input-number-mask>
 ```
 
+The mask attribute is provided in a format where all "0" chars are the numbers introduced by the user. The other chars provided are the mask. So, with the mask "00 000-00-00" and introducing the number "121234567", the input would represent "12 123-45-67" value.
+
 This component inherits all the properties, events and styles from @dile/dile-input component. So the docs are the same in both components.
 
 The only diferece between dile-input and dile-input-number-mask is that the input displays a number with a mask.
