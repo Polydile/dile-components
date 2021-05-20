@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dile-graph component demo</title>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+        <script src="../packages/dile-graph/dile-graph.js" type="module"></script>
+        <style>
+            .example {
+                --eit-card-graph-width: 700px;
+                --eit-card-graph-borderRadius: 20px;
+                --eit-graph-width: 500px;
+                --eit-graph-heigth: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>dile-graph component</h1>
+            Default Graph
+            <br /><br />
+            <dile-graph></dile-graph>
+            <br /><br />
+            Custom Graph 1
+            <br /><br />
+            <dile-graph
+                class="example"
+                style="--eit-card-graph-backgroundColor: rgb(135 216 54 / 34%)"
+                graphicTitle="Custom Graph"
+            ></dile-graph>
+            <br /><br />
+
+            <footer><a href="index.html">Back</a></footer>
+        </div>
+    </body>
+</html>

@@ -1,14 +1,14 @@
 {
-  "name": "@dile/dile-components",
-  "private": true,
-  "scripts": {
-    "lerna": "lerna",
-    "bootstrap": "lerna bootstrap",
-    "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
-    "audit": "lerna-audit"
-  },
-  "devDependencies": {
-    "es-dev-server": "^2.1.0",
-    "lerna": "^4.0.0"
-  }
+    "name": "@dile/dile-components",
+    "private": true,
+    "scripts": {
+        "lerna": "lerna",
+        "bootstrap": "lerna bootstrap",
+        "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
+        "audit": "lerna-audit"
+    },
+    "devDependencies": {
+        "es-dev-server": "^2.1.0",
+        "lerna": "^4.0.0"
+    }
 }
