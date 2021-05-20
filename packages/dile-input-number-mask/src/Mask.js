@@ -3,6 +3,10 @@ export class Mask {
     this.pattern = pattern;
   }
 
+  setPattern(newPattern) {
+    this.pattern = newPattern;
+  }
+
   maskIt(value) {
     let position = 0;
     let masked = '';

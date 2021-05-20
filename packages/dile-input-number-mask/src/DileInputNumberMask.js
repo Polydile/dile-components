@@ -10,6 +10,11 @@ export class DileInputNumberMask extends DileInput {
     };
   }
 
+  constructor() {
+    super();
+    this.mask = ''; 
+  }
+
   firstUpdated() {
     this.content = '';
     this.createMaskController(this.mask);
@@ -18,6 +23,23 @@ export class DileInputNumberMask extends DileInput {
   createMaskController(mask) {
     this.maskController = new Mask(mask);
     this.maxChars = this.maskController.getNumberCharactersOnPattern();
+  }
+
+  updated(changedProperties) {
+    if(changedProperties.has('value')) {
+      console.log('has value', this, this.maxChars);
+      this.content = this.value.substr(0, this.maxChars);
+      this.updateValue();
+    }
+    if(changedProperties.has('mask')) {
+      console.log('has mask', this, this.maxChars);
+      this.maskController.setPattern(this.mask);
+      this.updateValue();
+    }
+  }
+
+  updateValue() {
+    this.textField.value = this.maskController.maskIt(this.content);
   }
 
   render() {
@@ -52,7 +74,7 @@ export class DileInputNumberMask extends DileInput {
         this.content = this.content.substr(0, this.content.length - 1);
       }
     }
-    this.textField.value = this.maskController.maskIt(this.content);
+    this.updateValue();
   }
 
   isNumeric(char) {
