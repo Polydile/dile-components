@@ -49,7 +49,7 @@ Other posibility in order to open or close the modal box is to set the boolean `
 
 ## Events
 
-- **dile-modal-closed**: Dispatched when the modal box becomes closed, in case you are called the close() method, or clicked in the background modal, or by the close icon.
+- **dile-modal-closed**: Dispatched when the modal box becomes closed on any reason: by calling the close() method, by a click in the background modal, Esc key pressed or by a click on the close icon.
 - **dile-modal-background-closed**: Dispatched when the modal box is closed because the user clicks in the background layer.
 
 ## Style customization
