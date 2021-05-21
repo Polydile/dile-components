@@ -1,0 +1,33 @@
+{
+    "name": "@dile/dile-graph",
+    "version": "0.0.0",
+    "description": "Web Component for a customized graph using Chart.js, based on LitElement",
+    "keywords": [
+        "graph",
+        "web component",
+        "LitElement",
+        "component"
+    ],
+    "author": "Luis Gerardo Meneses Hernández <luisgermenher@gmail.com>",
+    "homepage": "https://github.com/Polydile/dile-components",
+    "license": "MIT",
+    "main": "dile-graph.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Polydile/dile-components.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "bugs": {
+        "url": "https://github.com/Polydile/dile-components/issues"
+    },
+    "dependencies": {
+        "lit-element": "^2.3.1",
+        "lit-html": "^1.1.2"
+    },
+    "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}
