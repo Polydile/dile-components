@@ -7,6 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="../packages/dile-tooltip/dile-tooltip.js" type="module"></script>
+
+  <style>
+    .custom{
+      --dile-tooltip-color:white;
+    }
+  </style>
+
 </head>
 <body>
   <div class="container">
@@ -14,27 +21,27 @@
     
     <h2>Regular tooltip</h2>
     <p style="text-align:center;">
-      <dile-tooltip></dile-tooltip>
+      <dile-tooltip class="custom" >Hi</dile-tooltip>
     </p>
 
     <h2>Position tooltip</h2>
     <p style="text-align:center;">
-      <dile-tooltip position="left" text="left" style="margin-right: 50px;" ></dile-tooltip>
-      <dile-tooltip position="top" text="top" style="margin-right: 50px;"></dile-tooltip>
-      <dile-tooltip position="bottom" text="bottom" style="margin-right: 50px;"></dile-tooltip>
-      <dile-tooltip position="right" text="right" style="margin-right: 50px;"></dile-tooltip>
+      <dile-tooltip position="left" style="margin-right: 50px;" >left</dile-tooltip>
+      <dile-tooltip position="top" style="margin-right: 50px;">top</dile-tooltip>
+      <dile-tooltip position="bottom" style="margin-right: 50px;">bottom</dile-tooltip>
+      <dile-tooltip position="right" style="margin-right: 50px;">right</dile-tooltip>
     </p>
 
     <h2>Arrow tooltip</h2>
     <p style="text-align:center;">
-      <dile-tooltip arrow style="margin-right: 50px;" ></dile-tooltip>
-      <dile-tooltip arrow text="you can combine with position" position="right"  ></dile-tooltip>
+      <dile-tooltip arrow style="margin-right: 50px;" >texto</dile-tooltip>
+      <dile-tooltip arrow position="right"  >texto</dile-tooltip>
     </p>
     
     <h2>Fadein tooltip</h2>
     <p style="text-align:center;">
-      <dile-tooltip arrow fadeIn style="margin-right: 50px;" ></dile-tooltip>
-      <dile-tooltip arrow fadeIn text="you can combine with position" position="right"  ></dile-tooltip>
+      <dile-tooltip arrow fadeIn style="margin-right: 50px;" > hey </dile-tooltip>
+      <dile-tooltip arrow fadeIn position="right" > Hello! </dile-tooltip>
     </p>
     
   

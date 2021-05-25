@@ -13,7 +13,8 @@ export class DileTooltip extends LitElement {
     visibility: hidden;
     width: var(--dile-tooltip-width, 120px);
     background-color: var(--dile-tooltip-background-color, #e74c3c);
-    color: #fff;
+    color: var(--dile-tooltip-color, #fff);
+    font-size: var(--dile-tooltip-font-size, 16px);
     text-align: center;
     border-radius: var(--dile-tooltip-border-radius, 6px);;
     padding: var(--dile-tooltip-padding, 5px);
@@ -123,13 +124,9 @@ export class DileTooltip extends LitElement {
   static get properties() {
     return {
       
-      /** text for the component */
-      
-      text: { type: String },
-      
       /** text will be displayed when the mouse hover text */
       
-      tooltiptext: { type: String },
+      tooltip: { type: String },
       
       /** Position where the tooltip where be displayed */
       
@@ -137,18 +134,17 @@ export class DileTooltip extends LitElement {
 
       /** Adds an arrow design to the tooltip */
       
-      arrow: { type: Boolean, reflect: true },
+      arrow: { type: Boolean },
       
       /** Adds a fade in animation */
       
-      fadeIn: { type: Boolean, reflect: true },
+      fadeIn: { type: Boolean },
     };
   }
 
   constructor() {
     super();
-    this.text = 'This is and example';
-    this.tooltiptext = 'Tooltip text';
+    this.tooltip = 'Tooltip text';
     this.position = 'top'
     this.arrow = false;
     this.fadeIn = false;
@@ -167,13 +163,12 @@ export class DileTooltip extends LitElement {
   }
 
   get animation() {
-    console.log(this.fadeIn ? 'animation' : '')
     return this.fadeIn ? 'animation' : '';
   }
 
   render() {
-    return html`<div class="tooltip">${this.text}
-  <span class="tooltiptext ${this.classPosition} ${this.arrowPosition} ${this.animation}">${this.tooltiptext}</span>
+    return html`<div class="tooltip"><slot></slot>
+  <span class="tooltiptext ${this.classPosition} ${this.arrowPosition} ${this.animation}">${this.tooltip}</span>
 </div>
     `;
   }
