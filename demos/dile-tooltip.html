@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-password component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-tooltip/dile-tooltip.js" type="module"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-tooltip component</h1>
+    
+    <h2>Regular tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip></dile-tooltip>
+    </p>
+
+    <h2>Position tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip position="left" text="left" style="margin-right: 50px;" ></dile-tooltip>
+      <dile-tooltip position="top" text="top" style="margin-right: 50px;"></dile-tooltip>
+      <dile-tooltip position="bottom" text="bottom" style="margin-right: 50px;"></dile-tooltip>
+      <dile-tooltip position="right" text="right" style="margin-right: 50px;"></dile-tooltip>
+    </p>
+
+    <h2>Arrow tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip arrow style="margin-right: 50px;" ></dile-tooltip>
+      <dile-tooltip arrow text="you can combine with position" position="right"  ></dile-tooltip>
+    </p>
+    
+    <h2>Fadein tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip arrow fadeIn style="margin-right: 50px;" ></dile-tooltip>
+      <dile-tooltip arrow fadeIn text="you can combine with position" position="right"  ></dile-tooltip>
+    </p>
+    
+  
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
