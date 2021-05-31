@@ -5,11 +5,12 @@
         "lerna": "lerna",
         "bootstrap": "lerna bootstrap",
         "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
-        "audit": "lerna-audit"
+        "audit": "lerna-audit",
+        "rocket:start": "rocket start"
     },
     "devDependencies": {
-        "@rocket/cli": "^0.5.2",
-        "@rocket/launch": "^0.4.0",
+        "@rocket/cli": "^0.8.1",
+        "@rocket/launch": "^0.5.0",
         "es-dev-server": "^2.1.0",
         "lerna": "^4.0.0",
         "@dile/dile-input": "*",

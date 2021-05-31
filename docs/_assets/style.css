@@ -8,8 +8,20 @@ body[layout^='layout-home'] .markdown-body .call-to-action:nth-of-type(2) {
 
 @media screen and (min-width: 1024px) {
   body[layout='layout-home-background'] .page-background {
-    top: -210px;
-    right: -463px;
-    transform: rotate(45deg);
+    top: -660px;
+    right: -395px;
+    transform: rotate(10deg);
   }
+}
+
+.markdown-body .call-to-action {
+  background: #00CC76;
+  text-shadow: none;
+  border: none;
+}
+.markdown-body .call-to-action:hover {
+  background: #1A7D50;
+}
+
+.markdown-body .call-to-action a {
 }
