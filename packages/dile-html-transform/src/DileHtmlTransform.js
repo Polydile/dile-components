@@ -4,7 +4,7 @@ export class DileHtmlTransform extends LitElement {
   static get styles() {
     return css`
         :host {
-          display: inline-block
+          display: inline-block;
         }
       `
   }
@@ -28,7 +28,7 @@ export class DileHtmlTransform extends LitElement {
   }
 
   render() {
-    return html`<span id="content"><slot></slot></span>`;
+    return html`<slot></slot>`;
   }
 
   convertNewLines(str) {
