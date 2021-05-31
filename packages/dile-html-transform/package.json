@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-html-transform",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Webcomponent dile-html-transform to convert new lines and Urls to <br> and <a>",
   "keywords": [
     "transformation",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "anchorme": "^2.1.2"
+    "anchorme": "^2.1.2",
+    "lit-element": "^2.3.1"
   }
 }
