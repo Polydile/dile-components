@@ -1,19 +1,19 @@
 {
-  "name": "@dile/dile-modal",
-  "version": "1.2.0",
-  "description": "Web Component to implement a dialog box or modal box",
+  "name": "@dile/dile-tooltip",
+  "version": "0.0.1",
+  "description": "Web component to display a configurable tooltip.",
   "keywords": [
-    "dialog",
-    "modal",
-    "box",
-    "feedback",
-    "overlay",
-    "modal box"
+    "tooltip",
+    "text",
+    "web component",
+    "LitElement",
+    "tooltip component",
+    "component"
   ],
-  "author": "midesweb <miguel@desarrolloweb.com>",
+  "author": "CarlosAlberto-code <carlosbohc.94@gmail.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dile-tooltip.js",
   "publishConfig": {
     "access": "public"
   },
@@ -28,9 +28,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.0.1",
-    "@dile/dile-close-on-esc-pressed-mixin": "^1.0.0",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.2"
-  }
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

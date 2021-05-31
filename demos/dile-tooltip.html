@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-tooltip component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-tooltip/dile-tooltip.js" type="module"></script>
+
+  <style>
+    .custom{
+      --dile-tooltip-color:white;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>dile-tooltip component</h1>
+    
+    <h2>Regular tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip class="custom" >Hi, I have a nice tooltip</dile-tooltip>
+    </p>
+
+    <h2>Position tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip position="left">left</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+      <dile-tooltip position="top">top</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+      <dile-tooltip position="bottom">bottom</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+      <dile-tooltip position="right">right</dile-tooltip>
+    </p>
+
+    <h2>Arrow tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip arrow>This tooltip has an arrow</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+    <dile-tooltip arrow position="right">Right position and arrow</dile-tooltip>
+    </p>
+    
+    <h2>Fadein tooltip</h2>
+    <p style="text-align:center;">
+      <dile-tooltip arrow fadeIn> Hey! show with animation! </dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+      <dile-tooltip arrow fadeIn position="right"> Hello! </dile-tooltip>
+    </p>
+    
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>

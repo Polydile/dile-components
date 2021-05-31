@@ -1,7 +1,8 @@
 import { LitElement, html, css } from "lit-element";
 import { closeIcon, closeIconCss } from "@dile/dile-close-icon-template";
+import { DileCloseOnEscPressed } from '@dile/dile-close-on-esc-pressed-mixin'
 
-export class DileModal extends LitElement {
+export class DileModal extends DileCloseOnEscPressed(LitElement) {
   static get properties() {
     return {
       _toChange: { type: Boolean },

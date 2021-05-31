@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-button component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-button/dile-button.js" type="module"></script>
+  <style>
+    .styled {
+      --dile-button-border-color: #0f010f; 
+      --dile-button-background-color: #491449;
+      --dile-button-hover-background-color: #f3c6f3;
+      --dile-button-text-color:  #fff; 
+      --dile-button-hover-text-color:  #000; 
+      --dile-button-size: 32px;
+      --dile-button-ring-color: #cc5099;
+      --dile-button-ring-offset-width: 2px;
+      --dile-button-border-radius: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-button component</h1>
+    
+    <h2>Regular button</h2>
+    <p>
+      <dile-button name="button1" id="button1">Regular button</dile-button>
+    </p>
+
+    <h2>Styled button</h2>
+    <p>
+      <dile-button name="button2" id="button2" class="styled">Styled button</dile-button>
+    </p>
+  
+    <h2>Disabled button</h2>
+    <p>
+      <dile-button name="disabeldbutton" disabled id="disabeldbutton">Disabled button</dile-button>
+    </p>
+
+    <script>
+      document.querySelectorAll('dile-button').forEach(function(item) {
+        item.addEventListener('click', function (e) {
+          console.log('button click', e.target.name);
+        });
+      })
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>

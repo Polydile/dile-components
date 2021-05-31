@@ -1,19 +1,21 @@
 {
-  "name": "@dile/dile-modal",
-  "version": "1.2.0",
-  "description": "Web Component to implement a dialog box or modal box",
+  "name": "@dile/dile-input-number-mask",
+  "version": "0.0.3",
+  "description": "Web Component for a customized input text to create numbers with a display format introuced by a mask",
   "keywords": [
-    "dialog",
-    "modal",
-    "box",
-    "feedback",
-    "overlay",
-    "modal box"
+    "input",
+    "text",
+    "mask",
+    "web component",
+    "LitElement",
+    "input text",
+    "component",
+    "number mask"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dile-input-number-mask.js",
   "publishConfig": {
     "access": "public"
   },
@@ -28,9 +30,9 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.0.1",
-    "@dile/dile-close-on-esc-pressed-mixin": "^1.0.0",
+    "@dile/dile-input": "^1.0.1",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.2"
-  }
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

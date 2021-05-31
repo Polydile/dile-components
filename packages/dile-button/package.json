@@ -1,14 +1,12 @@
 {
-  "name": "@dile/dile-modal",
-  "version": "1.2.0",
-  "description": "Web Component to implement a dialog box or modal box",
+  "name": "@dile/dile-button",
+  "version": "1.0.2",
+  "description": "Webcomponent dile-button to create a custom-styled button element, following open-wc recommendations",
   "keywords": [
-    "dialog",
-    "modal",
-    "box",
-    "feedback",
-    "overlay",
-    "modal box"
+    "LitElement",
+    "Web Component",
+    "button",
+    "Form"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
@@ -28,9 +26,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.0.1",
-    "@dile/dile-close-on-esc-pressed-mixin": "^1.0.0",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.2"
-  }
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }
