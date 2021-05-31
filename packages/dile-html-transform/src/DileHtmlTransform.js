@@ -1,5 +1,4 @@
 import { html, css, LitElement } from "lit-element";
-import "anchorme/dist/browser/anchorme.min.js";
 
 export class DileHtmlTransform extends LitElement {
   static get styles() {
@@ -41,6 +40,9 @@ export class DileHtmlTransform extends LitElement {
   }
 
   convertUrls(str) {
-    return anchorme(str);
+    if(anchorme) {
+      return anchorme(str);
+    } 
+    return str;
   }
 }

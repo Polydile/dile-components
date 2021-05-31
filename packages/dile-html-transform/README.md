@@ -36,3 +36,10 @@ In order to make the desired conversions you need to provide the following attri
 - **convertLines**: should be true to convert new lines to ```<br>``` 
 - **convertLinks**: should be true to convert the URLs in the text into links
 
+## This component depends on "anchorme"
+
+You need to load the anchorme library before to this component, in order to make available the URLs-to-link transformations.
+
+´´´
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchorme/2.1.2/anchorme.min.js"></script>
+´´´
