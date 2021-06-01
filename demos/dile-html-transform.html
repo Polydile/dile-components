@@ -19,19 +19,30 @@
     <h1>dile-html-transform component</h1>
     
     <p>
-      <dile-html-transform convertLines convertLinks>
-        Lorem, ipsum
-        dolor sit...
-        Thats great link: http://www.escuela.it
-      </dile-html-transform>
+      <dile-html-transform text="I found Escuela.it a interesting site" convertLines convertLinks></dile-html-transform>
     </p>
 
+    <dile-html-transform text="Hi! from DesarrolloWeb.com. Contact us on usuarios@desarrolloweb.com. Thank you" convertLines convertLinks convertEmails>
+    </dile-html-transform>
+
     <p>
-      <dile-html-transform convertLines convertLinks>
-        The main search engine is google.com
-        ...but I think bing.com is also a great option.
-      </dile-html-transform>
+      <dile-html-transform id="transform" convertLines convertLinks></dile-html-transform>
     </p>
+    <button id="links">Toggle links</button> <button id="lines">Toggle breaklines</button>
+    <script>
+      let transformElement = document.getElementById('transform');
+      document.addEventListener('DOMContentLoaded', function() {
+         transformElement.text = `Hi!
+The main search engine is google.com
+...but I think bing.com is also a great option.`
+      });
+      document.getElementById('links').addEventListener('click', function() {
+        transformElement.convertLinks = !transformElement.convertLinks;
+      });
+      document.getElementById('lines').addEventListener('click', function () {
+        transformElement.convertLines = !transformElement.convertLines;
+      });
+    </script>
 
     <footer><a href="index.html">Back</a></footer>
   </div>
