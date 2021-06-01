@@ -69,7 +69,6 @@ export class DileHtmlTransform extends LitElement {
     if(position < str.length) {
       finalBlocks.push(new StrBlock(str.substr(position)));
     }
-    console.log(finalBlocks);
     return finalBlocks.map(block => block.html());
   }
 }
