@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-html-transform",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Webcomponent dile-html-transform to convert new lines and Urls to <br> and <a>",
   "keywords": [
     "transformation",
