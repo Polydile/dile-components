@@ -29,8 +29,29 @@
       <dile-textarea class="styled" rows="2" max-rows="4" label="Styled element" placeholder="Write something here"></dile-textarea>
     </p>
 
-    <dile-textarea></dile-textarea>
+    <p>Play with the textarea</p>
 
+    <dile-textarea id="textelement" rows="2" max-rows="10" ></dile-textarea>
+    <p>
+      <button id="introduceText">Introduce text</button>
+      <button id="placeCursorAtEnd">Place cursor at end</button>
+    </p>
+    <script>
+      let text = `Hi,
+I am a textarea element.
+You can play with me, presing the buttons.
+Bye!!`;
+      document.addEventListener('DOMContentLoaded', function() {
+        let textElement = document.getElementById('textelement')
+        document.getElementById('introduceText').addEventListener('click', function() {
+          textElement.value = text;
+          textElement.resizeTextarea()
+        })
+        document.getElementById('placeCursorAtEnd').addEventListener('click', function () {
+          textElement.placeCursorAtEnd();
+        });
+      })
+    </script>
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>

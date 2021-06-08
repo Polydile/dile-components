@@ -26,4 +26,16 @@ export class DileTextarea extends LionTextarea {
 
     `];
   }
+
+  get textareaElement() {
+    return this.querySelector('textarea');
+  }
+
+  placeCursorAtEnd() {
+    let element = this.textareaElement;
+    console.log(element);
+    element.setSelectionRange(element.value.length, element.value.length);
+    element.focus();
+  }
+  
 }
