@@ -33,7 +33,6 @@ export class DileTextarea extends LionTextarea {
 
   placeCursorAtEnd() {
     let element = this.textareaElement;
-    console.log(element);
     element.setSelectionRange(element.value.length, element.value.length);
     element.focus();
   }
