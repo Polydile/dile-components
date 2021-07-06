@@ -26,12 +26,7 @@ export class DileInputNumberMask extends DileInput {
   }
 
   updated(changedProperties) {
-    if(changedProperties.has('value')) {
-      console.log('has value', this, this.maxChars);
-      this.content = this.value.substr(0, this.maxChars);
-      this.updateValue();
-    }
-    if(changedProperties.has('mask')) {
+    if (changedProperties.has('mask')) {
       console.log('has mask', this, this.maxChars);
       this.maskController.setPattern(this.mask);
       this.updateValue();
@@ -39,9 +34,8 @@ export class DileInputNumberMask extends DileInput {
   }
 
   updateValue() {
-    this.textField.value = this.maskController.maskIt(this.content);
+    this.value = this.maskController.maskIt(this.content);
   }
-
   render() {
     return html`
     <div>
@@ -81,7 +75,4 @@ export class DileInputNumberMask extends DileInput {
     return !isNaN(char - parseInt(char));
   }
 
-  get textField() {
-    return this.shadowRoot.getElementById('textField');
-  }
 }
