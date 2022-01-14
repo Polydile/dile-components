@@ -9,7 +9,7 @@ export class DileTooltip extends LitElement {
         display: inline-block;
       }
   
-      .tooltip .tooltiptext {
+      .tooltiptext {
         visibility: hidden;
         width: var(--dile-tooltip-width, 120px);
         background-color: var(--dile-tooltip-background-color, #e74c3c);
@@ -110,19 +110,11 @@ export class DileTooltip extends LitElement {
         transition: opacity var(--dile-tooltip-time-transition, 1s) ease-in;
       }
 
-      .tooltip:hover .tooltiptext {
+      .show {
         visibility: visible !important;
         opacity: 1;
       }
 
-      .tooltip:hover {
-        border: 1px solid red;
-      }
-
-      /* Show the tooltip text when you mouse over the tooltip */
-      /* .tooltip:hover .tooltiptext {
-        visibility: visible;
-      } */
     `;
   }
 
@@ -139,6 +131,9 @@ export class DileTooltip extends LitElement {
       
       /** Adds a fade in animation */
       fadeIn: { type: Boolean },
+
+      /** Private property to control mouseovers and mouseouts */
+      _isMouseover: { type: Boolean }
     };
   }
 
@@ -148,6 +143,7 @@ export class DileTooltip extends LitElement {
     this.position = 'top'
     this.arrow = false;
     this.fadeIn = false;
+    this._isMouseover = false;
   }
 
   classPosition(position) {
@@ -166,15 +162,29 @@ export class DileTooltip extends LitElement {
     return fadeIn ? 'animation' : '';
   }
 
+  showOrNot(isMouseover) {
+    return isMouseover ? 'show' : '';
+  }
+
   render() {
     return html`
-      <div class="tooltip">
+      <div class="tooltip"
+        @mouseover="${this.doMouseover}"
+        @mouseout="${this.doMouseout}"
+      >
         <slot></slot>
         <span 
-          class="tooltiptext ${this.classPosition(this.position)} ${this.arrowPosition(this.arrow, this.position)} ${this.animation(this.fadeIn)}"
+          class="tooltiptext ${this.classPosition(this.position)} ${this.arrowPosition(this.arrow, this.position)} ${this.animation(this.fadeIn)} ${this.showOrNot(this._isMouseover)}"
         >${this.tooltip}</span>
       </div>
     `;
   }
 
+  doMouseover() {
+    this._isMouseover = true;
+  }
+
+  doMouseout() {
+    this._isMouseover = false;
+  }
 }
