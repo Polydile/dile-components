@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-tooltip",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web component to display a configurable tooltip.",
   "keywords": [
     "tooltip",
