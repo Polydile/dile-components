@@ -168,7 +168,8 @@ export class DileTooltip extends LitElement {
 
   render() {
     return html`
-      <div class="tooltip"
+      <div 
+        class="tooltip"
         @mouseover="${this.doMouseover}"
         @mouseout="${this.doMouseout}"
       >
