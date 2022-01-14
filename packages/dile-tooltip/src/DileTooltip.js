@@ -107,7 +107,7 @@ export class DileTooltip extends LitElement {
       
       .animation{
         opacity: 0;
-        transition: opacity var(--dile-tooltip-time-transition, 1s) ease-in;
+        transition: opacity var(--dile-tooltip-time-transition, 0.5s) ease-in;
       }
 
       .show {
