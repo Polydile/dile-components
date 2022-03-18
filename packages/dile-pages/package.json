@@ -6,7 +6,7 @@
     "pages",
     "iron-pages",
     "view",
-    "LitElement",
+    "Lit",
     "Web Component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",

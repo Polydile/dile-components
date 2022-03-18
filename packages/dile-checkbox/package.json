@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Webcomponent dile-checkbox to create a custom-styled checkbox element following open-wc recommendations",
   "keywords": [
-    "LitElement",
+    "Lit",
     "Web Component",
     "Checkbox",
     "Form",

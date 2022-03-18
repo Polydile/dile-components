@@ -8,7 +8,7 @@
     "app drawer",
     "menu interface",
     "navigation",
-    "LitElement",
+    "Lit",
     "Web Component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",

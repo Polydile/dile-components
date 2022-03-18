@@ -7,7 +7,7 @@
     "message",
     "toast",
     "display messages",
-    "LitElement",
+    "Lit",
     "component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",

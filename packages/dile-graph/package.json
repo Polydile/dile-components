@@ -5,7 +5,7 @@
     "keywords": [
         "graph",
         "web component",
-        "LitElement",
+        "Lit",
         "component"
     ],
     "author": "Luis Gerardo Meneses Hernández <luisgermenher@gmail.com>",

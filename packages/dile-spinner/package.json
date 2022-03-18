@@ -6,7 +6,7 @@
     "spinner",
     "ajax",
     "loading",
-    "LitElement",
+    "Lit",
     "Web Component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",

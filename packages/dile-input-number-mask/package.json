@@ -7,7 +7,7 @@
     "text",
     "mask",
     "web component",
-    "LitElement",
+    "Lit",
     "input text",
     "component",
     "number mask"

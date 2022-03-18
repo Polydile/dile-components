@@ -6,7 +6,7 @@
     "message",
     "feedback",
     "web components",
-    "LitElement",
+    "Lit",
     "custom element"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",

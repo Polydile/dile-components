@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "Webcomponent dile-button to create a custom-styled button element, following open-wc recommendations",
   "keywords": [
-    "LitElement",
+    "Lit",
     "Web Component",
     "button",
     "Form"
