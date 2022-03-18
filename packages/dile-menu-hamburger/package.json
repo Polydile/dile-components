@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-menu-hamburger",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A component to implement a full hamburger menu",
   "keywords": [
     "icon",
@@ -28,8 +28,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-app-drawer": "^2.1.0",
-    "@dile/dile-hamburger": "^1.1.1",
+    "@dile/dile-app-drawer": "^2.2.0",
+    "@dile/dile-hamburger": "^1.2.0",
     "lit": "^2.2.1"
   }
 }
