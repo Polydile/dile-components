@@ -1,5 +1,5 @@
 
-import { css } from "lit-element";
+import { css } from "lit";
 
 export const closeIconCss = css`
   .dileCloseIconElement path {

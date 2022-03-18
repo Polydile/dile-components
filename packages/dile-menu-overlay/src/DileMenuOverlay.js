@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 import { DileOverlayMixin } from "@dile/dile-overlay-mixin";
 import { DileCloseDocumentClickMixin } from "@dile/dile-close-document-click-mixin";
 

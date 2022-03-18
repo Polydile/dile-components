@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 import "@dile/dile-modal/dile-modal";
 
 export class DileConfirm extends LitElement {

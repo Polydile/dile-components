@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "@dile/dile-modal": "^1.2.0",
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

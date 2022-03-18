@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { DileCountdownTimeMixin } from './DileCountdownTimeMixin';
 
 const WORDS_EN = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];

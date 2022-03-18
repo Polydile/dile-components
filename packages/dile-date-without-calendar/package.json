@@ -18,8 +18,7 @@
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   },
   "publishConfig": {
     "access": "public"
