@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 import { DileSlideDownMixin } from "@dile/dile-slide-down-mixin";
 import { closeIcon, closeIconCss } from "@dile/dile-close-icon-template";
 

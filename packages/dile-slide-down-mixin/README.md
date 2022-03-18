@@ -31,7 +31,7 @@ npm install @dile/dile-slide-down-mixin
 Use the mixin
 
 ```
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { DileSlideDownMixin } from '@dile/dile-slide-down-mixin';
 
 class NewComponent  extends DileSlideDownMixin(LitElement) {

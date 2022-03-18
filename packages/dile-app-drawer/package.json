@@ -8,7 +8,7 @@
     "app drawer",
     "menu interface",
     "navigation",
-    "LitElement",
+    "Lit",
     "Web Component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@dile/dile-close-on-esc-pressed-mixin": "^1.0.0",
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

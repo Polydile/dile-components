@@ -19,7 +19,7 @@ npm install @dile/dile-close-on-esc-pressed-mixin
 Use the mixin
 
 ```
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { DileCloseOnEscPressed } from '@dile/dile-close-on-esc-pressed-mixin';
 
 class NewComponent  extends DileCloseOnEscPressed(LitElement) {

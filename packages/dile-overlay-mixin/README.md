@@ -57,7 +57,7 @@ npm install @dile/dile-overlay-mixin
 Use the mixin
 
 ```
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { DileOverlayMixin } from '@dile/dile-overlay-mixin';
 
 class NewComponent  extends DileOverlayMixin(LitElement) {

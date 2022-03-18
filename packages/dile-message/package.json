@@ -6,7 +6,7 @@
     "message",
     "feedback",
     "web components",
-    "LitElement",
+    "Lit",
     "custom element"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -29,6 +29,6 @@
   "dependencies": {
     "@dile/dile-close-icon-template": "^1.0.1",
     "@dile/dile-slide-down-mixin": "*",
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

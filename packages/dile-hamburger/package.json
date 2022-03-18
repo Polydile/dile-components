@@ -5,7 +5,7 @@
   "keywords": [
     "icon",
     "hamburger",
-    "LitElement",
+    "Lit",
     "menu",
     "Web Components",
     "animation"
@@ -28,6 +28,6 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

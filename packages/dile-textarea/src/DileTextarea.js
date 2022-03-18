@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { LionTextarea } from '@lion/textarea';
 
 export class DileTextarea extends LionTextarea {

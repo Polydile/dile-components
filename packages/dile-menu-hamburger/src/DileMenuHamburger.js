@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 import '@dile/dile-app-drawer/dile-app-drawer';
 import '@dile/dile-hamburger/dile-hamburger';
 

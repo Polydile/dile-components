@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 import { DileCloseOnEscPressed } from '@dile/dile-close-on-esc-pressed-mixin';
 
 export const DILE_APP_DRAWER_EVENT_CLOSE_OUTSIDE = 'dile-app-drawer-click-outside';

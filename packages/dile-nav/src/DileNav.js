@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 
 export class DileNav extends LitElement {
   static get styles() {

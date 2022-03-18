@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { DileInput } from '@dile/dile-input';
 import { Mask } from './Mask';
 

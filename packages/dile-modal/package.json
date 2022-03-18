@@ -30,7 +30,6 @@
   "dependencies": {
     "@dile/dile-close-icon-template": "^1.0.1",
     "@dile/dile-close-on-esc-pressed-mixin": "^1.0.0",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   }
 }
