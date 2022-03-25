@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-tabs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Web Component to implement a tabs interface., following open-wc recommendations",
   "keywords": [
     "Lit",
