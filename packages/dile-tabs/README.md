@@ -2,9 +2,9 @@
 
 Web Component to create easily a generic tabs interface.
 
-You can define the tab items and the whole tabs component. You could use this component with more complex component, only to create a navigation beteen several options. 
+You can define the tab items and the whole tabs component. You could use this component with more complex component, only to create a navigation between several options. 
 
-It is possible to use with dile-pages to change the view of the component when one tab is selected.
+It is possible, for example, to use dile-tabs with a dile-pages, to change the view of the component when one tab is selected.
 
 ## Installation
 
