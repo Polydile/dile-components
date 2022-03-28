@@ -53,7 +53,6 @@ export const DileSelectorMixin = (SuperClass) =>
 
     setSelectedItem() {
       if(! this.attrForSelected) {
-        console.log('estoy en selected item rama del attrforsekected nooo exus...');
         // Selected by index
         let selectedIndex = parseInt(this.selected);
         if(! isNaN(selectedIndex) && this._items[selectedIndex]) {
@@ -66,10 +65,8 @@ export const DileSelectorMixin = (SuperClass) =>
           });
         }
       } else {
-        console.log('estoy en selected item rama del attrforsekected existente...');
 
         // Selected by attribute
-        console.log('aki: selected by attribute', this.attrForSelected, ' y selected: ', this.selected);
         this._items.forEach(el => {
           if(el.getAttribute(this.attrForSelected) == this.selected) {
             el.selected = true;
@@ -85,7 +82,6 @@ export const DileSelectorMixin = (SuperClass) =>
         // selected by index
         this.selected = e.detail._assignedIndex;
       } else {
-        console.log('selected event by attribute', e.detail.getAttribute(this.attrForSelected));
         // selected by attribute
         this.selected = e.detail.getAttribute(this.attrForSelected);
       }
@@ -101,7 +97,6 @@ export const DileSelectorMixin = (SuperClass) =>
     }
     
     updated(changedProperties) {
-      console.log('updated!!');
       this.setSelectedItem();
     }
   }
