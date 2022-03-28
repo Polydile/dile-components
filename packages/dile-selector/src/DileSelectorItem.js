@@ -23,7 +23,7 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
         padding-bottom: var(--dile-selector-padding-y, 0.2rem); 
         padding-left:  var(--dile-selector-padding-x, 0.5rem); 
         padding-right:  var(--dile-selector-padding-x, 0.5rem); 
-        background-color: var(--dile-selector-background-color, #fff);
+        background-color: var(--dile-selector-background-color, transparent);
         color: var(--dile-selector-text-color, #000);
         transition: all 0.3s ease-in;
       }
