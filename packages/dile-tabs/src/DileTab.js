@@ -69,7 +69,7 @@ export class DileTab  extends LitElement {
   }
 
   select() {
-    this.dispatchEvent(new CustomEvent('dile-tab-selected', {
+    this.dispatchEvent(new CustomEvent('dile-item-selected', {
       bubbles: true,
       composed: true,
       detail: this

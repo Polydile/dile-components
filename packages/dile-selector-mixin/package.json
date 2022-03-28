@@ -1,12 +1,11 @@
 {
-  "name": "@dile/dile-tabs",
-  "version": "0.0.1",
-  "description": "Web Component to implement a tabs interface., following open-wc recommendations",
+  "name": "@dile/dile-selector-mixin",
+  "version": "0.0.0",
+  "description": "Mixin to select one item from a list.",
   "keywords": [
-    "Lit",
-    "Web Component",
-    "Tabs",
-    "tab"
+    "selector",
+    "mixin",
+    "web components"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
@@ -22,12 +21,10 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "dependencies": {
+    "lit": "^2.2.1"
+  },
   "bugs": {
     "url": "https://github.com/Polydile/dile-components/issues"
-  },
-  "dependencies": {
-    "lit": "^2.2.1",
-    "@dile/dile-selector-mixin": "0.0.0"
-  },
-  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+  }
 }
