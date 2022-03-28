@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-pages",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Web Component to display some content o other based in it's property values",
   "keywords": [
     "pages",
