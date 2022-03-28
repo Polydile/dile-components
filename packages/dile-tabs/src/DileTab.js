@@ -1,6 +1,7 @@
 import { html, css, LitElement } from "lit";
+import { DileSelectorItemMixin } from "@dile/dile-selector-mixin";
 
-export class DileTab  extends LitElement {
+export class DileTab  extends DileSelectorItemMixin(LitElement) {
 
   static get styles() {
     return css`
@@ -45,18 +46,6 @@ export class DileTab  extends LitElement {
     `;
   }
 
-  static get properties() {
-    return {
-      selected: { type: Boolean },
-      index: { type: Number },
-    };
-  }
-
-  constructor() {
-    super();
-    this.selected = false;
-  }
-
   render() {
     return html`
       <article @click='${this.select}' class="${this.selected ? 'selected' : ''}">
@@ -66,13 +55,5 @@ export class DileTab  extends LitElement {
         </div>
       </article>
     `;
-  }
-
-  select() {
-    this.dispatchEvent(new CustomEvent('dile-item-selected', {
-      bubbles: true,
-      composed: true,
-      detail: this
-    }));
   }
 }
