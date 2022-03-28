@@ -27,12 +27,10 @@ export class DileInputNumberMask extends DileInput {
 
   updated(changedProperties) {
     if(changedProperties.has('value')) {
-      console.log('has value', this, this.maxChars);
-      this.content = this.value.substr(0, this.maxChars);
+      this.content = this.value.slice(0, this.maxChars);
       this.updateValue();
     }
     if(changedProperties.has('mask')) {
-      console.log('has mask', this, this.maxChars);
       this.maskController.setPattern(this.mask);
       this.updateValue();
     }
