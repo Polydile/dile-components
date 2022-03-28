@@ -14,6 +14,7 @@ export const DileSelectorMixin = (SuperClass) =>
       return {
         selected: { type: String },
         attrForSelected: { type: String },
+        selectorId: { type: String },
       }
     }
 
@@ -92,7 +93,10 @@ export const DileSelectorMixin = (SuperClass) =>
       this.dispatchEvent(new CustomEvent('dile-selected-changed', {
         bubbles: true,
         composed: true,
-        detail: this.selected
+        detail: {
+          selected: this.selected,
+          selectorId: this.selectorId,
+        }
       }));
     }
     

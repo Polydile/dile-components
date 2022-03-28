@@ -50,4 +50,4 @@ this.dispatchEvent(new CustomEvent('dile-item-selected', {
 
 - **selected**: to set the selected item. The value could be a numeric index (starting on 0) or a string.
 - **attrForSelected**: if its set, this property declares the attribute in the selected items to match the ```selected``` property. 
-
+- **selectorId** (optional): A property to link this component to a dile-pages component and change automaticaly the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
