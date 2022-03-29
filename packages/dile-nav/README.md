@@ -18,7 +18,21 @@ import '@dile/dile-nav/dile-nav.js';
 Use the component
 
 ```html
-<dile-nav>Hi from Polydile!!</dile-nav>
+<dile-nav>
+  <span slot="title">Hi from Polydile!!</span>
+</dile-nav>
+```
+
+The dile-nav component has 3 slots of content: "title", "menu" and "actions". It is not necessary to use all of them. 
+
+There is am example in a more complex implementation.
+
+```html
+<dile-nav>
+  <h2 slot="title">Nav title</h2>
+  <span slot="menu">[X]</span>
+  <span slot="actions">Create</span>
+</dile-nav>
 ```
 
 ## Properties
