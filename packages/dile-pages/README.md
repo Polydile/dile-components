@@ -16,7 +16,7 @@ npm i @dile/dile-pages
 ## Usage
 ```html
 <script type="module">
-  import 'dile-pages/dile-pages.js';
+  import '@dile/dile-pages/dile-pages.js';
 </script>
 
 <dile-pages selected="1">
