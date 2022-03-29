@@ -13,12 +13,17 @@ npm i @dile/dile-selector
 ```
 
 ## Usage
-```html
-<script type="module">
-  import '@dile/dile-selector/dile-selector.js';
-  import '@dile/dile-selector/dile-selector-item.js';
-</script>
 
+Import the component.
+
+```javascript
+import '@dile/dile-selector/dile-selector.js';
+import '@dile/dile-selector/dile-selector-item.js'; 
+```
+
+Use the component.
+
+```html
 <dile-selector selected="2">
   <dile-selector-item>One</dile-selector-item>
   <dile-selector-item>Two</dile-selector-item>
@@ -56,6 +61,12 @@ When ```selected``` property changes by a user interaction inside the ```<dile-s
 ## @dile/dile-selector-item
 
 This component implements a selection option.
+
+The use of this component is not mandatory. If you like to use it you need to import the component.
+
+```javascript
+import '@dile/dile-selector/dile-selector-item.js';
+```
 
 ### Properties
 
