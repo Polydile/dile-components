@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-nav",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Webcomponent dile-nav to create a nav bar",
   "keywords": [
     "nav",
