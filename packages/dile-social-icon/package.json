@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-social-icon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Web component to create social icons, based on Lit",
   "keywords": [
     "nav",

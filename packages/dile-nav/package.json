@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-nav",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Webcomponent dile-nav to create a nav bar",
   "keywords": [
     "nav",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.1.0",
+    "@dile/dile-close-icon-template": "^1.1.1",
     "@dile/dile-slide-down-mixin": "^1.1.0",
     "lit": "^2.2.1"
   }
