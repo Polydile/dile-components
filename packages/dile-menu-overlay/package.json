@@ -8,7 +8,7 @@
     "box",
     "overlay",
     "web components",
-    "LitElement"
+    "Lit"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",

@@ -1,7 +1,7 @@
 {
     "name": "@dile/dile-graph",
     "version": "0.1.0",
-    "description": "Web Component for a customized graph using Chart.js, based on LitElement",
+    "description": "Web Component for a customized graph using Chart.js, based on Lit",
     "keywords": [
         "graph",
         "web component",

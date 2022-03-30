@@ -119,7 +119,7 @@ import '@dile/dile-date-without-calendar/dile-date-without-calendar';
 
 **Events, Change and Error**
 
-###### **_LitElement emits events_**
+###### **_Lit emits events_**
 
 ```html
 <dile-date-without-calendar 

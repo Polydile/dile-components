@@ -1,7 +1,7 @@
 {
   "name": "@dile/dile-password",
   "version": "1.1.0",
-  "description": "Web Component for a customized input text, type password, based on LitElement",
+  "description": "Web Component for a customized input text, type password, based on Lit",
   "keywords": [
     "input",
     "text",

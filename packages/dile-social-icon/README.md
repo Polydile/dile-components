@@ -1,6 +1,6 @@
 # @dile/dile-social-icon
 
-Web component to display icons from the main social networks and communities, based on LitElement.
+Web component to display icons from the main social networks and communities, based on Lit.
 
 ## Usage
 

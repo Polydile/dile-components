@@ -1,7 +1,7 @@
 {
   "name": "@dile/dile-date-without-calendar",
   "version": "1.1.0",
-  "description": "Web component that selects a date without a calendar, for an input text field, based on LitElement.",
+  "description": "Web component that selects a date without a calendar, for an input text field, based on Lit.",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

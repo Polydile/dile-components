@@ -2,7 +2,7 @@
 
 This component can be used to display some content or other based on it's property values.
 
-If you comes from Polymer, the short explanation would be "Simple iron-pages adaptation for LitElement".
+If you comes from Polymer, the short explanation would be "Simple iron-pages adaptation for Lit".
 
 This custom element is used to show one of several "pages". The pages are the direct children elements of the component. In brief, this component only shows one of it's children elements, and is able to interchange the active children with a simple animation.
 
