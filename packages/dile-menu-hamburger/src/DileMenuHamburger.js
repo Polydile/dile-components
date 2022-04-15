@@ -29,9 +29,6 @@ export class DileMenuHamburger extends LitElement {
         position: relative;
         z-index: 100020;
       }
-      ::slotted([dile-cloak]) {
-        display: block !important; 
-      }
     `;
   }
 
@@ -44,6 +41,10 @@ export class DileMenuHamburger extends LitElement {
 
   firstUpdated() {
     this.drawer = this.shadowRoot.getElementById('drawer');
+    let menu = this.querySelector('[dile-cloak]');
+    if(menu) {
+      menu.removeAttribute('dile-cloak');
+    }
   }
 
   updated(changedProperties) {

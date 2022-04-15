@@ -58,6 +58,8 @@ If you want to hide the menu before the component's initialization it is possibl
 }
 ```
 
+And then use the ```dile-cloak``` attribute in the menu layer to hide it. On the component`s initialization this attribute will be removed.
+
 ## Customization
 
 You can customize the icons using this CSS Custom properties defined on this components:
