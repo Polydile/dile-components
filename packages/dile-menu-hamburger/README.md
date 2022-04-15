@@ -48,6 +48,16 @@ The component also provides a set of useful methods to controls the component st
 - **dile-menu-hamburger-opened**: dispatched when the menu opens.
 - **dile-menu-hamburger-closed**: dispatched when the menu closes.
 
+## Hide the menu before initialization
+
+If you want to hide the menu before the component's initialization it is possible to use this CSS in your global styles file:
+
+```css
+[dile-cloak] {
+  display: none !important;
+}
+```
+
 ## Customization
 
 You can customize the icons using this CSS Custom properties defined on this components:

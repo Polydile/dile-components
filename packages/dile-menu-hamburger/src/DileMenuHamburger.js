@@ -29,6 +29,9 @@ export class DileMenuHamburger extends LitElement {
         position: relative;
         z-index: 100020;
       }
+      ::slotted([dile-cloak]) {
+        display: block !important; 
+      }
     `;
   }
 
