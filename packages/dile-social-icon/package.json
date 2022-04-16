@@ -3,8 +3,8 @@
   "version": "1.1.1",
   "description": "Web component to create social icons, based on Lit",
   "keywords": [
-    "nav",
-    "feedback",
+    "social networks",
+    "icons",
     "web components",
     "Lit",
     "custom element"
