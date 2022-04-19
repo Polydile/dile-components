@@ -23,7 +23,8 @@ export class DileMenuHamburger extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: inline-block;
+        display: flex;
+        align-items: center;
       }
       :host([hamburgerAlwaysVisible]) dile-hamburger {
         position: relative;
