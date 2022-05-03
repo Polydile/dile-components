@@ -1,4 +1,4 @@
-# dile-toast
+# @dile/dile-toast
 
 Web Component to send feedback to the user, inspired on the Material Design "toast" component.
 

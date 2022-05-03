@@ -1,4 +1,4 @@
-# @dile/dile-menu-hamburger>
+# @dile/dile-menu-hamburger
 
 Full hamburger menú. It combines the hamburger icon and the app drawer components to make a customized menú.
 
