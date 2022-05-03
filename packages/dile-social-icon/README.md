@@ -42,7 +42,7 @@ The icon property accepts the social icons listed bellow:
 - snapchat
 - github
 
-Note that the name of the icons is allways in lowercase.
+Note that the name of the icons is always in lowercase.
 
 ## Custom styles
 

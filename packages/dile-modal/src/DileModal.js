@@ -108,7 +108,7 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           cursor: var(--dile-modal-close-icon-cursor, pointer);
         }
         .contentIconSeparation {
-          padding-top: 10px;
+          padding-top: var(--dile-modal-extra-top-separation-when-icon, 10px);
         }
       `,
     ];

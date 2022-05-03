@@ -23,7 +23,8 @@ export class DileMenuHamburger extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: inline-block;
+        display: flex;
+        align-items: center;
       }
       :host([hamburgerAlwaysVisible]) dile-hamburger {
         position: relative;
@@ -41,6 +42,10 @@ export class DileMenuHamburger extends LitElement {
 
   firstUpdated() {
     this.drawer = this.shadowRoot.getElementById('drawer');
+    let menu = this.querySelector('[dile-cloak]');
+    if(menu) {
+      menu.removeAttribute('dile-cloak');
+    }
   }
 
   updated(changedProperties) {
