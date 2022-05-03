@@ -31,7 +31,7 @@ You can use 2 properties to configure the current active page:
 
 - **selected**: A string to select the active page.
 - **attrForSelected** (optional): A string with the attribute name in the page elements to match with "selected" property.
-- **selectorId** (optional): A property to link this component to a selector interface like dile-tabs or dile-selector. That component also needs to have a selectorId attribute with the same value.
+- **selectorId** (optional): A property to link this component to a selector interface like [dile-tabs](https://github.com/Polydile/dile-components/tree/master/packages/dile-tabs) or [dile-selector](https://github.com/Polydile/dile-components/tree/master/packages/dile-selector). That component also needs to have a selectorId attribute with the same value.
 
 If you don't provide a value to attrForSelected property, "selected" will be matched to the index of the children element (selected=0 corresponds to the first page, selected=1 to the second... )
 
