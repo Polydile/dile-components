@@ -86,11 +86,7 @@ Each component documentation is on the related package folder. For example, the 
 
 5.- **Serve your proyect**
 
-There are many development servers to help you in this area. Our recomendation is to use [es-dev-server](https://open-wc.org/developing/es-dev-server.html).
-
-To use serve your proyect launch this command on your project root folder. 
-
-```npx es-dev-server --node-resolve --watch```
+There are many development servers to help you in this area. Our recomendation is to use [web-dev-server](https://modern-web.dev/docs/dev-server/overview/).
 
 6.- **Enjoy!**
 
