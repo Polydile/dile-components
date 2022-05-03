@@ -53,4 +53,4 @@ import '@dile/dile-input-number-mask/dile-input-number-mask';
 
 This component inherits all the properties, events and styles from @dile/dile-input component. So, you can find more properties in the [dile-input](https://github.com/Polydile/dile-components/tree/master/packages/dile-input) component and also many CSS custom properties to customize the component style.
 
-The main diference between dile-input and dile-input-number-mask is that the text input allways displays a number with the applied mask.
+The main diference between dile-input and dile-input-number-mask is that the text input always displays a number with the applied mask.
