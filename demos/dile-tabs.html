@@ -47,9 +47,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let tabs1 = document.getElementById('tabs1')
-        console.log(tabs1);
         tabs1.addEventListener('dile-selected-changed', function(e) {
-          document.getElementById('msg1').innerText = e.detail
+          document.getElementById('msg1').innerText = e.detail.selected
         });
       })
     </script>
@@ -66,10 +65,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let tabs2 = document.getElementById('tabs2')
-        console.log(tabs2);
         tabs2.addEventListener('dile-selected-changed', function(e) {
-          console.log('aki');
-          document.getElementById('msg2').innerText = e.detail
+          document.getElementById('msg2').innerText = e.detail.selected
         }); 
       })
     </script>
@@ -95,10 +92,9 @@
       document.addEventListener('DOMContentLoaded', function() {
         let tabs3 = document.getElementById('tabs3')
         let select3 = document.getElementById('select3')
-        console.log(tabs3);
         tabs3.addEventListener('dile-selected-changed', function(e) {
-          console.log('aki');
-          select3.value = e.detail;
+          console.log(e.detail);
+          select3.value = e.detail.selected;
         }); 
         select3.addEventListener('change', function(e) {
           console.log(select3, e.target.value);

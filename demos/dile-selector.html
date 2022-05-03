@@ -48,7 +48,8 @@
         let selector1 = document.getElementById('selector1')
         console.log(selector1);
         selector1.addEventListener('dile-selected-changed', function(e) {
-          document.getElementById('msg1').innerText = e.detail
+          console.log(e.detail);
+          document.getElementById('msg1').innerText = e.detail.selected
         });
       })
     </script>
@@ -65,10 +66,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let selector2 = document.getElementById('selector2')
-        console.log(selector2);
         selector2.addEventListener('dile-selected-changed', function(e) {
-          console.log('aki');
-          document.getElementById('msg2').innerText = e.detail
+          document.getElementById('msg2').innerText = e.detail.selected
         }); 
       })
     </script>
@@ -96,8 +95,8 @@
         let select3 = document.getElementById('select3')
         console.log(selector3);
         selector3.addEventListener('dile-selected-changed', function(e) {
-          console.log('aki');
-          select3.value = e.detail;
+          select3.value = e.detail.selected;
+          console.log('this detail', e.detail);
         }); 
         select3.addEventListener('change', function(e) {
           console.log(select3, e.target.value);
