@@ -6,7 +6,8 @@ export class DileInputNumberMask extends DileInput {
 
   static get properties() {
     return {
-      mask: { type: String },      
+      mask: { type: String },
+      maskedValue: { type: String },
     };
   }
 
@@ -17,6 +18,7 @@ export class DileInputNumberMask extends DileInput {
 
   firstUpdated() {
     this.content = '';
+    this.maskedValue = '';
     this.createMaskController(this.mask);
   }
 
@@ -37,7 +39,8 @@ export class DileInputNumberMask extends DileInput {
   }
 
   updateValue() {
-    this.textField.value = this.maskController.maskIt(this.content);
+    this.maskedValue = this.maskController.maskIt(this.content);
+    this.value = this.content.substr(0, this.maskController.getNumberCharactersOnPattern());
   }
 
   render() {
@@ -55,8 +58,7 @@ export class DileInputNumberMask extends DileInput {
         ?disabled="${this.disabled}"
         @keypress="${this._lookForEnter}"
         @keydown="${this.doKeyDown}"
-        @input="${this._input}"
-        .value="${this.value}"
+        .value="${this.maskedValue}"
         class="${ this.errored ? 'errored' : '' }">
     </div>
     `;
