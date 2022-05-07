@@ -1,0 +1,31 @@
+{
+  "name": "@dile/dile-breadcrumbs",
+  "version": "0.0.1",
+  "description": "Webcomponent dile-breadcrumbs to create a custom-styled breadcrumbs element",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "breadcrumbs"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit": "^2.2.1"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}
