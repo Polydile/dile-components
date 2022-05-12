@@ -81,6 +81,14 @@ The mixin offers several properties to customize the the way it shows the overla
 - **close()**: Use it to close the menu overlay box
 - **toggle()**: Toggles the menu-overlay box
 
+**Important note**: the trigger does not opens the menu by itself. You must call the ```open()``` or ```toggle()``` method to open the menu when you need. The trigger is used by default only for positioning the menu overlay.
+
+For example, you can use the the ```toogle()``` method as a click handler on the trigger.
+
+```html
+<span id="trigger" @click=${this.toggle}>This is the trigger</span>
+```
+
 ## Custom events
 
 - **overlay-opened**: dispatched when the overlay opens.
