@@ -1,6 +1,6 @@
-# @dile/dile-slide-down-mixin
+# @dile/dile-overlay-mixin
 
-Mixin to create overlay elements, able to position themselves in a various ways and open or close with a smooth animation.
+Mixin to create overlay elements. It has the functionality to position custom elements in a various ways, and open or close the elements with a smooth animation.
 
 ## Requirements
 
@@ -67,7 +67,7 @@ class NewComponent  extends DileOverlayMixin(LitElement) {
 
 ## Properties
 
-The component offers several properties to configure the way it works.
+The mixin offers several properties to customize the the way it shows the overlay.
 
 - **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "left", "right" or "center". Default to "left".
 - **verticalAlign**: String property to set the vertical position of the menu. Valid values are "bottom", "center" or "top". Default to "bottom".
