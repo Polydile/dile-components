@@ -96,7 +96,9 @@ export const DileOverlayMixin = function(superClass) {
       if(!this._opening) {
         this._opening = true;
         this.updatePosition();
-        this.closeAll();
+        if(this.closeAll) {
+          this.closeAll();
+        };
         this.overlay.style.display = 'block';
         this.cancelDelay();
         this.delayId = setTimeout(() => {
