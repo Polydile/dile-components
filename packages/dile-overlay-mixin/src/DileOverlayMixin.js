@@ -17,6 +17,7 @@ export const DileOverlayMixin = function(superClass) {
          * @type {String}
          */
         _overlayClass: {
+          state: true,
           type: String,
         },
         /**
