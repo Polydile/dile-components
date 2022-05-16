@@ -74,6 +74,15 @@ The mixin offers several properties to customize the the way it shows the overla
 - **moveTop**: Number of pixels to modify the default vertical position of the overlay. Accepts positive (move down) an negative (move up) values. Default 0.
 - **moveLeft**: Number of pixels to modify the default horizontal position of the overlay. Accepts positive (move right) an negative (move left) values. Default 0.
 
+## Overlay state
+
+This mixin also includes a "state" property called "_overlayClass". In order to have the opened/closed state in the overlay layer you should assign the property into the class attribute.
+
+```html
+<div id="overlay" class="${this._overlayClass}">
+  I am the overlay layer
+</div>
+```
 
 ## Methods
 
