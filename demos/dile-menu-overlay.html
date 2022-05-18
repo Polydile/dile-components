@@ -15,10 +15,12 @@
     .content {
       padding: 1rem;
     }
-
+    .right {
+      text-align: right;
+    }
     .centercontent {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
     }
     .styled {
       --dile-menu-overlay-color: #69f;
@@ -37,8 +39,8 @@
     Default menu overlay
     </h2>
 
-    <dile-menu-overlay>
-      <span slot="trigger" class="trigger">Click to open</span>
+    <dile-menu-overlay horizontalAlign="under">
+      <span slot="trigger" class="trigger">Open under</span>
       <div slot="content" class="content">
         <p>Select one:</p>
         <ul>
@@ -48,7 +50,25 @@
         </ul>
       </div>
     </dile-menu-overlay>
-  
+
+    <h2>
+      Vertical align to center and horizontalAlign to left 
+    </h2>
+
+    <div class="right">
+      <dile-menu-overlay horizontalAlign="left" verticalAlign="center" moveLeft="10">
+        <span slot="trigger" class="trigger">Open Left</span>
+        <div slot="content" class="content">
+          <p>Select one:</p>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </div>
+      </dile-menu-overlay>
+    </div>
+
     <h2>Styled menu</h2>
 
     <p>This menu is configured to close the interface when user clicks inside the menu.</p>

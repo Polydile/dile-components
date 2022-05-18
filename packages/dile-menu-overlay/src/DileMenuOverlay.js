@@ -6,7 +6,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block;
         position: relative;
         box-sizing: border-box;
       }

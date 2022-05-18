@@ -43,7 +43,7 @@ export const DileOverlayMixin = function(superClass) {
       this.moveTop = 0;
       this.moveLeft = 0;
       this._overlayClass = '';
-      this.horizontalAlign = 'left';
+      this.horizontalAlign = 'under';
       this.verticalAlign = 'bottom';
       this.delayId = null;
     }
@@ -134,8 +134,11 @@ export const DileOverlayMixin = function(superClass) {
           this.overlay.style.top = (triggerHeight + 10 + moveTop) + 'px';
       }
       switch(this.horizontalAlign) {
+        case 'under':
+          this.setOverlayStyleLeft('0px');
+          break;
         case 'left':
-          this.setOverlayStyleLeft('-' + (overlayWidth - triggerWidth - 25 + moveLeft) + 'px');
+          this.setOverlayStyleLeft('-' + (overlayWidth + moveLeft) + 'px');
           break;
         case 'right':
             this.setOverlayStyleLeft((triggerWidth + moveLeft) + 'px');
@@ -149,11 +152,15 @@ export const DileOverlayMixin = function(superClass) {
     setOverlayStyleLeft(pos) {
       this.overlay.style.left = pos;
       var rect = this.overlay.getBoundingClientRect();
+      let posLeft = parseInt(this.overlay.style.left);
       if (rect.left < 0) {
-        let posLeft = parseInt(this.overlay.style.left);
         this.overlay.style.left = (posLeft - rect.left + 10) + 'px';
       }
-      
+      let pageWidth = document.querySelector('html').clientWidth;
+      if (rect.left + rect.width > pageWidth) {
+        let displacement = posLeft - (rect.right - pageWidth) - 15;  
+        this.overlay.style.left = (displacement ) + 'px';
+      }
     }
   }
 
