@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-menu-overlay",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "Web Component to implement a menu displayed in a overlay layer with a smooth animation",
   "keywords": [
     "menu",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@dile/dile-close-document-click-mixin": "^1.0.0",
-    "@dile/dile-overlay-mixin": "^1.1.3",
+    "@dile/dile-overlay-mixin": "^2.0.0",
     "lit": "^2.2.1"
   }
 }
