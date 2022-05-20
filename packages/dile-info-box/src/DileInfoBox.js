@@ -26,18 +26,20 @@ export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
       .content {
         flex-grow: 1;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        flex-direction: column;
       }
       .info {
         display: flex;
         align-items: center;
-        margin-right: 1rem;
-        --dile-icon-size: 24px;
+        margin-bottom: 0.5rem;
+        --dile-icon-size: 36px;
       }
       main {
         flex-grow: 1;
       }
       .close {
+        padding-top: 0.5rem;
         display: flex;
         align-items: flex-start;
         --dile-icon-color: var(--dile-info-box-close-icon-color, #f33);
@@ -54,13 +56,21 @@ export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
         color: var(--dile-info-box-title-text-color, inherit);
       }
       @media(min-width: 400px) {
+        .content {
+          flex-direction: row;
+          align-items: center;
+        }
         .info {
+          margin: 0 1rem 0 0;
           --dile-icon-size: 28px;
+        }
+        .close {
+          padding-top: 0;
         }
       }
       @media(min-width: 500px) {
         .info {
-          --dile-icon-size: 32px;
+          --dile-icon-size: 36px;
         }
       }
     `];
