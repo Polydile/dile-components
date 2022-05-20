@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { DileSlideDownMixin } from '@dile/dile-slide-down-mixin';
 
-import { closeIcon, infoIcon, iconStyles } from '@dile/dile-icons';
+import { closeIcon, infoIcon, iconStyles } from '@dile/icons';
 
 export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
 
