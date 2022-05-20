@@ -48,7 +48,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-textarea](https://github.com/Polydile/dile-components/tree/master/packages/dile-textarea)      | @dile/dile-textarea      | Customizable textarea element     | [![npm version](https://badge.fury.io/js/@dile%2Fdile-textarea.svg)](https://badge.fury.io/js/@dile%2Fdile-textarea)
 | [dile-toast](https://github.com/Polydile/dile-components/tree/master/packages/dile-toast)         | @dile/dile-toast         | Toast feedback messages           | [![npm version](https://badge.fury.io/js/@dile%2Fdile-toast.svg)](https://badge.fury.io/js/@dile%2Fdile-toast)
 | [dile-tooltip](https://github.com/Polydile/dile-components/tree/master/packages/dile-tooltip)       | @dile/dile-tooltip       | Create tooltip elements           | [![npm version](https://badge.fury.io/js/@dile%2Fdile-tooltip.svg)](https://badge.fury.io/js/@dile%2Fdile-tooltip)       
-| [icons](https://github.com/Polydile/dile-components/tree/master/packages/icons) | @dile/icons | Some utility svg icons to use in dile-components | 
+| [icons](https://github.com/Polydile/dile-components/tree/master/packages/icons) | @dile/icons | Some utility svg icons to use in dile-components | [![npm version](https://badge.fury.io/js/@dile%2Ficons.svg)](https://badge.fury.io/js/@dile%2Ficons)
 
 ## Usage
 

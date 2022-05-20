@@ -1,9 +1,9 @@
-# @dile/dile-icons
+# @dile/icons
 
 This package contains some useful icons.
 
 ```
-import { infoIcon } from '@dile/dile-icons';
+import { infoIcon } from '@dile/icons';
 ```
 
 Yo may use this icon in a Lit template:
@@ -20,7 +20,7 @@ render() {
 To create the icon styles easily you may use the CSS declaration provided in this package.
 
 ```
-import { iconCss } from '@dile/dile-icons';
+import { iconCss } from '@dile/icons';
 ```
 
 You may use the style declaration in Lit:
