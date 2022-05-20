@@ -20,7 +20,7 @@ render() {
 To easy style the icon you may use the CSS declaration provided in this package.
 
 ```
-import { closeIcon, closeIconCss } from 'dile-close-icon-template';
+import { closeIcon, closeIconCss } from '@dile/dile-close-icon-template';
 ```
 
 You may use this style declaration like this:
