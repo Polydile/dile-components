@@ -22,6 +22,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-graph](https://github.com/Polydile/dile-components/tree/master/packages/dile-graph)        | @dile/dile-graph        | Wrapper of Chart.js         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-graph.svg)](https://badge.fury.io/js/@dile%2Fdile-graph)
 | [dile-hamburger](https://github.com/Polydile/dile-components/tree/master/packages/dile-hamburger)    | @dile/dile-hamburger    | Animated hamburger menu icon | [![npm version](https://badge.fury.io/js/@dile%2Fdile-hamburger.svg)](https://badge.fury.io/js/@dile%2Fdile-hamburger)
 | [dile-html-transform](https://github.com/Polydile/dile-components/tree/master/packages/dile-html-transform)   | @dile/dile-html-transform   | Apply breaklines and links on text         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-html-transform.svg)](https://badge.fury.io/js/@dile%2Fdile-html-transform)
+| [dile-info-box](https://github.com/Polydile/dile-components/tree/master/packages/dile-info-box) | @dile/dile-info-box | Styled box for information purposes, with close functionality | [![npm version](https://badge.fury.io/js/@dile%2Fdile-info-box.svg)](https://badge.fury.io/js/@dile%2Fdile-info-box)
 | [dile-input-number-mask](https://github.com/Polydile/dile-components/tree/master/packages/dile-input-number-mask) | @dile/dile-input-number-mask | Customized mask to input elements         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-input-number-mask.svg)](https://badge.fury.io/js/@dile%2Fdile-input-number-mask)
 | [dile-input](https://github.com/Polydile/dile-components/tree/master/packages/dile-input)        | @dile/dile-input        | Customizable input element         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-input.svg)](https://badge.fury.io/js/@dile%2Fdile-input)
 | [dile-menu-hamburger](https://github.com/Polydile/dile-components/tree/master/packages/dile-menu-hamburger) | @dile/dile-menu-hamburger | Complete app menu         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-menu-hamburger.svg)](https://badge.fury.io/js/@dile%2Fdile-menu-hamburger)
@@ -47,7 +48,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-textarea](https://github.com/Polydile/dile-components/tree/master/packages/dile-textarea)      | @dile/dile-textarea      | Customizable textarea element     | [![npm version](https://badge.fury.io/js/@dile%2Fdile-textarea.svg)](https://badge.fury.io/js/@dile%2Fdile-textarea)
 | [dile-toast](https://github.com/Polydile/dile-components/tree/master/packages/dile-toast)         | @dile/dile-toast         | Toast feedback messages           | [![npm version](https://badge.fury.io/js/@dile%2Fdile-toast.svg)](https://badge.fury.io/js/@dile%2Fdile-toast)
 | [dile-tooltip](https://github.com/Polydile/dile-components/tree/master/packages/dile-tooltip)       | @dile/dile-tooltip       | Create tooltip elements           | [![npm version](https://badge.fury.io/js/@dile%2Fdile-tooltip.svg)](https://badge.fury.io/js/@dile%2Fdile-tooltip)       
-
+| [icons](https://github.com/Polydile/dile-components/tree/master/packages/icons) | @dile/icons | Some utility svg icons to use in dile-components | 
 
 ## Usage
 
