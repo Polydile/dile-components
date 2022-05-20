@@ -1,6 +1,6 @@
 {
   "name": "@dile/icons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Some SVG icons to use in web components.",
   "keywords": [
     "close",
