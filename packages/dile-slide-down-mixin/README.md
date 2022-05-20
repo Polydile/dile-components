@@ -24,17 +24,26 @@ To obtain a smooth animation you need to configure the transition on the animate
 
 Install
 
-```
+```bash
 npm install @dile/dile-slide-down-mixin
 ```
 
 Use the mixin
 
-```
+```javascript
 import { LitElement, html, css } from 'lit';
 import { DileSlideDownMixin } from '@dile/dile-slide-down-mixin';
 
 class NewComponent  extends DileSlideDownMixin(LitElement) {
 
+}
+```
+
+In order to close (or show) the element you need to call the mixin methods, sending the layer DOM element.
+
+```javascript
+close() {
+  let elem = this.shadowRoot.getElementById('element');
+  this.slideHide(elem);
 }
 ```
