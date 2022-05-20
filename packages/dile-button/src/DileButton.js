@@ -27,7 +27,7 @@ export class DileButton extends LitElement {
         border-radius: var(--dile-button-border-radius, 2px);
         border-width:  var(--dile-button-border-width, 1px);
         border-color:  var(--dile-button-border-color, #666666);
-        background-color: var(--dile-button-background-color, #f5f5f5);
+        background-color: var(--dile-button-background-color, #f5f5ff);
         transition-property: background-color, color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
@@ -47,8 +47,8 @@ export class DileButton extends LitElement {
 
       :host([disabled]) button {
         cursor: auto;
-        background-color: #ccc;
-        border-color: #aaa;
+        background-color: var(--dile-button-disabled-background-color, #ccc);
+        border-color: var(--dile-button-disabled-text-color, #aaa);
         border-style: none;
       }
       :host([disabled]) button:focus {

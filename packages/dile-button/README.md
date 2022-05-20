@@ -27,11 +27,17 @@ You can customize it using CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-button-checked-color | Checked color for check control | #30a030
---dile-button-unchecked-color | Unchecked color for check control | #ccc
---dile-button-fill-color | Fill color for the check control | #fff
---dile-button-unchecked-fill-color | Checked color for check control when is in unchecked status| #fff
---dile-button-label-color | label regular color | #303030
---dile-button-label-disabled-color | Label color for disabled status | #303030
---dile-button-font-weight | Font weight for te label | normal
---dile-button-size | Checkbox size | 20px
+--dile-button-padding-y | Vertical padding | 0.5rem
+--dile-button-padding-x | Horizontal padding | 0.8rem
+--dile-button-border-radius | Button border radius | 2px
+--dile-button-border-width | Button border width | 1px
+--dile-button-border-color | Button border color | #666666
+--dile-button-background-color | Background color | #f5f5ff
+--dile-button-text-color | Text color | #303030
+--dile-button-font-size | Font size | 1rem
+--dile-button-hover-background-color | Hover background color | #b1ecf7
+--dile-button-hover-text-color | Hover text color | #303030
+--dile-button-ring-color | Ring color on focus state
+--dile-button-ring-offset-width | Ring width on focus state
+--dile-button-disabled-background-color | Disabled background color | #b1ecf7
+--dile-button-disabled-text-color | Disabled text color | #303030
