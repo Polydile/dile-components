@@ -15,6 +15,7 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
     return css`
       :host {
         display: block;
+        cursor: pointer;
       }
       article {
         display: flex;
@@ -46,16 +47,34 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
       .selected .icon svg {
         fill: var(--dile-selector-selected-icon-color, #fff);
       }
+      a {
+        display: block;
+      }
     `;
   }
 
   static get properties() {
     return {
       icon: { type: String },
+      href: { type: String },
     };
   }
 
+  constructor() {
+    super();
+    this.href = '';
+  }
+
   render() {
+    return html`
+      ${this.href == '' 
+        ? this.itemTemplate
+        : html`<a href="${this.href}">${this.itemTemplate}</a>`
+       }
+    `;
+  }
+
+  get itemTemplate() {
     return html`
       <article @click='${this.select}' class="${this.selected ? 'selected' : ''}">
         ${this.icon
@@ -66,8 +85,8 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
       </article>
     `;
   }
-
   iconElement(icon) {
     return icons[icon];
   }
+
 }
