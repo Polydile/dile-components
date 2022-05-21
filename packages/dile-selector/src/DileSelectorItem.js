@@ -49,6 +49,7 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
       }
       a {
         display: block;
+        text-decoration: var(--dile-selector-text-decoration, none);
       }
     `;
   }

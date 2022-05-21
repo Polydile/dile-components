@@ -90,3 +90,4 @@ Custom property | Description | Default
 --dile-selector-icon-color | Defines the icon color | #039be5
 --dile-selector-selected-icon-color | Defines the icon color | #fff
 --dile-selector-icon-size | Icon size | 20px
+--dile-selector-text-decoration | Only for links when using href | none
