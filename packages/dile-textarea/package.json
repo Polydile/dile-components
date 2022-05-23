@@ -28,7 +28,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@lion/textarea": "0.14.0",
+    "@lion/textarea": "0.15.0",
     "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
