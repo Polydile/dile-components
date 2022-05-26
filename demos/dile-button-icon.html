@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-button component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-button-icon/dile-button-icon.js" type="module"></script>
+  <style>
+    .styled {
+      --dile-button-border-color: #0f010f; 
+      --dile-button-background-color: #491449;
+      --dile-button-hover-background-color: #f3c6f3;
+      --dile-button-text-color:  #fff; 
+      --dile-button-hover-text-color:  #000; 
+      --dile-button-font-weight: bold;
+      --dile-button-font-size: 1.4rem;
+      --dile-button-ring-color: #cc5099;
+      --dile-button-ring-offset-width: 2px;
+      --dile-button-border-radius: 2rem;
+      --dile-button-text-transform: uppercase;
+      --dile-icon-color: #fff;
+      --dile-icon-size: 32px;
+      --dile-button-icon-hover-color: rgb(247, 23, 112);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-button-icon component</h1>
+    <div id="buttons"></div>
+
+    <script type="module">
+      import { html, render } from 'lit';
+      import { appsIcon } from "../packages/icons/index.js";
+      import { favoriteIcon } from "../packages/icons/index.js";
+      render(
+            html`
+            <h2>Regular button</h2>
+            <p>
+              <dile-button-icon .icon=${appsIcon}>Control Panel</dile-button-icon>
+            </p>  
+
+            <h2>Styled button</h2>
+            <p>
+              <dile-button-icon .icon=${favoriteIcon} class="styled">Love it</dile-button-icon>
+            </p>  
+
+            <h2>Using a png icon</h2>
+            <p>
+              <dile-button-icon .icon=${html`<img src="./images/loto.png">`}>Yoga practice</dile-button-icon>
+            </p>  
+            `,
+            document.querySelector('#buttons')
+
+
+      );
+    </script>
+
+
+    <footer><a href="index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>
