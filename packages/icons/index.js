@@ -12,6 +12,8 @@ export { cookieIcon } from "./src/cookie.js";
 export { deleteIcon } from "./src/delete.js";
 export { descriptionIcon } from "./src/description.js";
 export { doneIcon } from "./src/done.js";
+export { doubleArrowLeftIcon } from "./src/doubleArrowLeft.js";
+export { doubleArrowRightIcon } from "./src/doubleArrowRight.js";
 export { downloadIcon } from "./src/download.js";
 export { eastIcon } from "./src/east.js";
 export { editIcon } from "./src/edit.js";
