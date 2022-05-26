@@ -24,14 +24,14 @@ render() {
 To create the icon styles easily you may use the CSS declaration provided in this package.
 
 ```javascript
-import { iconCss } from '@dile/icons';
+import { iconStyles } from '@dile/icons';
 ```
 
 Then, you can use the style declaration in your Lit component:
 
 ```javascript
 static get styles() {
-  return [iconCss, css`
+  return [iconStyles, css`
     :host {
         --dile-icon-color: #fce;
       }
