@@ -18,7 +18,7 @@ Import the component.
   import '@dile/dile-button-icon/dile-button-icon.js';
 </script>
 
-The icon is assigned via "icon" property:
+The icon is assigned via ```icon``` property:
 
 ```html
 html`<dile-button-icon .icon="${appsIcon}">Button Label</dile-button-icon>`
@@ -39,7 +39,7 @@ import { closeIcon } from '@dile/icons';
 html`<dile-button-icon .icon="${closeIcon}">Button Label</dile-button-icon>`
 ´´´
 
-But also is possible to use any image or SVG you want.
+Also is possible to use any image or SVG you have.
 
 ´´´javascript
 html`<dile-button-icon .icon=${html`<img src="./images/loto.png">`}>Yoga practice</dile-button-icon>`
