@@ -1,14 +1,18 @@
 # @dile/icons
 
-This package contains some useful icons.
+This package contains some useful icons and a style declaration to customize the size and the icon color.
 
-```
+## Usage
+
+Import the icon you need:
+
+```javascript
 import { infoIcon } from '@dile/icons';
 ```
 
-Yo may use this icon in a Lit template:
+Use the icon in a Lit template:
 
-```
+```javascript
 render() {
   return html`
     // Your component template
@@ -19,13 +23,13 @@ render() {
 
 To create the icon styles easily you may use the CSS declaration provided in this package.
 
-```
+```javascript
 import { iconCss } from '@dile/icons';
 ```
 
-You may use the style declaration in Lit:
+Then, you can use the style declaration in your Lit component:
 
-```
+```javascript
 static get styles() {
   return [iconCss, css`
     :host {
