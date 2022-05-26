@@ -19,6 +19,11 @@ export class DileIcon extends LitElement {
         display: flex;
         align-items: center;
       }
+      path {
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+        transition-property: fill;
+      }
     `];
   }
 

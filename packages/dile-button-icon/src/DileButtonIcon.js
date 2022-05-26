@@ -1,6 +1,6 @@
 import { html, css, LitElement } from "lit";
 import { DileButton } from '@dile/dile-button';
-import { iconStyles } from "@dile/icons";
+import '@dile/dile-icon/dile-icon.js';
 
 export class DileButtonIcon extends DileButton {
   static get properties() {
@@ -12,22 +12,16 @@ export class DileButtonIcon extends DileButton {
   static get styles() {
     return [
       super.styles,
-      iconStyles,
       css`
-        div, span {
+        button {
           display: flex;
           align-items: center;
         }
-        span {
-          margin-right: var(--dile-button-icon-margin-right, 0.3rem);
+        dile-icon {
+          margin-right: var(--dile-button-icon-separation, 0.3rem);
         }
         button:hover {
           --dile-icon-color: var(--dile-button-icon-hover-color, #303030);
-        }
-        path {
-          transition-duration: 0.3s;
-          transition-timing-function: ease-in-out;
-          transition-property: fill;
         }
       `
     ];
@@ -36,10 +30,8 @@ export class DileButtonIcon extends DileButton {
   render() {
     return html`
       <button @click="${this.doClick}">
-        <div>
-          <span>${this.icon}</span>
+          <dile-icon .icon=${this.icon}></dile-icon>
           <slot></slot>
-        </div>
       </button>
     `;
   }

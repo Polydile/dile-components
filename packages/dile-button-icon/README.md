@@ -57,7 +57,7 @@ You can customize it using the same dile-button CSS Custom Properties but also:
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-button-icon-margin-right | Space between the icon and the button text | 0.3rem
+--dile-button-icon-separation | Space between the icon and the button text | 0.3rem
 --dile-icon-size | Icon size | 24px
 --dile-icon-color | Icon color | #888
 --dile-button-icon-hover-color | Icon hover color | #888
