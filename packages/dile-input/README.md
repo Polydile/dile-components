@@ -62,6 +62,8 @@ Custom property | Description | Default
 --dile-input-label-margin-bottom | Label marging bottom | 4px
 --dile-input-background-color | Color for the background input element | #fff
 --dile-input-padding | Padding for the input text | 5px
+--dile-input-color | Input text color | #303030
+--dile-input-placeholder-color | Placeholder color | #ccc
 
 ## Events
 

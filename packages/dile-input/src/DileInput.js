@@ -72,13 +72,14 @@ export class DileInput extends LitElement {
       padding: var(--dile-input-padding, 5px);
       width: var(--dile-input-width, 100%);
       background-color: var(--dile-input-background-color, #fff);
+      color: var(--dile-input-color, #303030);
     }
     input:focus {
       outline: none;
       border-color: var(--dile-input-focus-border-color, #6af)
     }
     input::placeholder {
-      color: #ccc;
+      color: var(--dile-input-placeholder-color, #ccc);
     }
     input:disabled {
       background-color: #f5f5f5;
