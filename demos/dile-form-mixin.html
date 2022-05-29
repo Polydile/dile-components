@@ -28,6 +28,7 @@
     <p>
       <button id="get">Show value in console</button>
       <button id="set">Set data</button>
+      <button id="clear">Clear data</button>
       <button id="reset">Reset data</button>
     </p>
 
@@ -36,36 +37,38 @@
 
   <script type="module">
     import {DileFormMixin } from '../packages/dile-form-mixin/index.js';
-
+    import { DileFormChangeDetectMixin } from '../packages/dile-form-mixin/index.js';
+    import '../packages/dile-input/dile-input.js';
+    import '../packages/dile-checkbox/dile-checkbox.js';
     import { LitElement, html, css } from 'lit';
     
-    class FormExample  extends DileFormMixin(LitElement) {
+    class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
     
       render() {
         return html`
           <p>
-            Name: <input type="text" name="name" value="Polydile" />
+            <dile-input name="name" label="Name" value="Polydile"></dile-input>
           </p>
           <p>  
-            Age: <input type="text" name="age" value="25" />
+            <dile-input name="age" label="Age" value="25"></dile-input>
           </p>
           <p>
-            <select name="sex">
-              <option value="F">Female</option>
-              <option value="M">Male</option>
-            </select>
+            <dile-checkbox name="interested"> I am interested in Polydile</dile-checkbox>
           </p>
-
         `;
       }
     }
     
     customElements.define('form-example', FormExample);
 
+
     document.addEventListener("DOMContentLoaded", function() {
       const form = document.querySelector('form-example');
 
-      console.log(form);
+      form.addEventListener('dile-form-changed', function(e) {
+        console.log('form has changed', e.detail.data);
+      });
+
       document.getElementById('get').addEventListener('click', () => {
         console.log(form);
       
@@ -78,12 +81,16 @@
         form.setData({
           name: 'dile-components',
           age: 33,
-          sex: "M"
+          interested: true
         });
       });
 
-      document.getElementById('reset').addEventListener('click', () => {
+      document.getElementById('clear').addEventListener('click', () => {
         form.clearData();
+      });
+
+      document.getElementById('reset').addEventListener('click', () => {
+        form.resetData();
       });
     })
     

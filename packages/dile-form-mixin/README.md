@@ -1,6 +1,6 @@
 # @dile/dile-form-mixin
 
-Mixin to apply more functionality to forms.
+Mixins to apply more functionality to forms.
 
 ## Usage
 
@@ -10,9 +10,14 @@ Install it:
 npm i @dile/dile-form-mixin
 ```
 
-### Import and extend your class
+Mixins in this package: 
 
-To use it you only need to extend your custom element class with the mixin.
+- DileFormMixin
+- DileFormChangeDetectMixin
+
+## DileFormMixin
+
+To use DileformMixin you only need to extend your custom element class with the mixin.
 
 ```javascript
 import { DileformMixin } from '@dile/dile-form-mixin';
@@ -29,11 +34,17 @@ This mixin apply some methods to the components to recognize and operate whith f
 - The "name" attribute to inform the form that this element is part of the form.
 - The "value" property to get or set the value of the element.
 
+It works with native form elements or custom elements, as long as they have the value property.
 
-Work with native form elements or custom elements, as long as they have the value property.
-
-## Methods
+### Methods
 
 - **getData()** Gets the data object represented by the form elements.
 - **setData(data)** Set the values in the form elements using the data object provided in the argument.
-- **resetData()** Set the values of the form to null
+- **clearData()** Clear the form. Try to call a clear() method on all form elements. If this method does not exists only set the value of the element to "". 
+- **resetData()** Set the form elements to it's initial state.
+
+## DileFormChangeDetectMixin
+
+This mixin detects changes in form and emmit a ```dile-form-changed``` event.
+
+To detect changes the form elements should emmit a ```element-changed```event. for this reason, this mixins only works with custom elements that have this custom event implemented.
