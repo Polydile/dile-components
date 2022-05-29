@@ -74,11 +74,13 @@ export class DileSelect extends LitElement {
     `;
   }
 
-  firstUpdated() {
+  constructor() {
+    super();
     this.elselect = this.querySelector("select");
     if(!this.elselect) {
       console.log('Please provide a select element in the slot "select"');
     } else {
+      this.value = this.elselect.value;
       this.elselect.addEventListener("change", (e) => {
         this.value = e.target.value;
       });
@@ -108,5 +110,9 @@ export class DileSelect extends LitElement {
         value: this.value
       }
     }));
+  }
+
+  clear() {
+    this.value = undefined;
   }
 }
