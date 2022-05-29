@@ -38,6 +38,13 @@ export class DileInput extends LitElement {
           disableAutocomplete: { type: Boolean },
         };
     }
+
+    updated(changedProperties) {
+      if(changedProperties.has('value')) {
+        this.emmitChange();
+      }
+    }
+
     constructor() {
         super();
         this.placeholder = '';
@@ -122,6 +129,17 @@ export class DileInput extends LitElement {
     }
     _input(e) {
         this.value = e.target.value;
+    }
+
+    emmitChange() {
+      this.dispatchEvent(new CustomEvent('element-changed', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          name: this.name,
+          value: this.value
+        }
+      }));
     }
 
 }
