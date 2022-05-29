@@ -40,18 +40,21 @@
     import { DileFormChangeDetectMixin } from '../packages/dile-form-mixin/index.js';
     import '../packages/dile-input/dile-input.js';
     import '../packages/dile-checkbox/dile-checkbox.js';
+    import '../packages/dile-select/dile-select.js';
     import { LitElement, html, css } from 'lit';
     
     class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
     
       render() {
         return html`
-          <p>
-            <dile-input name="name" label="Name" value="Polydile"></dile-input>
-          </p>
-          <p>  
-            <dile-input name="age" label="Age" value="25"></dile-input>
-          </p>
+          <dile-input name="name" label="Name" value="Polydile"></dile-input>
+          <dile-input name="age" label="Age" value="25"></dile-input>
+          <dile-select name="sex" label="Sex">
+            <select slot="select">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </dile-select>
           <p>
             <dile-checkbox name="interested"> I am interested in Polydile</dile-checkbox>
           </p>
@@ -81,7 +84,8 @@
         form.setData({
           name: 'dile-components',
           age: 33,
-          interested: true
+          interested: true,
+          sex: "F"
         });
       });
 
