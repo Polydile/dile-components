@@ -158,4 +158,8 @@ export class DileCheckbox extends LitElement {
         }
     }));
   }
+
+  clear() {
+    this.checked = false;
+  }
 }
