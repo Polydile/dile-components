@@ -86,3 +86,8 @@ inputField.addEventListener('enter-pressed', (e) => {
   console.log('enter-pressed event, value: ', e.target.value);
 });
 ```
+
+### element-changed
+
+The ```element-changed``` event is dispatched when value on the input changes. 
+In the event detail will emmit the element ```name``` and ```value```properties.

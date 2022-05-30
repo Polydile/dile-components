@@ -72,6 +72,21 @@ export class DileCheckbox extends LitElement {
   firstUpdated() {
     this._hasInner = this.innerHTML.trim().length ? true : false;
   }
+
+  get value() {
+    return this.checked;
+  }
+
+  set value(value) {
+    this.checked = value;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has("checked")) {
+      this.emmitChange();
+    }
+  }
+
   render() {
     return html`
       <div @click="${this.doClick}" class="${this.disabled ? "disabled" : ""}">
@@ -130,5 +145,21 @@ export class DileCheckbox extends LitElement {
   
   linkClick(e) {
     e.preventDefault();
+  }
+
+  emmitChange() {
+    this.dispatchEvent( new CustomEvent("element-changed", {
+        bubbles: true,
+        composed: true,
+        detail: {
+          checked: this.checked,
+          value: this.checked,
+          name: this.name,
+        }
+    }));
+  }
+
+  clear() {
+    this.checked = false;
   }
 }
