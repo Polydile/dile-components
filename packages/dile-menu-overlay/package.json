@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-menu-overlay",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Web Component to implement a menu displayed in a overlay layer with a smooth animation",
   "keywords": [
     "menu",
