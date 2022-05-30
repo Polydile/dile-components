@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-input",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Web Component for a customized input text field, based on LitElement",
   "keywords": [
     "input",
@@ -28,8 +28,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit": "^2.2.1",
-    "@dile/dile-form-mixin": "^0.0.2"
+    "@dile/dile-form-mixin": "^0.0.3",
+    "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }
