@@ -54,7 +54,7 @@ export class DileOrderSwitch extends DileEmmitChangeMixin(LitElement) {
     if(changedProperties.has('value')) {
       if(this.value != "asc" && this.value != "desc") {
         this.value = "asc";
-      } else {
+      } else if(changedProperties.get('value')) {
         this.emmitChange();
       }
     }
