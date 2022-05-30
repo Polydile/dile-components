@@ -1,6 +1,7 @@
 import { html, css, LitElement } from "lit";
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
 
-export class DileSelect extends LitElement {
+export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   static get styles() {
     return css`
       :host {
@@ -99,17 +100,6 @@ export class DileSelect extends LitElement {
     if(changedProperties.has("errored")) {
       this.elselect.classList.toggle("errored", this.errored);
     }
-  }
- 
-  emmitChange() {
-    this.dispatchEvent(new CustomEvent('element-changed', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        name: this.name,
-        value: this.value
-      }
-    }));
   }
 
   clear() {
