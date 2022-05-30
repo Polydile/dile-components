@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-order-switch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent dile-order-switch to create a order switch",
   "keywords": [
     "Lit",
