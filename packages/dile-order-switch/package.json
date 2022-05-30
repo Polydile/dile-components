@@ -1,0 +1,35 @@
+{
+  "name": "@dile/dile-order-switch",
+  "version": "0.0.0",
+  "description": "Webcomponent dile-order-switch to create a order switch",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "order",
+    "swich"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit": "^2.2.1",
+    "@dile/dile-icon": "^0.0.4",
+    "@dile/icons": "^0.0.7",
+    "@dile/dile-form-mixin": "^0.0.2"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}
