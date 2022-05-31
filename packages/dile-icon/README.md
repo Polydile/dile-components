@@ -46,6 +46,7 @@ html`<dile-icon .icon=${html`<img src="./images/loto.png">`}></dile-icon>`
 ### Properties
 
 - **icon**: The icon
+- **rounded**: Create a icon background rounded
 
 ### CSS Custom Properties
 
@@ -55,3 +56,4 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-icon-size | Icon size | 24px
 --dile-icon-color | Icon color | #888
+--dile-icon-rounded-background-color | Background color when rounded | #eee

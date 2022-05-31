@@ -12,18 +12,23 @@ export class DileIcon extends LitElement {
     return [
       iconStyles,
       css`
-      :host {
-        display: inline-block;
-      }
-      span {
-        display: flex;
-        align-items: center;
-      }
-      path {
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
-        transition-property: fill;
-      }
+        :host {
+          display: inline-block;
+        }
+        span {
+          display: flex;
+          align-items: center;
+        }
+        path {
+          transition-duration: 0.3s;
+          transition-timing-function: ease-in-out;
+          transition-property: fill;
+        }
+        :host([rounded]) {
+          background-color: var(--dile-icon-rounded-background-color, #eee);
+          border-radius: 50%;
+          padding: 0.5rem;
+        }
     `];
   }
 
