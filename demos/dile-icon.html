@@ -26,7 +26,7 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import { appsIcon, filterIcon, favoriteIcon, searchIcon } from "../packages/icons/index.js";
+      import { appsIcon, filterIcon, favoriteIcon, searchIcon, doubleArrowRightIcon } from "../packages/icons/index.js";
       render(
             html`
             <h2>Regular button</h2>
@@ -37,6 +37,7 @@
             <h2>Styled button</h2>
             <p>
               <dile-icon .icon=${favoriteIcon} class="styled"></dile-icon>
+              <dile-icon .icon=${doubleArrowRightIcon} class="styled"></dile-icon>
             </p>  
 
             <h2>Using a png icon</h2>

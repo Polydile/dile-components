@@ -2,7 +2,7 @@
 import { css } from "lit";
 
 export const iconStyles = css`
-    .dile-icon path {
+    .dile-icon path, .dile-icon polygon {
       fill: var(--dile-icon-color, #888);
     }
     .dile-icon path[fill="none"] {
