@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-order-switch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Webcomponent dile-order-switch to create a order switch",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@dile/dile-form-mixin": "^0.0.3",
-    "@dile/dile-icon": "^0.0.4",
+    "@dile/dile-icon": "^0.0.5",
     "@dile/icons": "^0.0.7",
     "lit": "^2.2.1"
   },

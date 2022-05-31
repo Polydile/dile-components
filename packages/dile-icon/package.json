@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-icon",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Webcomponent dile-icon to create a custom-styled button element, following open-wc recommendations",
   "keywords": [
     "Lit",
