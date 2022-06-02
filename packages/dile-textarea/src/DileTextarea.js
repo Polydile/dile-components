@@ -5,11 +5,14 @@ export class DileTextarea extends LionTextarea {
 
   static get styles() {
     return [super.styles, css`
+      :host {
+        margin-bottom: 10px;
+      }
       ::slotted(label) {
         display: none;
         margin-bottom: var(--dile-textarea-label-margin-bottom, 4px);
         color: var(--dile-textarea-label-color, #59e);
-        font-size: var(--dile-textarea-label-font-size, 1rem);
+        font-size: var(--dile-textarea-label-font-size, 1em);
       }
       :host([label]) ::slotted(label){
         display: inline-block;
