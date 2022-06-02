@@ -23,7 +23,7 @@ export class DileTextarea extends LionTextarea {
         padding: var(--dile-textarea-padding, 5px);
       }
       .input-group__container > .input-group__input ::slotted(textarea.form-control) {
-        font-size: var(--dile-textarea-font-size, 0.9rem);
+        font-size: var(--dile-textarea-font-size, 1em);
         font-family: var(--dile-textarea-font-family, sans-serif);
       }
 
