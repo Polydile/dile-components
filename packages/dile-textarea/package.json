@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-textarea",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web Component for a customized styled textarea field, based on Lit and @lion/textarea",
   "keywords": [
     "textarea",
