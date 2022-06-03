@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-input-search",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Webcomponent dile-input-search to create a search field with some functionality, following open-wc recommendations",
   "keywords": [
     "Lit",
