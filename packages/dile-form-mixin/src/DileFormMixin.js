@@ -47,7 +47,19 @@ export const DileFormMixin = (superclass) => class extends superclass {
     return this.shadowRoot.querySelectorAll('[name]');
   }
 
+  getNodeElement(name) {
+    return this.shadowRoot.querySelector('[name="' + name + '"]');
+  }
+
   resetData() {
     this.setData(this.firstValue);
+  }
+
+  resetField(name) {
+    if(this.firstValue.hasOwnProperty(name)) {
+      let value = this.firstValue[name];
+      let node = this.getNodeElement(name);
+      node.value = value;
+    }
   }
 }
