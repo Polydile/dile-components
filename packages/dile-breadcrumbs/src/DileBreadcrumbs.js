@@ -11,57 +11,81 @@ export class DileBreadcrumbs extends LitElement {
   constructor() {
     super();
     this.items = [];
-    this.separator = '>'
+    this.separator = '/'
   }
 
   static get styles() {
     return css`
       :host {
-        display: inline-block;
+        display: block;
       }
-      ul
-      {
+      ::slotted(dile-breadcrumbs-item.separator) {
+        padding-left: var(--dile-breadcrumbs-separator-width, 0.5rem);
+      }
+      ::slotted(dile-breadcrumbs-item.separator)::before {
+        padding-right: var(--dile-breadcrumbs-separator-width, 0.5rem);
+        font-size: var(--dile-breadcrumbs-font-size, 1rem);
+        color: var(--dile-breadcrumbs-text-color, #303030);
+      }
+      ul {
         padding: 0;
         margin: 0;
       }
       li {
         display: inline;
+        color: var(--dile-breadcrumbs-text-color, #000);
+        font-size: var(--dile-breadcrumbs-font-size, 1rem);
       }
-      .separator
-      {
-        margin-left: var(--dile-breadcrumbs-separator-width, 10px);
-        padding-left: var(--dile-breadcrumbs-separator-width, 10px);
+      .separator {
+        padding-left: var(--dile-breadcrumbs-separator-width, 0.5rem);
       }
       .separator::before {
-        padding-right: var(--dile-breadcrumbs-separator-before-width, 15px);
-        font-size: var(--dile-breadcrumbs-font-size, 25px);
+        padding-right: var(--dile-breadcrumbs-separator-width, 0.5rem);
+        font-size: var(--dile-breadcrumbs-font-size, 1rem);
         color: var(--dile-breadcrumbs-text-color, #000);
       }
       a {
         text-decoration: var(--dile-breadcrumbs-text-decoration, none);
-        color: var(--dile-breadcrumbs-text-color, #000);
-        font-size: var(--dile-breadcrumbs-font-size, 25px);
-      }      
+        color: var(--dile-breadcrumbs-link-color, #39c);
+      }  
     `;
+  }
+
+  firstUpdated() {
+    this.querySelectorAll('dile-breadcrumbs-item').forEach( (item, index) => {
+      if(index > 0) {
+        item.classList.add('separator');
+      }
+    })
   }
 
   render() {
     return html`
       <style>
-        .separator::before {
+        .separator::before,
+        ::slotted(dile-breadcrumbs-item.separator)::before {
           content: "${this.separator}";
         }          
       </style>
-      <ul>
-      ${this.items.map((item, index) => 
-        {
-          return html`<li class="${index != 0 ? 'separator' : ''}">
-                        <a href="${item.url}">${item.text}</a>
-                      </li>`
-        }                      
-      )}                
-      </ul>
+      ${this.items.length > 0
+        ? this.arrayTemplate
+        : html`<slot></slot>`
+      }
     `;
   }
 
+  get arrayTemplate() {
+    return html`
+      <ul>
+        ${this.items.map((item, index) => html`
+            <li class="${ index != 0 ? 'separator' : '' }">
+              ${item.href 
+                ? html`<a href="${ item.href }">${ item.text }</a>`
+                : html`<span>${ item.text }</span>`
+              }
+            </li>`                      
+        )}                
+      </ul>
+    `;
+  }
 }
