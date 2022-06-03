@@ -86,10 +86,7 @@ export class DileInputSearch extends LitElement {
     }
 
     iconClick(e) {
-        if(this.value.length) {
-            this.value = '';
-            this.dispatchSearch(this.value);
-        }
+        this.clear();
         this.input.focus();
     }
 
@@ -101,5 +98,12 @@ export class DileInputSearch extends LitElement {
                 keyword: key
             }
         }));
+    }
+
+    clear() {
+        if(this.value.length) {
+            this.value = '';
+            this.dispatchSearch(this.value);
+        }
     }
 }
