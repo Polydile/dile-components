@@ -1,0 +1,49 @@
+# @dile/dile-datepicker
+
+Web Component to create a input date form element with a datepicker, based on the lion-calendar component and dile-input element.
+
+This is a work in progress. The @lion calendar has more options not implemented yet.
+
+## Installation
+```bash
+npm i @dile/dile-datepicker
+```
+
+## Usage
+```html
+<script type="module">
+  import '@dile/dile-datepicker/dile-datepicker.js';
+</script>
+
+<dile-datepicker name="date" label="date"></dile-datepicker>
+```
+
+### Properties
+
+All the dile-input properties. In addition:
+
+- **firstDayOfWeek**: the first day of the week. 0 is sunday, 1 is monday.
+
+### CSS Custom Properties
+
+For dile-datepicker:
+
+Is possible to use the most of the custom properties documented on dile-input, dile-icon, dile-menu-overlay.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-datepicker-font-size | Font size for the calendar | 0.9rem
+--dile-datepicker-trigger-color | Color for the icon | #39c
+--dile-datepicker-trigger-disabled-color | Color for the icon on disabled state | #ccc
+
+For dile-datepicker and dile-calendar component: 
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-calendar-day-background-color | Common days background | rgba(90, 90, 90, 0.08)
+--dile-calendar-day-text-color | Common days text color | #303030
+--dile-calendar-day-border-radius | Days border radius | 2px
+--dile-calendar-today-background-color | Color customization for today | rgba(90, 90, 90, 0.20)
+--dile-calendar-out-day-text-color | Color customization for days that aren't in the current month | #777
+--dile-calendar-nav-buttons-color | Color for the links to previous/next month and year | #303030
+

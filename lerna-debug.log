@@ -6,15 +6,15 @@
 1 notice cli v4.0.0
 2 verbose rootPath /Users/midesweb/sites/polydile/dile-components
 3 info versioning independent
-4 error JSONError: Unexpected token "}" (0x7D) in JSON at position 749 while parsing near "... \"^2.2.1\",\n    \"\"\n  },\n  \"gitHead\": \"d37..." in packages/dile-tabs/package.json
+4 error JSONError: Unexpected token "}" (0x7D) in JSON at position 1021 while parsing near "...verlay\": \"2.0.2\",\n  },\n  \"gitHead\": \"d37..." in packages/dile-datepicker/package.json
 4 error
-4 error [0m [90m 29 |[39m     [32m"lit"[39m[33m:[39m [32m"^2.2.1"[39m[33m,[39m[0m
-4 error [0m [90m 30 |[39m     [32m""[39m[0m
-4 error [0m[31m[1m>[22m[39m[90m 31 |[39m   }[33m,[39m[0m
+4 error [0m [90m 35 |[39m     [32m"@dile/icons"[39m[33m:[39m [32m"0.0.8"[39m[33m,[39m[0m
+4 error [0m [90m 36 |[39m     [32m"@dile/dile-menu-overlay"[39m[33m:[39m [32m"2.0.2"[39m[33m,[39m[0m
+4 error [0m[31m[1m>[22m[39m[90m 37 |[39m   }[33m,[39m[0m
 4 error [0m [90m    |[39m   [31m[1m^[22m[39m[0m
-4 error [0m [90m 32 |[39m   [32m"gitHead"[39m[33m:[39m [32m"d37f796d41a1c2735ec34168c7990a816079404b"[39m[0m
-4 error [0m [90m 33 |[39m }[0m
-4 error [0m [90m 34 |[39m[0m
+4 error [0m [90m 38 |[39m   [32m"gitHead"[39m[33m:[39m [32m"d37f796d41a1c2735ec34168c7990a816079404b"[39m[0m
+4 error [0m [90m 39 |[39m }[0m
+4 error [0m [90m 40 |[39m[0m
 4 error
 4 error     at parseJson (/Users/midesweb/sites/polydile/dile-components/node_modules/parse-json/index.js:29:21)
 4 error     at parse (/Users/midesweb/sites/polydile/dile-components/node_modules/load-json-file/index.js:15:9)
