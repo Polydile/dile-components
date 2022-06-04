@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "lit": "^2.2.1",
-    "@lion/input-datepicker": "0.26.0",
     "@lion/localize": "0.25.0",
     "@lion/calendar": "0.20.0",
     "@dile/dile-input": "1.3.3",
