@@ -18,13 +18,13 @@ npm i @dile/dile-datepicker
 <dile-datepicker name="date" label="date"></dile-datepicker>
 ```
 
-### Properties
+## Properties
 
 All the dile-input properties. In addition:
 
 - **firstDayOfWeek**: the first day of the week. 0 is sunday, 1 is monday.
 
-### CSS Custom Properties
+## CSS Custom Properties
 
 For dile-datepicker:
 
@@ -47,3 +47,16 @@ Custom property | Description | Default
 --dile-calendar-out-day-text-color | Color customization for days that aren't in the current month | #777
 --dile-calendar-nav-buttons-color | Color for the links to previous/next month and year | #303030
 
+## Localization
+
+The component is localized automaticaly to the lang declared on the HTML tag:
+
+```html
+<html lang="en">
+```
+
+Supports many languages, for example:
+
+```html
+<html lang="es">
+```
