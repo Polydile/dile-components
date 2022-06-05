@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="../packages/dile-modal/dile-modal.js" type="module"></script>
+  <script src="../packages/dile-datepicker/dile-datepicker.js" type="module"></script>
   <style>
 
     .myModalCustomized {
@@ -29,6 +30,10 @@
     }
     .myModalCursor {
       --dile-modal-close-icon-cursor: move;
+    }
+    #elmodal5 {
+      --dile-modal-width: 100vw;
+      --dile-modal-height: 100vh;
     }
 
   </style>
@@ -60,11 +65,18 @@
       <p>Event you click outside, the modal do not closes</p>
       <p>Pariatur vero impedit repudiandae labore mod!</p>
     </dile-modal>
+
+    <dile-modal class="modalbox" id="elmodal5" showCloseIcon>
+      <h2>Modal with an overlay</h2>
+      <p>This modal box has a overlay element</p>
+      <p><dile-datepicker name="date" label="Date only for demo purpouses"></dile-datepicker></p>
+    </dile-modal>
   
     <button id="modalregular">Open regular modal</button>
     <button id="modalstyled">Open styled modal</button>
     <button id="modalcursor">Open cursor modal</button>
     <button id="modalblocking">Open blocking modal</button>
+    <button id="modaloverlay">Open modal with other overlay element inside</button>
     
     <script>
 
@@ -73,6 +85,7 @@
         let modal2 = document.getElementById("elmodal2");
         let modal3 = document.getElementById("elmodal3");
         let modal4 = document.getElementById("elmodal4");
+        let modal5 = document.getElementById("elmodal5");
         document.getElementById("modalregular").addEventListener("click", function() {
           modal1.open();
         });
@@ -85,6 +98,9 @@
         document.getElementById("modalblocking").addEventListener("click", function () {
           modal4.open();
         });
+        document.getElementById("modaloverlay").addEventListener("click", function () {
+          modal5.open();
+        });       
 
         document.querySelectorAll('.modalbox').forEach( modal => {
           modal.addEventListener('dile-modal-closed', function(e) {
