@@ -166,7 +166,6 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           detail: this,
         })
       );
-      e.stopPropagation();
     }
   }
 
