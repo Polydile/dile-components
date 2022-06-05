@@ -36,7 +36,7 @@ export class DileDatepicker extends DileInput {
       }
       span {
         display: flex;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.2rem;
       }
       @media(min-width: 350px) {
         dile-menu-overlay {
