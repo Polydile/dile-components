@@ -34,6 +34,10 @@ export class DileDatepicker extends DileInput {
       dile-icon.trigger-disabled {
         --dile-icon-color: var(--dile-datepicker-trigger-disabled-color, #ccc);
       }
+      span {
+        display: flex;
+        margin-bottom: 0.4rem;
+      }
       @media(min-width: 350px) {
         dile-menu-overlay {
           --dile-menu-overlay-width: 340px;

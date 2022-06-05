@@ -32,7 +32,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
         transform: translateY(0);
       }
       #trigger {
-        display: inline-block;
+        display: flex;
       }
     `;
   }
