@@ -28,13 +28,15 @@ All the dile-input properties. In addition:
 
 For dile-datepicker:
 
-Is possible to use the most of the custom properties documented on dile-input, dile-icon, dile-menu-overlay.
+Is possible to use the most of the custom properties documented on dile-input, dile-menu-overlay.
 
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-datepicker-font-size | Font size for the calendar | 0.9rem
 --dile-datepicker-trigger-color | Color for the icon | #39c
+--dile-datepicker-trigger-size | Size for the icon | 36px
 --dile-datepicker-trigger-disabled-color | Color for the icon on disabled state | #ccc
+--dile-datepicker-trigger-margin-bottom | Space bottom for the icon | 0.2em
 
 For dile-datepicker and dile-calendar component: 
 

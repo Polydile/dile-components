@@ -20,7 +20,7 @@ export class DileDatepicker extends DileInput {
       }
       dile-icon {
         cursor: pointer;
-        --dile-icon-size: 32px;
+        --dile-icon-size: var(--dile-datepicker-trigger-size, 36px);
       }
       dile-calendar {
         font-size: var(--dile-datepicker-font-size, 0.9rem); 
@@ -36,7 +36,7 @@ export class DileDatepicker extends DileInput {
       }
       span {
         display: flex;
-        margin-bottom: 0.2rem;
+        margin-bottom: var(--dile-datepicker-trigger-margin-bottom, 0.2em);
       }
       @media(min-width: 350px) {
         dile-menu-overlay {
