@@ -74,7 +74,7 @@ export class DileDatepicker extends DileInput {
           ${this.disabled 
             ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
             : html`
-              <dile-menu-overlay>
+              <dile-menu-overlay id="menu">
                 <dile-icon .icon="${calendarIcon}" slot="trigger"></dile-icon>
                 <div slot="content" class="calendar">
                   <dile-calendar 
@@ -94,5 +94,6 @@ export class DileDatepicker extends DileInput {
   showDate(e) {
     let date = formatDate(e.detail.selectedDate);
     this.value = date;
+    this.shadowRoot.getElementById('menu').close();
   }  
 }
