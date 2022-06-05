@@ -120,6 +120,7 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
         class="${this.getModalClass(this.opened, this._toChange)}"
         @click="${this._backgroundModalClick}"
         @transitionend="${this.animationEnd}"
+        id="backgroundmodal"
       >
         <div class="content" @click="${this.contentClick}">
           ${this.showCloseIcon
@@ -157,7 +158,7 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
   }
 
   _backgroundModalClick(e) {
-    if (!this.blocking) {
+    if (!this.blocking && e.target && e.target.getAttribute("id") === "backgroundmodal") {
       this.close();
       this.dispatchEvent(
         new CustomEvent("dile-modal-background-closed", {
@@ -166,7 +167,6 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           detail: this,
         })
       );
-      e.stopPropagation();
     }
   }
 
@@ -186,7 +186,5 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
     this._toChange = false;
   }
 
-  contentClick(e) {
-    e.stopPropagation();
-  }
+  
 }

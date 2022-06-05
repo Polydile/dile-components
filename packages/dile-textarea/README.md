@@ -47,10 +47,10 @@ Use the component
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-textarea-label-color | Label text color | #59e
---dile-textarea-label-font-size | Label font size | 1rem
+--dile-textarea-label-font-size | Label font size | 1em
 --dile-textarea-border | Textarea box border | 1px solid #888
 --dile-textarea-border-radius | Textarea element border radius | 5px
---dile-textarea-font-size | Input element font size | 0.9rem
+--dile-textarea-font-size | Input element font size | 1em
 --dile-textarea-padding | Padding for the textarea element | 5px
 --dile-textarea-font-family | Textarea element font family | sans-serif
 --dile-textarea-label-margin-bottom | Label marging bottom | 4px

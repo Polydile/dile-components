@@ -9,11 +9,10 @@
   <script src="../packages/dile-breadcrumbs/dile-breadcrumbs.js" type="module"></script>
   <style>
     .styled {
-      --dile-breadcrumbs-separator-width: 5px; 
-      --dile-breadcrumbs-separator-before-width: 7px;
+      --dile-breadcrumbs-separator-width: 1rem; 
       --dile-breadcrumbs-text-decoration: underline;
-      --dile-breadcrumbs-text-color:  #cc5099;
-      --dile-breadcrumbs-font-size: 18px;
+      --dile-breadcrumbs-link-color:  #cc5099;
+      --dile-breadcrumbs-font-size: 1.3rem;
     }
   </style>
 </head>
@@ -23,13 +22,21 @@
     
     <h2>Regular breadcrumbs</h2>
     <p>
-      <dile-breadcrumbs items='[{"text": "Home", "url": "index.html"},{"text": "News", "url": "news.html"}]'></dile-breadcrumbs>
+      <dile-breadcrumbs>
+        <dile-breadcrumbs-item href="/">Home</dile-breadcrumbs-item>
+        <dile-breadcrumbs-item href="/news">News</dile-breadcrumbs-item>
+        <dile-breadcrumbs-item>Lit course launched</dile-breadcrumbs-item>
+      </dile-breadcrumbs>
+    </p>
+
+    <p>
+      <dile-breadcrumbs items='[{"text": "Home", "href": "index.html"},{"text": "News", "href": "news.html"}]'></dile-breadcrumbs>
     </p>
 
     <h2>Styled breadcrumbs</h2>
     <p>
       <dile-breadcrumbs
-        items='[{"text": "Home", "url": "index.html"},{"text": "Websites", "url": "mywebsite.html"},{"text": "My website", "url": "mywebsite.html"}]'
+        items='[{"text": "Home", "href": "index.html"},{"text": "Websites", "href": "mywebsite.html"},{"text": "My website"}]'
         separator="»"
         class="styled"
       ></dile-breadcrumbs>

@@ -4,7 +4,7 @@ Dile components is a collection of Web Components created and maintained by @Esc
 
 This components are created to solve common purpouses in websites and web applications. Each compoment has many of CSS custom properties to adapt the component look & feel to your neeeds. 
 
-## Packages
+## Components
 
 | Component / Mixin | Package name | Short description | npm version
 | ------------- | ------------- | ------------- | ------------- |
@@ -19,6 +19,8 @@ This components are created to solve common purpouses in websites and web applic
 | [DileCloseOnEscPressed](https://github.com/Polydile/dile-components/tree/master/packages/dile-close-on-esc-pressed-mixin)     | @dile/dile-close-on-esc-pressed-mixin     | Mixin to close element when esc key is pressed            | [![npm version](https://badge.fury.io/js/@dile%2Fdile-close-on-esc-pressed-mixin.svg)](https://badge.fury.io/js/@dile%2Fdile-close-on-esc-pressed-mixin)
 | [dile-confirm](https://github.com/Polydile/dile-components/tree/master/packages/dile-confirm)      | @dile/dile-confirm      | Modal confirm/cancel actions  | [![npm version](https://badge.fury.io/js/@dile%2Fdile-confirm.svg)](https://badge.fury.io/js/@dile%2Fdile-confirm)
 | [dile-countdown-time](https://github.com/Polydile/dile-components/tree/master/packages/dile-countdown-time)     | @dile/dile-countdown-time     | Countdown hours, minutes and seconds to a date-time            | [![npm version](https://badge.fury.io/js/@dile%2Fdile-countdown-time.svg)](https://badge.fury.io/js/@dile%2Fdile-countdown-time)
+| [dile-datepicker](https://github.com/Polydile/dile-components/tree/master/packages/dile-datepicker)     | @dile/dile-datepicker     | Input element to introduce a date with a calendar | [![npm version](https://badge.fury.io/js/@dile%2Fdile-datepicker.svg)](https://badge.fury.io/js/@dile%2Fdile-datepicker)
+| [dile-calendar](https://github.com/Polydile/dile-components/tree/master/packages/dile-datepicker)     | @dile/dile-datepicker     | Accesible calendar with styles | 
 | [dile-date-without-calendar](https://github.com/Polydile/dile-components/tree/master/packages/dile-date-without-calendar)     | @dile/dile-date-without-calendar     | Input element to introduce a date            | [![npm version](https://badge.fury.io/js/@dile%2Fdile-date-without-calendar.svg)](https://badge.fury.io/js/@dile%2Fdile-date-without-calendar)
 | [DileFormMixin](https://github.com/Polydile/dile-components/tree/master/packages/dile-form-mixin) | @dile/dile-form-mixin | Introduces some functionality to forms | [![npm version](https://badge.fury.io/js/@dile%2Fdile-form-mixin.svg)](https://badge.fury.io/js/@dile%2Fdile-form-mixin)
 | [dile-graph](https://github.com/Polydile/dile-components/tree/master/packages/dile-graph)        | @dile/dile-graph        | Wrapper of Chart.js         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-graph.svg)](https://badge.fury.io/js/@dile%2Fdile-graph)
@@ -33,6 +35,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-message](https://github.com/Polydile/dile-components/tree/master/packages/dile-message)      | @dile/dile-message      | Display a message with a close icon | [![npm version](https://badge.fury.io/js/@dile%2Fdile-message.svg)](https://badge.fury.io/js/@dile%2Fdile-message)
 | [dile-modal](https://github.com/Polydile/dile-components/tree/master/packages/dile-modal)        | @dile/dile-modal        | Customizable modal box interface    | [![npm version](https://badge.fury.io/js/@dile%2Fdile-modal.svg)](https://badge.fury.io/js/@dile%2Fdile-modal)
 | [dile-nav](https://github.com/Polydile/dile-components/tree/master/packages/dile-nav)          | @dile/dile-nav          | Nav var                             | [![npm version](https://badge.fury.io/js/@dile%2Fdile-nav.svg)](https://badge.fury.io/js/@dile%2Fdile-nav)
+| [dile-order-switch](https://github.com/Polydile/dile-components/tree/master/packages/dile-order-switch)  | @dile/dile-order-switch          | Change order interface  | [![npm version](https://badge.fury.io/js/@dile%2Fdile-order-switch.svg)](https://badge.fury.io/js/@dile%2Fdile-order-switch)
 | [DileOverlayMixin](https://github.com/Polydile/dile-components/tree/master/packages/dile-overlay-mixin) | @dile/dile-overlay-mixin | Mixin to create overlay elements easily | [![npm version](https://badge.fury.io/js/@dile%2Fdile-slide-down-mixin.svg)](https://badge.fury.io/js/@dile%2Fdile-slide-down-mixin)
 | [dile-pages](https://github.com/Polydile/dile-components/tree/master/packages/dile-pages)         | @dile/dile-pages         | Display one content or other      | [![npm version](https://badge.fury.io/js/@dile%2Fdile-pages.svg)](https://badge.fury.io/js/@dile%2Fdile-pages)
 | [dile-password](https://github.com/Polydile/dile-components/tree/master/packages/dile-password)      | @dile/dile-password      | Customizable input password element | [![npm version](https://badge.fury.io/js/@dile%2Fdile-password.svg)](https://badge.fury.io/js/@dile%2Fdile-password)

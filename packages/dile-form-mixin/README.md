@@ -48,3 +48,9 @@ It works with native form elements or custom elements, as long as they have the 
 This mixin detects changes in form and emmit a ```dile-form-changed``` event when it occurs.
 
 To detect changes the form elements should emmit a ```element-changed```event. for this reason, this mixins only works with custom elements that have this custom event implemented.
+
+Also, for this mixin do its work depends on the DileFormMixin, so you need to implement both mixins.
+
+´´´javascript
+export class FctCrudFilters extends DileFormChangeDetectMixin(DileFormMixin(LitElement)) {
+```

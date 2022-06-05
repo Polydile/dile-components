@@ -50,7 +50,8 @@ export class DileButton extends LitElement {
       :host([disabled]) button {
         cursor: auto;
         background-color: var(--dile-button-disabled-background-color, #ccc);
-        border-color: var(--dile-button-disabled-text-color, #aaa);
+        color: var(--dile-button-disabled-text-color, #999);
+        border-color: var(--dile-button-disabled-border-color, #aaa);
         border-style: none;
       }
       :host([disabled]) button:focus {

@@ -1,4 +1,4 @@
-# @dile/dile-button
+# @dile/dile-breadcrumbs
 
 Web Component to create a customized breadcrumbs.
 
@@ -8,27 +8,52 @@ npm i @dile/dile-breadcrumbs
 ```
 
 ## Usage
+
+Import the component.
+
 ```html
 <script type="module">
-  import '@dile/dile-button/dile-breadcrumbs.js';
+  import '@dile/dile-breadcrumbs/dile-breadcrumbs.js';
 </script>
-
-<dile-breadcrumbs items='[{"text": "Home", "url": "index.html"},{"text": "News", "url": "news.html"}]'></dile-breadcrumbs>
 ```
 
-### Properties
+You can use the component in two ways:
 
-- **items**: object array, where each item define the 'url' and the 'text'.
+1. Use it with providing a items array
+
+```html
+<dile-breadcrumbs items='[{"text": "Home", "href": "index.html"},{"text": "News", "href": "news.html"}]'></dile-breadcrumbs>
+```
+
+2. Use it providing simple HTML markdown
+
+```html
+<dile-breadcrumbs>
+  <dile-breadcrumbs-item href="/">Home</dile-breadcrumbs-item>
+  <dile-breadcrumbs-item href="/news">News</dile-breadcrumbs-item>
+  <dile-breadcrumbs-item>Lit course launched</dile-breadcrumbs-item>
+</dile-breadcrumbs>
+```
+
+## Properties
+
+### dile-breadcrumbs
+
 - **separator**: The character or string that separate each item
+- **items**: object array, where each item define the 'href' and the 'text' if you are using the ```items``` array, then the markup of the component with ```<dile-breadcrumbs-item>``` is ignored.
 
-### CSS Custom Properties
+### dile-breadcrumbs-item
+
+- **href**: Optional href for the links
+
+## CSS Custom Properties
 
 You can customize it using CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-breadcrumbs-separator-width | Checked color for check control | 10px; 
---dile-breadcrumbs-separator-before-width | Checked color for check control | 15px;
---dile-breadcrumbs-text-decoration | Checked color for check control | none;
---dile-breadcrumbs-text-color | Checked color for check control |  #000;
---dile-breadcrumbs-font-size | Checked color for check control | 25px;
+--dile-breadcrumbs-separator-width | Space between the separator and the text |  0.5rem 
+--dile-breadcrumbs-text-decoration | Text decoration for the links | none
+--dile-breadcrumbs-text-color | Text color for the separator and items that hasn't got links |  #303030
+--dile-breadcrumbs-font-size | Checked color for check control | 1rem
+--dile-breadcrumbs-link-color | Color for the links | #39c

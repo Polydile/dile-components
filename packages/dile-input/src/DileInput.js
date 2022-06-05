@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
 
-export class DileInput extends LitElement {
+export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
     /**
      * Fired when user press enter key.
@@ -129,17 +130,6 @@ export class DileInput extends LitElement {
     }
     _input(e) {
         this.value = e.target.value;
-    }
-
-    emmitChange() {
-      this.dispatchEvent(new CustomEvent('element-changed', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          name: this.name,
-          value: this.value
-        }
-      }));
     }
 
 }

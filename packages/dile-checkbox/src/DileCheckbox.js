@@ -1,6 +1,7 @@
 import { html, css, LitElement } from "lit";
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
 
-export class DileCheckbox extends LitElement {
+export class DileCheckbox extends DileEmmitChangeMixin(LitElement) {
   static get properties() {
     return {
       checked: { type: Boolean },
@@ -145,18 +146,6 @@ export class DileCheckbox extends LitElement {
   
   linkClick(e) {
     e.preventDefault();
-  }
-
-  emmitChange() {
-    this.dispatchEvent( new CustomEvent("element-changed", {
-        bubbles: true,
-        composed: true,
-        detail: {
-          checked: this.checked,
-          value: this.checked,
-          name: this.name,
-        }
-    }));
   }
 
   clear() {
