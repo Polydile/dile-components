@@ -4,7 +4,7 @@ Dile components is a collection of Web Components created and maintained by @Esc
 
 This components are created to solve common purpouses in websites and web applications. Each compoment has many of CSS custom properties to adapt the component look & feel to your neeeds. 
 
-## Packages
+## Components
 
 | Component / Mixin | Package name | Short description | npm version
 | ------------- | ------------- | ------------- | ------------- |
@@ -20,6 +20,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-confirm](https://github.com/Polydile/dile-components/tree/master/packages/dile-confirm)      | @dile/dile-confirm      | Modal confirm/cancel actions  | [![npm version](https://badge.fury.io/js/@dile%2Fdile-confirm.svg)](https://badge.fury.io/js/@dile%2Fdile-confirm)
 | [dile-countdown-time](https://github.com/Polydile/dile-components/tree/master/packages/dile-countdown-time)     | @dile/dile-countdown-time     | Countdown hours, minutes and seconds to a date-time            | [![npm version](https://badge.fury.io/js/@dile%2Fdile-countdown-time.svg)](https://badge.fury.io/js/@dile%2Fdile-countdown-time)
 | [dile-datepicker](https://github.com/Polydile/dile-components/tree/master/packages/dile-datepicker)     | @dile/dile-datepicker     | Input element to introduce a date with a calendar | [![npm version](https://badge.fury.io/js/@dile%2Fdile-datepicker.svg)](https://badge.fury.io/js/@dile%2Fdile-datepicker)
+| [dile-calendar](https://github.com/Polydile/dile-components/tree/master/packages/dile-datepicker)     | @dile/dile-datepicker     | Accesible calendar with styles | 
 | [dile-date-without-calendar](https://github.com/Polydile/dile-components/tree/master/packages/dile-date-without-calendar)     | @dile/dile-date-without-calendar     | Input element to introduce a date            | [![npm version](https://badge.fury.io/js/@dile%2Fdile-date-without-calendar.svg)](https://badge.fury.io/js/@dile%2Fdile-date-without-calendar)
 | [DileFormMixin](https://github.com/Polydile/dile-components/tree/master/packages/dile-form-mixin) | @dile/dile-form-mixin | Introduces some functionality to forms | [![npm version](https://badge.fury.io/js/@dile%2Fdile-form-mixin.svg)](https://badge.fury.io/js/@dile%2Fdile-form-mixin)
 | [dile-graph](https://github.com/Polydile/dile-components/tree/master/packages/dile-graph)        | @dile/dile-graph        | Wrapper of Chart.js         | [![npm version](https://badge.fury.io/js/@dile%2Fdile-graph.svg)](https://badge.fury.io/js/@dile%2Fdile-graph)
