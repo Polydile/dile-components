@@ -273,7 +273,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
       //console.log('Siiiiiii tengo resultadata property');
       this.data = json[this.resultDataProperty];
     }
-    this.loading = false;
+    this.updateComplete.then( () => this.loading = false )
   }
 
   doSelected(e) {
