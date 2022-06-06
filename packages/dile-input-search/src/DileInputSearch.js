@@ -37,6 +37,9 @@ export class DileInputSearch extends LitElement {
             :host([disabled]) {
                 opacity: 0.5;
             }
+            .errored {
+                border-color: var(--dile-input-error-border-color, #c00);
+            }
         `
     ];
 
@@ -46,6 +49,8 @@ export class DileInputSearch extends LitElement {
         placeholder: { type: String },
         value: { type: String },
         disabled: { type: Boolean },
+        readOnly: { type: Boolean },
+        errored: { type: Boolean },
       };
     }
 
@@ -54,6 +59,8 @@ export class DileInputSearch extends LitElement {
         this.delay = 300;
         this.timeout = null;
         this.value = '';
+        this.readOnly = false;
+        this.errored = false;
     }
 
     firstUpdated() {
@@ -62,7 +69,7 @@ export class DileInputSearch extends LitElement {
 
     render() {
         return html`
-        <div>
+        <div class="${this.errored ? "errored" : ""}">
             <input 
                 id="elinput"
                 type="text" 
@@ -71,6 +78,7 @@ export class DileInputSearch extends LitElement {
                 autocomplete="off"
                 .value="${this.value}"
                 ?disabled="${this.disabled}"
+                ?readonly="${this.readOnly}"
             >
             <dile-icon 
               @click=${this.iconClick}
@@ -105,10 +113,22 @@ export class DileInputSearch extends LitElement {
         }));
     }
 
+    dispatchClear() {
+        this.dispatchEvent(new CustomEvent('dile-input-search-cleared', {
+            bubbles: true,
+            composed: true,
+        }));
+    }
+
     clear() {
         if(this.value.length) {
             this.value = '';
             this.dispatchSearch(this.value);
+            this.dispatchClear();
         }
+    }
+
+    focus() {
+        this.input.focus();
     }
 }
