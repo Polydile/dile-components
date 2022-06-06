@@ -29,7 +29,14 @@ export const DileFormMixin = (superclass) => class extends superclass {
 
   setData(data) {
     this.allNodeElements.forEach(node => {
-      node.value = data[node.getAttribute('name')];
+      if(data[node.getAttribute('name')]) {
+        if (typeof node.set === "function") {
+          node.set(data[node.getAttribute('name')]);
+        } else {
+          node.value = data[node.getAttribute('name')];
+        }
+
+      }
     });
   }
 
