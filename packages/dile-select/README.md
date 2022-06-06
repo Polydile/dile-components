@@ -1,4 +1,4 @@
-# @dile/dile-select
+# dile-select & dile-select-ajax
 
 This component uses the native ```<select>``` element to create a dropdown select interface.
 
@@ -7,7 +7,7 @@ The diferences between the native ```<select>``` are:
 - Accept a binding on value property
 - Dispatch a "change" event on changes witch has "bubbles" and "compose" configuration
 - Has some styles and can be styled with custom properties
-- Can be created a label
+- It is possible to create a label
 
 ## Installation
 
@@ -15,7 +15,7 @@ The diferences between the native ```<select>``` are:
 npm i @dile/dile-select
 ```
 
-## Usage
+## dile-select Usage
 
 Import the component.
 
@@ -83,3 +83,20 @@ When ```--dile-input-background-color``` is configured to a dark color the compo
 </dile-select>
 ```
 
+## dile-select-ajax usage
+
+This component has the hability to search in a configurable JSON API resource to show select options of that resource.
+
+Make server calls using Ajax tho the endpoint configured by attribute.
+
+```html
+<dile-select-ajax 
+  name="post_id"
+  label="Post"
+  displayProperty="title" 
+  endpoint="https://jsonplaceholder.typicode.com/posts"
+  delay="500"
+></dile-select-ajax>
+```
+
+This component is not documented yet.

@@ -75,9 +75,12 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
     `;
   }
 
+  get elselect() {
+    return this.querySelector("select");
+  }
+
   constructor() {
     super();
-    this.elselect = this.querySelector("select");
     if(!this.elselect) {
       console.log('Please provide a select element in the slot "select"');
     } else {
@@ -104,5 +107,14 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
 
   clear() {
     this.value = undefined;
+  }
+
+  getOptionByValue(id) {
+    let options = this.elselect.options;
+    for(let i = 0; i < options.length; i++) {
+      if(options[i].value === id) {
+        return options[i];
+      }
+    }
   }
 }

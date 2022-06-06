@@ -16,6 +16,9 @@
       --eit-graph-width: 500px;
       --eit-graph-heigth: 500px;
     }
+    p {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -42,11 +45,22 @@
     import '../packages/dile-input/dile-input.js';
     import '../packages/dile-checkbox/dile-checkbox.js';
     import '../packages/dile-select/dile-select.js';
+    import '../packages/dile-select/dile-select-ajax.js';
     import '../packages/dile-textarea/dile-textarea.js';
     import { LitElement, html, css } from 'lit';
     
     class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
-    
+      static get styles() {
+        return css`
+          :host {
+            display: block;
+            
+          }
+          p {
+            margin: 0 0 10px 0;
+          }
+        `;
+      }
       render() {
         return html`
           <dile-input name="name" label="Name" value="Polydile"></dile-input>
@@ -61,6 +75,8 @@
           <p>
             <dile-checkbox name="interested"> I am interested in Polydile</dile-checkbox>
           </p>
+          <dile-select-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
+          <dile-input name="company" label="Company"></dile-input>
         `;
       }
     }
@@ -88,7 +104,9 @@
           name: 'dile-components',
           age: 33,
           interested: true,
-          sex: "F"
+          sex: "F",
+          company: "Acme",
+          album: 7
         });
       });
 
@@ -103,6 +121,10 @@
       document.getElementById('resetsex').addEventListener('click', () => {
         form.resetField('sex');
       });
+
+      // document.querySelector('form-example').addEventListener('element-changed', (e) => {
+      //   console.log('element-changed', e.detail);
+      // })
     })
     
     
