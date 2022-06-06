@@ -34,6 +34,9 @@ export class DileInputSearch extends LitElement {
                 margin-left: 1px;
                 display: flex;
             }
+            :host([disabled]) {
+                opacity: 0.5;
+            }
         `
     ];
 
@@ -41,7 +44,8 @@ export class DileInputSearch extends LitElement {
       return {
         delay: { type: Number },
         placeholder: { type: String },
-        value: { type: String }
+        value: { type: String },
+        disabled: { type: Boolean },
       };
     }
 
@@ -66,6 +70,7 @@ export class DileInputSearch extends LitElement {
                 @input=${this.inputHandler}
                 autocomplete="off"
                 .value="${this.value}"
+                ?disabled="${this.disabled}"
             >
             <dile-icon 
               @click=${this.iconClick}

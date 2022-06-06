@@ -24,6 +24,7 @@ npm i @dile/dile-input-search
 - **delay**: Miliseconds the component waits between when a keystroke occurs and when a search keyword is emitted.
 - **placeholder**: Placeholder text
 - **keyword**: the text typed into the input search component
+- **disabled**: The component is disabled
 
 ## Custom events
 
