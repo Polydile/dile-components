@@ -138,13 +138,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
   }
   
   registerText(json) {
-    if(this.resultDataProperty === undefined || this.resultDataProperty === '') {
-      //console.log('NOoooo tengo resultadata property');
-      this.selectedText = json[this.displayProperty]; 
-    } else {
-      //console.log('Siiiiiii tengo resultadata property');
-      this.selectedText = json[this.resultDataProperty][this.displayProperty];
-    }
+    this.selectedText = json[this.displayProperty]; 
     this.loading = false;
   }
 
