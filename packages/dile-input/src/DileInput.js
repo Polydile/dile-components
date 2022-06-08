@@ -40,6 +40,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
           /** Disable the autocomplete of the input field */
           disableAutocomplete: { type: Boolean },
+
+          /** ReadOnly attribute */
+          readonly: { type: Boolean },
         };
     }
 
@@ -116,11 +119,13 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               name="${this.name}"
               placeholder="${this.placeholder}"
               ?disabled="${this.disabled}"
+              ?readonly="${this.readonly}"
               autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-              @keypress="${this._lookForEnter}"
-              @input="${this._input}"
               .value="${this.value}"
               class="${this.errored ? "errored" : ""}"
+              @keypress="${this._lookForEnter}"
+              @input="${this._input}"
+              @blur="${this.doBlur}"
             />
           </div>
         `;
@@ -143,5 +148,13 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
             return type;
         }
         return 'text';
+    }
+
+    get el() {
+        return this.shadowRoot.querySelector('input');
+    }
+
+    doBlur() {
+      //
     }
 }
