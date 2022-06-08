@@ -20,6 +20,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
           /** Label to the element */
           label: { type: String },
 
+          /** Input type */
+          type: { type: String },
+
           /** Set a placeholder to the input element */
           placeholder: { type: String },
 
@@ -54,6 +57,8 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         this.disabled = false;
         this.disableAutocomplete = false;
         this.name = '';
+        this.type = 'text';
+        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];
     }
     static get styles() {
         return css`
@@ -105,7 +110,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               ? html`<label for="textField">${this.label}</label>`
               : ""}
             <input
-              type="text"
+              type="${this.availableType(this.type)}"
               id="textField"
               name="${this.name}"
               placeholder="${this.placeholder}"
@@ -132,4 +137,10 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         this.value = e.target.value;
     }
 
+    availableType(type) {
+        if(this.types.includes(type)) {
+            return type;
+        }
+        return 'text';
+    }
 }

@@ -37,6 +37,7 @@ Use the component
 
 - **name**: the name of the input element. This is usefull to distinguish the related element in an input event listener.
 - **label**: the element label
+- **type**: the input type
 - **value**: defines the text inside the input element
 - **placeholder**: Defines the texts present in the input element when is empty
 - **disabled**: on true, the element is disabled
