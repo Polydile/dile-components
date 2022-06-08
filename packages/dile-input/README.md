@@ -65,6 +65,7 @@ Custom property | Description | Default
 --dile-input-padding | Padding for the input text | 5px
 --dile-input-color | Input text color | #303030
 --dile-input-placeholder-color | Placeholder color | #ccc
+--dile-input-text-align | Input text align | left
 
 ## Events
 
