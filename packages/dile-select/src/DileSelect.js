@@ -23,7 +23,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
         width: var(--dile-input-width, 100%);
         padding: var(--dile-input-padding,  7px 5px);
         line-height: var(--dile-input-line-height, 1.5em);
-        font-size: var(--dile-input-font-size, 1em);
+        font-size: var(--dile-select-font-size, 0.875em);
         border-radius: var(--dile-input-border-radius, 5px);
         border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
         background-color: var(--dile-input-background-color, #fff);

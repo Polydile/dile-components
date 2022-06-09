@@ -55,6 +55,7 @@ You can customize the selector using the CSS custom properties bellow.
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-select-font-size | Select element font size | 0.875em
 --dile-input-label-font-size | Font size for the label | 1em
 --dile-input-label-color | Color for the label text | #59e
 --dile-input-label-font-weight | Label text font weight | normal
@@ -65,7 +66,6 @@ Custom property | Description | Default
 --dile-input-border-radius | Select element border radius | 5px
 --dile-input-padding | Padding for the select | 5px
 --dile-input-color | Input text color | #303030
---dile-input-font-size | Select element font size | 1em
 --dile-input-background-color | Color for the background select element | #fff
 --dile-input-focus-border-color | Input element border on focus | #6af
 --dile-input-error-border-color | Input element border on errored property = true | #c00
