@@ -46,6 +46,10 @@ export class DileInputMoney extends DileInput {
         }
     }
 
+    doFormat() {
+        this.value = this.formatMoney(this.value);
+    }
+
     updated(changedProperties) { }
 
     formatMoney(num) {
