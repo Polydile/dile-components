@@ -125,7 +125,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               ?disabled="${this.disabled}"
               ?readonly="${this.readonly}"
               autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-              .value="${this.value}"
+              .value="${this.computeValue(this.value)}"
               class="${this.errored ? "errored" : ""}"
               @keypress="${this._lookForEnter}"
               @input="${this._input}"
@@ -167,5 +167,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
       if(this.selectOnFocus) {
         this.el.select();
       }
+    }
+
+    computeValue(value) {
+      return value;
     }
 }

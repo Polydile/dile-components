@@ -40,7 +40,7 @@ export class DileInputMoney extends DileInput {
             num = this.formatMoney(num);
         }
         if(num != e.target.value || this.changed) {
-            this.el.value = num;
+            this.value = num;
             this.emmitChange();
             this.changed = false;
         }
@@ -54,7 +54,7 @@ export class DileInputMoney extends DileInput {
         if(isNaN(num)) {
             return '0.00';
         } else {
-            return num.toFixed(2).replace('.', this.decimalSeparator);
+            return num.toFixed(2);
         }
     }
 
@@ -62,5 +62,10 @@ export class DileInputMoney extends DileInput {
         if(changedProperties.has('value') && this.value) {
             this.changed = true;
         }
+    }
+
+    computeValue(value) {
+        console.log('computevalue', value);
+        return value.replace('.', this.decimalSeparator);
     }
 }
