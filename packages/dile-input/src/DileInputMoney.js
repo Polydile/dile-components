@@ -69,7 +69,6 @@ export class DileInputMoney extends DileInput {
     }
 
     computeValue(value) {
-        console.log('computevalue', value);
         return value.replace('.', this.decimalSeparator);
     }
 }
