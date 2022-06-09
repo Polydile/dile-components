@@ -39,8 +39,14 @@ export class DileInputMoney extends DileInput {
         if(num.length > 0) {
             num = this.formatMoney(num);
         }
-        this.el.value = num;
+        if(num != e.target.value || this.changed) {
+            this.el.value = num;
+            this.emmitChange();
+            this.changed = false;
+        }
     }
+
+    updated(changedProperties) { }
 
     formatMoney(num) {
         num = num.replace(this.decimalSeparator, '.');
@@ -49,6 +55,12 @@ export class DileInputMoney extends DileInput {
             return '0.00';
         } else {
             return num.toFixed(2).replace('.', this.decimalSeparator);
+        }
+    }
+
+    updated(changedProperties) { 
+        if(changedProperties.has('value') && this.value) {
+            this.changed = true;
         }
     }
 }

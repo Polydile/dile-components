@@ -43,6 +43,8 @@
     import {DileFormMixin } from '../packages/dile-form-mixin/index.js';
     import { DileFormChangeDetectMixin } from '../packages/dile-form-mixin/index.js';
     import '../packages/dile-input/dile-input.js';
+    import '../packages/dile-input/dile-input-money.js';
+    import '../packages/dile-input/dile-input-integer.js';
     import '../packages/dile-checkbox/dile-checkbox.js';
     import '../packages/dile-select/dile-select.js';
     import '../packages/dile-select/dile-select-ajax.js';
@@ -75,7 +77,9 @@
           <p>
             <dile-checkbox name="interested"> I am interested in Polydile</dile-checkbox>
           </p>
-          <dile-select-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
+          <dile-input-money name="price" label="Price"></dile-input-money>
+          <dile-input-integer name="quantity" label="Quantity"></dile-input-integer>
+          <dileQuantity-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
           <dile-input name="company" label="Company"></dile-input>
         `;
       }

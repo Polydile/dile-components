@@ -13,17 +13,32 @@ export class DileInputInteger extends DileInput {
             }
         `
     ];
+
+    constructor() {
+        super();
+        this.changed = false;
+    }
     
     doBlur(e) {
         let num = e.target.value;
         if(num.length > 0) {
             num = this.formatInteger(num);
         }
-        this.el.value = num;
+        if(num != e.target.value || this.changed) {
+            this.el.value = num;
+            this.emmitChange();
+            this.changed = false;
+        }
     }
 
     formatInteger(num) {
         num = parseInt(num);
         return isNaN(num) ? '0' : num;
+    }
+
+    updated(changedProperties) { 
+        if(changedProperties.has('value') && this.value) {
+            this.changed = true;
+        }
     }
 }
