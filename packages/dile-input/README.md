@@ -43,6 +43,7 @@ Use the component
 - **disabled**: on true, the element is disabled
 - **errored**: on true, the element is marked as error
 - **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
+- **selectOnFocus**: allways select the content of the input on focus
 
 ## Styling
 

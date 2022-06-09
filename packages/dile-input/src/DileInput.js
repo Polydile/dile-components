@@ -43,6 +43,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
           /** ReadOnly attribute */
           readonly: { type: Boolean },
+
+          /** Select all content on focus */
+          selectOnFocus: { type: Boolean },
         };
     }
 
@@ -62,6 +65,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         this.name = '';
         this.type = 'text';
         this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];
+        
     }
     static get styles() {
         return css`
@@ -126,6 +130,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               @keypress="${this._lookForEnter}"
               @input="${this._input}"
               @blur="${this.doBlur}"
+              @focus="${this.doFocus}"
             />
           </div>
         `;
@@ -156,5 +161,11 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
     doBlur() {
       //
+    }
+
+    doFocus() {
+      if(this.selectOnFocus) {
+        this.el.select();
+      }
     }
 }
