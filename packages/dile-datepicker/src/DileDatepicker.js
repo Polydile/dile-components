@@ -26,7 +26,7 @@ export class DileDatepicker extends DileInput {
         font-size: var(--dile-datepicker-font-size, 0.9rem); 
       }
       dile-menu-overlay {
-        --dile-menu-overlay-width: 300px;
+        --dile-menu-overlay-width: var(--dile-datepicker-width, 280px);
       }
       dile-icon {
         --dile-icon-color: var(--dile-datepicker-trigger-color, #39c);
@@ -40,21 +40,20 @@ export class DileDatepicker extends DileInput {
       }
       @media(min-width: 350px) {
         dile-menu-overlay {
-          --dile-menu-overlay-width: 340px;
-          --dile-menu-overlay-max-width: 340px;
+          --dile-menu-overlay-width: var(--dile-datepicker-width, 300px);
+          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 300px);
         } 
       }
-      @media(min-width: 400px) {
+      @media(min-width: 450px) {
         dile-menu-overlay {
-          --dile-menu-overlay-width: 380px;
-          --dile-menu-overlay-max-width: 380px;
+          --dile-menu-overlay-width: var(--dile-datepicker-width, 320px);
+          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 320px);
         } 
       }
       @media(min-width: 500px) {
         dile-menu-overlay {
-          --dile-menu-overlay-width: 450px;
-          --dile-menu-overlay-max-width: 450px;
-
+          --dile-menu-overlay-width: var(--dile-datepicker-width, 350px);
+          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 350px);
         } 
       }
     `];

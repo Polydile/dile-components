@@ -41,6 +41,7 @@ Custom property | Description | Default
 --dile-datepicker-trigger-size | Size for the icon | 36px
 --dile-datepicker-trigger-disabled-color | Color for the icon on disabled state | #ccc
 --dile-datepicker-trigger-margin-bottom | Space bottom for the icon | 0.2em
+--dile-datepicker-width | calendar width | Depends on the window size (responsive) from 280px to 350px
 
 For dile-datepicker and dile-calendar component: 
 
