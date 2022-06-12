@@ -65,6 +65,8 @@ export class DileDatepicker extends DileInput {
       firstDayOfWeek: { type: Number },
       horizontalAlign: { type: String },
       verticalAlign: { type: String },
+      moveTop: { type: Number },
+      moveLeft: { type: Number },
     };
   }
 
@@ -73,6 +75,8 @@ export class DileDatepicker extends DileInput {
     this.firstDayOfWeek = 0;
     this.horizontalAlign = 'left';
     this.verticalAlign = 'center';
+    this.moveTop = 0;
+    this.moveLeft = 0;
   }
 
 
@@ -86,7 +90,7 @@ export class DileDatepicker extends DileInput {
           ${this.disabled 
             ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
             : html`
-              <dile-menu-overlay verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
+              <dile-menu-overlay moveTop="${this.moveTop}" moveLeft="${this.moveLeft}" verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
                 <dile-icon .icon="${calendarIcon}" slot="trigger"></dile-icon>
                 <div slot="content" class="calendar">
                   <dile-calendar 
