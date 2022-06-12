@@ -23,6 +23,8 @@ npm i @dile/dile-datepicker
 All the dile-input properties. In addition:
 
 - **firstDayOfWeek**: the first day of the week. 0 is sunday, 1 is monday.
+- **horizontalAlign**: the horizontal position of the overlay, default "center" (see dile-menu-overlay component)
+- **verticalAlign**: the horizontal position of the overlay, default "left" (see dile-menu-overlay component)
 
 ## CSS Custom Properties
 
