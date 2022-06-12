@@ -72,7 +72,7 @@ export class DileDatepicker extends DileInput {
   constructor() {
     super();
     this.firstDayOfWeek = 0;
-    this.horizontalAlign = 'left';
+    this.horizontalAlign = 'under_right';
     this.verticalAlign = 'center';
     this.moveTop = 0;
     this.moveLeft = 0;
