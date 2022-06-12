@@ -69,7 +69,7 @@ class NewComponent  extends DileOverlayMixin(LitElement) {
 
 The mixin offers several properties to customize the the way it shows the overlay.
 
-- **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "left", "right" or "center". Default to "left".
+- **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "under_left", "under_right", "left", "right" or "center". Default to "under_left".
 - **verticalAlign**: String property to set the vertical position of the menu. Valid values are "bottom", "center" or "top". Default to "bottom".
 - **moveTop**: Number of pixels to modify the default vertical position of the overlay. Accepts positive (move down) an negative (move up) values. Default 0.
 - **moveLeft**: Number of pixels to modify the default horizontal position of the overlay. Accepts positive (move right) an negative (move left) values. Default 0.

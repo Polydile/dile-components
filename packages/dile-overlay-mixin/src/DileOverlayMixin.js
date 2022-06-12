@@ -43,7 +43,7 @@ export const DileOverlayMixin = function(superClass) {
       this.moveTop = 0;
       this.moveLeft = 0;
       this._overlayClass = '';
-      this.horizontalAlign = 'under';
+      this.horizontalAlign = 'under_left';
       this.verticalAlign = 'bottom';
       this.delayId = null;
     }
@@ -134,9 +134,12 @@ export const DileOverlayMixin = function(superClass) {
           this.overlay.style.top = (triggerHeight + 10 + moveTop) + 'px';
       }
       switch(this.horizontalAlign) {
-        case 'under':
+        case 'under_left':
           this.setOverlayStyleLeft('0px');
           break;
+          case 'under_right':
+            this.setOverlayStyleLeft(`-${overlayWidth - triggerWidth}px`);
+            break;
         case 'left':
           this.setOverlayStyleLeft('-' + (overlayWidth + moveLeft) + 'px');
           break;

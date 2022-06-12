@@ -29,6 +29,12 @@
       --dile-menu-overlay-width: 200px;
       --dile-menu-overlay-box-shadow: 2px 2px 16px rgb(77, 22, 77);
     }
+
+    .underright {
+      border: 4px solid red;
+      --dile-menu-overlay-width: 400px;
+      --dile-menu-overlay-max-width: 400px;
+    }
   </style>
 </head>
 <body>
@@ -100,6 +106,22 @@
       </dile-menu-overlay>
     </div>
     
+    <h2>Using under_right position</h2>
+    <div style="text-align: center;">
+      <dile-menu-overlay class="underright" horizontalAlign="under_right" moveTop="-10" verticalAlign="bottom">
+        <span slot="trigger" class="trigger">Click to open</span>
+        <div slot="content" class="content">
+          <p>Select one:</p>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam maxime eos a possimus cupiditate delectus enim itaque quia doloribus necessitatibus, fuga adipisci? Beatae delectus eos commodi nihil. Minus, tenetur alias!</p>
+        </div>
+      </dile-menu-overlay>
+    </div>
+
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>
