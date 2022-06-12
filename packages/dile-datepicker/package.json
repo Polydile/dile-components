@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-datepicker",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Webcomponent dile-datepicker to create a custom-styled datepicker element, following open-wc recommendations",
   "keywords": [
     "Lit",
