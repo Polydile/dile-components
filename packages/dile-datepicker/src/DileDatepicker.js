@@ -46,14 +46,12 @@ export class DileDatepicker extends DileInput {
       }
       @media(min-width: 400px) {
         dile-menu-overlay {
-          --dile-menu-overlay-padding: 0.5rem;
           --dile-menu-overlay-width: 380px;
           --dile-menu-overlay-max-width: 380px;
         } 
       }
       @media(min-width: 500px) {
         dile-menu-overlay {
-          --dile-menu-overlay-padding: 1rem;
           --dile-menu-overlay-width: 450px;
           --dile-menu-overlay-max-width: 450px;
 
