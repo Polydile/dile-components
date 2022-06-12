@@ -27,20 +27,20 @@ export class DileCalendar extends LionCalendar {
                 }
                 @media(min-width: 350px) {
                     .calendar__day-button {
-                        min-width: 28px;
-                        min-height: 28px;
+                        min-width: var(--dile-calendar-day-size, 28px);
+                        min-height: var(--dile-calendar-day-size, 28px);
                     }
                 }
                 @media(min-width: 400px) {
                     .calendar__day-button {
-                        min-width: 32px;
-                        min-height: 32px;
+                        min-width: var(--dile-calendar-day-size, 32px);
+                        min-height: var(--dile-calendar-day-size, 32px);
                     } 
                 }
                 @media(min-width: 500px) {
                     .calendar__day-button {
-                        min-width: 40px;
-                        min-height: 40px;
+                        min-width: var(--dile-calendar-day-size, 36px);
+                        min-height: var(--dile-calendar-day-size, 36px);
                     } 
                 }
             `

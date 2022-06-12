@@ -48,6 +48,7 @@ Custom property | Description | Default
 --dile-calendar-today-background-color | Color customization for today | rgba(90, 90, 90, 0.20)
 --dile-calendar-out-day-text-color | Color customization for days that aren't in the current month | #777
 --dile-calendar-nav-buttons-color | Color for the links to previous/next month and year | #303030
+--dile-calendar-day-size | Size of the calendar day square | Depends on the window size (responsive) from 28px to 36px 
 
 ## Localization
 
