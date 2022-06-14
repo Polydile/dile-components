@@ -46,6 +46,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
           /** Select all content on focus */
           selectOnFocus: { type: Boolean },
+
+          /** Message Displayed */
+          message: { type: String },
         };
     }
 
@@ -64,9 +67,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         this.disableAutocomplete = false;
         this.name = '';
         this.type = 'text';
-        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];
-        
+        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];     
     }
+
     static get styles() {
         return css`
     * {
@@ -109,6 +112,16 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     .errored {
       border-color: var(--dile-input-error-border-color, #c00);
     }
+    .message span {
+      display: block;
+      padding-top: var(--dile-input-message-padding-top, 4px);
+      font-size: var(--dile-input-message-font-size, 0.875em);
+      color: var(--dile-input-message-color, #888);
+
+    }
+    .errored-msg span {
+      color: var(--dile-input-message-error-color, #c00);
+    }
     `;
     }
     render() {
@@ -126,15 +139,20 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               ?readonly="${this.readonly}"
               autocomplete="${this.disableAutocomplete ? "off" : "on"}"
               .value="${this.computeValue(this.value)}"
-              class="${this.errored ? "errored" : ""}"
+              class="${this.errored ? 'errored' : ''}"
               @keypress="${this._lookForEnter}"
               @input="${this._input}"
               @blur="${this.doBlur}"
               @focus="${this.doFocus}"
             />
+            ${this.message 
+              ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+              : ''
+            }
           </div>
         `;
     }
+
     /**
      * Private method to dispatch events on enter key pressed
      */

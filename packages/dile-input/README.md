@@ -41,9 +41,11 @@ Use the component
 - **value**: defines the text inside the input element
 - **placeholder**: Defines the texts present in the input element when is empty
 - **disabled**: on true, the element is disabled
+- **readonly**: on true, is not editable
 - **errored**: on true, the element is marked as error
 - **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
 - **selectOnFocus**: allways select the content of the input on focus
+- **message**: optionaly, the input can display a message
 
 ## Styling
 
@@ -67,6 +69,10 @@ Custom property | Description | Default
 --dile-input-color | Input text color | #303030
 --dile-input-placeholder-color | Placeholder color | #ccc
 --dile-input-text-align | Input text align | left
+--dile-input-message-padding-top | Space from input to message | 4px
+--dile-input-message-font-size | Message font size | 0.875em
+--dile-input-message-color | Message text color | #888
+--dile-input-message-error-color | Message text color on errored state | #c00
 
 ## Events
 
