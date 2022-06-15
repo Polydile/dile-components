@@ -17,12 +17,12 @@ Mixins in this package:
 
 ## DileFormMixin
 
-To use DileformMixin you only need to extend your custom element class with the mixin.
+To use DileFormMixin you only need to extend your custom element class with the mixin.
 
 ```javascript
 import { DileformMixin } from '@dile/dile-form-mixin';
 
-class MyElement extends DileformMixin(HTMLElement) {
+class MyElement extends DileFormMixin(HTMLElement) {
   // your custom element code...
 }
 ```
