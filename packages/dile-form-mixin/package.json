@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-form-mixin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mixin apply functionality to form components.",
   "keywords": [
     "form",
