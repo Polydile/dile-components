@@ -43,6 +43,7 @@ export class DileRadioGroup extends DileEmmitChangeMixin(LitElement) {
     if(changedProperties.has('value') && this.init) {
       this.doSelection(this.value);
       this.emmitChange();
+      this.dispatchChangeEvent();
     }
   }
 
@@ -88,4 +89,14 @@ export class DileRadioGroup extends DileEmmitChangeMixin(LitElement) {
     }
   }
 
+  dispatchChangeEvent() {
+    this.dispatchEvent(new CustomEvent('dile-radio-group-changed', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        name: this.name,
+        value: this.value
+      }
+    }));
+  }
 }
