@@ -6,6 +6,29 @@ export class DileCalendar extends LionCalendar {
         return [
             super.styles,
             css`
+                .calendar__navigation {
+                    display: flex;
+                    justify-content: var(--dile-calendar-navigation-justify-content, space-between);
+                    align-items: center;
+                    margin-top: 0.4rem;
+                }
+                 .calendar__navigation button {
+                    min-height: auto;
+                    min-width: 30px;
+                 }
+                .calendar__navigation h2 {
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    min-height: auto;
+                    font-size: 0.9rem;
+                    
+                }
+                @media(min-width: 400px) {
+                    .calendar__navigation h2 {
+                        font-size: var(--dile-calendar-navigation-text-size, 1.1rem);
+                    }
+                }
                 .calendar__day-button {
                     min-width: 26px;
                     min-height: 26px;

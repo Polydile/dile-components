@@ -54,6 +54,8 @@ Custom property | Description | Default
 --dile-calendar-out-day-text-color | Color customization for days that aren't in the current month | #777
 --dile-calendar-nav-buttons-color | Color for the links to previous/next month and year | #303030
 --dile-calendar-day-size | Size of the calendar day square | Depends on the window size (responsive) from 28px to 36px 
+--dile-calendar-navigation-justify-content | Year and month navigation justify content on a flex container | space-between
+--dile-calendar-navigation-text-size | Year and month navigation font size when window size is more than 400px | 1.1rem
 
 ## Localization
 
