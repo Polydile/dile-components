@@ -68,7 +68,7 @@ Custom property | Description | Default
 --dile-input-label-font-weight | Label text font weight | normal
 --dile-input-label-margin-bottom | Label marging bottom | 4px
 --dile-radio-disabled-icon-color | Color for the icon when it is disabled | #ccc
---dile-radio-space-between-label-and-icon, 0.4rem
+--dile-radio-space-between-label-and-icon | Separation label on radios | 0.4rem
 --dile-radio-icon-size | Radio icon size | 1.2rem
 --dile-radio-icon-color | Radio icon color | #303030
 --dile-radio-label-font-size | Radio label text size | 1rem
