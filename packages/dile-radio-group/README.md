@@ -37,7 +37,7 @@ npm i @dile/dile-radio-group
 
 ### For dile-radio-group component
 
-- **selected**: Boolena, true if its selected
+- **selected**: Boolean, true if its selected
 - **label**: label for the radio element
 - **value**: value for this radio element
 
