@@ -35,6 +35,10 @@ export class DileInputPercentage extends DileInput {
         }
     }
 
+    doFormat() {
+        this.value = this.formatFloat(this.value);
+    }
+
     formatFloat(num) {
         num = num.replace(this.decimalSeparator, '.');
         num = parseFloat(num);
