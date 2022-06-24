@@ -25,15 +25,6 @@ export class DileInputMoney extends DileInput {
         this.decimalSeparator = '.';
     }
 
-    // updated(changedProperties) {
-    //     if (changedProperties.has('value') && this.value) {
-    //         this.value = this.currencyFormat(this.value);        
-    //     }
-    //     super.updated(changedProperties);
-    // }
-
-
-    
     doBlur(e) {
         let num = e.target.value;
         if(num.length > 0) {
@@ -49,8 +40,6 @@ export class DileInputMoney extends DileInput {
     doFormat() {
         this.value = this.formatMoney(this.value);
     }
-
-    updated(changedProperties) { }
 
     formatMoney(num) {
         num = num.replace(this.decimalSeparator, '.');
