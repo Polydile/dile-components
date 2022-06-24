@@ -19,7 +19,6 @@ export class DileInputPercentage extends DileInput {
 
     constructor() {
         super();
-        this.changed = false;
         this.labelRight = '%';
         this.decimalSeparator = '.';
     }
@@ -30,7 +29,7 @@ export class DileInputPercentage extends DileInput {
             num = this.formatFloat(num);
         }
         if(num != e.target.value || this.changed) {
-            this.el.value = num;
+            this.value = num;
             this.emmitChange();
             this.changed = false;
         }
@@ -39,12 +38,16 @@ export class DileInputPercentage extends DileInput {
     formatFloat(num) {
         num = num.replace(this.decimalSeparator, '.');
         num = parseFloat(num);
-        return isNaN(num) ? '0' : num.toString().replace('.', this.decimalSeparator);
+        return isNaN(num) ? '0' : num;
     }
 
     updated(changedProperties) { 
         if(changedProperties.has('value') && this.value) {
             this.changed = true;
         }
+    }
+
+    computeValue(value) {
+        return value.toString().replace('.', this.decimalSeparator);
     }
 }
