@@ -45,6 +45,7 @@
     import '../packages/dile-input/dile-input.js';
     import '../packages/dile-input/dile-input-money.js';
     import '../packages/dile-input/dile-input-integer.js';
+    import '../packages/dile-input/dile-input-percentage.js';
     import '../packages/dile-checkbox/dile-checkbox.js';
     import '../packages/dile-select/dile-select.js';
     import '../packages/dile-select/dile-select-ajax.js';
@@ -81,6 +82,7 @@
           <dile-input-integer name="quantity" label="Quantity"></dile-input-integer>
           <dileQuantity-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
           <dile-input name="company" label="Company"></dile-input>
+          <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
         `;
       }
     }
@@ -110,7 +112,8 @@
           interested: true,
           sex: "F",
           company: "Acme",
-          album: 7
+          album: 7,
+          discount: 10.55,
         });
       });
 
