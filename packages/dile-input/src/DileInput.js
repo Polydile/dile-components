@@ -102,6 +102,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
       background-color: var(--dile-input-background-color, #fff);
       color: var(--dile-input-color, #303030);
       text-align: var(--dile-input-text-align, left);
+      flex-grow: 1;
     }
     input:focus {
       outline: none;
