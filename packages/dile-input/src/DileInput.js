@@ -49,6 +49,10 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
           /** Message Displayed */
           message: { type: String },
+
+          /** Text placed on the right side of the input  */
+          labelRight: { type: String },
+
         };
     }
 
@@ -62,6 +66,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         super();
         this.placeholder = '';
         this.label = '';
+        this.labelRight = '';
         this.value = '';
         this.disabled = false;
         this.disableAutocomplete = false;
@@ -122,6 +127,14 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     .errored-msg span {
       color: var(--dile-input-message-error-color, #c00);
     }
+    section {
+      display: flex;
+      align-items: center;
+    }
+    .labelright {
+      margin-left: var(--dile-input-label-right-margin-left, 10px);
+      color: var(--dile-input-label-color, #59e);
+      font-size: var(--dile-input-label-right-font-size, 1.2em);
     `;
     }
     render() {
@@ -130,21 +143,27 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
             ${this.label
               ? html`<label for="textField">${this.label}</label>`
               : ""}
-            <input
-              type="${this.availableType(this.type)}"
-              id="textField"
-              name="${this.name}"
-              placeholder="${this.placeholder}"
-              ?disabled="${this.disabled}"
-              ?readonly="${this.readonly}"
-              autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-              .value="${this.computeValue(this.value)}"
-              class="${this.errored ? 'errored' : ''}"
-              @keypress="${this._lookForEnter}"
-              @input="${this._input}"
-              @blur="${this.doBlur}"
-              @focus="${this.doFocus}"
-            />
+             <section>
+              <input
+                type="${this.availableType(this.type)}"
+                id="textField"
+                name="${this.name}"
+                placeholder="${this.placeholder}"
+                ?disabled="${this.disabled}"
+                ?readonly="${this.readonly}"
+                autocomplete="${this.disableAutocomplete ? "off" : "on"}"
+                .value="${this.computeValue(this.value)}"
+                class="${this.errored ? 'errored' : ''}"
+                @keypress="${this._lookForEnter}"
+                @input="${this._input}"
+                @blur="${this.doBlur}"
+                @focus="${this.doFocus}"
+              /> 
+              ${this.labelRight 
+                ? html`<span class="labelright">${this.labelRight}</span>`
+                : ''
+              }
+            </section>
             ${this.message 
               ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
               : ''

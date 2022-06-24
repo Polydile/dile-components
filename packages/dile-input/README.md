@@ -2,6 +2,13 @@
 
 Input text field Web Component, with customizable design.
 
+There are some components in this package based on the dile-input functionality with different behaviours.
+
+- dile-input: regular input
+- dile-input-integer: make transformations to the input in order to ensure the value is an integer
+- dile-input-money: to use on money input (always float values with two decimals)
+- dile-input-percentage: to place a "%" character besides the input and ensure the values are float
+
 ```
 <dile-input label="The label" placeholder="Write something..."></dile-input>
 ```
@@ -46,6 +53,7 @@ Use the component
 - **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
 - **selectOnFocus**: allways select the content of the input on focus
 - **message**: optionaly, the input can display a message
+- **labelRight**: text placed on the right side of the input
 
 ## Styling
 
@@ -73,6 +81,8 @@ Custom property | Description | Default
 --dile-input-message-font-size | Message font size | 0.875em
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
+--dile-input-label-right-margin-left | Separation betweeen input and text placed on its right side | 10px
+--dile-input-label-right-font-size | Text placed on the right side size | 1.2em
 
 ## Events
 
