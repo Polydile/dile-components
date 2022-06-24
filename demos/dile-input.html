@@ -21,6 +21,13 @@
       --dile-input-text-align: right;
       width: 140px;
     }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 60px 1fr;
+        column-gap: 4px;
+        --dile-input-font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +73,27 @@
     <p>
       <dile-input errored name="name" label="Date" message="Format: mm/dd/yyyy"></dile-input>
     </p>
+
+    <h2>Placement on a row</h2>
+    <div class="row">
+      <div class="name">
+        <span>Name</span>
+        <dile-input name="name" placeholder="Nombre"></dile-input>
+      </div>
+      <div class="price">
+        <span>Price</span>
+        <dile-input decimalSeparator="," name="price" placeholder="Precio">
+        </dile-input>
+      </div>
+      <div class="quantity">
+        <span>U.</span>
+        <dile-input name="quantity" placeholder="Cantidad"></dile-input>
+      </div>
+      <div class="total">
+        <span>Total</span>
+        <dile-input readonly name="total" placeholder="Total"></dile-input>
+      </div>
+    </div>
 
     <footer><a href="index.html">Back</a></footer>
   </div>

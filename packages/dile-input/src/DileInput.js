@@ -84,6 +84,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
       display: block;
       margin-bottom: 10px;
     }
+    main {
+      width: var(--dile-input-section-width, 100%);
+    }
     label {
       display: block;
       margin-bottom: var(--dile-input-label-margin-bottom, 4px);
@@ -101,6 +104,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
       background-color: var(--dile-input-background-color, #fff);
       color: var(--dile-input-color, #303030);
       text-align: var(--dile-input-text-align, left);
+      width: 100%;
       flex-grow: 1;
     }
     input:focus {
@@ -130,7 +134,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     section.for-input {
       display: flex;
       align-items: center;
-      width: var(--dile-input-section-width, 100%);
+      width: 100%;
     }
     .labelright {
       margin-left: var(--dile-input-label-right-margin-left, 10px);
@@ -140,7 +144,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     }
     render() {
         return html`
-          <div>
+          <main>
             ${this.label
               ? html`<label for="textField">${this.label}</label>`
               : ""}
@@ -169,7 +173,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
               : ''
             }
-          </div>
+          </main>
         `;
     }
 
