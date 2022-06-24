@@ -98,7 +98,6 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
       font-size: var(--dile-input-font-size, 1em);
       line-height: var(--dile-input-line-height, 1.5em);
       padding: var(--dile-input-padding, 5px);
-      width: var(--dile-input-width, 100%);
       background-color: var(--dile-input-background-color, #fff);
       color: var(--dile-input-color, #303030);
       text-align: var(--dile-input-text-align, left);
@@ -128,9 +127,10 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     .errored-msg span {
       color: var(--dile-input-message-error-color, #c00);
     }
-    section {
+    section.for-input {
       display: flex;
       align-items: center;
+      width: var(--dile-input-section-width, 100%);
     }
     .labelright {
       margin-left: var(--dile-input-label-right-margin-left, 10px);
@@ -144,7 +144,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
             ${this.label
               ? html`<label for="textField">${this.label}</label>`
               : ""}
-             <section>
+             <section class="for-input">
               <input
                 type="${this.availableType(this.type)}"
                 id="textField"
