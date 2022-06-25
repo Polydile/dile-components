@@ -7,11 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <style>
+    html {
+
+      --dile-icon-color: rgb(41, 164, 119);
+    }
     #icons {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       row-gap: 1rem;
-
     }
     #icons article {
       display: flex;
@@ -21,6 +24,16 @@
     #icons article span {
       margin-top: 0.3rem;
       font-size: 0.9rem;
+    }
+    .dile-icon path, .dile-icon polygon {
+      fill: var(--dile-icon-color, #888);
+    }
+    .dile-icon path[fill="none"] {
+      fill: transparent;
+    }
+    .dile-icon {
+      width: var(--dile-icon-size, 24px);
+      height: var(--dile-icon-size, 24px);
     }
     
   </style>
@@ -36,6 +49,7 @@
         import { iconStyles } from "../packages/icons/index.js";
         import { accountIcon } from "../packages/icons/index.js";
         import { addIcon } from "../packages/icons/index.js";
+        import { announcementIcon } from "../packages/icons/index.js";
         import { appsIcon } from "../packages/icons/index.js";
         import { arrowDropDownIcon } from "../packages/icons/index.js";
         import { arrowDropUpIcon } from "../packages/icons/index.js";
@@ -54,6 +68,7 @@
         import { downloadIcon } from "../packages/icons/index.js";
         import { eastIcon } from "../packages/icons/index.js";
         import { editIcon } from "../packages/icons/index.js";
+        import { emailIcon } from "../packages/icons/index.js";
         import { favoriteIcon } from "../packages/icons/index.js";
         import { filterIcon } from "../packages/icons/index.js";
         import { filterListIcon } from "../packages/icons/index.js";
@@ -61,12 +76,17 @@
         import { homeIcon } from "../packages/icons/index.js";
         import { infoIcon } from "../packages/icons/index.js";
         import { labelIcon } from "../packages/icons/index.js";
+        import { lightbulbIcon } from "../packages/icons/index.js";
         import { listIcon } from "../packages/icons/index.js";
         import { loginIcon } from "../packages/icons/index.js";
         import { logoutIcon } from "../packages/icons/index.js";
         import { moreIcon } from "../packages/icons/index.js";
         import { moreVertIcon } from "../packages/icons/index.js";
+        import { newReleasesIcon } from "../packages/icons/index.js";
+        import { notificationsIcon } from "../packages/icons/index.js";
         import { paidIcon } from "../packages/icons/index.js";
+        import { pdfIcon } from "../packages/icons/index.js";
+        import { priorityHighIcon } from "../packages/icons/index.js";
         import { questionAnswerIcon } from "../packages/icons/index.js";
         import { radioCheckedIcon } from "../packages/icons/index.js";
         import { receiptIcon } from "../packages/icons/index.js";
@@ -94,6 +114,11 @@
             <article>
               ${ addIcon }
               <span>addIcon</span>
+            </article>
+
+            <article>
+              ${ announcementIcon }
+              <span>announcementIcon</span>
             </article>
 
             <article>
@@ -187,6 +212,11 @@
             </article>
 
             <article>
+              ${ emailIcon }
+              <span>emailIcon</span>
+            </article>
+
+            <article>
               ${ favoriteIcon }
               <span>favoriteIcon</span>
             </article>
@@ -222,6 +252,11 @@
             </article>
 
             <article>
+              ${ lightbulbIcon }
+              <span>lightbulbIcon</span>
+            </article>
+
+            <article>
               ${ listIcon }
               <span>listIcon</span>
             </article>
@@ -247,8 +282,28 @@
             </article>
 
             <article>
+              ${ newReleasesIcon }
+              <span>newReleasesIcon</span>
+            </article>
+
+            <article>
+              ${ notificationsIcon }
+              <span>notificationsIcon</span>
+            </article>
+
+            <article>
               ${ paidIcon }
               <span>paidIcon</span>
+            </article>
+
+            <article>
+              ${ pdfIcon }
+              <span>pdfIcon</span>
+            </article>
+
+            <article>
+              ${ priorityHighIcon }
+              <span>priorityHighIcon</span>
             </article>
 
             <article>
