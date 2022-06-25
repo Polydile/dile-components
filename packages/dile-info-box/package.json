@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-info-box",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Webcomponent dile-info-box to create a custom-styled box containing a message",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@dile/dile-slide-down-mixin": "^1.1.1",
-    "@dile/icons": "^0.0.9",
+    "@dile/icons": "^0.0.10",
     "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
