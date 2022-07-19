@@ -1,4 +1,4 @@
-import { html, css, LitElement } from 'lit-element';
+import { html, css, LitElement } from 'lit';
 
 export class DileGraph extends LitElement {
     static get styles() {

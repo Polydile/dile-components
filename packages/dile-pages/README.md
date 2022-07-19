@@ -2,7 +2,7 @@
 
 This component can be used to display some content or other based on it's property values.
 
-If you comes from Polymer, the short explanation would be "Simple iron-pages adaptation for LitElement".
+If you comes from Polymer, the short explanation would be "Simple iron-pages adaptation for Lit".
 
 This custom element is used to show one of several "pages". The pages are the direct children elements of the component. In brief, this component only shows one of it's children elements, and is able to interchange the active children with a simple animation.
 
@@ -16,7 +16,7 @@ npm i @dile/dile-pages
 ## Usage
 ```html
 <script type="module">
-  import 'dile-pages/dile-pages.js';
+  import '@dile/dile-pages/dile-pages.js';
 </script>
 
 <dile-pages selected="1">
@@ -31,6 +31,7 @@ You can use 2 properties to configure the current active page:
 
 - **selected**: A string to select the active page.
 - **attrForSelected** (optional): A string with the attribute name in the page elements to match with "selected" property.
+- **selectorId** (optional): A property to link this component to a selector interface like [dile-tabs](https://github.com/Polydile/dile-components/tree/master/packages/dile-tabs) or [dile-selector](https://github.com/Polydile/dile-components/tree/master/packages/dile-selector). That component also needs to have a selectorId attribute with the same value.
 
 If you don't provide a value to attrForSelected property, "selected" will be matched to the index of the children element (selected=0 corresponds to the first page, selected=1 to the second... )
 

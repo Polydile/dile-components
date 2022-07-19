@@ -1,4 +1,4 @@
-# @dile/dile-menu-hamburger>
+# @dile/dile-menu-hamburger
 
 Full hamburger menú. It combines the hamburger icon and the app drawer components to make a customized menú.
 
@@ -47,6 +47,18 @@ The component also provides a set of useful methods to controls the component st
 
 - **dile-menu-hamburger-opened**: dispatched when the menu opens.
 - **dile-menu-hamburger-closed**: dispatched when the menu closes.
+
+## Hide the menu before initialization
+
+If you want to hide the menu before the component's initialization it is possible to use this CSS in your global styles file:
+
+```css
+[dile-cloak] {
+  display: none !important;
+}
+```
+
+And then use the ```dile-cloak``` attribute in the menu layer to hide it. On the component`s initialization this attribute will be removed.
 
 ## Customization
 

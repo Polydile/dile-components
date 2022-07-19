@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 import { StrBlock } from './StrBlock';
 
 export class DileHtmlTransform extends LitElement {

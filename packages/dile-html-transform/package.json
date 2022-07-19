@@ -1,12 +1,12 @@
 {
   "name": "@dile/dile-html-transform",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Webcomponent dile-html-transform to convert new lines and Urls to <br> and <a>",
   "keywords": [
     "transformation",
     "html transform",
     "web components",
-    "LitElement",
+    "Lit",
     "custom element"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "anchorme": "^2.1.2",
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 import { DileOverlayMixin } from "@dile/dile-overlay-mixin";
 import { DileCloseDocumentClickMixin } from "@dile/dile-close-document-click-mixin";
 
@@ -6,7 +6,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block;
         position: relative;
         box-sizing: border-box;
       }
@@ -19,7 +19,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
         width: var(--dile-menu-overlay-width, 280px);
         max-width: var(--dile-menu-overlay-max-width, 300px);
         box-shadow: var(--dile-menu-overlay-box-shadow, 0 0 20px rgba(102, 102, 102, 0.5));
-        padding: 1px;
+        padding: var(--dile-menu-overlay-padding, 1px);
         display: none;
         position: absolute;
         opacity: 0;
@@ -32,7 +32,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
         transform: translateY(0);
       }
       #trigger {
-        display: inline-block;
+        display: flex;
       }
     `;
   }

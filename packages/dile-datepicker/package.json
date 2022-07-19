@@ -1,0 +1,38 @@
+{
+  "name": "@dile/dile-datepicker",
+  "version": "0.0.31",
+  "description": "Webcomponent dile-datepicker to create a custom-styled datepicker element, following open-wc recommendations",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "datepicker",
+    "Form"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/dile-icon": "^0.0.8",
+    "@dile/dile-input": "^1.9.0",
+    "@dile/dile-menu-overlay": "^2.0.6",
+    "@dile/icons": "^0.0.10",
+    "@lion/calendar": "0.20.0",
+    "@lion/localize": "0.25.0",
+    "lit": "^2.2.1"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}

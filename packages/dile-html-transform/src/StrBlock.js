@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 
 export class StrBlock {
   constructor(str, convertLinks = false, convertEmails = false, anchorObject = null) {

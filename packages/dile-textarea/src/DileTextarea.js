@@ -1,15 +1,18 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { LionTextarea } from '@lion/textarea';
 
 export class DileTextarea extends LionTextarea {
 
   static get styles() {
     return [super.styles, css`
+      :host {
+        margin-bottom: 10px;
+      }
       ::slotted(label) {
         display: none;
         margin-bottom: var(--dile-textarea-label-margin-bottom, 4px);
         color: var(--dile-textarea-label-color, #59e);
-        font-size: var(--dile-textarea-label-font-size, 1rem);
+        font-size: var(--dile-textarea-label-font-size, 1em);
       }
       :host([label]) ::slotted(label){
         display: inline-block;
@@ -20,7 +23,7 @@ export class DileTextarea extends LionTextarea {
         padding: var(--dile-textarea-padding, 5px);
       }
       .input-group__container > .input-group__input ::slotted(textarea.form-control) {
-        font-size: var(--dile-textarea-font-size, 0.9rem);
+        font-size: var(--dile-textarea-font-size, 1em);
         font-family: var(--dile-textarea-font-family, sans-serif);
       }
 

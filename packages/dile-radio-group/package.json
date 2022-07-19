@@ -1,0 +1,35 @@
+{
+  "name": "@dile/dile-radio-group",
+  "version": "0.0.4",
+  "description": "Webcomponent to make radio buttons and grouped radio buttons",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "radio button",
+    "radio group"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/dile-form-mixin": "^0.0.7",
+    "@dile/dile-icon": "^0.0.8",
+    "@dile/icons": "^0.0.10",
+    "lit": "^2.2.1"
+  },
+  "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
+}

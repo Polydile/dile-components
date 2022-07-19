@@ -1,4 +1,4 @@
-import { html, css, LitElement } from 'lit-element';
+import { html, css, LitElement } from 'lit';
 
 export class DileTooltip extends LitElement {
 
@@ -9,7 +9,7 @@ export class DileTooltip extends LitElement {
         display: inline-block;
       }
   
-      .tooltip .tooltiptext {
+      .tooltiptext {
         visibility: hidden;
         width: var(--dile-tooltip-width, 120px);
         background-color: var(--dile-tooltip-background-color, #e74c3c);
@@ -107,18 +107,14 @@ export class DileTooltip extends LitElement {
       
       .animation{
         opacity: 0;
-        transition: opacity var(--dile-tooltip-time-transition, 1s);
+        transition: opacity var(--dile-tooltip-time-transition, 0.5s) ease-in;
       }
 
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
+      .show {
+        visibility: visible !important;
         opacity: 1;
       }
 
-      /* Show the tooltip text when you mouse over the tooltip */
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      }
     `;
   }
 
@@ -135,6 +131,9 @@ export class DileTooltip extends LitElement {
       
       /** Adds a fade in animation */
       fadeIn: { type: Boolean },
+
+      /** Private property to control mouseovers and mouseouts */
+      _isMouseover: { type: Boolean }
     };
   }
 
@@ -144,31 +143,49 @@ export class DileTooltip extends LitElement {
     this.position = 'top'
     this.arrow = false;
     this.fadeIn = false;
+    this._isMouseover = false;
   }
 
-  get classPosition() {
+  classPosition(position) {
     let className = 'tooltip-top';
-    if (this.position == 'left') className = 'tooltip-left';
-    if (this.position == 'right') className = 'tooltip-right';
-    if (this.position == 'bottom') className = 'tooltip-bottom';
+    if (position == 'left') { return 'tooltip-left' };
+    if (position == 'right') { return 'tooltip-right' };
+    if (position == 'bottom') { return 'tooltip-bottom' };
     return className;
   }
 
-  get arrowPosition() {
-    return this.arrow ? `arrow-${this.position}` : '';
+  arrowPosition(arrow, position) {
+    return arrow ? `arrow-${position}` : '';
   }
 
-  get animation() {
-    return this.fadeIn ? 'animation' : '';
+  animation(fadeIn) {
+    return fadeIn ? 'animation' : '';
+  }
+
+  showOrNot(isMouseover) {
+    return isMouseover ? 'show' : '';
   }
 
   render() {
     return html`
-      <div class="tooltip">
+      <div 
+        class="tooltip"
+        @mouseover="${this.doMouseover}"
+        @mouseout="${this.doMouseout}"
+      >
         <slot></slot>
-        <span class="tooltiptext ${this.classPosition} ${this.arrowPosition} ${this.animation}">${this.tooltip}</span>
+        <span 
+          class="tooltiptext ${this.classPosition(this.position)} ${this.arrowPosition(this.arrow, this.position)} ${this.animation(this.fadeIn)} ${this.showOrNot(this._isMouseover)}"
+        >${this.tooltip}</span>
       </div>
     `;
   }
 
+  doMouseover() {
+    this._isMouseover = true;
+  }
+
+  doMouseout() {
+    this._isMouseover = false;
+  }
 }

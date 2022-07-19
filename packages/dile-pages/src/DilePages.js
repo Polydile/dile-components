@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 
 export class DilePages extends LitElement {
   static get properties() {
@@ -7,6 +7,8 @@ export class DilePages extends LitElement {
       attrForSelected: { type: String },
       /** Set the selected page */
       selected: { type: String },
+      /** A selector interface to change the tabs */
+      selectorId: { type: String },
     };
   }
   render() {
@@ -20,6 +22,7 @@ export class DilePages extends LitElement {
     this.transitionTime = 1000;
     this.selected = 0;
     this._pageInitialization();
+    this._onSelectorIdChangedHandler = this._onSelectorIdChanged.bind(this);
   }
 
   static get styles() {
@@ -65,6 +68,16 @@ export class DilePages extends LitElement {
     let page = this._selectPage(this.selected, this.attrForSelected);
     if (page) {
       page.style.display = 'block';
+    }
+    if(this.selectorId) {
+      document.addEventListener('dile-selected-changed', this._onSelectorIdChangedHandler);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if(this.selectorId) {
+      document.removeEventListener('dile-selected-changed', this._onSelectorIdChangedHandler);
     }
   }
 
@@ -152,5 +165,11 @@ export class DilePages extends LitElement {
    */
   _getLastValueProperty(changedProperties, field) {
     return (changedProperties.has(field)) ? changedProperties.get(field) : this[field];
+  }
+
+  _onSelectorIdChanged(e) {
+    if(e.detail.selectorId == this.selectorId) {
+      this.selected = e.detail.selected;
+    }
   }
 }

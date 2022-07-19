@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-search component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-input-search/dile-input-search.js" type="module"></script>
+  <style>
+    .styled {
+      --dile-input-border-radius: 0;
+      --dile-input-border-color: #e553e3;
+      --dile-input-border-width: 4px;
+      --dile-input-line-height: 2.5rem;
+      --dile-input-background-color: #333;
+      --dile-input-placeholder-color: #999;
+      --dile-input-color: #fff;
+      --dile-input-width: 300px;
+      --dile-icon-size: 32px;
+      --dile-icon-color: #c923c6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-search component</h1>
+    
+    <h2>Default search input</h2>
+    <p>
+      <dile-input-search id="search1"></dile-input-search>
+      <div id="message1"></div>
+      <button id="clear">Clear</button>
+      <script>
+        document.getElementById('search1').addEventListener('dile-input-search', function(e) {
+          document.getElementById('message1').innerText = `Search is performed. Keyword is: ${e.detail.keyword}`;
+        });
+
+        document.getElementById('clear').addEventListener('click', function() {
+          document.getElementById('search1').clear();
+        })
+      </script>
+    </p>
+  
+    <h2>Styled search input</h2>
+    <p>
+      <dile-input-search 
+        id="search2"
+        class="styled" 
+        placeholder="Search (delay 1s)..."
+        delay="1000"
+      ></dile-input-search>
+      <div id="message2"></div>
+      <script>
+        document.getElementById('search2').addEventListener('dile-input-search', function(e) {
+          document.getElementById('message2').innerText = `Search is performed. Keyword is: ${e.detail.keyword}`;
+        });
+
+      </script>
+    </p>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>

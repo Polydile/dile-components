@@ -1,11 +1,11 @@
 {
   "name": "@dile/dile-hamburger",
-  "version": "1.1.1",
+  "version": "3.0.0",
   "description": "A component to show the tipical hamburger menu icon with two states",
   "keywords": [
     "icon",
     "hamburger",
-    "LitElement",
+    "Lit",
     "menu",
     "Web Components",
     "animation"
@@ -28,6 +28,6 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

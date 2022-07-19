@@ -1,14 +1,14 @@
 {
   "name": "@dile/dile-date-without-calendar",
-  "version": "1.0.0",
-  "description": "Web component that selects a date without a calendar, for an input text field, based on LitElement.",
+  "version": "1.1.1",
+  "description": "Web component that selects a date without a calendar, for an input text field, based on Lit.",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "keywords": [
     "input",
     "webcomponents",
-    "litelement",
+    "Lit",
     "text",
     "field",
     "date"
@@ -18,8 +18,7 @@
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   },
   "publishConfig": {
     "access": "public"

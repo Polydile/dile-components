@@ -1,12 +1,12 @@
 {
   "name": "@dile/dile-smooth-scroll",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Webcomponent dile-smooth-scroll and scroll mixins to use in othe components",
   "keywords": [
     "web components",
     "scroll",
     "custom element",
-    "lit-element",
+    "lit",
     "scroll API"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

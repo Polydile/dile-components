@@ -1,6 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
 
-export class DileInput extends LitElement {
+export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
     /**
      * Fired when user press enter key.
@@ -19,6 +20,9 @@ export class DileInput extends LitElement {
           /** Label to the element */
           label: { type: String },
 
+          /** Input type */
+          type: { type: String },
+
           /** Set a placeholder to the input element */
           placeholder: { type: String },
 
@@ -36,17 +40,41 @@ export class DileInput extends LitElement {
 
           /** Disable the autocomplete of the input field */
           disableAutocomplete: { type: Boolean },
+
+          /** ReadOnly attribute */
+          readonly: { type: Boolean },
+
+          /** Select all content on focus */
+          selectOnFocus: { type: Boolean },
+
+          /** Message Displayed */
+          message: { type: String },
+
+          /** Text placed on the right side of the input  */
+          labelRight: { type: String },
+
         };
     }
+
+    updated(changedProperties) {
+      if(changedProperties.has('value')) {
+        this.emmitChange();
+      }
+    }
+
     constructor() {
         super();
         this.placeholder = '';
         this.label = '';
+        this.labelRight = '';
         this.value = '';
         this.disabled = false;
         this.disableAutocomplete = false;
         this.name = '';
+        this.type = 'text';
+        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];     
     }
+
     static get styles() {
         return css`
     * {
@@ -55,6 +83,9 @@ export class DileInput extends LitElement {
     :host {
       display: block;
       margin-bottom: 10px;
+    }
+    main {
+      width: var(--dile-input-section-width, 100%);
     }
     label {
       display: block;
@@ -70,15 +101,18 @@ export class DileInput extends LitElement {
       font-size: var(--dile-input-font-size, 1em);
       line-height: var(--dile-input-line-height, 1.5em);
       padding: var(--dile-input-padding, 5px);
-      width: var(--dile-input-width, 100%);
       background-color: var(--dile-input-background-color, #fff);
+      color: var(--dile-input-color, #303030);
+      text-align: var(--dile-input-text-align, left);
+      width: 100%;
+      flex-grow: 1;
     }
     input:focus {
       outline: none;
       border-color: var(--dile-input-focus-border-color, #6af)
     }
     input::placeholder {
-      color: #ccc;
+      color: var(--dile-input-placeholder-color, #ccc);
     }
     input:disabled {
       background-color: #f5f5f5;
@@ -87,29 +121,62 @@ export class DileInput extends LitElement {
     .errored {
       border-color: var(--dile-input-error-border-color, #c00);
     }
+    .message span {
+      display: block;
+      padding-top: var(--dile-input-message-padding-top, 4px);
+      font-size: var(--dile-input-message-font-size, 0.875em);
+      color: var(--dile-input-message-color, #888);
+
+    }
+    .errored-msg span {
+      color: var(--dile-input-message-error-color, #c00);
+    }
+    section.for-input {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .labelright {
+      margin-left: var(--dile-input-label-right-margin-left, 10px);
+      color: var(--dile-input-label-color, #59e);
+      font-size: var(--dile-input-label-right-font-size, 1.2em);
     `;
     }
     render() {
         return html`
-          <div>
+          <main>
             ${this.label
               ? html`<label for="textField">${this.label}</label>`
               : ""}
-            <input
-              type="text"
-              id="textField"
-              name="${this.name}"
-              placeholder="${this.placeholder}"
-              ?disabled="${this.disabled}"
-              autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-              @keypress="${this._lookForEnter}"
-              @input="${this._input}"
-              .value="${this.value}"
-              class="${this.errored ? "errored" : ""}"
-            />
-          </div>
+             <section class="for-input">
+              <input
+                type="${this.availableType(this.type)}"
+                id="textField"
+                name="${this.name}"
+                placeholder="${this.placeholder}"
+                ?disabled="${this.disabled}"
+                ?readonly="${this.readonly}"
+                autocomplete="${this.disableAutocomplete ? "off" : "on"}"
+                .value="${this.computeValue(this.value)}"
+                class="${this.errored ? 'errored' : ''}"
+                @keypress="${this._lookForEnter}"
+                @input="${this._input}"
+                @blur="${this.doBlur}"
+                @focus="${this.doFocus}"
+              /> 
+              ${this.labelRight 
+                ? html`<span class="labelright">${this.labelRight}</span>`
+                : ''
+              }
+            </section>
+            ${this.message 
+              ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+              : ''
+            }
+          </main>
         `;
     }
+
     /**
      * Private method to dispatch events on enter key pressed
      */
@@ -123,4 +190,32 @@ export class DileInput extends LitElement {
         this.value = e.target.value;
     }
 
+    availableType(type) {
+        if(this.types.includes(type)) {
+            return type;
+        }
+        return 'text';
+    }
+
+    get el() {
+        return this.shadowRoot.querySelector('input');
+    }
+
+    doBlur() {
+      //
+    }
+
+    doFocus() {
+      if(this.selectOnFocus) {
+        this.el.select();
+      }
+    }
+
+    computeValue(value) {
+      return value;
+    }
+
+    focus() {
+      this.el.focus();
+    }
 }

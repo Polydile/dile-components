@@ -1,9 +1,9 @@
 {
   "name": "@dile/dile-button",
-  "version": "1.0.2",
+  "version": "2.2.2",
   "description": "Webcomponent dile-button to create a custom-styled button element, following open-wc recommendations",
   "keywords": [
-    "LitElement",
+    "Lit",
     "Web Component",
     "button",
     "Form"
@@ -26,8 +26,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 
 import { icons } from './icons';
 
@@ -6,7 +6,7 @@ import { icons } from './icons';
  * 
  * # <social-icon>
  * 
- * Web component to create social icons, based on LitElement.
+ * Web component to create social icons, based on Lit.
  * 
  * The "icon" property is used to set the social network to display
  * 

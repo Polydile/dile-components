@@ -1,12 +1,12 @@
 {
   "name": "@dile/dile-social-icon",
-  "version": "1.0.0",
-  "description": "Web component to create social icons, based on LitElement",
+  "version": "1.1.3",
+  "description": "Web component to create social icons, based on Lit",
   "keywords": [
-    "nav",
-    "feedback",
+    "social networks",
+    "icons",
     "web components",
-    "LitElement",
+    "Lit",
     "custom element"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -27,6 +27,6 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1"
+    "lit": "^2.2.1"
   }
 }

@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 
 export class DileHamburger extends LitElement {
   static get properties() {
@@ -14,7 +14,8 @@ export class DileHamburger extends LitElement {
       }
       .hamburger {
         padding: var(--dile-hamburger-padding-y, 15px) var(--dile-hamburger-padding-x, 15px);
-        display: inline-block;
+        display: flex;
+        align-items: center;
         cursor: pointer;
         transition-property: opacity, filter;
         transition-duration: 0.15s;

@@ -1,0 +1,30 @@
+{
+  "name": "@dile/dile-selector-mixin",
+  "version": "2.0.0",
+  "description": "Mixin to select one item from a list.",
+  "keywords": [
+    "selector",
+    "mixin",
+    "web components"
+  ],
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "lit": "^2.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  }
+}

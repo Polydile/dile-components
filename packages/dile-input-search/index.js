@@ -1,0 +1,1 @@
+export { DileInputSearch } from './src/DileInputSearch.js';

@@ -1,13 +1,13 @@
 {
   "name": "@dile/dile-toast",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Web Component to send feedback to the user, inspired on the Material Design toast component",
   "keywords": [
     "feedback",
     "message",
     "toast",
     "display messages",
-    "LitElement",
+    "Lit",
     "component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -28,7 +28,6 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   }
 }

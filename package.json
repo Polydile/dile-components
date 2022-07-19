@@ -4,11 +4,14 @@
     "scripts": {
         "lerna": "lerna",
         "bootstrap": "lerna bootstrap",
-        "start": "es-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
+        "start": "web-dev-server --node-resolve --preserve-symlinks --watch --open demos/",
         "audit": "lerna-audit"
     },
     "devDependencies": {
-        "es-dev-server": "^2.1.0",
-        "lerna": "^4.0.0"
+        "@web/dev-server": "^0.1.30",
+        "lerna": "^5.1.8"
+    },
+    "dependencies": {
+        "lit": "^2.2.1"
     }
 }

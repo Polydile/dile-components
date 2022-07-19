@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { DileInput } from '@dile/dile-input';
 import { Mask } from './Mask';
 
@@ -6,7 +6,8 @@ export class DileInputNumberMask extends DileInput {
 
   static get properties() {
     return {
-      mask: { type: String },      
+      mask: { type: String },
+      maskedValue: { type: String },
     };
   }
 
@@ -17,6 +18,7 @@ export class DileInputNumberMask extends DileInput {
 
   firstUpdated() {
     this.content = '';
+    this.maskedValue = '';
     this.createMaskController(this.mask);
   }
 
@@ -51,8 +53,7 @@ export class DileInputNumberMask extends DileInput {
         ?disabled="${this.disabled}"
         @keypress="${this._lookForEnter}"
         @keydown="${this.doKeyDown}"
-        @input="${this._input}"
-        .value="${this.value}"
+        .value="${this.maskedValue}"
         class="${ this.errored ? 'errored' : '' }">
     </div>
     `;

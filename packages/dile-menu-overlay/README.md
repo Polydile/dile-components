@@ -77,6 +77,7 @@ Custom property | Description | Default
 --dile-menu-overlay-color | Overlay text color | #303030
 --dile-menu-overlay-z-index | menu overlay layer z-index | 999
 --dile-menu-overlay-width | Menu overlay layer width | 280px
---dile-menu-overlay-max-width | Menu overlay layer max width | 5px
+--dile-menu-overlay-max-width | Menu overlay layer max width | 300px
 --dile-menu-overlay-border-radius | Menu overlay layer border radius | 5px
 --dile-menu-overlay-box-shadow | Menu overlay box shadow | 0 0 20px rgba(102, 102, 102, 0.5)
+--dile-menu-overlay-padding | Menu layer padding | 1px

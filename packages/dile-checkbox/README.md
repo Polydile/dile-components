@@ -22,11 +22,15 @@ npm i @dile/dile-checkbox
 - **disabled**: Boolean, mark checkbox as disabled.
 - **name**: The name of the checkbox, only for identification purposes
 
+There is a special ```value``` property. This is not a actual component property but it mirrors the ```checked``` property, because sometimes forms colud use this property instead of checked to query or change its state.
+
 ### Custom events
 
 - **dile-checkbox-changed**: Every time the checkbox changes emits a dile-checkbox-changed event. The checkbox current state is received in the handler usign the event object "detail" property.
 
 when fired, the custom event sends a detail object, containing the checked state of the element and the value of the name property.
+
+- **element-changed**: this event is dispatched when the cheked property changes. The event detail emmit the ```name```, ```checked``` and ```value``` property.
 
 ### CSS Custom Properties
 

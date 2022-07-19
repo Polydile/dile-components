@@ -1,12 +1,12 @@
 {
   "name": "@dile/dile-pages",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "Web Component to display some content o other based in it's property values",
   "keywords": [
     "pages",
     "iron-pages",
     "view",
-    "LitElement",
+    "Lit",
     "Web Component"
   ],
   "author": "midesweb <miguel@desarrolloweb.com>",
@@ -27,8 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.2"
+    "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"
 }

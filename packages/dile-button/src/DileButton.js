@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit";
 
 export class DileButton extends LitElement {
   static get properties() {
@@ -27,13 +27,15 @@ export class DileButton extends LitElement {
         border-radius: var(--dile-button-border-radius, 2px);
         border-width:  var(--dile-button-border-width, 1px);
         border-color:  var(--dile-button-border-color, #666666);
-        background-color: var(--dile-button-background-color, #f5f5f5);
+        background-color: var(--dile-button-background-color, #f5f5ff);
         transition-property: background-color, color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         border-style: solid;
         color: var(--dile-button-text-color, #303030); 
         font-size: var(--dile-button-font-size, 1rem);
+        font-weight: var(--dile-button-font-weight, normal);
+        text-transform: var(--dile-button-text-transform, none);
       }
       button:hover {
         background-color: var(--dile-button-hover-background-color, #b1ecf7);
@@ -47,8 +49,9 @@ export class DileButton extends LitElement {
 
       :host([disabled]) button {
         cursor: auto;
-        background-color: #ccc;
-        border-color: #aaa;
+        background-color: var(--dile-button-disabled-background-color, #ccc);
+        color: var(--dile-button-disabled-text-color, #999);
+        border-color: var(--dile-button-disabled-border-color, #aaa);
         border-style: none;
       }
       :host([disabled]) button:focus {

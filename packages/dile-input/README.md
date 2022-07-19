@@ -2,6 +2,13 @@
 
 Input text field Web Component, with customizable design.
 
+There are some components in this package based on the dile-input functionality with different behaviours.
+
+- dile-input: regular input
+- dile-input-integer: make transformations to the input in order to ensure the value is an integer
+- dile-input-money: to use on money input (always float values with two decimals)
+- dile-input-percentage: to place a "%" character besides the input and ensure the values are float
+
 ```
 <dile-input label="The label" placeholder="Write something..."></dile-input>
 ```
@@ -37,11 +44,16 @@ Use the component
 
 - **name**: the name of the input element. This is usefull to distinguish the related element in an input event listener.
 - **label**: the element label
+- **type**: the input type
 - **value**: defines the text inside the input element
 - **placeholder**: Defines the texts present in the input element when is empty
 - **disabled**: on true, the element is disabled
+- **readonly**: on true, is not editable
 - **errored**: on true, the element is marked as error
 - **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
+- **selectOnFocus**: allways select the content of the input on focus
+- **message**: optionaly, the input can display a message
+- **labelRight**: text placed on the right side of the input
 
 ## Styling
 
@@ -62,6 +74,15 @@ Custom property | Description | Default
 --dile-input-label-margin-bottom | Label marging bottom | 4px
 --dile-input-background-color | Color for the background input element | #fff
 --dile-input-padding | Padding for the input text | 5px
+--dile-input-color | Input text color | #303030
+--dile-input-placeholder-color | Placeholder color | #ccc
+--dile-input-text-align | Input text align | left
+--dile-input-message-padding-top | Space from input to message | 4px
+--dile-input-message-font-size | Message font size | 0.875em
+--dile-input-message-color | Message text color | #888
+--dile-input-message-error-color | Message text color on errored state | #c00
+--dile-input-label-right-margin-left | Separation betweeen input and text placed on its right side | 10px
+--dile-input-label-right-font-size | Text placed on the right side size | 1.2em
 
 ## Events
 
@@ -84,3 +105,8 @@ inputField.addEventListener('enter-pressed', (e) => {
   console.log('enter-pressed event, value: ', e.target.value);
 });
 ```
+
+### element-changed
+
+The ```element-changed``` event is dispatched when value on the input changes. 
+In the event detail will emmit the element ```name``` and ```value```properties.

@@ -1,6 +1,6 @@
 # @dile/dile-social-icon
 
-Web component to display icons from the main social networks and communities, based on LitElement.
+Web component to display icons from the main social networks and communities, based on Lit.
 
 ## Usage
 
@@ -42,7 +42,7 @@ The icon property accepts the social icons listed bellow:
 - snapchat
 - github
 
-Note that the name of the icons is allways in lowercase.
+Note that the name of the icons is always in lowercase.
 
 ## Custom styles
 

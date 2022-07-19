@@ -16,6 +16,10 @@
     .menu-conten1 {
       padding: 1rem;
     }
+
+    [dile-cloak] {
+      display: none !important;
+    }
   </style>
 </head>
 <body>
@@ -23,7 +27,7 @@
     <header>
       <h1>dile-menu-hamburger component</h1>
       <dile-menu-hamburger id="menu1" hamburgerAlwaysVisible>
-        <div class="menu-conten1" slot="menu">
+        <div dile-cloak class="menu-conten1" slot="menu">
           <p><a href="#">Link 1</a></p>
           <p><a href="#">Another link</a></p>
           <p><a href="#">More information</a></p>

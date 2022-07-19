@@ -15,10 +15,12 @@
     .content {
       padding: 1rem;
     }
-
+    .right {
+      text-align: right;
+    }
     .centercontent {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
     }
     .styled {
       --dile-menu-overlay-color: #69f;
@@ -26,6 +28,12 @@
       --dile-menu-overlay-background-color: #303030;
       --dile-menu-overlay-width: 200px;
       --dile-menu-overlay-box-shadow: 2px 2px 16px rgb(77, 22, 77);
+    }
+
+    .underright {
+      border: 4px solid red;
+      --dile-menu-overlay-width: 400px;
+      --dile-menu-overlay-max-width: 400px;
     }
   </style>
 </head>
@@ -37,8 +45,8 @@
     Default menu overlay
     </h2>
 
-    <dile-menu-overlay>
-      <span slot="trigger" class="trigger">Click to open</span>
+    <dile-menu-overlay horizontalAlign="under">
+      <span slot="trigger" class="trigger">Open under</span>
       <div slot="content" class="content">
         <p>Select one:</p>
         <ul>
@@ -48,7 +56,25 @@
         </ul>
       </div>
     </dile-menu-overlay>
-  
+
+    <h2>
+      Vertical align to center and horizontalAlign to left 
+    </h2>
+
+    <div class="right">
+      <dile-menu-overlay horizontalAlign="left" verticalAlign="center" moveLeft="10">
+        <span slot="trigger" class="trigger">Open Left</span>
+        <div slot="content" class="content">
+          <p>Select one:</p>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </div>
+      </dile-menu-overlay>
+    </div>
+
     <h2>Styled menu</h2>
 
     <p>This menu is configured to close the interface when user clicks inside the menu.</p>
@@ -80,6 +106,22 @@
       </dile-menu-overlay>
     </div>
     
+    <h2>Using under_right position</h2>
+    <div style="text-align: center;">
+      <dile-menu-overlay class="underright" horizontalAlign="under_right" moveTop="-10" verticalAlign="bottom">
+        <span slot="trigger" class="trigger">Click to open</span>
+        <div slot="content" class="content">
+          <p>Select one:</p>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam maxime eos a possimus cupiditate delectus enim itaque quia doloribus necessitatibus, fuga adipisci? Beatae delectus eos commodi nihil. Minus, tenetur alias!</p>
+        </div>
+      </dile-menu-overlay>
+    </div>
+
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>

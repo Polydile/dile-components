@@ -32,4 +32,6 @@ export class Mask {
     }
     return numberChars;
   }
+
+  
 }

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icons demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    html {
+
+      --dile-icon-color: rgb(41, 164, 119);
+    }
+    #icons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      row-gap: 1rem;
+    }
+    #icons article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #icons article span {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+    }
+    .dile-icon path, .dile-icon polygon {
+      fill: var(--dile-icon-color, #888);
+    }
+    .dile-icon path[fill="none"] {
+      fill: transparent;
+    }
+    .dile-icon {
+      width: var(--dile-icon-size, 24px);
+      height: var(--dile-icon-size, 24px);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Icons</h1>
+    
+    <div id="icons"></div>
+    
+    <script type="module">
+        import { html, render } from 'lit';
+        import { iconStyles } from "../packages/icons/index.js";
+        import { accountIcon } from "../packages/icons/index.js";
+        import { addIcon } from "../packages/icons/index.js";
+        import { announcementIcon } from "../packages/icons/index.js";
+        import { appsIcon } from "../packages/icons/index.js";
+        import { arrowDropDownIcon } from "../packages/icons/index.js";
+        import { arrowDropUpIcon } from "../packages/icons/index.js";
+        import { arrowRightIcon } from "../packages/icons/index.js";
+        import { calendarIcon } from "../packages/icons/index.js";
+        import { circleIcon } from "../packages/icons/index.js";
+        import { circleBorderIcon } from "../packages/icons/index.js";
+        import { clearIcon } from "../packages/icons/index.js";
+        import { closeIcon } from "../packages/icons/index.js";
+        import { cookieIcon } from "../packages/icons/index.js";
+        import { deleteIcon } from "../packages/icons/index.js";
+        import { descriptionIcon } from "../packages/icons/index.js";
+        import { doneIcon } from "../packages/icons/index.js";
+        import { doubleArrowLeftIcon } from "../packages/icons/index.js";
+        import { doubleArrowRightIcon } from "../packages/icons/index.js";
+        import { downloadIcon } from "../packages/icons/index.js";
+        import { eastIcon } from "../packages/icons/index.js";
+        import { editIcon } from "../packages/icons/index.js";
+        import { emailIcon } from "../packages/icons/index.js";
+        import { favoriteIcon } from "../packages/icons/index.js";
+        import { filterIcon } from "../packages/icons/index.js";
+        import { filterListIcon } from "../packages/icons/index.js";
+        import { folderIcon } from "../packages/icons/index.js";
+        import { homeIcon } from "../packages/icons/index.js";
+        import { infoIcon } from "../packages/icons/index.js";
+        import { labelIcon } from "../packages/icons/index.js";
+        import { lightbulbIcon } from "../packages/icons/index.js";
+        import { listIcon } from "../packages/icons/index.js";
+        import { loginIcon } from "../packages/icons/index.js";
+        import { logoutIcon } from "../packages/icons/index.js";
+        import { moreIcon } from "../packages/icons/index.js";
+        import { moreVertIcon } from "../packages/icons/index.js";
+        import { newReleasesIcon } from "../packages/icons/index.js";
+        import { notificationsIcon } from "../packages/icons/index.js";
+        import { paidIcon } from "../packages/icons/index.js";
+        import { pdfIcon } from "../packages/icons/index.js";
+        import { priorityHighIcon } from "../packages/icons/index.js";
+        import { questionAnswerIcon } from "../packages/icons/index.js";
+        import { radioCheckedIcon } from "../packages/icons/index.js";
+        import { receiptIcon } from "../packages/icons/index.js";
+        import { refreshIcon } from "../packages/icons/index.js";
+        import { searchIcon } from "../packages/icons/index.js";
+        import { settingsIcon } from "../packages/icons/index.js";
+        import { shoppingCartIcon } from "../packages/icons/index.js";
+        import { sortIcon } from "../packages/icons/index.js";
+        import { starIcon } from "../packages/icons/index.js";
+        import { starBorderIcon } from "../packages/icons/index.js";
+        import { starHalfIcon } from "../packages/icons/index.js";
+        import { swapIcon } from "../packages/icons/index.js";
+        import { switchLeftIcon } from "../packages/icons/index.js";
+        import { thumbUpIcon } from "../packages/icons/index.js";
+        import { uploadIcon } from "../packages/icons/index.js";
+        import { warningIcon } from "../packages/icons/index.js";
+    
+        render(
+            html`
+            <article>
+              ${ accountIcon }
+              <span>accountIcon</span>
+            </article>
+
+            <article>
+              ${ addIcon }
+              <span>addIcon</span>
+            </article>
+
+            <article>
+              ${ announcementIcon }
+              <span>announcementIcon</span>
+            </article>
+
+            <article>
+              ${ appsIcon }
+              <span>appsIcon</span>
+            </article>
+
+            <article>
+              ${ arrowDropDownIcon }
+              <span>arrowDropDownIcon</span>
+            </article>
+
+            <article>
+              ${ arrowDropUpIcon }
+              <span>arrowDropUpIcon</span>
+            </article>
+
+            <article>
+              ${ arrowRightIcon }
+              <span>arrowRightIcon</span>
+            </article>
+
+            <article>
+              ${ calendarIcon }
+              <span>calendarIcon</span>
+            </article>
+
+            <article>
+              ${ circleIcon }
+              <span>circleIcon</span>
+            </article>
+
+            <article>
+              ${ circleBorderIcon }
+              <span>circleBorderIcon</span>
+            </article>
+
+            <article>
+              ${ clearIcon }
+              <span>clearIcon</span>
+            </article>
+
+            <article>
+              ${ closeIcon }
+              <span>closeIcon</span>
+            </article>
+
+            <article>
+              ${ cookieIcon }
+              <span>cookieIcon</span>
+            </article>
+
+            <article>
+              ${ deleteIcon }
+              <span>deleteIcon</span>
+            </article>
+
+            <article>
+              ${ descriptionIcon }
+              <span>descriptionIcon</span>
+            </article>
+
+            <article>
+              ${ doneIcon }
+              <span>doneIcon</span>
+            </article>
+
+            <article>
+              ${ doubleArrowLeftIcon }
+              <span>doubleArrowLeftIcon</span>
+            </article>
+
+            <article>
+              ${ doubleArrowRightIcon }
+              <span>doubleArrowRightIcon</span>
+            </article>
+
+            <article>
+              ${ downloadIcon }
+              <span>downloadIcon</span>
+            </article>
+
+            <article>
+              ${ eastIcon }
+              <span>eastIcon</span>
+            </article>
+
+            <article>
+              ${ editIcon }
+              <span>editIcon</span>
+            </article>
+
+            <article>
+              ${ emailIcon }
+              <span>emailIcon</span>
+            </article>
+
+            <article>
+              ${ favoriteIcon }
+              <span>favoriteIcon</span>
+            </article>
+
+            <article>
+              ${ filterIcon }
+              <span>filterIcon</span>
+            </article>
+
+            <article>
+              ${ filterListIcon }
+              <span>filterListIcon</span>
+            </article>
+
+            <article>
+              ${ folderIcon }
+              <span>folderIcon</span>
+            </article>
+
+            <article>
+              ${ homeIcon }
+              <span>homeIcon</span>
+            </article>
+
+            <article>
+              ${ infoIcon }
+              <span>infoIcon</span>
+            </article>
+
+            <article>
+              ${ labelIcon }
+              <span>labelIcon</span>
+            </article>
+
+            <article>
+              ${ lightbulbIcon }
+              <span>lightbulbIcon</span>
+            </article>
+
+            <article>
+              ${ listIcon }
+              <span>listIcon</span>
+            </article>
+
+            <article>
+              ${ loginIcon }
+              <span>loginIcon</span>
+            </article>
+
+            <article>
+              ${ logoutIcon }
+              <span>logoutIcon</span>
+            </article>
+
+            <article>
+              ${ moreIcon }
+              <span>moreIcon</span>
+            </article>
+
+            <article>
+              ${ moreVertIcon }
+              <span>moreVertIcon</span>
+            </article>
+
+            <article>
+              ${ newReleasesIcon }
+              <span>newReleasesIcon</span>
+            </article>
+
+            <article>
+              ${ notificationsIcon }
+              <span>notificationsIcon</span>
+            </article>
+
+            <article>
+              ${ paidIcon }
+              <span>paidIcon</span>
+            </article>
+
+            <article>
+              ${ pdfIcon }
+              <span>pdfIcon</span>
+            </article>
+
+            <article>
+              ${ priorityHighIcon }
+              <span>priorityHighIcon</span>
+            </article>
+
+            <article>
+              ${ questionAnswerIcon }
+              <span>questionAnswerIcon</span>
+            </article>
+
+            <article>
+              ${ radioCheckedIcon }
+              <span>radioCheckedIcon</span>
+            </article>
+
+            <article>
+              ${ receiptIcon }
+              <span>receiptIcon</span>
+            </article>
+
+            <article>
+              ${ refreshIcon }
+              <span>refreshIcon</span>
+            </article>
+
+            <article>
+              ${ searchIcon }
+              <span>searchIcon</span>
+            </article>
+
+            <article>
+              ${ settingsIcon }
+              <span>settingsIcon</span>
+            </article>
+
+            <article>
+              ${ shoppingCartIcon }
+              <span>shoppingCartIcon</span>
+            </article>
+
+            <article>
+              ${ sortIcon }
+              <span>sortIcon</span>
+            </article>
+
+            <article>
+              ${ starIcon }
+              <span>starIcon</span>
+            </article>
+
+            <article>
+              ${ starBorderIcon }
+              <span>starBorderIcon</span>
+            </article>
+
+            <article>
+              ${ starHalfIcon }
+              <span>starHalfIcon</span>
+            </article>
+
+            <article>
+              ${ swapIcon }
+              <span>swapIcon</span>
+            </article>
+
+            <article>
+              ${ switchLeftIcon }
+              <span>switchLeftIcon</span>
+            </article>
+
+            <article>
+              ${ thumbUpIcon }
+              <span>thumbUpIcon</span>
+            </article>
+
+            <article>
+              ${ uploadIcon }
+              <span>uploadIcon</span>
+            </article>
+
+            <article>
+              ${ warningIcon }
+              <span>warningIcon</span>
+            </article>
+
+
+            `,
+            document.querySelector('#icons')
+        );
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+    
+  </div>
+</body>
+</html>

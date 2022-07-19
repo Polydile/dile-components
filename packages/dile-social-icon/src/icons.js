@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 
 export const icons = {
   facebook: html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408.788 408.788">
