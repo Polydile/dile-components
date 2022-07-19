@@ -38,7 +38,14 @@
     <p>
       <dile-input name="name" label="Name" placeholder="Write your name"></dile-input>
     </p>
-  
+    <p>
+      <button id="testFocus"">Focus on input name</button>
+    </p>
+    <script>
+      document.getElementById('testFocus').addEventListener('click', () => {
+        document.querySelector('dile-input[name="name"]').focus();
+      });
+    </script>
     <h2>Disable autocomplete</h2>
     <p>
       <dile-input name="name" label="Name" placeholder="Write your name" disableAutocomplete></dile-input>

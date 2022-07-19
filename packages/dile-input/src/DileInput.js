@@ -214,4 +214,8 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     computeValue(value) {
       return value;
     }
+
+    focus() {
+      this.el.focus();
+    }
 }
