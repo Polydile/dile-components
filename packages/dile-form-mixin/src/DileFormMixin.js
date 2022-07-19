@@ -69,4 +69,16 @@ export const DileFormMixin = (superclass) => class extends superclass {
       node.value = value;
     }
   }
+
+  showError(name, error) {
+    let node = this.getNodeElement(name);
+    node.errored = true;
+    node.message = error;
+  }
+
+  showErrors(errors) {
+    for(let name in errors) {
+      this.showError(name, errors[name]);
+    } 
+  }
 }
