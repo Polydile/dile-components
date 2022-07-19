@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "@web/dev-server": "^0.1.30",
-        "lerna": "^4.0.0"
+        "lerna": "^5.1.8"
     },
     "dependencies": {
         "lit": "^2.2.1"
