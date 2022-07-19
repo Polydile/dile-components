@@ -42,6 +42,14 @@ It works with native form elements or custom elements, as long as they have the 
 - **setData(data)** Set the values in the form elements using the data object provided in the argument.
 - **clearData()** Clear the form. Try to call a clear() method on all form elements. If this method does not exists only set the value of the element to "". 
 - **resetData()** Set the form elements to it's initial state.
+- **showError(name, error)** Show an error message in the element with the name provided in the argument.
+- **showErrors(errors)** Show errors in various elements of the form, using the errors object provided in the argument
+
+```javascript
+showErrors({
+  name: 'Please complete your name', 
+  age: 'your age should be greater than 18 years old'
+})```
 
 ## DileFormChangeDetectMixin
 

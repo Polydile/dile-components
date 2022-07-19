@@ -54,6 +54,11 @@ Use the component
 - **selectOnFocus**: allways select the content of the input on focus
 - **message**: optionaly, the input can display a message
 - **labelRight**: text placed on the right side of the input
+- **hideErrorOnInput**: on true, the errored state truns off when the user changes the input element and the message is cleared
+
+## Useful Methods
+
+- **focus()**: focus the input element
 
 ## Styling
 
