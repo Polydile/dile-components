@@ -29,15 +29,19 @@ export class DileInputNumberMask extends DileInput {
 
   updated(changedProperties) {
     if (changedProperties.has('mask')) {
-      console.log('has mask', this, this.maxChars);
       this.maskController.setPattern(this.mask);
+      this.updateValue();
+    }
+    if (changedProperties.has('value')) {
+      this.content = this.value.slice(0, this.maxChars);
       this.updateValue();
     }
   }
 
   updateValue() {
-    this.value = this.maskController.maskIt(this.content);
+    this.maskedValue = this.maskController.maskIt(this.content);
   }
+
   render() {
     return html`
     <div>
