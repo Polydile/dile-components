@@ -43,6 +43,7 @@ It works with native form elements or custom elements, as long as they have the 
 - **clearData()** Clear the form. Try to call a clear() method on all form elements. If this method does not exists only set the value of the element to "". 
 - **resetData()** Set the form elements to it's initial state.
 - **showError(name, error)** Show an error message in the element with the name provided in the argument.
+- **clearErrors()** Clear all error messages in the form.
 - **showErrors(errors)** Show errors in various elements of the form, using the errors object provided in the argument
 
 ```javascript
