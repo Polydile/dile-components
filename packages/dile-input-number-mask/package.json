@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-input-number-mask",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "description": "Web Component for a customized input text to create numbers with a display format introuced by a mask",
   "keywords": [
     "input",
