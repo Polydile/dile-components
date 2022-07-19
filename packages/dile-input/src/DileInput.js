@@ -53,6 +53,8 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
           /** Text placed on the right side of the input  */
           labelRight: { type: String },
 
+          /** Hide errors on input */
+          hideErrorOnInput: { type: Boolean },
         };
     }
 
@@ -188,6 +190,10 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     }
     _input(e) {
         this.value = e.target.value;
+        if (this.hideErrorOnInput && this.errored) {
+          this.errored = false;
+          this.message = '';  
+        }
     }
 
     availableType(type) {
