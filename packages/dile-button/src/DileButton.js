@@ -40,6 +40,7 @@ export class DileButton extends LitElement {
       button:hover {
         background-color: var(--dile-button-hover-background-color, #b1ecf7);
         color: var(--dile-button-hover-text-color, #303030);
+        border-color:  var(--dile-button-hover-border-color, #666666);
       }
       button:focus {
         outline: none;

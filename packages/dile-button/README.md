@@ -38,6 +38,7 @@ Custom property | Description | Default
 --dile-button-font-weight | Font weight | normal
 --dile-button-hover-background-color | Hover background color | #b1ecf7
 --dile-button-hover-text-color | Hover text color | #303030
+--dile-button-hover-border-color | Hover border color | #666666
 --dile-button-ring-color | Ring color on focus state | #12c9e9
 --dile-button-ring-offset-width | Ring width on focus state | 3px
 --dile-button-disabled-background-color | Disabled background color | #b1ecf7
