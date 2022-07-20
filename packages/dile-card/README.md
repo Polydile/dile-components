@@ -38,6 +38,9 @@ By default the card has a light shadow (between `sm` and `md`). but you can set 
 - **shadow-2xl**: Extra Extra large shadow.
 - **shadow-none**: Without shadow.
 
+If need a responsive shadow, you can use the --dile-card-box-shadow CSS Custom property.
+
+```html
 
 ### CSS Custom Properties
 
@@ -57,3 +60,4 @@ Custom property | Description | Default
 --dile-card-title-font-weight | Title font weight | 300
 --dile-card-footer-border-separator | Footer border separator | 1px solid #ccc
 --dile-card-footer-background-color | Footer background color | transparent
+--dile-card-box-shadow | Box shadow | Defined by the shadow attributes
