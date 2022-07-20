@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent dile-card to create a card element",
   "keywords": [
     "Lit",
