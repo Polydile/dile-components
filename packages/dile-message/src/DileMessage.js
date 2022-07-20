@@ -16,20 +16,9 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
           overflow: hidden;
           transition: height 0.3s ease-in;
           -webkit-transition: height 0.3s ease-in;
-        }
-        .fix-on-top,
-        .fix-on-bottom {
           position: fixed;
-          left: 0;
           width: 100%;
         }
-        .fix-on-top {
-          top: 0;
-        }
-        .fix-on-bottom {
-          bottom: 0;
-        }
-
         section {
           display: flex;
           align-items: center;
@@ -58,6 +47,20 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
         :host([hideCloseIcon]) .icon {
           display: none;
         }
+        :host([position='top']) #message {
+          top: 0;
+          left: 0;
+        }
+        :host([position='bottom']) #message {
+          bottom: 0;
+          left: 0;
+        }
+        :host([position='right-bottom']) #message {
+          bottom: 1.5rem;
+          right: 1.5rem;
+          width: 80vw;
+          max-width: 400px;
+        }
       `,
     ];
   }
@@ -67,18 +70,20 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
        * If true the feedbak box is in opened status.
        */
       opened: { type: Boolean },
+
       /**
        * Message to display. If message='' then the component will display the content comming from the slot.
        */
       message: { type: String },
+      
       /**
-       * If true the feedbak box is fixed on the top of the page.
+       * Position between top, bottom, right-bottom.
        */
-      fixedOnTop: { type: Boolean },
-      /**
-       * If true the feedbak box is fixed on the bottom of the page.
-       */
-      fixedOnBottom: { type: Boolean },
+      position: {
+         type: String,
+         reflect: true,
+      },
+
       /**
        * If true the close icon will be hidden.
        */
@@ -92,9 +97,8 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
   constructor() {
     super();
     this.opened = false;
-    this.fixedOnTop = false;
+    this.position = 'bottom';
     this.message = "";
-    this.fixedOnBottom = false;
   }
 
   firstUpdated() {
@@ -106,7 +110,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
 
   render() {
     return html`
-      <div id="message" class="${this.createFixedClass(this.fixedOnTop, this.fixedOnBottom)}">
+      <div id="message">
         <section>
           <div class="content">
             ${
@@ -157,13 +161,4 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
     }
   }
 
-  createFixedClass(top, bottom) {
-    if(top) {
-      return 'fix-on-top';
-    }
-    if(bottom) {
-      return 'fix-on-bottom';
-    }
-    return '';
-  }
 }

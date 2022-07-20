@@ -49,8 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 - **opened**: If true the feedback box is in opened status.
 - **message**: Message to display. Remember that, if message='' or undefined, then the component will display the content comming from the slot.
-- **fixedOnTop**: if true the feedback message box is fixed on the top of the page.
-- **fixedOnBottom**: if true the feedback message box is fixed on the bottom of the page.
+- **position**: Position between top, bottom, right-bottom.
 - **hideCloseIcon**: If true the close icon will be hidden.
 
 ## Methods
