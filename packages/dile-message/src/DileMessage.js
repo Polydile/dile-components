@@ -54,6 +54,10 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
           flex-direction: column;
           justify-content: center;
         }
+
+        :host([hideCloseIcon]) .icon {
+          display: none;
+        }
       `,
     ];
   }
@@ -75,6 +79,13 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
        * If true the feedbak box is fixed on the bottom of the page.
        */
       fixedOnBottom: { type: Boolean },
+      /**
+       * If true the close icon will be hidden.
+       */
+      hideCloseIcon: { 
+        type: Boolean,
+        reflect: true 
+      },
     };
   }
 
@@ -83,6 +94,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
     this.opened = false;
     this.fixedOnTop = false;
     this.message = "";
+    this.fixedOnBottom = false;
   }
 
   firstUpdated() {
