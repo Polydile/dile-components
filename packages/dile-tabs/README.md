@@ -69,4 +69,5 @@ Custom property | Description | Default
 --dile-tab-border | Unselected tab border | none
 --dile-tab-selected-border | Selected tab border | none
 --dile-tab-font-weight | Tab font weight | normal
+--dile-tab-font-size | Tab font size | 1rem
 --dile-tab-text-transform | Tab text transform | uppercase

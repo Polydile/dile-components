@@ -18,6 +18,7 @@ export class DileTab  extends DileSelectorItemMixin(LitElement) {
         cursor: pointer;
         border: var(--dile-tab-border, none);
         font-weight: var(--dile-tab-font-weight, normal);
+        font-size: var(--dile-tab-font-size, 1rem);
       }
       div.label {
         padding: var(--dile-label-padding, 8px 12px 6px 12px);
