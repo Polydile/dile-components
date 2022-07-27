@@ -64,6 +64,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       disabled: { type: Boolean },
       errored: { type: Boolean },
       message: { type: String },
+      hideErrorOnInput: { type: Boolean },
     };
   }
 
@@ -89,13 +90,34 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
 
   constructor() {
     super();
-    if(!this.elselect) {
+    this.errored = false;
+    this.hideErrorOnInput = false;
+    this.changeHandler = this.onChange.bind(this);
+    
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    if (!this.elselect) {
       console.log('Please provide a select element in the slot "select"');
     } else {
       this.value = this.elselect.value;
-      this.elselect.addEventListener("change", (e) => {
-        this.value = e.target.value;
-      });
+      this.elselect.addEventListener("change", this.changeHandler);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.elselect) {
+      this.elselect.removeEventListener("change", this.changeHandler);
+    }
+  }
+
+  onChange(e) {
+    this.value = e.target.value;
+    if (this.hideErrorOnInput && this.errored) {
+      this.errored = false;
+      this.message = '';
     }
   }
 

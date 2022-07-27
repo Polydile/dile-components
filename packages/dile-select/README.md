@@ -43,6 +43,7 @@ Use the component.
 - **name**: the name of the element.
 - **value**: the value of the option selected
 - **message**: Place a message under the select element
+- **hideErrorOnInput**: Hide the error message when the user changes the value of the select element
 
 ## Events
 
