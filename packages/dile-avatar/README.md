@@ -30,7 +30,7 @@ Use the component:
 ## Properties
 
 - **src**: the route of the user image file.
-- **initial**: Initial letter of the user name (the component only accepts one character).
+- **initial**: Initial letter of the user name. If initial is a string with more than one character, then only the first letter is used.
 
 ## CSS Custom Properties
 

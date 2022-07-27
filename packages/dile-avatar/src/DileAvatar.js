@@ -38,6 +38,12 @@ export class DileAvatar extends LitElement {
     this.initial = "";
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has("initial") && typeof this.initial == "string" && this.initial.length > 0) {
+      this.initial = this.initial.charAt(0);
+    }
+  }
+
   render() {
     return html`
       ${this.src == "" && this.initial != "" && this.initial.length == 1
