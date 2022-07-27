@@ -36,12 +36,31 @@
     <h2>Styled breadcrumbs</h2>
     <p>
       <dile-breadcrumbs
-        items='[{"text": "Home", "href": "index.html"},{"text": "Websites", "href": "mywebsite.html"},{"text": "My website"}]'
+        items='[
+          {"text": "Home", "href": "index.html"},
+          {"text": "Websites", "href": "mywebsite.html"},
+          {"text": "My website"}
+        ]'
         separator="»"
         class="styled"
       ></dile-breadcrumbs>
     </p>
+
+    <h2>Dispatch event breadcrumbs</h2>
+    <p>
+      <dile-breadcrumbs id="named">
+        <dile-breadcrumbs-item name="home">Home</dile-breadcrumbs-item>
+        <dile-breadcrumbs-item name="articles">Articles</dile-breadcrumbs-item>
+        <dile-breadcrumbs-item>Not named</dile-breadcrumbs-item>
+      </dile-breadcrumbs>
+    </p>
   
+    <script>
+      document.getElementById('named').addEventListener('dile-breadcrumbs-click', function(e) {
+        console.log('click on: ', e.detail.name);
+      });
+    </script>
+
     <footer><a href="index.html">Back</a></footer>
 
   </div>

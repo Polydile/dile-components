@@ -7,16 +7,20 @@ export class DileBreadcrumbsItem extends LitElement {
                 display: inline-block;
                 font-size: var(--dile-breadcrumbs-font-size, 1rem);
             }
-            a {
+            a, .named {
                 text-decoration: var(--dile-breadcrumbs-text-decoration, none);
                 color: var(--dile-breadcrumbs-link-color, #39c);
             }  
+            .named {
+                cursor: pointer;
+            }
         `
     ];
 
     static get properties() {
       return {
-        href: { type: String }
+        href: { type: String },
+        name: { type: String },
       };
     }
 
@@ -24,7 +28,7 @@ export class DileBreadcrumbsItem extends LitElement {
         return html`
             ${this.href 
                 ? html`<a href="${this.href}">${this.contentTemplate}</a>`
-                : html`<span>${this.contentTemplate}</span>`
+                : html`<span class="${this.name ? 'named' : ''}" @click=${this.dispatchClick}>${this.contentTemplate}</span>`
             }
         `;
     }
@@ -33,4 +37,15 @@ export class DileBreadcrumbsItem extends LitElement {
         return html`<slot></slot>`;
     }
 
+    dispatchClick(e) {
+        if(this.name) {
+            this.dispatchEvent(new CustomEvent('dile-breadcrumbs-click', { 
+                bubbles: true,
+                composed: true,
+                detail: {
+                    name: this.name,
+                }
+            }));
+        }
+    }
 }

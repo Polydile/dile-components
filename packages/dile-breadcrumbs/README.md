@@ -45,6 +45,11 @@ You can use the component in two ways:
 ### dile-breadcrumbs-item
 
 - **href**: Optional href for the links
+- **name**: Optional name for the item. When the name property is used, the item dispays as a link, then, instead of navigate to the href location, the element dispatchs the custom event `dile-breadcrumbs-click`.
+
+### Events
+
+- **dile-breadcrumbs-click**: Custom event dispatched when the user click on a breadcrumb item that has a defined `name` property. You would use this event when you want to handle the click event on the breadcrumb item to do a custom navigation procedure, diferent to a regular link item.
 
 ## CSS Custom Properties
 

@@ -1,4 +1,5 @@
 import { html, css, LitElement } from "lit";
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export class DileBreadcrumbs extends LitElement {
   static get properties() {
@@ -27,15 +28,6 @@ export class DileBreadcrumbs extends LitElement {
         font-size: var(--dile-breadcrumbs-font-size, 1rem);
         color: var(--dile-breadcrumbs-text-color, #303030);
       }
-      ul {
-        padding: 0;
-        margin: 0;
-      }
-      li {
-        display: inline;
-        color: var(--dile-breadcrumbs-text-color, #000);
-        font-size: var(--dile-breadcrumbs-font-size, 1rem);
-      }
       .separator {
         padding-left: var(--dile-breadcrumbs-separator-width, 0.5rem);
       }
@@ -43,10 +35,6 @@ export class DileBreadcrumbs extends LitElement {
         padding-right: var(--dile-breadcrumbs-separator-width, 0.5rem);
         font-size: var(--dile-breadcrumbs-font-size, 1rem);
         color: var(--dile-breadcrumbs-text-color, #000);
-      }
-      a {
-        text-decoration: var(--dile-breadcrumbs-text-decoration, none);
-        color: var(--dile-breadcrumbs-link-color, #39c);
       }  
     `;
   }
@@ -76,16 +64,13 @@ export class DileBreadcrumbs extends LitElement {
 
   get arrayTemplate() {
     return html`
-      <ul>
-        ${this.items.map((item, index) => html`
-            <li class="${ index != 0 ? 'separator' : '' }">
-              ${item.href 
-                ? html`<a href="${ item.href }">${ item.text }</a>`
-                : html`<span>${ item.text }</span>`
-              }
-            </li>`                      
-        )}                
-      </ul>
+      ${this.items.map((item, index) => html`
+          <dile-breadcrumbs-item 
+            class="${ index != 0 ? 'separator' : '' }" 
+            href="${ifDefined(item.href)}"
+            name="${ifDefined(item.name)}"
+            >${item.text}</dile-breadcrumbs-item>`                      
+      )}                
     `;
   }
 }
