@@ -1,9 +1,12 @@
 import { html, css, LitElement } from "lit";
 import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
+import { messageStyles } from '@dile/dile-input';
 
 export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   static get styles() {
-    return css`
+    return [
+      messageStyles,
+      css`
       :host {
         display: block;
         margin-bottom: 10px;
@@ -50,7 +53,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
         background-color: #f5f5f5;
         border-color: var(--dile-input-disabled-border-color, #eee);
       }
-    `;
+    `];
   }
 
   static get properties() {
@@ -60,6 +63,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       name: { type: String },
       disabled: { type: Boolean },
       errored: { type: Boolean },
+      message: { type: String },
     };
   }
 
@@ -72,6 +76,10 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
         }
         <slot name="select"></slot>
       </div>
+      ${this.message 
+        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        : ''
+      }
     `;
   }
 

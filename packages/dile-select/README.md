@@ -42,6 +42,7 @@ Use the component.
 - **label**: A label
 - **name**: the name of the element.
 - **value**: the value of the option selected
+- **message**: Place a message under the select element
 
 ## Events
 
@@ -70,6 +71,10 @@ Custom property | Description | Default
 --dile-input-focus-border-color | Input element border on focus | #6af
 --dile-input-error-border-color | Input element border on errored property = true | #c00
 --dile-input-disabled-border-color | Input element border when disabled | #eee
+--dile-input-message-padding-top | Space from input to message | 4px
+--dile-input-message-font-size | Message font size | 0.875em
+--dile-input-message-color | Message text color | #888
+--dile-input-message-error-color | Message text color on errored state | #c00
 
 When ```--dile-input-background-color``` is configured to a dark color the component has the posibility to put a "dark" class in the ```<select>``` tag to create a drop icon with suficient contrast.
 
