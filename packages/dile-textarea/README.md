@@ -41,6 +41,8 @@ Use the component
 - **maxRows**: maximum rows (use max-rows in the HTML code, as attribute)
 - **readOnly**: Defines the texts present in the input element when is empty
 - **placeholder**: on true, the element is disabled
+- **message**: Place a message under the textarea element
+- **errored**: to mark the textarea element with a error style
 
 ## Styling
 
@@ -54,6 +56,11 @@ Custom property | Description | Default
 --dile-textarea-padding | Padding for the textarea element | 5px
 --dile-textarea-font-family | Textarea element font family | sans-serif
 --dile-textarea-label-margin-bottom | Label marging bottom | 4px
+--dile-input-error-border-color | Border color on errored state | #c00
+--dile-input-message-padding-top | Space from input to message | 4px
+--dile-input-message-font-size | Message font size | 0.875em
+--dile-input-message-color | Message text color | #888
+--dile-input-message-error-color | Message text color on errored state | #c00
 
 ## Events
 
