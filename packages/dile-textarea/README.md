@@ -43,6 +43,7 @@ Use the component
 - **placeholder**: on true, the element is disabled
 - **message**: Place a message under the textarea element
 - **errored**: to mark the textarea element with a error style
+- **hideErrorOnInput**: Hide the error message when the user changes the value of the textarea element
 
 ## Styling
 

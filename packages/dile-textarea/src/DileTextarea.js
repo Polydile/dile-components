@@ -86,8 +86,8 @@ export class DileTextarea extends LionTextarea {
 
   onInput() {
       if(this.hideErrorOnInput && this.errored) {
-      this.errored = false;
-      this.message = '';
-    }
+        this.errored = false;
+        this.message = '';
+      }
   }
 }
