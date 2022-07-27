@@ -1,10 +1,14 @@
-import { LitElement, html, css } from 'lit';
+import { html, css } from 'lit';
 import { LionTextarea } from '@lion/textarea';
+import { messageStyles } from '@dile/dile-input';
 
 export class DileTextarea extends LionTextarea {
 
   static get styles() {
-    return [super.styles, css`
+    return [
+      super.styles, 
+      messageStyles, 
+      css`
       :host {
         margin-bottom: 10px;
       }
@@ -26,10 +30,22 @@ export class DileTextarea extends LionTextarea {
         font-size: var(--dile-textarea-font-size, 1em);
         font-family: var(--dile-textarea-font-family, sans-serif);
       }
-
+      :host([errored]) ::slotted(textarea) {
+        border-color: var(--dile-input-error-border-color, #c00);
+      }
+      
     `];
   }
 
+  static get properties() {
+    return {
+      errored: { 
+        type: Boolean,
+        reflect: true
+      },
+      message: { type: String },
+    };
+  }
   get textareaElement() {
     return this.querySelector('textarea');
   }
@@ -40,4 +56,13 @@ export class DileTextarea extends LionTextarea {
     element.focus();
   }
   
+  render() {
+    return html`
+      ${super.render()}
+      ${this.message 
+        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        : ''
+      }
+    `;
+  }
 }

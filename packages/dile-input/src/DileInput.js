@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
+import { messageStyles } from './message-styles';
 
 export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
@@ -78,72 +79,67 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     }
 
     static get styles() {
-        return css`
-    * {
-      box-sizing: border-box;
+        return [
+          messageStyles,
+          css`
+            * {
+              box-sizing: border-box;
+            }
+            :host {
+              display: block;
+              margin-bottom: 10px;
+            }
+            main {
+              width: var(--dile-input-section-width, 100%);
+            }
+            label {
+              display: block;
+              margin-bottom: var(--dile-input-label-margin-bottom, 4px);
+              font-size: var(--dile-input-label-font-size, 1em);
+              color: var(--dile-input-label-color, #59e);
+              font-weight: var(--dile-input-label-font-weight, normal);
+            }
+            input {
+              box-sizing: border-box;
+              border-radius: var(--dile-input-border-radius, 5px);
+              border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
+              font-size: var(--dile-input-font-size, 1em);
+              line-height: var(--dile-input-line-height, 1.5em);
+              padding: var(--dile-input-padding, 5px);
+              background-color: var(--dile-input-background-color, #fff);
+              color: var(--dile-input-color, #303030);
+              text-align: var(--dile-input-text-align, left);
+              width: 100%;
+              flex-grow: 1;
+            }
+            input:focus {
+              outline: none;
+              border-color: var(--dile-input-focus-border-color, #6af)
+            }
+            input::placeholder {
+              color: var(--dile-input-placeholder-color, #ccc);
+            }
+            input:disabled {
+              background-color: #f5f5f5;
+              border-color: var(--dile-input-disabled-border-color, #eee);
+            }
+            .errored {
+              border-color: var(--dile-input-error-border-color, #c00);
+            }
+            section.for-input {
+              display: flex;
+              align-items: center;
+              width: 100%;
+            }
+            .labelright {
+              margin-left: var(--dile-input-label-right-margin-left, 10px);
+              color: var(--dile-input-label-color, #59e);
+              font-size: var(--dile-input-label-right-font-size, 1.2em);
+            }
+          `
+        ];
     }
-    :host {
-      display: block;
-      margin-bottom: 10px;
-    }
-    main {
-      width: var(--dile-input-section-width, 100%);
-    }
-    label {
-      display: block;
-      margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-      font-size: var(--dile-input-label-font-size, 1em);
-      color: var(--dile-input-label-color, #59e);
-      font-weight: var(--dile-input-label-font-weight, normal);
-    }
-    input {
-      box-sizing: border-box;
-      border-radius: var(--dile-input-border-radius, 5px);
-      border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
-      font-size: var(--dile-input-font-size, 1em);
-      line-height: var(--dile-input-line-height, 1.5em);
-      padding: var(--dile-input-padding, 5px);
-      background-color: var(--dile-input-background-color, #fff);
-      color: var(--dile-input-color, #303030);
-      text-align: var(--dile-input-text-align, left);
-      width: 100%;
-      flex-grow: 1;
-    }
-    input:focus {
-      outline: none;
-      border-color: var(--dile-input-focus-border-color, #6af)
-    }
-    input::placeholder {
-      color: var(--dile-input-placeholder-color, #ccc);
-    }
-    input:disabled {
-      background-color: #f5f5f5;
-      border-color: var(--dile-input-disabled-border-color, #eee);
-    }
-    .errored {
-      border-color: var(--dile-input-error-border-color, #c00);
-    }
-    .message span {
-      display: block;
-      padding-top: var(--dile-input-message-padding-top, 4px);
-      font-size: var(--dile-input-message-font-size, 0.875em);
-      color: var(--dile-input-message-color, #888);
-
-    }
-    .errored-msg span {
-      color: var(--dile-input-message-error-color, #c00);
-    }
-    section.for-input {
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-    .labelright {
-      margin-left: var(--dile-input-label-right-margin-left, 10px);
-      color: var(--dile-input-label-color, #59e);
-      font-size: var(--dile-input-label-right-font-size, 1.2em);
-    `;
-    }
+    
     render() {
         return html`
           <main>

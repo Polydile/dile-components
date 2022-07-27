@@ -35,11 +35,14 @@
     <p>
       <button id="introduceText">Introduce text</button>
       <button id="placeCursorAtEnd">Place cursor at end</button>
+      <button id="errored">Set errored to true</button>
+      <button id="not-errored">Set errored to false</button>
+      <button id="message">Place a message</button>
     </p>
     <script>
       let text = `Hi,
 I am a textarea element.
-You can play with me, presing the buttons.
+You can play with me, pressing the buttons.
 Bye!!`;
       document.addEventListener('DOMContentLoaded', function() {
         let textElement = document.getElementById('textelement')
@@ -49,6 +52,15 @@ Bye!!`;
         })
         document.getElementById('placeCursorAtEnd').addEventListener('click', function () {
           textElement.placeCursorAtEnd();
+        });
+        document.getElementById('errored').addEventListener('click', function () {
+          textElement.errored = true;
+        });
+        document.getElementById('not-errored').addEventListener('click', function () {
+          textElement.errored = false;
+        });
+        document.getElementById('message').addEventListener('click', function () {
+          textElement.message = 'This is a message!!';
         });
       })
     </script>
