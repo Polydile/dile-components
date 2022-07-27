@@ -23,7 +23,7 @@ export class DileTextarea extends LionTextarea {
       }
       ::slotted(textarea) {
         border: var(--dile-textarea-border, 1px solid #888);
-        border-radius: var(--dile-textarea-border-radius, 5px);;
+        border-radius: var(--dile-textarea-border-radius, 5px);
         padding: var(--dile-textarea-padding, 5px);
       }
       .input-group__container > .input-group__input ::slotted(textarea.form-control) {
