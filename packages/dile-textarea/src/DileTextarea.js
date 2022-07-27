@@ -44,6 +44,7 @@ export class DileTextarea extends LionTextarea {
         reflect: true
       },
       message: { type: String },
+      hideErrorOnInput: { type: Boolean },
     };
   }
   get textareaElement() {
@@ -64,5 +65,29 @@ export class DileTextarea extends LionTextarea {
         : ''
       }
     `;
+  }
+  
+  constructor() {
+    super();
+    this.errored = false;
+    this.hideErrorOnInput = false;
+    this.inputHandler = this.onInput.bind(this)
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.textareaElement.addEventListener('input', this.inputHandler);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.textareaElement.removeEventListener('input', this.inputHandler);
+  }
+
+  onInput() {
+      if(this.hideErrorOnInput && this.errored) {
+      this.errored = false;
+      this.message = '';
+    }
   }
 }
