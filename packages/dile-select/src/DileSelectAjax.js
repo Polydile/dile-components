@@ -54,6 +54,8 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
 
   static get properties() {
     return {
+      /* Allows to set a text for the default option, that is a empty option and do not selects nothing in the interface. */
+      selectDefaultPlaceholder: { type: String },
       endpoint: { type: String },
       label: { type: String },
       value: { type: String },
@@ -67,6 +69,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
       ajaxErrorMessage: { type: String },
       ajaxError: { type: Boolean },
       queryStringVariable: { type: String },
+      /** Use resultDataProperty to declare witch property in the JSON object returned by the endpoint has the data to assign to the select options. Left it blank if the result JSON has directly the array with the data */
       resultDataProperty: { type: String },
       displayProperty: { type: String },
       idProperty: { type: String },
@@ -99,6 +102,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
   constructor() {
     super();
     this.placeholder = "Search to choose...";
+    this.selectDefaultPlaceholder = "Select an option...";
     this.emptyMessage = "No results found";
     this.ajaxErrorMessage = "Error loading data";
     this.data = [];
@@ -235,6 +239,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
           name="generated-select-field"
         >
           <select slot="select">
+            <option value="">${this.selectDefaultPlaceholder}</option>
             ${this.data.map(item => html`
               <option value="${item[this.idProperty]}">${item[this.displayProperty]}</option>
             `)}
@@ -267,10 +272,8 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
   
   registerData(json) {
     if(this.resultDataProperty === undefined || this.resultDataProperty === '') {
-      //console.log('NOoooo tengo resultadata property');
       this.data = json;
     } else {
-      //console.log('Siiiiiii tengo resultadata property');
       this.data = json[this.resultDataProperty];
     }
     this.updateComplete.then( () => this.loading = false )

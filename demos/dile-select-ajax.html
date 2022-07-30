@@ -35,7 +35,13 @@
     <h2>Simple implementation</h2>
    
     <dile-select-ajax id="select1" displayProperty="title" endpoint="https://jsonplaceholder.typicode.com/posts"></dile-select-ajax>
-
+    <div id="msg1"></div>
+    <script>
+      const select1 = document.querySelector('#select1');
+      select1.addEventListener('element-changed', (e) => {
+        document.querySelector('#msg1').innerHTML = `Selected value: ${e.detail.value}`;
+      });
+    </script>
     <h2>Disabled</h2>
 
     <dile-select-ajax disabled>
