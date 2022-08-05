@@ -42,6 +42,16 @@
         document.querySelector('#msg1').innerHTML = `Selected value: ${e.detail.value}`;
       });
     </script>
+
+    <h2>Static select ajax</h2>
+
+    <dile-select-ajax 
+      id="selectstatic" 
+      static 
+      displayProperty="title" 
+      endpoint="https://jsonplaceholder.typicode.com/posts"
+    ></dile-select-ajax>
+
     <h2>Disabled</h2>
 
     <dile-select-ajax disabled>

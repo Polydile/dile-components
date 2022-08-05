@@ -90,6 +90,10 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
         type: Object,
         state: true,
       },
+      /* When static is true there is no posibility to search, then all the options are displayed on the select on initialization */
+      static: {
+        type: Boolean,
+      } 
     };
   }
 
@@ -111,6 +115,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
     this.errored = false;
     this.ajaxError = false;
     this.isSelected = false;
+    this.static = false;
     this.blurHandler = this.close.bind(this);
     this.queryStringVariable = 'q';
     this.delay = 300;
@@ -131,6 +136,9 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
     if(this.value) {
       this.isSelected = true;
       this.searchValueInitial();
+    }
+    if(this.static) {
+      this.loadData();
     }
   }
 
@@ -163,7 +171,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
           : ""}
         ${this.isSelected
           ? this.selectedTemplate
-          : this.searchTemplate
+          : this.static ? this.loadingOrLoadedTemplate : this.searchTemplate
         }
       </div>
     `;
@@ -196,12 +204,18 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
       ></dile-input-search>
       <div class="anchor">
         <section class="${this.opened && this.keyword.length > 0 ? 'opened' : ''}">
-          ${this.loading
-            ? this.loadingTemplate
-            : this.loadedTemplate
-          }
+          ${this.loadingOrLoadedTemplate}
         </section>
       </div>
+    `;
+  }
+
+  get loadingOrLoadedTemplate() {
+    return html`
+      ${this.loading
+        ? this.loadingTemplate
+        : this.loadedTemplate
+      }
     `;
   }
 
@@ -290,14 +304,16 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
   }
 
   onClearSelected() {
-    this.keyword = '';
-    this.selectedText = '';
     this.value = undefined;
     this.isSelected = false;
-    this.data = [];
-    this.updateComplete.then(() => {
-      this.search.focus();
-    });
+    if(! this.static) {
+      this.keyword = '';
+      this.selectedText = '';
+      this.data = [];
+      this.updateComplete.then(() => {
+        this.search.focus();
+      });
+    }
   }
 
   close() {
