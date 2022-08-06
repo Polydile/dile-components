@@ -101,7 +101,6 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
     if (!this.elselect) {
       console.log('Please provide a select element in the slot "select"');
     } else {
-      this.value = this.elselect.value;
       this.elselect.addEventListener("change", this.changeHandler);
     }
   }
@@ -133,6 +132,15 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
     if(changedProperties.has("errored")) {
       this.elselect.classList.toggle("errored", this.errored);
     }
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+    if(this.value) {
+      this.elselect.value = this.value;
+    } else {
+      this.value = this.elselect.value;
+    } 
   }
 
   clear() {
