@@ -8,6 +8,8 @@ export { arrowDropUpIcon } from "./src/arrowDropUp.js";
 export { arrowRightIcon } from "./src/arrowRight.js";
 export { attachmentIcon } from "./src/attachment.js";
 export { calendarIcon } from "./src/calendar.js";
+export { checkboxBlankIcon } from "./src/checkboxBlank.js";
+export { checkboxCheckedIcon } from "./src/checkboxChecked.js";
 export { circleIcon } from "./src/circle.js";
 export { circleBorderIcon } from "./src/circleBorder.js";
 export { clearIcon } from "./src/clear.js";
