@@ -29,6 +29,7 @@ export { favoriteIcon } from "./src/favorite.js";
 export { filterIcon } from "./src/filter.js";
 export { filterListIcon } from "./src/filterList.js";
 export { folderIcon } from "./src/folder.js";
+export { folderZipIcon } from "./src/folderZip.js";
 export { homeIcon } from "./src/home.js";
 export { imageIcon } from "./src/image.js";
 export { infoIcon } from "./src/info.js";
