@@ -41,6 +41,6 @@ You need to load the [anchorme library](https://alexcorvi.github.io/anchorme.js/
 
 You may require it in your js bundle, or use a CDN like this:
 
-´´´html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchorme/2.1.2/anchorme.min.js"></script>
-´´´
+```
