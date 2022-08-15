@@ -6,14 +6,16 @@
         <title>dile-graph component demo</title>
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/style.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
         <script src="../packages/dile-graph/dile-graph.js" type="module"></script>
         <style>
             .example {
-                --eit-card-graph-width: 700px;
-                --eit-card-graph-borderRadius: 20px;
-                --eit-graph-width: 500px;
-                --eit-graph-heigth: 500px;
+                --dile-graph-width: 700px;
+                --dile-graph-border-radius: 20px;
+                --dile-graph-background-color: #ddf0ff;
+                --dile-graph-width: 400px;
+                --dile-graph-shadow: none;
+                --dile-graph-hover-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
             }
         </style>
     </head>
@@ -22,15 +24,24 @@
             <h1>dile-graph component</h1>
             Default Graph
             <br /><br />
-            <dile-graph></dile-graph>
+            
+            <dile-graph 
+                charttype="bar" 
+                labels='["Jan","Feb","Mar"]'
+                datasets='[ { "label": "Users", "data": [1, 4, 6], "backgroundColor": "rgba(255, 99, 132, 0.2)", "borderColor": "rgba(255,99,132,1)", "borderWidth": 2 } ]'
+            ></dile-graph>
+            
             <br /><br />
             Custom Graph
             <br /><br />
-            <dile-graph
+
+            <dile-graph 
                 class="example"
-                style="--eit-card-graph-backgroundColor: rgb(135 216 54 / 34%)"
-                graphicTitle="Custom Graph"
-            ></dile-graph>
+                charttype="line" labels='["A", "B", "C", "D", "E", "F"]'
+                datasets='[{ "label": "Dataset 1", "data": [65, 59, 80, 81, 56, 55], "borderColor": "rgb(255, 99, 132)", "backgroundColor": "rgb(177, 199, 232)"},{ "label": "Dataset 2", "data": [28, 48, 40, 19, 86, 27], "borderColor": "rgb(33, 150, 232)", "backgroundColor": "rgb(55, 199, 200)"}]'>
+            </dile-graph>
+
+            
             <br /><br />
 
             <footer><a href="index.html">Back</a></footer>

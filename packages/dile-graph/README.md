@@ -1,11 +1,11 @@
 # \<dile-graph>
 
-Web Component to show a custom graph to the user usign Chart.js
+Web Component to show a custom graph to the user usign [Chart.js](https://www.chartjs.org/)
 
 ## Installation
 
 ```bash
-npm i dile-graph
+npm i @dile/dile-graph
 ```
 
 ## Usage
@@ -13,45 +13,47 @@ npm i dile-graph
 Add the following library in the index
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 ```
+* Is necesary to use Chart.js version 3 or higher. To use Chart.js version 2 you need to use the version 0.1.1 of @dile/dile-graph component.
 
-then
+Import the component js module
 
 ```html
 <script type="module">
     import 'dile-graph/dile-graph.js';
 </script>
+````
+Use the component
 
-<dile-graph></dile-graph>
+```html
+<dile-graph 
+    class="example"
+    charttype="line" labels='["A", "B", "C", "D", "E", "F"]'
+    datasets='[{ "label": "Dataset 1", "data": [65, 59, 80, 81, 56, 55], "borderColor": "rgb(255, 99, 132)", "backgroundColor": "rgb(177, 199, 232)"},{ "label": "Dataset 2", "data": [28, 48, 40, 19, 86, 27], "borderColor": "rgb(33, 150, 232)", "backgroundColor": "rgb(55, 199, 200)"}]'>
+</dile-graph>
 ```
 
-It is also possible to set the values ​​of the graph with the following variables
+Set the graph values ​​with the following properties
 
-| Custom variable   | Description          | Default                                                |
+| Property          | Description          | Examples                                               |
 | ----------------- | -------------------- | ------------------------------------------------------ |
-| graphicTitle      | graphic title        | Default Graph                                          |
-| columnsOfTheChart | columns of the graph | ['Column 1', 'Column 2']                               |
-| columnsValues     | Column values        | [3, 7]                                                 |
-| columnColors      | Columns colors       | ["rgba(200, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"] |
-| ColumnEdgeColors  | Column Border Colors | ["rgba(255,99,132,1)", "rgba(54, 162, 235, 1)"]        |
+| cartType          | Chart type           | 'line', 'bar'...                                       |
+| labels            | Horizonal Labels     | ['Jan', 'Feb', 'Mar']                               |
+| datasets          | Data                 | [ { "label": "Users", "data": [1, 4, 8], "backgroundColor": "rgba(255, 99, 132, 0.2)", "borderColor": "rgba(255,99,132,1)", "borderWidth": 2 } ] |
 
-## Css
+Consult the [Chart.js](https://www.chartjs.org/) documentation for more information about datasets.
 
-It is also possible to set the values of the css with the following variables
+## CSS Custom Properties
 
-| Custom variable                  | Description           | Default |
-| -------------------------------- | --------------------- | ------- |
-| --eit-card-graph-width           | card width            | 400px   |
-| --eit-card-graph-backgroundColor | card background color | white   |
-| --eit-card-graph-borderRadius    | card border radius    | 0px     |
-| --eit-graph-width                | graph width           | 300px   |
-| --eit-graph-heigth               | graph heigth          | 300px   |
+It is also possible to use some CSS custom properties to customize the component.
 
-## Local Demo with `web-dev-server`
+| Custom variable                   | Description           | Default |
+| --------------------------------- | --------------------- | ------- |
+| --dile-graph-width                | card width            | 100%    |
+| --dile-graph-background-color     | card background color | white   |
+| --dile-graph-border-radius        | card border radius    | 0px     |
+| --dile-graph-shadow               | card box shadow       | 0 4px 8px 0 rgba(0, 0, 0, 0.2)   |
+| --dile-graph-hover-shadow         | card hover box shadow | 0 8px 16px 0 rgba(0, 0, 0, 0.2) |
+| --dile-graph-padding              | card padding          | 10px     |
 
-```bash
-npm run start
-```
-
-To run a local development server that serves the basic demo located in `demos/dile-graph.html`
