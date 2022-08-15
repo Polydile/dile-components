@@ -18,13 +18,15 @@ import '@dile/dile-html-transform/dile-html-transform';
 
 ## Use the component
 
-Apply the text to transform in the "text" property. Then, the ```<dile-html-transform>``` component will show the transformed text, to display break lines and links on the URLs. This component makes the transformations without using the lit-html unsafeHTML directive, to make the transformations more safe against cross-site-scripting vulnerabilities.
+Apply the text to transform in the "text" property. Then, the ```<dile-html-transform>``` component will show the transformed text, to display break lines and links on the URLs. 
 
 Transformations available:
-- Transform newlines in ```<br>```tags 
+- Transform newlines in ```<br>``` tags 
 - Transform urls in links
 
-```
+Cross-Site Scripting note: This component will not parse strings with HTML. It uses [Linkify-string](https://linkify.js.org/docs/linkify-string.html) to convert URLs into HTML links. So, any HTML entities in the input strings will be converted to encoded characters. Later we use the lit unsafeHTML directive, to display the link on the document. Although, it is always important to ensure the input to prevent xss attacks.
+
+```html
 <dile-html-transform text="Hi! from DesarrolloWeb.com. Why not to follow us on twitter.com?" convertLines convertLinks></dile-html-transform>
 ```
 
@@ -32,15 +34,9 @@ In order to make the desired conversions you need to provide the following attri
 
 - **text**: The text will be transformed 
 - **convertLines**: should be true to convert new lines to ```<br>``` 
-- **convertLinks**: should be true to convert the URLs in the text into links
-- **convertEmails**: should be true to convert the emails into links (mailto:)
+- **convertLinks**: should be true to convert the URLs in the text into links, including email addresses
 
-## This component depends on "anchorme"
+## This component depends on Linkify.js
 
-You need to load the [anchorme library](https://alexcorvi.github.io/anchorme.js/) before to this component, in order to make available the URLs-to-link and email-to-link transformations.
+This component load [Linkify.js](https://linkify.js.org/) library by it-self, to convert the URLs in the text into links. You don't need to load this library manually.
 
-You may require it in your js bundle, or use a CDN like this:
-
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/anchorme/2.1.2/anchorme.min.js"></script>
-```

@@ -27,7 +27,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "anchorme": "^2.1.2",
+    "linkifyjs": "^3.0.5",
+    "linkify-string": "^3.0.4",
     "lit": "^2.2.1"
   }
 }

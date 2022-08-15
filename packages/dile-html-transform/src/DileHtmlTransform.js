@@ -1,5 +1,14 @@
 import { html, css, LitElement } from "lit";
-import { StrBlock } from './StrBlock';
+//import { StrBlock } from './StrBlock';
+import linkifyStr from 'linkify-string';
+import * as linkify from 'linkifyjs';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+
+const options = { defaultProtocol: 'https' };
+console.log(
+  linkify.tokenize('Any links to github.com here? If not, contact test@example.com'),
+  linkifyStr('Any links to github.com here? If not, contact test@example.com', options)
+);
 
 export class DileHtmlTransform extends LitElement {
   
@@ -15,25 +24,41 @@ export class DileHtmlTransform extends LitElement {
     return {
       convertLines: { type: Boolean },
       convertLinks: { type: Boolean },
-      convertEmails: { type: Boolean },
       text: { type: String },
+      init: { type: Boolean },
     };
   }
 
   constructor() {
     super();
+    this.init = false;
     this.text = '';
+    this.convertLines = false;
+    this.convertLinks = false;
+  }
+
+  firstUpdated() {
+    this.init = true;
   }
 
   render() {
-    return html`${this.transform(this.text, this.convertLines, this.convertLinks, this.convertEmails)}`;
+    if (!this.init) {
+      return '';
+    }
+    if (!this.convertLines && !this.convertLinks) {
+      return this.text;
+    }
+    if (!this.convertLinks) {
+      return html`${this.convertNewLines(this.text)}`;
+    }
+    return html`${unsafeHTML(linkifyStr(this.text, this.generateOptions(this.convertLines)))}`;
   }
 
-  transform(str, convertLines, convertLinks, convertEmails) {
-    if(convertLines) {
-      return html`${this.convertNewLines(str, convertLinks, convertEmails)}`;
-    }
-    return html`${this.convertUrls(str, convertLinks, convertEmails)}`;
+  generateOptions(convertLines) {
+    let options = {
+      nl2br: convertLines,
+    };
+    return options;
   }
 
   convertNewLines(str, convertLinks, convertEmails) {
@@ -43,32 +68,9 @@ export class DileHtmlTransform extends LitElement {
     return arrStr.map( (element, index) => 
       html`
         ${element != '' 
-        ? html`${this.convertUrls(element, convertLinks, convertEmails)}${index < arrStr.length - 1 ? html`<br>` : ''}`
+          ? html`${element}${index < arrStr.length - 1 ? html`<br>` : ''}`
           : ''
         }
       `);
-  }
-
-  convertUrls(str, convertLinks, convertEmails) {
-    if (!anchorme || (!convertLinks && !convertEmails)) {
-      return str;
-    }
-    let anchorBlocks = anchorme.list(str);
-    if(anchorBlocks.length == 0) {
-      return str;
-    }
-    let position = 0;
-    let finalBlocks = [];
-    anchorBlocks.forEach(anchorBlock => {
-      if (position < anchorBlock.start) {
-        finalBlocks.push(new StrBlock(str.substr(position, anchorBlock.start - position)));
-      }
-      finalBlocks.push(new StrBlock(str.substr(anchorBlock.start, anchorBlock.end - anchorBlock.start), convertLinks, convertEmails, anchorBlock));
-      position = anchorBlock.end;
-    });
-    if(position < str.length) {
-      finalBlocks.push(new StrBlock(str.substr(position)));
-    }
-    return finalBlocks.map(block => block.html());
   }
 }
