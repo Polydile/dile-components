@@ -65,6 +65,9 @@ export class DileButton extends LitElement {
         border-color: #aaa;
         box-shadow: none;
       }
+      button {
+        user-select: none;
+      }
     `;
   }
 
