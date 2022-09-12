@@ -40,4 +40,4 @@ Custom property | Description | Default
 --dile-tooltip-time-transition | The time of transition of the animation if fadeIn sets true | 1s
 --dile-tooltip-font-size | The font size of the tooltip | 16px
 --dile-tooltip-color | The text color of the tooltip | #fff
-
+--dile-tooltip-text-align | Text align for the tooltip | center
