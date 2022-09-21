@@ -23,7 +23,7 @@ export class DileMenuOverlay extends DileOverlayMixin(DileCloseDocumentClickMixi
         display: none;
         position: absolute;
         opacity: 0;
-        transition: ease 0.5s;
+        transition: var(--dile-menu-overlay-transition, ease 0.5s);
         transition-property: transform, opacity;
         transform: translateY(-10px);
       }
