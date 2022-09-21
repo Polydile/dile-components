@@ -60,4 +60,5 @@ Custom property | Description | Default
 --dile-card-title-font-weight | Title font weight | 300
 --dile-card-footer-border-separator | Footer border separator | 1px solid #ccc
 --dile-card-footer-background-color | Footer background color | transparent
+--dile-card-footer-padding-top | Footer padding top | 0.75rem
 --dile-card-box-shadow | Box shadow | Defined by the shadow attributes

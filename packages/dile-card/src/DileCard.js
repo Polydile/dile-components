@@ -33,7 +33,7 @@ export class DileCard extends LitElement {
         }
         footer {
           border-top: var(--dile-card-footer-border-separator, 1px solid #ccc);
-          padding-top: 0.75rem;
+          padding-top: var(--dile-card-footer-padding-top, 0.75rem);
           padding-bottom: var(--dile-card-padding-y, 1rem);
           background-color: var(--dile-card-footer-background-color, transparent);
           overflow: hidden;
