@@ -17,7 +17,7 @@ Import the component.
 </script>
 ```
 
-You need to provide the icon in a ``ìcon``` property.
+You need to provide the icon in a ```icon``` property.
 
 ```html
 <dile-icon .icon="${appsIcon}">Button Label</dile-icon>
