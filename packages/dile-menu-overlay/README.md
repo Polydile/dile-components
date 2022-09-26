@@ -81,3 +81,4 @@ Custom property | Description | Default
 --dile-menu-overlay-border-radius | Menu overlay layer border radius | 5px
 --dile-menu-overlay-box-shadow | Menu overlay box shadow | 0 0 20px rgba(102, 102, 102, 0.5)
 --dile-menu-overlay-padding | Menu layer padding | 1px
+--dile-menu-overlay-transition | Open / Close transition coniguration | ease 0.5s
