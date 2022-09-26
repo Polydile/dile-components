@@ -5,10 +5,6 @@ import * as linkify from 'linkifyjs';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const options = { defaultProtocol: 'https' };
-console.log(
-  linkify.tokenize('Any links to github.com here? If not, contact test@example.com'),
-  linkifyStr('Any links to github.com here? If not, contact test@example.com', options)
-);
 
 export class DileHtmlTransform extends LitElement {
   
