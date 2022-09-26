@@ -56,10 +56,10 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
           left: 0;
         }
         :host([position='right-bottom']) #message {
-          bottom: 1.5rem;
-          right: 1.5rem;
-          width: 80vw;
-          max-width: 400px;
+          bottom: var(--dile-message-right-bottom-separation, 1.5rem);
+          right: var(--dile-message-right-bottom-separation, 1.5rem);
+          width: var(--dile-message-right-bottom-width, 80vw);
+          max-width: var(--dile-message-right-bottom-max-width, 400px);
         }
       `,
     ];
