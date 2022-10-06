@@ -37,8 +37,13 @@ export class DileInputMoney extends DileInput {
         }
     }
 
+    set(value) {
+        this.value = value;
+        this.doFormat();
+    }
+
     doFormat() {
-        this.value = this.formatMoney(this.value);
+        this.value = this.formatMoney(this.value.toString());
     }
 
     formatMoney(num) {
