@@ -58,6 +58,7 @@ Custom property | Description | Default
 --dile-card-font-weight | Font weight | normal
 --dile-card-title-font-size | Title font size | 1.5rem
 --dile-card-title-font-weight | Title font weight | 300
+--dile-card-title-margin-bottom | Aditional margin-bottom for the title | 0
 --dile-card-footer-border-separator | Footer border separator | 1px solid #ccc
 --dile-card-footer-background-color | Footer background color | transparent
 --dile-card-footer-padding-top | Footer padding top | 0.75rem
