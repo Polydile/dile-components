@@ -32,6 +32,7 @@ export class DileSelectorItem  extends DileSelectorItemMixin(LitElement) {
         background-color: var(--dile-selector-selected-background-color, #039be5);
         color: var(--dile-selector-selected-text-color, #fff);
         font-weight: var(--dile-selector-selected-font-weight, normal);
+        border-radius: var(--dile-selector-selected-border-radius, 0);
       }
       .icon {
         margin-right: 0.3rem;
