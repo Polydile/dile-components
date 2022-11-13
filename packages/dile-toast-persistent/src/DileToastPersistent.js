@@ -26,13 +26,13 @@ export class DileToastPersistent extends DileOverlayMixin(LitElement) {
       }
       #overlay {
         box-sizing: border-box;
-        color: var(--dile-toast-persistent-color, #303030);
+        color: var(--dile-toast-persistent-color, #fff);
         z-index: var(--dile-toast-persistent-z-index, 999);
-        background-color: var(--dile-toast-persistent-background-color, #fff);
-        border-radius: var(--dile-toast-persistent-border-radius, 5px);
-        width: var(--dile-toast-persistent-width, 280px);
+        background-color: var(--dile-toast-persistent-background-color, #0e6ff6);
+        border-radius: var(--dile-toast-persistent-border-radius, 0);
+        width: var(--dile-toast-persistent-width, 300px);
         max-width: var(--dile-toast-persistent-max-width, 300px);
-        box-shadow: var(--dile-toast-persistent-box-shadow, 0 0 20px rgba(102, 102, 102, 0.5));
+        box-shadow: var(--dile-toast-persistent-box-shadow, 0 0 2px rgba(200, 200, 200, 0.5));
         padding: var(--dile-toast-persistent-padding, 1px);
         display: none;
         position: absolute;

@@ -56,12 +56,12 @@ You can customize the menu box interface by using the CSS custom properties bell
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-toast-persistent-background-color | menu overlay layer background color | #fff
---dile-toast-persistent-color | Overlay text color | #303030
+--dile-toast-persistent-background-color | menu overlay layer background color | #0e6ff6
+--dile-toast-persistent-color | Overlay text color | #fff
 --dile-toast-persistent-z-index | menu overlay layer z-index | 999
---dile-toast-persistent-width | Menu overlay layer width | 280px
+--dile-toast-persistent-width | Menu overlay layer width | 300px
 --dile-toast-persistent-max-width | Menu overlay layer max width | 300px
---dile-toast-persistent-border-radius | Menu overlay layer border radius | 5px
---dile-toast-persistent-box-shadow | Menu overlay box shadow | 0 0 20px rgba(102, 102, 102, 0.5)
+--dile-toast-persistent-border-radius | Menu overlay layer border radius | 0
+--dile-toast-persistent-box-shadow | Menu overlay box shadow | 0 0 2px rgba(200, 200, 200, 0.5)
 --dile-toast-persistent-padding | Menu layer padding | 1px
 --dile-toast-persistent-transition | Open / Close transition configuration | ease 0.5s
