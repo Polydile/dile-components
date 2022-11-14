@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { DileSlideDownMixin } from '@dile/dile-slide-down-mixin';
 
-import { closeIcon, infoIcon, iconStyles } from '@dile/icons';
+import { closeIcon, infoIcon, warningIcon, iconStyles } from '@dile/icons';
 
 export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
 
@@ -80,6 +80,7 @@ export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
     return {
       showCloseButton: { type: Boolean },
       title: { type: String },
+      isError: { type: Boolean}
     };
   }
 
@@ -88,7 +89,7 @@ export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
       <div id="box">
         <section>
           <div class="content">
-            <span class="info">${infoIcon}</span>
+            <span class="info">${this.showIcon(this.isError)}</span>
             <main>
               ${this.title
                   ? html`<div class="title">${this.title}</div>`
@@ -110,5 +111,9 @@ export class DileInfoBox  extends DileSlideDownMixin(LitElement) {
   close() {
     let elem = this.shadowRoot.getElementById('box');
     this.slideHide(elem);
+  }
+
+  showIcon(isError) {
+    return isError ? html`${warningIcon}` : html`${infoIcon}`
   }
 }

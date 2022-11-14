@@ -21,6 +21,15 @@
       --dile-info-box-border-radius: 2rem;
       --dile-info-box-title-text-color: #ffa;
     }
+    .stylederror {
+      font-size: 1rem;
+      --dile-icon-color: #f6f04a;
+      --dile-info-box-background-color: #9c1111;
+      --dile-info-box-text-color: white;
+      --dile-info-box-border-radius: 0.2rem;
+      --dile-info-box-title-text-color: #ffa;
+      --dile-info-box-close-icon-color: #fff;
+    }
     .with-title {
       font-size: 16px;
     }
@@ -54,6 +63,11 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis quae at sequi! Earum tenetur dolorum, eaque deserunt nam cumque aut repellendus aliquid dolorem, numquam quo impedit praesentium explicabo quis. Sequi?
     </dile-info-box>
 
+    <h2>Styled box warning</h2>
+
+    <dile-info-box isError showCloseButton class="stylederror" title="Error found!">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis quae at sequi! Earum tenetur dolorum, eaque deserunt nam cumque aut repellendus aliquid dolorem, numquam quo impedit praesentium explicabo quis. Sequi?
+    </dile-info-box>
 
     <footer><a href="index.html">Back</a></footer>
   </div>
