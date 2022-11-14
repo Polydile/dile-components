@@ -19,7 +19,8 @@ npm i @dile/dile-info-box
 ### Properties
 
 - **title**: String. Configure a title for the info box.
-- **showCloseButton**: Boolean. When it is true the box will display a close icon.
+- **showCloseButton**: Boolean. When true the box will display a close icon.
+- **isError**: Boolean. When true the box icon will be a warning icon.
 
 ### CSS Custom Properties
 
