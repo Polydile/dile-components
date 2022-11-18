@@ -27,8 +27,6 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.1.2",
-    "@dile/dile-slide-down-mixin": "^1.1.1",
     "lit": "^2.2.1"
   }
 }
