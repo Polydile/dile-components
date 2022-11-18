@@ -5,7 +5,7 @@ export class DileToastPersistent extends DileOverlayMixin(LitElement) {
   static get styles() {
     return css`
       :host {
-        display: inline-block;
+        display: inline;
         position: relative;
         box-sizing: border-box;
       }
@@ -56,6 +56,9 @@ export class DileToastPersistent extends DileOverlayMixin(LitElement) {
       right: { 
         type: Boolean,
         reflect: true
+      },
+      openOnInit: {
+        type: Boolean,
       }
     };
   }
@@ -66,6 +69,13 @@ export class DileToastPersistent extends DileOverlayMixin(LitElement) {
     this.verticalAlign = 'top';
     this.moveLeft = -10;
     this.moveTop = -16;
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+    if(this.openOnInit) {
+      setTimeout( () => this.open(), 200);
+    }
   }
   
   updated(changedProperties) {

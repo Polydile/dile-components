@@ -35,7 +35,7 @@ The component offers several properties to configure the way it works.
 - **right**: Bolean property. When is set to true, the toast appears at the right side.
 - **moveTop**: Number of pixels to modify the default vertical position of the toast. Accepts positive (move down) an negative (move up) values. Default -16.
 - **moveLeft**: The component inherits this property from DileOverlayMixin but is not very useful un this toast message. Only works well in the toast right position to translate to the left the toast overlay when using negative values. Default -10.
-
+- **openOnInit**: Boolean. If true the toast opens on initialization.
 
 ## Methods
 
