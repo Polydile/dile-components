@@ -27,6 +27,9 @@ export class DileRating extends LitElement {
         section.undefined {
           --dile-star-color: var(--dile-rating-undefined-color, #ddd); 
         }
+        section.interactive dile-star {
+          cursor: pointer;
+        }
       `
     ];
   }
@@ -50,7 +53,7 @@ export class DileRating extends LitElement {
       <section 
         @mouseenter=${this.doMouseEnter}
         @mouseleave=${this.doMouseLeave}
-        class="${this.value === 0 && this._temporalValue === undefined ? 'undefined' : ''}"
+        class="${this.value === 0 && this._temporalValue === undefined ? 'undefined' : ''} ${this.disableChanges ? '' : 'interactive'}"
       >
         ${this._starValues.map((value, index) => html`
           <dile-star 
