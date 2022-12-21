@@ -2,6 +2,9 @@ import { html } from 'lit';
 import '../../../packages/dile-nav/dile-nav.js';
 import '../../../packages/dile-selector/dile-selector.js';
 import '../../../packages/dile-selector/dile-selector-item.js';
+import { DrawerMenu } from '../menus/DrawerMenu.js';
+import { pageTree } from '../menus/pageTree.js';
+const componentsFilePath = 'components/index.rocket.md';
 
 export class LayoutPage {
 
@@ -23,15 +26,25 @@ export class LayoutPage {
             body {
               font-family: 'Rubik', Helvetica, Arial, sans-serif;
               color: #303030;
+              --primary-color: #7BB93D;
               --secondary-color: #f3f3ae;
+              
               --dile-nav-padding-y: 0.2rem;
               --dile-nav-padding-x: 0;
               --dile-nav-background-color: var(--secondary-color);
               --dile-hamburger-padding-x: 1rem;
               --dile-nav-column-gap: 0.25rem;
+              
+              --dile-button-background-color: var(--primary-color);
+              --dile-button-text-color: #fff;
+              --dile-button-border-radius: 2rem;
+              --dile-button-border-width: 3px;
+              --dile-button-border-color: #07193b;
+              --dile-button-hover-background-color: var(--secondary-color);
+              --dile-button-font-weight: bold;
             }
             h1 {
-              font-size: 1.3rem;
+              font-size: 1.8rem;
             }
             dile-nav {
               color: #303030;
@@ -70,7 +83,12 @@ export class LayoutPage {
             main {
               padding: 1rem;
             }
-            
+            .drawercomponent {
+              font-size: 0.875rem;
+              --dile-selector-icon-size: 20px;
+              --dile-selector-icon-color: var(--primary-color);
+              margin-left: 1.3rem;
+            }
             @media(min-width: 400px) {
               dile-nav img {
                 height: 48px;
@@ -113,9 +131,11 @@ export class LayoutPage {
                             attrForSelected="name"
                             @dile-selected-changed=${this.navitateSelected}
                         >
-                            <dile-selector-item icon="navigate_next" name="home" href="/">Home</dile-selector-item>
-                            <dile-selector-item icon="navigate_next" name="panel" href="/how-to-use">How to use</dile-selector-item>
-                            <dile-selector-item icon="navigate_next" name="archivos" href="/components/">Components</dile-selector-item>
+                            <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
+                            <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
+                            <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
+
+                            ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}
                         </dile-selector>
                     </div>
                 </dile-menu-hamburger>
