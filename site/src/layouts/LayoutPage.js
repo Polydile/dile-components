@@ -45,6 +45,13 @@ export class LayoutPage {
             }
             h1 {
               font-size: 1.8rem;
+              margin-bottom: 1.5rem;
+            }
+            h2 {
+              margin-bottom: 1rem;
+            }
+            p {
+              margin-bottom: 1rem;
             }
             dile-nav {
               color: #303030;
@@ -133,6 +140,7 @@ export class LayoutPage {
                         >
                             <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
                             <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
+                            <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
                             <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
 
                             ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}

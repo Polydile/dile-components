@@ -77,6 +77,23 @@
       "outputRelativeFilePath": "how-to-use/index.html",
       "sourceRelativeFilePath": "how-to-use.rocket.md",
       "level": 1
+    },
+    {
+      "title": "",
+      "h1": "Contribute on dile-components",
+      "headlinesWithId": [
+        {
+          "text": "Contribute on dile-components",
+          "id": "contribute-on-dile-components",
+          "level": 1
+        }
+      ],
+      "name": "Contribute on dile-components",
+      "menuLinkText": "Contribute on dile-components",
+      "url": "/contribute/",
+      "outputRelativeFilePath": "contribute/index.html",
+      "sourceRelativeFilePath": "contribute.rocket.md",
+      "level": 1
     }
   ],
   "heading": "Soy indexxxx"
