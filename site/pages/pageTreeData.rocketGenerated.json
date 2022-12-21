@@ -9,6 +9,12 @@
   "level": 0,
   "children": [
     {
+      "name": "Components Catalog",
+      "menuLinkText": "Components Catalog",
+      "url": "/components/",
+      "outputRelativeFilePath": "components/index.html",
+      "sourceRelativeFilePath": "components/index.rocket.md",
+      "level": 1,
       "title": "",
       "h1": "Components Catalog",
       "headlinesWithId": [
@@ -18,13 +24,24 @@
           "level": 1
         }
       ],
-      "name": "Components Catalog",
-      "menuLinkText": "Components Catalog",
-      "url": "/components/",
-      "outputRelativeFilePath": "components/index.html",
-      "sourceRelativeFilePath": "components/index.rocket.md",
-      "level": 1,
       "children": [
+        {
+          "title": "dile-avatar",
+          "headlinesWithId": [
+            {
+              "text": "dile-avatar",
+              "id": "dile-avatar",
+              "level": 1
+            }
+          ],
+          "name": "dile-avatar",
+          "menuLinkText": "dile-avatar",
+          "url": "/components/dile-avatar/",
+          "outputRelativeFilePath": "components/dile-avatar/index.html",
+          "sourceRelativeFilePath": "components/dile-avatar.rocket.md",
+          "level": 2,
+          "h1": "dile-avatar"
+        },
         {
           "title": "dile-app-drawer",
           "h1": "dile-app-drawer",
@@ -40,23 +57,6 @@
           "url": "/components/dile-app-drawer/",
           "outputRelativeFilePath": "components/dile-app-drawer/index.html",
           "sourceRelativeFilePath": "components/dile-app-drawer.rocket.md",
-          "level": 2
-        },
-        {
-          "title": "dile-avatar",
-          "h1": "dile-avatar",
-          "headlinesWithId": [
-            {
-              "text": "dile-avatar",
-              "id": "dile-avatar",
-              "level": 1
-            }
-          ],
-          "name": "dile-avatar",
-          "menuLinkText": "dile-avatar",
-          "url": "/components/dile-avatar/",
-          "outputRelativeFilePath": "components/dile-avatar/index.html",
-          "sourceRelativeFilePath": "components/dile-avatar.rocket.md",
           "level": 2
         }
       ]
@@ -78,5 +78,6 @@
       "sourceRelativeFilePath": "how-to-use.rocket.md",
       "level": 1
     }
-  ]
+  ],
+  "heading": "Soy indexxxx"
 }

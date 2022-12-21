@@ -123,7 +123,7 @@ export class LayoutPage {
               </b>
             </div>
             <div class="menuslot" slot="menu">
-                <dile-menu-hamburger hamburgerAlwaysVisible direction="left" class="mobile" loading="hydrate:onClientLoad">
+                <dile-menu-hamburger hamburgerAlwaysVisible direction="left" loading="hydrate:onClientLoad">
                     <div slot="menu" class="app-menu">
                         <dile-selector
                             class="drawernav" 
