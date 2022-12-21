@@ -10,6 +10,7 @@
     "tooltip component",
     "component"
   ],
+  "type": "module",
   "author": "CarlosAlberto-code <carlosbohc.94@gmail.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",

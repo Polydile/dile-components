@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "Web component that shows a countdown to a date",
   "main": "index.js",
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },

@@ -1,0 +1,83 @@
+{
+  "title": "Dile components website",
+  "h1": "Polydile Web Components",
+  "name": "Polydile Web Components",
+  "menuLinkText": "Polydile Web Components",
+  "url": "/",
+  "outputRelativeFilePath": "index.html",
+  "sourceRelativeFilePath": "index.rocket.js",
+  "level": 0,
+  "children": [
+    {
+      "name": "Components Catalog",
+      "menuLinkText": "Components Catalog",
+      "url": "/components/",
+      "outputRelativeFilePath": "components/index.html",
+      "sourceRelativeFilePath": "components/index.rocket.md",
+      "level": 1,
+      "title": "",
+      "h1": "Components Catalog",
+      "headlinesWithId": [
+        {
+          "text": "Components Catalog",
+          "id": "components-catalog",
+          "level": 1
+        }
+      ],
+      "children": [
+        {
+          "title": "dile-avatar",
+          "headlinesWithId": [
+            {
+              "text": "dile-avatar",
+              "id": "dile-avatar",
+              "level": 1
+            }
+          ],
+          "name": "dile-avatar",
+          "menuLinkText": "dile-avatar",
+          "url": "/components/dile-avatar/",
+          "outputRelativeFilePath": "components/dile-avatar/index.html",
+          "sourceRelativeFilePath": "components/dile-avatar.rocket.md",
+          "level": 2,
+          "h1": "dile-avatar"
+        },
+        {
+          "title": "dile-app-drawer",
+          "h1": "dile-app-drawer",
+          "headlinesWithId": [
+            {
+              "text": "dile-app-drawer",
+              "id": "dile-app-drawer",
+              "level": 1
+            }
+          ],
+          "name": "dile-app-drawer",
+          "menuLinkText": "dile-app-drawer",
+          "url": "/components/dile-app-drawer/",
+          "outputRelativeFilePath": "components/dile-app-drawer/index.html",
+          "sourceRelativeFilePath": "components/dile-app-drawer.rocket.md",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title": "",
+      "h1": "How to use dile-components",
+      "headlinesWithId": [
+        {
+          "text": "How to use dile-components",
+          "id": "how-to-use-dile-components",
+          "level": 1
+        }
+      ],
+      "name": "How to use dile-components",
+      "menuLinkText": "How to use dile-components",
+      "url": "/how-to-use/",
+      "outputRelativeFilePath": "how-to-use/index.html",
+      "sourceRelativeFilePath": "how-to-use.rocket.md",
+      "level": 1
+    }
+  ],
+  "heading": "Soy indexxxx"
+}

@@ -7,6 +7,10 @@
     "mixin",
     "web components"
   ],
+  "exports": {
+    ".": "./index.js"
+  },
+  "type": "module",
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",

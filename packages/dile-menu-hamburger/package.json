@@ -10,6 +10,7 @@
     "Web Components",
     "animation"
   ],
+  "type": "module",
   "author": "midesweb <miguel@desarrolloweb.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",

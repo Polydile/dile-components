@@ -8,6 +8,7 @@
         "Lit",
         "component"
     ],
+    "type": "module",
     "author": "Luis Gerardo Meneses Hernández <luisgermenher@gmail.com>",
     "homepage": "https://github.com/Polydile/dile-components",
     "license": "MIT",
