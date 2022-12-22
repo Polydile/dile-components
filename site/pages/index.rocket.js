@@ -9,7 +9,6 @@ import { ChildListMenu } from '@rocket/engine';
 import { html } from 'lit';
 import '../../packages/dile-button/dile-button.js';
 export const title = 'Dile components website';
-export const heading = 'Soy indexxxx';
 
 export default () => html`
   <script type="module">

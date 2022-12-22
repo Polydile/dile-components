@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-import { icons } from './icons';
+import { icons } from './icons.js';
 
 /**
  * 

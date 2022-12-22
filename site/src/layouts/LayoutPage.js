@@ -2,6 +2,7 @@ import { html } from 'lit';
 import '../../../packages/dile-nav/dile-nav.js';
 import '../../../packages/dile-selector/dile-selector.js';
 import '../../../packages/dile-selector/dile-selector-item.js';
+import '../../../packages/dile-social-icon/dile-social-icon.js';
 import { DrawerMenu } from '../menus/DrawerMenu.js';
 import { pageTree } from '../menus/pageTree.js';
 const componentsFilePath = 'components/index.rocket.md';
@@ -45,6 +46,9 @@ export class LayoutPage {
               --dile-button-font-weight: bold;
 
               --primary-lines-color: var(--secondary-color);
+
+              --dile-social-icon-color: #303030;
+              --dile-social-icon-size: 2rem;
             }
             h1 {
               font-size: 1.8rem;
@@ -203,6 +207,9 @@ export class LayoutPage {
                     </div>
                 </dile-menu-hamburger>
             </div>
+            <span slot="actions">
+              <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
+            </span>
           </dile-nav>
           <main>
             ${data.content()}
