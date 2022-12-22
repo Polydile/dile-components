@@ -6,6 +6,8 @@ import '../../../packages/dile-social-icon/dile-social-icon.js';
 import { DrawerMenu } from '../menus/DrawerMenu.js';
 import { pageTree } from '../menus/pageTree.js';
 const componentsFilePath = 'components/index.rocket.md';
+const mixinsFilePath = 'mixins/index.rocket.md';
+const utilsFilePath = 'utils/index.rocket.md';
 
 export class LayoutPage {
 
@@ -31,16 +33,16 @@ export class LayoutPage {
               --primary-color: #7BB93D;
               --secondary-color: #f3f3ae;
               
-              --dile-nav-padding-y: 0.2rem;
+              --dile-nav-padding-y: 0;
               --dile-nav-padding-x: 0;
               --dile-nav-background-color: var(--secondary-color);
-              --dile-hamburger-padding-x: 1rem;
+              --dile-hamburger-padding-x: 0.7rem;
               --dile-nav-column-gap: 0.25rem;
 
               --primary-lines-color: var(--secondary-color);
 
               --dile-social-icon-color: #303030;
-              --dile-social-icon-size: 2rem;
+              --dile-social-icon-size: 1.5rem;
             }
             h1 {
               font-size: 1.8rem;
@@ -72,7 +74,7 @@ export class LayoutPage {
             dile-nav img {
               position: relative;
               top: 2px;
-              height: 40px;
+              height: 36px;
               margin-right: 0.5rem;
             }
             .desktop {
@@ -141,6 +143,16 @@ export class LayoutPage {
               border-bottom: 10px solid #fff;
             }
 
+            @media(min-width: 350px) {
+              body {
+                --dile-nav-padding-y: 0.2rem;
+                --dile-social-icon-size: 2rem;
+                --dile-hamburger-padding-x: 1rem;
+              }
+              dile-nav img {
+                height: 40px;
+              }
+            }
             @media(min-width: 400px) {
               dile-nav img {
                 height: 48px;
@@ -198,8 +210,13 @@ export class LayoutPage {
                             <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
                             <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
                             <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
-
                             ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}
+                            <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
+                            ${pageTree.renderMenu(new DrawerMenu(), mixinsFilePath)}
+
+                            <dile-selector-item icon="navigate_next" href="/utils/">Utils</dile-selector-item>
+                            ${pageTree.renderMenu(new DrawerMenu(), utilsFilePath)}
+                            
                         </dile-selector>
                     </div>
                 </dile-menu-hamburger>

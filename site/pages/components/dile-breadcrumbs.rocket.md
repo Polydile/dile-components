@@ -4,6 +4,9 @@ export const sourceRelativeFilePath = 'components/dile-breadcrumbs.rocket.md';
 import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
+
+export const title = "dile-breadcrumbs";
+
 ```
 
 ```js script
