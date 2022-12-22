@@ -29,7 +29,10 @@ export class DileSocialIcon extends LitElement {
   static get styles() {
     return css`
       :host[hidden] { display: none; }
-      :host { display: inline-block; }
+      :host { 
+        display: flex;
+        align-items: center;
+       }
       path {
         fill: var(--dile-social-icon-color, #888);
       }
@@ -40,7 +43,10 @@ export class DileSocialIcon extends LitElement {
         width: var(--dile-social-icon-size, 24px);
         height: var(--dile-social-icon-size, 24px);
       }
-      div { display: flex;}
+      div { 
+        display: flex; 
+        align-items: center;
+      }
     `;
   }
 

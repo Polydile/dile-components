@@ -29,7 +29,7 @@ export default () => html`
       max-width: 100%;
     }
     .subtitle p {
-      margin: 0.5rem 0;
+      margin: 1rem 0 1.5rem;
       text-align: center;
     }
     .options {
@@ -40,17 +40,56 @@ export default () => html`
       row-gap: 1rem;
       margin-bottom: 1.5rem;
     }
+    @media(min-width: 450px) {
+      .subtitle .image {
+        margin: 0 2rem;
+      }
+      .subtitle p {
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+    }
+    @media(min-width: 650px) {
+      .subtitle {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        column-gap: 3rem;
+      }
+      .subtitle .image {
+        flex-grow: 1;
+        margin: 0;
+      }
+      .subtitle p {
+        max-width: 250px;
+        font-size: 1.3rem;
+      }
+    }
+    @media(min-width: 750px) {
+      .subtitle p {
+        font-size: 1.4rem;
+
+      }
+      .options {
+        flex-direction: row;
+      }
+    }
   </style>
   <h1>Polydile Web Components</h1>
   <div class="subtitle">
-    <img src="images/design-components.svg" alt="Design components">
-    <p>
-      Web Components made for all kind of projects and frameworks.
-    </p>
-  </div>
-  <div class="options">
-    <a href="how-to-use"><dile-button>How to use</dile-button></a>
-    <a href="components/"><dile-button>Components catalog</dile-button></a>
+    <div class="image">
+      <img src="images/design-components.svg" alt="Design components">
+    </div>
+    <section>
+      <p>
+        Web Components made for all kind of projects and frameworks.
+      </p>
+      <div class="options">
+        <a href="how-to-use"><dile-button>How to use</dile-button></a>
+        <a href="components/"><dile-button>Components catalog</dile-button></a>
+      </div>
+    </section>
   </div>
 
   <hr>

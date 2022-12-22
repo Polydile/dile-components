@@ -92,6 +92,11 @@ export class LayoutPage {
               background-color: var(--primary-dark-color);
               padding-bottom: 2px;
             }
+            .actionsnav {
+              margin-right: 1rem;
+              display: flex;
+              align-items: center;
+            }
             .app-menu {
               margin-top: 3.5rem;
               min-width: 250px;
@@ -207,7 +212,7 @@ export class LayoutPage {
                     </div>
                 </dile-menu-hamburger>
             </div>
-            <span slot="actions">
+            <span slot="actions" class="actionsnav">
               <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
             </span>
           </dile-nav>
