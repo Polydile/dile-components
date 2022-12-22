@@ -180,6 +180,120 @@
               "level": 3
             }
           ]
+        },
+        {
+          "name": "dile-button-icon",
+          "menuLinkText": "dile-button-icon",
+          "url": "/components/dile-button-icon/",
+          "outputRelativeFilePath": "components/dile-button-icon/index.html",
+          "sourceRelativeFilePath": "components/dile-button-icon.rocket.md",
+          "level": 2,
+          "title": "",
+          "h1": "dile-button-icon",
+          "headlinesWithId": [
+            {
+              "text": "dile-button-icon",
+              "id": "dile-button-icon",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Using a custom icon",
+              "id": "using-a-custom-icon",
+              "level": 3
+            },
+            {
+              "text": "Using a icons library",
+              "id": "using-a-icons-library",
+              "level": 3
+            },
+            {
+              "text": "Using an image",
+              "id": "using-an-image",
+              "level": 3
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "dile-button-icon demos",
+              "id": "dile-button-icon-demos",
+              "level": 2
+            },
+            {
+              "text": "Button icon demo",
+              "id": "button-icon-demo",
+              "level": 3
+            },
+            {
+              "text": "Styled icon",
+              "id": "styled-icon",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "title": "",
+          "h1": "dile-button",
+          "headlinesWithId": [
+            {
+              "text": "dile-button",
+              "id": "dile-button",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 3
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "dile-button demos",
+              "id": "dile-button-demos",
+              "level": 2
+            },
+            {
+              "text": "Regular button",
+              "id": "regular-button",
+              "level": 3
+            }
+          ],
+          "name": "dile-button",
+          "menuLinkText": "dile-button",
+          "url": "/components/dile-button/",
+          "outputRelativeFilePath": "components/dile-button/index.html",
+          "sourceRelativeFilePath": "components/dile-button.rocket.md",
+          "level": 2
         }
       ]
     },

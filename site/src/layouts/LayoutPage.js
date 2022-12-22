@@ -36,14 +36,6 @@ export class LayoutPage {
               --dile-nav-background-color: var(--secondary-color);
               --dile-hamburger-padding-x: 1rem;
               --dile-nav-column-gap: 0.25rem;
-              
-              --dile-button-background-color: var(--primary-color);
-              --dile-button-text-color: #fff;
-              --dile-button-border-radius: 2rem;
-              --dile-button-border-width: 3px;
-              --dile-button-border-color: #07193b;
-              --dile-button-hover-background-color: var(--secondary-color);
-              --dile-button-font-weight: bold;
 
               --primary-lines-color: var(--secondary-color);
 
