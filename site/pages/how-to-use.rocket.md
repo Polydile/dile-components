@@ -10,7 +10,7 @@ export { layout };
 import "../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
 ```
 
-# How to use dile-components
+# How to use the "dile" components
 
 You can use this components in any Javascript project, with Vanilla-JS or any framework.
 

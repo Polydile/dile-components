@@ -18,10 +18,11 @@ export class LayoutPage {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title-server-only>${data.title}</title-server-only>
           <link rel="stylesheet" href="/styles/reset.css" />
+          <link rel="stylesheet" href="/styles/prism.css" />
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-          
+          <script src="/js/prism.js"></script>
           <style>
             body {
               font-family: 'Rubik', Helvetica, Arial, sans-serif;
@@ -42,6 +43,8 @@ export class LayoutPage {
               --dile-button-border-color: #07193b;
               --dile-button-hover-background-color: var(--secondary-color);
               --dile-button-font-weight: bold;
+
+              --primary-lines-color: var(--secondary-color);
             }
             h1 {
               font-size: 1.8rem;
@@ -49,6 +52,9 @@ export class LayoutPage {
             }
             h2 {
               margin-bottom: 1rem;
+            }
+            h3 {
+              margin-bottom: 0.6rem;
             }
             p {
               margin-bottom: 1rem;
@@ -96,6 +102,44 @@ export class LayoutPage {
               --dile-selector-icon-color: var(--primary-color);
               margin-left: 1.3rem;
             }
+            table {
+              border-spacing: 0;
+              border-collapse: collapse;
+              margin-bottom: 1.5rem;
+            }
+            th {
+              border-bottom: 1px solid #ddd;
+              background-color: var(--primary-color);
+              color: #fff;
+              padding: 0.5rem 0.5rem;
+            }
+            td {
+              padding: 0.3rem 0.5rem;
+              font-size: 0.9rem;
+            }
+            tr:nth-child(even) {
+              background: #f5f5f5;
+            }
+
+            blockquote {
+              border-left: 7px solid var(--primary-color);
+              margin: 0 0 1rem 0;
+              padding: 1rem;
+              background-color: #f5f5f5;
+            }
+
+            blockquote p:last-child {
+              margin-bottom: 0;
+            }
+
+            mdjs-preview div {
+              padding: 10px;
+            }
+
+            mdjs-preview pre {
+              border-bottom: 10px solid #fff;
+            }
+
             @media(min-width: 400px) {
               dile-nav img {
                 height: 48px;
@@ -104,9 +148,12 @@ export class LayoutPage {
                 font-size: 1.5rem;
               }
             }
-            @media(min-width: 900px) {
+            @media(min-width: 800px) {
               body {
-                --dile-nav-padding-x: 1rem;
+                --dile-nav-padding-x: 0.8rem;
+                --dile-hamburger-line-size: 5px;
+                --dile-hamburger-line-separation: -10px;
+                --dile-hamburger-width: 32px;
               }
               main {
                 padding: 1.5rem;
@@ -117,6 +164,14 @@ export class LayoutPage {
               }
               .desktop {
                   display: block;
+              }
+            }
+            @media(min-width: 1000px) {
+              body {
+                --dile-nav-padding-x: 1.2rem;
+              }
+              main {
+                padding: 1.5rem 2rem;
               }
             }
           </style>

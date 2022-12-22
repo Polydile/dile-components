@@ -50,6 +50,41 @@
               "text": "dile-app-drawer",
               "id": "dile-app-drawer",
               "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "CSS customization",
+              "id": "css-customization",
+              "level": 2
+            },
+            {
+              "text": "dile-app-drawer demos",
+              "id": "dile-app-drawer-demos",
+              "level": 2
             }
           ],
           "name": "dile-app-drawer",
@@ -63,16 +98,46 @@
     },
     {
       "title": "",
-      "h1": "How to use dile-components",
+      "h1": "How to use the \"dile\" components",
       "headlinesWithId": [
         {
-          "text": "How to use dile-components",
-          "id": "how-to-use-dile-components",
+          "text": "How to use the \"dile\" components",
+          "id": "how-to-use-the-dile-components",
           "level": 1
+        },
+        {
+          "text": "1.- Install any of the web components",
+          "id": "1--install-any-of-the-web-components",
+          "level": 2
+        },
+        {
+          "text": "2.- Import the component",
+          "id": "2--import-the-component",
+          "level": 2
+        },
+        {
+          "text": "3.- Use the component",
+          "id": "3--use-the-component",
+          "level": 2
+        },
+        {
+          "text": "4.- Read the docs",
+          "id": "4--read-the-docs",
+          "level": 2
+        },
+        {
+          "text": "5.- Serve your proyect",
+          "id": "5--serve-your-proyect",
+          "level": 2
+        },
+        {
+          "text": "6.- Build your Project",
+          "id": "6--build-your-project",
+          "level": 2
         }
       ],
-      "name": "How to use dile-components",
-      "menuLinkText": "How to use dile-components",
+      "name": "How to use the \"dile\" components",
+      "menuLinkText": "How to use the \"dile\" components",
       "url": "/how-to-use/",
       "outputRelativeFilePath": "how-to-use/index.html",
       "sourceRelativeFilePath": "how-to-use.rocket.md",
