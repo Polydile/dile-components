@@ -27,7 +27,7 @@ Web Component to create a customized button with an icon.
 npm i @dile/dile-button-icon
 ```
 
-This component extends [dile-button](https://github.com/Polydile/dile-components/tree/master/packages/dile-button), so you can use the component in a similar way. The main diference is that the componente can display an icon. 
+This component extends [dile-button](/components/dile-button), so you can use the component in a similar way. The main diference is that the componente can display an icon. 
 
 ## Usage
 

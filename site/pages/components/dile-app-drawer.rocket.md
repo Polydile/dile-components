@@ -20,7 +20,7 @@ import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
 
 Web component to create a simple animated menu, useful as app global menu, with a look & feel similar to the material design navigation drawer component.
 
-> Review also the dile-menu-hamburger component to a easier use of the dile-app-drawer component.
+> **Tip:** Check the [dile-menu-hamburger](/components/dile-menu-hamburger) component to implement a app drawer menu in a easier way.
 
 ## Installation
 

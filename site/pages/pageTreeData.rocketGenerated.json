@@ -436,7 +436,40 @@
           "outputRelativeFilePath": "components/dile-confirm/index.html",
           "sourceRelativeFilePath": "components/dile-confirm.rocket.md",
           "level": 2,
-          "title": "dile-confirm"
+          "title": "dile-confirm",
+          "h1": "dile-confirm",
+          "headlinesWithId": [
+            {
+              "text": "dile-confirm",
+              "id": "dile-confirm",
+              "level": 1
+            },
+            {
+              "text": "Use",
+              "id": "use",
+              "level": 1
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Custom events",
+              "id": "custom-events",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-countdown-time",
