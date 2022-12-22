@@ -478,7 +478,35 @@
           "outputRelativeFilePath": "components/dile-countdown-time/index.html",
           "sourceRelativeFilePath": "components/dile-countdown-time.rocket.md",
           "level": 2,
-          "title": "dile-countdown-time"
+          "title": "dile-countdown-time",
+          "h1": "dile-countdown-time",
+          "headlinesWithId": [
+            {
+              "text": "dile-countdown-time",
+              "id": "dile-countdown-time",
+              "level": 1
+            },
+            {
+              "text": "Instalation",
+              "id": "instalation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-date-without-calendar",
@@ -487,7 +515,40 @@
           "outputRelativeFilePath": "components/dile-date-without-calendar/index.html",
           "sourceRelativeFilePath": "components/dile-date-without-calendar.rocket.md",
           "level": 2,
-          "title": "dile-date-without-calendar"
+          "title": "dile-date-without-calendar",
+          "h1": "dile-date-without-calendar",
+          "headlinesWithId": [
+            {
+              "text": "dile-date-without-calendar",
+              "id": "dile-date-without-calendar",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Special Properties",
+              "id": "special-properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-datepicker",
@@ -496,7 +557,40 @@
           "outputRelativeFilePath": "components/dile-datepicker/index.html",
           "sourceRelativeFilePath": "components/dile-datepicker.rocket.md",
           "level": 2,
-          "title": "dile-datepicker"
+          "title": "dile-datepicker",
+          "h1": "dile-datepicker",
+          "headlinesWithId": [
+            {
+              "text": "dile-datepicker",
+              "id": "dile-datepicker",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "Localization",
+              "id": "localization",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-graph",
@@ -505,7 +599,30 @@
           "outputRelativeFilePath": "components/dile-graph/index.html",
           "sourceRelativeFilePath": "components/dile-graph.rocket.md",
           "level": 2,
-          "title": "dile-graph"
+          "title": "dile-graph",
+          "h1": "dile-graph",
+          "headlinesWithId": [
+            {
+              "text": "dile-graph",
+              "id": "dile-graph",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-hamburger",
@@ -514,7 +631,35 @@
           "outputRelativeFilePath": "components/dile-hamburger/index.html",
           "sourceRelativeFilePath": "components/dile-hamburger.rocket.md",
           "level": 2,
-          "title": "dile-hamburger"
+          "title": "dile-hamburger",
+          "h1": "dile-hamburger",
+          "headlinesWithId": [
+            {
+              "text": "dile-hamburger",
+              "id": "dile-hamburger",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Customization",
+              "id": "customization",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-html-transform",
@@ -523,7 +668,40 @@
           "outputRelativeFilePath": "components/dile-html-transform/index.html",
           "sourceRelativeFilePath": "components/dile-html-transform.rocket.md",
           "level": 2,
-          "title": "dile-html-transform"
+          "title": "dile-html-transform",
+          "h1": "dile-html-transform",
+          "headlinesWithId": [
+            {
+              "text": "dile-html-transform",
+              "id": "dile-html-transform",
+              "level": 1
+            },
+            {
+              "text": "Install",
+              "id": "install",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Import the component",
+              "id": "import-the-component",
+              "level": 3
+            },
+            {
+              "text": "Use the component",
+              "id": "use-the-component",
+              "level": 2
+            },
+            {
+              "text": "This component depends on Linkify.js",
+              "id": "this-component-depends-on-linkifyjs",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-icon",
