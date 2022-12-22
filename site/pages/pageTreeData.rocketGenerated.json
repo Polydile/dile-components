@@ -294,6 +294,73 @@
           "outputRelativeFilePath": "components/dile-button/index.html",
           "sourceRelativeFilePath": "components/dile-button.rocket.md",
           "level": 2
+        },
+        {
+          "name": "dile-card",
+          "menuLinkText": "dile-card",
+          "url": "/components/dile-card/",
+          "outputRelativeFilePath": "components/dile-card/index.html",
+          "sourceRelativeFilePath": "components/dile-card.rocket.md",
+          "level": 2,
+          "title": "",
+          "h1": "dile-card",
+          "headlinesWithId": [
+            {
+              "text": "dile-card",
+              "id": "dile-card",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Slots",
+              "id": "slots",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Shadow attributes",
+              "id": "shadow-attributes",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "dile-card demos",
+              "id": "dile-card-demos",
+              "level": 2
+            },
+            {
+              "text": "Regular card",
+              "id": "regular-card",
+              "level": 3
+            },
+            {
+              "text": "Card with title",
+              "id": "card-with-title",
+              "level": 3
+            },
+            {
+              "text": "Card with title, footer and main content",
+              "id": "card-with-title-footer-and-main-content",
+              "level": 3
+            }
+          ]
         }
       ]
     },
