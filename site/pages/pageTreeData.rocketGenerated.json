@@ -93,6 +93,93 @@
           "outputRelativeFilePath": "components/dile-app-drawer/index.html",
           "sourceRelativeFilePath": "components/dile-app-drawer.rocket.md",
           "level": 2
+        },
+        {
+          "name": "dile-breadcrumbs",
+          "menuLinkText": "dile-breadcrumbs",
+          "url": "/components/dile-breadcrumbs/",
+          "outputRelativeFilePath": "components/dile-breadcrumbs/index.html",
+          "sourceRelativeFilePath": "components/dile-breadcrumbs.rocket.md",
+          "level": 2,
+          "title": "",
+          "h1": "dile-breadcrumbs",
+          "headlinesWithId": [
+            {
+              "text": "dile-breadcrumbs",
+              "id": "dile-breadcrumbs",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "1) Use breadcrumbs with providing a items array",
+              "id": "1-use-breadcrumbs-with-providing-a-items-array",
+              "level": 3
+            },
+            {
+              "text": "2) Use breadcrumbs providing simple HTML markdown",
+              "id": "2-use-breadcrumbs-providing-simple-html-markdown",
+              "level": 3
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "dile-breadcrumbs",
+              "id": "dile-breadcrumbs-1",
+              "level": 3
+            },
+            {
+              "text": "dile-breadcrumbs-item",
+              "id": "dile-breadcrumbs-item",
+              "level": 3
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 3
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "Breadcrumbs demo",
+              "id": "breadcrumbs-demo",
+              "level": 2
+            },
+            {
+              "text": "Regular breadcrumbs created with markdown",
+              "id": "regular-breadcrumbs-created-with-markdown",
+              "level": 3
+            },
+            {
+              "text": "Regular breadcrumbs created with JSON",
+              "id": "regular-breadcrumbs-created-with-json",
+              "level": 3
+            },
+            {
+              "text": "Styled breadcrumbs and custom separator",
+              "id": "styled-breadcrumbs-and-custom-separator",
+              "level": 3
+            },
+            {
+              "text": "Breadcrumbs without href created with JSON",
+              "id": "breadcrumbs-without-href-created-with-json",
+              "level": 3
+            }
+          ]
         }
       ]
     },
