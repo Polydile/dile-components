@@ -33,10 +33,8 @@ This component extends [dile-button](/components/dile-button), so you can use th
 
 Import the component.
 
-```html
-<script type="module">
-  import '@dile/dile-button-icon/dile-button-icon.js';
-</script>
+```javascript
+import '@dile/dile-button-icon/dile-button-icon.js';
 ```
 
 The icon is assigned via ```icon``` property.
@@ -63,7 +61,7 @@ html`<dile-button-icon .icon="${appsIcon}">Button Label</dile-button-icon>`
 
 ### Using a icons library
 
-> There are some icons in the [@dile/icons package](https://github.com/Polydile/dile-components/tree/master/packages/icons). So, you can use them easily in your components.
+> There are some icons in the [@dile/icons package](/utils/icons). So, you can use them easily in your components.
 
 ```javascript
 import { closeIcon } from '@dile/icons';
@@ -123,12 +121,6 @@ class MyComponent extends LitElement {
   firstUpdated() {
     // This should not be necessary but the component to show the demo does not work well with interpoplation of strings
     this.shadowRoot.querySelector('dile-button-icon').icon = appsIcon;
-  }
-
-  get icon() {
-    return html`
-    <svg class="dile-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
-    `
   }
 }
 customElements.define('my-component', MyComponent);

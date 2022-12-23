@@ -25,6 +25,7 @@ export class LayoutPage {
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
           <script src="/js/prism.js"></script>
           <style>
             body {
@@ -44,6 +45,9 @@ export class LayoutPage {
               --dile-social-icon-color: #303030;
               --dile-social-icon-size: 1.5rem;
             }
+            code {
+              font-family: 'Cutive Mono', monospace;
+            }
             h1 {
               font-size: 1.8rem;
               margin-bottom: 1.5rem;
@@ -56,6 +60,9 @@ export class LayoutPage {
             }
             p {
               margin-bottom: 1rem;
+            }
+            [dile-cloak] {
+              display: none !important;
             }
             dile-nav {
               color: #303030;
@@ -199,7 +206,7 @@ export class LayoutPage {
             </div>
             <div class="menuslot" slot="menu">
                 <dile-menu-hamburger hamburgerAlwaysVisible direction="left" loading="hydrate:onClientLoad">
-                    <div slot="menu" class="app-menu">
+                    <div slot="menu" class="app-menu" dile-cloak>
                         <dile-selector
                             class="drawernav" 
                             selected=${this.page} 

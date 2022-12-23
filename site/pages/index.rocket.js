@@ -67,6 +67,12 @@ export default () => html`
       }
     }
     @media(min-width: 750px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        margin: 3rem 5rem;
+      }
       .subtitle p {
         font-size: 1.4rem;
 
