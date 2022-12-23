@@ -123,17 +123,19 @@ Custom property | Description | Default
 ### Vertical align to center and horizontalAlign to left 
 
 ```html preview-story
-<dile-menu-overlay horizontalAlign="left" verticalAlign="center" moveLeft="10">
-  <span slot="trigger" class="trigger">Open Left</span>
-  <div slot="content" class="content">
-    <p>Select one:</p>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </div>
-</dile-menu-overlay>
+<div style="display: flex; justify-content: flex-end;">
+  <dile-menu-overlay horizontalAlign="left" verticalAlign="center" moveLeft="10">
+    <span slot="trigger" class="trigger">Open Left</span>
+    <div slot="content" class="content">
+      <p>Select one:</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+  </dile-menu-overlay>
+</div>
 ```
 
 ### Styled menu
@@ -151,7 +153,7 @@ This menu is configured to close the interface when user clicks inside the menu.
   --dile-menu-overlay-transition: ease 1s;
 }
 </style>
-<dile-menu-overlay closeOnClickInside class="styled">
+<dile-menu-overlay closeOnClickInside class="styled" verticalAlign="top">
   <span slot="trigger" class="trigger">Click to open styled</span>
   <div slot="content" class="content">
     <p>Select one:</p>
