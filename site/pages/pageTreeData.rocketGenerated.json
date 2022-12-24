@@ -1578,7 +1578,55 @@
           "url": "/components/dile-order-switch/",
           "outputRelativeFilePath": "components/dile-order-switch/index.html",
           "sourceRelativeFilePath": "components/dile-order-switch.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-order-switch",
+          "headlinesWithId": [
+            {
+              "text": "dile-order-switch",
+              "id": "dile-order-switch",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Custom Events",
+              "id": "custom-events",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "dile-order-switch demos",
+              "id": "dile-order-switch-demos",
+              "level": 2
+            },
+            {
+              "text": "Default order switch",
+              "id": "default-order-switch",
+              "level": 3
+            }
+          ]
         },
         {
           "title": "dile-pages",
