@@ -1370,7 +1370,60 @@
           "url": "/components/dile-message/",
           "outputRelativeFilePath": "components/dile-message/index.html",
           "sourceRelativeFilePath": "components/dile-message.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-message",
+          "headlinesWithId": [
+            {
+              "text": "dile-message",
+              "id": "dile-message",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            },
+            {
+              "text": "dile-message demos",
+              "id": "dile-message-demos",
+              "level": 2
+            },
+            {
+              "text": "Default message",
+              "id": "default-message",
+              "level": 3
+            },
+            {
+              "text": "Show the message in diferent positions",
+              "id": "show-the-message-in-diferent-positions",
+              "level": 3
+            }
+          ]
         },
         {
           "title": "dile-modal",
