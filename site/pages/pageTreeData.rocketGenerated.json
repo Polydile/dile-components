@@ -1432,7 +1432,60 @@
           "url": "/components/dile-modal/",
           "outputRelativeFilePath": "components/dile-modal/index.html",
           "sourceRelativeFilePath": "components/dile-modal.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-modal",
+          "headlinesWithId": [
+            {
+              "text": "dile-modal",
+              "id": "dile-modal",
+              "level": 1
+            },
+            {
+              "text": "Install",
+              "id": "install",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Import the component",
+              "id": "import-the-component",
+              "level": 3
+            },
+            {
+              "text": "Use the component",
+              "id": "use-the-component",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            },
+            {
+              "text": "dile-modal demos",
+              "id": "dile-modal-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-nav",
