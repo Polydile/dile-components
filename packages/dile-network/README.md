@@ -12,41 +12,42 @@ npm i @dile/dile-network
 Import the component.
 
 ```javascript
-import '@dile/dile-nav/dile-nav.js';
+import '@dile/dile-network/dile-network.js';
 ```
 
 Use the component
 
 ```html
-<dile-nav>
-  <span slot="title">Hi from Polydile!!</span>
-</dile-nav>
+<dile-network></dile-network>
 ```
 
-The dile-nav component has 3 slots of content: "title", "menu" and "actions". It is not necessary to use all of them. 
-
-There is am example in a more complex implementation.
-
-```html
-<dile-nav>
-  <h2 slot="title">Nav title</h2>
-  <span slot="menu">[X]</span>
-  <span slot="actions">Create</span>
-</dile-nav>
-```
+This component cheks the network status and can display a message in a overlay layer when the network is offline. The message can be configured by a "offLineLabel" property. 
 
 ## Properties
-  - menu: position of the menu, between "left" and "right"
+
+- **onLine**: this is only a boolean component property (can`t be setted from outside by an attribute) to inform the network status.
+- **showOffLineStatus**: boolean, if it's true, then the component shows a message when offline mode is detected.
+- **offLineLabel**: string con configure the offline message text.
+- **showCloseIcon**: a icon to closes the overlay layer message.
+
+## Useful methods
+
+- **closeToast()**: closes the overlay layer message.
+
+## Custom events
+
+- **dile-network-status**: the component dispatch dile-network-status event when a network status change is detected. The event object detail can be used to known the current network status.
+
+The event detail is an object containing a ```onLine``` bolean property. True means online and false mean offline.
 
 ## Style customization
 
-You can customize the navigation bar by using the CSS custom properties bellow.
+To customize the component style (the offline message box) it is possible to use some of the [dile-persistent-toast](/components/dile-persistent-toast) custom properties. In addition there are some specific dile-network custom properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-nav-color | Nav text color | #fff
---dile-nav-background-color | Nav background color | #666
---dile-nav-align-items | Nav align items (display grid property) | center
---dile-nav-column-gap | Nav column gap (display grid property)| 1rem
---dile-nav-padding-x | Nav padding horizontal | 0.6rem
---dile-nav-padding-y | Nav padding vertical | 0.8rem
+--dile-network-toast-padding | Overlay layer padding | 0.65rem
+--dile-network-toast-background-color | Overlay layer background color | #e33
+--dile-network-label-text-color | Message text color | #fff
+--dile-network-warning-icon-color | Color of the warning icon dsplayed on the message | #fff
+--dile-network-close-icon-color | Close icon color | #fff

@@ -33,17 +33,18 @@ export class LayoutPage {
               color: #303030;
               --primary-color: #7BB93D;
               --secondary-color: #f3f3ae;
-              
-              --dile-nav-padding-y: 0;
-              --dile-nav-padding-x: 0;
-              --dile-nav-background-color: var(--secondary-color);
-              --dile-hamburger-padding-x: 0.7rem;
-              --dile-nav-column-gap: 0.25rem;
 
               --primary-lines-color: var(--secondary-color);
 
               --dile-social-icon-color: #303030;
               --dile-social-icon-size: 1.5rem;
+            }
+            .sitenav {
+              --dile-nav-padding-y: 0;
+              --dile-nav-padding-x: 0;
+              --dile-nav-background-color: var(--secondary-color);
+              --dile-hamburger-padding-x: 0.7rem;
+              --dile-nav-column-gap: 0.25rem;
             }
             code {
               font-family: 'Cutive Mono', monospace;
@@ -197,7 +198,7 @@ export class LayoutPage {
           </style>
         </head>
         <body>
-          <dile-nav>
+          <dile-nav class="sitenav">
             <div slot="title">
               <img src="/images/logo-polydile.png" alt="logo polydile">
               <b slot="title">

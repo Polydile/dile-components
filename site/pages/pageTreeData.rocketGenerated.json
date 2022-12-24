@@ -1494,7 +1494,45 @@
           "url": "/components/dile-nav/",
           "outputRelativeFilePath": "components/dile-nav/index.html",
           "sourceRelativeFilePath": "components/dile-nav.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-nav",
+          "headlinesWithId": [
+            {
+              "text": "dile-nav",
+              "id": "dile-nav",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            },
+            {
+              "text": "dile-nav demos",
+              "id": "dile-nav-demos",
+              "level": 2
+            },
+            {
+              "text": "Default nav",
+              "id": "default-nav",
+              "level": 3
+            }
+          ]
         },
         {
           "title": "dile-network",
@@ -1503,7 +1541,35 @@
           "url": "/components/dile-network/",
           "outputRelativeFilePath": "components/dile-network/index.html",
           "sourceRelativeFilePath": "components/dile-network.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-network",
+          "headlinesWithId": [
+            {
+              "text": "dile-network",
+              "id": "dile-network",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-order-switch",
