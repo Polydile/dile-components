@@ -15,6 +15,8 @@ import '@mdjs/mdjs-preview/define';
 import '../../../packages/dile-radio-group/dile-radio-group.js'
 import '../../../packages/dile-radio-group/dile-radio.js'
 import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../../packages/dile-selector/dile-selector.js";
+import "../../../packages/dile-selector/dile-selector-item.js";
 ```
 
 # dile-radio-group

@@ -15,6 +15,8 @@ import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
 import '../../../packages/dile-button/dile-button.js'
 import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../../packages/dile-selector/dile-selector.js";
+import "../../../packages/dile-selector/dile-selector-item.js";
 ```
 
 # dile-button

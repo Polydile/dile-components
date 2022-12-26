@@ -15,8 +15,9 @@ export const title = "Dile Component Mixins";
 
 ```js script
 import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../../packages/dile-selector/dile-selector.js";
+import "../../../packages/dile-selector/dile-selector-item.js";
 ```
-
 
 # Mixins Catalog
 

@@ -1,7 +1,5 @@
 import { html } from 'lit';
 import '../../../packages/dile-nav/dile-nav.js';
-import '../../../packages/dile-selector/dile-selector.js';
-import '../../../packages/dile-selector/dile-selector-item.js';
 import '../../../packages/dile-social-icon/dile-social-icon.js';
 import { DrawerMenu } from '../menus/DrawerMenu.js';
 import { pageTree } from '../menus/pageTree.js';
@@ -38,6 +36,8 @@ export class LayoutPage {
 
               --dile-social-icon-color: #303030;
               --dile-social-icon-size: 1.5rem;
+
+              --dile-hamburger-color: #303030;
             }
             .sitenav {
               --dile-nav-padding-y: 0;
@@ -64,6 +64,9 @@ export class LayoutPage {
             }
             [dile-cloak] {
               display: none !important;
+            }
+            dile-selector-item {
+              display: block;
             }
             dile-nav {
               color: #303030;

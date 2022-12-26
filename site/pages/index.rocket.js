@@ -13,11 +13,16 @@ export const title = 'Dile components website';
 export default () => html`
   <script type="module">
     import "../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+    import "../packages/dile-selector/dile-selector.js";
+    import "../packages/dile-selector/dile-selector-item.js";
   </script>
   <style>
     h1 {
       margin-bottom: 1rem;
       text-align: center;
+    }
+    dile-selector-item {
+      display: block;
     }
     .subtitle {
       color: #666;

@@ -15,6 +15,8 @@ export const title = "Dile Components Catalog";
 
 ```js script
 import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../../packages/dile-selector/dile-selector.js";
+import "../../../packages/dile-selector/dile-selector-item.js";
 ```
 
 

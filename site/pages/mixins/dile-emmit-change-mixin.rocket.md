@@ -12,6 +12,8 @@ export const title = "dile-emmit-change-mixin";
 ```js script
 import { html, css, LitElement } from 'lit'; 
 import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../../packages/dile-selector/dile-selector.js";
+import "../../../packages/dile-selector/dile-selector-item.js";
 ```
 
 # dile-emmit-change-mixin

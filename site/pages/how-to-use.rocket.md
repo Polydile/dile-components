@@ -4,10 +4,14 @@ export const sourceRelativeFilePath = 'how-to-use.rocket.md';
 import { layout } from './recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
+
+export const title = "How to use";
 ```
 
 ```js script
 import "../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
+import "../../packages/dile-selector/dile-selector.js";
+import "../../packages/dile-selector/dile-selector-item.js";
 ```
 
 # How to use the "dile" components
