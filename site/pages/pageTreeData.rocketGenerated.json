@@ -2072,7 +2072,50 @@
           "url": "/components/dile-smooth-scroll/",
           "outputRelativeFilePath": "components/dile-smooth-scroll/index.html",
           "sourceRelativeFilePath": "components/dile-smooth-scroll.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-smooth-scroll",
+          "headlinesWithId": [
+            {
+              "text": "dile-smooth-scroll",
+              "id": "dile-smooth-scroll",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "API methods",
+              "id": "api-methods",
+              "level": 2
+            },
+            {
+              "text": "properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Mixins",
+              "id": "mixins",
+              "level": 1
+            },
+            {
+              "text": "DileSmoothScrollMixin",
+              "id": "dilesmoothscrollmixin",
+              "level": 2
+            },
+            {
+              "text": "DileSmoothScrollElementMixin",
+              "id": "dilesmoothscrollelementmixin",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-social-icon",
@@ -2323,6 +2366,38 @@
           "outputRelativeFilePath": "mixins/dile-slide-down-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-slide-down-mixin.rocket.md",
           "level": 2
+        },
+        {
+          "name": "dile-slide-smooth-scroll-mixin",
+          "menuLinkText": "dile-slide-smooth-scroll-mixin",
+          "url": "/mixins/dile-smooth-scroll-mixin/",
+          "outputRelativeFilePath": "mixins/dile-smooth-scroll-mixin/index.html",
+          "sourceRelativeFilePath": "mixins/dile-smooth-scroll-mixin.rocket.md",
+          "level": 2,
+          "title": "dile-slide-smooth-scroll-mixin",
+          "headlinesWithId": [
+            {
+              "text": "DileSmoothScrollMixin",
+              "id": "dilesmoothscrollmixin",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "title": "dile-slide-smooth-scroll-element-mixin",
+          "name": "dile-slide-smooth-scroll-element-mixin",
+          "menuLinkText": "dile-slide-smooth-scroll-element-mixin",
+          "url": "/mixins/dile-slide-smooth-scroll-element-mixin/",
+          "outputRelativeFilePath": "mixins/dile-slide-smooth-scroll-element-mixin/index.html",
+          "sourceRelativeFilePath": "mixins/dile-slide-smooth-scroll-element-mixin.rocket.md",
+          "level": 2,
+          "headlinesWithId": [
+            {
+              "text": "DileSmoothScrollElementMixin",
+              "id": "dilesmoothscrollelementmixin",
+              "level": 2
+            }
+          ]
         }
       ]
     },
