@@ -1921,7 +1921,45 @@
           "url": "/components/dile-rating/",
           "outputRelativeFilePath": "components/dile-rating/index.html",
           "sourceRelativeFilePath": "components/dile-rating.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-rating",
+          "headlinesWithId": [
+            {
+              "text": "dile-rating",
+              "id": "dile-rating",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "dile-rating demos",
+              "id": "dile-rating-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-select",
