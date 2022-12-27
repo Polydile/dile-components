@@ -8,7 +8,7 @@ export class DileSpinnerHorizontal extends LitElement {
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: space-between;
-                width: 70px;
+                width: var(--dile-spinner-horizontal-width, 70px);
                 height: var(--dile-spinner-horizontal-height, 1rem);
             }
             .loader div {
@@ -27,13 +27,13 @@ export class DileSpinnerHorizontal extends LitElement {
                     width: 12px;
                 }
                 25% {
-                    width: 60px;
+                    width: 95%;
                 }
                 50% {
                     width: 10px;
                 }
                 75% {
-                    width: 45px;
+                    width: 45%;
                 }
                 100% {
                     width: 12px;

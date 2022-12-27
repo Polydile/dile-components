@@ -12,6 +12,9 @@ export class DileSpinner extends DileSpinnerMixin(LitElement) {
         position: relative;
         width: 64px;
         height: 64px;
+        background-color: var(--dile-spinner-background, transparent);
+        border-radius: 50%;
+        border: 4px solid var(--dile-spinner-background, transparent);
       }
       i div {
         animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;

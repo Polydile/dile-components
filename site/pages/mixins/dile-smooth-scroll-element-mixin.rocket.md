@@ -1,11 +1,11 @@
 ```js server
 /* START - Rocket auto generated - do not touch */
-export const sourceRelativeFilePath = 'mixins/dile-slide-smooth-scroll-element-mixin.rocket.md';
+export const sourceRelativeFilePath = 'mixins/dile-smooth-scroll-element-mixin.rocket.md';
 import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
 
-export const title = 'dile-slide-smooth-scroll-element-mixin';
+export const title = 'dile-smooth-scroll-element-mixin';
 
 ```
 

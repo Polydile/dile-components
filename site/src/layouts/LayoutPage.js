@@ -150,6 +150,10 @@ export class LayoutPage {
               padding: 10px;
             }
 
+            mdjs-preview dile-textarea div {
+              padding: 0;
+            }
+            
             mdjs-preview pre {
               border-bottom: 10px solid #fff;
             }

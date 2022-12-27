@@ -2124,7 +2124,40 @@
           "url": "/components/dile-social-icon/",
           "outputRelativeFilePath": "components/dile-social-icon/index.html",
           "sourceRelativeFilePath": "components/dile-social-icon.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-social-icon",
+          "headlinesWithId": [
+            {
+              "text": "dile-social-icon",
+              "id": "dile-social-icon",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Icons available",
+              "id": "icons-available",
+              "level": 2
+            },
+            {
+              "text": "Custom styles",
+              "id": "custom-styles",
+              "level": 2
+            },
+            {
+              "text": "dile-social-icon demos",
+              "id": "dile-social-icon-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-spinner",
@@ -2133,7 +2166,55 @@
           "url": "/components/dile-spinner/",
           "outputRelativeFilePath": "components/dile-spinner/index.html",
           "sourceRelativeFilePath": "components/dile-spinner.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-spinner",
+          "headlinesWithId": [
+            {
+              "text": "dile-spinner",
+              "id": "dile-spinner",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage-1",
+              "level": 3
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "&lt;dile-spinner-modal>",
+              "id": "dile-spinner-modal",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage-2",
+              "level": 3
+            },
+            {
+              "text": "Styling",
+              "id": "styling-1",
+              "level": 3
+            }
+          ]
         },
         {
           "title": "dile-tabs",
@@ -2142,7 +2223,55 @@
           "url": "/components/dile-tabs/",
           "outputRelativeFilePath": "components/dile-tabs/index.html",
           "sourceRelativeFilePath": "components/dile-tabs.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-tabs",
+          "headlinesWithId": [
+            {
+              "text": "dile-tabs",
+              "id": "dile-tabs",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "More complex example",
+              "id": "more-complex-example",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "dile-selected-changed:",
+              "id": "dile-selected-changed",
+              "level": 3
+            },
+            {
+              "text": "CSS custom properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "dile-tabs demo",
+              "id": "dile-tabs-demo",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-textarea",
@@ -2151,7 +2280,50 @@
           "url": "/components/dile-textarea/",
           "outputRelativeFilePath": "components/dile-textarea/index.html",
           "sourceRelativeFilePath": "components/dile-textarea.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-textarea",
+          "headlinesWithId": [
+            {
+              "text": "dile-textarea",
+              "id": "dile-textarea",
+              "level": 1
+            },
+            {
+              "text": "Install",
+              "id": "install",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "input",
+              "id": "input",
+              "level": 3
+            },
+            {
+              "text": "dile-textarea demos",
+              "id": "dile-textarea-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-toast-persistent",
@@ -2160,7 +2332,45 @@
           "url": "/components/dile-toast-persistent/",
           "outputRelativeFilePath": "components/dile-toast-persistent/index.html",
           "sourceRelativeFilePath": "components/dile-toast-persistent.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-toast-persistent",
+          "headlinesWithId": [
+            {
+              "text": "dile-toast-persistent",
+              "id": "dile-toast-persistent",
+              "level": 1
+            },
+            {
+              "text": "Install",
+              "id": "install",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Custom events",
+              "id": "custom-events",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-toast",
@@ -2169,7 +2379,40 @@
           "url": "/components/dile-toast/",
           "outputRelativeFilePath": "components/dile-toast/index.html",
           "sourceRelativeFilePath": "components/dile-toast.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-toast",
+          "headlinesWithId": [
+            {
+              "text": "dile-toast",
+              "id": "dile-toast",
+              "level": 1
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "Style customization",
+              "id": "style-customization",
+              "level": 2
+            },
+            {
+              "text": "dile-toast demos",
+              "id": "dile-toast-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "dile-tooltip",
@@ -2178,7 +2421,40 @@
           "url": "/components/dile-tooltip/",
           "outputRelativeFilePath": "components/dile-tooltip/index.html",
           "sourceRelativeFilePath": "components/dile-tooltip.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "dile-tooltip",
+          "headlinesWithId": [
+            {
+              "text": "dile-tooltip",
+              "id": "dile-tooltip",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "dile-tooltip demos",
+              "id": "dile-tooltip-demos",
+              "level": 2
+            }
+          ]
         },
         {
           "name": "dile-select-ajax",
@@ -2194,6 +2470,85 @@
               "text": "dile-select-ajax",
               "id": "dile-select-ajax",
               "level": 1
+            }
+          ]
+        },
+        {
+          "name": "dile-spinner-modal",
+          "menuLinkText": "dile-spinner-modal",
+          "url": "/components/dile-spinner-modal/",
+          "outputRelativeFilePath": "components/dile-spinner-modal/index.html",
+          "sourceRelativeFilePath": "components/dile-spinner-modal.rocket.md",
+          "level": 2,
+          "title": "dile-spinner-modal",
+          "h1": "dile-spinner-modal",
+          "headlinesWithId": [
+            {
+              "text": "dile-spinner-modal",
+              "id": "dile-spinner-modal",
+              "level": 1
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "name": "dile-spinner-horizontal",
+          "menuLinkText": "dile-spinner-horizontal",
+          "url": "/components/dile-spinner-horizontal/",
+          "outputRelativeFilePath": "components/dile-spinner-horizontal/index.html",
+          "sourceRelativeFilePath": "components/dile-spinner-horizontal.rocket.md",
+          "level": 2,
+          "title": "dile-spinner-horizontal",
+          "h1": "dile-spinner-horizontal",
+          "headlinesWithId": [
+            {
+              "text": "dile-spinner-horizontal",
+              "id": "dile-spinner-horizontal",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "dile-spinner-horizontal demos",
+              "id": "dile-spinner-horizontal-demos",
+              "level": 2
+            },
+            {
+              "text": "Default spinner",
+              "id": "default-spinner",
+              "level": 3
+            },
+            {
+              "text": "Styled spinner",
+              "id": "styled-spinner",
+              "level": 3
+            },
+            {
+              "text": "Iteractive demo",
+              "id": "iteractive-demo",
+              "level": 3
             }
           ]
         }
@@ -2368,13 +2723,13 @@
           "level": 2
         },
         {
-          "name": "dile-slide-smooth-scroll-mixin",
-          "menuLinkText": "dile-slide-smooth-scroll-mixin",
+          "name": "dile-smooth-scroll-mixin",
+          "menuLinkText": "dile-smooth-scroll-mixin",
           "url": "/mixins/dile-smooth-scroll-mixin/",
           "outputRelativeFilePath": "mixins/dile-smooth-scroll-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-smooth-scroll-mixin.rocket.md",
           "level": 2,
-          "title": "dile-slide-smooth-scroll-mixin",
+          "title": "dile-smooth-scroll-mixin",
           "headlinesWithId": [
             {
               "text": "DileSmoothScrollMixin",
@@ -2384,20 +2739,20 @@
           ]
         },
         {
-          "title": "dile-slide-smooth-scroll-element-mixin",
-          "name": "dile-slide-smooth-scroll-element-mixin",
-          "menuLinkText": "dile-slide-smooth-scroll-element-mixin",
-          "url": "/mixins/dile-slide-smooth-scroll-element-mixin/",
-          "outputRelativeFilePath": "mixins/dile-slide-smooth-scroll-element-mixin/index.html",
-          "sourceRelativeFilePath": "mixins/dile-slide-smooth-scroll-element-mixin.rocket.md",
-          "level": 2,
+          "title": "dile-smooth-scroll-element-mixin",
           "headlinesWithId": [
             {
               "text": "DileSmoothScrollElementMixin",
               "id": "dilesmoothscrollelementmixin",
               "level": 2
             }
-          ]
+          ],
+          "name": "dile-smooth-scroll-element-mixin",
+          "menuLinkText": "dile-smooth-scroll-element-mixin",
+          "url": "/mixins/dile-smooth-scroll-element-mixin/",
+          "outputRelativeFilePath": "mixins/dile-smooth-scroll-element-mixin/index.html",
+          "sourceRelativeFilePath": "mixins/dile-smooth-scroll-element-mixin.rocket.md",
+          "level": 2
         }
       ]
     },
