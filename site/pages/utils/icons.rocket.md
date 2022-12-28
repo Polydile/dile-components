@@ -26,6 +26,7 @@ import { arrowDropDownIcon } from "../../../packages/icons/index.js";
 import { arrowDropUpIcon } from "../../../packages/icons/index.js";
 import { arrowRightIcon } from "../../../packages/icons/index.js";
 import { attachmentIcon } from "../../../packages/icons/index.js";
+import { autoAwesomeIcon } from "../../../packages/icons/index.js";
 import { calendarIcon } from "../../../packages/icons/index.js";
 import { checkboxBlankIcon } from "../../../packages/icons/index.js";
 import { checkboxCheckedIcon } from "../../../packages/icons/index.js";
@@ -63,6 +64,7 @@ import { moreVertIcon } from "../../../packages/icons/index.js";
 import { newReleasesIcon } from "../../../packages/icons/index.js";
 import { notificationsIcon } from "../../../packages/icons/index.js";
 import { paidIcon } from "../../../packages/icons/index.js";
+import { paletteIcon } from "../../../packages/icons/index.js";
 import { pdfIcon } from "../../../packages/icons/index.js";
 import { photoCameraIcon } from "../../../packages/icons/index.js";
 import { priorityHighIcon } from "../../../packages/icons/index.js";
@@ -71,6 +73,7 @@ import { radioCheckedIcon } from "../../../packages/icons/index.js";
 import { receiptIcon } from "../../../packages/icons/index.js";
 import { receiptLongIcon } from "../../../packages/icons/index.js";
 import { refreshIcon } from "../../../packages/icons/index.js";
+import { scaleIcon } from "../../../packages/icons/index.js";
 import { searchIcon } from "../../../packages/icons/index.js";
 import { settingsIcon } from "../../../packages/icons/index.js";
 import { shoppingCartIcon } from "../../../packages/icons/index.js";
@@ -260,6 +263,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="autoAwesomeIcon"></dile-icon>
+        <span>autoAwesomeIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="calendarIcon"></dile-icon>
         <span>calendarIcon</span>
       </article>
@@ -445,6 +453,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="paletteIcon"></dile-icon>
+        <span>paletteIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="pdfIcon"></dile-icon>
         <span>pdfIcon</span>
       </article>
@@ -482,6 +495,11 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="refreshIcon"></dile-icon>
         <span>refreshIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="scaleIcon"></dile-icon>
+        <span>scaleIcon</span>
       </article>
 
       <article>
@@ -572,6 +590,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('arrowDropUpIcon').icon = arrowDropUpIcon;
     this.shadowRoot.getElementById('arrowRightIcon').icon = arrowRightIcon;
     this.shadowRoot.getElementById('attachmentIcon').icon = attachmentIcon;
+    this.shadowRoot.getElementById('autoAwesomeIcon').icon = autoAwesomeIcon;
     this.shadowRoot.getElementById('calendarIcon').icon = calendarIcon;
     this.shadowRoot.getElementById('checkboxBlankIcon').icon = checkboxBlankIcon;
     this.shadowRoot.getElementById('checkboxCheckedIcon').icon = checkboxCheckedIcon;
@@ -609,6 +628,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('newReleasesIcon').icon = newReleasesIcon;
     this.shadowRoot.getElementById('notificationsIcon').icon = notificationsIcon;
     this.shadowRoot.getElementById('paidIcon').icon = paidIcon;
+    this.shadowRoot.getElementById('paletteIcon').icon = paletteIcon;
     this.shadowRoot.getElementById('pdfIcon').icon = pdfIcon;
     this.shadowRoot.getElementById('photoCameraIcon').icon = photoCameraIcon;
     this.shadowRoot.getElementById('priorityHighIcon').icon = priorityHighIcon;
@@ -617,6 +637,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('receiptIcon').icon = receiptIcon;
     this.shadowRoot.getElementById('receiptLongIcon').icon = receiptLongIcon;
     this.shadowRoot.getElementById('refreshIcon').icon = refreshIcon;
+    this.shadowRoot.getElementById('scaleIcon').icon = scaleIcon;
     this.shadowRoot.getElementById('searchIcon').icon = searchIcon;
     this.shadowRoot.getElementById('settingsIcon').icon = settingsIcon;
     this.shadowRoot.getElementById('shoppingCartIcon').icon = shoppingCartIcon;

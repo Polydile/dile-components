@@ -8,6 +8,8 @@ import { pageTree } from '../src/menus/pageTree.js';
 import { ChildListMenu } from '@rocket/engine';
 import { html } from 'lit';
 import '../../packages/dile-button/dile-button.js';
+import { helpIcon, settingsIcon, checkboxCheckedIcon, paletteIcon, autoAwesomeIcon, scaleIcon } from "../../packages/icons/index.js";
+import "../../packages/dile-icon/dile-icon.js";
 export const title = 'Dile components website';
 
 export default () => html`
@@ -62,6 +64,11 @@ export default () => html`
         align-items: center;
         column-gap: 3rem;
       }
+      h1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+      }
       .subtitle .image {
         flex-grow: 1;
         margin: 0;
@@ -86,6 +93,95 @@ export default () => html`
         flex-direction: row;
       }
     }
+
+    @media(min-width: 850px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .subtitle {
+        margin: 3rem 6rem 4.5rem;
+        column-gap: 6rem;
+      }
+    }
+
+    @media(min-width: 950px) {
+      .subtitle {
+        column-gap: 8rem;
+      }
+    }
+
+    /* FEATURED */
+    .Featured {
+      background-color: #f5f5f5;
+      display: grid;
+      column-gap: 1.5rem;
+      row-gap: 2.5rem;
+      color: #303030;
+      padding: 2.5rem 1rem;
+      --dile-icon-color: var(--primary-color);
+      --dile-icon-size: 4rem;
+      font-size: 1.2rem;
+
+    }  
+
+    .Featured a {
+        color: inherit;
+        text-decoration: none;
+        margin-bottom: 1rem;
+    }
+
+    .Featured p {
+        margin-bottom: 0.3rem;
+    }
+
+    .Featured h2 {
+        font-size: 1.5rem;
+        margin: 0.5rem 0 1rem 0;
+    }
+    @media(min-width: 450px) {
+      .Featured {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+      .Featured img {
+        width: 100px;
+      } 
+    }
+
+    @media(min-width: 550px) {
+      .Featured {
+        grid-template-columns: 1fr 1fr;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .Featured img {
+        width: 100px;
+      } 
+    }
+
+    @media(min-width: 780px) {
+      .Featured {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .Featured img {
+        width: 100px;
+      } 
+    }
+    @media(min-width: 830px) {
+        .Featured {
+          column-gap: 3.5rem;
+          padding-left: 3rem;
+          padding-right: 3rem;
+        } 
+    }
+
+    .Featured-item {
+        text-align: center;
+    }
+    
+
   </style>
   <h1>Polydile Web Components</h1>
   <div class="subtitle">
@@ -102,9 +198,71 @@ export default () => html`
       </div>
     </section>
   </div>
+  
+  <div class="Featured">
+    <a href="/how-to-use">
+      <div class="Featured-item">
+              
+        <dile-icon .icon="${settingsIcon}"></dile-icon>
 
-  <hr>
+        <h2>Use everywhere</h2>
+        <p>
+          It's Javascript Web Components, you can use in Vanilla.js or any framework you want.
+        </p>
+      </div>
+    </a>
+    <a href="/how-to-use">
+      <div class="Featured-item">
 
-${pageTree.renderMenu(new ChildListMenu(), sourceRelativeFilePath)}
+        <dile-icon .icon="${paletteIcon}"></dile-icon>
 
+        <h2>Customizable</h2>
+        <p>
+          Every component has a base design and they are also fully customizable.
+        </p>
+      </div>
+    </a>
+    <a href="/how-to-use">
+      <div class="Featured-item">
+
+        <dile-icon .icon="${scaleIcon}"></dile-icon>
+
+        <h2>Lightweight</h2>
+        <p>
+          Only a few Kb per component! Always lightweight, for optimized projects.
+        </p>
+      </div>
+    </a>
+    <a href="/components/">
+      <div class="Featured-item">
+        <dile-icon .icon="${checkboxCheckedIcon}"></dile-icon>
+
+        <h2>Multiple purposes</h2>
+        <p>
+          Components for common (and no so common) purposes. You can use only one... or all of them.
+        </p>
+      </div>
+    </a>
+    <a href="/mixins/">
+      <div class="Featured-item">
+        <dile-icon .icon="${autoAwesomeIcon}"></dile-icon>
+
+        <h2>Generic mixins</h2>
+        <p>
+          There are components, but also mixins for many generic case to develop user interfaces.
+        </p>
+      </div>
+    </a>
+    <a href="/contribute">
+      <div class="Featured-item">
+        
+        <dile-icon .icon="${helpIcon}"></dile-icon>
+
+        <h2>Easy to understand</h2>
+        <p>
+          The components are easy to understand for every developer, so you can expand and contribute with us.
+        </p>
+      </div>
+    </a>
+  </div>
 `;

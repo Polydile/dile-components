@@ -20,10 +20,10 @@ export class LayoutPage {
           <title-server-only>${data.title}</title-server-only>
           <link rel="stylesheet" href="/styles/reset.css" />
           <link rel="stylesheet" href="/styles/prism.css" />
-          <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-          <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> -->
+          <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
           <script src="/js/prism.js"></script>
           <style>
             body {
@@ -31,6 +31,8 @@ export class LayoutPage {
               color: #303030;
               --primary-color: #7BB93D;
               --secondary-color: #f3f3ae;
+
+              --dile-app-drawer-box-shadow: 1px 0 12px rgba(0, 0, 0, 0.3);
 
               --primary-lines-color: var(--secondary-color);
 
@@ -106,6 +108,7 @@ export class LayoutPage {
               margin-top: 3.5rem;
               min-width: 250px;
               font-size: 1.2rem;
+              padding-bottom: 2.5rem;
             }
             main {
               padding: 1rem;
@@ -158,6 +161,39 @@ export class LayoutPage {
               border-bottom: 10px solid #fff;
             }
 
+            footer {
+              background-color: var(--primary-color);
+              padding: 1rem;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              column-gap: 2rem;
+              font-size: 1.1rem;
+            }
+            footer b, footer a {
+              color: #fff;
+            }
+            footer ul {
+              margin: 0.5rem 0 1rem;
+              padding: 0 0.5rem;
+            }
+            footer li {
+              margin: 0 0 0.25rem;
+              padding: 0;
+              list-style-type: none;
+            }
+            @media(min-width: 500px) {
+              footer {
+                flex-direction: row;
+                row-gap: 2rem;
+              }
+              footer section {
+                min-width: 200px;
+              }
+              footer ul {
+                padding: 0;
+              }
+            }
             @media(min-width: 350px) {
               body {
                 --dile-nav-padding-y: 0.2rem;
@@ -176,14 +212,29 @@ export class LayoutPage {
                 font-size: 1.5rem;
               }
             }
+            @media(min-width: 650px) {
+              body {
+                --dile-hamburger-line-size: 4px;
+                --dile-hamburger-line-separation: -9px;
+                --dile-hamburger-width: 32px;
+              }
+              .sitenav {
+                --dile-nav-padding-x: 0.8rem;
+              }
+              .actionsnav {
+                margin-right: 0.5rem;
+              }
+            }
             @media(min-width: 800px) {
               body {
-                --dile-nav-padding-x: 0.8rem;
                 --dile-hamburger-line-size: 5px;
                 --dile-hamburger-line-separation: -10px;
                 --dile-hamburger-width: 32px;
               }
-              main {
+              .sitenav {
+                --dile-nav-padding-x: 1rem;
+              }
+              main, footer {
                 padding: 1.5rem;
               }
               .mobile {
@@ -192,6 +243,13 @@ export class LayoutPage {
               }
               .desktop {
                   display: block;
+              }
+              dile-nav img {
+                height: 54px;
+              }
+              dile-nav b {
+                font-size: 2rem;
+                margin-left: 0.5rem;
               }
             }
             @media(min-width: 1000px) {
@@ -243,6 +301,23 @@ export class LayoutPage {
           <main>
             ${data.content()}
           </main>
+          <footer>
+            <section>
+              <b>Information</b>
+              <ul>
+                <li><a href="/how-to-use">How to use</a></li>
+                <li><a href="/contribute">Contribute</a></li>
+              </ul>
+            </section>
+            <section>
+              <b>Packages</b>
+              <ul>
+                <li><a href="/components/">Components</a></li>
+                <li><a href="/mixins/">Mixins</a></li>
+                <li><a href="/utils/">Utils</a></li>
+              </ul>
+            </section>
+          </footer>
         </body>
       </html>
       `
