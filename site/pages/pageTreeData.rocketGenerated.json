@@ -2636,100 +2636,147 @@
       "level": 1,
       "children": [
         {
-          "title": "dile-close-document-click-mixin",
-          "h1": "dile-close-document-click-mixin",
+          "title": "DileCloseDocumentClickMixin",
+          "h1": "DileCloseDocumentClickMixin",
           "headlinesWithId": [
             {
-              "text": "dile-close-document-click-mixin",
-              "id": "dile-close-document-click-mixin",
+              "text": "DileCloseDocumentClickMixin",
+              "id": "dileclosedocumentclickmixin",
               "level": 1
             }
           ],
-          "name": "dile-close-document-click-mixin",
-          "menuLinkText": "dile-close-document-click-mixin",
+          "name": "DileCloseDocumentClickMixin",
+          "menuLinkText": "DileCloseDocumentClickMixin",
           "url": "/mixins/dile-close-document-click-mixin/",
           "outputRelativeFilePath": "mixins/dile-close-document-click-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-close-document-click-mixin.rocket.md",
           "level": 2
         },
         {
-          "title": "dile-close-on-esc-pressed-mixin",
-          "h1": "dile-close-on-esc-pressed-mixin",
+          "title": "DileCloseOnEscPressedMixin",
+          "h1": "DileCloseOnEscPressedMixin",
           "headlinesWithId": [
             {
-              "text": "dile-close-on-esc-pressed-mixin",
-              "id": "dile-close-on-esc-pressed-mixin",
+              "text": "DileCloseOnEscPressedMixin",
+              "id": "dilecloseonescpressedmixin",
               "level": 1
             }
           ],
-          "name": "dile-close-on-esc-pressed-mixin",
-          "menuLinkText": "dile-close-on-esc-pressed-mixin",
+          "name": "DileCloseOnEscPressedMixin",
+          "menuLinkText": "DileCloseOnEscPressedMixin",
           "url": "/mixins/dile-close-on-esc-pressed-mixin/",
           "outputRelativeFilePath": "mixins/dile-close-on-esc-pressed-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-close-on-esc-pressed-mixin.rocket.md",
           "level": 2
         },
         {
-          "title": "dile-emmit-change-mixin",
-          "h1": "dile-emmit-change-mixin",
+          "title": "DileEmmitChangeMixin",
+          "h1": "DileEmmitChangeMixin",
           "headlinesWithId": [
             {
-              "text": "dile-emmit-change-mixin",
-              "id": "dile-emmit-change-mixin",
+              "text": "DileEmmitChangeMixin",
+              "id": "dileemmitchangemixin",
               "level": 1
             }
           ],
-          "name": "dile-emmit-change-mixin",
-          "menuLinkText": "dile-emmit-change-mixin",
+          "name": "DileEmmitChangeMixin",
+          "menuLinkText": "DileEmmitChangeMixin",
           "url": "/mixins/dile-emmit-change-mixin/",
           "outputRelativeFilePath": "mixins/dile-emmit-change-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-emmit-change-mixin.rocket.md",
           "level": 2
         },
         {
-          "title": "dile-form-mixin",
-          "name": "dile-form-mixin",
-          "menuLinkText": "dile-form-mixin",
+          "title": "DileFormMixin",
+          "name": "DileFormMixin",
+          "menuLinkText": "DileFormMixin",
           "url": "/mixins/dile-form-mixin/",
           "outputRelativeFilePath": "mixins/dile-form-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-form-mixin.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "DileFormMixin",
+          "headlinesWithId": [
+            {
+              "text": "DileFormMixin",
+              "id": "dileformmixin",
+              "level": 1
+            }
+          ]
         },
         {
-          "title": "dile-overlay-mixin",
-          "name": "dile-overlay-mixin",
-          "menuLinkText": "dile-overlay-mixin",
+          "title": "DileOverlayMixin",
+          "name": "DileOverlayMixin",
+          "menuLinkText": "DileOverlayMixin",
           "url": "/mixins/dile-overlay-mixin/",
           "outputRelativeFilePath": "mixins/dile-overlay-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-overlay-mixin.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "DileOverlayMixin",
+          "headlinesWithId": [
+            {
+              "text": "DileOverlayMixin",
+              "id": "dileoverlaymixin",
+              "level": 1
+            }
+          ]
         },
         {
-          "title": "dile-selector-mixin",
-          "name": "dile-selector-mixin",
-          "menuLinkText": "dile-selector-mixin",
+          "title": "DileSelectorMixin",
+          "name": "DileSelectorMixin",
+          "menuLinkText": "DileSelectorMixin",
           "url": "/mixins/dile-selector-mixin/",
           "outputRelativeFilePath": "mixins/dile-selector-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-selector-mixin.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "DileSelectorMixin",
+          "headlinesWithId": [
+            {
+              "text": "DileSelectorMixin",
+              "id": "dileselectormixin",
+              "level": 1
+            }
+          ]
         },
         {
-          "title": "dile-slide-down-mixin",
-          "name": "dile-slide-down-mixin",
-          "menuLinkText": "dile-slide-down-mixin",
+          "title": "DileSlideDownMixin",
+          "name": "DileSlideDownMixin",
+          "menuLinkText": "DileSlideDownMixin",
           "url": "/mixins/dile-slide-down-mixin/",
           "outputRelativeFilePath": "mixins/dile-slide-down-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-slide-down-mixin.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "DileSlideDownMixin",
+          "headlinesWithId": [
+            {
+              "text": "DileSlideDownMixin",
+              "id": "dileslidedownmixin",
+              "level": 1
+            },
+            {
+              "text": "Requirements",
+              "id": "requirements",
+              "level": 2
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            }
+          ]
         },
         {
-          "name": "dile-smooth-scroll-mixin",
-          "menuLinkText": "dile-smooth-scroll-mixin",
+          "name": "DileSmoothScrollMixin",
+          "menuLinkText": "DileSmoothScrollMixin",
           "url": "/mixins/dile-smooth-scroll-mixin/",
           "outputRelativeFilePath": "mixins/dile-smooth-scroll-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-smooth-scroll-mixin.rocket.md",
           "level": 2,
-          "title": "dile-smooth-scroll-mixin",
+          "title": "DileSmoothScrollMixin",
           "headlinesWithId": [
             {
               "text": "DileSmoothScrollMixin",
@@ -2739,7 +2786,7 @@
           ]
         },
         {
-          "title": "dile-smooth-scroll-element-mixin",
+          "title": "DileSmoothScrollElementMixin",
           "headlinesWithId": [
             {
               "text": "DileSmoothScrollElementMixin",
@@ -2747,12 +2794,29 @@
               "level": 2
             }
           ],
-          "name": "dile-smooth-scroll-element-mixin",
-          "menuLinkText": "dile-smooth-scroll-element-mixin",
+          "name": "DileSmoothScrollElementMixin",
+          "menuLinkText": "DileSmoothScrollElementMixin",
           "url": "/mixins/dile-smooth-scroll-element-mixin/",
           "outputRelativeFilePath": "mixins/dile-smooth-scroll-element-mixin/index.html",
           "sourceRelativeFilePath": "mixins/dile-smooth-scroll-element-mixin.rocket.md",
           "level": 2
+        },
+        {
+          "name": "DileFormChangeDetectMixin",
+          "menuLinkText": "DileFormChangeDetectMixin",
+          "url": "/mixins/dile-form-change-detect-mixin/",
+          "outputRelativeFilePath": "mixins/dile-form-change-detect-mixin/index.html",
+          "sourceRelativeFilePath": "mixins/dile-form-change-detect-mixin.rocket.md",
+          "level": 2,
+          "title": "DileFormChangeDetectMixin",
+          "h1": "DileFormChangeDetectMixin",
+          "headlinesWithId": [
+            {
+              "text": "DileFormChangeDetectMixin",
+              "id": "dileformchangedetectmixin",
+              "level": 1
+            }
+          ]
         }
       ]
     },
@@ -2774,13 +2838,31 @@
       "level": 1,
       "children": [
         {
-          "title": "dile-close-icon-template",
-          "name": "dile-close-icon-template",
-          "menuLinkText": "dile-close-icon-template",
+          "title": "DileCloseIconTemplate",
+          "name": "DileCloseIconTemplate",
+          "menuLinkText": "DileCloseIconTemplate",
           "url": "/utils/dile-close-icon-template/",
           "outputRelativeFilePath": "utils/dile-close-icon-template/index.html",
           "sourceRelativeFilePath": "utils/dile-close-icon-template.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "DileCloseIconTemplate",
+          "headlinesWithId": [
+            {
+              "text": "DileCloseIconTemplate",
+              "id": "dilecloseicontemplate",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            }
+          ]
         },
         {
           "title": "icons",
@@ -2789,7 +2871,15 @@
           "url": "/utils/icons/",
           "outputRelativeFilePath": "utils/icons/index.html",
           "sourceRelativeFilePath": "utils/icons.rocket.md",
-          "level": 2
+          "level": 2,
+          "h1": "icons",
+          "headlinesWithId": [
+            {
+              "text": "icons",
+              "id": "icons",
+              "level": 1
+            }
+          ]
         }
       ]
     }

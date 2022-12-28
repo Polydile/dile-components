@@ -20,10 +20,10 @@ export class LayoutPage {
           <title-server-only>${data.title}</title-server-only>
           <link rel="stylesheet" href="/styles/reset.css" />
           <link rel="stylesheet" href="/styles/prism.css" />
-          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-          <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> -->
           <script src="/js/prism.js"></script>
           <style>
             body {

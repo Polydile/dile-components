@@ -14,6 +14,7 @@ Mixins in this package:
 
 - DileFormMixin
 - DileFormChangeDetectMixin
+- DileEmmitChangeMixin
 
 ## DileFormMixin
 
@@ -50,7 +51,8 @@ It works with native form elements or custom elements, as long as they have the 
 showErrors({
   name: 'Please complete your name', 
   age: 'your age should be greater than 18 years old'
-})```
+})
+```
 
 ## DileFormChangeDetectMixin
 

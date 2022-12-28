@@ -5,7 +5,7 @@ import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
 
-export const title = 'dile-smooth-scroll-mixin';
+export const title = 'DileSmoothScrollMixin';
 ```
 
 
