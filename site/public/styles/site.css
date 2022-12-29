@@ -197,12 +197,15 @@ footer li {
     --dile-hamburger-line-size: 5px;
     --dile-hamburger-line-separation: -10px;
     --dile-hamburger-width: 32px;
+    --dile-button-font-size: 1.2rem;
   }
   .sitenav {
     --dile-nav-padding-x: 1rem;
   }
   main, footer {
     padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   .mobile {
     outline: 3px solid red;
