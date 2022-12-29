@@ -28,7 +28,11 @@ export class DileOrderSwitch extends DileEmmitChangeMixin(LitElement) {
         align-items: center;
         display: flex;
       }
+      span {
+        cursor: pointer;
+      }
       dile-icon {
+        cursor: pointer;
         transform: rotate(-90deg);
         margin-right: 0.4rem;
         transition: transform 0.3s ease-in-out;
@@ -41,7 +45,7 @@ export class DileOrderSwitch extends DileEmmitChangeMixin(LitElement) {
 
   render() {
     return html`
-      <div @click=${this.doClick}>
+      <div @click=${this.toggle}>
         <dile-icon .icon="${switchLeftIcon}" class="${this.value}"></dile-icon>
         <span>
           ${this.label}
@@ -60,7 +64,7 @@ export class DileOrderSwitch extends DileEmmitChangeMixin(LitElement) {
     }
   }
 
-  doClick(e) {
+  toggle() {
     if (this.value === "asc") {
       this.value = "desc";
     } else {

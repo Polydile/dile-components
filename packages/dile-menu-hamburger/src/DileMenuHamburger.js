@@ -1,6 +1,6 @@
 import { html, css, LitElement } from "lit";
-import '@dile/dile-app-drawer/dile-app-drawer';
-import '@dile/dile-hamburger/dile-hamburger';
+import '@dile/dile-app-drawer/dile-app-drawer.js';
+import '@dile/dile-hamburger/dile-hamburger.js';
 
 export class DileMenuHamburger extends LitElement {
   static get properties() {

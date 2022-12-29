@@ -57,6 +57,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         z-index: var(--dile-app-drawer-z-index, 10000);
         background-color: var(--dile-app-drawer-background-color, #ddd);
         transition: transform 0.3s ease;
+        overflow: auto;
       }
 
       section {

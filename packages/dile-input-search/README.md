@@ -1,4 +1,4 @@
-# @dile/dile-input-search
+# dile-input-search
 
 Web Component to create a customized search input with the tipical search icon and a clear search functionality. Also it provides a "delay" property to wait when a keystroke occurs and when a search is emitted.
 

@@ -24,21 +24,21 @@ export class DileButton extends LitElement {
         padding-bottom: var(--dile-button-padding-y, 0.5rem);
         padding-right: var(--dile-button-padding-x, 0.8rem);
         padding-left: var(--dile-button-padding-x, 0.8rem);
-        border-radius: var(--dile-button-border-radius, 2px);
-        border-width:  var(--dile-button-border-width, 1px);
-        border-color:  var(--dile-button-border-color, #666666);
-        background-color: var(--dile-button-background-color, #f5f5ff);
+        border-radius: var(--dile-button-border-radius, 2rem);
+        border-width:  var(--dile-button-border-width, 3px);
+        border-color:  var(--dile-button-border-color, #07193b);
+        background-color: var(--dile-button-background-color, #7BB93D);
         transition-property: background-color, color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         border-style: solid;
-        color: var(--dile-button-text-color, #303030); 
+        color: var(--dile-button-text-color, #fff); 
         font-size: var(--dile-button-font-size, 1rem);
-        font-weight: var(--dile-button-font-weight, normal);
+        font-weight: var(--dile-button-font-weight, bold);
         text-transform: var(--dile-button-text-transform, none);
       }
       button:hover {
-        background-color: var(--dile-button-hover-background-color, #b1ecf7);
+        background-color: var(--dile-button-hover-background-color, #f3f3ae);
         color: var(--dile-button-hover-text-color, #303030);
         border-color:  var(--dile-button-hover-border-color, #666666);
       }
@@ -52,8 +52,7 @@ export class DileButton extends LitElement {
         cursor: auto;
         background-color: var(--dile-button-disabled-background-color, #ccc);
         color: var(--dile-button-disabled-text-color, #999);
-        border-color: var(--dile-button-disabled-border-color, #aaa);
-        border-style: none;
+        border-color: var(--dile-button-disabled-border-color, #bbb);
       }
       :host([disabled]) button:focus {
         outline: none;

@@ -1,2 +1,2 @@
-export { DileSelectorMixin } from "./src/DileSelectorMixin";
-export { DileSelectorItemMixin } from "./src/DileSelectorItemMixin";
+export { DileSelectorMixin } from "./src/DileSelectorMixin.js";
+export { DileSelectorItemMixin } from "./src/DileSelectorItemMixin.js";

@@ -13,6 +13,7 @@
     "field",
     "date"
   ],
+  "type": "module",
   "author": "Dennys Jose Marquez Reyes <dennysjmarquez@gmail.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",

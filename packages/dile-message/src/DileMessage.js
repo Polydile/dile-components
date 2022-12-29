@@ -9,7 +9,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
       css`
         :host {
           display: block;
-          --dile-close-icon-template-color: var(--dile-message-color, #fff);
+          --dile-close-icon-template-color: var(--dile-message-icon-color, #fff);
         }
         #message {
           height: 0;
@@ -18,6 +18,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
           -webkit-transition: height 0.3s ease-in;
           position: fixed;
           width: 100%;
+          z-index: var(--dile-message-z-index, 1);
         }
         section {
           display: flex;
@@ -38,6 +39,7 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
         .icon {
           min-width: var(--dile-message-icon-size, 20px);
           width: var(--dile-message-icon-size, 20px);
+          color: red;
           cursor: pointer;
           display: flex;
           flex-direction: column;
@@ -54,6 +56,9 @@ export class DileMessage extends DileSlideDownMixin(LitElement) {
         :host([position='bottom']) #message {
           bottom: 0;
           left: 0;
+        }
+        :host([position='relative']) #message {
+          position: relative;
         }
         :host([position='right-bottom']) #message {
           bottom: var(--dile-message-right-bottom-separation, 1.5rem);

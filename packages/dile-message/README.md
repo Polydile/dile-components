@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 - **opened**: If true the feedback box is in opened status.
 - **message**: Message to display. Remember that, if message='' or undefined, then the component will display the content comming from the slot.
-- **position**: Position between top, bottom, right-bottom.
+- **position**: Position, between "relative", "top", "bottom", "right-bottom".
 - **hideCloseIcon**: If true the close icon will be hidden.
 
 ## Methods
@@ -72,6 +72,8 @@ Custom property | Description | Default
 --dile-message-background-color | Message background color | #666
 --dile-message-padding | Padding for the message box | 15px
 --dile-message-icon-size | Close icon size | 20px
+--dile-message-icon-color | Close icon color | #fff
 --dile-message-right-bottom-separation | Botton and right separation when message position is right-bottom | 1.5rem
 --dile-message-right-bottom-width | Message with when message position is right-bottom | 80vw
 --dile-message-right-bottom-max-width | Message max-with when message position is right-bottom | 400px
+--dile-message-z-index | Message layer z-index | 1

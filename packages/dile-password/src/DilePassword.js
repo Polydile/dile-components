@@ -10,16 +10,23 @@ export class DilePassword extends DileInput {
         ? html`<label for="textField">${this.label}</label>`
         : ''
       }
-      <input
-        type="password"
-        id="textField"
-        name="${this.name}"
-        placeholder="${this.placeholder}"
-        ?disabled="${this.disabled}"
-        @keypress="${this._lookForEnter}"
-        @input="${this._input}"
-        .value="${this.value}"
-        class="${ this.errored ? 'errored' : '' }">
+      <section class="for-input">
+        <input
+          type="password"
+          id="textField"
+          name="${this.name}"
+          placeholder="${this.placeholder}"
+          ?disabled="${this.disabled}"
+          @keypress="${this._lookForEnter}"
+          @input="${this._input}"
+          .value="${this.value}"
+          class="${ this.errored ? 'errored' : '' }"
+        >
+      </section>
+      ${this.message
+        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        : ''
+      }
     </div>
     `;
   }

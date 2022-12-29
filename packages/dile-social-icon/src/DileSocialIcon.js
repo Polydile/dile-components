@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-import { icons } from './icons';
+import { icons } from './icons.js';
 
 /**
  * 
@@ -29,7 +29,9 @@ export class DileSocialIcon extends LitElement {
   static get styles() {
     return css`
       :host[hidden] { display: none; }
-      :host { display: inline-block; }
+      :host { 
+        display: inline-block;
+      }
       path {
         fill: var(--dile-social-icon-color, #888);
       }
@@ -40,15 +42,18 @@ export class DileSocialIcon extends LitElement {
         width: var(--dile-social-icon-size, 24px);
         height: var(--dile-social-icon-size, 24px);
       }
-      div { display: flex;}
+      span {
+        display: flex;
+        align-items: center;
+      }
     `;
   }
 
   render() {
     return html`
-    <div>
+    <span>
       ${this._getIcon(this.icon)}
-    </div>
+    </span>
     `;
   }
 
