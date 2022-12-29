@@ -5,7 +5,7 @@ import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
 
-import { pageTree } from '../../src/menus/PageTree.js'; 
+import { pageTree } from '../../src/menus/pageTree.js'; 
 import { ChildListMenu } from '@rocket/engine';
 import { html } from 'lit';
 
