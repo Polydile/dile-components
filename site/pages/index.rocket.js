@@ -190,7 +190,7 @@ export default () => html`
     </div>
     <section>
       <p>
-        Web Components made for all kind of projects and frameworks.
+        Custom elements made for all kind of projects and frameworks.
       </p>
       <div class="options">
         <a href="how-to-use"><dile-button>How to use</dile-button></a>
