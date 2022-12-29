@@ -1,6 +1,10 @@
 # Dile Components
 
-Dile components is a collection of Web Components created and maintained by @EscuelaIT's students and instructors.
+We have a new webiste with our components catalog docs and demos!! 🎉
+
+<https://dile-components.polydile.com/>
+
+Dile components is a collection of Custom Elements created and maintained by @EscuelaIT's students and instructors.
 
 This components are created to solve common purpouses in websites and web applications. Each compoment has many of CSS custom properties to adapt the component look & feel to your neeeds. 
 
