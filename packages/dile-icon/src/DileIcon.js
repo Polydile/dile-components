@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { iconStyles } from '@dile/icons';
+import { iconStyles } from '@dile/icons/index.js';
 
 export class DileIcon extends LitElement {
   static get properties() {
