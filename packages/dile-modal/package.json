@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-modal",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Web Component to implement a dialog box or modal box",
   "keywords": [
     "dialog",
@@ -29,8 +29,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^1.1.2",
-    "@dile/dile-close-on-esc-pressed-mixin": "^1.1.0",
+    "@dile/dile-close-icon-template": "^2.0.0",
+    "@dile/dile-close-on-esc-pressed-mixin": "^2.0.0",
     "lit": "^2.2.1"
   }
 }

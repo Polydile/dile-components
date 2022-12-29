@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-confirm",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Web Component to implement a confirm dialog box opened in a modal box",
   "keywords": [
     "dialog",
@@ -29,7 +29,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-modal": "^2.0.2",
+    "@dile/dile-modal": "^3.0.0",
     "lit": "^2.2.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-toast-persistent",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Web Component to implement an always visible toast message",
   "keywords": [
     "toast",
@@ -29,7 +29,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-overlay-mixin": "^2.0.1",
+    "@dile/dile-overlay-mixin": "^3.0.0",
     "lit": "^2.2.1"
   }
 }

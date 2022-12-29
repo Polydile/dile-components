@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-button-icon",
-  "version": "0.0.19",
+  "version": "1.0.0",
   "description": "Webcomponent dile-button-icon to create a custom-styled button element with an icon, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -27,8 +27,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-button": "^2.3.1",
-    "@dile/dile-icon": "^0.0.16",
+    "@dile/dile-button": "^3.0.0",
+    "@dile/dile-icon": "^1.0.0",
     "lit": "^2.2.1"
   },
   "gitHead": "20091d88b8a76490c868f6931af52f58a0c9a7c8"

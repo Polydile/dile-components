@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-overlay-mixin",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Mixin function to esaily create overlay web components",
   "keywords": [
     "overlay",
