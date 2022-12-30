@@ -145,6 +145,9 @@ export default () => html`
         font-size: 1.5rem;
         margin: 0.5rem 0 1rem 0;
     }
+    .moreinfo {
+      margin-top: 2.5rem;
+    }
     @media(min-width: 450px) {
       .Featured {
         padding-left: 2.5rem;
@@ -198,6 +201,9 @@ export default () => html`
     @media(min-width: 1200px) {
         .Featured {
           margin: 0 0 2.5rem;
+        }
+        .moreinfo {
+          margin-top: 1.5rem;
         }
     }
 
@@ -301,43 +307,44 @@ export default () => html`
       </div>
     </a>
   </div>
+  <div class="moreinfo">
+    <h2>Quick start</h2>
+    <p>
+      To use one of the dile-components you have to install it on your project:
+    </p>
+    <pre><code class="language-bash">npm install dile-card</code></pre>
+    <p>
+      Once you have installed is necessary to import it with Javascript:
+    </p>
+    <pre><code class="language-markup">&lt;script type="module"&gt;
+    import '@dile/dile-card/dile-card.js';
+  &lt;/script&gt;</code></pre>
+    <blockquote>
+      Because the standard es6 module imports are always imported by it's relative paths, you will need to use a frontend tool like Vite to convert this package name to the corresponding module path into node_modules. Find more information on <a href="/how-to-use">how to use</a> page.
+    </blockquote>
+    <p>
+      Finally, you can use the component, like you use any other HTML tag.
+    </p>
+    <pre><code class="language-markup">&lt;dile-card shadow-lg title="Welcome to dile-components"&gt;
+    &lt;p&gt;Hi everybody!!&lt;/p&gt;
+  &lt;/dile-card&gt;</code></pre>
+    <p>
+      Consult the component docs to find more markup examples and the available properties and configurations. For example see the <a href="/components/dile-card/">dile-card</a> component. All the components, mixins and utils are well documented and you will find some implementation examples to understand how they works in different situations.
+    </p>
 
-  <h2>Quick start</h2>
-  <p>
-    To use one of the dile-components you have to install it on your project:
-  </p>
-  <pre><code class="language-bash">npm install dile-card</code></pre>
-  <p>
-    Once you have installed is necessary to import it with Javascript:
-  </p>
-  <pre><code class="language-markup">&lt;script type="module"&gt;
-  import '@dile/dile-card/dile-card.js';
-&lt;/script&gt;</code></pre>
-  <blockquote>
-    Because the standard es6 module imports are always imported by it's relative paths, you will need to use a frontend tool like Vite to convert this package name to the corresponding module path into node_modules. Find more information on <a href="/how-to-use">how to use</a> page.
-  </blockquote>
-  <p>
-    Finally, you can use the component, like you use any other HTML tag.
-  </p>
-  <pre><code class="language-markup">&lt;dile-card shadow-lg title="Welcome to dile-components"&gt;
-  &lt;p&gt;Hi everybody!!&lt;/p&gt;
-&lt;/dile-card&gt;</code></pre>
-  <p>
-    Consult the component docs to find more markup examples and the available properties and configurations. For example see the <a href="/components/dile-card/">dile-card</a> component. All the components, mixins and utils are well documented and you will find some implementation examples to understand how they works in different situations.
-  </p>
+    <div class="sections">
+      <a href="/components"><dile-button>Components</dile-button></a>
+      <a href="/mixins"><dile-button>Mixins</dile-button></a>
+      <a href="/utils"><dile-button>Utils</dile-button></a>
+    </div>
 
-  <div class="sections">
-    <a href="/components"><dile-button>Components</dile-button></a>
-    <a href="/mixins"><dile-button>Mixins</dile-button></a>
-    <a href="/utils"><dile-button>Utils</dile-button></a>
+    <h2>Browser support</h2>
+    <p>
+      Since the dile-components are created on top of Web Components Javascript standard, will work on any browser that supports them.
+    </p>
+    <p>
+      Right now all the browers are fully compatible with Web Components, except Internet Explorer. So, is a great moment to join the Web Components movement.
+    </p>
+    <blockquote>There are some polyfills to increase the support of Web Components to the old Internet Explorer but we do not test dile-components catalog on it.</blockquote>
   </div>
-
-  <h2>Browser support</h2>
-  <p>
-    Since the dile-components are created on top of Web Components Javascript standard, will work on any browser that supports them.
-  </p>
-  <p>
-    Right now all the browers are fully compatible with Web Components, except Internet Explorer. So, is a great moment to join the Web Components movement.
-  </p>
-  <blockquote>There are some polyfills to increase the support of Web Components to the old Internet Explorer but we do not test dile-components catalog on it.</blockquote>
 `;
