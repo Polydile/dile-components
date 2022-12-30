@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-toast",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Web Component to send feedback to the user, inspired on the Material Design toast component",
   "keywords": [
     "feedback",

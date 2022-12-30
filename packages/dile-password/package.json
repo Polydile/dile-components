@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-password",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Web Component for a customized input text, type password, based on Lit",
   "keywords": [
     "input",
@@ -30,7 +30,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-input": "^2.0.0",
+    "@dile/dile-input": "^2.0.1",
     "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"

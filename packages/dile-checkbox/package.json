@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-checkbox",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Webcomponent dile-checkbox to create a custom-styled checkbox element following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -29,7 +29,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-form-mixin": "^1.0.0",
+    "@dile/dile-form-mixin": "^1.0.1",
     "lit": "^2.2.1"
   },
   "gitHead": "d37f796d41a1c2735ec34168c7990a816079404b"

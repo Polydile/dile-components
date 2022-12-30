@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-avatar",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Webcomponent to create a user avatar interface, configured on various ways",
   "keywords": [
     "user",
