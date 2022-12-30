@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-message",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Webcomponent dile-message to create a feedback message and a close button",
   "keywords": [
     "message",
@@ -28,8 +28,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-close-icon-template": "^2.0.1",
-    "@dile/dile-slide-down-mixin": "^2.0.1",
+    "@dile/dile-close-icon-template": "^2.0.2",
+    "@dile/dile-slide-down-mixin": "^2.0.2",
     "lit": "^2.2.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
