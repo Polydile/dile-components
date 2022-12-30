@@ -134,19 +134,31 @@ export const JsStory = () => html`<my-component></my-component>`;
 
 ### Selection by name Example 
 
-In this example we are using the selected name item and one of the optional icons in the dile-tab.
+In this example we are using the selected ```name``` attribute in the dile-tab.
 
 ```js preview-story
 class SecondComponent extends LitElement {
 
+  static get styles() {
+    return css`
+      :host {
+        --dile-tab-text-color: #ccc;
+        --dile-tab-background-color: transparent;
+        --dile-tab-selected-text-color: #396;
+        --dile-tab-selected-background-color: transparent;
+        --dile-tab-selected-line-color: #396;
+      }
+    `
+  }
+
   render() {
     return html`
-      <dile-tabs id="select2" attrForSelected="name">
+      <dile-tabs id="select2" attrForSelected="name" selected="users">
         <dile-tab name="users">Users</dile-tab>
         <dile-tab name="posts">Posts</dile-tab>
         <dile-tab name="articles">Articles</dile-tab>
       </dile-tabs>
-      <p id="msg1"></p>
+      <p id="msg1">The value selected is: users</p>
     `
   }
   firstUpdated() {
@@ -170,11 +182,13 @@ main.selectionlayout {
   display: flex; 
   flex-direction: column;
   row-gap: 1.8rem;
-  --dile-tabs-selected-background-color: #fc9;
-  --dile-tabs-selected-text-color: blue;
-  --dile-tabs-selected-icon-color: orange;
-  --dile-tabs-icon-color: #aaa;
-  --dile-tabs-selected-font-weight: bold;
+  --dile-tab-selected-background-color: #333;
+  --dile-tab-background-color: #ddd;
+  --dile-tab-border-radius: 0;
+  --dile-tab-selected-line-color: orange;
+  --dile-tab-selected-line-height: 3px;
+  --dile-tab-selected-text-color: orange;
+  --dile-tab-text-transform: none;
 }
 main.selectionlayout dile-tabs {
   margin-top: 0.4rem;
