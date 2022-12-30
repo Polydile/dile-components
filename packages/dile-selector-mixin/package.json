@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-selector-mixin",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Mixin to select one item from a list.",
   "keywords": [
     "selector",
