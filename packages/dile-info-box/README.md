@@ -2,39 +2,7 @@
 
 Web Component to create a customized button.
 
-## Installation
-```bash
-npm i @dile/dile-info-box
-```
+## Docs and demos
 
-## Usage
-```html
-<script type="module">
-  import '@dile/dile-info-box/dile-info-box.js';
-</script>
-
-<dile-info-box showCloseButton>Information message...</dile-info-box>
-```
-
-### Properties
-
-- **title**: String. Configure a title for the info box.
-- **showCloseButton**: Boolean. When true the box will display a close icon.
-- **isError**: Boolean. When true the box icon will be a warning icon.
-
-### CSS Custom Properties
-
-You can customize it using CSS Custom Properties.
-
-Custom property | Description | Default
-----------------|-------------|---------
---dile-info-box-background-color | Background color | #ddd
---dile-info-box-border-radius | Box border radius | 0.8rem
---dile-info-box-padding | Box padding | 1rem
---dile-info-box-text-color | Text color | #303030
---dile-icon-color | Info icon color | #888
---dile-info-box-close-icon-color | Close icon color | #f33
---dile-info-box-title-margin-bottom | Title margin bottom | 0.5rem
---dile-info-box-title-font-size | Title font size | 1.3rem
---dile-info-box-title-font-weight | Title font weight | bold
---dile-info-box-title-text-color | Title text color | inherit
+- [GitHub readme docs](https://github.com/Polydile/dile-components/blob/master/site/pages/components/dile-info-box.rocket.md)
+- [Docs and demos on the dile-components site](https://dile-components.polydile.com/components/dile-info-box/)

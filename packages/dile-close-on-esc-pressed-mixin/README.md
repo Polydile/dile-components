@@ -2,27 +2,7 @@
 
 Mixin function to create components that close themselves pressing the Esc key
 
-Extending it the component creates keyboard listeners to react when the user press the Esc key. When that key is detected, the component closes by call a close() method on this component.
+## Docs and demos
 
-## Requirements
-
-To properly close the element, the component which extends from this mixin needs to have a close() method, to implement it's closing behaviour.
-
-## Usage
-
-Install
-
-```
-npm install @dile/dile-close-on-esc-pressed-mixin
-```
-
-Use the mixin
-
-```
-import { LitElement, html, css } from 'lit';
-import { DileCloseOnEscPressed } from '@dile/dile-close-on-esc-pressed-mixin';
-
-class NewComponent  extends DileCloseOnEscPressed(LitElement) {
-
-}
-```
+- [GitHub readme docs](https://github.com/Polydile/dile-components/blob/master/site/pages/mixins/dile-close-on-esc-pressed-mixin.rocket.md)
+- [Docs and demos on the dile-components site](https://dile-components.polydile.com/mixins/dile-close-on-esc-pressed-mixin/)
