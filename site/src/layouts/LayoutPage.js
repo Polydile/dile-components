@@ -41,8 +41,7 @@ export class LayoutPage {
               .xsmallandup {
                 display: flex !important;
               } 
-            }
-            
+            }    
           </style>
         </head>
         <body>
@@ -85,7 +84,29 @@ export class LayoutPage {
             </dile-nav>
           </header>
           <main>
-            ${data.content()}
+            <nav class="fixednav">
+              <dile-selector
+                  class="drawernav"
+                  selected=${this.page} 
+                  attrForSelected="name"
+                  @dile-selected-changed=${this.navitateSelected}
+              >
+                  <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
+                  <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
+                  <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
+                  <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
+                  ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}
+                  <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
+                  ${pageTree.renderMenu(new DrawerMenu(), mixinsFilePath)}
+
+                  <dile-selector-item icon="navigate_next" href="/utils/">Utils</dile-selector-item>
+                  ${pageTree.renderMenu(new DrawerMenu(), utilsFilePath)}
+                  
+              </dile-selector>
+            </nav>
+            <div class="maincontent">
+              ${data.content()}
+            </maincontent>
           </main>
           <footer>
             <div class="footer">

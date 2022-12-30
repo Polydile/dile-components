@@ -66,6 +66,9 @@ dile-nav img {
   height: 36px;
   margin-right: 0.5rem;
 }
+.fixednav {
+  display: none;
+}
 .desktop {
   display: none;
 }
@@ -251,5 +254,22 @@ footer {
   }
   main, .footer {
     padding: 1.5rem 2rem;
+  }
+}
+
+@media(min-width: 1200px) {
+  .fixednav {
+    display: block;
+    margin-right: 1.5rem;
+    min-width: 250px;
+
+  } 
+  main {
+    padding-right: 0;
+    padding-left: 0;
+    display: flex;
+  }
+  dile-menu-hamburger {
+    display: none;
   }
 }

@@ -83,7 +83,7 @@ export default () => html`
         font-size: 2.5rem;
       }
       .subtitle {
-        margin: 3rem 5rem;
+        margin: 3rem;
       }
       .subtitle p {
         font-size: 1.4rem;
@@ -99,7 +99,7 @@ export default () => html`
         font-size: 3rem;
       }
       .subtitle {
-        margin: 3rem 6rem 4.5rem;
+        margin: 3rem 4rem 4.5rem;
         column-gap: 6rem;
       }
     }
@@ -107,6 +107,12 @@ export default () => html`
     @media(min-width: 950px) {
       .subtitle {
         column-gap: 8rem;
+      }
+    }
+
+    @media(min-width: 1200px) {
+      .subtitle {
+        column-gap: 4rem;
       }
     }
 
