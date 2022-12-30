@@ -32,14 +32,14 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
-h2 {
-  margin-bottom: 1rem;
-}
 h3 {
   margin-bottom: 0.6rem;
 }
-p {
+p, pre, h2 {
   margin-bottom: 1rem;
+}
+pre {
+  margin-bottom: 1rem !important;
 }
 dile-selector-item {
   display: block;
@@ -260,7 +260,7 @@ footer {
 @media(min-width: 1200px) {
   .fixednav {
     display: block;
-    margin-right: 1.5rem;
+    margin-right: 2rem;
     min-width: 250px;
 
   } 
