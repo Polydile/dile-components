@@ -82,7 +82,7 @@ Custom property | Description | Default
 <dile-avatar></dile-avatar>
 ```
 
-### Styled avatar
+### Styled avatars
 
 ```html preview-story
 <style>
@@ -101,4 +101,12 @@ Custom property | Description | Default
   }
 </style>
 <dile-avatar src="/images/logo-polydile.png" id="avatar2"></dile-avatar>
+
+<style>
+  #avatar3 {
+    --dile-avatar-size: 48px;
+    --dile-avatar-background-color: #bef;
+  }
+</style>
+<dile-avatar id="avatar3"></dile-avatar>
 ```
