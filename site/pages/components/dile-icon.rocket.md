@@ -77,12 +77,14 @@ Custom property | Description | Default
 --dile-icon-color | Icon color | #888
 --dile-icon-rounded-background-color | Background color when rounded | #eee
 
-## dile-button-icon demos
+## dile-icon demos
 
-### Button icon demo
+### Icons demo
 
 ```js preview-story
 import { appsIcon } from "../../../packages/icons/index.js";
+import { descriptionIcon } from "../../../packages/icons/index.js";
+import { starIcon } from "../../../packages/icons/index.js";
 
 class MyComponent extends LitElement {
   static get styles() {
@@ -96,13 +98,17 @@ class MyComponent extends LitElement {
 
   render() {
     return html`
-      <dile-icon .icon=${this.appsIcon}></dile-icon>
+      <dile-icon class="apps" .icon=${this.appsIcon}></dile-icon>
+      <dile-icon class="description" .icon=${this.descriptionIcon}></dile-icon>
+      <dile-icon class="star" .icon=${this.starIcon}></dile-icon>
     `
   }
 
   firstUpdated() {
     // This should not be necessary but the component to show the demo does not work well with interpoplation of strings
-    this.shadowRoot.querySelector('dile-icon').icon = appsIcon;
+    this.shadowRoot.querySelector('dile-icon.apps').icon = appsIcon;
+    this.shadowRoot.querySelector('dile-icon.description').icon = descriptionIcon;
+    this.shadowRoot.querySelector('dile-icon.star').icon = starIcon;
   }
 }
 customElements.define('my-component', MyComponent);

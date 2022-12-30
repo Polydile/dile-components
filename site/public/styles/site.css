@@ -18,6 +18,10 @@ body {
   --dile-hamburger-padding-x: 0.7rem;
   --dile-nav-column-gap: 0.25rem;
 }
+header {
+  background-color: var(--secondary-color);
+  
+}
 dile-social-icon {
   margin-left: 0.6rem;
 }
@@ -41,6 +45,8 @@ dile-selector-item {
   display: block;
 }
 dile-nav {
+  max-width: 1200px;
+  margin: 0 auto;
   color: #303030;
 }
 dile-nav b {

@@ -42,45 +42,48 @@ export class LayoutPage {
                 display: flex !important;
               } 
             }
+            
           </style>
         </head>
         <body>
-          <dile-nav class="sitenav">
-            <div slot="title">
-              <img src="/images/logo-polydile.png" alt="logo polydile">
-              <b slot="title">
-                <span>dile</span>-components
-              </b>
-            </div>
-            <div class="menuslot" slot="menu">
-                <dile-menu-hamburger hamburgerAlwaysVisible direction="left" loading="hydrate:onClientLoad">
-                    <div slot="menu" class="app-menu" dile-cloak>
-                        <dile-selector
-                            class="drawernav" 
-                            selected=${this.page} 
-                            attrForSelected="name"
-                            @dile-selected-changed=${this.navitateSelected}
-                        >
-                            <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
-                            <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
-                            <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
-                            <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
-                            ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}
-                            <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
-                            ${pageTree.renderMenu(new DrawerMenu(), mixinsFilePath)}
+          <header>
+            <dile-nav class="sitenav">
+              <div slot="title">
+                <img src="/images/logo-polydile.png" alt="logo polydile">
+                <b slot="title">
+                  <span>dile</span>-components
+                </b>
+              </div>
+              <div class="menuslot" slot="menu">
+                  <dile-menu-hamburger hamburgerAlwaysVisible direction="left" loading="hydrate:onClientLoad">
+                      <div slot="menu" class="app-menu" dile-cloak>
+                          <dile-selector
+                              class="drawernav" 
+                              selected=${this.page} 
+                              attrForSelected="name"
+                              @dile-selected-changed=${this.navitateSelected}
+                          >
+                              <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
+                              <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
+                              <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
+                              <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
+                              ${pageTree.renderMenu(new DrawerMenu(), componentsFilePath)}
+                              <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
+                              ${pageTree.renderMenu(new DrawerMenu(), mixinsFilePath)}
 
-                            <dile-selector-item icon="navigate_next" href="/utils/">Utils</dile-selector-item>
-                            ${pageTree.renderMenu(new DrawerMenu(), utilsFilePath)}
-                            
-                        </dile-selector>
-                    </div>
-                </dile-menu-hamburger>
-            </div>
-            <span slot="actions" class="actionsnav">
-              <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
-              <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
-            </span>
-          </dile-nav>
+                              <dile-selector-item icon="navigate_next" href="/utils/">Utils</dile-selector-item>
+                              ${pageTree.renderMenu(new DrawerMenu(), utilsFilePath)}
+                              
+                          </dile-selector>
+                      </div>
+                  </dile-menu-hamburger>
+              </div>
+              <span slot="actions" class="actionsnav">
+                <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
+                <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
+              </span>
+            </dile-nav>
+          </header>
           <main>
             ${data.content()}
           </main>
