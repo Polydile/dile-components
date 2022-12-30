@@ -59,8 +59,7 @@ export class LayoutPage {
                           <dile-selector
                               class="drawernav" 
                               selected=${this.page} 
-                              attrForSelected="name"
-                              @dile-selected-changed=${this.navitateSelected}
+                              
                           >
                               <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
                               <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
@@ -88,8 +87,6 @@ export class LayoutPage {
               <dile-selector
                   class="drawernav"
                   selected=${this.page} 
-                  attrForSelected="name"
-                  @dile-selected-changed=${this.navitateSelected}
               >
                   <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
                   <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
