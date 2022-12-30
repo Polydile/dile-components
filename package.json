@@ -14,14 +14,14 @@
         "start:rocket": "NODE_DEBUG=engine:rendering rocket start --open"
     },
     "devDependencies": {
-        "@web/dev-server": "^0.1.30",
-        "lerna": "^5.1.8"
+        "@web/dev-server": "^0.1.35",
+        "lerna": "^6.3.0"
     },
     "dependencies": {
         "@mdjs/mdjs-preview": "^0.5.9",
         "@mdjs/mdjs-story": "^0.3.2",
         "@rocket/cli": "^0.20.4",
         "@rocket/engine": "^0.2.7",
-        "lit": "^2.2.1"
+        "lit": "^2.5.0"
     }
 }

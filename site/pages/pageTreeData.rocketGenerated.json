@@ -127,8 +127,8 @@
               "level": 3
             },
             {
-              "text": "Styled avatar",
-              "id": "styled-avatar",
+              "text": "Styled avatars",
+              "id": "styled-avatars",
               "level": 3
             }
           ],
@@ -878,13 +878,13 @@
               "level": 3
             },
             {
-              "text": "dile-button-icon demos",
-              "id": "dile-button-icon-demos",
+              "text": "dile-icon demos",
+              "id": "dile-icon-demos",
               "level": 2
             },
             {
-              "text": "Button icon demo",
-              "id": "button-icon-demo",
+              "text": "Icons demo",
+              "id": "icons-demo",
               "level": 3
             },
             {
