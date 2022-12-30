@@ -18,6 +18,9 @@ body {
   --dile-hamburger-padding-x: 0.7rem;
   --dile-nav-column-gap: 0.25rem;
 }
+dile-social-icon {
+  margin-left: 0.6rem;
+}
 code {
   font-family: 'Cutive Mono', monospace;
 }
@@ -67,10 +70,12 @@ dile-nav img {
   padding-bottom: 2px;
 }
 .actionsnav {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+}
+.actionsnav a, .actionsnav {
   display: flex;
   align-items: center;
-}
+} 
 .app-menu {
   margin-top: 3.5rem;
   min-width: 250px;
@@ -164,19 +169,28 @@ footer li {
 @media(min-width: 350px) {
   body {
     --dile-nav-padding-y: 0.2rem;
-    --dile-social-icon-size: 2rem;
+    --dile-social-icon-size: 1.8rem;
     --dile-hamburger-padding-x: 1rem;
   }
   dile-nav img {
     height: 40px;
   }
 }
-@media(min-width: 400px) {
+@media(min-width: 420px) {
   dile-nav img {
     height: 48px;
   }
   dile-nav b {
     font-size: 1.5rem;
+  }
+}
+
+@media(min-width: 460px) {
+  body {
+    --dile-social-icon-size: 2rem;
+  }
+  dile-social-icon {
+    margin-left: 1rem;
   }
 }
 @media(min-width: 650px) {
@@ -187,6 +201,7 @@ footer li {
   }
   .sitenav {
     --dile-nav-padding-x: 0.8rem;
+    --dile-nav-padding-y: 0.3rem;
   }
   .actionsnav {
     margin-right: 0.5rem;

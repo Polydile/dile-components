@@ -31,6 +31,17 @@ export class LayoutPage {
               font-family: 'Rubik', Helvetica, Arial, sans-serif;
               color: #303030;
             }
+            [dile-cloak] {
+              display: none !important;
+            }
+            .xsmallandup {
+              display: none !important;
+            }
+            @media(min-width: 380px) {
+              .xsmallandup {
+                display: flex !important;
+              } 
+            }
           </style>
         </head>
         <body>
@@ -67,6 +78,7 @@ export class LayoutPage {
             </div>
             <span slot="actions" class="actionsnav">
               <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
+              <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
             </span>
           </dile-nav>
           <main>
