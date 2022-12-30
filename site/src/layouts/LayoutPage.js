@@ -48,7 +48,9 @@ export class LayoutPage {
           <header>
             <dile-nav class="sitenav">
               <div slot="title">
-                <img src="/images/logo-polydile.png" alt="logo polydile">
+                <a href="/">
+                  <img src="/images/logo-polydile.png" alt="logo polydile">
+                </a>
                 <b slot="title">
                   <span>dile</span>-components
                 </b>
