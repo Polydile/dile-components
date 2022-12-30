@@ -112,6 +112,7 @@ export default () => html`
 
     /* FEATURED */
     .Featured {
+      margin: 0 -1rem -1rem; 
       background-color: #f5f5f5;
       display: grid;
       column-gap: 1.5rem;
@@ -169,6 +170,11 @@ export default () => html`
         width: 100px;
       } 
     }
+    @media(min-width: 800px) {
+        .Featured {
+          margin: -1.5rem;
+        }
+    }
     @media(min-width: 830px) {
         .Featured {
           column-gap: 3.5rem;
@@ -176,6 +182,19 @@ export default () => html`
           padding-right: 3rem;
         } 
     }
+    
+    @media(min-width: 1000px) {
+        .Featured {
+          margin: -1.5rem -2rem;
+        }
+    }
+
+    @media(min-width: 1200px) {
+        .Featured {
+          margin: 0 0 2.5rem;
+        }
+    }
+
 
     .Featured-item {
         text-align: center;

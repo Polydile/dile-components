@@ -82,7 +82,7 @@ dile-nav img {
   font-size: 1.2rem;
   padding-bottom: 2.5rem;
 }
-main {
+main, .footer {
   padding: 1rem;
 }
 .drawercomponent {
@@ -136,33 +136,35 @@ mdjs-preview pre {
 footer {
   background-color: var(--primary-color);
   padding: 1rem;
+}
+.footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   column-gap: 2rem;
   font-size: 1.1rem;
 }
-footer b, footer a {
+.footer b, .footer a {
   color: #fff;
 }
-footer ul {
+.footer ul {
   margin: 0.5rem 0 1rem;
   padding: 0 0.5rem;
 }
-footer li {
+.footer li {
   margin: 0 0 0.25rem;
   padding: 0;
   list-style-type: none;
 }
 @media(min-width: 500px) {
-  footer {
+  .footer {
     flex-direction: row;
     row-gap: 2rem;
   }
-  footer section {
+  .footer section {
     min-width: 200px;
   }
-  footer ul {
+  .footer ul {
     padding: 0;
   }
 }
@@ -217,7 +219,7 @@ footer li {
   .sitenav {
     --dile-nav-padding-x: 1rem;
   }
-  main, footer {
+  main, .footer {
     padding: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -241,7 +243,7 @@ footer li {
   body {
     --dile-nav-padding-x: 1.2rem;
   }
-  main {
+  main, .footer {
     padding: 1.5rem 2rem;
   }
 }

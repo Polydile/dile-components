@@ -85,21 +85,23 @@ export class LayoutPage {
             ${data.content()}
           </main>
           <footer>
-            <section>
-              <b>Information</b>
-              <ul>
-                <li><a href="/how-to-use">How to use</a></li>
-                <li><a href="/contribute">Contribute</a></li>
-              </ul>
-            </section>
-            <section>
-              <b>Packages</b>
-              <ul>
-                <li><a href="/components/">Components</a></li>
-                <li><a href="/mixins/">Mixins</a></li>
-                <li><a href="/utils/">Utils</a></li>
-              </ul>
-            </section>
+            <div class="footer">
+              <section>
+                <b>Information</b>
+                <ul>
+                  <li><a href="/how-to-use">How to use</a></li>
+                  <li><a href="/contribute">Contribute</a></li>
+                </ul>
+              </section>
+              <section>
+                <b>Packages</b>
+                <ul>
+                  <li><a href="/components/">Components</a></li>
+                  <li><a href="/mixins/">Mixins</a></li>
+                  <li><a href="/utils/">Utils</a></li>
+                </ul>
+              </section>
+            </div>
           </footer>
         </body>
       </html>
