@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-slide-show",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent dile-slide-show to create a content region collapsable with a smooth slide up/down animation",
   "keywords": [
     "Lit",
