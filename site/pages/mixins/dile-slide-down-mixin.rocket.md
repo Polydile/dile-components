@@ -39,6 +39,7 @@ To obtain a smooth animation you need to configure the transition on the animate
 
 > This mixin does not add ```overflow: hidden;``` and ```height``` CSS properties for you!
 
+> It is important to not use an animation with more than 0.5s of duration.
 
 ## Installation
 
@@ -67,3 +68,16 @@ close() {
   this.slideHide(elem);
 }
 ```
+
+```javascript
+open() {
+  let elem = this.shadowRoot.getElementById('element');
+  this.slideShow(elem);
+}
+```
+
+## Implementations of DileSlideDownMixin
+
+Example implementations of this mixin:
+
+- [dile-slide-show](/components/dile-slide-show)
