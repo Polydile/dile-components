@@ -2178,6 +2178,73 @@
           "level": 2
         },
         {
+          "title": "dile-slide-show",
+          "h1": "dile-slide-show",
+          "headlinesWithId": [
+            {
+              "text": "dile-slide-show",
+              "id": "dile-slide-show",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
+              "level": 2
+            },
+            {
+              "text": "CSS custom properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "dile-slide-show demos",
+              "id": "dile-slide-show-demos",
+              "level": 2
+            },
+            {
+              "text": "Regular demo",
+              "id": "regular-demo",
+              "level": 3
+            },
+            {
+              "text": "Using targetHeight demo",
+              "id": "using-targetheight-demo",
+              "level": 3
+            },
+            {
+              "text": "Interactive from outside demo",
+              "id": "interactive-from-outside-demo",
+              "level": 3
+            },
+            {
+              "text": "Styled element",
+              "id": "styled-element",
+              "level": 3
+            }
+          ],
+          "name": "dile-slide-show",
+          "menuLinkText": "dile-slide-show",
+          "url": "/components/dile-slide-show/",
+          "outputRelativeFilePath": "components/dile-slide-show/index.html",
+          "sourceRelativeFilePath": "components/dile-slide-show.rocket.md",
+          "level": 2
+        },
+        {
           "title": "dile-smooth-scroll",
           "h1": "dile-smooth-scroll",
           "headlinesWithId": [
