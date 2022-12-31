@@ -4,7 +4,7 @@ import { DileSlideDownMixin } from '@dile/dile-slide-down-mixin';
 export class DileSlideShow extends DileSlideDownMixin(LitElement) {
   static get properties() {
     return {
-      opened: { type: Boolean },
+      _opened: { attribute: false },
       targetHeight: { type: String },
       showLabel: { type: String },
       hideLabel: { type: String },
@@ -14,7 +14,7 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
   constructor() {
     super();
     this.targetHeight = '0px';
-    this.opened = false;
+    this._opened = false;
     this.showLabel = "Open";
     this.hideLabel = "Close";
   }
@@ -31,8 +31,8 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
       #content {
         height: var(--dile-slide-down-initial-height, 0);
         overflow: hidden;
-        transition: height 0.3s ease-in;
-        -webkit-transition: height 0.3s ease-in;
+        transition: height 0.5s ease-in;
+        -webkit-transition: height 0.5s ease-in;
       }
       nav {
         padding-top: 0.5em;
@@ -56,8 +56,8 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
         position: absolute;
         left: -15px;
         top: 0.75em;
-        transition: transform ease 0.3s;
-        transition-delay: 0.3s;
+        transition: transform ease 0.5s;
+        transition-delay: 0.5s;
       }
       .showmoreclose span::before {
         transform: rotate(-90deg);
@@ -74,9 +74,9 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
     <div id="content">
       <slot></slot>
     </div> 
-    <nav @click="${this.toggle}" class="${this.opened ? 'showmoreopen' : 'showmoreclose'}">
+    <nav @click="${this.toggle}" class="${this._opened ? 'showmoreopen' : 'showmoreclose'}">
       <span>
-        ${this.opened ? this.hideLabel : this.showLabel}
+        ${this._opened ? this.hideLabel : this.showLabel}
       </span>
     </nav>
     `;
@@ -87,7 +87,7 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
   }
 
   toggle() {
-    if (this.opened) {
+    if (this._opened) {
       this.close();
     } else {
       this.open();
@@ -95,16 +95,16 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
   }
 
   open() {
-    if(! this.opened) {
+    if(! this._opened) {
       this.slideShow(this.content, this.targetHeight);
-      this.opened = true;
+      this._opened = true;
     }
   }
   
   close() {
-    if(this.opened) {
+    if(this._opened) {
       this.slideHide(this.content, this.targetHeight);
-      this.opened = false;
+      this._opened = false;
     }
   }
 }
