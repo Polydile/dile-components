@@ -1,8 +1,12 @@
 # Dile Components
 
+## See the docs and demos in the dile-components website
+
 We have a new webiste with our components catalog docs and demos!! 🎉
 
 <https://dile-components.polydile.com/>
+
+## What is dile-components
 
 Dile components is a collection of Custom Elements created and maintained by @EscuelaIT's students and instructors.
 
@@ -57,6 +61,7 @@ This components are created to solve common purpouses in websites and web applic
 | [dile-select-ajax](https://github.com/Polydile/dile-components/tree/master/packages/dile-select) | @dile/dile-select | Select element that loads its values using ajax | 
 | [dile-selector](https://github.com/Polydile/dile-components/tree/master/packages/dile-selector)      | @dile/dile-selector      | Generic selector interface | [![npm version](https://badge.fury.io/js/@dile%2Fdile-selector.svg)](https://badge.fury.io/js/@dile%2Fdile-selector)
 | [dile-selector-item](https://github.com/Polydile/dile-components/tree/master/packages/dile-selector)      | @dile/dile-selector      | Generic selector item | 
+| [dile-slide-show](https://github.com/Polydile/dile-components/tree/master/packages/dile-slide-show)      | @dile/dile-slide-show      | Collapsable content with animation | [![npm version](https://badge.fury.io/js/@dile%2Fdile-slide-show.svg)](https://badge.fury.io/js/@dile%2Fdile-slide-show)
 | [DileSlideDownMixin](https://github.com/Polydile/dile-components/tree/master/packages/dile-slide-down-mixin) | @dile/dile-slide-down-mixin | Mixin to create slidedown/slideup effects | [![npm version](https://badge.fury.io/js/@dile%2Fdile-slide-down-mixin.svg)](https://badge.fury.io/js/@dile%2Fdile-slide-down-mixin)
 | [dile-smooth-scroll](https://github.com/Polydile/dile-components/tree/master/packages/dile-smooth-scroll) | @dile/dile-smooth-scroll      | Create smooth scrolls easily | [![npm version](https://badge.fury.io/js/@dile%2Fdile-smooth-scroll.svg)](https://badge.fury.io/js/@dile%2Fdile-smooth-scroll)
 | [DileSmoothScrollMixin](https://github.com/Polydile/dile-components/tree/master/packages/dile-smooth-scroll) | @dile/dile-smooth-scroll      | Methods to scroll the entire document | 
