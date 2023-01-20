@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-network",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Webcomponent dile-network to check connection to the Internet status",
   "keywords": [
     "network",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@dile/dile-icon": "^1.0.3",
-    "@dile/dile-toast-persistent": "^1.0.3",
+    "@dile/dile-toast-persistent": "^1.0.4",
     "@dile/icons": "^1.0.3",
     "lit": "^2.5.0"
   },
