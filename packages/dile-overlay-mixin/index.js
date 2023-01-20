@@ -1,1 +1,1 @@
-export { DileOverlayMixin } from "./src/DileOverlayMixin";
+export { DileOverlayMixin } from "./src/DileOverlayMixin.js";
