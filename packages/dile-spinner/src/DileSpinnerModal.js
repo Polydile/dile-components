@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { DileSpinnerMixin } from "./DileSpinnerMixin";
+import { DileSpinnerMixin } from "./DileSpinnerMixin.js";
 
 export class DileSpinnerModal extends DileSpinnerMixin(LitElement) {
   static get styles() {
