@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-select",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Web Component to implement a plain selector interface, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -30,7 +30,7 @@
     "@dile/dile-form-mixin": "^1.0.3",
     "@dile/dile-input": "^2.0.4",
     "@dile/dile-input-search": "^1.0.3",
-    "@dile/dile-spinner": "^2.0.4",
+    "@dile/dile-spinner": "^2.0.5",
     "lit": "^2.5.0"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
