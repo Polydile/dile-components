@@ -1,6 +1,6 @@
 import { LitElement } from "lit";
-import { DileSmoothScrollMixin } from "./DileSmoothScrollMixin";
-import { DileSmoothScrollElementMixin } from "./DileSmoothScrollElementMixin";
+import { DileSmoothScrollMixin } from "./DileSmoothScrollMixin.js";
+import { DileSmoothScrollElementMixin } from "./DileSmoothScrollElementMixin.js";
 
 export class DileSmoothScroll extends DileSmoothScrollMixin(
   DileSmoothScrollElementMixin(LitElement)
