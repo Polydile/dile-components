@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import "@dile/dile-modal/dile-modal";
+import "@dile/dile-modal/dile-modal.js";
 
 export class DileConfirm extends LitElement {
   static get styles() {

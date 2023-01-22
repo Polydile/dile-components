@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
-import { messageStyles } from './message-styles';
+import { messageStyles } from './message-styles.js';
 
 export class DileInput extends DileEmmitChangeMixin(LitElement) {
 

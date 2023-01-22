@@ -1,3 +1,3 @@
-export { DileFormMixin } from "./src/DileFormMixin";
-export { DileFormChangeDetectMixin } from "./src/DileFormChangeDetectMixin";
-export { DileEmmitChangeMixin } from "./src/DileEmmitChangeMixin";
+export { DileFormMixin } from "./src/DileFormMixin.js";
+export { DileFormChangeDetectMixin } from "./src/DileFormChangeDetectMixin.js";
+export { DileEmmitChangeMixin } from "./src/DileEmmitChangeMixin.js";
