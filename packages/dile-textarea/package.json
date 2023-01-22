@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-textarea",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Web Component for a customized styled textarea field, based on Lit and @lion/textarea",
   "keywords": [
     "textarea",
@@ -29,7 +29,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-input": "^2.0.3",
+    "@dile/dile-input": "^2.0.4",
     "@lion/textarea": "0.15.0",
     "lit": "^2.5.0"
   },

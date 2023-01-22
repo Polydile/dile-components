@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-confirm",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Web Component to implement a confirm dialog box opened in a modal box",
   "keywords": [
     "dialog",
