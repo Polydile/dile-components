@@ -1,1 +1,1 @@
-export { DileCloseDocumentClickMixin } from "./src/DileCloseDocumentClickMixin";
+export { DileCloseDocumentClickMixin } from "./src/DileCloseDocumentClickMixin.js";
