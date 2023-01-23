@@ -33,7 +33,7 @@ export class DileSlideShow extends DileSlideDownMixin(LitElement) {
         overflow: hidden;
         transition: height 0.5s ease-in;
         -webkit-transition: height 0.5s ease-in;
-        padding: 1px;
+        padding: 1px 0;
       }
       nav {
         padding-top: 0.5em;
