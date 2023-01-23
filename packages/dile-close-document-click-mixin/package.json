@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-close-document-click-mixin",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Mixin to close custom elements when user do click in any area of the document",
   "keywords": [
     "document",
