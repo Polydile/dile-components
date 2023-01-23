@@ -79,7 +79,19 @@ The next example show how to use the attrForSelected property.
 
 ### dile-selected-changed:
 
-When ```selected``` property changes by a user interaction inside the ```<dile-tabs>``` component, it dispatch the ```dile-selected-changed``` custom event. You will recive the new selected value in the ```detail``` event object property.
+When ```selected``` property changes by a user interaction inside the ```<dile-tabs>``` component, it dispatch the ```dile-selected-changed``` custom event. You will recive the new selected value in the selected attribute in the ```detail``` event object property.
+
+The detail object has this properties:
+
+```javascript
+{
+  selected: "tab_name"
+  selectorId: "selector_id"
+}
+```
+
+- The ```selected``` attribute is the tab name. Usually you will use this value. It can be the tab index or the value defined by the attribute with the ```attrForSelected``` name.
+- The ```selectorId``` attribute is the value of the ```selectorId``` component property.
 
 ## CSS custom properties
 
