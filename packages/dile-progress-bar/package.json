@@ -1,0 +1,32 @@
+{
+  "name": "@dile/dile-progress-bar",
+  "version": "0.0.0",
+  "description": "Webcomponent dile-progress-bar to create a progress bar element",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "progress-bar"
+  ],
+  "type": "module",
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "lit": "^2.5.0"
+  },
+  "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
+}
