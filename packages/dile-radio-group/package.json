@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-radio-group",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Webcomponent to make radio buttons and grouped radio buttons",
   "keywords": [
     "Lit",
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "@dile/dile-form-mixin": "^1.0.3",
-    "@dile/dile-icon": "^1.0.3",
-    "@dile/icons": "^1.0.3",
+    "@dile/dile-icon": "^1.0.4",
+    "@dile/icons": "^1.0.4",
     "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"

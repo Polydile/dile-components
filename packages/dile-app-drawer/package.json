@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-app-drawer",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Webcomponent to create a animated menu similar to the material design navigation drawer component",
   "keywords": [
     "menu",

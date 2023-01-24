@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-breadcrumbs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Webcomponent dile-breadcrumbs to create a custom-styled breadcrumbs element",
   "keywords": [
     "Lit",

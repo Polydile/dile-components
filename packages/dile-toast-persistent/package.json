@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-toast-persistent",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Web Component to implement an always visible toast message",
   "keywords": [
     "toast",

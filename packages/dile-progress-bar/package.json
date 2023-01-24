@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-progress-bar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent dile-progress-bar to create a progress bar element",
   "keywords": [
     "Lit",

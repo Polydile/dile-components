@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-close-icon-template",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Only a close icon to use in web components. One SVG icon and a template to include in other components.",
   "keywords": [
     "close",
