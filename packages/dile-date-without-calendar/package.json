@@ -19,7 +19,7 @@
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "lit": "^2.5.0"
+    "lit": "^2.6.1"
   },
   "publishConfig": {
     "access": "public"

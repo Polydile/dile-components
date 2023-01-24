@@ -22,6 +22,6 @@
         "@mdjs/mdjs-story": "^0.3.2",
         "@rocket/cli": "^0.20.4",
         "@rocket/engine": "^0.2.7",
-        "lit": "^2.5.0"
+        "lit": "^2.6.1"
     }
 }
