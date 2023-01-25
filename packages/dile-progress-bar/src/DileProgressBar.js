@@ -87,10 +87,5 @@ export class DileProgressBar extends LitElement {
             </div>
           </div>
     `;
-    
-  }
-
-  hasSlot(name) {
-    return this.querySelector(`[slot="${name}"]`) !== null;
   }
 }
