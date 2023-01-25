@@ -50,6 +50,7 @@ export class DileProgressBar extends LitElement {
     title: { type: String },
     valuePercentage: { type: String },
     valuePercentageText: { type: String },
+    animated: { type: Boolean },
   };
 
   constructor() {
@@ -77,7 +78,7 @@ export class DileProgressBar extends LitElement {
 
   get progressTemplate() {
     return html`
-      ${this.hasSlot("animated")
+      ${this.animated
         ? html`
             <div class="progress">
               <div class="progress-bar animated" style="width: ${this.valuePercentage};">

@@ -1,7 +1,7 @@
 ```js server
 /* START - Rocket auto generated - do not touch */
-export const sourceRelativeFilePath = "components/dile-progress-bar.rocket.md";
-import { layout } from "../recursive.data.js";
+export const sourceRelativeFilePath = 'components/dile-progress-bar.rocket.md';
+import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
 
@@ -49,17 +49,12 @@ Use the component
 </dile-progress-bar>
 ```
 
-## Slots
-
-This component have one slot.
-
-- **animated slot**: animated progress bar.
-
 ## Properties
 
 - **title**: Progress bar title, string (optional).
 - **valuePercentage**: Progress bar percentage, string.
 - **valuePercentageText**: Text of progress bar percentage, string (optional).
+- **animated**: Boolean property to display an animated progress bar. If it's true the progress bar has a animation on the component initialization
 
 ### CSS Custom Properties
 
@@ -163,7 +158,6 @@ You can customize it using CSS Custom Properties.
   class="styled"
   valuePercentage="80%"
   valuePercentageText="80%"
->
-  <div slot="animated"></div>
-</dile-progress-bar>
+  animated
+></dile-progress-bar>
 ```

@@ -2798,6 +2798,73 @@
           "outputRelativeFilePath": "components/dile-tooltip/index.html",
           "sourceRelativeFilePath": "components/dile-tooltip.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-progress-bar",
+          "h1": "dile-progress-bar",
+          "headlinesWithId": [
+            {
+              "text": "dile-progress-bar",
+              "id": "dile-progress-bar",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "dile-progress-bar demos",
+              "id": "dile-progress-bar-demos",
+              "level": 2
+            },
+            {
+              "text": "Regular progress bar",
+              "id": "regular-progress-bar",
+              "level": 3
+            },
+            {
+              "text": "Progress bar with title",
+              "id": "progress-bar-with-title",
+              "level": 3
+            },
+            {
+              "text": "Progress bar with title and percentage",
+              "id": "progress-bar-with-title-and-percentage",
+              "level": 3
+            },
+            {
+              "text": "Styled progress bar",
+              "id": "styled-progress-bar",
+              "level": 3
+            },
+            {
+              "text": "Styled progress bar and animated",
+              "id": "styled-progress-bar-and-animated",
+              "level": 3
+            }
+          ],
+          "name": "dile-progress-bar",
+          "menuLinkText": "dile-progress-bar",
+          "url": "/components/dile-progress-bar/",
+          "outputRelativeFilePath": "components/dile-progress-bar/index.html",
+          "sourceRelativeFilePath": "components/dile-progress-bar.rocket.md",
+          "level": 2
         }
       ]
     },
