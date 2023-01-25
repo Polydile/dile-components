@@ -78,21 +78,14 @@ export class DileProgressBar extends LitElement {
 
   get progressTemplate() {
     return html`
-      ${this.animated
-        ? html`
-            <div class="progress">
-              <div class="progress-bar animated" style="width: ${this.valuePercentage};">
+          <div class="progress">
+            <div 
+              class="progress-bar ${this.animated ? 'animated' : ''}" 
+              style="width: ${this.valuePercentage};"
+            >
               ${this.valueTemplate}
-              </div>
             </div>
-          `
-        : html`
-            <div class="progress">
-              <div class="progress-bar" style="width: ${this.valuePercentage};">
-              ${this.valueTemplate}
-              </div>
-            </div>
-        `}
+          </div>
     `;
     
   }
