@@ -3381,6 +3381,23 @@
           "level": 2
         }
       ]
+    },
+    {
+      "title": "",
+      "h1": "Attribution",
+      "headlinesWithId": [
+        {
+          "text": "Attribution",
+          "id": "attribution",
+          "level": 1
+        }
+      ],
+      "name": "Attribution",
+      "menuLinkText": "Attribution",
+      "url": "/attribution/",
+      "outputRelativeFilePath": "attribution/index.html",
+      "sourceRelativeFilePath": "attribution.rocket.md",
+      "level": 1
     }
   ]
 }

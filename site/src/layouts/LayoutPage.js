@@ -114,6 +114,7 @@ export class LayoutPage {
                 <ul>
                   <li><a href="/how-to-use">How to use</a></li>
                   <li><a href="/contribute">Contribute</a></li>
+                  <li><a href="/attribution">Attribution</a></li>
                 </ul>
               </section>
               <section>
