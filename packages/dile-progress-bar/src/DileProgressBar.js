@@ -48,15 +48,14 @@ export class DileProgressBar extends LitElement {
 
   static properties = {
     title: { type: String },
-    valuePercentage: { type: String },
-    valuePercentageText: { type: String },
+    value: { type: Number },
+    animated: { type: Boolean },
   };
 
   constructor() {
     super();
     this.title = "";
-    this.valuePercentage = "80%";
-    this.valuePercentageText = "";
+    this.value = "80";
   }
 
   render() {
@@ -70,33 +69,21 @@ export class DileProgressBar extends LitElement {
   }
 
   get valueTemplate() {
-    return this.valuePercentageText
-      ? html`<span>${this.valuePercentageText}</span>`
+    return this.value
+      ? html`<span>${this.value}%</span>`
       : "";
   }
 
   get progressTemplate() {
     return html`
-      ${this.hasSlot("animated")
-        ? html`
-            <div class="progress">
-              <div class="progress-bar animated" style="width: ${this.valuePercentage};">
-              ${this.valueTemplate}
-              </div>
-            </div>
-          `
-        : html`
-            <div class="progress">
-              <div class="progress-bar" style="width: ${this.valuePercentage};">
-              ${this.valueTemplate}
-              </div>
-            </div>
-        `}
+      <div class="progress">
+        <div
+          class="progress-bar ${this.animated ? "animated" : ""}"
+          style="width: ${this.value}%;"
+        >
+          ${this.valueTemplate}
+        </div>
+      </div>
     `;
-    
-  }
-
-  hasSlot(name) {
-    return this.querySelector(`[slot="${name}"]`) !== null;
   }
 }

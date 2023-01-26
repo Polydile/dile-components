@@ -42,24 +42,17 @@ Use the component
 <dile-progress-bar
   title="I am a styled progress bar and animated"
   class="styled"
-  value="80%"
-  valuePercentage="80%"
+  value="80"
 >
   <div slot="animated"></div>
 </dile-progress-bar>
 ```
 
-## Slots
-
-This component have one slot.
-
-- **animated slot**: animated progress bar.
-
 ## Properties
 
 - **title**: Progress bar title, string (optional).
-- **valuePercentage**: Progress bar percentage, string.
-- **valuePercentageText**: Text of progress bar percentage, string (optional).
+- **value**: Progress bar percentage, number.
+- **animated**: Animation of progress bar, string (optional).
 
 ### CSS Custom Properties
 
@@ -119,8 +112,7 @@ You can customize it using CSS Custom Properties.
 </style>
 <dile-progress-bar
   title="Title of progress bar with percentage"
-  valuePercentage="80%"
-  valuePercentageText="80%"
+  value="80"
 ></dile-progress-bar>
 ```
 
@@ -145,8 +137,7 @@ You can customize it using CSS Custom Properties.
 <dile-progress-bar
   title="I am a styled progress bar"
   class="styled"
-  valuePercentage="80%"
-  valuePercentageText="80%"
+  value="80"
 ></dile-progress-bar>
 ```
 
@@ -158,12 +149,11 @@ You can customize it using CSS Custom Properties.
     margin: 1.2rem;
   }
 </style>
+<h2>Styled progress bar and animated</h2>
 <dile-progress-bar
+  animated
   title="I am a styled progress bar and animated"
   class="styled"
-  valuePercentage="80%"
-  valuePercentageText="80%"
->
-  <div slot="animated"></div>
-</dile-progress-bar>
+  value="80"
+></dile-progress-bar>
 ```
