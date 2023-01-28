@@ -1,12 +1,11 @@
 {
-  "name": "@dile/dile-close-icon-template",
-  "version": "2.0.4",
-  "description": "Only a close icon to use in web components. One SVG icon and a template to include in other components.",
+  "name": "@dile/dile-progress-bar",
+  "version": "0.0.5",
+  "description": "Webcomponent dile-progress-bar to create a progress bar element",
   "keywords": [
-    "close",
-    "icon",
-    "svg",
-    "template"
+    "Lit",
+    "Web Component",
+    "progress-bar"
   ],
   "type": "module",
   "author": "midesweb <miguel@desarrolloweb.com>",

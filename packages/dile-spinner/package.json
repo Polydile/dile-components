@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-spinner",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Web Component dile-spinner to create the typical loading spinner with a CSS animation",
   "keywords": [
     "spinner",
@@ -28,7 +28,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit": "^2.5.0"
+    "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
 }
