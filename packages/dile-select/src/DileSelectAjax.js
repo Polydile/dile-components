@@ -273,6 +273,7 @@ export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
 
   loadData() {
     this.loading = true;
+    this.ajaxError = false;
     fetch(`${this.endpoint}?${this.queryStringVariable}=${this.keyword}`)
       .then(response => response.json())
       .then(json => this.registerData(json))

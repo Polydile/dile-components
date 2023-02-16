@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-pages",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Web Component to display some content o other based in it's property values",
   "keywords": [
     "pages",
@@ -28,7 +28,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit": "^2.5.0"
+    "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
 }

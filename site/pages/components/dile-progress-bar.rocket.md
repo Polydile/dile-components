@@ -1,7 +1,7 @@
 ```js server
 /* START - Rocket auto generated - do not touch */
-export const sourceRelativeFilePath = "components/dile-progress-bar.rocket.md";
-import { layout } from "../recursive.data.js";
+export const sourceRelativeFilePath = 'components/dile-progress-bar.rocket.md';
+import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
 
@@ -52,7 +52,7 @@ Use the component
 
 - **title**: Progress bar title, string (optional).
 - **value**: Progress bar percentage, number.
-- **animated**: Animation of progress bar, string (optional).
+- **animated**: Boolean property to display an animated progress bar. If it's true the progress bar has a animation on the component initialization
 
 ### CSS Custom Properties
 

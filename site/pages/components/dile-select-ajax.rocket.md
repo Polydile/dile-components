@@ -64,7 +64,7 @@ class MyComponent extends LitElement {
       ></dile-select-ajax>
 
       <p id="msg1">Select a value</p>
-      <p style="font-size: 0.875rem;">Note that this API does not accept filtering on like operator, so you will always recive all dataset on searches.</p>
+      <p style="font-size: 0.875rem;">Note that the API we are use in this example (jsonplaceholder) does not accept filtering on like operator, so you will always recive all dataset on searches.</p>
     `
   }
   firstUpdated() {

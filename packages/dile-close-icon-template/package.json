@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-close-icon-template",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Only a close icon to use in web components. One SVG icon and a template to include in other components.",
   "keywords": [
     "close",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "lit": "^2.5.0"
+    "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
 }
