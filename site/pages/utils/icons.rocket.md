@@ -25,6 +25,7 @@ import { appsIcon } from "../../../packages/icons/index.js";
 import { arrowDropDownIcon } from "../../../packages/icons/index.js";
 import { arrowDropUpIcon } from "../../../packages/icons/index.js";
 import { arrowRightIcon } from "../../../packages/icons/index.js";
+import { attachFileIcon } from "../../../packages/icons/index.js";
 import { attachmentIcon } from "../../../packages/icons/index.js";
 import { autoAwesomeIcon } from "../../../packages/icons/index.js";
 import { calendarIcon } from "../../../packages/icons/index.js";
@@ -34,6 +35,7 @@ import { circleIcon } from "../../../packages/icons/index.js";
 import { circleBorderIcon } from "../../../packages/icons/index.js";
 import { clearIcon } from "../../../packages/icons/index.js";
 import { closeIcon } from "../../../packages/icons/index.js";
+import { codeIcon } from "../../../packages/icons/index.js";
 import { cookieIcon } from "../../../packages/icons/index.js";
 import { deleteIcon } from "../../../packages/icons/index.js";
 import { descriptionIcon } from "../../../packages/icons/index.js";
@@ -50,10 +52,22 @@ import { filterIcon } from "../../../packages/icons/index.js";
 import { filterListIcon } from "../../../packages/icons/index.js";
 import { folderIcon } from "../../../packages/icons/index.js";
 import { folderZipIcon } from "../../../packages/icons/index.js";
+import { formatAlignCenterIcon } from "../../../packages/icons/index.js";
+import { formatAlignLeftIcon } from "../../../packages/icons/index.js";
+import { formatAlignRightIcon } from "../../../packages/icons/index.js";
+import { formatBoldIcon } from "../../../packages/icons/index.js";
+import { formatColorTextIcon } from "../../../packages/icons/index.js";
+import { formatItalicIcon } from "../../../packages/icons/index.js";
+import { formatListBulletedIcon } from "../../../packages/icons/index.js";
+import { formatListNumberedIcon } from "../../../packages/icons/index.js";
+import { formatQuoteIcon } from "../../../packages/icons/index.js";
+import { formatUnderlinedIcon } from "../../../packages/icons/index.js";
 import { helpIcon } from "../../../packages/icons/index.js";
 import { homeIcon } from "../../../packages/icons/index.js";
 import { imageIcon } from "../../../packages/icons/index.js";
 import { infoIcon } from "../../../packages/icons/index.js";
+import { insertLinkIcon } from "../../../packages/icons/index.js";
+import { insertPhotoIcon } from "../../../packages/icons/index.js";
 import { labelIcon } from "../../../packages/icons/index.js";
 import { lightbulbIcon } from "../../../packages/icons/index.js";
 import { listIcon } from "../../../packages/icons/index.js";
@@ -62,6 +76,7 @@ import { logoutIcon } from "../../../packages/icons/index.js";
 import { moreIcon } from "../../../packages/icons/index.js";
 import { moreVertIcon } from "../../../packages/icons/index.js";
 import { newReleasesIcon } from "../../../packages/icons/index.js";
+import { notesIcon } from "../../../packages/icons/index.js";
 import { notificationsIcon } from "../../../packages/icons/index.js";
 import { paidIcon } from "../../../packages/icons/index.js";
 import { paletteIcon } from "../../../packages/icons/index.js";
@@ -83,6 +98,7 @@ import { starBorderIcon } from "../../../packages/icons/index.js";
 import { starHalfIcon } from "../../../packages/icons/index.js";
 import { swapIcon } from "../../../packages/icons/index.js";
 import { switchLeftIcon } from "../../../packages/icons/index.js";
+import { textFieldsIcon } from "../../../packages/icons/index.js";
 import { thumbUpIcon } from "../../../packages/icons/index.js";
 import { timerIcon } from "../../../packages/icons/index.js";
 import { tuneIcon } from "../../../packages/icons/index.js";
@@ -258,6 +274,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="attachFileIcon"></dile-icon>
+        <span>attachFileIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="attachmentIcon"></dile-icon>
         <span>attachmentIcon</span>
       </article>
@@ -300,6 +321,11 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="closeIcon"></dile-icon>
         <span>closeIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="codeIcon"></dile-icon>
+        <span>codeIcon</span>
       </article>
 
       <article>
@@ -383,6 +409,56 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="formatAlignCenterIcon"></dile-icon>
+        <span>formatAlignCenterIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatAlignLeftIcon"></dile-icon>
+        <span>formatAlignLeftIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatAlignRightIcon"></dile-icon>
+        <span>formatAlignRightIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatBoldIcon"></dile-icon>
+        <span>formatBoldIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatColorTextIcon"></dile-icon>
+        <span>formatColorTextIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatItalicIcon"></dile-icon>
+        <span>formatItalicIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatListBulletedIcon"></dile-icon>
+        <span>formatListBulletedIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatListNumberedIcon"></dile-icon>
+        <span>formatListNumberedIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatQuoteIcon"></dile-icon>
+        <span>formatQuoteIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatUnderlinedIcon"></dile-icon>
+        <span>formatUnderlinedIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="helpIcon"></dile-icon>
         <span>helpIcon</span>
       </article>
@@ -400,6 +476,16 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="infoIcon"></dile-icon>
         <span>infoIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="insertLinkIcon"></dile-icon>
+        <span>insertLinkIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="insertPhotoIcon"></dile-icon>
+        <span>insertPhotoIcon</span>
       </article>
 
       <article>
@@ -440,6 +526,11 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="newReleasesIcon"></dile-icon>
         <span>newReleasesIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="notesIcon"></dile-icon>
+        <span>notesIcon</span>
       </article>
 
       <article>
@@ -548,6 +639,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="textFieldsIcon"></dile-icon>
+        <span>textFieldsIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="thumbUpIcon"></dile-icon>
         <span>thumbUpIcon</span>
       </article>
@@ -589,6 +685,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('arrowDropDownIcon').icon = arrowDropDownIcon;
     this.shadowRoot.getElementById('arrowDropUpIcon').icon = arrowDropUpIcon;
     this.shadowRoot.getElementById('arrowRightIcon').icon = arrowRightIcon;
+    this.shadowRoot.getElementById('attachFileIcon').icon = attachFileIcon;
     this.shadowRoot.getElementById('attachmentIcon').icon = attachmentIcon;
     this.shadowRoot.getElementById('autoAwesomeIcon').icon = autoAwesomeIcon;
     this.shadowRoot.getElementById('calendarIcon').icon = calendarIcon;
@@ -598,6 +695,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('circleBorderIcon').icon = circleBorderIcon;
     this.shadowRoot.getElementById('clearIcon').icon = clearIcon;
     this.shadowRoot.getElementById('closeIcon').icon = closeIcon;
+    this.shadowRoot.getElementById('codeIcon').icon = codeIcon;
     this.shadowRoot.getElementById('cookieIcon').icon = cookieIcon;
     this.shadowRoot.getElementById('deleteIcon').icon = deleteIcon;
     this.shadowRoot.getElementById('descriptionIcon').icon = descriptionIcon;
@@ -614,10 +712,22 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('filterListIcon').icon = filterListIcon;
     this.shadowRoot.getElementById('folderIcon').icon = folderIcon;
     this.shadowRoot.getElementById('folderZipIcon').icon = folderZipIcon;
+    this.shadowRoot.getElementById('formatAlignCenterIcon').icon = formatAlignCenterIcon;
+    this.shadowRoot.getElementById('formatAlignLeftIcon').icon = formatAlignLeftIcon;
+    this.shadowRoot.getElementById('formatAlignRightIcon').icon = formatAlignRightIcon;
+    this.shadowRoot.getElementById('formatBoldIcon').icon = formatBoldIcon;
+    this.shadowRoot.getElementById('formatColorTextIcon').icon = formatColorTextIcon;
+    this.shadowRoot.getElementById('formatItalicIcon').icon = formatItalicIcon;
+    this.shadowRoot.getElementById('formatListBulletedIcon').icon = formatListBulletedIcon;
+    this.shadowRoot.getElementById('formatListNumberedIcon').icon = formatListNumberedIcon;
+    this.shadowRoot.getElementById('formatQuoteIcon').icon = formatQuoteIcon;
+    this.shadowRoot.getElementById('formatUnderlinedIcon').icon = formatUnderlinedIcon;
     this.shadowRoot.getElementById('helpIcon').icon = helpIcon;
     this.shadowRoot.getElementById('homeIcon').icon = homeIcon;
     this.shadowRoot.getElementById('imageIcon').icon = imageIcon;
     this.shadowRoot.getElementById('infoIcon').icon = infoIcon;
+    this.shadowRoot.getElementById('insertLinkIcon').icon = insertLinkIcon;
+    this.shadowRoot.getElementById('insertPhotoIcon').icon = insertPhotoIcon;
     this.shadowRoot.getElementById('labelIcon').icon = labelIcon;
     this.shadowRoot.getElementById('lightbulbIcon').icon = lightbulbIcon;
     this.shadowRoot.getElementById('listIcon').icon = listIcon;
@@ -626,6 +736,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('moreIcon').icon = moreIcon;
     this.shadowRoot.getElementById('moreVertIcon').icon = moreVertIcon;
     this.shadowRoot.getElementById('newReleasesIcon').icon = newReleasesIcon;
+    this.shadowRoot.getElementById('notesIcon').icon = notesIcon;
     this.shadowRoot.getElementById('notificationsIcon').icon = notificationsIcon;
     this.shadowRoot.getElementById('paidIcon').icon = paidIcon;
     this.shadowRoot.getElementById('paletteIcon').icon = paletteIcon;
@@ -647,6 +758,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('starHalfIcon').icon = starHalfIcon;
     this.shadowRoot.getElementById('swapIcon').icon = swapIcon;
     this.shadowRoot.getElementById('switchLeftIcon').icon = switchLeftIcon;
+    this.shadowRoot.getElementById('textFieldsIcon').icon = textFieldsIcon;
     this.shadowRoot.getElementById('thumbUpIcon').icon = thumbUpIcon;
     this.shadowRoot.getElementById('timerIcon').icon = timerIcon;
     this.shadowRoot.getElementById('tuneIcon').icon = tuneIcon;
