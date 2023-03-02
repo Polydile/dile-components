@@ -57,6 +57,8 @@ import { formatAlignLeftIcon } from "../../../packages/icons/index.js";
 import { formatAlignRightIcon } from "../../../packages/icons/index.js";
 import { formatBoldIcon } from "../../../packages/icons/index.js";
 import { formatColorTextIcon } from "../../../packages/icons/index.js";
+import { formatIndentDecreaseIcon } from "../../../packages/icons/index.js";
+import { formatIndentIncreaseIcon } from "../../../packages/icons/index.js";
 import { formatItalicIcon } from "../../../packages/icons/index.js";
 import { formatListBulletedIcon } from "../../../packages/icons/index.js";
 import { formatListNumberedIcon } from "../../../packages/icons/index.js";
@@ -87,6 +89,7 @@ import { questionAnswerIcon } from "../../../packages/icons/index.js";
 import { radioCheckedIcon } from "../../../packages/icons/index.js";
 import { receiptIcon } from "../../../packages/icons/index.js";
 import { receiptLongIcon } from "../../../packages/icons/index.js";
+import { redoIcon } from "../../../packages/icons/index.js";
 import { refreshIcon } from "../../../packages/icons/index.js";
 import { scaleIcon } from "../../../packages/icons/index.js";
 import { searchIcon } from "../../../packages/icons/index.js";
@@ -102,6 +105,7 @@ import { textFieldsIcon } from "../../../packages/icons/index.js";
 import { thumbUpIcon } from "../../../packages/icons/index.js";
 import { timerIcon } from "../../../packages/icons/index.js";
 import { tuneIcon } from "../../../packages/icons/index.js";
+import { undoIcon } from "../../../packages/icons/index.js";
 import { uploadIcon } from "../../../packages/icons/index.js";
 import { videocamIcon } from "../../../packages/icons/index.js";
 import { warningIcon } from "../../../packages/icons/index.js";
@@ -434,6 +438,16 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="formatIndentDecreaseIcon"></dile-icon>
+        <span>formatIndentDecreaseIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="formatIndentIncreaseIcon"></dile-icon>
+        <span>formatIndentIncreaseIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="formatItalicIcon"></dile-icon>
         <span>formatItalicIcon</span>
       </article>
@@ -584,6 +598,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="redoIcon"></dile-icon>
+        <span>redoIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="refreshIcon"></dile-icon>
         <span>refreshIcon</span>
       </article>
@@ -659,6 +678,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="undoIcon"></dile-icon>
+        <span>undoIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="uploadIcon"></dile-icon>
         <span>uploadIcon</span>
       </article>
@@ -717,6 +741,8 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('formatAlignRightIcon').icon = formatAlignRightIcon;
     this.shadowRoot.getElementById('formatBoldIcon').icon = formatBoldIcon;
     this.shadowRoot.getElementById('formatColorTextIcon').icon = formatColorTextIcon;
+    this.shadowRoot.getElementById('formatIndentDecreaseIcon').icon = formatIndentDecreaseIcon;
+    this.shadowRoot.getElementById('formatIndentIncreaseIcon').icon = formatIndentIncreaseIcon;
     this.shadowRoot.getElementById('formatItalicIcon').icon = formatItalicIcon;
     this.shadowRoot.getElementById('formatListBulletedIcon').icon = formatListBulletedIcon;
     this.shadowRoot.getElementById('formatListNumberedIcon').icon = formatListNumberedIcon;
@@ -747,6 +773,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('radioCheckedIcon').icon = radioCheckedIcon;
     this.shadowRoot.getElementById('receiptIcon').icon = receiptIcon;
     this.shadowRoot.getElementById('receiptLongIcon').icon = receiptLongIcon;
+    this.shadowRoot.getElementById('redoIcon').icon = redoIcon;
     this.shadowRoot.getElementById('refreshIcon').icon = refreshIcon;
     this.shadowRoot.getElementById('scaleIcon').icon = scaleIcon;
     this.shadowRoot.getElementById('searchIcon').icon = searchIcon;
@@ -762,6 +789,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('thumbUpIcon').icon = thumbUpIcon;
     this.shadowRoot.getElementById('timerIcon').icon = timerIcon;
     this.shadowRoot.getElementById('tuneIcon').icon = tuneIcon;
+    this.shadowRoot.getElementById('undoIcon').icon = undoIcon;
     this.shadowRoot.getElementById('uploadIcon').icon = uploadIcon;
     this.shadowRoot.getElementById('videocamIcon').icon = videocamIcon;
     this.shadowRoot.getElementById('warningIcon').icon = warningIcon;
