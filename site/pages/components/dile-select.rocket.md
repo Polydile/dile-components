@@ -64,6 +64,7 @@ Use the component.
 - **value**: the value of the option selected
 - **message**: Place a message under the select element
 - **hideErrorOnInput**: Hide the error message when the user changes the value of the select element
+- **quiet**: Do not emmit element-changed event on component start.
 
 ## Methods
 

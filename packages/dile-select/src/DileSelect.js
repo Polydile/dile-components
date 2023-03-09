@@ -65,6 +65,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       errored: { type: Boolean },
       message: { type: String },
       hideErrorOnInput: { type: Boolean },
+      quiet: { type: Boolean },
     };
   }
 
