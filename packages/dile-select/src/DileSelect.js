@@ -65,7 +65,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       errored: { type: Boolean },
       message: { type: String },
       hideErrorOnInput: { type: Boolean },
-      quiet: { type: Boolean },
+      quietOnStart: { type: Boolean },
     };
   }
 
@@ -141,6 +141,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
 
   firstUpdated() {
     super.firstUpdated();
+    this.quiet = this.quietOnStart;
     if(this.value) {
       this.elselect.value = this.value;
     } else {
@@ -162,7 +163,9 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   }
 
   quietChange(value) {
-    this.quiet = true;
-    this.value = value;
+    if (value != this.value) {
+      this.quiet = true;
+      this.value = value;
+    }
   }
 }
