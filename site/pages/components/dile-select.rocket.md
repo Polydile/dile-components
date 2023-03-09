@@ -65,6 +65,11 @@ Use the component.
 - **message**: Place a message under the select element
 - **hideErrorOnInput**: Hide the error message when the user changes the value of the select element
 
+## Methods
+
+- **quietChange(value)**: Set the value of the select element without emmiting a `element-changed` event.
+- **clear()**: Set the value of the select element to `undefined`.
+
 ## Events
 
 - **element-changed**: This event is dispatched when the value property changes. In the detail object the event emmits the name of the element an its value.

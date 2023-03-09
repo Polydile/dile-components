@@ -93,7 +93,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
     this.errored = false;
     this.hideErrorOnInput = false;
     this.changeHandler = this.onChange.bind(this);
-    
+    this.quiet = false;
   }
 
   connectedCallback() {
@@ -123,7 +123,11 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   updated(changedProperties) {
     if(changedProperties.has("value")) {
       this.elselect.value = this.value;
-      this.emmitChange();
+      if (this.quiet) {
+        this.quiet = false;
+      } else {
+        this.emmitChange();
+      }
     }
     if(changedProperties.has("disabled")) {
       this.elselect.disabled = this.disabled;
@@ -154,5 +158,10 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
         return options[i];
       }
     }
+  }
+
+  quietChange(value) {
+    this.quiet = true;
+    this.value = value;
   }
 }
