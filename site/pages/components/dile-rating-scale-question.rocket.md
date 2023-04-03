@@ -24,7 +24,7 @@ These types of questions allow for degrees of opinion. Semantic-differential que
 
 There are one component in this package:
 
-- ```dile-rating-scale-question```: allows to create a question, and only is possible to select one option at same time.
+- ```dile-rating-scale-question```: allows to create a question, only is possible to select one option at same time.
 
 ## Installation
 
