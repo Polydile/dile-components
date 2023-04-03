@@ -1,7 +1,7 @@
 {
-  "name": "@dile/dile-radio-group",
-  "version": "1.0.7",
-  "description": "Webcomponent to make radio buttons and grouped radio buttons",
+  "name": "@dile/dile-rating-scale-question",
+  "version": "0.0.0",
+  "description": "Web Components to create a semantic-differential rating-scale questions.",
   "keywords": [
     "Lit",
     "Web Component",
@@ -9,7 +9,7 @@
     "radio group"
   ],
   "type": "module",
-  "author": "midesweb <miguel@desarrolloweb.com>",
+  "author": "mpaulaherrero <mpaulaherrero@gmail.com>",
   "homepage": "https://github.com/Polydile/dile-components",
   "license": "MIT",
   "main": "index.js",
