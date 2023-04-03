@@ -6,5 +6,5 @@ These types of questions allow for degrees of opinion. Semantic-differential que
 
 ## Docs and demos
 
-- [GitHub readme docs](https://github.com/Polydile/dile-components/blob/master/site/pages/components/packages/dile-rating-scale-question.rocket.md)
-- [Docs and demos on the dile-components site](https://dile-components.polydile.com/components/packages/dile-rating-scale-question/)
+- [GitHub readme docs](https://github.com/Polydile/dile-components/blob/master/site/pages/components/dile-rating-scale-question.rocket.md)
+- [Docs and demos on the dile-components site](https://dile-components.polydile.com/components/dile-rating-scale-question/)
