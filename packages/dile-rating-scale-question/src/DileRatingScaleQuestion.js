@@ -80,7 +80,7 @@ export class DileRatingScaleQuestion extends LitElement {
         display: none;
       }
       .text-leftColor {
-        color: var(--dile-rating-scale-color-left,#33a474);;
+        color: var(--dile-rating-scale-color-left,#33a474);
       }
       .text-rightColor {
         color: var(--dile-rating-scale-color-right,#88619a);
