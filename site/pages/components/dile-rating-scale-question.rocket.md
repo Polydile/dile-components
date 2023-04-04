@@ -74,6 +74,7 @@ Custom property | Description | Default
 --dile-rating-scale-option-size-big | Big circle size | 35px
 --dile-rating-scale-option-size-small | Small circle size | 28px
 --dile-rating-scale-option-size-smaller | Smaller circle size | 25px
+--dile-rating-scale-option-checked-color | Checked icon color |  #fff
 
 ## dile-rating-scale-question demos
 
@@ -134,6 +135,7 @@ export const JsStory = () => html`<my-component></my-component>`;
       --dile-rating-scale-option-size-big: 60px;
       --dile-rating-scale-option-size-small: 60px;
       --dile-rating-scale-option-size-smaller: 60px;
+      --dile-rating-scale-option-checked-color: #473232;
 }
 </style>
 <dile-rating-scale-question class="styled"

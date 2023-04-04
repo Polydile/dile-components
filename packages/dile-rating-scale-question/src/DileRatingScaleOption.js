@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit';
+import { doneIcon } from '@dile/icons';
+import '@dile/dile-icon/dile-icon.js';
 
 export class DileRatingScaleOption extends LitElement {
     static styles = [
@@ -33,6 +35,15 @@ export class DileRatingScaleOption extends LitElement {
                 opacity: 0;
                 box-sizing: border-box;
                 padding: 0;
+            }
+            :host([selected]) .leftColor {
+                background-color: var(--dile-rating-scale-color-left,#33a474);
+            }
+            :host([selected])  .neutralColor {
+                background-color: var(--dile-rating-scale-color-neutral,#9b9faa);
+            }
+            :host([selected])  .rightColor {
+                background-color: var(--dile-rating-scale-color-right,#88619a);
             }
             span:hover .leftColor {
                 background-color: var(--dile-rating-scale-color-left,#33a474);
@@ -95,6 +106,24 @@ export class DileRatingScaleOption extends LitElement {
             .radio_spinner {
                 display: flex;
             }
+            .noChecked{
+                display: none;
+            }
+            .checked{
+                --dile-icon-color: var(--dile-rating-scale-option-checked-color, #fff);
+            }
+            .sizeBiggerChecked{
+                --dile-icon-size: var(--dile-rating-scale-option-size-bigger, 45px);
+            }
+            .sizeBigChecked{
+                --dile-icon-size: var(--dile-rating-scale-option-size-big, 35px);
+            }
+            .sizeSmallChecked{
+                --dile-icon-size: var(--dile-rating-scale-option-size-small, 28px);
+            }
+            .sizeSmallerChecked{
+                --dile-icon-size: var(--dile-rating-scale-option-size-smaller, 25px);
+            }
             @media (min-width: 992px){
                 .radio_tick {
                     border-width: 3px;
@@ -131,7 +160,7 @@ export class DileRatingScaleOption extends LitElement {
                 <label>
                     <input type="radio" >
                     <span class="radio_tick ${this.size} ${this.color}">
-                        <span class="radio_spinner"></span>
+                        <span class="radio_spinner"><dile-icon class="${this.checked()}" .icon="${doneIcon}"></dile-icon></span>
                     </span>
                     <span class="radio_label">${this.label}</span>
                 </label>
@@ -147,5 +176,9 @@ export class DileRatingScaleOption extends LitElement {
                 value: this.value
             }
         }));
+    }
+
+    checked(){
+        return this.selected ? `${this.size}Checked checked`: 'noChecked';
     }
 }
