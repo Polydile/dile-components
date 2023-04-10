@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin';
 
-export class DileRatingScaleQuestion extends LitElement {
+export class DileRatingScaleQuestion extends DileEmmitChangeMixin(LitElement)  {
   static styles = [
     css`
       :host {
@@ -80,10 +81,10 @@ export class DileRatingScaleQuestion extends LitElement {
         display: none;
       }
       .text-leftColor {
-        color: var(--dile-rating-scale-color-left,#33a474);
+        color: var(--dile-rating-scale-color-left,#4db6ac);
       }
       .text-rightColor {
-        color: var(--dile-rating-scale-color-right,#88619a);
+        color: var(--dile-rating-scale-color-right,#ff8a65);
       }
 
       @media (min-width: 768px){
@@ -140,7 +141,23 @@ export class DileRatingScaleQuestion extends LitElement {
     this.scale_neutral_label = "Neutral";
     this.scale_right_label="Disagree";
     this.scale_point=7; //7, 5, 3
-    this.disabled = false;
+  }
+
+  updated(changedProperties) {
+    if(changedProperties.has('value') && this.init) {
+      this.doSelection(this.value);
+      this.emmitChange();
+      this.dispatchChangeEvent();
+    }
+  }
+
+  firstUpdated() {
+    this.init = true;
+    if(this.value !== undefined) {
+      setTimeout(() => {
+        this.doSelection(this.value);
+      }, 200);
+    }
   }
 
   render() {
@@ -149,17 +166,17 @@ export class DileRatingScaleQuestion extends LitElement {
                     <legend><span>${this.label}</span></legend>
                     <div class="group_options">
                     <div class="caption-desktop text-leftColor">${this.scale_left_label}</div>
-                      <div class="radios">
-                        ${this.options.map( (option) => html`
-                              <dile-rating-scale-option label="${option.label}" value="${option.value}" size="${option.size}" color="${option.color}"></dile-rating-scale-option>`
-                        )}
-                      </div>
-                      <div class="caption-desktop text-rightColor">${this.scale_right_label}</div>
-                      <div class="captions">
-                        <div class="caption-mobile text-leftColor">${this.scale_left_label}</div>
-                        <div class="caption-mobile text-rightColor">${this.scale_right_label}</div>
-                      </div>
+                    <div class="radios">
+                      ${this.options.map( (option) => html`
+                            <dile-rating-scale-option label="${option.label}" value="${option.value}" size="${option.size}" color="${option.color}"></dile-rating-scale-option>`
+                      )}
                     </div>
+                    <div class="caption-desktop text-rightColor">${this.scale_right_label}</div>
+                    <div class="captions">
+                      <div class="caption-mobile text-leftColor">${this.scale_left_label}</div>
+                      <div class="caption-mobile text-rightColor">${this.scale_right_label}</div>
+                    </div>
+                  </div>
                 </fieldset>
     `;
   }
@@ -210,6 +227,16 @@ export class DileRatingScaleQuestion extends LitElement {
     if(!this.disabled) {
       this.value = e.detail.value;
     }
+  }
+
+  doSelection(newValue) {
+    this.shadowRoot.querySelectorAll('dile-rating-scale-option').forEach(option => {
+      if (option.value === newValue) {
+        option.selected = true;
+      } else {
+        option.selected = false;
+      }
+    });
   }
 
   dispatchChangeEvent() {

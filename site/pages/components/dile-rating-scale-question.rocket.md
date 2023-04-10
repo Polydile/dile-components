@@ -24,7 +24,7 @@ These types of questions allow for degrees of opinion. Semantic-differential que
 
 There are one component in this package:
 
-- ```dile-rating-scale-question```: allows to create a question, and only is possible to select one option at same time.
+- ```dile-rating-scale-question```: allows to create a question, only is possible to select one option at same time.
 
 ## Installation
 
@@ -45,15 +45,15 @@ Use the components.
 ```html
 <dile-rating-scale-question
   name="question_1"
-  label="You spend a lot of your free time exploring various random topics that pique your interest.">
+  label="You spend a lot of your free time exploring twitter.">
 </dile-rating-scale-question>
 ```
 
 ## Properties
 
-- **disabled**: The question is disabled.
+- **disabled**: the question is disabled.
 - **name**: element name
-- **label**: Text label for the question
+- **label**: text label for the question
 - **scale_left_label**: left label of the scale, e.i: difficult. Agree by default
 - **scale_right_label**: right label of the scale, e.i: easy. Disagree by default
 - **scale_neutral_label**: neutral label of the scale. Neutral by default
@@ -67,13 +67,14 @@ Use the components.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-rating-scale-color-left | Color for the left options and text | #33a474
---dile-rating-scale-color-right | Color for the right options and text | #88619a
+--dile-rating-scale-color-left | Color for the left options and text | #4db6ac
+--dile-rating-scale-color-right | Color for the right options and text | #ff8a65
 --dile-rating-scale-color-neutral | Color for the neutral option | #9b9faa
 --dile-rating-scale-option-size-bigger | Bigger circle size | 45px
 --dile-rating-scale-option-size-big | Big circle size | 35px
 --dile-rating-scale-option-size-small | Small circle size | 28px
 --dile-rating-scale-option-size-smaller | Smaller circle size | 25px
+--dile-rating-scale-option-checked-color | Checked icon color |  #fff
 
 ## dile-rating-scale-question demos
 
@@ -87,13 +88,14 @@ class MyComponent extends LitElement {
       <dile-rating-scale-question
         id="question_1"
         name="question_1"
-        label="You spend a lot of your free time exploring various random topics that pique your interest.">
+        label="You spend a lot of your free time exploring twitter.">
       </dile-rating-scale-question>
+      <p id="message">Select one value</p>
     `
   }
   firstUpdated() {
     this.shadowRoot.getElementById('question_1').addEventListener('dile-rating-scale-question-changed', (e) => {
-      this.shadowRoot.getElementById('message').innerText = 'Element ' + e.detail.name + ' has value: ' + e.detail.value;
+      this.shadowRoot.getElementById('message').innerText = e.detail.name + ' has value: ' + e.detail.value;
     });
   }
 }
@@ -134,6 +136,7 @@ export const JsStory = () => html`<my-component></my-component>`;
       --dile-rating-scale-option-size-big: 60px;
       --dile-rating-scale-option-size-small: 60px;
       --dile-rating-scale-option-size-smaller: 60px;
+      --dile-rating-scale-option-checked-color: #473232;
 }
 </style>
 <dile-rating-scale-question class="styled"
