@@ -226,7 +226,6 @@ export class DileRatingScaleQuestion extends DileEmmitChangeMixin(LitElement)  {
   changeValue(e) {
     if(!this.disabled) {
       this.value = e.detail.value;
-      console.log(this.value);
     }
   }
 
