@@ -81,10 +81,10 @@ export class DileRatingScaleQuestion extends DileEmmitChangeMixin(LitElement)  {
         display: none;
       }
       .text-leftColor {
-        color: var(--dile-rating-scale-color-left,#33a474);
+        color: var(--dile-rating-scale-color-left,#4db6ac);
       }
       .text-rightColor {
-        color: var(--dile-rating-scale-color-right,#88619a);
+        color: var(--dile-rating-scale-color-right,#ff8a65);
       }
 
       @media (min-width: 768px){
@@ -226,6 +226,7 @@ export class DileRatingScaleQuestion extends DileEmmitChangeMixin(LitElement)  {
   changeValue(e) {
     if(!this.disabled) {
       this.value = e.detail.value;
+      console.log(this.value);
     }
   }
 

@@ -37,31 +37,31 @@ export class DileRatingScaleOption extends LitElement {
                 padding: 0;
             }
             :host([selected]) .leftColor {
-                background-color: var(--dile-rating-scale-color-left,#33a474);
+                background-color: var(--dile-rating-scale-color-left,#4db6ac);
             }
             :host([selected])  .neutralColor {
                 background-color: var(--dile-rating-scale-color-neutral,#9b9faa);
             }
             :host([selected])  .rightColor {
-                background-color: var(--dile-rating-scale-color-right,#88619a);
+                background-color: var(--dile-rating-scale-color-right,#ff8a65);
             }
             span:hover .leftColor {
-                background-color: var(--dile-rating-scale-color-left,#33a474);
+                background-color: var(--dile-rating-scale-color-left,#4db6ac);
             }
             span:hover .neutralColor {
                 background-color: var(--dile-rating-scale-color-neutral,#9b9faa);
             }
             span:hover .rightColor {
-                background-color: var(--dile-rating-scale-color-right,#88619a);
+                background-color: var(--dile-rating-scale-color-right,#ff8a65);
             }
             .leftColor {
-                border-color: var(--dile-rating-scale-color-left, #33a474);
+                border-color: var(--dile-rating-scale-color-left, #4db6ac);
             }
             .neutralColor {
                 border-color: var(--dile-rating-scale-color-neutral,#9b9faa);
             }
             .rightColor {
-                border-color: var(--dile-rating-scale-color-right,#88619a);
+                border-color: var(--dile-rating-scale-color-right,#ff8a65);
             }
             .sizeBigger{
                 height: var(--dile-rating-scale-option-size-bigger, 45px);
