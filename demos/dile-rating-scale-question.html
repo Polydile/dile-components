@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-rating-scale-question component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="../packages/dile-rating-scale-question/dile-rating-scale-option.js" type="module"></script>
+  <script src="../packages/dile-rating-scale-question/dile-rating-scale-question.js" type="module"></script>
+  <style>
+    .styled {
+      --dile-rating-scale-color-left: #0bb805;
+      --dile-rating-scale-color-neutral: #ccc;
+      --dile-rating-scale-color-right: #e91f10;
+      --dile-rating-scale-option-size-bigger: 60px;
+      --dile-rating-scale-option-size-big: 60px;
+      --dile-rating-scale-option-size-small: 60px;
+      --dile-rating-scale-option-size-smaller: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-rating-scale-question component</h1>
+
+    <h2>Agree - Disagree (7 point scale, Default)</h2>
+    <p>
+        <dile-rating-scale-question
+          name="question_1"
+          label="You spend a lot of your free time exploring various random topics that pique your interest.">
+        </dile-rating-scale-question>
+    </p>
+
+    <h2>Difficult – Easy (5 point scale, Disabled)</h2>
+    <p>
+        <dile-rating-scale-question disabled
+          name="question_2"
+          label="Overall, this task was:"
+          scale_left_label="Difficult"
+          scale_right_label="Easy"
+          scale_point="5">
+        </dile-rating-scale-question>
+    </p>
+
+    <h2>A Favor – En contra (3 point scale, Styled)</h2>
+    <p>
+        <dile-rating-scale-question class="styled"
+          name="question_3"
+          label="El problema principal es la educación básica."
+          scale_left_label="A Favor"
+          scale_right_label="En contra"
+          scale_point="3">
+        </dile-rating-scale-question>
+    </p>
+
+    <footer><a href="index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>
