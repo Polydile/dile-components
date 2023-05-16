@@ -32,7 +32,19 @@
     .menu-content3 {
       margin: 0;
     }
-
+    .menu-content3 {
+      padding: 0 0.8rem;
+    }
+    .menu-content3 p {
+      margin: 1rem 0;
+    }
+    .no-space-down {
+      margin-bottom: 0;
+    }
+    .small {
+      margin: 0.5rem 0;
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
@@ -68,8 +80,11 @@
       </div>
     </dile-app-drawer>
 
-    <dile-app-drawer id="menu3" opened no-modal>
-      <p class="menu-content3">Drawer example 3 allways on top</p>
+    <dile-app-drawer id="menu3" no-modal>
+      <div class="menu-content3">
+        <p class="no-space-down">Drawer example 3</p>
+        <p class="small">This menu should be allways on top</p>
+      </div>
     </dile-app-drawer>
 
     <p>

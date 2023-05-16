@@ -55,6 +55,7 @@ This componen has two properties:
 
 - **opened**: Set the state of the component between opened and closed. Boolean property.
 - **direction**: Defines de animation and direction to open the menú. String property one of "top" or "left". Default is "top".
+- **noModal**: Makes the app drawer always visible (fixed when it is in opened state)
 
 ## Methods
 
