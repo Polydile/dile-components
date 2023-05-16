@@ -72,6 +72,7 @@ import { insertLinkIcon } from "../../../packages/icons/index.js";
 import { insertPhotoIcon } from "../../../packages/icons/index.js";
 import { labelIcon } from "../../../packages/icons/index.js";
 import { lightbulbIcon } from "../../../packages/icons/index.js";
+import { linkOffIcon } from "../../../packages/icons/index.js";
 import { listIcon } from "../../../packages/icons/index.js";
 import { loginIcon } from "../../../packages/icons/index.js";
 import { logoutIcon } from "../../../packages/icons/index.js";
@@ -513,6 +514,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="linkOffIcon"></dile-icon>
+        <span>linkOffIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="listIcon"></dile-icon>
         <span>listIcon</span>
       </article>
@@ -756,6 +762,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('insertPhotoIcon').icon = insertPhotoIcon;
     this.shadowRoot.getElementById('labelIcon').icon = labelIcon;
     this.shadowRoot.getElementById('lightbulbIcon').icon = lightbulbIcon;
+    this.shadowRoot.getElementById('linkOffIcon').icon = linkOffIcon;
     this.shadowRoot.getElementById('listIcon').icon = listIcon;
     this.shadowRoot.getElementById('logoutIcon').icon = logoutIcon;
     this.shadowRoot.getElementById('loginIcon').icon = loginIcon;

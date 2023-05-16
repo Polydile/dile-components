@@ -53,6 +53,7 @@ export { insertLinkIcon } from "./src/insertLink.js";
 export { insertPhotoIcon } from "./src/insertPhoto.js";
 export { labelIcon } from "./src/label.js";
 export { lightbulbIcon } from "./src/lightbulb.js";
+export { linkOffIcon } from "./src/linkOff.js";
 export { listIcon } from "./src/list.js";
 export { loginIcon } from "./src/login.js";
 export { logoutIcon } from "./src/logout.js";

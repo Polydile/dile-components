@@ -65,6 +65,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       errored: { type: Boolean },
       message: { type: String },
       hideErrorOnInput: { type: Boolean },
+      quietOnStart: { type: Boolean },
     };
   }
 
@@ -93,7 +94,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
     this.errored = false;
     this.hideErrorOnInput = false;
     this.changeHandler = this.onChange.bind(this);
-    
+    this.quiet = false;
   }
 
   connectedCallback() {
@@ -123,7 +124,11 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   updated(changedProperties) {
     if(changedProperties.has("value")) {
       this.elselect.value = this.value;
-      this.emmitChange();
+      if (this.quiet) {
+        this.quiet = false;
+      } else {
+        this.emmitChange();
+      }
     }
     if(changedProperties.has("disabled")) {
       this.elselect.disabled = this.disabled;
@@ -136,6 +141,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
 
   firstUpdated() {
     super.firstUpdated();
+    this.quiet = this.quietOnStart;
     if(this.value) {
       this.elselect.value = this.value;
     } else {
@@ -153,6 +159,13 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       if(options[i].value === id) {
         return options[i];
       }
+    }
+  }
+
+  quietChange(value) {
+    if (value != this.value) {
+      this.quiet = true;
+      this.value = value;
     }
   }
 }

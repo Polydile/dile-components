@@ -64,6 +64,12 @@ Use the component.
 - **value**: the value of the option selected
 - **message**: Place a message under the select element
 - **hideErrorOnInput**: Hide the error message when the user changes the value of the select element
+- **quietOnStart**: Do not emmit element-changed event on component start.
+
+## Methods
+
+- **quietChange(value)**: Set the value of the select element without emmiting a `element-changed` event.
+- **clear()**: Set the value of the select element to `undefined`.
 
 ## Events
 
