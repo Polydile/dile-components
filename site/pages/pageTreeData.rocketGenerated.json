@@ -2882,6 +2882,48 @@
           "outputRelativeFilePath": "components/dile-tooltip/index.html",
           "sourceRelativeFilePath": "components/dile-tooltip.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-media-query",
+          "h1": "dile-media-query",
+          "headlinesWithId": [
+            {
+              "text": "dile-media-query",
+              "id": "dile-media-query",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 3
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 3
+            },
+            {
+              "text": "dile-media-query demos",
+              "id": "dile-media-query-demos",
+              "level": 1
+            }
+          ],
+          "name": "dile-media-query",
+          "menuLinkText": "dile-media-query",
+          "url": "/components/dile-media-query/",
+          "outputRelativeFilePath": "components/dile-media-query/index.html",
+          "sourceRelativeFilePath": "components/dile-media-query.rocket.md",
+          "level": 2
         }
       ]
     },
