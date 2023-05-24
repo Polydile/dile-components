@@ -9,6 +9,8 @@ export class DilePages extends LitElement {
       selected: { type: String },
       /** A selector interface to change the tabs */
       selectorId: { type: String },
+      /** Display to the element that is shown */
+      showDisplay: { type: String },
     };
   }
   render() {
@@ -23,6 +25,7 @@ export class DilePages extends LitElement {
     this.selected = 0;
     this._pageInitialization();
     this._onSelectorIdChangedHandler = this._onSelectorIdChanged.bind(this);
+    this.showDisplay = 'block';
   }
 
   static get styles() {
@@ -67,7 +70,7 @@ export class DilePages extends LitElement {
   firstUpdated() {
     let page = this._selectPage(this.selected, this.attrForSelected);
     if (page) {
-      page.style.display = 'block';
+      page.style.display = this.showDisplay;
     }
     if(this.selectorId) {
       document.addEventListener('dile-selected-changed', this._onSelectorIdChangedHandler);
@@ -123,7 +126,7 @@ export class DilePages extends LitElement {
   _showCurrentPage() {
     let page = this._selectPage(this.selected, this.attrForSelected)
     if (page) {
-      page.style.display = 'block';
+      page.style.display = this.showDisplay;
       setTimeout(() => {
         page.style.opacity = '1';
       }, 50);
