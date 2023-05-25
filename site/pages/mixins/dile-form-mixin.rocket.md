@@ -31,7 +31,7 @@ npm i @dile/dile-form-mixin
 To use DileFormMixin you only need to extend your custom element class with the mixin.
 
 ```javascript
-import { DileformMixin } from '@dile/dile-form-mixin';
+import { DileFormMixin } from '@dile/dile-form-mixin';
 
 class MyElement extends DileFormMixin(HTMLElement) {
   // your custom element code...
