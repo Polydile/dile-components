@@ -2034,6 +2034,73 @@
           "level": 2
         },
         {
+          "title": "dile-rating-scale-question",
+          "h1": "dile-rating-scale-question",
+          "headlinesWithId": [
+            {
+              "text": "dile-rating-scale-question",
+              "id": "dile-rating-scale-question",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Custom events",
+              "id": "custom-events",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "dile-rating-scale-question demos",
+              "id": "dile-rating-scale-question-demos",
+              "level": 2
+            },
+            {
+              "text": "Default dile-rating-scale-question",
+              "id": "default-dile-rating-scale-question",
+              "level": 3
+            },
+            {
+              "text": "Change labels and scale point",
+              "id": "change-labels-and-scale-point",
+              "level": 3
+            },
+            {
+              "text": "Disabled question",
+              "id": "disabled-question",
+              "level": 3
+            },
+            {
+              "text": "Styled options",
+              "id": "styled-options",
+              "level": 3
+            }
+          ],
+          "name": "dile-rating-scale-question",
+          "menuLinkText": "dile-rating-scale-question",
+          "url": "/components/dile-rating-scale-question/",
+          "outputRelativeFilePath": "components/dile-rating-scale-question/index.html",
+          "sourceRelativeFilePath": "components/dile-rating-scale-question.rocket.md",
+          "level": 2
+        },
+        {
           "title": "dile-rating",
           "h1": "dile-rating",
           "headlinesWithId": [
@@ -2139,6 +2206,11 @@
             {
               "text": "Properties",
               "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Methods",
+              "id": "methods",
               "level": 2
             },
             {
