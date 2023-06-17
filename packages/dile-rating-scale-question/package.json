@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-rating-scale-question",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Web Components to create a semantic-differential rating-scale questions.",
   "keywords": [
     "Lit",
