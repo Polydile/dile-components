@@ -103,7 +103,7 @@ Custom property | Description | Default
 --dile-tab-background-color | The tab background color | Transparent
 --dile-tab-selected-text-color | The tab text color | #fff
 --dile-tab-selected-background-color | The tab background color | #039be5;
---dile-label-padding | Content padding of the tab | 8px 12px 6px 12px
+--dile-tab-padding | Content padding of the tab | 8px 12px 6px 12px
 --dile-tab-selected-line-height | Defines selected tab line height | 5px
 --dile-tab-selected-line-color | Defines selected tab line color | #0070c0
 --dile-tab-border-radius | Tab top-left & top-right border radius | 4px
