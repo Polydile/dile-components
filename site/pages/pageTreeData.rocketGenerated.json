@@ -977,8 +977,8 @@
               "level": 3
             }
           ],
-          "name": "dile-info-box",
-          "menuLinkText": "dile-info-box",
+          "name": "components/dile-info-box.rocket.md",
+          "menuLinkText": "components/dile-info-box.rocket.md",
           "url": "/components/dile-info-box/",
           "outputRelativeFilePath": "components/dile-info-box/index.html",
           "sourceRelativeFilePath": "components/dile-info-box.rocket.md",

@@ -13,10 +13,10 @@ export const title = 'dile-spinner-modal';
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-spinner/dile-spinner-modal.js'
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import '@dile/dile-spinner/dile-spinner-modal.js'
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-spinner-modal

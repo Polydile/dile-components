@@ -9,9 +9,9 @@ const title = "Contribute on dile-components";
 ```
 
 ```js script
-import "../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../packages/dile-selector/dile-selector.js";
-import "../../packages/dile-selector/dile-selector-item.js";
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # Contribute on dile-components

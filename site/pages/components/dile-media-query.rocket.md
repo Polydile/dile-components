@@ -13,10 +13,10 @@ export const title = 'dile-media-query';
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-media-query/dile-media-query.js'
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import '@dile/dile-media-query/dile-media-query.js'
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-media-query

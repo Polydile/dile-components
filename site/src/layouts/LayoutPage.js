@@ -1,6 +1,6 @@
 import { html } from 'lit';
-import '../../../packages/dile-nav/dile-nav.js';
-import '../../../packages/dile-social-icon/dile-social-icon.js';
+import '@dile/dile-nav/dile-nav.js';
+import '@dile/dile-social-icon/dile-social-icon.js';
 import { DrawerMenu } from '../menus/DrawerMenu.js';
 import { pageTree } from '../menus/pageTree.js';
 const componentsFilePath = 'components/index.rocket.md';

@@ -12,7 +12,7 @@ export const title = 'dile-menu-hamburger';
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-menu-hamburger/dile-menu-hamburger.js'
+import '@dile/dile-menu-hamburger/dile-menu-hamburger.js'
 ```
 
 # dile-menu-hamburger

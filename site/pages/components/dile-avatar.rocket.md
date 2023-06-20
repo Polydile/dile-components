@@ -12,10 +12,10 @@ export const title = 'dile-avatar';
 import { html } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-avatar/dile-avatar.js'
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import '@dile/dile-avatar/dile-avatar.js'
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-avatar

@@ -7,16 +7,16 @@ export { layout };
 import { pageTree } from '../src/menus/pageTree.js'; 
 import { ChildListMenu } from '@rocket/engine';
 import { html } from 'lit';
-import '../../packages/dile-button/dile-button.js';
+import "@dile/dile-button/dile-button.js";
 import { helpIcon, settingsIcon, checkboxCheckedIcon, paletteIcon, autoAwesomeIcon, scaleIcon } from "../../packages/icons/index.js";
-import "../../packages/dile-icon/dile-icon.js";
+import "@dile/dile-icon/dile-icon.js";
 export const title = 'Dile components website';
 
 export default () => html`
   <script type="module">
-    import "../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-    import "../packages/dile-selector/dile-selector.js";
-    import "../packages/dile-selector/dile-selector-item.js";
+    import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+    import "@dile/dile-selector/dile-selector.js";
+    import "@dile/dile-selector/dile-selector-item.js";
   </script>
   <style>
     h1 {

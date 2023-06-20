@@ -12,12 +12,12 @@ export const title = 'dile-tabs';
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import '../../../packages/dile-tabs/dile-tabs.js'
-import "../../../packages/dile-tabs/dile-tab.js";
-import "../../../packages/dile-pages/dile-pages.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import '@dile/dile-tabs/dile-tabs.js'
+import "@dile/dile-tabs/dile-tab.js";
+import "@dile/dile-pages/dile-pages.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-tabs

@@ -12,8 +12,8 @@ export const title = 'dile-rating-scale-question';
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-rating-scale-question/dile-rating-scale-question.js'
-import '../../../packages/dile-rating-scale-question/dile-rating-scale-option.js'
+import '@dile/dile-rating-scale-question/dile-rating-scale-question.js'
+import '@dile/dile-rating-scale-question/dile-rating-scale-option.js'
 ```
 
 # dile-rating-scale-question

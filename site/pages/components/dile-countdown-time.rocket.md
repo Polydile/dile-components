@@ -12,10 +12,10 @@ export const title = 'dile-countdown-time';
 import { html } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '../../../packages/dile-countdown-time/dile-countdown-time.js'
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import '@dile/dile-countdown-time/dile-countdown-time.js'
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-countdown-time

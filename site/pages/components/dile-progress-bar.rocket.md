@@ -12,10 +12,10 @@ export const title = "dile-progress-bar";
 import { html, css, LitElement } from "lit";
 import "@mdjs/mdjs-story/define";
 import "@mdjs/mdjs-preview/define";
-import "../../../packages/dile-progress-bar/dile-progress-bar.js";
-import "../../../packages/dile-menu-hamburger/dile-menu-hamburger.js";
-import "../../../packages/dile-selector/dile-selector.js";
-import "../../../packages/dile-selector/dile-selector-item.js";
+import "@dile/dile-progress-bar/dile-progress-bar.js";
+import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
+import "@dile/dile-selector/dile-selector.js";
+import "@dile/dile-selector/dile-selector-item.js";
 ```
 
 # dile-progress-bar
