@@ -6,7 +6,7 @@ export class DileTextarea extends LionTextarea {
 
   static get styles() {
     return [
-      super.styles, 
+      ...super.styles, 
       messageStyles, 
       css`
       :host {

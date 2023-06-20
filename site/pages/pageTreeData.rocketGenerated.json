@@ -2996,6 +2996,53 @@
           "outputRelativeFilePath": "components/dile-media-query/index.html",
           "sourceRelativeFilePath": "components/dile-media-query.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-editor",
+          "h1": "dile-editor",
+          "headlinesWithId": [
+            {
+              "text": "dile-editor",
+              "id": "dile-editor",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 2
+            },
+            {
+              "text": "dile-editor demos",
+              "id": "dile-editor-demos",
+              "level": 2
+            },
+            {
+              "text": "Empty editor",
+              "id": "empty-editor",
+              "level": 3
+            }
+          ],
+          "name": "dile-editor",
+          "menuLinkText": "dile-editor",
+          "url": "/components/dile-editor/",
+          "outputRelativeFilePath": "components/dile-editor/index.html",
+          "sourceRelativeFilePath": "components/dile-editor.rocket.md",
+          "level": 2
         }
       ]
     },
