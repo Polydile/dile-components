@@ -50,6 +50,7 @@
     import '@dile/dile-select/dile-select.js';
     import '@dile/dile-select/dile-select-ajax.js';
     import '@dile/dile-textarea/dile-textarea.js';
+    import '@dile/dile-editor/dile-editor.js';
     import { LitElement, html, css } from 'lit';
     
     class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
@@ -57,6 +58,7 @@
         return css`
           :host {
             display: block;
+            font-size: 0.9rem;
             
           }
           p {
@@ -83,6 +85,7 @@
           <dileQuantity-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
           <dile-input name="company" label="Company"></dile-input>
           <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
+          <dile-editor name="comments"># Markdown Editor\n\nWrite *something*.</dile-editor>
         `;
       }
     }
@@ -114,7 +117,8 @@
           company: "Acme",
           album: 7,
           discount: 10.55,
-          price: 10000,
+          price: 10050,
+          comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye"
         });
       });
 

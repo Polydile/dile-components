@@ -82,14 +82,19 @@ export class DileEditor extends LitElement {
 
   static get properties() {
     return {
+      /** Value of the editor as markown */
       value: { type: String },
+      
+      /** Name for this editor form field */
+      name: { type: String },
+
     };
   }
 
   constructor() {
     super();
     this.value = this.innerHTML;
-    console.log('this.value', this.value);
+    //console.log('this.value', this.value);
   }
 
   updated(changedProperties) {
@@ -131,7 +136,7 @@ export class DileEditor extends LitElement {
   }
 
   updateValue(e) {
-    console.log('updatevalue');
+    //console.log('updatevalue');
     this.value = e.detail.content;
     this.textarea.value = e.detail.content;
   }
@@ -153,6 +158,6 @@ export class DileEditor extends LitElement {
     if(e.detail.selected == 'design') {
       this.editor.updateEditorContent(this.textarea.value)
     }
-    console.log(e.detail);
+    //console.log(e.detail);
   }
 }
