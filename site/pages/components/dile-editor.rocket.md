@@ -14,7 +14,7 @@ export const title = 'dile-editor';
 import { html } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '@dile/dile-editor/dile-editor.js'
+//import '@dile/dile-editor/dile-editor.js'
 import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
 import "@dile/dile-selector/dile-selector.js";
 import "@dile/dile-selector/dile-selector-item.js";
