@@ -6,9 +6,7 @@ export const createMenuPlugin = () => {
   
   return new Plugin({
     view(editorView) {
-      console.log('view method in menu plugin');
       if (!editorView.dom.parentElement.querySelector(toolbarElement)) {
-        console.log('aki!!');
         toolbar.editorView = editorView;
         editorView.dom.parentNode.insertBefore(toolbar, editorView.dom);
       }
