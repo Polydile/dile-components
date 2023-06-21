@@ -13,8 +13,8 @@ export const boldCommand = toggleMark(schema.marks.strong);
 export const italicCommand = toggleMark(schema.marks.em);
 export const setCodeCommand = setBlockType(schema.nodes.code_block);
 export const setParagraphCommand = setBlockType(schema.nodes.paragraph);
-export const setUnorderedListCommand = wrapInList(schema.nodes.bullet_list);
-export const setOrderedListCommand = wrapInList(schema.nodes.ordered_list);
+export const setUnorderedListCommand = wrapInList(schema.nodes.bullet_list, {tight: true});
+export const setOrderedListCommand = wrapInList(schema.nodes.ordered_list, {tight: true});
 export const liftCommand = lift;
 export const linkCommand = (attrs) => toggleMark(schema.marks.link, attrs);
 
