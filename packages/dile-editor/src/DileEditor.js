@@ -20,7 +20,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
         --dile-tab-selected-text-color: #0f4e96;
         --dile-tab-selected-background-color: transparent;
         --dile-tab-selected-line-color: #0f4e96;
-        --dile-tab-font-size: 0.7em;
+        --dile-tab-font-size: 0.8em;
         --dile-tab-padding: 8px 8px 2px 6px;
         --dile-tab-selected-line-height: 2px;
         
@@ -33,6 +33,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
     section.for-input {
       border: 2px solid #ddd;
       border-radius: 0.5rem;
+      font-size: 0.9rem;
     }
     section.for-input:focus-within {
       border: 2px solid var(--dile-editor-focus-color, #6af);
