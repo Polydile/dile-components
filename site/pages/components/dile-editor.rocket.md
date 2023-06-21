@@ -49,6 +49,10 @@ Use the component:
 
 - **value**: The markdown code of the content editable.
 
+## Events
+
+- **element-changed**: The element-changed event is dispatched when editor value propery changes. This event emits a detail object with its ```name``` and ```value``` properties.
+
 ## CSS Custom Properties
 
 You can customize the editor using this CSS Custom Properties.
@@ -56,6 +60,10 @@ You can customize the editor using this CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-editor-focus-border-color | Color border on focused state | 36px
+--dile-input-label-font-size | Font size for the label | 1em
+--dile-input-label-color | Color for the label text | #59e
+--dile-input-label-font-weight | Label text font weight | normal
+--dile-input-label-margin-bottom | Label marging bottom | 4px
 
 ## dile-editor demos
 

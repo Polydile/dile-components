@@ -1,20 +1,20 @@
 import { LitElement, html, css } from 'lit';
+import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
 import './dile-editor-markdown.js';
 import '@dile/dile-pages/dile-pages.js';
 import '@dile/dile-tabs/dile-tabs.js';
 
-export class DileEditor extends LitElement {
+export class DileEditor extends DileEmmitChangeMixin(LitElement) {
   static styles = [
     css`
      * {
       box-sizing: border-box;
      }
-      :host {
+    :host {
         display: block;
+        margin-bottom: 10px;
         font-family: arial;
-        border: 2px solid #ddd;
-        border-radius: 0.5rem;
-        
+              
         --dile-tab-text-color: #106eda;
         --dile-tab-background-color: transparent;
         --dile-tab-selected-text-color: #0f4e96;
@@ -24,12 +24,29 @@ export class DileEditor extends LitElement {
         --dile-tab-padding: 8px 8px 2px 6px;
         --dile-tab-selected-line-height: 2px;
         
-      }
-     :host(:focus-within) {
+    }
+    
+    main {
+      width: var(--dile-input-section-width, 100%);
+    }
+
+    section.for-input {
+      border: 2px solid #ddd;
+      border-radius: 0.5rem;
+    }
+    section.for-input:focus-within {
       border: 2px solid var(--dile-editor-focus-color, #6af);
+    }
+    
+    label {
+        display: block;
+        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
+        font-size: var(--dile-input-label-font-size, 1em);
+        color: var(--dile-input-label-color, #59e);
+        font-weight: var(--dile-input-label-font-weight, normal);
      }
       
-      nav {
+     nav {
         display: flex;
         justify-content: flex-end;
         background-color: #f5f5f5;
@@ -77,6 +94,7 @@ export class DileEditor extends LitElement {
         padding: 0.5rem;
       }
       
+      
     `
   ];
 
@@ -88,13 +106,15 @@ export class DileEditor extends LitElement {
       /** Name for this editor form field */
       name: { type: String },
 
+      /** Label to the element */
+      label: { type: String },
     };
   }
 
   constructor() {
     super();
     this.value = this.innerHTML;
-    //console.log('this.value', this.value);
+    this.label = '';
   }
 
   updated(changedProperties) {
@@ -110,33 +130,40 @@ export class DileEditor extends LitElement {
 
   render() {
     return html`
-       <nav>
-        <dile-tabs
-          selected="design"
-          selectorId="selector"
-          attrForSelected="name"
-          @dile-selected-changed=${this.tabSelectedChange}
-        >
-          <dile-tab name="design">Design view</dile-tab>
-          <dile-tab name="markdown">Markdown</dile-tab>
-        </dile-tabs>
-      </nav>
-      <dile-pages selected="design" selectorId="selector" attrForSelected="name">
-        <section class="editor" name="design">
-          <dile-editor-markdown
-            id="editor"
-            @dile-editor-change=${this.updateValue}
-          ></dile-editor-markdown>
+      <main>
+        ${this.label
+          ? html`<label for="textField">${this.label}</label>`
+          : ""
+        }
+        <section class="for-input">
+          <nav>
+            <dile-tabs
+              selected="design"
+              selectorId="selector"
+              attrForSelected="name"
+              @dile-selected-changed=${this.tabSelectedChange}
+            >
+              <dile-tab name="design">Design view</dile-tab>
+              <dile-tab name="markdown">Markdown</dile-tab>
+            </dile-tabs>
+          </nav>
+          <dile-pages selected="design" selectorId="selector" attrForSelected="name">
+            <section class="editor" name="design">
+              <dile-editor-markdown
+                id="editor"
+                @dile-editor-change=${this.updateValue}
+              ></dile-editor-markdown>
+            </section>
+            <section name="markdown">
+              <textarea id="eltextarea" .value="${this.value}"></textarea>
+            </section>
+          </dile-pages>
         </section>
-        <section name="markdown">
-          <textarea id="eltextarea" .value="${this.value}"></textarea>
-        </section>
-      </dile-pages>
+      </main>
     `;
   }
 
   updateValue(e) {
-    //console.log('updatevalue');
     this.value = e.detail.content;
     this.textarea.value = e.detail.content;
   }
@@ -158,6 +185,5 @@ export class DileEditor extends LitElement {
     if(e.detail.selected == 'design') {
       this.editor.updateEditorContent(this.textarea.value)
     }
-    //console.log(e.detail);
   }
 }
