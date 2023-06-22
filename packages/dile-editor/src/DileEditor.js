@@ -149,14 +149,18 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
             </dile-tabs>
           </nav>
           <dile-pages selected="design" selectorId="selector" attrForSelected="name">
+            <section name="markdown">
+              <textarea 
+                id="eltextarea" 
+                .value="${this.value}"
+                @input=${this.doTextareaKeypress}
+              ></textarea>
+            </section>
             <section class="editor" name="design">
               <dile-editor-markdown
                 id="editor"
                 @dile-editor-change=${this.updateValue}
               ></dile-editor-markdown>
-            </section>
-            <section name="markdown">
-              <textarea id="eltextarea" .value="${this.value}"></textarea>
             </section>
           </dile-pages>
         </section>
@@ -186,5 +190,9 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
     if(e.detail.selected == 'design') {
       this.editor.updateEditorContent(this.textarea.value)
     }
+  }
+
+  doTextareaKeypress(e) {
+    this.value = e.target.value;
   }
 }
