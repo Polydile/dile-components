@@ -82,6 +82,29 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
       .ProseMirror h6:first-child {
         margin-top: 10px;
       }
+
+      .ProseMirror h1 {
+        font-size: 1.5rem;
+      }
+      .ProseMirror h2 {
+        font-size: 1.3rem;
+      }
+      .ProseMirror h3 {
+        font-size: 1.1rem;
+      }
+      .ProseMirror h4 {
+        font-size: 1rem;
+        opacity: 0.7;
+      }
+      .ProseMirror h5 {
+        font-size: 0.9rem;
+        opacity: 0.6;
+      }
+      .ProseMirror h6 {
+        font-size: 0.8rem;
+        opacity: 0.5;
+      }
+
       dile-tabs {
         margin-bottom: 0.3rem;
       }
