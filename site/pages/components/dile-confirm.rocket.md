@@ -87,6 +87,7 @@ Custom property | Description | Default
 --dile-confirm-border-radius-button | Button border radius | 5px
 --dile-confirm-padding-button | Button padding | 7px
 --dile-confirm-font-size-button | Button font size | 1em
+--dile-confirm-font-weight-button | Button font weight | normal
 --dile-confirm-buttons-text-align | Buttons element text align | right
 --dile-confirm-text-transform  | Button text transformation | uppercase
 --dile-confirm-buttons-margin-top | Confirm buttons section margin-top | 10px

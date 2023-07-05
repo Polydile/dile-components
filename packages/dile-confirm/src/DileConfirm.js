@@ -13,6 +13,7 @@ export class DileConfirm extends LitElement {
         font-size: var(--dile-confirm-font-size-button, 1em);
         text-transform: var(--dile-confirm-text-transform, uppercase);
         text-decoration: none;
+        font-weight: var(--dile-confirm-font-weight-button, normal);
       }
       .cancel {
         background-color: var(--dile-confirm-cancel-button-color, #dc3545);
