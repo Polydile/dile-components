@@ -13,15 +13,17 @@ export class DileConfirm extends LitElement {
         font-size: var(--dile-confirm-font-size-button, 1em);
         text-transform: var(--dile-confirm-text-transform, uppercase);
         text-decoration: none;
-        font-weight: var(--dile-confirm-font-weight-button, normal);
       }
       .cancel {
         background-color: var(--dile-confirm-cancel-button-color, #dc3545);
         color: var(--dile-confirm-cancel-text-button-color, #fff);
+        font-weight: var(--dile-confirm-font-weight-cancel-button, var(--dile-confirm-font-weight-button, normal));
       }
       .accept {
         background-color: var(--dile-confirm-accept-button-color, #007bff);
         color: var(--dile-confirm-accept-text-button-color, #fff);
+        font-weight: var(--dile-confirm-font-weight-accept-button, var(--dile-confirm-font-weight-button, normal));
+
       }
       .actions {
         margin-top: var(--dile-confirm-buttons-margin-top, 10px);
