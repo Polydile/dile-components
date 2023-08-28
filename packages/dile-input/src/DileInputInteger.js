@@ -26,6 +26,7 @@ export class DileInputInteger extends DileInput {
         }
         if(num != e.target.value || this.changed) {
             this.el.value = num;
+            this.value = num;
             this.emmitChange();
             this.changed = false;
         }
