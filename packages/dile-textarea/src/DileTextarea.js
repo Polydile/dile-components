@@ -25,6 +25,12 @@ export class DileTextarea extends LionTextarea {
         border: var(--dile-textarea-border, 1px solid #888);
         border-radius: var(--dile-textarea-border-radius, 5px);
         padding: var(--dile-textarea-padding, 5px);
+        background-color: var(--dile-textarea-background-color, #fff);
+        color: var(--dile-textarea-color, #000);
+        
+      }
+      ::slotted(textarea)::placeholder {
+        color: var(--dile-textarea-placeholder-color, #999);
       }
       .input-group__container > .input-group__input ::slotted(textarea.form-control) {
         font-size: var(--dile-textarea-font-size, 1em);

@@ -82,6 +82,9 @@ Custom property | Description | Default
 --dile-input-message-font-size | Message font size | 0.875em
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
+--dile-textarea-background-color | Textarea background color | #ffffff
+--dile-textarea-color | Textarea text color | #000
+--dile-textarea-placeholder-color | Placeholder text color | #999
 
 ## Events
 
