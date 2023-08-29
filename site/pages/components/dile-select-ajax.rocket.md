@@ -24,6 +24,24 @@ This component has the hability to search in a configurable JSON API resource to
 
 The component make automatic server calls using Ajax to the URL configured by the ```endpoint``` attribute.
 
+## Installation
+
+To install dile-select-ajax component you have to install @dile/dile-select package.
+
+```bash
+npm i @dile/dile-select
+```
+
+## dile-select Usage
+
+Import the component.
+
+```javascript
+import '@dile/dile-select/dile-select-ajax.js';
+```
+
+Use the component.
+
 ```html
 <dile-select-ajax 
   id="select1"
