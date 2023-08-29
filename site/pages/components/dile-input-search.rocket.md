@@ -79,6 +79,7 @@ Custom property | Description | Default
 --dile-input-background-color | Color for the background input element | #fff
 --dile-input-padding | Padding for the input text | 5px
 --dile-input-placeholder-color | Placeholder color | #ccc
+--dile-input-focus-border-color | Border color on focus state | #6af
 
 ## dile-input-search demos
 

@@ -18,6 +18,9 @@ export class DileInputSearch extends LitElement {
                 width: var(--dile-input-width, 100%);
                 background-color: var(--dile-input-background-color, #fff);
             }
+            div:focus-within {
+                border-color: var(--dile-input-focus-border-color, #6af);
+            }
             input {
                 flex-grow: 1;
                 border: none;
