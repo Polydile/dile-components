@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import '@dile/dile-input-search/dile-input-search.js';
 import '@dile/dile-spinner/dile-spinner-horizontal.js';
 import { DileEmmitChangeMixin } from '@dile/dile-form-mixin'; 
+import '../dile-select.js';
 
 export class DileSelectAjax  extends DileEmmitChangeMixin(LitElement) {
 
