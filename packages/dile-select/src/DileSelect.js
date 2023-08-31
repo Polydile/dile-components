@@ -100,7 +100,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     if (!this.elselect) {
-      console.log('Please provide a select element in the slot "select"');
+      throw new Error('Use dile-select with a select element in the slot "select"');
     } else {
       this.elselect.addEventListener("change", this.changeHandler);
     }
