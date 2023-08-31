@@ -142,11 +142,19 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
   firstUpdated() {
     super.firstUpdated();
     this.quiet = this.quietOnStart;
-    if(this.value) {
-      this.elselect.value = this.value;
+    this.firstUpdatedValue();
+  }
+
+  firstUpdatedValue() {
+    if(this.elselect) {
+      if (this.value) {
+        this.elselect.value = this.value;
+      } else {
+        this.value = this.elselect.value;
+      }
     } else {
-      this.value = this.elselect.value;
-    } 
+      setTimeout( () => this.firstUpdatedValue.bind(this), 100);
+    }
   }
 
   clear() {
