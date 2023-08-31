@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-select",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Web Component to implement a plain selector interface, following open-wc recommendations",
   "keywords": [
     "Lit",
