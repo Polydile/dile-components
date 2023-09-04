@@ -36,6 +36,7 @@ export class DileButton extends LitElement {
         font-size: var(--dile-button-font-size, 1rem);
         font-weight: var(--dile-button-font-weight, bold);
         text-transform: var(--dile-button-text-transform, none);
+        letter-spacing: var(--dile-button-letter-spacing, 0);
       }
       button:hover {
         background-color: var(--dile-button-hover-background-color, #f3f3ae);
