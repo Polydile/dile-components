@@ -132,6 +132,8 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
 
       /** Label to the element */
       label: { type: String },
+
+      viewSelected: { type: String },
     };
   }
 
@@ -139,6 +141,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
     super();
     this.value = this.innerHTML;
     this.label = '';
+    this.viewSelected = 'design'
   }
 
   updated(changedProperties) {
@@ -163,7 +166,6 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
           <nav>
             <dile-tabs
               selected="design"
-              selectorId="selector"
               attrForSelected="name"
               @dile-selected-changed=${this.tabSelectedChange}
             >
@@ -171,7 +173,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
               <dile-tab name="markdown">Markdown</dile-tab>
             </dile-tabs>
           </nav>
-          <dile-pages selected="design" selectorId="selector" attrForSelected="name">
+          <dile-pages selected="${this.viewSelected}" attrForSelected="name">
             <section name="markdown">
               <textarea 
                 id="eltextarea" 
@@ -210,7 +212,8 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
   }
 
   tabSelectedChange(e) {
-    if(e.detail.selected == 'design') {
+    this.viewSelected = e.detail.selected;
+    if (this.viewSelected == 'design') {
       this.editor.updateEditorContent(this.textarea.value)
     }
   }

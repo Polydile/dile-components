@@ -11,6 +11,7 @@ export class DileEditorToolbar extends LitElement {
     css`
       :host {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         border-bottom: 1px solid #ddd;
         padding: 4px;
