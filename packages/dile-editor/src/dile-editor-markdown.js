@@ -57,7 +57,7 @@ export class DileEditorMarkdown extends LitElement {
         history(),
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
-        menuPlugin,
+        menuPlugin(),
       ]
     })
   }
