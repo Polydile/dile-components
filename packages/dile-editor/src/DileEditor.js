@@ -50,7 +50,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
      nav {
         display: flex;
         justify-content: flex-end;
-        background-color: #f5f5f5;
+        background-color: var(--dile-input-views-nav-background-color, #f5f5f5);
         padding-right: 0.6rem;
         border-bottom: 1px solid #ddd;
         border-top-right-radius: 0.5rem;
