@@ -15,11 +15,11 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
         margin-bottom: 10px;
         font-family: arial;
               
-        --dile-tab-text-color: #106eda;
+        --dile-tab-text-color: var(--dile-editor-views-nav-color, #106eda);
         --dile-tab-background-color: transparent;
-        --dile-tab-selected-text-color: #0f4e96;
+        --dile-tab-selected-text-color: var(--dile-editor-views-nav-selected-color, #0f4e96);
         --dile-tab-selected-background-color: transparent;
-        --dile-tab-selected-line-color: #0f4e96;
+        --dile-tab-selected-line-color: var(--dile-editor-views-nav-selected-line-color, #0f4e96);
         --dile-tab-font-size: 0.8em;
         --dile-tab-padding: 8px 8px 2px 6px;
         --dile-tab-selected-line-height: 2px;
@@ -50,7 +50,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
      nav {
         display: flex;
         justify-content: flex-end;
-        background-color: var(--dile-input-views-nav-background-color, #f5f5f5);
+        background-color: var(--dile-editor-views-nav-background-color, #f5f5f5);
         padding-right: 0.6rem;
         border-bottom: 1px solid #ddd;
         border-top-right-radius: 0.5rem;
