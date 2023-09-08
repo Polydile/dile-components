@@ -17,6 +17,7 @@ export class DileTextarea extends LionTextarea {
         margin-bottom: var(--dile-textarea-label-margin-bottom, 4px);
         color: var(--dile-textarea-label-color, #59e);
         font-size: var(--dile-textarea-label-font-size, 1em);
+        font-weight: var(--dile-textarea-label-font-weight, normal);
       }
       :host([label]) ::slotted(label){
         display: inline-block;

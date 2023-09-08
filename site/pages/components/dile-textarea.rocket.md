@@ -71,6 +71,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-textarea-label-color | Label text color | #59e
 --dile-textarea-label-font-size | Label font size | 1em
+--dile-textarea-label-font-weight | Label font weight | bold
 --dile-textarea-border | Textarea box border | 1px solid #888
 --dile-textarea-border-radius | Textarea element border radius | 5px
 --dile-textarea-font-size | Input element font size | 1em
