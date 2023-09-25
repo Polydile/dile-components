@@ -60,7 +60,7 @@
     </script>
 
     <h2>Selected by attribute</h2>
-    <dile-selector selected="posts" attrForSelected="name" id="selector2">
+    <dile-selector selected="posts" attrForSelected="name">
       <dile-selector-item icon="star" name="users">Users</dile-selector-item>
       <dile-selector-item icon="star" name="posts">Posts</dile-selector-item>
       <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
@@ -119,6 +119,20 @@
         })
       })
     </script>
+
+    <h2>Using hashSelection</h2>
+    <p>Connect selector to URL Hash.</p>
+
+    <dile-selector hashSelection attrForSelected="name" id="selector3">
+      <dile-selector-item icon="arrow_forward" name="apple">Apple</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="lemon">Lemon</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="orange">Orange</dile-selector-item>
+    </dile-selector>
+    <p>
+      <a href="#apple">Select Apple</a> | 
+      <a href="#lemon">Select Lemon</a> | 
+      <a href="#orange">Select Orange</a>
+    </p>
 
     <footer><a href="index.html">Back</a></footer>
   </div>
