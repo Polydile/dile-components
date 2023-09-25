@@ -15,6 +15,7 @@ export const DileSelectorMixin = (SuperClass) =>
         selected: { type: String },
         attrForSelected: { type: String },
         selectorId: { type: String },
+        hashSelection: { type: Boolean },
       }
     }
 
@@ -22,27 +23,61 @@ export const DileSelectorMixin = (SuperClass) =>
       super();
       this.selected = 0;
       this._items = [];
+      this.hashSelection = false;
       this.itemSelectedChangedHandler = this._itemSelectedChanged.bind(this);
+      this.onHashChangeHandler = this._onHashChange.bind(this);
+    }
+
+    _onHashChange() {
+      if(this.hashSelection) {
+        let items = this.getItems();
+        let hashValue = this.getCleanHash();
+        let elementIndex;
+        let elem = items.find( (item, index) => {
+          let value = this.getItemValueComputed(item, index);
+          elementIndex = index;
+          return value == hashValue;
+        });
+        if(elem) {
+          this.selected = this.getItemValueComputed(elem, elementIndex);
+          this.setSelectedItem();
+        }
+      }
+    }
+
+    getCleanHash() {
+      let hashValue = window.location.hash;
+      if(hashValue.length > 1) {
+        hashValue = hashValue.substring(1);
+      }
+      return hashValue;
+    }
+
+    getItemValueComputed(item, index) {
+      return this.attrForSelected ? item.getAttribute(this.attrForSelected) : index
     }
 
     connectedCallback() {
       super.connectedCallback();
       this.addEventListener('dile-item-selected', this.itemSelectedChangedHandler);
+      window.addEventListener("hashchange", this.onHashChangeHandler);
     }
 
     disconnectedCallback() {
       super.disconnectedCallback();
       this.removeEventListener('dile-item-selected', this.itemSelectedChangedHandler);
+      window.removeEventListener("hashchange", this.onHashChangeHandler);
     }
 
     firstUpdated() {
       super.firstUpdated();
-      this._items = this.shadowRoot.querySelector('slot').assignedElements({flatten: true});
+      this._items = this.getItems()
       let index = 0;
       this._items.forEach(el => {
         el._assignedIndex = index;
         index++;
       });
+      this._onHashChange();
       this.setSelectedItem();
     }
 
@@ -53,7 +88,16 @@ export const DileSelectorMixin = (SuperClass) =>
     }
 
     setSelectedItem() {
-      if(! this.attrForSelected) {
+      if(this.attrForSelected) {
+        // Selected by attribute
+        this._items.forEach(el => {
+          if(el.getAttribute(this.attrForSelected) == this.selected) {
+            el.selected = true;
+          } else {
+            el.selected = false;
+          }
+        });
+      } else {
         // Selected by index
         let selectedIndex = parseInt(this.selected);
         if(! isNaN(selectedIndex) && this._items[selectedIndex]) {
@@ -65,16 +109,9 @@ export const DileSelectorMixin = (SuperClass) =>
             }
           });
         }
-      } else {
-
-        // Selected by attribute
-        this._items.forEach(el => {
-          if(el.getAttribute(this.attrForSelected) == this.selected) {
-            el.selected = true;
-          } else {
-            el.selected = false;
-          }
-        });
+      }
+      if(this.hashSelection && this.selected != undefined) {
+        window.location.hash = this.selected;
       }
     }
 
@@ -102,5 +139,9 @@ export const DileSelectorMixin = (SuperClass) =>
     
     updated(changedProperties) {
       this.setSelectedItem();
+    }
+
+    getItems() {
+      return this.shadowRoot.querySelector('slot').assignedElements({flatten: true});
     }
   }

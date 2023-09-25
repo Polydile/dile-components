@@ -83,7 +83,7 @@
         <dile-tab name="contact">Contact</dile-tab>
     </dile-tabs>
     <select id="select3">
-      <option value="">Seleccionar una opción</option>
+      <option value="">Select one option</option>
       <option value="users">Users</option>
       <option value="posts">Posts</option>
       <option value="articles">Articles</option>
@@ -103,13 +103,25 @@
           console.log(select3, e.target.value);
           let newValue = e.target.value;
           if(newValue) {
-            console.log('voy a cambiaar tabs3 a', newValue);
+            console.log('change tabs3 to', newValue);
             tabs3.selected = newValue;
           }
         })
       })
     </script>
 
+    <h2>Change selected when hash changes</h2>
+    <p>This tabs component uses <code>hashSelection</code> functionality.</p>
+    <dile-tabs attrForSelected="name" id="tabs4" hashSelection>
+      <dile-tab name="one">One</dile-tab>
+      <dile-tab name="two">Two</dile-tab>
+      <dile-tab name="three">Three</dile-tab>
+    </dile-tabs>
+    <p>
+      <a href="#one">Select one tab</a> | 
+      <a href="#two">Select two tab</a> | 
+      <a href="#three">Select three tab</a>
+    </p>
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>

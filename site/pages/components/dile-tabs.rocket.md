@@ -60,6 +60,7 @@ Use the component
 - **selected**: This property sets the currently selected tab of the interface. By default the selected value need to be an integer, specifying th index of the selected tab (starting at 0 for the first tab, 1 for the second...).
 - **attrForSelected**: This property tells the ```<dile-tabs>``` component which attribute need to match the ```selected``` property to set the active tab. By default ```atrrForSelected``` is ```undefined```. In that case the ```selected``` property should be an integer and match to the index of the tab. If you set ```atrrForSelected``` with a value, then the ```selected``` property will be matched with the value of the attribute named in ```attrForSelected```.
 - **selectorId** (optional): A property to link this component to a dile-pages component and change automaticaly the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
+- **hashSelection**: Boolean property. Connects the tabs component with the URL hash. When the component detects changes in the URL hash, it automatically changes its selected tab. Additionally, when a tab is selected, the component updates the URL hash.
 
 ## More complex example
 
