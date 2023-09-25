@@ -38,9 +38,11 @@ export const DileSelectorMixin = (SuperClass) =>
           elementIndex = index;
           return value == hashValue;
         });
-        if(elem) {
-          this.selected = this.getItemValueComputed(elem, elementIndex);
+        let valueItem = this.getItemValueComputed(elem, elementIndex);
+        if(elem && this.selected != valueItem) {
+          this.selected = valueItem;
           this.setSelectedItem();
+          this.dispatchSelectedChanged();
         }
       }
     }
@@ -79,6 +81,9 @@ export const DileSelectorMixin = (SuperClass) =>
       });
       this._onHashChange();
       this.setSelectedItem();
+      if(this.selected !== undefined) {
+        setTimeout( () => this.dispatchSelectedChanged(), 500);
+      }
     }
 
     render() {

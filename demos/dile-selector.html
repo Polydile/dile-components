@@ -9,6 +9,7 @@
   <script type="module">
     import "@dile/dile-selector/dile-selector.js";
     import "@dile/dile-selector/dile-selector-item.js";
+    import "@dile/dile-pages/dile-pages.js";
   </script>
   <style>
     p {
@@ -51,16 +52,14 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let selector1 = document.getElementById('selector1')
-        console.log(selector1);
         selector1.addEventListener('dile-selected-changed', function(e) {
-          console.log(e.detail);
           document.getElementById('msg1').innerText = e.detail.selected
         });
       })
     </script>
 
     <h2>Selected by attribute</h2>
-    <dile-selector selected="posts" attrForSelected="name">
+    <dile-selector selected="posts" attrForSelected="name" id="selector2">
       <dile-selector-item icon="star" name="users">Users</dile-selector-item>
       <dile-selector-item icon="star" name="posts">Posts</dile-selector-item>
       <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
@@ -104,16 +103,12 @@
       document.addEventListener('DOMContentLoaded', function() {
         let selector3 = document.getElementById('selector3')
         let select3 = document.getElementById('select3')
-        console.log(selector3);
         selector3.addEventListener('dile-selected-changed', function(e) {
           select3.value = e.detail.selected;
-          console.log('this detail', e.detail);
         }); 
         select3.addEventListener('change', function(e) {
-          console.log(select3, e.target.value);
           let newValue = e.target.value;
           if(newValue) {
-            console.log('voy a cambiaar selector3 a', newValue);
             selector3.selected = newValue;
           }
         })
@@ -123,7 +118,7 @@
     <h2>Using hashSelection</h2>
     <p>Connect selector to URL Hash.</p>
 
-    <dile-selector hashSelection attrForSelected="name" id="selector3">
+    <dile-selector hashSelection attrForSelected="name" id="selector4" selectorId="selectorhash">
       <dile-selector-item icon="arrow_forward" name="apple">Apple</dile-selector-item>
       <dile-selector-item icon="arrow_forward" name="lemon">Lemon</dile-selector-item>
       <dile-selector-item icon="arrow_forward" name="orange">Orange</dile-selector-item>
@@ -133,6 +128,11 @@
       <a href="#lemon">Select Lemon</a> | 
       <a href="#orange">Select Orange</a>
     </p>
+    <dile-pages attrForSelected="name" selectorId="selectorhash">
+      <div name="apple">I am Apple</div>
+      <div name="lemon">I am Lemon</div>
+      <div name="orange">I am Orange</div>
+    </dile-pages>
 
     <footer><a href="index.html">Back</a></footer>
   </div>
