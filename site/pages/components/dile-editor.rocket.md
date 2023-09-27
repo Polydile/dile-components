@@ -59,11 +59,17 @@ You can customize the editor using this CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-input-section-width | Editor width | 100%
 --dile-editor-focus-border-color | Color border on focused state | 36px
 --dile-input-label-font-size | Font size for the label | 1em
 --dile-input-label-color | Color for the label text | #59e
 --dile-input-label-font-weight | Label text font weight | normal
 --dile-input-label-margin-bottom | Label marging bottom | 4px
+--dile-editor-background-color | Editor background color | #fff;
+--dile-editor-views-nav-background-color | Editor views selector background color | #f5f5f5
+--dile-editor-views-nav-color | Editor views selector text color | #106eda
+--dile-editor-views-nav-selected-color | Editor views selected view text color | #0f4e96
+--dile-editor-views-nav-selected-line-color | Editor views selected view line color | #0f4e96
 
 ## dile-editor demos
 

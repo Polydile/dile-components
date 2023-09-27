@@ -108,6 +108,10 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
       dile-tabs {
         margin-bottom: 0.3rem;
       }
+
+      .editor {
+        background-color: var(--dile-editor-background-color, #fff);
+      }
   
       textarea {
         resize: none;

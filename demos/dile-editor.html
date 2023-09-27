@@ -10,7 +10,11 @@
     import "@dile/dile-editor/dile-editor.js";
   </script>
   <style>
-   
+   .styled {
+    --dile-editor-background-color: #ffc;
+    --dile-editor-views-nav-background-color: orange;
+    --dile-editor-views-nav-color: #ffc;
+   }
   </style>
 </head>
 <body>
@@ -24,7 +28,7 @@
     
       <h2>Initialized editor</h2>
     <p>
-       <dile-editor label="Markdown editor"># Dile editor
+       <dile-editor label="Markdown editor" class="styled"># Dile editor
 This is a rich editor. This editor has a value property with the markdown code of this content editable area.
       </dile-editor> 
     </p>
