@@ -139,7 +139,7 @@ export class DileEditorToolbar extends LitElement {
     this.toolbarItems = this.computeActive(this.toolbarItems);
     this.undoItems = this.computeActive(this.undoItems);
     let currentBlock = this.blockItems.find(item => !item.command(this.editorView.state, null, this.editorView))
-    this.blockselect.quietChange(currentBlock.commandName);
+    this.blockselect?.quietChange(currentBlock.commandName);
   }
 
   computeActive(items) {

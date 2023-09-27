@@ -27,7 +27,6 @@ export class DileEditorMarkdown extends LitElement {
     super();
     const editorElement = this;
     const dispatchChange = this.dispatchChange.bind(this);
-
     const state = this.createState('');
     const view = new EditorView(editorElement, {
       state,
@@ -40,10 +39,8 @@ export class DileEditorMarkdown extends LitElement {
     this.view = view;
   }
 
-  render() {
-    return html`
-      <slot></slot>
-    `;
+  createRenderRoot() {
+    return this;
   }
 
   get editorMarkdown() {
