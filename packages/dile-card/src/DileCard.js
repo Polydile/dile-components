@@ -25,6 +25,7 @@ export class DileCard extends LitElement {
           padding-top: var(--dile-card-padding-y, 1rem);
           font-size: var(--dile-card-title-font-size, 1.5rem);
           font-weight: var(--dile-card-title-font-weight, 300);
+          color: var(--dile-card-title-color, var(--dile-card-text-color, #303030));
           margin: 0;
           margin-bottom: var(--dile-card-title-margin-bottom, 0);
         }
