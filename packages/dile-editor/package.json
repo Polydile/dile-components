@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-editor",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Webcomponent to create a user editor interface, configured on various ways",
   "keywords": [
     "markdown",
