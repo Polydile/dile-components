@@ -36,7 +36,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
           /** Name for this input field */
           name: { type: String },
 
-          /** Name for this input field */
+          /** Has error on this input field */
           errored: { type: Boolean },
 
           /** Disable the autocomplete of the input field */

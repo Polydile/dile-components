@@ -124,7 +124,7 @@ Custom property | Description | Default
 --dile-input-placeholder-color | Placeholder color | #ccc
 --dile-input-text-align | Input text align | left
 --dile-input-message-padding-top | Space from input to message | 4px
---dile-input-message-font-size | Message font size | 0.875em
+--dile-input-message-font-size | Message font size | 0.875rem
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
 --dile-input-label-right-margin-left | Separation betweeen input and text placed on its right side | 10px
