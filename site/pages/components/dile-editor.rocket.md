@@ -48,6 +48,12 @@ Use the component:
 ## Properties
 
 - **value**: The markdown code of the content editable.
+- **name**: Name for this editor form field 
+- **label**: Label for this editor
+- **viewSelected**  Selected view (this property can be "markdown" to show markdown code in a regular textarea or "editor" to show a rich editor)
+- **errored**: boolean property to show error styles.
+- **message**: Message Displayed
+- **hideErrorOnInput**: Clean the error state when the user input some content
 
 ## Events
 
@@ -73,6 +79,10 @@ Custom property | Description | Default
 --dile-editor-toolbar-background-color | Toolbar background color | transparent
 --dile-editor-toolbar-color | Toolbar icons color | #303030
 --dile-icon-size | Toolbar icons size | 24px
+--dile-input-message-padding-top | Space from input to message | 4px
+--dile-input-message-font-size | Message font size | 0.875rem
+--dile-input-message-color | Message text color | #888
+--dile-input-message-error-color | Message text color on errored state | #c00
 
 You can use the [dile-select component](https://dile-components.polydile.com/components/dile-select/) custom properties to change the paragraph type styles.
 
