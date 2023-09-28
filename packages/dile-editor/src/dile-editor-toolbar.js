@@ -15,6 +15,7 @@ export class DileEditorToolbar extends LitElement {
         align-items: center;
         border-bottom: 1px solid #ddd;
         padding: 4px;
+        background-color: var(--dile-editor-toolbar-background-color, transparent);
       }
       dile-editor-toolbar-item {
         margin-right: 0.4rem;

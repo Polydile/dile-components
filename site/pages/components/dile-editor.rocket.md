@@ -70,6 +70,11 @@ Custom property | Description | Default
 --dile-editor-views-nav-color | Editor views selector text color | #106eda
 --dile-editor-views-nav-selected-color | Editor views selected view text color | #0f4e96
 --dile-editor-views-nav-selected-line-color | Editor views selected view line color | #0f4e96
+--dile-editor-toolbar-background-color | Toolbar background color | transparent
+--dile-editor-toolbar-color | Toolbar icons color | #303030
+--dile-icon-size | Toolbar icons size | 24px
+
+You can use the [dile-select component](https://dile-components.polydile.com/components/dile-select/) custom properties to change the paragraph type styles.
 
 ## dile-editor demos
 

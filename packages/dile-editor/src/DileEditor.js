@@ -34,6 +34,7 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
       border: 2px solid #ddd;
       border-radius: 0.5rem;
       font-size: 0.9rem;
+      background-color: var(--dile-editor-background-color, #fff);
     }
     section.for-input:focus-within {
       border: 2px solid var(--dile-editor-focus-color, #6af);
@@ -53,9 +54,8 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
         background-color: var(--dile-editor-views-nav-background-color, #f5f5f5);
         padding-right: 0.6rem;
         border-bottom: 1px solid #ddd;
-        border-top-right-radius: 0.5rem;
-        border-top-left-radius: 0.5rem;
-
+        border-top-right-radius: 0.4rem;
+        border-top-left-radius: 0.4rem;
       }
 
       .ProseMirror {
@@ -107,10 +107,6 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
 
       dile-tabs {
         margin-bottom: 0.3rem;
-      }
-
-      .editor {
-        background-color: var(--dile-editor-background-color, #fff);
       }
   
       textarea {
