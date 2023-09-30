@@ -21,7 +21,6 @@ export const DileSelectorMixin = (SuperClass) =>
 
     constructor() {
       super();
-      this.selected = 0;
       this._items = [];
       this.hashSelection = false;
       this.itemSelectedChangedHandler = this._itemSelectedChanged.bind(this);
