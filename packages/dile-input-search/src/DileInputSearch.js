@@ -136,7 +136,11 @@ export class DileInputSearch extends LitElement {
     }
 
     set(value) {
-        this.input.value = value;
-        this.dispatchSearch(value);
+        if (this.input) {
+            this.input.value = value;
+            this.dispatchSearch(value);
+        } else {
+            setTimeout( () => this.set(value), 200);
+        }
     }
 }
