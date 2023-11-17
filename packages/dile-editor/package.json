@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-editor",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Webcomponent to create a user editor interface, configured on various ways",
   "keywords": [
     "markdown",
@@ -34,7 +34,7 @@
     "@dile/dile-input": "^2.1.0",
     "@dile/dile-menu-overlay": "^3.0.7",
     "@dile/dile-pages": "^2.1.0",
-    "@dile/dile-select": "^1.3.9",
+    "@dile/dile-select": "^1.3.10",
     "@dile/dile-tabs": "^4.1.3",
     "@dile/icons": "^1.3.1",
     "lit": "^2.6.1",
