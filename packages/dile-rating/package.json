@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-rating",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Webcomponent dile-rating to create a a rating interface with stars",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-icon": "^1.0.9",
+    "@dile/dile-icon": "^1.0.10",
     "@dile/icons": "^1.4.0",
     "lit": "^2.6.1"
   },
