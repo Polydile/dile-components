@@ -1,31 +1,35 @@
 ```js server
 /* START - Rocket auto generated - do not touch */
-export const sourceRelativeFilePath = 'components/dile-icon.rocket.md';
+export const sourceRelativeFilePath = 'components/dile-icon-switch.rocket.md';
 import { layout } from '../recursive.data.js';
 export { layout };
 /* END - Rocket auto generated - do not touch */
+```
 
-export const title = 'dile-icon';
+```js server
+
+
+export const title = 'dile-icon-switch';
 ```
 
 ```js script
 import { html, css, LitElement } from 'lit'; 
 import '@mdjs/mdjs-story/define';
 import '@mdjs/mdjs-preview/define';
-import '@dile/dile-icon/dile-icon.js'
+import '@dile/dile-icon-switch/dile-icon-switch.js'
 import "@dile/dile-menu-hamburger/dile-menu-hamburger.js";
 import "@dile/dile-selector/dile-selector.js";
 import "@dile/dile-selector/dile-selector-item.js";
 ```
 
-# dile-icon
+# dile-icon-switch
 
-Web Component to create a container to display an icon.
+Web Component to create a switch based on an icon.
 
 ## Installation
 
 ```bash
-npm i @dile/dile-icon
+npm i @dile/dile-icon-switch
 ```
 
 ## Usage
@@ -33,39 +37,33 @@ npm i @dile/dile-icon
 Import the component.
 
 ```javascript
-import '@dile/dile-icon/dile-icon.js';
+import '@dile/dile-icon-switch/dile-icon-switch.js';
 ```
 
 You need to provide the icon in a ```icon``` property.
 
 ```html
-<dile-icon .icon="${appsIcon}"></dile-icon>
+<dile-icon-switch .icon="${appsIcon}"></dile-icon-switch>
 ```
 
-Usualy the provided icon will be a lit-html template.
-
-```javascript
-const appsIcon = html`<svg class="dile-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>`;
-```
-
-There are some icons in the [@dile/icons package](/utils/icons). So, you can use them easily in your components.
-
-```javascript
-import { closeIcon } from '@dile/icons';
-
-// Late, in render method
-html`<dile-icon .icon="${closeIcon}"></dile-icon>`
-```
-Also is possible to use any image or SVG you have.
-
-```javascript
-html`<dile-icon .icon=${html`<img src="./images/loto.png">`}></dile-icon>`
-```
+Usualy the provided icon will be a lit-html template. How to include the icon is explained at the [dile-icon](./dile-icon) documentation.
 
 ### Properties
 
-- **icon**: The icon
-- **rounded**: Create a icon background rounded
+- **name**: name of the switch element
+- **icon**: The icon (object property)
+- **active**: Boolean property with the switch state 
+
+### Events
+
+- **dile-icon-switch-changed**: fired on switch changes. The detail property has the values of the name and the active property values:
+
+```javascript
+{
+  nane: 'element-name-value'
+  active: true
+}
+```
 
 ### CSS Custom Properties
 
@@ -74,10 +72,10 @@ You can customize it using CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-icon-size | Icon size | 24px
---dile-icon-color | Icon color | #888
---dile-icon-rounded-background-color | Background color when rounded | #eee
+--dile-icon-switch-active-color | Icon color on active state | #7BB93D
+--dile-icon-switch-inactive-color | Icon color on inactive state | #303030
 
-## dile-icon demos
+## dile-icon-switch demos
 
 ### Icons demo
 
@@ -98,17 +96,13 @@ class MyComponent extends LitElement {
 
   render() {
     return html`
-      <dile-icon class="apps" .icon=${this.appsIcon}></dile-icon>
-      <dile-icon class="description" .icon=${this.descriptionIcon}></dile-icon>
-      <dile-icon class="star" .icon=${this.starIcon}></dile-icon>
+      <dile-icon-switch class="apps" name="switch1" .icon=${this.appsIcon}></dile-icon-switch>
     `
   }
 
   firstUpdated() {
     // This should not be necessary but the component to show the demo does not work well with interpoplation of strings
-    this.shadowRoot.querySelector('dile-icon.apps').icon = appsIcon;
-    this.shadowRoot.querySelector('dile-icon.description').icon = descriptionIcon;
-    this.shadowRoot.querySelector('dile-icon.star').icon = starIcon;
+    this.shadowRoot.querySelector('dile-icon-switch.apps').icon = appsIcon;
   }
 }
 customElements.define('my-component', MyComponent);
@@ -131,15 +125,18 @@ class OtherComponent extends LitElement {
         column-gap: 0.5rem;
       }
       .styled {
-        --dile-icon-color: red;
+        --dile-icon-switch-active-color: red;
+        --dile-icon-switch-inactive-color: pink;
         --dile-icon-size: 32px;
       }
       .styled2 {
-        --dile-icon-color: #990099;
+        --dile-icon-switch-active-color: #990099;
+        --dile-icon-switch-inactive-color: #ddd;
         --dile-icon-size: 18px;
       }
       .styled3 {
-        --dile-icon-color: blue;
+        --dile-icon-switch-active-color: blue;
+        --dile-icon-switch-inactive-color: #9bd;
         --dile-icon-size: 40px;
       }
     `
@@ -147,9 +144,9 @@ class OtherComponent extends LitElement {
 
   render() {
     return html`
-      <dile-icon id="icon1" class="styled">Polydile</dile-icon>
-      <dile-icon id="icon2" class="styled2">Polydile</dile-icon>
-      <dile-icon id="icon3" class="styled3">Polydile</dile-icon>
+      <dile-icon-switch id="icon1" class="styled">Polydile</dile-icon-switch>
+      <dile-icon-switch id="icon2" class="styled2">Polydile</dile-icon-switch>
+      <dile-icon-switch id="icon3" class="styled3">Polydile</dile-icon-switch>
     `
   }
 

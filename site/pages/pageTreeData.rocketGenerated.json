@@ -3048,6 +3048,75 @@
           "outputRelativeFilePath": "components/dile-tooltip/index.html",
           "sourceRelativeFilePath": "components/dile-tooltip.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-icon-switch",
+          "h1": "dile-icon-switch",
+          "headlinesWithId": [
+            {
+              "text": "dile-icon-switch",
+              "id": "dile-icon-switch",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 3
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 3
+            },
+            {
+              "text": "Styled icons",
+              "id": "styled-icons",
+              "level": 3
+            }
+          ],
+          "name": "dile-icon-switch",
+          "menuLinkText": "dile-icon-switch",
+          "url": "/components/dile-icon-switch/",
+          "outputRelativeFilePath": "components/dile-icon-switch/index.html",
+          "sourceRelativeFilePath": "components/dile-icon-switch.rocket.md",
+          "level": 2
+        },
+        {
+          "title": "dile-icon-switch-group",
+          "h1": "dile-icon-switch-group",
+          "headlinesWithId": [
+            {
+              "text": "dile-icon-switch-group",
+              "id": "dile-icon-switch-group",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            }
+          ],
+          "name": "dile-icon-switch-group",
+          "menuLinkText": "dile-icon-switch-group",
+          "url": "/components/dile-icon-switch-group/",
+          "outputRelativeFilePath": "components/dile-icon-switch-group/index.html",
+          "sourceRelativeFilePath": "components/dile-icon-switch-group.rocket.md",
+          "level": 2
         }
       ]
     },

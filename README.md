@@ -132,7 +132,6 @@ To develop web components or run the demos allocated on the ```demo``` folder, y
 
 2.- Run ```npm install``` to install the dependencies
 
-3.- Run ```npm run lerna bootstrap``` to link local packages together
+3.- Run ```npm run start``` to launch the demos
 
-4.- Run ```npm run start``` to launch the demos
-
+When a new component is published in its own package, in order to use the component in the demos or docs is necesary to run 'npm install'. With this command the package will be available in the npm workspace managed by Lerna v7+.
