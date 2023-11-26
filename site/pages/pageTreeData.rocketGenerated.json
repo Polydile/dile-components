@@ -3117,6 +3117,63 @@
           "outputRelativeFilePath": "components/dile-icon-switch-group/index.html",
           "sourceRelativeFilePath": "components/dile-icon-switch-group.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-range",
+          "h1": "dile-range",
+          "headlinesWithId": [
+            {
+              "text": "dile-range",
+              "id": "dile-range",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 3
+            },
+            {
+              "text": "CSS Custom Properties",
+              "id": "css-custom-properties",
+              "level": 3
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "dile-range demos",
+              "id": "dile-range-demos",
+              "level": 2
+            },
+            {
+              "text": "Regular range",
+              "id": "regular-range",
+              "level": 3
+            },
+            {
+              "text": "Styled range",
+              "id": "styled-range",
+              "level": 3
+            }
+          ],
+          "name": "dile-range",
+          "menuLinkText": "dile-range",
+          "url": "/components/dile-range/",
+          "outputRelativeFilePath": "components/dile-range/index.html",
+          "sourceRelativeFilePath": "components/dile-range.rocket.md",
+          "level": 2
         }
       ]
     },
