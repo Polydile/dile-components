@@ -91,6 +91,7 @@ export { swapIcon } from "./src/swap.js";
 export { switchLeftIcon } from "./src/switchLeft.js";
 export { textFieldsIcon } from "./src/textFields.js";
 export { thumbUpIcon } from "./src/thumbUp.js";
+export { thumbDownIcon } from "./src/thumbDown.js";
 export { timerIcon } from "./src/timer.js";
 export { tuneIcon } from "./src/tune.js";
 export { undoIcon } from "./src/undo.js";

@@ -110,6 +110,7 @@ import { swapIcon } from "../../../packages/icons/index.js";
 import { switchLeftIcon } from "../../../packages/icons/index.js";
 import { textFieldsIcon } from "../../../packages/icons/index.js";
 import { thumbUpIcon } from "../../../packages/icons/index.js";
+import { thumbDownIcon } from "../../../packages/icons/index.js";
 import { timerIcon } from "../../../packages/icons/index.js";
 import { tuneIcon } from "../../../packages/icons/index.js";
 import { undoIcon } from "../../../packages/icons/index.js";
@@ -714,6 +715,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="thumbDownIcon"></dile-icon>
+        <span>thumbDownIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="timerIcon"></dile-icon>
         <span>timerIcon</span>
       </article>
@@ -855,6 +861,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('switchLeftIcon').icon = switchLeftIcon;
     this.shadowRoot.getElementById('textFieldsIcon').icon = textFieldsIcon;
     this.shadowRoot.getElementById('thumbUpIcon').icon = thumbUpIcon;
+    this.shadowRoot.getElementById('thumbDownIcon').icon = thumbDownIcon;
     this.shadowRoot.getElementById('timerIcon').icon = timerIcon;
     this.shadowRoot.getElementById('tuneIcon').icon = tuneIcon;
     this.shadowRoot.getElementById('undoIcon').icon = undoIcon;
