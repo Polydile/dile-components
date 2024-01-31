@@ -37,6 +37,7 @@ import { clearIcon } from "../../../packages/icons/index.js";
 import { closeIcon } from "../../../packages/icons/index.js";
 import { codeIcon } from "../../../packages/icons/index.js";
 import { cookieIcon } from "../../../packages/icons/index.js";
+import { cropIcon } from "../../../packages/icons/index.js";
 import { deleteIcon } from "../../../packages/icons/index.js";
 import { descriptionIcon } from "../../../packages/icons/index.js";
 import { doneIcon } from "../../../packages/icons/index.js";
@@ -81,8 +82,10 @@ import { moreVertIcon } from "../../../packages/icons/index.js";
 import { newReleasesIcon } from "../../../packages/icons/index.js";
 import { notesIcon } from "../../../packages/icons/index.js";
 import { notificationsIcon } from "../../../packages/icons/index.js";
+import { openWithIcon } from "../../../packages/icons/index.js";
 import { paidIcon } from "../../../packages/icons/index.js";
 import { paletteIcon } from "../../../packages/icons/index.js";
+import { panToolIcon } from "../../../packages/icons/index.js";
 import { pdfIcon } from "../../../packages/icons/index.js";
 import { photoCameraIcon } from "../../../packages/icons/index.js";
 import { priorityHighIcon } from "../../../packages/icons/index.js";
@@ -92,6 +95,9 @@ import { receiptIcon } from "../../../packages/icons/index.js";
 import { receiptLongIcon } from "../../../packages/icons/index.js";
 import { redoIcon } from "../../../packages/icons/index.js";
 import { refreshIcon } from "../../../packages/icons/index.js";
+import { rotateLeftIcon } from "../../../packages/icons/index.js";
+import { rotateRightIcon } from "../../../packages/icons/index.js";
+import { saveIcon } from "../../../packages/icons/index.js";
 import { scaleIcon } from "../../../packages/icons/index.js";
 import { searchIcon } from "../../../packages/icons/index.js";
 import { settingsIcon } from "../../../packages/icons/index.js";
@@ -104,12 +110,16 @@ import { swapIcon } from "../../../packages/icons/index.js";
 import { switchLeftIcon } from "../../../packages/icons/index.js";
 import { textFieldsIcon } from "../../../packages/icons/index.js";
 import { thumbUpIcon } from "../../../packages/icons/index.js";
+import { thumbDownIcon } from "../../../packages/icons/index.js";
 import { timerIcon } from "../../../packages/icons/index.js";
 import { tuneIcon } from "../../../packages/icons/index.js";
 import { undoIcon } from "../../../packages/icons/index.js";
 import { uploadIcon } from "../../../packages/icons/index.js";
 import { videocamIcon } from "../../../packages/icons/index.js";
 import { warningIcon } from "../../../packages/icons/index.js";
+import { zoomInIcon } from "../../../packages/icons/index.js";
+import { zoomOutIcon } from "../../../packages/icons/index.js";
+import { zoomOutMapIcon } from "../../../packages/icons/index.js";
 ```
 
 # icons
@@ -164,6 +174,7 @@ static get styles() {
 ### Using icons with dile-icon component
 
 This icons library works well with the [dile-icon](/components/dile-icon) component. 
+
 
 When you use ```<dile-icon>``` you will have configured the icon custom properties and styles to the icon box, in order to fit your icons in a better way.
 
@@ -336,6 +347,11 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="cookieIcon"></dile-icon>
         <span>cookieIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="cropIcon"></dile-icon>
+        <span>cropIcon</span>
       </article>
 
       <article>
@@ -559,6 +575,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="openWithIcon"></dile-icon>
+        <span>openWithIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="paidIcon"></dile-icon>
         <span>paidIcon</span>
       </article>
@@ -566,6 +587,11 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="paletteIcon"></dile-icon>
         <span>paletteIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="panToolIcon"></dile-icon>
+        <span>panToolIcon</span>
       </article>
 
       <article>
@@ -611,6 +637,21 @@ class MyComponent extends LitElement {
       <article>
         <dile-icon id="refreshIcon"></dile-icon>
         <span>refreshIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="rotateLeftIcon"></dile-icon>
+        <span>rotateLeftIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="rotateRightIcon"></dile-icon>
+        <span>rotateRightIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="saveIcon"></dile-icon>
+        <span>saveIcon</span>
       </article>
 
       <article>
@@ -674,6 +715,11 @@ class MyComponent extends LitElement {
       </article>
 
       <article>
+        <dile-icon id="thumbDownIcon"></dile-icon>
+        <span>thumbDownIcon</span>
+      </article>
+
+      <article>
         <dile-icon id="timerIcon"></dile-icon>
         <span>timerIcon</span>
       </article>
@@ -702,6 +748,21 @@ class MyComponent extends LitElement {
         <dile-icon id="warningIcon"></dile-icon>
         <span>warningIcon</span>
       </article>
+
+      <article>
+        <dile-icon id="zoomInIcon"></dile-icon>
+        <span>zoomInIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="zoomOutIcon"></dile-icon>
+        <span>zoomOutIcon</span>
+      </article>
+
+      <article>
+        <dile-icon id="zoomOutMapIcon"></dile-icon>
+        <span>zoomOutMapIcon</span>
+      </article>
     </div>
     `
   }
@@ -727,6 +788,7 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('closeIcon').icon = closeIcon;
     this.shadowRoot.getElementById('codeIcon').icon = codeIcon;
     this.shadowRoot.getElementById('cookieIcon').icon = cookieIcon;
+    this.shadowRoot.getElementById('cropIcon').icon = cropIcon;
     this.shadowRoot.getElementById('deleteIcon').icon = deleteIcon;
     this.shadowRoot.getElementById('descriptionIcon').icon = descriptionIcon;
     this.shadowRoot.getElementById('doneIcon').icon = doneIcon;
@@ -771,7 +833,9 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('newReleasesIcon').icon = newReleasesIcon;
     this.shadowRoot.getElementById('notesIcon').icon = notesIcon;
     this.shadowRoot.getElementById('notificationsIcon').icon = notificationsIcon;
+    this.shadowRoot.getElementById('openWithIcon').icon = openWithIcon;
     this.shadowRoot.getElementById('paidIcon').icon = paidIcon;
+    this.shadowRoot.getElementById('panToolIcon').icon = panToolIcon;
     this.shadowRoot.getElementById('paletteIcon').icon = paletteIcon;
     this.shadowRoot.getElementById('pdfIcon').icon = pdfIcon;
     this.shadowRoot.getElementById('photoCameraIcon').icon = photoCameraIcon;
@@ -782,6 +846,9 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('receiptLongIcon').icon = receiptLongIcon;
     this.shadowRoot.getElementById('redoIcon').icon = redoIcon;
     this.shadowRoot.getElementById('refreshIcon').icon = refreshIcon;
+    this.shadowRoot.getElementById('rotateLeftIcon').icon = rotateLeftIcon;
+    this.shadowRoot.getElementById('rotateRightIcon').icon = rotateRightIcon;
+    this.shadowRoot.getElementById('saveIcon').icon = saveIcon;
     this.shadowRoot.getElementById('scaleIcon').icon = scaleIcon;
     this.shadowRoot.getElementById('searchIcon').icon = searchIcon;
     this.shadowRoot.getElementById('settingsIcon').icon = settingsIcon;
@@ -794,12 +861,16 @@ class MyComponent extends LitElement {
     this.shadowRoot.getElementById('switchLeftIcon').icon = switchLeftIcon;
     this.shadowRoot.getElementById('textFieldsIcon').icon = textFieldsIcon;
     this.shadowRoot.getElementById('thumbUpIcon').icon = thumbUpIcon;
+    this.shadowRoot.getElementById('thumbDownIcon').icon = thumbDownIcon;
     this.shadowRoot.getElementById('timerIcon').icon = timerIcon;
     this.shadowRoot.getElementById('tuneIcon').icon = tuneIcon;
     this.shadowRoot.getElementById('undoIcon').icon = undoIcon;
     this.shadowRoot.getElementById('uploadIcon').icon = uploadIcon;
     this.shadowRoot.getElementById('videocamIcon').icon = videocamIcon;
     this.shadowRoot.getElementById('warningIcon').icon = warningIcon;
+    this.shadowRoot.getElementById('zoomInIcon').icon = zoomInIcon;
+    this.shadowRoot.getElementById('zoomOutIcon').icon = zoomOutIcon;
+    this.shadowRoot.getElementById('zoomOutMapIcon').icon = zoomOutMapIcon;
   }
 }
 customElements.define('my-component', MyComponent);

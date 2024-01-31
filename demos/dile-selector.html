@@ -53,7 +53,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         let selector1 = document.getElementById('selector1')
         selector1.addEventListener('dile-selected-changed', function(e) {
-          document.getElementById('msg1').innerText = e.detail.selected
+          document.getElementById('msg1').innerText = parseInt(e.detail.selected) + 1
         });
       })
     </script>

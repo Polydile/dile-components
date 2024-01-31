@@ -21,7 +21,6 @@ export const DileSelectorMixin = (SuperClass) =>
 
     constructor() {
       super();
-      this.selected = 0;
       this._items = [];
       this.hashSelection = false;
       this.itemSelectedChangedHandler = this._itemSelectedChanged.bind(this);
@@ -38,11 +37,13 @@ export const DileSelectorMixin = (SuperClass) =>
           elementIndex = index;
           return value == hashValue;
         });
-        let valueItem = this.getItemValueComputed(elem, elementIndex);
-        if(elem && this.selected != valueItem) {
-          this.selected = valueItem;
-          this.setSelectedItem();
-          this.dispatchSelectedChanged();
+        if(elem) {
+          let valueItem = this.getItemValueComputed(elem, elementIndex);
+          if(this.selected != valueItem) {
+            this.selected = valueItem;
+            this.setSelectedItem();
+            this.dispatchSelectedChanged();
+          }
         }
       }
     }

@@ -39,7 +39,7 @@ import '@dile/dile-icon/dile-icon.js';
 You need to provide the icon in a ```icon``` property.
 
 ```html
-<dile-icon .icon="${appsIcon}">Button Label</dile-icon>
+<dile-icon .icon="${appsIcon}"></dile-icon>
 ```
 
 Usualy the provided icon will be a lit-html template.

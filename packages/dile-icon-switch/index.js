@@ -1,0 +1,1 @@
+export { DileIconSwitch } from './src/DileIconSwitch.js';

@@ -51,6 +51,12 @@ Use the component.
 - **keyword**: the text typed into the input search component
 - **disabled**: The component is disabled
 
+## Methods
+
+- **set(value)**: Set the search value and emmit a dile-input-search event with the new value.
+- **focus()**: Set the focus on the input element
+- **clear()**: Clear the input element and emmit a dile-input-search with the empty value. Also emmit a dile-input-search-cleared event
+
 ## Custom events
 
 - **dile-input-search**: A search is performed with a new keyword. The event detail is an object like this:
@@ -60,6 +66,8 @@ Use the component.
   keyword: "the text searched"
 }
 ```
+
+- **dile-input-search-cleared**: The search element is cleared because the user has clicked on the clear icon or `clear()` method has called. 
 
 ## CSS Custom Properties
 

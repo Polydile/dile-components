@@ -134,4 +134,13 @@ export class DileInputSearch extends LitElement {
     focus() {
         this.input.focus();
     }
+
+    set(value) {
+        if (this.input) {
+            this.value = value;
+            this.dispatchSearch(value);
+        } else {
+            setTimeout( () => this.set(value), 200);
+        }
+    }
 }

@@ -3,9 +3,11 @@ import { DileEmmitChangeMixin } from '@dile/dile-form-mixin';
 import './dile-editor-markdown.js';
 import '@dile/dile-pages/dile-pages.js';
 import '@dile/dile-tabs/dile-tabs.js';
+import { messageStyles } from '@dile/dile-input/src/message-styles.js';
 
 export class DileEditor extends DileEmmitChangeMixin(LitElement) {
   static styles = [
+    messageStyles,
     css`
      * {
       box-sizing: border-box;
@@ -31,9 +33,10 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
     }
 
     section.for-input {
-      border: 2px solid #ddd;
+      border: var(--dile-editor-border, 2px solid #ddd);
       border-radius: 0.5rem;
       font-size: 0.9rem;
+      background-color: var(--dile-editor-background-color, #fff);
     }
     section.for-input:focus-within {
       border: 2px solid var(--dile-editor-focus-color, #6af);
@@ -52,10 +55,9 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
         justify-content: flex-end;
         background-color: var(--dile-editor-views-nav-background-color, #f5f5f5);
         padding-right: 0.6rem;
-        border-bottom: 1px solid #ddd;
-        border-top-right-radius: 0.5rem;
-        border-top-left-radius: 0.5rem;
-
+        border-bottom: var(--dile-editor-border, 2px solid #ddd);
+        border-top-right-radius: 0.4rem;
+        border-top-left-radius: 0.4rem;
       }
 
       .ProseMirror {
@@ -118,7 +120,14 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
         padding: 0.5rem;
       }
       
-      
+      section.errored {
+        border-color: var(--dile-input-error-border-color, #c00);
+      }
+
+      .column-reverse {
+         display: flex; 
+         flex-direction: column-reverse;
+      }
     `
   ];
 
@@ -134,6 +143,15 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
       label: { type: String },
 
       viewSelected: { type: String },
+
+      /** Has error on this input field */
+      errored: { type: Boolean },
+
+      /** Message Displayed */
+      message: { type: String },
+
+      /** Hide errors on input */
+      hideErrorOnInput: { type: Boolean },
     };
   }
 
@@ -141,7 +159,8 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
     super();
     this.value = this.innerHTML;
     this.label = '';
-    this.viewSelected = 'design'
+    this.viewSelected = 'design';
+    this.message = '';
   }
 
   updated(changedProperties) {
@@ -157,12 +176,17 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
 
   render() {
     return html`
+    <div class="column-reverse">
+      ${this.message
+        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        : ''
+      }
       <main>
         ${this.label
           ? html`<label for="textField">${this.label}</label>`
           : ""
         }
-        <section class="for-input">
+        <section class="for-input ${this.errored ? 'errored' : ''}">
           <nav>
             <dile-tabs
               selected="design"
@@ -190,12 +214,16 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
           </dile-pages>
         </section>
       </main>
+    </div>
+    
+      
     `;
   }
 
   updateValue(e) {
     this.value = e.detail.content;
     this.textarea.value = e.detail.content;
+    this.clearError();
   }
 
   get editorMarkdown() {
@@ -220,5 +248,13 @@ export class DileEditor extends DileEmmitChangeMixin(LitElement) {
 
   doTextareaKeypress(e) {
     this.value = e.target.value;
+    this.clearError();
+  }
+
+  clearError() {
+    if (this.hideErrorOnInput && this.errored) {
+      this.errored = false;
+      this.message = '';
+    }
   }
 }
