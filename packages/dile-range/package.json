@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-range",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webcomponent dile-range to create a custom-styled range element, following open-wc recommendations",
   "keywords": [
     "Lit",

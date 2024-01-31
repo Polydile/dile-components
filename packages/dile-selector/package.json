@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-selector",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Web Component to implement a plain selector interface, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-selector-mixin": "^3.1.3",
+    "@dile/dile-selector-mixin": "^3.1.4",
     "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
