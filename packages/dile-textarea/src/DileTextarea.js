@@ -33,6 +33,11 @@ export class DileTextarea extends LitElement {
       textarea::placeholder {
         color: var(--dile-textarea-placeholder-color, #999);
       }
+
+      :host([disabled]) textarea {
+        background-color: var(--dile-textarea-disabled-background-color, #ebebeb);
+        border-color: var(--dile-textarea-disabled-border-color, #ccc);
+      }
       
       .errored {
         border-color: var(--dile-input-error-border-color, #c00);
@@ -56,6 +61,10 @@ export class DileTextarea extends LitElement {
       rows: { type: Number },
       maxRows: { type: Number },
       readonly: { type: Boolean },
+      disabled: { 
+        type: Boolean,
+        reflect: true,
+       },
     };
   }
 

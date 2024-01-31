@@ -55,12 +55,14 @@ Use the component
 
 ## Properties
 
+- **value**: the text value of the textarea element
 - **name**: the name of the textarea element. This is usefull to distinguish the related element in an textarea event listener.
 - **label**: the element label
 - **rows**: Visible rows
 - **maxRows**: maximum rows (use max-rows in the HTML code, as attribute)
-- **readOnly**: Defines the texts present in the input element when is empty
-- **placeholder**: on true, the element is disabled
+- **disabled**: on true, the element is disabled
+- **readonly**: on true, the element is read only
+- **placeholder**: Defines the texts present in the input element when is empty
 - **message**: Place a message under the textarea element
 - **errored**: to mark the textarea element with a error style
 - **hideErrorOnInput**: Hide the error message when the user changes the value of the textarea element
@@ -86,6 +88,8 @@ Custom property | Description | Default
 --dile-textarea-background-color | Textarea background color | #ffffff
 --dile-textarea-color | Textarea text color | #000
 --dile-textarea-placeholder-color | Placeholder text color | #999
+--dile-textarea-disabled-background-color | Disabled background color | #ebebeb
+--dile-textarea-disabled-border-color | Disabled border color | #ccc
 
 ## Events
 
