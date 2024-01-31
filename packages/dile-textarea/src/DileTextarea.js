@@ -1,5 +1,5 @@
 import { html, css } from 'lit';
-import { LionTextarea } from '@lion/ui/textarea.js';
+// import { LionTextarea } from '@lion/ui/textarea.js';
 import { messageStyles } from '@dile/dile-input';
 
 export class DileTextarea extends LionTextarea {
