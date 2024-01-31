@@ -69,7 +69,7 @@
       render() {
         return html`
           <dile-input name="name" hideErrorOnInput label="Name" value="Polydile"></dile-input>
-          <dile-textarea label="Profile" name="profile" rows="3" maxRows="5"></dile-textarea>
+          <dile-textarea label="Profile" name="profile" rows="3" maxRows="5" value="initial profile value"></dile-textarea>
           <dile-input name="age" label="Age" value="25"></dile-input>
           <dile-select name="sex" label="Sex">
             <select slot="select">
@@ -118,7 +118,8 @@
           album: 7,
           discount: 10.55,
           price: 10050,
-          comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye"
+          comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye",
+          profile: "This is a profile information...",
         });
       });
 

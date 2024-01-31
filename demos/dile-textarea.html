@@ -27,17 +27,41 @@
   <div class="container">
     <h1>dile-textarea component</h1>
     
+    <h2>Simple Textarea</h2>
     <p>
       <dile-textarea label="Comments"></dile-textarea>
     </p>
   
+    <h2>Textarea with some properties</h2>
     <p>
-      <dile-textarea class="styled" rows="2" max-rows="4" label="Styled element" placeholder="Write something here"></dile-textarea>
+      <dile-textarea 
+        label="Comments"
+        value="Hello from Polydile: We love to create web components. This is a dile-textarea component."
+        rows="4"
+        maxRows="6"
+      ></dile-textarea>
     </p>
 
-    <p>Play with the textarea</p>
+    <h2>Readonly Textarea</h2>
+      <dile-textarea 
+        label="I am readOnly"
+        readonly
+        value="Hi!!"
+        rows="2"
+      ></dile-textarea>
+    <p>
+      <dile-textarea 
+        class="styled" 
+        rows="2" 
+        max-rows="4" 
+        label="Styled element" 
+        placeholder="Write something here"
+      ></dile-textarea>
+    </p>
 
-    <dile-textarea id="textelement" hideErrorOnInput rows="2" max-rows="10" ></dile-textarea>
+    <h2>Play with the textarea</h2>
+
+    <dile-textarea id="textelement" hideErrorOnInput rows="2" maxRows="10" ></dile-textarea>
     <p>
       <button id="introduceText">Introduce text</button>
       <button id="placeCursorAtEnd">Place cursor at end</button>
