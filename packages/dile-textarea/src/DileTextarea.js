@@ -1,12 +1,12 @@
-import { LitElement, html, css } from 'lit';
-// import { LionTextarea } from '@lion/ui/textarea.js';
+import { html, css } from 'lit';
+import { LionTextarea } from '@lion/ui/textarea.js';
 import { messageStyles } from '@dile/dile-input';
 
-export class DileTextarea extends LitElement {
+export class DileTextarea extends LionTextarea {
 
   static get styles() {
     return [
-      //...super.styles, 
+      ...super.styles, 
       messageStyles, 
       css`
       :host {
@@ -83,12 +83,12 @@ export class DileTextarea extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    //this.textareaElement.addEventListener('input', this.inputHandler);
+    this.textareaElement.addEventListener('input', this.inputHandler);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    //this.textareaElement.removeEventListener('input', this.inputHandler);
+    this.textareaElement.removeEventListener('input', this.inputHandler);
   }
 
   onInput() {
