@@ -22,8 +22,6 @@ import "@dile/dile-selector/dile-selector-item.js";
 
 Input textarea field Web Component, with customized design.
 
-This component is a wraper of [@lion/textarea component](https://github.com/ing-bank/lion/tree/master/packages/textarea).
-
 ```html
 <dile-textarea label="The label" placeholder="Write something..."></dile-textarea>
 ```
