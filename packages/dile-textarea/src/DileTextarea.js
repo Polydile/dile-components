@@ -140,7 +140,11 @@ export class DileTextarea extends LitElement {
 
   _resizeTextarea() {
     this.eltextarea.style.height = 'auto';
-    let height = Math.min(this.eltextarea.scrollHeight, this._maxHeight);
+    let scrollHeight = this.eltextarea.scrollHeight;
+    if(scrollHeight == 0) {
+      scrollHeight = this.lineHeight * this.rows;
+    }
+    let height = Math.min(scrollHeight, this._maxHeight);
     this.eltextarea.style.height = height + 'px';
   }
 
@@ -148,9 +152,11 @@ export class DileTextarea extends LitElement {
     this.updateComplete.then(() => this._resizeTextarea());
   }
 
+  get lineHeight() {
+    return parseInt(getComputedStyle(this.eltextarea).lineHeight, 10);
+  }
   calculateMaxHeight() {
-    let lineHeight = parseInt(getComputedStyle(this.eltextarea).lineHeight, 10);
-    this._maxHeight = lineHeight * this.maxRows;
+    this._maxHeight = this.lineHeight * this.maxRows;
   }
 
 }

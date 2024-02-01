@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./css/style.css">
   <script type="module">
     import "@dile/dile-textarea/dile-textarea.js";
+    import "@dile/dile-tabs/dile-tabs.js";
+    import "@dile/dile-pages/dile-pages.js";
   </script>
   <style>
     .styled {
@@ -98,6 +100,31 @@ Bye!!`;
         });
       })
     </script>
+
+    <h2>Inside tabs</h2>
+    <dile-tabs id="select2" attrForSelected="name" selectorId="selector" selected="home">
+      <dile-tab icon="label_important" name="home">Home</dile-tab>
+      <dile-tab icon="label_important" name="about">About</dile-tab>
+      <dile-tab icon="label_important" name="contact">Contact</dile-tab>
+    </dile-tabs>
+    <dile-pages attrForSelected="name" selectorId="selector" selected="home">
+      <div name="home">
+        <h2>dile-pages</h2>
+        
+      </div>
+      <div name="about">
+        <h2>Other dile-textare</h2>
+        <p>I am the about page content...</p>
+        <p>
+          <dile-textarea rows="2" maxRows="5" value="Other element... " id="kkk"></dile-textarea>
+        </p>
+      </div>
+      <div name="contact">
+        <h2>Contact</h2>
+        <p>I am the contact page content...</p>
+      </div>
+    </dile-pages>
+
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>
