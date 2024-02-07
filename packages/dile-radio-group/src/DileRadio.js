@@ -67,7 +67,8 @@ export class DileRadio extends LitElement {
             bubbles: true,
             composed: true,
             detail: {
-                value: this.value
+                value: this.value,
+                label: this.label
             }
         }));
     }
