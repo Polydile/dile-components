@@ -77,7 +77,7 @@ Use the components.
 
 ### dile-radio custom events 
 
-- **dile-radio-selected**: New radio button selected. In this event the detail object only contains ```value``` property.
+- **dile-radio-selected**: New radio button selected. In this event the detail object contains ```value```and  ```label```properties.
 
 ## CSS Custom Properties
 
