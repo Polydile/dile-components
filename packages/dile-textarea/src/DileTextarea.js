@@ -42,6 +42,9 @@ export class DileTextarea extends LitElement {
       .errored {
         border-color: var(--dile-input-error-border-color, #c00);
       }
+      .for-input {
+        display: flex;
+      }
       
     `];
   }
