@@ -103,6 +103,7 @@ export class DileSelect extends DileEmmitChangeMixin(LitElement) {
       throw new Error('Use dile-select with a select element in the slot "select"');
     } else {
       this.elselect.addEventListener("change", this.changeHandler);
+      this.value = this.elselect.value;
     }
   }
 
