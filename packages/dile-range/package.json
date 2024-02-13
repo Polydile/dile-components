@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-range",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Webcomponent dile-range to create a custom-styled range element, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-form-mixin": "^1.0.3",
+    "@dile/dile-form-mixin": "^1.1.0",
     "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
