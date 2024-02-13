@@ -88,4 +88,20 @@ export const DileFormMixin = (superclass) => class extends superclass {
       node.message = '';
     });
   }
+
+  isDirty() {
+    const currentData = this.getData();
+    const originProperties = Object.keys(this.firstValue);
+    const currentProperties = Object.keys(currentData);
+    if (originProperties.length !== currentProperties.length) {
+      return true;
+    }
+    for (let prop of originProperties) {
+      if (this.firstValue[prop] != currentData[prop]) {
+          return true; // Si alguna propiedad no coincide, retorna false
+      }
+    }
+    return false;
+  }
+
 }
