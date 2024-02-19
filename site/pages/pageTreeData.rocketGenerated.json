@@ -3174,6 +3174,63 @@
           "outputRelativeFilePath": "components/dile-range/index.html",
           "sourceRelativeFilePath": "components/dile-range.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-chip-tooltip",
+          "h1": "dile-chip-tooltip",
+          "headlinesWithId": [
+            {
+              "text": "dile-chip-tooltip",
+              "id": "dile-chip-tooltip",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "dile-tooltip demos",
+              "id": "dile-tooltip-demos",
+              "level": 2
+            },
+            {
+              "text": "Default tooltips",
+              "id": "default-tooltips",
+              "level": 3
+            },
+            {
+              "text": "Only icon",
+              "id": "only-icon",
+              "level": 3
+            },
+            {
+              "text": "Styled chip tooltip",
+              "id": "styled-chip-tooltip",
+              "level": 3
+            }
+          ],
+          "name": "dile-chip-tooltip",
+          "menuLinkText": "dile-chip-tooltip",
+          "url": "/components/dile-chip-tooltip/",
+          "outputRelativeFilePath": "components/dile-chip-tooltip/index.html",
+          "sourceRelativeFilePath": "components/dile-chip-tooltip.rocket.md",
+          "level": 2
         }
       ]
     },

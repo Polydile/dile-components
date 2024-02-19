@@ -22,11 +22,14 @@ import "@dile/dile-selector/dile-selector-item.js";
 
 Web component to display a configurable tooltip.
 
+
 ## Installation
 
 ```bash
 npm install @dile/dile-tooltip
 ```
+
+> In this package you also will find [dile-chip-tooltip](/components/dile-chip-tooltip/) component.
 
 ## Usage
 
