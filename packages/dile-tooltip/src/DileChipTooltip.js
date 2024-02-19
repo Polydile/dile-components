@@ -25,7 +25,7 @@ export class DileChipTooltip  extends LitElement {
         background-color: var(--dile-chip-tooltip-background-color, #7BB93D);
         color: var(--dile-chip-tooltip-text-color, #fff);
         --dile-icon-color: var(--dile-chip-tooltip-icon-color, #fff);
-        --dile-icon-size: 22px;
+        --dile-icon-size: var(--dile-chip-tooltip-icon-size, 22px);
         transition: background-color 0.3s ease-in-out;
       }
       .chip:hover {
