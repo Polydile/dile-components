@@ -12,6 +12,10 @@ export class DileChipTooltip  extends LitElement {
         --dile-tooltip-width: var(--dile-chip-tooltip-width, 165px);
         --dile-tooltip-time-transition: 0.3s;
       }
+      .box {
+        display: flex;
+        align-items: center;
+      }
       .chip {
         font-size: var(--dile-chip-tooltip-font-size, 0.9rem);
         font-weight: bold;
@@ -61,20 +65,22 @@ export class DileChipTooltip  extends LitElement {
 
   render() {
     return html`
-    <dile-tooltip 
-        tooltip="${this.message}"
-        position="${this.position}"
-        fadeIn
-        
-    >
-      <span class="chip">
-        ${this.label
-          ? html`<span class="label">${this.label}</span>`
-          : ''
-        }
-        <dile-icon .icon=${infoIcon} class="info"></dile-icon>
-      </span>
-    </dile-tooltip>
+    <div class="box">
+      <dile-tooltip 
+          tooltip="${this.message}"
+          position="${this.position}"
+          fadeIn
+          
+      >
+        <span class="chip">
+          ${this.label
+            ? html`<span class="label">${this.label}</span>`
+            : ''
+          }
+          <dile-icon .icon=${infoIcon} class="info"></dile-icon>
+        </span>
+      </dile-tooltip>
+    </div>
     `;
   }
 }

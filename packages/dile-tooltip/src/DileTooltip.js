@@ -4,9 +4,13 @@ export class DileTooltip extends LitElement {
 
   static get styles() {
     return css`/* Tooltip container */
+      :host {
+        display: inline-block;
+      }
       .tooltip {
         position: relative;
-        display: inline-block;
+        display: flex;
+        align-items: center;
       }
   
       .tooltiptext {
