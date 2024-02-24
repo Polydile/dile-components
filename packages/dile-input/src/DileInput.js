@@ -167,12 +167,18 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
                 : ''
               }
             </section>
-            ${this.message 
-              ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
-              : ''
-            }
+            ${this.messageTemplate}
           </main>
         `;
+    }
+
+    get messageTemplate() {
+      return html`
+        ${this.message 
+          ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+          : ''
+        }
+      `
     }
 
     /**
@@ -187,9 +193,13 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
     _input(e) {
         this.value = e.target.value;
         if (this.hideErrorOnInput && this.errored) {
-          this.errored = false;
-          this.message = '';  
+          this.clearError();  
         }
+    }
+    
+    clearError() {
+      this.errored = false;
+      this.message = '';
     }
 
     availableType(type) {

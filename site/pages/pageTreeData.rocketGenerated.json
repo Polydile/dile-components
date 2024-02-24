@@ -3231,6 +3231,73 @@
           "outputRelativeFilePath": "components/dile-chip-tooltip/index.html",
           "sourceRelativeFilePath": "components/dile-chip-tooltip.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-input-message",
+          "h1": "dile-input-message",
+          "headlinesWithId": [
+            {
+              "text": "dile-input-message",
+              "id": "dile-input-message",
+              "level": 1
+            },
+            {
+              "text": "Install",
+              "id": "install",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Clear error message",
+              "id": "clear-error-message",
+              "level": 2
+            },
+            {
+              "text": "Events",
+              "id": "events",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "dile-input-message demos",
+              "id": "dile-input-message-demos",
+              "level": 2
+            },
+            {
+              "text": "Default input",
+              "id": "default-input",
+              "level": 3
+            },
+            {
+              "text": "Focus functionality",
+              "id": "focus-functionality",
+              "level": 3
+            },
+            {
+              "text": "Errored input",
+              "id": "errored-input",
+              "level": 3
+            },
+            {
+              "text": "Styled input",
+              "id": "styled-input",
+              "level": 3
+            }
+          ],
+          "name": "dile-input-message",
+          "menuLinkText": "dile-input-message",
+          "url": "/components/dile-input-message/",
+          "outputRelativeFilePath": "components/dile-input-message/index.html",
+          "sourceRelativeFilePath": "components/dile-input-message.rocket.md",
+          "level": 2
         }
       ]
     },
