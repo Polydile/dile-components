@@ -8,6 +8,7 @@ export class DileTextarea extends LitElement {
       messageStyles, 
       css`
       :host {
+        display: block;
         margin-bottom: 10px;
       }
       label {

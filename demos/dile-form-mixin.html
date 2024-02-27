@@ -34,6 +34,7 @@
       <button id="clear">Clear data</button>
       <button id="reset">Reset data</button>
       <button id="resetsex">Reset only sex field</button>
+      <button id="errors">Set some errors</button>
       <button id="dirty">log dirty</button>
     </p>
 
@@ -46,6 +47,7 @@
     import {DileFormMixin } from '@dile/dile-form-mixin/index.js';
     import { DileFormChangeDetectMixin } from '@dile/dile-form-mixin/index.js';
     import '@dile/dile-input/dile-input.js';
+    import '@dile/dile-input/dile-input-message.js';
     import '@dile/dile-input/dile-input-money.js';
     import '@dile/dile-input/dile-input-integer.js';
     import '@dile/dile-input/dile-input-percentage.js';
@@ -54,6 +56,7 @@
     import '@dile/dile-select/dile-select-ajax.js';
     import '@dile/dile-textarea/dile-textarea.js';
     import '@dile/dile-editor/dile-editor.js';
+
     import { LitElement, html, css } from 'lit';
     
     class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
@@ -73,7 +76,7 @@
         return html`
           <dile-input name="name" hideErrorOnInput label="Name" value="Polydile"></dile-input>
           <dile-textarea label="Profile" name="profile" rows="3" maxRows="5" value="initial profile value"></dile-textarea>
-          <dile-input name="age" label="Age" value="25"></dile-input>
+          <dile-input name="age" label="Age" value="25" hideErrorOnInput></dile-input>
           <dile-select name="sex" label="Sex" alue="F">
             <select slot="select">
               <option value="M">Male</option>
@@ -89,6 +92,7 @@
           <dile-input name="company" label="Company"></dile-input>
           <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
           <dile-editor name="comments"># Markdown Editor\n\nWrite *something*.</dile-editor>
+          <dile-input-message name="onlymessage"></dile-input-message>
         `;
       }
     }
@@ -136,6 +140,15 @@
 
       document.getElementById('resetsex').addEventListener('click', () => {
         form.resetField('sex');
+      });
+
+      document.getElementById('errors').addEventListener('click', () => {
+        form.showErrors({
+          name: "Error on name field",
+          age: "Error on age field",
+          comments: "Error on comments field",
+          onlymessage: "This element has no input. It is only created for messaging purposes",
+        })
       });
 
       document.getElementById('dirty').addEventListener('click', () => {
