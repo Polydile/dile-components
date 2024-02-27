@@ -1,0 +1,34 @@
+{
+  "name": "@dile/dile-action-card",
+  "version": "0.0.0",
+  "description": "Webcomponent dile-action-card to create a card element with buttons",
+  "keywords": [
+    "Lit",
+    "Web Component",
+    "card",
+    "buttons"
+  ],
+  "type": "module",
+  "author": "Joselon <joselon79@gmail.com>",
+  "homepage": "https://github.com/Polydile/dile-components",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/dile-button-icon": "^1.1.3",
+    "lit": "^3.1.1"
+  },
+  "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
+}
