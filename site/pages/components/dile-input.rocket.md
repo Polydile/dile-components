@@ -68,14 +68,15 @@ Use the component
 - **type**: the input type
 - **value**: defines the text inside the input element
 - **placeholder**: Defines the texts present in the input element when is empty
-- **disabled**: on true, the element is disabled
-- **readonly**: on true, is not editable
-- **errored**: on true, the element is marked as error
-- **disableAutocomplete**: on true, the input autocomplete HTML featured is disabled
+- **disabled**: when true, the element is disabled
+- **readonly**: when true, is not editable
+- **errored**: when true, the element is marked as error
+- **disableAutocomplete**: when true, the input autocomplete HTML featured is disabled
 - **selectOnFocus**: allways select the content of the input on focus
 - **message**: optionaly, the input can display a message
 - **labelRight**: text placed on the right side of the input
-- **hideErrorOnInput**: on true, the errored state truns off when the user changes the input element and the message is cleared
+- **hideErrorOnInput**: when true, the errored state truns off when the user changes the input element and the message is cleared
+- **focusOnStart**: when true, Set the application focus to this the input component after the initialization
 
 ## Useful Methods
 

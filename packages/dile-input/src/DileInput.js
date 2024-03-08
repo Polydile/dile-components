@@ -56,7 +56,16 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
 
           /** Hide errors on input */
           hideErrorOnInput: { type: Boolean },
+
+          /** Set the application focus to this the input component after the initialization */
+          focusOnStart: { type: Boolean },
         };
+    }
+
+    firstUpdated() {
+      if(this.focusOnStart) {
+        this.focus();
+      }
     }
 
     updated(changedProperties) {
