@@ -98,6 +98,9 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
               display: block;
               margin-bottom: 10px;
             }
+            :host([type="hidden"]) {
+              display: none;
+            }
             main {
               width: var(--dile-input-section-width, 100%);
             }
