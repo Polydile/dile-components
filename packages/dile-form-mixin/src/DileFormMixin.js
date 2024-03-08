@@ -14,9 +14,18 @@ export const DileFormMixin = (superclass) => class extends superclass {
     this.firstValue = null;
   }
 
+  static get properties() {
+    return {
+      setOnInit: { type: Object }
+    };
+  }
+
   firstUpdated() {
     super.firstUpdated();
     this.firstValue = this.getData();
+    if(this.setOnInit) {
+      this.setData(this.setOnInit);
+    }
   }
 
   getData() {

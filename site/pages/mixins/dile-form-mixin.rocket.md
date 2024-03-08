@@ -47,6 +47,10 @@ This mixin apply some methods to the components to recognize and operate whith f
 
 It works with native form elements or custom elements, as long as they have the value and name property.
 
+### Properties 
+
+- **setOnInit**: Object to set its properties in the form when the component initializes
+
 ### Methods
 
 - **getData()** Gets the data object represented by the form elements.
