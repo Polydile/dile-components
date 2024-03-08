@@ -3,6 +3,9 @@ import { LitElement, html, css } from 'lit';
 export class DileCard extends LitElement {
     static styles = [
       css`
+        * {
+          box-sizing: border-box;
+        }
         :host {
           display: block;
           align-items: stretch;
