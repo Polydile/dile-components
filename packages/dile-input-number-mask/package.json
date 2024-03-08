@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-input-number-mask",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Web Component for a customized input text to create numbers with a display format introuced by a mask",
   "keywords": [
     "input",
@@ -31,7 +31,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-input": "^2.3.0",
+    "@dile/dile-input": "^2.3.1",
     "lit": "^2.6.1"
   },
   "gitHead": "a95d2ad544d92d21f5644ede1a9f44341f71cac3"
