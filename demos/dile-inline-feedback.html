@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-modal component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="module">
+    import "@dile/dile-inline-feedback/dile-inline-feedback.js";
+  </script>
+  <style>
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-inline-feedback component</h1>
+    <p>
+      Some feedback:      
+    </p>    
+    <dile-inline-feedback id="feedback"></dile-inline-feedback>
+    <button id="success">Send success message</button>
+    <button id="error">Send error message</button>
+    <button id="clear">Clear message</button>
+    <script>
+      let feedback = document.getElementById('feedback')
+      document.getElementById('success').addEventListener('click', function() {
+        feedback.positiveFeedback('Positive message')
+      })
+      document.getElementById('error').addEventListener('click', function() {
+        feedback.negativeFeedback('Error message')
+      })
+      document.getElementById('clear').addEventListener('click', function() {
+        feedback.clear()
+      })
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>

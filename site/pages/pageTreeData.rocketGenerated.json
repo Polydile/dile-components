@@ -3298,6 +3298,68 @@
           "outputRelativeFilePath": "components/dile-input-message/index.html",
           "sourceRelativeFilePath": "components/dile-input-message.rocket.md",
           "level": 2
+        },
+        {
+          "title": "dile-inline-feedback",
+          "h1": "dile-inline-feedback",
+          "headlinesWithId": [
+            {
+              "text": "dile-inline-feedback",
+              "id": "dile-inline-feedback",
+              "level": 1
+            },
+            {
+              "text": "Installation",
+              "id": "installation",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage",
+              "level": 2
+            },
+            {
+              "text": "Usage",
+              "id": "usage-1",
+              "level": 3
+            },
+            {
+              "text": "Properties",
+              "id": "properties",
+              "level": 2
+            },
+            {
+              "text": "Styling",
+              "id": "styling",
+              "level": 2
+            },
+            {
+              "text": "dile-inline-feedback demos",
+              "id": "dile-inline-feedback-demos",
+              "level": 2
+            },
+            {
+              "text": "Default spinner",
+              "id": "default-spinner",
+              "level": 3
+            },
+            {
+              "text": "Styled spinner",
+              "id": "styled-spinner",
+              "level": 3
+            },
+            {
+              "text": "Interactive demo",
+              "id": "interactive-demo",
+              "level": 3
+            }
+          ],
+          "name": "dile-inline-feedback",
+          "menuLinkText": "dile-inline-feedback",
+          "url": "/components/dile-inline-feedback/",
+          "outputRelativeFilePath": "components/dile-inline-feedback/index.html",
+          "sourceRelativeFilePath": "components/dile-inline-feedback.rocket.md",
+          "level": 2
         }
       ]
     },
