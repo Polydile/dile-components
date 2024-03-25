@@ -122,6 +122,70 @@
       <a href="#two">Select two tab</a> | 
       <a href="#three">Select three tab</a>
     </p>
+
+    <h2>Add tabs</h2>
+    <dile-tabs-add></dile-tabs-add>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+      
+      class DileTabsAdd extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+      
+        static get properties() {
+          return {
+            tabSelected: { type: String },
+            tabs: { type: Array },
+          };
+        }
+
+        constructor() {
+          super();
+          this.tabSelected = 1;
+          this.tabs = [
+            {
+              label: 'tab 1',
+              tabId: 1
+            },
+            {
+              label: 'tab 2',
+              tabId: 2
+            },
+          ]
+        }
+
+        render() {
+          return html`
+          <dile-tabs attrForSelected="name" selected="${this.tabSelected}">
+            ${this.tabs.map( tab => html`
+              <dile-tab name="${tab.tabId}">${tab.label}</dile-tab>
+            `)}
+          </dile-tabs>
+
+          <p><button @click=${this.addTab}>Add Tab</button></p>
+          `;
+        }
+
+        addTab() {
+          let index = this.tabs.length + 1;
+          this.tabs = [
+            ...this.tabs,
+            {
+              label: 'tab ' + index,
+              tabId: index,
+            },
+          ]
+        }
+      }
+      customElements.define('dile-tabs-add', DileTabsAdd);
+      
+    </script>
     <footer><a href="index.html">Back</a></footer>
   </div>
 </body>

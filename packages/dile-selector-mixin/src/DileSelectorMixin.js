@@ -94,6 +94,7 @@ export const DileSelectorMixin = (SuperClass) =>
     }
 
     setSelectedItem() {
+      this._items = this.getItems();
       if(this.attrForSelected) {
         // Selected by attribute
         this._items.forEach(el => {
