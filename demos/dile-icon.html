@@ -19,6 +19,9 @@
       --dile-icon-rounded-background-color: #369;
       --dile-icon-size: 42px;
     }
+    .rounded_small {
+      --dile-icon-rounded-padding: 0.2rem;
+    }
   </style>
 </head>
 <body>
@@ -28,7 +31,7 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import { appsIcon, filterIcon, favoriteIcon, searchIcon, doubleArrowRightIcon } from "../packages/icons/index.js";
+      import { appsIcon, filterIcon, favoriteIcon, searchIcon, doubleArrowRightIcon, homeIcon } from "../packages/icons/index.js";
       render(
             html`
             <h2>Regular icon</h2>
@@ -54,6 +57,7 @@
             <h2>Styled background rounded</h2>
             <p>
               <dile-icon .icon=${searchIcon} rounded class="styledrounded"></dile-icon>
+              <dile-icon .icon=${homeIcon} rounded class="styledrounded rounded_small"></dile-icon>
             </p>
             `,
             document.querySelector('#icons')

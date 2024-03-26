@@ -27,7 +27,7 @@ export class DileIcon extends LitElement {
         :host([rounded]) {
           background-color: var(--dile-icon-rounded-background-color, #eee);
           border-radius: 50%;
-          padding: 0.5rem;
+          padding: var(--dile-icon-rounded-padding, 0.5rem);
         }
     `];
   }
