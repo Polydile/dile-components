@@ -8,7 +8,6 @@
   "license": "MIT",
   "scripts": {
     "lerna": "lerna",
-    "bootstrap": "lerna bootstrap",
     "start": "wds --node-resolve --esbuild-target auto --preserve-symlinks --watch --open demos/",
     "audit": "lerna-audit",
     "build": "rocket build",
