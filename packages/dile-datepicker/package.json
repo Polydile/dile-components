@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-datepicker",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Webcomponent dile-datepicker to create a custom-styled datepicker element, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-icon": "^1.0.12",
+    "@dile/dile-icon": "^1.1.0",
     "@dile/dile-input": "^2.3.1",
     "@dile/dile-menu-overlay": "^3.0.7",
     "@dile/icons": "^1.5.1",

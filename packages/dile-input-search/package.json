@@ -1,6 +1,6 @@
 {
   "name": "@dile/dile-input-search",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Webcomponent dile-input-search to create a search field with some functionality, following open-wc recommendations",
   "keywords": [
     "Lit",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/dile-icon": "^1.0.12",
+    "@dile/dile-icon": "^1.1.0",
     "@dile/icons": "^1.5.1",
     "lit": "^2.6.1"
   },
