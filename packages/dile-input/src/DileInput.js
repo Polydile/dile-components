@@ -84,7 +84,7 @@ export class DileInput extends DileEmmitChangeMixin(LitElement) {
         this.disableAutocomplete = false;
         this.name = '';
         this.type = 'text';
-        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];     
+        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week', 'color'];     
     }
 
     static get styles() {
