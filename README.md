@@ -1,5 +1,7 @@
 # Dile Components
 
+🔖 This is the initial approach to the "dile-components" catalog. We are developing a new iteration to reorganize the "dile" custom elements more effectively. The latest version of this component catalog can be found in this repository: [https://github.com/Polydile/Components](https://github.com/Polydile/Components).
+
 ## See the docs and demos in the dile-components website
 
 We have a new webiste with our components catalog docs and demos!! 🎉
