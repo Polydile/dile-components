@@ -54,7 +54,7 @@ Custom property | Description | Default
 ### Avatar configured with an image
 
 ```html:preview
-<dile-avatar src="/images/logo-polydile.png"></dile-avatar>
+<dile-avatar src="/images/random-user.jpg"></dile-avatar>
 ```
 
 ### Avatar configured with an initial letter
