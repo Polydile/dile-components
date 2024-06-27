@@ -1,0 +1,87 @@
+<dile-selector
+    class="drawernav"
+    selected=${this.page} 
+>
+    <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
+    <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
+    <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
+
+
+    <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
+    {% for tag in componentTagsList %}
+      {% assign isOpened = false %}
+      {% for component in collections[tag] %}
+        {% if component.url == page.url %}
+          {% assign isOpened = true %}
+        {% endif %}
+      {% endfor %}
+      <dile-slide-menu 
+        class="collection-nav" 
+        label="{{ tag | capitalize }}" 
+        {% if isOpened %}opened{% endif %}
+      ></div>
+      {% for component in collections[tag] %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+      </dile-slide-menu>
+    {% endfor %}
+
+    {% if collections.uncategorizedComponents.size > 0 %}
+      {% assign isOtherOpened = false %}
+      {% for component in collections.uncategorizedComponents %}
+        {% if component.url == page.url %}
+          {% assign isOtherOpened = true %}
+        {% endif %}
+      {% endfor %}
+      <dile-slide-menu 
+        class="collection-nav" 
+        label="Other components" 
+        {% if isOtherOpened %}opened{% endif %}
+      ></div>
+      {% for component in collections.uncategorizedComponents %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+      </dile-slide-menu>
+    {% endif %}
+
+
+    <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
+    {% for tag in mixinTagsList %}
+      {% assign isOpened = false %}
+      {% for component in collections[tag] %}
+        {% if component.url == page.url %}
+          {% assign isOpened = true %}
+        {% endif %}
+      {% endfor %}
+      <dile-slide-menu
+        class="collection-nav" 
+        label="{{ tag | capitalize }}"
+        {% if isOpened %}opened{% endif %}
+      ></div>
+      {% for component in collections[tag] %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+      </dile-slide-menu>
+    {% endfor %}
+    {% if collections.uncategorizedMixins.size > 0 %}
+    {% assign isOtherOpened = false %}
+      {% for component in collections.uncategorizedComponents %}
+        {% if component.url == page.url %}
+          {% assign isOtherOpened = true %}
+        {% endif %}
+      {% endfor %}
+      <dile-slide-menu 
+        class="collection-nav" 
+        label="Other mixins"
+        {% if isOpened %}opened{% endif %}
+      ></div>
+      {% for component in collections.uncategorizedMixins %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+      </dile-slide-menu>
+    {% endif %}
+
+
+    <dile-selector-item icon="navigate_next" href="/icons/">Icons</dile-selector-item>
+    
+</dile-selector>

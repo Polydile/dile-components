@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: open sans, arial, helvetica, sans-serif;
+  font-size: 15px;
+  --dile-nav-padding-y: 5px;
+  --dile-nav-padding-x: 0.75rem;
+  line-height: 1.55rem;
+}
+
+dile-nav, main, .footer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+dile-nav {
+  color: #303030;
+}
+
+main {
+  padding: 1.5rem 0.75rem;
+}
+
+.footer {
+  padding: 1rem 0.75rem;
+}
+
+.maincontent {
+  max-width: 100%;
+}
+
+.fixednav {
+  display: none;
+}
+
+header {
+  background-color: var(--dile-primary-color);
+  padding-bottom: 1px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0 0 1.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1rem;
+  opacity: 0.6;
+  margin: 1rem 0;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+ 
+pre, pre code {
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre;
+  box-sizing: border-box;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+th {
+  border-bottom: 1px solid #ddd;
+  background-color: var(--dile-primary-color);
+  color: #303030;
+  padding: 0.5rem 0.5rem;
+}
+td {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+blockquote {
+  border-left: 7px solid var(--dile-primary-color);
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+@media(min-width: 380px) {
+  body {
+    --dile-nav-padding-x: 1rem;
+    --dile-social-icon-size: 1.5rem;
+  }
+  main, .footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  dile-nav span.site-name a {
+    font-size: 1rem;
+  }
+}
+
+@media(min-width: 520px) {
+  body {
+    --dile-nav-padding-x: 1.5rem;
+    --dile-hamburger-width: 32px;
+    --dile-hamburger-height: 32px;
+    --dile-hamburger-line-size: 4px;
+    --dile-hamburger-line-separation: -8px;
+    --dile-nav-padding-y: 0.5rem;
+    --dile-social-icon-size: 1.6rem;
+  }
+  dile-nav span.site-name a {
+    font-size: 1.2rem;
+  }
+  main, .footer {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media(min-width: 1200px) {
+  body {
+    --dile-nav-padding-y: 0.7rem;
+    --dile-social-icon-size: 2rem;
+  }
+  dile-nav span.site-name a {
+    font-size: 1.4rem;
+  }
+  dile-nav a img {
+    height: 48px;
+  }
+  .fixednav {
+    display: block;
+    min-width: 220px;
+  } 
+  
+  main {
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding-right: 1.5rem;
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+  .maincontent {
+    min-width: 0;
+    /* overflow: hidden; */
+
+  }
+  dile-nav dile-menu-hamburger {
+    display: none;
+  }
+}

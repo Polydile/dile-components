@@ -1,1 +1,0 @@
-export { DileBreadcrumbs } from './src/DileBreadcrumbs.js';

@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module">
-    import "@dile/dile-button-icon/dile-button-icon.js"
+    import "@dile/ui/components/button/button-icon.js"
   </script>
   <style>
     .styled {
@@ -35,8 +35,7 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import { appsIcon } from "../packages/icons/index.js";
-      import { favoriteIcon } from "../packages/icons/index.js";
+      import { appsIcon, favoriteIcon } from "@dile/icons/index.js";
       render(
             html`
             <h2>Regular button</h2>

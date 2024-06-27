@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <dile-nav menu="right">
+    <span slot="title">title</span>
+    <dile-menu-hamburger hamburgerAlwaysVisible slot="menu">
+      <nav class="app-menu" slot="menu">
+        <p><a href="one.html">Link one</a></p>
+        <p><a href="two.html">Link two</a></p>
+      </nav>
+    </dile-menu-hamburger>
+  </dile-nav>
+  <main>
+    Main app
+  </main>
+
+  <script src="index.js" type="module"></script>
+</body>
+</html>

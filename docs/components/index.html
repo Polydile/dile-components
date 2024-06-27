@@ -1,0 +1,35 @@
+---
+layout: layout.html
+title: Components
+---
+
+<h1>Components</h1>
+<p>
+  These are the components available in the dile-components catalog, categorized by type.
+</p>
+
+<div class="Clasification">
+  {% for tag in componentTagsList %}        
+    <dile-card 
+     title="{{ tag | capitalize }}" 
+    >
+      <dile-selector>
+        {% for component in collections[tag] %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+  
+      </dile-selector>
+    </dile-card>
+  {% endfor %}
+
+  {% if collections.uncategorizedComponents.size > 0 %}
+    <dile-card 
+     title="Other components" 
+    >
+      {% for component in collections.uncategorizedComponents %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-card>
+  {% endif %}
+</div>
+

@@ -1,0 +1,33 @@
+{
+  "name": "@dile/utils",
+  "version": "2.0.6",
+  "description": "Utility Components of Diverse Uses Based on the Lit Library and Web Components Standard.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/Components.git"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "EscuelaIT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Polydile/Components/issues"
+  },
+  "homepage": "https://github.com/Polydile/Components#readme",
+  "dependencies": {
+    "@dile/ui": "^2.0.6",
+    "@lion/calendar": "^0.20.1",
+    "@lion/localize": "^0.26.0",
+    "linkify-string": "^4.1.3",
+    "linkifyjs": "^4.1.3",
+    "lit": "^2.7.0 || ^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

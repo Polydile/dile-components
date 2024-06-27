@@ -1,0 +1,13 @@
+.Clasification {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  
+}
+@media(min-width: 450px) {
+  .Clasification {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open sans', sans-serif;
+  background-color: #ededed;
+  line-height: 1.6rem;
+
+  --dile-foreground-color: #fff;
+  --dile-primary-color: #303030;
+}
+dile-nav span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+main {
+  padding: 1rem;
+}
+.app-menu {
+  padding: 1rem;
+}
+@media(min-width: 500px) {
+  dile-nav {
+    --dile-nav-padding-x: 1.25rem;
+  }
+  main {
+    padding: 1.6rem;
+  }    
+}

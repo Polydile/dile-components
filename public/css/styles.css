@@ -1,0 +1,10 @@
+@import './reset.css';
+@import './theme.css';
+@import './layout.css';
+@import './home.css';
+@import './components/nav.css';
+@import './components/prism.css';
+@import './components/code_preview.css';
+@import './components/footer.css';
+@import './components/clasification.css';
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default: "Dile Components: Web Components Catalog" }}</title>
+  <style>
+    [dile-cloak] {
+      display: none !important;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <dile-nav menu="right">
+      <span slot="title" class="site-name">
+        <a href="/">
+          <img src="/images/logo-polydile.png" alt="logo polydile">
+          <b>dile-components</b>
+        </a>
+      </span>
+      <dile-menu-hamburger hamburgerAlwaysVisible slot="menu" direction="left">
+        <nav class="app-menu" slot="menu" dile-cloak>
+          {% include "layout-partials/nav.html" %}
+        </nav>
+      </dile-menu-hamburger>
+      <span slot="actions" class="actionsnav">
+        <a href="https://github.com/Polydile/components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
+        <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
+      </span>
+    </dile-nav>
+  </header>
+
+
+  <main>
+    <nav class="fixednav">
+      {% include "layout-partials/nav.html" %}
+    </nav>
+    <div class="maincontent">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <section>
+        <b>Information</b>
+        <ul>
+          <li><a href="/how-to-use">How to use</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/attribution">Attribution</a></li>
+        </ul>
+      </section>
+      <section>
+        <b>Sections</b>
+        <ul>
+          <li><a href="/components/">Components</a></li>
+          <li><a href="/mixins/">Mixins</a></li>
+          <li><a href="/icons/">Icons</a></li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+
+  <script src="/js/index.js" type="module"></script>
+</body>
+</html>

@@ -1,32 +1,38 @@
 {
-  "name": "@dile/dile-components",
+  "name": "dile-components",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "type": "module",
-  "license": "MIT",
+  "version": "2.0.0",
+  "description": "Dile Components new repo",
   "scripts": {
+    "dev": "vite",
     "lerna": "lerna",
-    "start": "wds --node-resolve --esbuild-target auto --preserve-symlinks --watch --open demos/",
-    "audit": "lerna-audit",
-    "build": "rocket build",
-    "dev": "npm start",
-    "vite:dev": "vite",
-    "preview": "rocket preview --open",
-    "start:rocket": "NODE_DEBUG=engine:rendering rocket start --open"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Polydile/Components"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "dile",
+    "ui"
+  ],
+  "author": "EscuelaIT",
+  "license": "MIT",
   "devDependencies": {
-    "@web/dev-server": "^0.2.3",
-    "@web/dev-server-esbuild": "^0.4.1",
-    "lerna": "^7.0.0",
-    "vite": "^4.3.9"
+    "@11ty/eleventy": "^2.0.1",
+    "lerna": "^8.1.2",
+    "vite": "^5.2.6"
   },
   "dependencies": {
-    "@mdjs/mdjs-preview": "^0.5.9",
-    "@mdjs/mdjs-story": "^0.3.2",
-    "@rocket/cli": "^0.20.4",
-    "@rocket/engine": "^0.2.7",
-    "lit": "^2.6.1"
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "jsdom": "^24.0.0",
+    "lit": "^2.7.0 || ^3.0.0"
   }
 }

@@ -1,0 +1,40 @@
+footer {
+  background-color: var(--dile-secondary-color);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  column-gap: 2rem;
+  font-size: 1.1rem;
+}
+.footer b, .footer a {
+  color: #fff;
+}
+.footer ul {
+  margin: 0.5rem 0 1rem;
+}
+.footer li {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  list-style-type: none;
+}
+@media(min-width: 500px) {
+  footer {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .footer {
+    flex-direction: row;
+    row-gap: 2rem;
+  }
+  .footer section {
+    min-width: 200px;
+  }
+  .footer ul {
+    padding: 0;
+  }
+}
+

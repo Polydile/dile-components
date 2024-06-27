@@ -1,0 +1,63 @@
+span.site-name a {
+  display: flex; 
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+dile-nav a {
+  text-decoration: none;
+}
+dile-nav img {
+  position: relative;
+  top: 3px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.app-menu {
+  padding: 1rem;
+  font-size: 0.875rem;
+  min-width: 250px;
+}
+
+.app-menu .link {
+  display: flex;
+  align-items: center;
+  --dile-icon-size: 22px;
+  --dile-icon-color: var(--dile-secondary-color);
+}
+.app-menu .link dile-icon-name {
+  transform: rotate(-90deg);
+  margin-right: 0.25rem;
+}
+.app-menu p {
+  margin: 0 0 0.15rem;
+}
+dile-social-icon {
+  margin: 0 0.25rem;
+}
+
+.actionsnav a, .actionsnav {
+  display: flex;
+  align-items: center;
+} 
+
+.actionsnav a {
+  margin: 0 0.25rem;
+}
+
+.fixednav {
+  --dile-selector-selected-background-color: var(--dile-primary-color);
+  --dile-selector-selected-text-color: #303030;
+  --dile-selector-selected-icon-color: var(--dile-secondary-color);
+}
+
+.fixednav dile-slide-menu {
+  margin-left: 1.3rem;
+}
+.linkcolection {
+  font-size: 0.875rem;
+  --dile-selector-icon-size: 16px;
+  --dile-selector-icon-color: var(--dile-secondary-color);
+  margin-left: 0.25rem;
+}

@@ -1,0 +1,39 @@
+---
+layout: layout.html
+title: Mixins
+---
+
+<h1>Mixins</h1>
+
+<p>
+  Here you can find the dile-components mixin catalog.
+</p>
+
+
+<div class="Clasification">
+  {% for tag in mixinTagsList %}        
+    <dile-card 
+     title="{{ tag | capitalize }}" 
+    >
+      <dile-selector>
+        {% for component in collections[tag] %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+  
+      </dile-selector>
+    </dile-card>
+  {% endfor %}
+
+  {% if collections.uncategorizedMixins.size > 0 %}
+    <dile-card 
+     title="Other components" 
+    >
+      {% for component in collections.uncategorizedComponents %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-card>
+  {% endif %}
+</div>
+
+
+

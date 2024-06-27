@@ -1,0 +1,10 @@
+<dile-selector-item 
+  class="linkcolection" 
+  icon="label_important" 
+  href="{{ component.url }}"
+  {% if component.url == page.url %}
+    selected
+  {% endif %}
+>
+  {{component.data.title}}
+</dile-selector-item>

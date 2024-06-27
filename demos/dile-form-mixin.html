@@ -7,7 +7,6 @@
   <title>dile-form-mixin demo</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
   
   <style>
     .example {
@@ -44,22 +43,22 @@
   </div>
 
   <script type="module">
-    import {DileFormMixin } from '@dile/dile-form-mixin/index.js';
-    import { DileFormChangeDetectMixin } from '@dile/dile-form-mixin/index.js';
-    import '@dile/dile-input/dile-input.js';
-    import '@dile/dile-input/dile-input-message.js';
-    import '@dile/dile-input/dile-input-money.js';
-    import '@dile/dile-input/dile-input-integer.js';
-    import '@dile/dile-input/dile-input-percentage.js';
-    import '@dile/dile-checkbox/dile-checkbox.js';
-    import '@dile/dile-select/dile-select.js';
-    import '@dile/dile-select/dile-select-ajax.js';
-    import '@dile/dile-textarea/dile-textarea.js';
-    import '@dile/dile-editor/dile-editor.js';
+    import {DileForm } from '@dile/ui/mixins/form/index.js';
+    import { DileFormChangeDetect } from '@dile/ui/mixins/form/index.js';
+    import '@dile/ui/components/input/input.js';
+    import '@dile/ui/components/input/input-message.js';
+    import '@dile/ui/components/input/input-money.js';
+    import '@dile/ui/components/input/input-integer.js';
+    import '@dile/ui/components/input/input-percentage.js';
+    import '@dile/ui/components/checkbox/checkbox.js';
+    import '@dile/ui/components/select/select.js';
+    import '@dile/ui/components/select/select-ajax.js';
+    import '@dile/ui/components/textarea/textarea.js';
+    import '@dile/editor/editor.js';
 
     import { LitElement, html, css } from 'lit';
     
-    class FormExample  extends DileFormMixin(DileFormChangeDetectMixin(LitElement)) {
+    class FormExample  extends DileForm(DileFormChangeDetect(LitElement)) {
       static get styles() {
         return css`
           :host {

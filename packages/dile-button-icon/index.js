@@ -1,1 +1,0 @@
-export { DileButtonIcon } from './src/DileButtonIcon.js';

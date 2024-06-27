@@ -7,22 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module">
-    import "@dile/dile-modal/dile-modal.js";
-    import "@dile/dile-datepicker/dile-datepicker.js";
+    import "@dile/ui/components/modal/modal.js";
+    import "@dile/utils/components/datepicker/datepicker.js";
   </script>
   <style>
 
     .myModalCustomized {
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: center;
+      color: #fff;
       --dile-modal-border-radius: 0;
       --dile-modal-content-background-color: #303030;
       --dile-modal-width: 200px;
       --dile-modal-min-width: 100px;
-      text-align: center;
       --dile-modal-content-shadow-color: #ddd;
       --dile-modal-background-color: #fff;
       --dile-modal-animation-duration: 1s;
-      color: #fff;
     }
     .myModalCustomized p {
       color: #f66;
@@ -50,7 +50,7 @@
       <p>Pariatur vero impedit repudiandae labore mod!</p>
     </dile-modal>
 
-    <dile-modal class="modalbox" id="elmodal2" class="myModalCustomized">
+    <dile-modal id="elmodal2" class="myModalCustomized">
       <p>Hi dile-modal!</p>
       <ul>
         <li>Item 1</li>
@@ -59,7 +59,7 @@
       </ul>
     </dile-modal>
 
-    <dile-modal class="modalbox" id="elmodal3" showCloseIcon class="myModalCursor">
+    <dile-modal id="elmodal3" showCloseIcon class="myModalCursor">
       <p>I have other cursor in the close icon!</p>
     </dile-modal>
 

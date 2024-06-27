@@ -1,0 +1,1 @@
+export { DileCloseDocumentClick } from "./src/DileCloseDocumentClick.js";
