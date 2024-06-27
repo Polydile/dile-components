@@ -2,6 +2,8 @@
 
 This is the "dile-components" catalog monorepo, a library of Custom Elements based on Lit and Web Components.
 
+> If you are looking for the previous version of this component catalog, you can find it in this repository: <https://github.com/Polydile/Components-legacy>
+
 ## Packages in This Repository
 
 - `@dile/ui`: Components for creating common User Interfaces, such as buttons, dialogs, custom form elements, etc.
