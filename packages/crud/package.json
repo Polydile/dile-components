@@ -1,7 +1,7 @@
 {
-  "name": "@dile/ui",
-  "version": "2.0.7",
-  "description": "UI Core components from dile-components.",
+  "name": "@dile/crud",
+  "version": "0.0.0",
+  "description": "Components to create a generic crud system based on Web Components and Lit",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,19 +11,19 @@
     "url": "git+https://github.com/Polydile/dile-components.git"
   },
   "keywords": [
-    "ui"
+    "crud",
+    "components",
+    "web components",
+    "lit",
+    "dile components"
   ],
-  "author": "EscuelaIT",
+  "author": "Miguel Angel Alvarez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Polydile/Components/issues"
+    "url": "https://github.com/Polydile/dile-components/issues"
   },
   "homepage": "https://dile-components.polydile.com/",
   "dependencies": {
-    "@dile/icons": "^2.0.3",
-    "lit": "^2.7.0 || ^3.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "axios": "^1.7.2"
   }
 }

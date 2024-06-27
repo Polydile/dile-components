@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Polydile/Components.git"
+    "url": "git+https://github.com/Polydile/dile-components.git"
   },
   "keywords": [
     "utils"
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Polydile/Components/issues"
   },
-  "homepage": "https://github.com/Polydile/Components#readme",
+  "homepage": "https://dile-components.polydile.com/",
   "dependencies": {
     "@dile/ui": "^2.0.7",
     "@lion/calendar": "^0.20.1",

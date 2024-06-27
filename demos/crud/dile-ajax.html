@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/ajax/ajax.js'
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-ajax component</h1>
+    
+    <h2>Country list</h2>
+    <dile-ajax
+      id="ajaxelement"
+      method="get"
+      url="api/countries"
+    ></dile-ajax>
+    <p>
+      <button id="getButton">Get country list</button>  
+    </p>
+    <p id="message">Push the button to get countries list...</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const ajaxelement = document.getElementById('ajaxelement');
+        document.getElementById('getButton').addEventListener('click', function() {
+          ajaxelement.generateRequest();
+        });
+        ajaxelement.addEventListener('ajax-error', function(e) {
+          console.error('Error Ajax:', e.detail);
+        });
+        ajaxelement.addEventListener('ajax-success', function(e) {
+          console.log('Success Ajax:', e.detail);
+          const messageElement = document.getElementById('message');
+          const countryNames = e.detail.map(country => country.name).join(', ');
+          messageElement.textContent = countryNames;
+        })
+      });
+    </script>
+
+    <h2>Create a country</h2>
+    <dile-ajax
+      id="ajaxcreate"
+      method="post"
+      url="api/countries"
+    ></dile-ajax>
+    <p>
+      <input type="text" id="countryName" placeholder="Name"> <button id="postButton">Create country</button>  
+    </p>
+    <p id="messagecreate">Write a name and push the button to create a new country...</p>
+    <script>
+      function createSlug(inputString) {
+        let slug = inputString.toLowerCase();
+        slug = slug.replace(/[^a-z0-9\s-]/g, ' ');
+        slug = slug.replace(/[\s-]+/g, ' ');
+        slug = slug.trim();
+        slug = slug.replace(/\s+/g, '-');        
+        return slug;
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const ajaxcreate = document.getElementById('ajaxcreate');
+        const messageElement = document.getElementById('messagecreate');
+        document.getElementById('postButton').addEventListener('click', function() {
+          const countryName = document.getElementById('countryName').value;
+          if(countryName == '') {
+            messageElement.textContent = 'Please provide a country name';
+            return;
+          }
+          const slug = createSlug(countryName);
+          ajaxcreate.data = {
+            name: countryName,
+            slug,
+            continent: 'Europe',
+          }
+          ajaxcreate.generateRequest();
+        });
+        ajaxcreate.addEventListener('ajax-error', function(e) {
+          messageElement.textContent = 'Ajax error, see complete error on the console';
+          console.error('Error Ajax:', e.detail);
+        });
+        ajaxcreate.addEventListener('ajax-success', function(e) {
+          console.log('Success Ajax:', e.detail);
+          messageElement.textContent = 'Country inserted';
+        })
+      });
+    </script>
+
+    <footer><a href="index.html">Back</a></footer>
+  </div>
+</body>
+</html>
