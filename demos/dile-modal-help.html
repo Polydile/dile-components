@@ -21,13 +21,35 @@
   <div class="container">
     <h1>dile-modal-help component</h1>
     
-    <dile-modal-help title="Some information">
+    <dile-modal-help label="Some information">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
       <p>Pariatur vero impedit repudiandae labore mod!</p>
     </dile-modal-help>
 
-    
+    <h2>Only icon</h2>
+
+    <dile-modal-help onlyIcon>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
+      <p>Pariatur vero impedit repudiandae labore mod!</p>
+    </dile-modal-help>
    
+    <h2>Control from outside ui</h2>
+
+    <dile-modal-help label="Openable" id="openable">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
+      <p>Pariatur vero impedit repudiandae labore mod!</p>
+    </dile-modal-help>
+
+    <button id="openablebutton">Open only for 5 seconds</button>
+
+    <script>
+      document.getElementById('openablebutton').addEventListener('click', function() {
+        const openable = document.getElementById('openable');
+        openable.open();
+        setTimeout( () => openable.close(), 5000);
+      })
+
+    </script>
 
     <footer><a href="index.html">Back</a></footer>
   </div>

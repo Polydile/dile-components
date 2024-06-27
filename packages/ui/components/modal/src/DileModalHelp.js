@@ -13,14 +13,19 @@ export class DileModalHelp extends LitElement {
                 --dile-modal-height: auto;
                 --dile-modal-max-height: 95vh;
                 color: #303030;
+                --dile-icon-rounded-background-color: var(--dile-primary-color, #2962FF);
+                --dile-icon-color: var(--dile-modal-help-icon-color, #fff);
             }
             h1 {
                 margin: 0 0 1rem;
                 font-size: 1.5rem;
                 font-weight: 300;
-                color: var(--primary-dark-color);
+                color: var(--primary-dark-color, #303030);
                 padding-bottom: 0.5rem;
-                border-bottom: 1px solid var(--primary-color);
+                border-bottom: 1px solid var(--primary-color, #2962FF);
+            }
+            dile-icon {
+                cursor: pointer;
             }
             .content {
                 overflow: auto;
@@ -57,7 +62,7 @@ export class DileModalHelp extends LitElement {
     render() {
         return html`
             ${this.onlyIcon
-                ? html`<dile-icon .icon=${this.icon} @click=${this.open}></dile-icon>`
+                ? html`<dile-icon .icon=${this.icon} @click=${this.open} rounded></dile-icon>`
                 : html`
                     <dile-button-icon 
                         .icon="${this.icon}" 
@@ -77,7 +82,14 @@ export class DileModalHelp extends LitElement {
         `;
     }
 
+    get elmodal() {
+        return this.shadowRoot.getElementById('elmodal');
+    }
+
     open() {
-        this.shadowRoot.getElementById('elmodal').open();
+        this.elmodal.open();
+    }
+    close() {
+        this.elmodal.close();
     }
 }
