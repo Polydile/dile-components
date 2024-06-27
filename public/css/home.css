@@ -1,3 +1,9 @@
+h1.homeh1 {
+  text-align: center;
+  line-height: 1.8rem;
+  margin: 0.25rem 0 1.8rem;
+}
+
 .subtitle {
   color: #666;
   font-size: 1.1rem;
@@ -40,6 +46,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 2.5rem;
+    text-align: center;
   }
   .subtitle .image {
     flex-grow: 1;
