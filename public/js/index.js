@@ -30,12 +30,9 @@ import '@dile/ui/components/progress-bar/progress-bar.js';
 import '@dile/ui/components/slide-menu/slide-menu.js';
 import './components/dile-icon-name.js';
 
-console.log('hola');
-
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {
     let control = button.getAttribute('aria-controls');
     document.querySelector('#' + control).style.display = 'block'
-    console.log('hola', control);
   })
 })
