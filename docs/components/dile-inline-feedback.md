@@ -33,6 +33,9 @@ Use the component.
 - **negativeFeedback(msg)**: Send a negative message to the user 
 - **neutralFeedback(msg)**: Send a neutral message to the user 
 - **clear()**: Clear feedback message 
+- **positiveFeedbackWithDelay(msg, miliseconds)**: Send a positive message to the user and clear feedback message with a delay
+- **negativeFeedbackWithDelay(msg, miliseconds)**: Send a negative message to the user and clear feedback message with a delay
+- **neutralFeedbackWithDelay(msg, miliseconds)**: Send a neutral message to the user and clear feedback message with a delay
 
 ## dile-inline-feedback demo
 

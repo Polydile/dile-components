@@ -6,7 +6,7 @@ export class DileAjax extends LitElement {
     return {
       data: {  type: Object },
       method: { type: String },
-      url: { type: String }
+      url: { type: String },
     }
   }
 
@@ -15,30 +15,38 @@ export class DileAjax extends LitElement {
     this.data = {};
     this.method = 'post';
     this.url = '';
-    if(!window.axiosInstance) {
-      new AxiosInstanceBuilder()
+  }
+  
+  get axiosInstance() {
+    if(window.axiosInstance) {
+      return window.axiosInstance;
     }
+    if(window.axios) {
+      return window.axios;
+    }
+    new AxiosInstanceBuilder()
+    return window.axiosInstance;
   }
 
   generateRequest() {
     let request;
     switch(this.method.toLowerCase().trim()) {
       case 'post':
-        request = window.axiosInstance.post(this.url, this.data);
+        request = this.axiosInstance.post(this.url, this.data);
         break;
       case 'get':
-        request = window.axiosInstance.get(this.url, {
+        request = this.axiosInstance.get(this.url, {
           params: this.data
         });
         break;
       case 'put':
-        request = window.axiosInstance.put(this.url, this.data);
+        request = this.axiosInstance.put(this.url, this.data);
         break;
       case 'delete':
-        request = window.axiosInstance.delete(this.url, this.data);
+        request = this.axiosInstance.delete(this.url, this.data);
         break;
       case 'patch':
-        request = window.axiosInstance.patch(this.url, this.data);
+        request = this.axiosInstance.patch(this.url, this.data);
         break
     }
     request.then((response) => {
@@ -46,9 +54,13 @@ export class DileAjax extends LitElement {
         let res = response.data;
         if(res.error) {
           this.dispatchError(res.data);
-        } else {
+        } else if (res.error === false) {
           this.dispatchEvent(new CustomEvent('ajax-success', {
             detail: res.data
+          }));
+        } else {
+          this.dispatchEvent(new CustomEvent('ajax-success', {
+            detail: res
           }));
         }
       } else {
@@ -67,6 +79,13 @@ export class DileAjax extends LitElement {
         case 422: 
         case 400: 
           this.dispatchError(err.response.data.message, err.response.data.errors);
+          break;
+        case 404:
+          if(err.response.data.message) {
+            this.dispatchError(err.response.data.message);
+          } else {
+            this.dispatchError("Not found error");
+          }
           break;
         case 401:
           this.dispatchError('Unauthorized. Your session may have expired');

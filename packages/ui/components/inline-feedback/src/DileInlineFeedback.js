@@ -65,6 +65,9 @@ export class DileInlineFeedback extends DileSlideDown(LitElement) {
   }
 
   doFeeedback(msg, status) {
+    if(this.delayedClear) {
+      clearTimeout(this.delayedClear);
+    }
     if(this.opened) {
       this.clear();
       setTimeout(() => this.doFeeedback(msg, status), 300);
@@ -87,10 +90,25 @@ export class DileInlineFeedback extends DileSlideDown(LitElement) {
   neutralFeedback(msg) {
     this.doFeeedback(msg, 'neutral');    
   }
+  positiveFeedbackWithDelay(msg, milliseconds = 5000) {
+    this.positiveFeedback(msg);
+    this.clearAfterDelay(milliseconds);
+  }
+  negativeFeedbackWithDelay(msg, milliseconds = 5000) {
+    this.negativeFeedback(msg);
+    this.clearAfterDelay(milliseconds);
+  }
+  neutralFeedbackWithDelay(msg, milliseconds = 5000) {
+    this.neutralFeedback(msg);
+    this.clearAfterDelay(milliseconds);
+  }
   clear() {
     this.slideHide(this.msgElement);
     this.msg = '';
     this.status = '';
     this.opened = false;
+  }
+  clearAfterDelay(miliseconds) {
+    this.delayedClear = setTimeout( () => this.clear(), miliseconds);
   }
 }

@@ -37,7 +37,7 @@
         ajaxelement.addEventListener('ajax-success', function(e) {
           console.log('Success Ajax:', e.detail);
           const messageElement = document.getElementById('message');
-          const countryNames = e.detail.map(country => country.name).join(', ');
+          const countryNames = e.detail.data.map(country => country.name).join(', ');
           messageElement.textContent = countryNames;
         })
       });
@@ -91,7 +91,7 @@
       });
     </script>
 
-    <footer><a href="index.html">Back</a></footer>
+    <footer><a href="./index.html">Back</a></footer>
   </div>
 </body>
 </html>

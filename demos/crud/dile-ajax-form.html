@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax-form component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/ajax-form/ajax-form.js'
+    import './components/demo-countries-form.js'
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-ajax-form component</h1>
+    
+    <h2>Country Insert</h2>
+    <dile-ajax-form
+      id="ajaxelement"
+      operation="insert"
+      endpoint="api/countries"
+      actionLabel="Save"
+      responseDataProperty="data"
+      responseMessageProperty="message"
+      validationErrorsProperty="errors"
+    >
+      <demo-countries-form id="form"></demo-countries-form>
+    </dile-ajax-form>
+    
+    
+
+    <h2>Country update</h2>
+
+    <dile-ajax-form
+      id="ajaxupdate"
+      operation="update"
+      relatedId="1"
+      loadOnInit
+      endpoint="api/countries"
+      actionLabel="Save"
+      responseDataProperty="data"
+      responseMessageProperty="message"
+      validationErrorsProperty="errors"
+    >
+      <demo-countries-form id="form"></demo-countries-form>
+    </dile-ajax-form>
+    
+    <p>
+      <input id="relatedId" placeholder="Country id"><button id="changeCountry">Change Country</button>
+    </p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('changeCountry').addEventListener('click', function() {
+          let relatedId = document.getElementById('relatedId').value;
+          document.getElementById('ajaxupdate').relatedId = relatedId;
+        });
+      });
+    </script>
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+</html>
