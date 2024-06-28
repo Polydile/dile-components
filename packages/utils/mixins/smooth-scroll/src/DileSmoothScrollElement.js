@@ -1,4 +1,4 @@
-export const DileSmoothScrollElementMixin = (Superclass) =>
+export const DileSmoothScrollElement = (Superclass) =>
   class extends Superclass {
     smoothElementScrollTop(element) {
       this.smoothElementScroll(element, 0, 0);
