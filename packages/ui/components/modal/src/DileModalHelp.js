@@ -22,7 +22,7 @@ export class DileModalHelp extends LitElement {
                 font-weight: 300;
                 color: var(--primary-dark-color, #303030);
                 padding-bottom: 0.5rem;
-                border-bottom: 1px solid var(--primary-color, #2962FF);
+                border-bottom: 1px solid var(--dile-primary-color, #2962FF);
             }
             dile-icon {
                 cursor: pointer;
