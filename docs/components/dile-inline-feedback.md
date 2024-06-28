@@ -32,6 +32,7 @@ Use the component.
 - **positiveFeedback(msg)**: Send a positive message to the user 
 - **negativeFeedback(msg)**: Send a negative message to the user 
 - **neutralFeedback(msg)**: Send a neutral message to the user 
+- **clear()**: Clear feedback message 
 
 ## dile-inline-feedback demo
 
