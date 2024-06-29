@@ -28,12 +28,16 @@ Use the component:
 
 ## Properties
 
-- **name**: Name of the chip. This name does not appears in the chip interface. It is useful to identify the chip on a `dile-chip-icon-click` event.
-- **icon**: optional icon to this chip.
+- **name**: Name of the chip. This name does not appear in the chip interface. It is useful to identify the chip on a `dile-chip-icon-click` event.
+- **icon**: optional icon for this chip.
+
+## Custom Events
+
+- **dile-chip-icon-click**: this custom event is dispatched when the user clicks on the chip icon.
 
 ## CSS Custom Properties
 
-You can customize the chip using this CSS Custom Properties.
+You can customize the chip using these CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
@@ -75,6 +79,9 @@ Custom property | Description | Default
       --dile-chip-font-size: 1.4rem;
       --dile-chip-font-weight: 400;
       --dile-chip-icon-hover-color:  #ffa;
+      font-family: impact, arial, sans-serif;
+      letter-spacing: 0.1rem;
+
     }
 </style>
 <dile-chip name="Jonh" class="styled">Jhon</dile-chip> 

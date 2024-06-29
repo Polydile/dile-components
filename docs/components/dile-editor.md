@@ -44,7 +44,7 @@ Use the component:
 
 ## CSS Custom Properties
 
-You can customize the editor using this CSS Custom Properties.
+You can customize the editor using these CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------

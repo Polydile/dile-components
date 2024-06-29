@@ -39,7 +39,7 @@ Use the component:
 
 ## CSS Custom Properties
 
-You can customize the avatar using this CSS Custom Properties.
+You can customize the avatar using these CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
