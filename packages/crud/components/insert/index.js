@@ -1,0 +1,1 @@
+export { DileCrudInsert } from './src/DileCrudInsert.js';

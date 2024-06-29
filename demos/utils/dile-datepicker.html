@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-datepicker component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/datepicker/datepicker.js"
+  </script>
+  <style>
+    .styled {
+      --dile-input-label-color: #6d3d6c;
+      --dile-input-label-font-weight: bold;
+      --dile-input-border-radius: 0;
+      --dile-input-border-color: #6d3d6c;
+      --dile-input-border-width: 2px;
+      --dile-input-label-margin-bottom: 0.5rem;
+      --dile-input-line-height: 2.5rem;
+      --dile-input-background-color: #ffc;
+      --dile-input-color: #963;
+      --dile-menu-overlay-background-color: rgb(143, 143, 34);
+      --dile-menu-overlay-color: #fff;
+      --dile-datepicker-trigger-color: #6d3d6c; 
+      --dile-calendar-day-background-color: rgb(130, 79, 12);
+      --dile-calendar-today-background-color: rgb(233, 47, 223);
+      --dile-calendar-day-text-color: #fff;
+      --dile-calendar-day-border-radius: 7px;
+      --dile-calendar-nav-buttons-color: #fff;
+      --dile-datepicker-trigger-margin-bottom: 0.1em;
+      --dile-datepicker-trigger-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-datepicker component</h1>
+    
+    <h2>Regular datepicker</h2>
+    <p>
+      <dile-datepicker 
+        name="datepicker1" 
+        id="datepicker1" 
+        label="Date"
+      ></dile-datepicker>
+    </p>
+
+    <h2>Styled datepicker appears on bottom</h2>
+    <p>
+      <dile-datepicker name="datepicker2" id="datepicker2" class="styled" label="Event date" verticalAlign="bottom">Styled datepicker</dile-datepicker>
+    </p>
+  
+    <h2>Monday as first day</h2>
+    <p>
+      <dile-datepicker firstDayOfWeek="1" name="datepicker2" id="datepicker2" label="Event date">Styled datepicker</dile-datepicker>
+    </p>
+
+    <h2>Disabled datepicker</h2>
+    <p>
+      <dile-datepicker name="disabelddatepicker" disabled id="disabelddatepicker">Disabled datepicker</dile-datepicker>
+    </p>
+
+    <script>
+      document.querySelectorAll('dile-datepicker').forEach(function(item) {
+        item.addEventListener('click', function (e) {
+          console.log('datepicker click', e.target.name);
+        });
+      })
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>

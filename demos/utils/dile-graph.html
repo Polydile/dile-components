@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dile-graph component demo</title>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <script type="module">
+            import "@dile/utils/components/graph/graph.js"
+        </script>
+        <style>
+            .example {
+                --dile-graph-width: 700px;
+                --dile-graph-border-radius: 20px;
+                --dile-graph-background-color: #ddf0ff;
+                --dile-graph-width: 400px;
+                --dile-graph-shadow: none;
+                --dile-graph-hover-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>dile-graph component</h1>
+            Default Graph
+            <br /><br />
+            
+            <dile-graph 
+                charttype="bar" 
+                labels='["Jan","Feb","Mar"]'
+                datasets='[ { "label": "Users", "data": [1, 4, 6], "backgroundColor": "rgba(255, 99, 132, 0.2)", "borderColor": "rgba(255,99,132,1)", "borderWidth": 2 } ]'
+            ></dile-graph>
+            
+            <br /><br />
+            Custom Graph
+            <br /><br />
+
+            <dile-graph 
+                class="example"
+                charttype="line" labels='["A", "B", "C", "D", "E", "F"]'
+                datasets='[{ "label": "Dataset 1", "data": [65, 59, 80, 81, 56, 55], "borderColor": "rgb(255, 99, 132)", "backgroundColor": "rgb(177, 199, 232)"},{ "label": "Dataset 2", "data": [28, 48, 40, 19, 86, 27], "borderColor": "rgb(33, 150, 232)", "backgroundColor": "rgb(55, 199, 200)"}]'>
+            </dile-graph>
+
+            
+            <br /><br />
+
+            <footer><a href="../index.html">Back</a></footer>
+        </div>
+    </body>
+</html>

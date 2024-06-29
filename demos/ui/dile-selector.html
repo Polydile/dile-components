@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-selector component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/selector/selector.js";
+    import "@dile/ui/components/selector/selector-item.js";
+    import "@dile/ui/components/pages/pages.js";
+  </script>
+  <style>
+    p {
+        margin: 10px;
+      }
+
+    #selector1{
+      --dile-selector-selected-border-radius: 1rem;
+    }
+    #selector2 {
+      --dile-selector-text-color: #950;
+      --dile-selector-background-color: rgb(245, 245, 245);
+      --dile-selector-selected-text-color: #404040;
+      --dile-selector-selected-background-color: rgb(245, 229, 142);
+      --dile-selector-icon-color: #950;
+      --dile-selector-selected-icon-color: rgb(87, 51, 8);
+    }
+
+    #selector3 {
+      --dile-selector-background-color: #fff;
+      --dile-selector-selected-text-color: #233cbb;
+      --dile-selector-selected-background-color: #fff;
+      --dile-selector-selected-font-weight: bold;
+      --dile-selector-selected-icon-color: rgb(9, 11, 97);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-selector component</h1>
+
+    <h2>Simple implementation</h2>
+    <dile-selector id="selector1" selected="2">
+      <dile-selector-item>One</dile-selector-item>
+      <dile-selector-item>Two</dile-selector-item>
+      <dile-selector-item>Three</dile-selector-item>
+      <dile-selector-item>Four</dile-selector-item>
+    </dile-selector>
+    <p id="msg1">2</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let selector1 = document.getElementById('selector1')
+        selector1.addEventListener('dile-selected-changed', function(e) {
+          document.getElementById('msg1').innerText = parseInt(e.detail.selected) + 1
+        });
+      })
+    </script>
+
+    <h2>Selected by attribute</h2>
+    <dile-selector selected="posts" attrForSelected="name" id="selector2">
+      <dile-selector-item icon="star" name="users">Users</dile-selector-item>
+      <dile-selector-item icon="star" name="posts">Posts</dile-selector-item>
+      <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
+      <dile-selector-item icon="star" name="faq">FAQ</dile-selector-item>
+      <dile-selector-item icon="star" name="contact">Contact</dile-selector-item>
+    </dile-selector>
+    <p id="msg2">posts</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let selector2 = document.getElementById('selector2')
+        selector2.addEventListener('dile-selected-changed', function(e) {
+          document.getElementById('msg2').innerText = e.detail.selected
+        }); 
+      })
+    </script>
+
+    <h2>Interoperability</h2>
+    <dile-selector selected="posts" attrForSelected="name" id="selector3">
+      <dile-selector-item icon="arrow_forward" name="users">Users</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="posts">Posts</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="articles">Articles</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="faq">FAQ</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="contact">Contact</dile-selector-item>
+    </dile-selector>
+    <select id="select3">
+      <option value="">Seleccionar una opción</option>
+      <option value="users">Users</option>
+      <option value="posts">Posts</option>
+      <option value="articles">Articles</option>
+      <option value="faq">FAQ</option>
+      <option value="contact">Contact</option>
+    </select>
+  
+    <h2>Using href attribute</h2>
+    <dile-selector id="selector1" selected="2">
+      <dile-selector-item href="https://escuela.it" icon="navigate_next">EscuelaIT</dile-selector-item>
+      <dile-selector-item href="https://desarrolloweb.com" icon="navigate_next">DesarrolloWeb.com</dile-selector-item>
+    </dile-selector>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let selector3 = document.getElementById('selector3')
+        let select3 = document.getElementById('select3')
+        selector3.addEventListener('dile-selected-changed', function(e) {
+          select3.value = e.detail.selected;
+        }); 
+        select3.addEventListener('change', function(e) {
+          let newValue = e.target.value;
+          if(newValue) {
+            selector3.selected = newValue;
+          }
+        })
+      })
+    </script>
+
+    <h2>Using hashSelection</h2>
+    <p>Connect selector to URL Hash.</p>
+
+    <dile-selector hashSelection attrForSelected="name" id="selector4" selectorId="selectorhash">
+      <dile-selector-item icon="arrow_forward" name="apple">Apple</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="lemon">Lemon</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="orange">Orange</dile-selector-item>
+    </dile-selector>
+    <p>
+      <a href="#apple">Select Apple</a> | 
+      <a href="#lemon">Select Lemon</a> | 
+      <a href="#orange">Select Orange</a>
+    </p>
+    <dile-pages attrForSelected="name" selectorId="selectorhash">
+      <div name="apple">I am Apple</div>
+      <div name="lemon">I am Lemon</div>
+      <div name="orange">I am Orange</div>
+    </dile-pages>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

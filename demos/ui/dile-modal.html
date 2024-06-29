@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-modal component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/modal/modal.js";
+    import "@dile/utils/components/datepicker/datepicker.js";
+  </script>
+  <style>
+
+    .myModalCustomized {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: center;
+      color: #fff;
+      --dile-modal-border-radius: 0;
+      --dile-modal-content-background-color: #303030;
+      --dile-modal-width: 200px;
+      --dile-modal-min-width: 100px;
+      --dile-modal-content-shadow-color: #ddd;
+      --dile-modal-background-color: #fff;
+      --dile-modal-animation-duration: 1s;
+    }
+    .myModalCustomized p {
+      color: #f66;
+      font-size: 0.9em;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+    }
+    .myModalCursor {
+      --dile-modal-close-icon-cursor: move;
+    }
+    #elmodal5 {
+      --dile-modal-width: 95vw;
+      --dile-modal-height: 95vh;
+      --dile-modal-border-radius: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-modal component</h1>
+    
+    <dile-modal class="modalbox" id="elmodal1" showCloseIcon>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
+      <p>Pariatur vero impedit repudiandae labore mod!</p>
+    </dile-modal>
+
+    <dile-modal id="elmodal2" class="myModalCustomized">
+      <p>Hi dile-modal!</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </dile-modal>
+
+    <dile-modal id="elmodal3" showCloseIcon class="myModalCursor">
+      <p>I have other cursor in the close icon!</p>
+    </dile-modal>
+
+    <dile-modal class="modalbox" id="elmodal4" showCloseIcon blocking>
+      <h2>Blocking</h2>
+      <p>Event you click outside, the modal do not closes</p>
+      <p>Pariatur vero impedit repudiandae labore mod!</p>
+    </dile-modal>
+
+    <dile-modal class="modalbox" id="elmodal5">
+      <h2>Modal with an overlay</h2>
+      <p>This modal box has a overlay element. Click on the calendar icon to open it.</p>
+      <p><dile-datepicker name="date" label="Date only for demo purpouses"></dile-datepicker></p>
+    </dile-modal>
+  
+    <button id="modalregular">Open regular modal</button>
+    <button id="modalstyled">Open styled modal</button>
+    <button id="modalcursor">Open cursor modal</button>
+    <button id="modalblocking">Open blocking modal</button>
+    <button id="modaloverlay">Open modal with other overlay element inside</button>
+    
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+        let modal1 = document.getElementById("elmodal1");
+        let modal2 = document.getElementById("elmodal2");
+        let modal3 = document.getElementById("elmodal3");
+        let modal4 = document.getElementById("elmodal4");
+        let modal5 = document.getElementById("elmodal5");
+        document.getElementById("modalregular").addEventListener("click", function() {
+          modal1.open();
+        });
+        document.getElementById("modalstyled").addEventListener("click", function () {
+          modal2.open();
+        });
+        document.getElementById("modalcursor").addEventListener("click", function () {
+          modal3.open();
+        });
+        document.getElementById("modalblocking").addEventListener("click", function () {
+          modal4.open();
+        });
+        document.getElementById("modaloverlay").addEventListener("click", function () {
+          modal5.open();
+        });       
+
+        document.querySelectorAll('.modalbox').forEach( modal => {
+          modal.addEventListener('dile-modal-closed', function(e) {
+            console.log('dile-modal-closed on ' + e.detail.getAttribute('id') );
+          })
+          modal.addEventListener('dile-modal-background-closed', function(e) {
+            console.log('dile-modal-background-closed on ' + e.detail.getAttribute('id') );
+          })
+        })
+      });
+
+
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

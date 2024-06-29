@@ -1,5 +1,6 @@
 ---
 title: Smooth Scroll
+tags: utils
 ---
 
 # dile-smooth-scroll

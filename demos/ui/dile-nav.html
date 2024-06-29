@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-nav component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/nav/nav.js";
+  </script>
+  <style>
+    h2 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 26px;
+    }
+    .styled {
+      --dile-nav-background-color: #bbdefb;
+      --dile-nav-color: #303030;
+      --dile-nav-padding-y: 1rem;
+      --dile-nav-padding-x: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-nav component</h1>
+    
+    <dile-nav>
+      <h2 slot="title">Nav title</h2>
+      <span slot="menu">[X]</span>
+      <span slot="actions">Create</span>
+    </dile-nav>
+
+
+    <br><br>
+  
+    <dile-nav class="styled" menu="right">
+      <h2 slot="title">Nav title</h2>
+      <span slot="menu">[X]</span>
+      <span slot="actions">Create</span>
+    </dile-nav>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

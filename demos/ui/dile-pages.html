@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-pages component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/pages/pages.js";
+    import "@dile/ui/components/tabs/tabs.js";
+  </script>
+  <style>
+    .pages2 {
+      padding: 0.8rem 0.2rem;
+    }
+    .pages2 h2 {
+      margin-top: 0rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-pages component</h1>
+
+    <button class="changepages" data-page="page1">Show page 1</button>
+    <button class="changepages" data-page="page2">Show page 2</button>
+    <button class="changepages" data-page="page3">Show page 3</button>
+
+    <dile-pages selected="page1" attrforselected="name" id="dilepages">
+      <div name="page1">
+        <h2>Page 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde excepturi atque, et quaerat vero saepe maiores,
+          maxime dolore officiis earum cumque temporibus tenetur, possimus deserunt magni itaque! Reiciendis, assumenda quo?
+        </p>
+      </div>
+      <div name="page2">
+        <h2>Page 2</h2>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde excepturi atque, et quaerat vero saepe maiores,
+          maxime dolore officiis earum cumque temporibus tenetur, possimus deserunt magni itaque! Reiciendis, assumenda quo?
+        </p>
+      </div>
+      <div name="page3">
+        <h2>Page three</h2>
+        <p>Just another page</p>
+      </div>
+    </dile-pages>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        document.querySelectorAll('.changepages').forEach( item => {
+          item.addEventListener('click', (e) => {
+            let page = e.target.dataset.page;
+            document.getElementById('dilepages').selected = page;
+          })
+        })
+
+      })
+    </script>
+
+    <hr>
+
+    <h2>Pages & tabs</h2>
+    
+    <dile-tabs selected="users" attrForSelected="name" id="tabs" selectorId="tabs">
+      <dile-tab name="users">Users</dile-tab>
+        <dile-tab name="posts">Posts</dile-tab>
+        <dile-tab name="articles">Articles</dile-tab>
+    </dile-tabs>
+    <dile-pages selected="users" attrforselected="name" selectorId="tabs" class="pages2">
+      <div name="users">
+        <h2>Users</h2>
+        <p>I am the users page. Please feel free to use ;)</p>
+      </div>
+      <div name="posts">
+        <h2>Posts</h2>
+        <p>This is the post section of this interface...</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veniam sed, ad placeat quo nam officiis ducimus laborum debitis omnis et numquam, tempore accusamus odio sint reiciendis corrupti unde. Dolorem.</p>
+      </div>
+      <div name="articles">
+        <h2>Articles</h2>
+        <p>Here you can find many articles.</p>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+        </ul>
+      </div>
+    </dile-pages>
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

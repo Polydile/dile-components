@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dile-form-mixin demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  
+  <style>
+    .example {
+      --eit-card-graph-width: 700px;
+      --eit-card-graph-borderRadius: 20px;
+      --eit-graph-width: 500px;
+      --eit-graph-heigth: 500px;
+    }
+    p {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Mixin dile-form-mixin demo </h1>
+    
+    <form-example></form-example>
+    
+    <p>
+      <button id="get">Show value in console</button>
+      <button id="set">Set data</button>
+      <button id="clear">Clear data</button>
+      <button id="reset">Reset data</button>
+      <button id="resetsex">Reset only sex field</button>
+      <button id="errors">Set some errors</button>
+      <button id="dirty">log dirty</button>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+
+  </div>
+
+  <script type="module">
+    import {DileForm } from '@dile/ui/mixins/form/index.js';
+    import { DileFormChangeDetect } from '@dile/ui/mixins/form/index.js';
+    import '@dile/ui/components/input/input.js';
+    import '@dile/ui/components/input/input-message.js';
+    import '@dile/ui/components/input/input-money.js';
+    import '@dile/ui/components/input/input-integer.js';
+    import '@dile/ui/components/input/input-percentage.js';
+    import '@dile/ui/components/checkbox/checkbox.js';
+    import '@dile/ui/components/select/select.js';
+    import '@dile/ui/components/select/select-ajax.js';
+    import '@dile/ui/components/textarea/textarea.js';
+    import '@dile/editor/editor.js';
+
+    import { LitElement, html, css } from 'lit';
+    
+    class FormExample  extends DileForm(DileFormChangeDetect(LitElement)) {
+      static get styles() {
+        return css`
+          :host {
+            display: block;
+            font-size: 0.9rem;
+            
+          }
+          p {
+            margin: 0 0 10px 0;
+          }
+        `;
+      }
+      render() {
+        return html`
+          <dile-input name="name" hideErrorOnInput label="Name" value="Polydile"></dile-input>
+          <dile-textarea label="Profile" name="profile" rows="3" maxRows="5" value="initial profile value"></dile-textarea>
+          <dile-input name="age" label="Age" value="25" hideErrorOnInput></dile-input>
+          <dile-select name="sex" label="Sex" alue="F">
+            <select slot="select">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </dile-select>
+          <p>
+            <dile-checkbox name="interested"> I am interested in Polydile</dile-checkbox>
+          </p>
+          <dile-input-money name="price" label="Price"></dile-input-money>
+          <dile-input-integer name="quantity" label="Quantity"></dile-input-integer>
+          <dileQuantity-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
+          <dile-input name="company" label="Company"></dile-input>
+          <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
+          <dile-editor name="comments"># Markdown Editor\n\nWrite *something*.</dile-editor>
+          <dile-input-message name="onlymessage"></dile-input-message>
+        `;
+      }
+    }
+    
+    customElements.define('form-example', FormExample);
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector('form-example');
+
+      form.addEventListener('dile-form-changed', function(e) {
+        console.log('form has changed', e.detail.data);
+      });
+
+      document.getElementById('get').addEventListener('click', () => {
+        console.log(form);
+      
+        console.log(form.getData());
+      });
+
+      document.getElementById('set').addEventListener('click', () => {
+        console.log(form);
+      
+        form.setData({
+          name: 'dile-components',
+          age: 33,
+          interested: true,
+          sex: "F",
+          company: "Acme",
+          album: 7,
+          discount: 10.55,
+          price: 10050,
+          comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye",
+          profile: "This is a profile information...",
+        });
+      });
+
+      document.getElementById('clear').addEventListener('click', () => {
+        form.clearData();
+      });
+
+      document.getElementById('reset').addEventListener('click', () => {
+        form.resetData();
+      });
+
+      document.getElementById('resetsex').addEventListener('click', () => {
+        form.resetField('sex');
+      });
+
+      document.getElementById('errors').addEventListener('click', () => {
+        form.showErrors({
+          name: "Error on name field",
+          age: "Error on age field",
+          comments: "Error on comments field",
+          onlymessage: "This element has no input. It is only created for messaging purposes",
+        })
+      });
+
+      document.getElementById('dirty').addEventListener('click', () => {
+        console.log(form.isDirty());
+      });
+
+      // document.querySelector('form-example').addEventListener('element-changed', (e) => {
+      //   console.log('element-changed', e.detail);
+      // })
+    })
+    
+    
+
+    
+  </script>
+</body>
+
+</html>

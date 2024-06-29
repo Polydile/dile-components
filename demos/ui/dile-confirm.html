@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-modal component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/confirm/confirm.js"
+  </script>
+  <style>
+
+    h1 {
+    font-weight: 300;
+    }
+    p {
+      margin-top: 0;
+    }
+    #myModal2 {
+      --dile-modal-height: 300px;
+    }
+    #myModalCustomized {
+      --dile-modal-border-radius: 2px;
+      --dile-modal-content-background-color: #303030;
+      --dile-modal-width: 230px;
+      --dile-modal-min-width: 100px;
+      --dile-modal-content-shadow-color: #ddd;
+      --dile-modal-background-color: #fff;
+      --dile-modal-content-padding: 0.5rem;
+      --dile-confirm-buttons-text-align: center;
+      --dile-confirm-accept-button-color: #ddd;
+      --dile-confirm-cancel-button-color: #ddd;
+      --dile-confirm-accept-text-button-color: #007bff;
+      --dile-confirm-cancel-text-button-color: #dc3545;
+      --dile-confirm-border-radius-button: 5px;
+      --dile-confirm-font-size-button: 0.8em;
+      --dile-confirm-padding-button: 3px 5px;
+      --dile-confirm-font-weight-button: bold;
+      --dile-confirm-font-weight-cancel-button: normal;
+    }
+    #myModalCustomized p {
+      color: #f66;
+      font-size: 0.9em;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    #myModalCustomized div {
+      padding-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-confirm component</h1>
+    
+    <button id="openbutton">Open a confirm box</button>
+    <button id="openbutton3">Open a confirm box customized</button>
+    
+    <dile-confirm id="myModal">
+      <p>
+        Do you really want to delete this element?
+      </p>
+    </dile-confirm>
+    
+    <dile-confirm id="myModalCustomized">
+      <div>
+        <p>¿Are you sure?</p>
+      </div>
+    </dile-confirm>
+    
+    <script>
+      let confirmElement = document.getElementById('myModal');
+      confirmElement.addEventListener('dile-confirm-accepted', () => {
+        console.log('confirm dialog accepted');
+      });
+      confirmElement.addEventListener('dile-confirm-cancelled', () => {
+        console.log('confirm dialog cancelled');
+      });
+      document.getElementById('openbutton').addEventListener('click', () => {
+        confirmElement.open();
+      });
+
+      let confirmElement3 = document.getElementById('myModalCustomized');
+      document.getElementById('openbutton3').addEventListener('click', () => {
+        confirmElement3.open();
+      });
+
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

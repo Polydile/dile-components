@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-card component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+  import "@dile/ui/components/card/card.js";
+  </script>
+  <style>
+    .dile-card {
+      display: block;
+    }
+    .styled {
+      --dile-card-border: 2px solid #add;
+      --dile-card-border-radius: 20px;
+      --dile-card-background-color: #f4f4f4;
+      --dile-card-text-color: #36f;
+      --dile-card-title-font-weight: 700;
+      --dile-card-footer-border-separator: 2px solid #add;
+      --dile-card-footer-background-color: #eff;
+      --dile-card-footer-padding-top: 12px;
+      --dile-card-title-color: rgb(106, 34, 148);
+    }
+    .footer-styled {
+      color: #666;
+    }
+    .responsive-card {
+      --dile-card-box-shadow: 0 0 #0000;
+      --dile-card-border-radius: 1px;
+    }
+    @media (min-width: 400px) {
+      .responsive-card {
+        --dile-card-border-radius: 5px;
+        --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+    }
+    @media (min-width: 600px) {
+      .responsive-card {
+        --dile-card-border-radius: 10px;
+        --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+    }
+    @media (min-width: 800px) {
+      .responsive-card {
+        --dile-card-border-radius: 15px;
+        --dile-card-box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-card component</h1>
+    
+    <h2>Regular card</h2>
+    
+    <dile-card shadow-sm style="margin-bottom: 0.2rem;">This card has only main body</dile-card>
+    
+    <h2>Card with title</h2>
+    
+    <dile-card shadow-xl title="Welcome to this card">This card has title and main body</dile-card>
+
+    <h2>Card with title, footer and main content</h2>
+    
+    <dile-card shadow-md title="Welcome to this card">
+      <div>
+        This card has title and main body
+      </div>
+      <div slot="footer">
+        <a href="#">Action test</a>
+      </div>
+    </dile-card>
+    
+    <h2>Styled card</h2>
+    <dile-card shadow-none title="I am a styled card" class="styled">
+      Styled card main content
+      <span slot="footer" class="footer-styled">
+        Footer content
+      </span>
+    </dile-card>
+  
+    <h2>Responsive card</h2>
+    <p>
+      <dile-card class="responsive-card" title="Shadow responsive">The shadow of this card has a responsive change.</dile-card>
+    </p>
+
+    <script>
+      document.querySelectorAll('dile-card').forEach(function(item) {
+        item.addEventListener('click', function (e) {
+          console.log('card click', e.target.name);
+        });
+      })
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>

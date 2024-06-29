@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax-form component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/update/crud-update.js'
+    import './components/demo-countries-form.js'
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-crud-update component</h1>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+      import '@dile/ui/components/select/select';
+
+      export class CrudUpdateDemo extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+
+        static get properties() {
+          return {
+            relatedId: { type: String },
+          };
+        }
+
+        constructor() {
+          super();
+          this.relatedId = '1';
+          this.apiConfig = {
+            responseDataProperty: 'data',
+            responseMessageProperty: 'message',
+            validationErrorsProperty: 'errors'
+          }
+        }
+      
+        render() {
+          return html`
+            <dile-select
+              label="Select a country to edit"
+              value="${this.relatedId}"
+              @element-changed="${this.changeId}"
+            >
+              <select slot="select">
+                <option value="1">Argentina (id 1)</option>
+                <option value="2">Australia (id 2)</option>
+                <option value="3">Belgium (id 3)</option>
+              </select>
+            </dile-select>
+
+            <dile-crud-update
+              title="update a country"
+              endpoint="api/countries"
+              .apiConfig=${this.apiConfig}
+              loadOnInit
+              relatedId="${this.relatedId}"
+              .formTemplate=${html`<demo-countries-form id="form"></demo-countries-form>`}
+            ></dile-crud-update>
+          `;
+        }
+
+        changeId(e) {
+          this.relatedId = e.detail.value;
+        }
+      }
+      customElements.define('crud-update-demo', CrudUpdateDemo);
+      
+    </script>
+
+    <crud-update-demo></crud-update-demo>
+
+   
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+</html>

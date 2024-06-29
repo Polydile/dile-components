@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-progress-bar component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/progress-bar/progress-bar.js";
+  </script>
+  <style>
+    .styled {
+      --dile-progress-background: #e6f3fa;
+      --dile-progress-border-radius: 20px;
+      --dile-progress-bar-align: flex-end;
+      --dile-progress-bar-background: #2cb7cc;
+      --dile-progress-bar-border-radius: 20px;
+      --dile-progress-bar-percentage-color: #fff;
+      --dile-progress-bar-percentage-font-size: 16px;
+      --dile-progres-bar-percentage-padding-right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-progress-bar component</h1>
+
+    <h2>Regular progress bar</h2>
+    <dile-progress-bar></dile-progress-bar>
+
+    <h2>Progress bar with title</h2>
+    <dile-progress-bar title="Title of progress bar"></dile-progress-bar>
+
+
+    <h2>Progress bar with title and percentage</h2>
+    <dile-progress-bar title="Title of progress bar with percentage" value="80"></dile-progress-bar>
+
+    <h2>Styled progress bar</h2>
+    <dile-progress-bar title="I am a styled progress bar" class="styled" value="80"></dile-progress-bar>
+
+    <h2>Styled progress bar and animated</h2>
+    <dile-progress-bar animated title="I am a styled progress bar and animated" class="styled" value="80"></dile-progress-bar>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+
+</html>
