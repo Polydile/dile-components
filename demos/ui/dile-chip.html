@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-chip component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/ui/components/chip/chip.js'
+  </script>
+  <style>
+    .styled {
+      --dile-chip-background-color: rgb(10, 130, 177);
+      --dile-chip-text-color: #ff6;
+      --dile-chip-padding-x: 1rem;
+      --dile-chip-padding-y: 0.5rem;
+      --dile-chip-border-radius: 0.6rem;
+      --dile-chip-icon-color: #fff;
+      --dile-chip-icon-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-chip component</h1>
+    
+    <h2>Default chips</h2>
+    <p>
+      <dile-chip name="Dile">Dile</dile-chip>
+      <dile-chip name="Lit">Lit</dile-chip>
+    </p>
+  
+    <h2>Styled chips</h2>
+    <p>
+      <dile-chip name="Jonh" class="styled">Jhon</dile-chip> 
+      <dile-chip name="Maria" class="styled">Maria</dile-chip>
+    </p>
+
+    <h2>Customize icon chip</h2>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+      import { deleteIcon } from '@dile/icons';
+
+      export class CustomizeDileChip extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+              --dile-chip-icon-size: 20px;
+              --dile-chip-background-color: #fcc;
+            }
+          `
+        ];
+      
+        render() {
+          return html`<dile-chip .icon="${deleteIcon}" name="foo">Foo</dile-chip>`;
+        }
+      }
+      customElements.define('customize-dile-chip', CustomizeDileChip);
+      
+    </script>
+    <p>
+      <customize-dile-chip></customize-dile-chip>
+    </p>
+
+  
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
