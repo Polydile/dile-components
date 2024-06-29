@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dile-crud-insert component demo</title>
+  <title>dile-crud-filters-list component demo</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <script type="module" src="axios.js"></script>
   <script type="module">
-    import '@dile/crud/components/insert/crud-insert.js'
-    import './components/demo-countries-form.js'
+    import '@dile/crud/components/ui/crud-filters-list.js'
   </script>
 </head>
 <body>
   <div class="container">
-    <h1>dile-crud-insert component</h1>
+    <h1>dile-crud-filters-list component</h1>
 
     <script type="module">
       import { LitElement, html, css } from 'lit';
       
-      export class CrudInsertDemo extends LitElement {
+      export class CrudFiltersListDemo extends LitElement {
         static styles = [
           css`
             :host {
@@ -30,29 +29,31 @@
 
         constructor() {
           super();
-          this.apiConfig = {
-            responseDataProperty: 'data',
-            responseMessageProperty: 'message',
-            validationErrorsProperty: 'errors'
-          }
+          this.filters = [
+            {
+              name: 'filter 1',
+              active: true,
+              label: 'Filter 1',
+            },
+            {
+              name: 'filter 2',
+              active: true,
+              label: 'Filter 2',
+            }
+          ]
         }
       
         render() {
           return html`
-            <dile-crud-insert
-              title="Insert a country"
-              endpoint="api/countries"
-              .apiConfig=${this.apiConfig}
-              .formTemplate=${html`<demo-countries-form id="form"></demo-countries-form>`}
-            ></dile-crud-insert>
+            <dile-crud-filters-list .filters=${this.filters} keyword="javascript"></dile-crud-filters-list>
           `;
         }
       }
-      customElements.define('crud-insert-demo', CrudInsertDemo);
+      customElements.define('crud-filters-list-demo', CrudFiltersListDemo);
       
     </script>
 
-    <crud-insert-demo></crud-insert-demo>
+    <crud-filters-list-demo></crud-filters-list-demo>
 
    
 

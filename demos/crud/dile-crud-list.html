@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-crud-list component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/list/crud-list.js'
+    import './components/demo-countries-form.js'
+    import './components/demo-country-item.js'
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-crud-list component</h1>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      export class CrudListDemo extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+
+        static get properties() {
+          return {
+            config: { type: Object },
+          };
+        }
+
+        constructor() {
+          super();
+          this.config = {
+            endpoint: 'api/countries',
+            filters: [],
+            itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
+            customization: {
+              hideCountSummary: false,
+              hidePageReport: false,
+              hideCheckboxSelection: true,
+              hideEmptyInsertButton: false,
+              disableInsert: false,
+              disableEdit: false,
+              disablePagination: true,
+            },
+            apiConfig: {
+              responseDataProperty: 'data',
+              responseMessageProperty: 'message',
+              validationErrorsProperty: 'errors',
+              getDataFromResultsList(results) {
+                return results.data;
+              }
+            }
+          }
+        }
+
+        render() {
+          return html`
+
+            <dile-crud-list
+              .config="${this.config}"
+            ></dile-crud-list>
+          `;
+        }
+
+      }
+      customElements.define('crud-list-demo', CrudListDemo);
+
+    </script>
+
+    <crud-list-demo></crud-list-demo>
+
+
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+
+</html>
