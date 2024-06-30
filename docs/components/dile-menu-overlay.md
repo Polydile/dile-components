@@ -54,7 +54,7 @@ That's all!!
 The component offers several properties to configure the way it works.
 
 - **closeOnClickInside**: Bolean property. When is set to true, the menu interface closes when user click inside it.
-- **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "left", "right" or "center". Default to "left".
+- **horizontalAlign**: String property to set the horizontal position of the menu. Valid values are "left", "right" or "center", "under_left", "under_right". Default to "under_left".
 - **verticalAlign**: String property to set the vertical position of the menu. Valid values are "bottom", "center" or "top". Default to "bottom".
 - **moveTop**: Number of pixels to modify the default vertical position of the overlay. Accepts positive (move down) an negative (move up) values. Default 0.
 - **moveLeft**: Number of pixels to modify the default horizontal position of the overlay. Accepts positive (move right) an negative (move left) values. Default 0.
