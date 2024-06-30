@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-crud-filters-form component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/ui/crud-filters-form.js'
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-crud-filters-form component</h1>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      export class CrudFiltersFormDemo extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+
+        constructor() {
+          super();
+          this.filters = [
+            {
+              "name": "paid_filter",
+              "label": "Pagada",
+              "active": false,
+              "value": false,
+              "type": "select",
+              "options": [
+                {
+                  "name": "paid",
+                  "label": "Pagada"
+                },
+                {
+                  "name": "not_paid",
+                  "label": "Por pagar"
+                }
+              ]
+            },
+            {
+              "name": "serie_filter",
+              "label": "Serie",
+              "active": false,
+              "value": false,
+              "type": "select",
+              "options": [
+                {
+                  "name": "common",
+                  "label": "Facturas comunes"
+                },
+                {
+                  "name": "simplified",
+                  "label": "Tickets"
+                },
+                {
+                  "name": "rectification",
+                  "label": "Facturas rectificativas"
+                }
+              ]
+            },
+            {
+              "name": "trimester_filter",
+              "label": "Trimestre",
+              "active": false,
+              "value": false,
+              "type": "select",
+              "options": [
+                {
+                  "name": "current",
+                  "label": "Este trimestre"
+                },
+                {
+                  "name": "last",
+                  "label": "Anterior trimestre"
+                },
+                {
+                  "name": "2xlast",
+                  "label": "2 trimestres atrás"
+                }
+              ]
+            },
+            {
+              "name": "month_filter",
+              "label": "Mes facturación",
+              "active": false,
+              "value": false,
+              "type": "select",
+              "options": [
+                {
+                  "name": "current",
+                  "label": "Este mes"
+                },
+                {
+                  "name": "1",
+                  "label": "Enero"
+                },
+                {
+                  "name": "2",
+                  "label": "Febrero"
+                },
+                {
+                  "name": "3",
+                  "label": "Marzo"
+                },
+                {
+                  "name": "4",
+                  "label": "Abril"
+                },
+                {
+                  "name": "5",
+                  "label": "Mayo"
+                },
+                {
+                  "name": "6",
+                  "label": "Junio"
+                },
+                {
+                  "name": "7",
+                  "label": "Julio"
+                },
+                {
+                  "name": "8",
+                  "label": "Agosto"
+                },
+                {
+                  "name": "9",
+                  "label": "Septiembre"
+                },
+                {
+                  "name": "10",
+                  "label": "Octubre"
+                },
+                {
+                  "name": "11",
+                  "label": "Noviempre"
+                },
+                {
+                  "name": "12",
+                  "label": "Diciembre"
+                }
+              ]
+            },
+            {
+              "name": "year_filter",
+              "label": "Año facturación",
+              "active": false,
+              "value": false,
+              "type": "select",
+              "options": [
+                {
+                  "name": 2024,
+                  "label": 2024
+                },
+                {
+                  "name": 2023,
+                  "label": 2023
+                }
+              ]
+            },
+            {
+              "name": "this_year",
+              "label": "Emitidas este año",
+              "active": false,
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        }
+
+        render() {
+          return html`
+            <dile-crud-filters-form .filters=${this.filters}></dile-crud-filters-form>
+          `;
+        }
+      }
+      customElements.define('crud-filters-form-demo', CrudFiltersFormDemo);
+
+    </script>
+
+    <crud-filters-form-demo></crud-filters-form-demo>
+
+
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+
+</html>

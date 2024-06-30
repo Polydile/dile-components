@@ -19,66 +19,25 @@
   <div class="container">
     <h1>dile-crud-list component</h1>
 
+    <p>
+      In this page you will find two main demos:
+    </p>
+    <ul>
+      <li><a href="#unpaginated">Unpaginated list demo</a></li>
+      <li><a href="#paginated">Paginated list demo</a></li>
+    </ul>
+
+    <h2 id="unpaginated">Unpaginated list</h2>
     <script type="module">
-      import { LitElement, html, css } from 'lit';
-
-      export class CrudListDemo extends LitElement {
-        static styles = [
-          css`
-            :host {
-              display: block;
-            }
-          `
-        ];
-
-        static get properties() {
-          return {
-            config: { type: Object },
-          };
-        }
-
-        constructor() {
-          super();
-          this.config = {
-            endpoint: 'api/countries',
-            filters: [],
-            itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
-            customization: {
-              hideCountSummary: false,
-              hidePageReport: false,
-              hideCheckboxSelection: true,
-              hideEmptyInsertButton: false,
-              disableInsert: false,
-              disableEdit: false,
-              disablePagination: true,
-            },
-            apiConfig: {
-              responseDataProperty: 'data',
-              responseMessageProperty: 'message',
-              validationErrorsProperty: 'errors',
-              getDataFromResultsList(results) {
-                return results.data;
-              }
-            }
-          }
-        }
-
-        render() {
-          return html`
-
-            <dile-crud-list
-              .config="${this.config}"
-            ></dile-crud-list>
-          `;
-        }
-
-      }
-      customElements.define('crud-list-demo', CrudListDemo);
-
+      import './components/demo-countries-list.js'
     </script>
-
     <crud-list-demo></crud-list-demo>
 
+    <h2 id="paginated">Paginated list</h2>
+    <script type="module">
+      import './components/demo-board-games-list.js'
+    </script>
+    <demo-board-games-list></demo-board-games-list>
 
 
     <footer><a href="./index.html">Back</a></footer>

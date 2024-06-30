@@ -84,7 +84,8 @@ export class DileCrudList extends LitElement {
             responseDataProperty: 'data',
             responseMessageProperty: 'message',
             validationErrorsProperty: 'errors',
-            getDataFromResultsList: function // recibe lo que traes por ajax y te da el resultado
+            getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
+            getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
           }
         }
         */
@@ -248,8 +249,8 @@ export class DileCrudList extends LitElement {
                   .paginationData=${this.paginationData}
                   numItems="${this.numItems}"
                   pageSize="${this.pageSize}"
-                  @go-prev=${this.goPrev}
-                  @go-next=${this.goNext}
+                  @crud-pagination-prev=${this.goPrev}
+                  @crud-pagination-next=${this.goNext}
             ></dile-crud-list-pagination-links>
           `
         }
@@ -267,14 +268,16 @@ export class DileCrudList extends LitElement {
     doSuccessGet(e) {
         // console.log(this, 'do success get', e.detail);
         this.loading = false;
-        this.elements = this.config.apiConfig.getDataFromResultsList(e.detail);
+        this.elements = this.config.apiConfig.getResultsListFromResponse(e.detail);
         if(! this.config.customization?.disablePagination) {
+          let data = this.config.apiConfig.getDataFromResponse(e.detail);
+          console.log('pagination data creating', data);
           this.paginationData = {
-            nextPage: e.detail.result.next_page_url,
-            prevPage: e.detail.result.prev_page_url,
-            currentPage: e.detail.result.current_page,
+            nextPage: data.result.next_page_url,
+            prevPage: data.result.prev_page_url,
+            currentPage: data.result.current_page,
           }
-          this.numItems = e.detail.countItems;
+          this.numItems = data.countItems;
         } else {
           this.numItems = this.elements.length;
         }
