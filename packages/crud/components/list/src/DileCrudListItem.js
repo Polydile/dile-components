@@ -110,7 +110,7 @@ export class DileCrudListItem extends LitElement {
 
   editClick() {
     console.log('editClick itemId', this.itemId);
-    this.dispatchEvent(new CustomEvent('item-edit', {
+    this.dispatchEvent(new CustomEvent('crud-item-edit', {
       bubbles: true,
       composed: true,
       detail: {
@@ -121,7 +121,7 @@ export class DileCrudListItem extends LitElement {
 
   deleteClick() {
     console.log('deleteClick itemId', this.itemId);
-    this.dispatchEvent(new CustomEvent('item-delete', {
+    this.dispatchEvent(new CustomEvent('crud-item-delete', {
       bubbles: true,
       composed: true,
       detail: {

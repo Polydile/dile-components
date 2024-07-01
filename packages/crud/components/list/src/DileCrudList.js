@@ -76,6 +76,7 @@ export class DileCrudList extends LitElement {
             hideEmptyInsertButton: false,
             disableInsert: false,
             disableEdit: false,
+            disableDelete: false,
             disablePagination: false,
           },
           apiConfig = {
@@ -213,6 +214,7 @@ export class DileCrudList extends LitElement {
                     itemId="${this.computeItemId(element)}"
                     .actionIds="${this.actionIds}"
                     ?disableEdit="${this.config?.customization?.disableEdit}"
+                    ?disableDelete="${this.config?.customization?.disableDelete}"
                     ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
                     @item-checkbox-changed=${this.onItemsCheckboxChanged}
                 >
@@ -268,6 +270,7 @@ export class DileCrudList extends LitElement {
     }
 
     refresh() {
+        this.loading = true;
         if (this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
         }
