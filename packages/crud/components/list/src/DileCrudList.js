@@ -6,6 +6,7 @@ import '../../ui/crud-filters-list.js';
 import '../../list/crud-list-pagination-links.js';
 import '../crud-list-item.js';
 import '../crud-select-all';
+import '../crud-list-service.js';
 
 export class DileCrudList extends LitElement {
     static styles = [
@@ -61,14 +62,11 @@ export class DileCrudList extends LitElement {
         sort: { type: Object },
         actionIds: { type: Array },
         filters: { type: Array },
-        belongsTo: { type: String },
-        relationId: { type: String },
         
         /*
         idea es colocar todo lo que son datos de config que no cambiarán al usar el elemento
         config = {
           endpoint: string,
-          filters: Array,
           belongsTo: String,
           relationId: String,
           customization: {
@@ -107,23 +105,15 @@ export class DileCrudList extends LitElement {
     }
 
     firstUpdated() {
-        this.refresh();
-        this.createShadowDomRefs();
-    }
-
-    createShadowDomRefs() {
-        this.ajaxget = this.shadowRoot.getElementById('ajaxget');
+        this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
+        this.refresh();
     }
 
     updated(changedProperties) {
-        if (changedProperties.has('config') || changedProperties.has('relationId')) {
+        if (changedProperties.has('config')) {
             this.refresh();
         }
-    }
-
-    itemTemplate(customer) {
-        // Override
     }
 
     render() {
@@ -186,13 +176,15 @@ export class DileCrudList extends LitElement {
 
     get ajaxTemplate() {
         return html`
-            <dile-ajax
-                id="ajaxget"
-                method="get"
-                url="${this.cleanUrl}"
-                @ajax-success="${this.doSuccessGet}"
-                @ajax-error="${this.doErrorGet}"
-            ></dile-ajax>
+            <dile-crud-list-service
+                id="elservice"
+                .config=${this.config}
+                .filters=${this.filters}
+                .pageSize=${this.pageSize}
+                .keyword=${this.keyword}
+                .sort=${this.sort}
+                @crud-list-get-success=${this.getSuccess}
+            ></dile-crud-list-service>
             <dile-ajax
                 id="ajaxgetallids"
                 method="get"
@@ -230,12 +222,16 @@ export class DileCrudList extends LitElement {
         `;
     }
 
-    computeItemId(element) {
-        return element.id;
+    getSuccess(e) {
+        console.log('getsuccess en crud list', e.detail);
+        this.loading = false;
+        this.elements = e.detail.elements;
+        this.numItems = e.detail.numItems;
+        this.paginationData = e.detail.paginationData;
     }
 
-    get cleanUrl() {
-        return `${this.config.endpoint}`;
+    computeItemId(element) {
+        return element.id;
     }
 
     get allIdsUrl() {
@@ -263,102 +259,39 @@ export class DileCrudList extends LitElement {
         }));
     }
 
-    
-
-    doSuccessGet(e) {
-        // console.log(this, 'do success get', e.detail);
-        this.loading = false;
-        this.elements = this.config.apiConfig.getResultsListFromResponse(e.detail);
-        if(! this.config.customization?.disablePagination) {
-          let data = this.config.apiConfig.getDataFromResponse(e.detail);
-          console.log('pagination data creating', data);
-          this.paginationData = {
-            nextPage: data.result.next_page_url,
-            prevPage: data.result.prev_page_url,
-            currentPage: data.result.current_page,
-          }
-          this.numItems = data.countItems;
-        } else {
-          this.numItems = this.elements.length;
-        }
-    }
-
-    doErrorGet(e) {
-        store.dispatch(negativeFeedback(e.detail.message));
-    }
-
     goNext() {
-        if (this.paginationData.nextPage) {
-            this.ajaxget.url = this.paginationData.nextPage;
-            this.ajaxget.generateRequest();
-        }
+        this.elservice.goNext()
     }
 
     goPrev() {
-        if (this.paginationData.prevPage) {
-            this.ajaxget.url = this.paginationData.prevPage;
-            this.ajaxget.generateRequest();
-        }
+        this.elservice.goPrev()
     }
 
     refresh() {
-        if(this.delayTimer) {
-            clearTimeout(this.delayTimer);
-        }
-        this.delayTimer = setTimeout(() => this.doRefresh(), this.delayTime);
-    }    
-
-    doRefresh() {
         if (this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
-        } 
-        this.delayTimer = null;
-        let data = {
-            per_page: this.pageSize,
-            keyword: this.keyword,
-            filters: this.filters,
         }
-        if(this.sort && this.sort.sortField) {
-            data.sortField = this.sort.sortField;
-        }
-        if(this.sort && this.sort.sortDirection) {
-            data.sortDirection = this.sort.sortDirection;
-        }
-        if(this.belongsTo && this.relationId) {
-            data.belongsTo = this.belongsTo;
-            data.relationId = this.relationId;
-        }
-        this.ajaxget.data = data;
-        this.ajaxget.generateRequest();
-        this.loading = true;
-    }
+        this.elservice.refresh();
+    }    
 
     setKeyword(keyword) {
-        // console.log('setkeyword', keyword);
         this.keyword = keyword;
-        this.ajaxget.url = this.cleanUrl;
-        this.refresh();
+        this.elservice.setKeyword(keyword);
     }
 
     setSort(sortObject) {
-        // console.log('set SORT OBJECT');
         this.sort = sortObject;
-        this.ajaxget.url = this.cleanUrl;
-        this.refresh();
+        this.elservice.setSort(sortObject);
     }  
 
     setPageSize(size) {
-        // console.log('set page size');
         this.pageSize = size;
-        this.ajaxget.url = this.cleanUrl;
-        this.refresh();
+        this.elservice.setPageSize(size);
     }
 
     setFilters(filters) {
-        // console.log('set filters');
         this.filters = filters;
-        this.ajaxget.url = this.cleanUrl;
-        this.refresh();
+        this.elservice.setFilters(filters);
     }
 
     crudSelectAll(e) {
@@ -388,6 +321,7 @@ export class DileCrudList extends LitElement {
     getPageIds() {
         return this.elements.map(element => element.slug);
     }
+
     getAllIds() {
       if(this.config.customization?.disablePagination) {
         let ids = this.elements.map(item => item.id);
