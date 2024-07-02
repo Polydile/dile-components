@@ -1,20 +1,18 @@
 import { LitElement, html, css } from 'lit';
-import { connect } from 'pwa-helpers/connect-mixin.js';
-import { store } from '../../redux/store.js';
-import { formStyles } from './form-styles.js';
-import '../crud/fct-crud-sort-form';
-import '../crud/fct-crud-page-size';
 import '@dile/ui/components/input/input-search';
-import './fct-crud-item-delete';
-import './fct-crud-filters';
-import { CrudMixin } from './crud-mixin.js';
-import { crudPageStyles } from './crud-page-styles.js';
-import { breadcrumbsStyles } from './breadcrumbs-styles.js';
+import '../../item-delete/crud-item-delete.js';
+import '../../list/crud-list.js';
+import '../../ui/crud-sort-form.js';
+import '../../ui/crud-page-size.js';
+import '../../ui/crud-filters.js';
+import { formStyles } from '../../../styles/form-styles.js';
+import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
+import { crudPageStyles } from '../../../styles/crud-page-styles.js';
+import { addIcon } from '@dile/icons';
 
-export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
+export class DileCrud extends DileCrudMixin(LitElement) {
     static styles = [
         formStyles,
-        breadcrumbsStyles,
         crudPageStyles,
         css`
             :host {
@@ -70,36 +68,64 @@ export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
 
     static get properties() {
       return {
-        sortOptions: { type: String },
-        title: { type: String },
-        endpoint: { type: String },
+        config: { type: Object },
         actionIds: { type: Array },
-        belongsTo: { type: String },
-        relationId: { type: String },
-        disableInsert: { type: Boolean },
-        disableUpdate: { type: Boolean },
+        keyword: { type: String },
         /** Cuando el crud se muestra dentro de una página como las facturas en la página del cliente */
-        insideOfPage: { type: Boolean },
         hasHelp: { type: Boolean },
         editUrl: { type: Boolean },
       };
+
+      /*
+        idea es colocar todo lo que son datos de config que no cambiarán al usar el elemento
+        config = {
+          title: string,
+          endpoint: string,
+          belongsTo: String,
+          relationId: String,
+          sortOptions: Array,
+          initialSortField: string,
+          initialSortDirection: string
+          filters: Array,
+          availablePageSizes: Array,
+          pageSize: number,
+          customization: {
+            hideCountSummary: false,
+            hidePageReport: false,
+            hideCheckboxSelection: false,
+            hideEmptyInsertButton: false,
+            disableInsert: false,
+            disableEdit: false,
+            disableDelete: false,
+            disablePagination: false,
+            disableSort: false,
+            disableFilter: false,
+          },
+          apiConfig = {
+            responseDataProperty: 'data',
+            responseMessageProperty: 'message',
+            validationErrorsProperty: 'errors',
+            getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
+            getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
+          }
+        }
+        */
     }
 
     constructor() {
         super();
         this.actionIds = [];
-        this.disableInsert = false;
-        this.disableUpdate = false;
     }
 
-    get breadcrumbTemplate() {
-        // Overwirte
-    }
     get insertTemplate() {
-        // Overwirte
+        return html`<dile-button-icon .icon="${addIcon}">Create</dile-button-icon>`
     }
     get listTemplate() {
-        // Overwirte
+        return html`
+            <dile-crud-list
+                .config=${this.config}
+            ></dile-crud-list>
+        `
     }
     get updateTemplate() {
         // Overwirte
@@ -113,42 +139,12 @@ export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
 
     render() {
         return html`
-            ${this.endpoint === undefined 
-                ? '' 
-                : html `
-                    ${this.insideOfPage
-                       ? this.simpleTemplate
-                       : this.completeTemplate        
-                    }
-                `
-            }
-        `;
-    }
-    
-    get completeTemplate() {
-        return html`
-            ${this.breadcrumbTemplate}
-            <div class="elcontainer">
-                ${this.crudTemplate}
-            </div>
-        `;
-    }
-
-    get simpleTemplate() {
-        return html`
-            <dile-card class="simplecard">
-                ${this.crudTemplate}
-            </dile-card>
-        `;
-    }
-
-
-    get crudTemplate() {
-        return html`
-            
             <header>
-                <h1 class="main-crud-title">${this.title}</h1>
-                ${this.disableInsert ? '' : this.insertTemplate}
+                ${this.config.title 
+                    ? html`<h1 class="main-crud-title">${this.title}</h1>`
+                    : ''
+                }
+                ${this.config.customization.disableInsert ? '' : this.insertTemplate}
                 <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
             </header>
 
@@ -166,13 +162,13 @@ export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
                 </div>
             </main>
             
-            ${this.disableUpdate ? '' : this.updateTemplate}
+            ${this.config.customization.disableUpdate ? '' : this.updateTemplate}
 
-            <fct-crud-item-delete 
+            <dile-crud-item-delete 
                 id="eldelete"
-                endpoint="${this.endpoint}"
+                endpoint="${this.config.endpoint}"
                 @delete-success=${this.deleteSuccess}
-            ></fct-crud-item-delete>
+            ></dile-crud-item-delete>
         `;
     }
 
@@ -185,23 +181,40 @@ export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
                 }
                 <div class="actions" slot="actions" @action-success=${this.actionSuccess}>
                     ${this.actionsTemplate}
-                    <fct-crud-filters
-                        class="action-controller" 
-                        id="elfilters"
-                        @filters-changed=${this.filtersChanged}
-                        .filters=${this.filters}
-                    ></fct-crud-filters>
-                    <fct-crud-page-size 
-                        class="action-controller" 
-                        @page-size-changed=${this.pageSizeChanged}
-                    ></fct-crud-page-size>
-                    <fct-crud-sort-form 
-                        class="action-controller"
-                        .sortOptions=${this.sortOptions} 
-                        sortField="created"
-                        sortDirection="desc"
-                        @sort-changed=${this.sortFormChanged}
-                    ></fct-crud-sort-form>  
+                    ${this.config.customization.disableFilter
+                        ? ''
+                        : html`
+                            <dile-crud-filters
+                                class="action-controller" 
+                                id="elfilters"
+                                @filters-changed=${this.filtersChanged}
+                                .filters=${this.config.filters || []}
+                            ></dile-crud-filters>
+                        `
+                    }
+                    ${this.config.customization.disablePagination
+                        ? ''
+                        : html`
+                            <dile-crud-page-size 
+                                class="action-controller" 
+                                @page-size-changed=${this.pageSizeChanged}
+                                .pageSizes=${this.config.availablePageSizes || [10, 25, 50]}
+                                pageSize="${this.config.pageSize}"
+                            ></dile-crud-page-size>
+                        `
+                    } 
+                    ${this.config.customization.disableSort
+                        ? ''
+                        : html`
+                            <dile-crud-sort-form 
+                                class="action-controller"
+                                .sortOptions=${this.config.sortOptions || []} 
+                                sortField="${this.config.initialSortField}"
+                                sortDirection="${this.config.initialSortDirection || 'desc'}"
+                                @sort-changed=${this.sortFormChanged}
+                            ></dile-crud-sort-form>  
+                        `
+                    }
                 </div>   
             </dile-nav>
         `
@@ -299,7 +312,7 @@ export class DileCrud extends CrudMixin(connect(store)(LitElement)) {
     }
 
     crudSelectAll(e) {
-        // console.log('crud select all en fct-crud', e.detail);
+        // console.log('crud select all en dile-crud', e.detail);
         this.actionIds = e.detail.ids;
     }
 }

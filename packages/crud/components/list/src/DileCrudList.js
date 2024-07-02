@@ -62,32 +62,6 @@ export class DileCrudList extends LitElement {
         sort: { type: Object },
         actionIds: { type: Array },
         filters: { type: Array },
-        
-        /*
-        idea es colocar todo lo que son datos de config que no cambiarán al usar el elemento
-        config = {
-          endpoint: string,
-          belongsTo: String,
-          relationId: String,
-          customization: {
-            hideCountSummary: false,
-            hidePageReport: false,
-            hideCheckboxSelection: false,
-            hideEmptyInsertButton: false,
-            disableInsert: false,
-            disableEdit: false,
-            disableDelete: false,
-            disablePagination: false,
-          },
-          apiConfig = {
-            responseDataProperty: 'data',
-            responseMessageProperty: 'message',
-            validationErrorsProperty: 'errors',
-            getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
-            getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
-          }
-        }
-        */
       };
     }
 
@@ -95,7 +69,7 @@ export class DileCrudList extends LitElement {
         super();
         this.paginationData = {}
         this.elements = [];
-        this.pageSize = 50;
+        this.pageSize = 10;
         this.keyword = '';
         this.actionIds = [];
         this.filters = [];
@@ -106,9 +80,12 @@ export class DileCrudList extends LitElement {
     }
 
     firstUpdated() {
+        this.pageSize = this.config.pageSize;
+        console.log(this.pageSize);
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
-        this.refresh();
+        this.updateComplete.then( () => this.refresh());
+        
     }
 
     updated(changedProperties) {
@@ -181,7 +158,7 @@ export class DileCrudList extends LitElement {
                 id="elservice"
                 .config=${this.config}
                 .filters=${this.filters}
-                .pageSize=${this.pageSize}
+                pageSize=${this.pageSize}
                 .keyword=${this.keyword}
                 .sort=${this.sort}
                 @crud-list-get-success=${this.getSuccess}
@@ -278,21 +255,25 @@ export class DileCrudList extends LitElement {
     }    
 
     setKeyword(keyword) {
+        this.loading = true;
         this.keyword = keyword;
         this.elservice.setKeyword(keyword);
     }
 
     setSort(sortObject) {
+        this.loading = true;
         this.sort = sortObject;
         this.elservice.setSort(sortObject);
     }  
 
     setPageSize(size) {
+        this.loading = true;
         this.pageSize = size;
         this.elservice.setPageSize(size);
     }
 
     setFilters(filters) {
+        this.loading = true;
         this.filters = filters;
         this.elservice.setFilters(filters);
     }

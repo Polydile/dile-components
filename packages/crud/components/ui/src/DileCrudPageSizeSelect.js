@@ -15,13 +15,14 @@ export class DileCrudPageSizeSelect extends LitElement {
 
     static get properties() {
       return {
-        pageSizes: { type: Array }
+        pageSizes: { type: Array },
+        pageSize: { type: Number },
       };
     }
 
     render() {
         return html`
-            <dile-select name="page" label="Tamaño de página" @element-changed=${this.pageChanged}>
+            <dile-select quietOnStart .value="${this.pageSize}" name="page" label="Tamaño de página" @element-changed=${this.pageChanged}>
                 <select slot="select">
                     ${this.pageSizes.map( size => html`<option value="${size}">${size}</option>`)}
                 </select>
@@ -30,6 +31,7 @@ export class DileCrudPageSizeSelect extends LitElement {
     }
 
     pageChanged(e) {
+        console.log('pagechanged', e.detail);
         this.dispatchEvent(new CustomEvent('page-size-changed', {
             bubbles: true,
             composed: true,

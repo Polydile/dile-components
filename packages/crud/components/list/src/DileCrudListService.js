@@ -31,8 +31,9 @@ export class DileCrudListService extends LitElement {
   }
 
   firstUpdated() {
+    console.log('firstUpdated en service');
     this.ajaxget = this.shadowRoot.getElementById('ajaxget');
-    this.refresh();
+    //this.refresh();
   }
 
   render() {
@@ -55,7 +56,15 @@ export class DileCrudListService extends LitElement {
     if (this.delayTimer) {
       clearTimeout(this.delayTimer);
     }
-    this.delayTimer = setTimeout(() => this.doRefresh(), this.delayTime);
+    if(!this.ajaxget) {
+      this.delayTimer = setTimeout(() => this.refresh(), this.delayTime);
+    } else {
+      console.log('refresh en service', this.pageSize);
+      if (this.delayTimer) {
+        clearTimeout(this.delayTimer);
+      }
+      this.delayTimer = setTimeout(() => this.doRefresh(), this.delayTime);
+    }
   }
 
   doRefresh() {
@@ -80,7 +89,7 @@ export class DileCrudListService extends LitElement {
   }
 
   doSuccessGet(e) {
-    console.log(this, 'do success get on service', e.detail);
+    console.log('do success get on service', e.detail);
     let elements = this.config.apiConfig.getResultsListFromResponse(e.detail);
     let numItems;
     if (!this.config.customization?.disablePagination) {
@@ -129,28 +138,31 @@ export class DileCrudListService extends LitElement {
   setKeyword(keyword) {
     console.log('setkeyword', keyword);
     this.keyword = keyword;
-    this.ajaxget.url = this.cleanUrl;
-    this.refresh();
+    this.cleanAndRefresh();
   }
 
   setSort(sortObject) {
     console.log('set SORT OBJECT');
     this.sort = sortObject;
-    this.ajaxget.url = this.cleanUrl;
-    this.refresh();
+    this.cleanAndRefresh();
   }
 
   setPageSize(size) {
     // console.log('set page size');
     this.pageSize = size;
-    this.ajaxget.url = this.cleanUrl;
-    this.refresh();
+    this.cleanAndRefresh();
   }
 
   setFilters(filters) {
     // console.log('set filters');
     this.filters = filters;
-    this.ajaxget.url = this.cleanUrl;
-    this.refresh();
+    this.cleanAndRefresh();
+  }
+
+  cleanAndRefresh() {
+    if(this.ajaxget) {
+      this.ajaxget.url = this.cleanUrl;
+      this.refresh();
+    }
   }
 }

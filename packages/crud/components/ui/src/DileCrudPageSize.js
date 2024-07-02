@@ -7,7 +7,8 @@ export class DileCrudPageSize extends LitElement {
 
     static get properties() {
         return {
-          pageSizes: { type: Array }
+          pageSizes: { type: Array },
+            pageSize: { type: Number },
         };
     }
 
@@ -19,7 +20,7 @@ export class DileCrudPageSize extends LitElement {
     render() {
         return html`
             <dile-crud-list-options .icon="${descriptionIcon}" label="Page">
-                <dile-crud-page-size-select .pageSizes=${this.pageSizes}></dile-crud-page-size-select>
+                <dile-crud-page-size-select pageSize="${this.pageSize}" .pageSizes=${this.pageSizes}></dile-crud-page-size-select>
             </dile-crud-list-options>
         `;
     }
