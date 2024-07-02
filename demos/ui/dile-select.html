@@ -30,7 +30,7 @@
     <dile-input label="Selecciona una"></dile-input>
     <h2>Simple implementation</h2>
    
-    <dile-select id="select1" value="3" quietOnStart>
+    <dile-select id="select1" value="3">
       <select slot="select">
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
@@ -40,7 +40,7 @@
     <p id="msg1"></p>
     <script>
       document.getElementById('select1').addEventListener('element-changed', function(e) {
-        document.getElementById('msg1').innerText = e.detail.value;
+        document.getElementById('msg1').innerText = 'Select Value: ' + e.detail.value;
       });
     </script>
 
@@ -64,14 +64,14 @@
     </dile-select>
 
     <h2>Errored</h2>
-    <dile-select errored message="One message..." hideErrorOnInput>
+    <dile-select errored message="Error message..." hideErrorOnInput>
       <select slot="select">
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
       </select>
     </dile-select>
-    
+  
     <footer><a href="../index.html">Back</a></footer>
   </div>
 </body>

@@ -97,13 +97,14 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     this.quiet = false;
   }
 
+
+
   connectedCallback() {
     super.connectedCallback();
     if (!this.elselect) {
       throw new Error('Use dile-select with a select element in the slot "select"');
     } else {
       this.elselect.addEventListener("change", this.changeHandler);
-      this.value = this.elselect.value;
     }
   }
 
@@ -141,7 +142,6 @@ export class DileSelect extends DileEmmitChange(LitElement) {
   }
 
   firstUpdated() {
-    super.firstUpdated();
     this.quiet = this.quietOnStart;
     if(this.value) {
       this.elselect.value = this.value;
