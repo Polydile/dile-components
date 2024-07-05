@@ -7,19 +7,18 @@ import '../../ui/crud-page-size.js';
 import '../../ui/crud-filters.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
-import { crudPageStyles } from '../../../styles/crud-page-styles.js';
+import { crudStyles } from '../../../styles/crud-styles.js';
 import { addIcon } from '@dile/icons';
 
 export class DileCrud extends DileCrudMixin(LitElement) {
     static styles = [
         formStyles,
-        crudPageStyles,
+        crudStyles,
         css`
             :host {
                 display: block;
                 --dile-nav-padding-y: 0.4rem;
                 --dile-nav-padding-x: 0.8rem;
-                --dile-nav-background-color: var(--secondary-light-color) ;
             }
             header {
                 display: grid;
