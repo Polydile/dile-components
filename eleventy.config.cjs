@@ -1,9 +1,11 @@
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const { JSDOM } = require('jsdom');
 const codePreviews = require('./docs/_utilities/code-previews.cjs');
+const colorBox = require('./docs/_utilities/color-box-transform.cjs');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin);
+  eleventyConfig.addTransform("colorBoxTransform", colorBox)
   eleventyConfig.addTransform('html-transform', function (content) {
     // Parse the template and get a Document object
     const doc = new JSDOM(content, {
