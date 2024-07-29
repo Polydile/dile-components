@@ -43,13 +43,13 @@ Custom property | Description | Default
 --dile-button-border-radius | Button border radius | 2rem
 --dile-button-border-width | Button border width | 3px
 --dile-button-border-color | Button border color | #07193b
---dile-button-background-color | Background color | #7BB93D
---dile-button-text-color | Text color | #fff
+--dile-primary-color | Background color | #7BB93D
+--dile-on-primary-color | Text color | #fff
 --dile-button-font-size | Font size | 1rem
 --dile-button-font-weight | Font weight | bold
---dile-button-hover-background-color | Hover background color | #f3f3ae
---dile-button-hover-text-color | Hover text color | #303030
---dile-button-hover-border-color | Hover border color | #666666
+--dile-primary-light-color | Hover background color | #f3f3ae
+--dile-on-primary-light-color | Hover text color | #303030
+--dile-primary-color | Hover border color | #666666
 --dile-button-ring-color | Ring color on focus state | #12c9e9
 --dile-button-ring-offset-width | Ring width on focus state | 3px
 --dile-button-disabled-background-color | Disabled background color | #b1ecf7

@@ -26,20 +26,20 @@ export class DileButton extends LitElement {
         padding-left: var(--dile-button-padding-x, 0.8rem);
         border-radius: var(--dile-button-border-radius, 2rem);
         border-width:  var(--dile-button-border-width, 3px);
-        border-color:  var(--dile-button-border-color, #07193b);
-        background-color: var(--dile-button-background-color, #7BB93D);
+        border-color:  var(--dile-primary-dark-color, #07193b);
+        background-color: var(--dile-primary-color, #7BB93D);
         transition-property: background-color, color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         border-style: solid;
-        color: var(--dile-button-text-color, #fff); 
+        color: var(--dile-on-primary-color, #fff); 
         font-size: var(--dile-button-font-size, 1rem);
         font-weight: var(--dile-button-font-weight, bold);
         text-transform: var(--dile-button-text-transform, none);
         letter-spacing: var(--dile-button-letter-spacing, 0);
       }
       button:hover {
-        background-color: var(--dile-button-hover-background-color, #f3f3ae);
+        background-color: var(--dile-primary-light-color, #f3f3ae);
         color: var(--dile-button-hover-text-color, #303030);
         border-color:  var(--dile-button-hover-border-color, #666666);
       }

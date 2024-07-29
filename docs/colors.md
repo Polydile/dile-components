@@ -23,12 +23,12 @@ Custom property | Default | Color
 --dile-on-secondary-color | #ffffff | [[color:#ffffff]]
 --dile-terciary-color | #2789a7 | [[color:#2789a7]]
 --dile-on-terciary-color | #ffffff | [[color:#ffffff]]
---dile-gray-color | #f4f4f4 | [[color:#f4f4f4]]
---dile-on-gray-color | #303030 | [[color:#303030]]
+--dile-neutral-color | #f4f4f4 | [[color:#f4f4f4]]
+--dile-on-neutral-color | #303030 | [[color:#303030]]
 --dile-alert-error-color | #cf3535 | [[color:#cf3535]]
 --dile-alert-success-color | #00900f | [[color:#00900f]]
 --dile-alert-neutral-color | #2889a7 | [[color:#2889a7]]
---dile-on-alert-color | #ffffff | [[color:#cf3535]]
+--dile-on-alert-color | #ffffff | [[color:#ffffff]]
 
 ## Color variations
 

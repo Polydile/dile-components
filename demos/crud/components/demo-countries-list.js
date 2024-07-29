@@ -18,7 +18,7 @@ import { LitElement, html, css } from 'lit';
         constructor() {
           super();
           this.config = {
-            endpoint: 'api/countries',
+            endpoint: 'https://timer.escuelait.com/api/countries',
             filters: [],
             itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
             customization: {

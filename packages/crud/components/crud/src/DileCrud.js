@@ -46,6 +46,11 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 --dile-card-border: none;
                 margin: 0.7rem;
             }
+            .insertButtonContainer {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 0.5rem;
+            }
             @media(min-width: 400px) {
                 .simplecard {
                     --dile-card-border: none;
@@ -116,8 +121,12 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         this.actionIds = [];
     }
 
-    get insertTemplate() {
-        return html`<dile-button-icon .icon="${addIcon}">Create</dile-button-icon>`
+    get insertButtomTemplate() {
+        return html`
+            <div class="insertButtonContainer">
+                <dile-button-icon .icon="${addIcon}">Create</dile-button-icon>
+            </div>
+        `
     }
     get listTemplate() {
         return html`
@@ -143,7 +152,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                     ? html`<h1 class="main-crud-title">${this.title}</h1>`
                     : ''
                 }
-                ${this.config.customization.disableInsert ? '' : this.insertTemplate}
+                ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
                 <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
             </header>
 

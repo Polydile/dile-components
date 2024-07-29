@@ -18,7 +18,7 @@ export class DemoCountriesCrud extends LitElement {
   constructor() {
     super();
     this.config = {
-      endpoint: 'api/countries',
+      endpoint: 'https://timer.escuelait.com/api/countries',
       filters: [],
       sortOptions: [
         {

@@ -19,7 +19,7 @@ export class DemoBoardGamesList extends LitElement {
   constructor() {
     super();
     this.config = {
-      endpoint: 'api/board-games',
+      endpoint: 'https://timer.escuelait.com/api/board-games',
       filters: [],
       itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
       customization: {

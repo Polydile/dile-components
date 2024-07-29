@@ -80,7 +80,7 @@ export class DileCrudList extends LitElement {
     }
 
     firstUpdated() {
-        this.pageSize = this.config.pageSize;
+        this.pageSize = this.config.pageSize ?? this.pageSize;
         console.log(this.pageSize);
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
