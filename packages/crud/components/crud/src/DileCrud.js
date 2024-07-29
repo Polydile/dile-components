@@ -116,7 +116,10 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             disableFilter: false,
           },
           labels: {
-            insertAction: 'Create',
+             insertAction: 'Insert country',
+             updateAction: 'Save',
+             insertWindowTitle: 'Insert a country',
+             updateWindowTitle: 'Update a country',
           }, 
           apiConfig = {
             responseDataProperty: 'data',
@@ -228,7 +231,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             >
                 <dile-crud-insert
                     title=${this.config.labels.insertWindowTitle}
-                    endpoint="https://timer.escuelait.com/api/countries"
+                    endpoint="${this.config.endpoint}"
                     .apiConfig=${this.config.apiConfig}
                     .formTemplate=${this.config.insertForm()}
                     actionLabel=${this.config.labels.insertAction}
@@ -248,7 +251,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 <dile-crud-update
                     id="updateElement"
                     title=${this.config.labels.updateWindowTitle}
-                    endpoint="https://timer.escuelait.com/api/countries"
+                    endpoint="${this.config.endpoint}"
                     .apiConfig=${this.config.apiConfig}
                     .formTemplate=${this.config.updateForm()}
                     actionLabel=${this.config.labels.updateAction}
@@ -327,12 +330,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     openInsert() {
         this.modalInsert.open();
     }
- 
-    // doInsert() {
-    //     if(this.insertUrl()) {
-    //         window.location = this.insertUrl();
-    //     }
-    // }
 
     insertSaveSuccess() {
         this.listElement.refresh();
@@ -342,33 +339,25 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         console.log('itemEditRequest en crud', e.detail, this.updateElement);
         this.updateElement.edit(e.detail.itemId);
         this.modalUpdate.open();
-
-        //window.location = `${this.editUrl}/${e.detail.itemId}`;
-        // if (this.pageEdit) {
-        //     this.navigateTo(this.pageEdit(e.detail.itemId));
-        // } else {
-        //     this.updateElement.edit(e.detail.itemId);
-        // }
     }
 
     keywordChanged(e) {
+        console.log('keywordChanged');
         this.listElement.setKeyword(e.detail.keyword);
     }
 
     sortFormChanged(e) {
+        console.log('sortFormChanged');
         this.listElement.setSort(e.detail);
     }
 
     pageSizeChanged(e) {
+        console.log('pageSizeChanged');
         this.listElement.setPageSize(e.detail.pageSize);
     }
 
-    
-    deleteSuccess() {
-        this.listElement.refresh();
-    }
-
     itemCheckboxChanged(e) {
+        console.log('itemboxchanged');
         if(e.detail.checked) {
             this.attachActionId(e.detail.itemId);
         } else {
@@ -429,6 +418,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         this.deleteElement.delete(e.detail.itemId)
     }
 
+    // SUCCESS HANDLERS
     modalInsertSuccess() {
         this.modalInsert.close();
         this.listElement.refresh();
@@ -437,6 +427,9 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         console.log('updatesuccess');
         setTimeout( () => this.updateElement.clearFeedback(), 1000);
         this.modalUpdate.close();
+        this.listElement.refresh();
+    }
+    deleteSuccess() {
         this.listElement.refresh();
     }
 }
