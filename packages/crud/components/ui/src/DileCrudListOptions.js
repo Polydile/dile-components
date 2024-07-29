@@ -12,11 +12,14 @@ export class DileCrudListOptions extends LitElement {
             }
             .content {
                 padding: 0.5rem;
-                background: var(--dile-primary-color);
+                background: var(--dile-primary-light-color);
                 color: #303030;
             }
             dile-button-icon {
                 display: none;
+                --dile-primary-color: var(--dile-crud-action-color, #888);
+                --dile-on-primary-color: #fff;
+                --dile-primary-dark-color: transparent;
             }
             dile-icon {
                 cursor: pointer;

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/input/input-search';
+import '@dile/ui/components/nav/nav';
 import '../../item-delete/crud-item-delete.js';
 import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
@@ -34,6 +35,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             }
             .actions {
                 display: flex;
+                
             }
             .action-controller {
                 margin-right: 0.5rem;

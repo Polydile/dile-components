@@ -28,7 +28,7 @@ export class DileCrudSortForm extends LitElement {
         }
         dile-order-switch {
             margin-bottom: 0;
-            --dile-icon-color: var(--dile-primary-color);
+            --dile-icon-color: var(--dile-secondary-color);
 
         }
     `

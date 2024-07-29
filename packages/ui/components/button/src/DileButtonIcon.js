@@ -16,6 +16,7 @@ export class DileButtonIcon extends DileButton {
         button {
           display: flex;
           align-items: center;
+          --dile-icon-color: var(--dile-on-primary-color, #303030);
         }
         dile-icon {
           margin-right: var(--dile-button-icon-separation, 0.3rem);
