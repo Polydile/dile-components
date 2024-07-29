@@ -140,7 +140,7 @@ export class DileCrudList extends LitElement {
                 <span>
                     ${this.numItems != undefined 
                         ? html`
-                            ${this.numItems} elementos en total. ${this.config.customization?.disablePagination ? '' : html`Mostrando ${this.pageSize} elementos por página.` }
+                            ${this.numItems} items in total. ${this.config.customization?.disablePagination ? '' : html`Showing ${this.pageSize} items per page.` }
                           `
                         : 'Cargando...' 
                     }
