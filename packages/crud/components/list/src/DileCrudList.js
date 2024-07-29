@@ -138,7 +138,12 @@ export class DileCrudList extends LitElement {
                   `
                 }
                 <span>
-                    ${this.numItems} elementos en total. Mostrando ${this.pageSize} elementos por página.
+                    ${this.numItems != undefined 
+                        ? html`
+                            ${this.numItems} elementos en total. ${this.config.customization?.disablePagination ? '' : html`Mostrando ${this.pageSize} elementos por página.` }
+                          `
+                        : 'Cargando...' 
+                    }
                 </span>
             </div>
         `
@@ -248,6 +253,7 @@ export class DileCrudList extends LitElement {
 
     refresh() {
         this.loading = true;
+        this.numItems = undefined;
         if (this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
         }

@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import './demo-countries-form';
 
 export class DemoCountriesCrud extends LitElement {
   static styles = [
@@ -55,6 +56,8 @@ export class DemoCountriesCrud extends LitElement {
       availablePageSizes: [10,25,50],
       pageSize: 25,
       itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
+      insertForm: () => html`<demo-countries-form id="insertform"></demo-countries-form>`,
+      updateForm: () => html`<demo-countries-form id="updateform"></demo-countries-form>`,
       customization: {
         hideCountSummary: false,
         hidePageReport: false,
@@ -73,13 +76,22 @@ export class DemoCountriesCrud extends LitElement {
         getResultsListFromResponse(results) {
           return results.data;
         }
+      },
+      labels: {
+        insertAction: 'Insert country',
+        updateAction: 'Save',
+        insertWindowTitle: 'Insert a country',
+        updateWindowTitle: 'Update a country',
+      },
+      formIds: {
+        insertForm: 'insertform',
+        updateForm: 'updateform',
       }
     }
   }
 
   render() {
     return html`
-
       <dile-crud
         .config="${this.config}"
       ></dile-crud>

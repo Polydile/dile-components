@@ -19,7 +19,8 @@ export class DileCrudUpdate extends LitElement {
             loadOnInit: { type: Boolean },
             formTemplate: { type: Object },
             buttonSmall: { type: Boolean },
-            apiConfig: { type: Object}
+            apiConfig: { type: Object},
+            formIdentifier: { type: String },
         };
     }
 
@@ -27,6 +28,7 @@ export class DileCrudUpdate extends LitElement {
         super();
         this.actionLabel = 'Update';
         this.loadOnInit = false;
+        this.formIdentifier = 'form';
     }
 
     get formElement() {
@@ -51,14 +53,19 @@ export class DileCrudUpdate extends LitElement {
                 responseDataProperty="${this.apiConfig.responseDataProperty}"
                 responseMessageProperty="${this.apiConfig.responseMessageProperty}"
                 validationErrorsProperty="${this.apiConfig.validationErrorsProperty}"
+                formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate}
             </dile-ajax-form>
         `;
     }
 
-    doSuccessSave() {
-        //
+    doSuccessSave(e) {
+        this.dispatchEvent(new CustomEvent('crud-update-success', {
+            bubbles: true,
+            composed: true,
+            detail: e.detail
+        }));
     }
 
     edit(id) {
@@ -67,5 +74,9 @@ export class DileCrudUpdate extends LitElement {
         this.updateComplete.then(() => {
             this.formElement.loadData();
         });
+    }
+
+    clearFeedback() {
+        this.formElement.clearFeedback();
     }
 }

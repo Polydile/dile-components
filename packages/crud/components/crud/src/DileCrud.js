@@ -1,13 +1,17 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/input/input-search';
 import '@dile/ui/components/nav/nav';
+import '@dile/ui/components/modal/modal';
 import '../../item-delete/crud-item-delete.js';
 import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
 import '../../ui/crud-page-size.js';
 import '../../ui/crud-filters.js';
+import '../../insert/crud-insert.js';
+import '../../update/crud-update.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
+import { deepMerge } from '../../../lib/deepMerge.js';
 import { crudStyles } from '../../../styles/crud-styles.js';
 import { addIcon } from '@dile/icons';
 
@@ -80,6 +84,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         /** Cuando el crud se muestra dentro de una página como las facturas en la página del cliente */
         hasHelp: { type: Boolean },
         editUrl: { type: Boolean },
+        loading: { type: Boolean },
       };
 
       /*
@@ -95,6 +100,9 @@ export class DileCrud extends DileCrudMixin(LitElement) {
           filters: Array,
           availablePageSizes: Array,
           pageSize: number,
+          itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
+          insertForm: () => html`<demo-countries-form id="insertform"></demo-countries-form>`,
+          updateForm: () => html`<demo-countries-form id="updateform"></demo-countries-form>`,
           customization: {
             hideCountSummary: false,
             hidePageReport: false,
@@ -107,12 +115,19 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             disableSort: false,
             disableFilter: false,
           },
+          labels: {
+            insertAction: 'Create',
+          }, 
           apiConfig = {
             responseDataProperty: 'data',
             responseMessageProperty: 'message',
             validationErrorsProperty: 'errors',
             getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
             getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
+          },
+          formIds: {
+            insertForm: 'insertform',
+            updateForm: 'updateform',
           }
         }
         */
@@ -120,66 +135,143 @@ export class DileCrud extends DileCrudMixin(LitElement) {
 
     constructor() {
         super();
+        this.loading = true;
         this.actionIds = [];
+        this.defaultConfig = {
+            labels: {
+                insertAction: 'Create'
+            },
+            formIds: {
+                insertForm: 'insertform',
+                updateForm: 'updateform'
+            }
+        }
+    }
+
+    firstUpdated() {
+        this.config = deepMerge(this.defaultConfig, this.config);
+        console.log(this.config);
+        this.loading = false;
+    }
+
+    // GETTERS ELEMENTOS
+    get modalInsert() {
+        return this.shadowRoot.getElementById('modalInsert');
+    }
+    get modalUpdate() {
+        return this.shadowRoot.getElementById('modalUpdate');
+    }
+    get updateElement() {
+        return this.shadowRoot.getElementById('updateElement');
+    }
+    get listElement() {
+        return this.shadowRoot.querySelector('dile-crud-list');
+    }
+    get deleteElement() {
+        return this.shadowRoot.getElementById('eldelete');
+    }
+
+    // TEMPLATES
+
+    render() {
+        if(!this.loading) {
+            return html`
+                <header>
+                    ${this.config.title 
+                        ? html`<h1 class="main-crud-title">${this.title}</h1>`
+                        : ''
+                    }
+                    ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
+                    <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
+                </header>
+
+                <main>
+                    ${this.navActionsTemplate}
+                    <div
+                        @crud-item-delete=${this.itemDeleteRequest}
+                        @insert-requested=${this.doInsert}
+                        @item-checkbox-changed=${this.itemCheckboxChanged}
+                        @dile-chip-icon-click=${this.removeFilter}
+                        @crud-list-all-ids-selected=${this.crudSelectAll}
+                    >
+                        ${this.listTemplate}
+                    </div>
+                </main>
+                
+                ${this.config.customization.disableUpdate ? '' : this.updateTemplate}
+
+                <dile-crud-item-delete 
+                    id="eldelete"
+                    endpoint="${this.config.endpoint}"
+                    @delete-success=${this.deleteSuccess}
+                ></dile-crud-item-delete>
+
+                ${this.insertTemplate}
+                ${this.updateTemplate}
+            `;
+        }
     }
 
     get insertButtomTemplate() {
         return html`
             <div class="insertButtonContainer">
-                <dile-button-icon .icon="${addIcon}">Create</dile-button-icon>
+                <dile-button-icon @click="${this.openInsert}" .icon="${addIcon}">${this.config.labels.insertAction}</dile-button-icon>
             </div>
         `
     }
+
+    get insertTemplate() {
+        return html`
+            <dile-modal 
+                id="modalInsert"
+                showCloseIcon
+            >
+                <dile-crud-insert
+                    title=${this.config.labels.insertWindowTitle}
+                    endpoint="https://timer.escuelait.com/api/countries"
+                    .apiConfig=${this.config.apiConfig}
+                    .formTemplate=${this.config.insertForm()}
+                    actionLabel=${this.config.labels.insertAction}
+                    formIdentifier="${this.config.formIds.insertForm}"
+                    @crud-insert-success="${this.modalInsertSuccess}"
+                ></dile-crud-insert>
+            </dile-modal>
+        `
+    }
+
+    get updateTemplate() {
+        return html`
+            <dile-modal 
+                id="modalUpdate"
+                showCloseIcon
+            >
+                <dile-crud-update
+                    id="updateElement"
+                    title=${this.config.labels.updateWindowTitle}
+                    endpoint="https://timer.escuelait.com/api/countries"
+                    .apiConfig=${this.config.apiConfig}
+                    .formTemplate=${this.config.updateForm()}
+                    actionLabel=${this.config.labels.updateAction}
+                    formIdentifier="${this.config.formIds.updateForm}"
+                    @crud-update-success="${this.modalUpdateSuccess}"
+                ></dile-crud-update>
+            </dile-modal>
+        `
+    }
+
     get listTemplate() {
         return html`
             <dile-crud-list
                 .config=${this.config}
+                @crud-item-edit=${this.updateRequest}
             ></dile-crud-list>
         `
-    }
-    get updateTemplate() {
-        // Overwirte
     }
     get actionsTemplate() {
         // Overwirte
     }
     get helpTemplate() {
         // Override
-    }
-
-    render() {
-        return html`
-            <header>
-                ${this.config.title 
-                    ? html`<h1 class="main-crud-title">${this.title}</h1>`
-                    : ''
-                }
-                ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
-                <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
-            </header>
-
-            <main>
-                ${this.navActionsTemplate}
-                <div
-                    @item-delete=${this.itemDeleteRequest}
-                    @item-edit=${this.itemEditRequest}
-                    @insert-requested=${this.doInsert}
-                    @item-checkbox-changed=${this.itemCheckboxChanged}
-                    @dile-chip-icon-click=${this.removeFilter}
-                    @crud-list-all-ids-selected=${this.crudSelectAll}
-                >
-                    ${this.listTemplate}
-                </div>
-            </main>
-            
-            ${this.config.customization.disableUpdate ? '' : this.updateTemplate}
-
-            <dile-crud-item-delete 
-                id="eldelete"
-                endpoint="${this.config.endpoint}"
-                @delete-success=${this.deleteSuccess}
-            ></dile-crud-item-delete>
-        `;
     }
 
     get navActionsTemplate() {
@@ -229,20 +321,29 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             </dile-nav>
         `
     }
- 
-    doInsert() {
-        if(this.insertUrl()) {
-            window.location = this.insertUrl();
-        }
+
+    // BEHAVIOURS
+
+    openInsert() {
+        this.modalInsert.open();
     }
+ 
+    // doInsert() {
+    //     if(this.insertUrl()) {
+    //         window.location = this.insertUrl();
+    //     }
+    // }
 
     insertSaveSuccess() {
         this.listElement.refresh();
     }
 
-    itemEditRequest(e) {
-        console.log('itemEditRequest', e.detail);
-        window.location = `${this.editUrl}/${e.detail.itemId}`;
+    updateRequest(e) {
+        console.log('itemEditRequest en crud', e.detail, this.updateElement);
+        this.updateElement.edit(e.detail.itemId);
+        this.modalUpdate.open();
+
+        //window.location = `${this.editUrl}/${e.detail.itemId}`;
         // if (this.pageEdit) {
         //     this.navigateTo(this.pageEdit(e.detail.itemId));
         // } else {
@@ -262,10 +363,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         this.listElement.setPageSize(e.detail.pageSize);
     }
 
-    updateSuccess() {
-        this.updateElement.close();
-        this.listElement.refresh();
-    }
+    
     deleteSuccess() {
         this.listElement.refresh();
     }
@@ -324,5 +422,21 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     crudSelectAll(e) {
         // console.log('crud select all en dile-crud', e.detail);
         this.actionIds = e.detail.ids;
+    }
+
+    itemDeleteRequest(e) {
+        console.log('itemDeleteRequest', e.detail);
+        this.deleteElement.delete(e.detail.itemId)
+    }
+
+    modalInsertSuccess() {
+        this.modalInsert.close();
+        this.listElement.refresh();
+    }
+    modalUpdateSuccess() {
+        console.log('updatesuccess');
+        setTimeout( () => this.updateElement.clearFeedback(), 1000);
+        this.modalUpdate.close();
+        this.listElement.refresh();
     }
 }

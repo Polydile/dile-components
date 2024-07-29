@@ -19,17 +19,19 @@ export class DileCrudInsert extends LitElement {
             relationId: { type: String },
             formTemplate: { type: Object },
             buttonSmall: { type: Boolean },
-            apiConfig: { type: Object}
+            apiConfig: { type: Object},
+            formIdentifier: { type: String },
         };
     }
 
     constructor() {
         super();
         this.actionLabel = 'Insert';
+        this.formIdentifier = 'form';
     }
 
     get formElement() {
-        return this.shadowRoot.getElementById('form');
+        return this.shadowRoot.getElementById(this.formId);
     }
 
     render() {
@@ -48,14 +50,19 @@ export class DileCrudInsert extends LitElement {
                 responseDataProperty="${this.apiConfig.responseDataProperty}"
                 responseMessageProperty="${this.apiConfig.responseMessageProperty}"
                 validationErrorsProperty="${this.apiConfig.validationErrorsProperty}"
+                formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate}
             </dile-ajax-form> 
         `;
     }
 
-    doSuccessSave() {
-        //
+    doSuccessSave(e) {
+        this.dispatchEvent(new CustomEvent('crud-insert-success', { 
+            bubbles: true,
+            composed: true,
+            detail: e.detail
+        }));
     }
 
     setData(data) {
@@ -65,5 +72,9 @@ export class DileCrudInsert extends LitElement {
             this.formElement.setData(data);    
         });
         
+    }
+
+    clearFeedback() {
+        this.formElement.clearFeedback();
     }
 }
