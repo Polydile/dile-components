@@ -15,7 +15,7 @@ export class DileCrudPaginationNavButton extends LitElement {
             }
             dile-icon:hover {
                 --dile-icon-color: var(--dile-on-secondary-dark-color, #1942DF);
-                --dile-icon-rounded-background-color: var(--dile-on-secondary-dark-color, #fff);
+                --dile-icon-rounded-background-color: var(--dile-secondary-dark-color, #fff);
             }
             dile-icon.disabled {
                 --dile-icon-color: #f5f5f5;
