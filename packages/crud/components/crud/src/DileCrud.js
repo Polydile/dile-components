@@ -287,12 +287,14 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             <dile-crud-list
                 .config=${this.config}
                 @crud-item-edit=${this.updateRequest}
+                .actionIds=${this.actionIds}
             ></dile-crud-list>
         `
     }
     get actionsTemplate() {
         return html`
             <dile-crud-actions
+                 @crud-action-success=${this.actionSuccess}
                 class="action-controller"
                 id="elactions"
                 .actionIds=${this.actionIds}
@@ -313,7 +315,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                     ? html`<div slot="menu">${this.helpTemplate}</div>`
                     : ''
                 }
-                <div class="actions" slot="actions" @crud-action-success=${this.actionSuccess}>
+                <div class="actions" slot="actions">
                     ${this.actionsTemplate}
                     ${this.config.customization.disableFilter
                         ? ''

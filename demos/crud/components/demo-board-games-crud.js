@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import './demo-board-games-form';
 import './demo-board-game-item';
-
+import './demo-change-essential-action'
 export class DemoBoardGamesCrud extends LitElement {
   static styles = [
     css`
@@ -24,7 +24,20 @@ export class DemoBoardGamesCrud extends LitElement {
       endpoint: 'http://localhost/api/board-games',
       filters: [],
       itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
-      //selectActionsTemplate: () => html``,
+      selectActionsTemplate: (deleteLabel) => html`
+                <dile-select>
+                    <select slot="select">
+                        <option value="DeleteAction">${deleteLabel}</option>
+                        <option value="DemoChangeEssentialAction">Change Essential</option>
+                    </select>
+                </dile-select>
+            `,
+      formActionsTemplate: (actionName) => html`
+                <dile-pages attrForSelected="action" selected="${actionName}">
+                    <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
+                    <demo-change-essential-action action="DemoChangeEssentialAction"></demo-change-essential-action>
+                </dile-pages>
+            `,
       sortOptions: [
         {
           name: 'name',
@@ -36,25 +49,11 @@ export class DemoBoardGamesCrud extends LitElement {
       initialSortDirection: 'asc',
       filters: [
         {
-          name: 'continent',
-          label: 'Continent',
+          name: 'essential',
+          label: 'Is essential',
           active: false,
           value: false,
-          type: 'select',
-          options: [
-              {
-                  name: 'Europe',
-                  label: 'Europe'
-              },
-              {
-                  name: 'Africa',
-                  label: 'Africa'
-              },
-              {
-                name: 'Asia',
-                label: 'Asia'
-            },
-          ]
+          type: 'boolean',
       },
       ],
       availablePageSizes: [10,25,50],
