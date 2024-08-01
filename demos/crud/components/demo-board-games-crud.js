@@ -20,8 +20,8 @@ export class DemoBoardGamesCrud extends LitElement {
   constructor() {
     super();
     this.config = {
-      endpoint: 'https://timer.escuelait.com/api/board-games',
-      // endpoint: 'http://localhost/api/board-games',
+      //endpoint: 'https://timer.escuelait.com/api/board-games',
+      endpoint: 'http://localhost/api/board-games',
       filters: [],
       itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
       sortOptions: [
@@ -63,7 +63,7 @@ export class DemoBoardGamesCrud extends LitElement {
       customization: {
         hideCountSummary: false,
         hidePageReport: false,
-        hideCheckboxSelection: true,
+        hideCheckboxSelection: false,
         hideEmptyInsertButton: false,
         disableInsert: false,
         disableEdit: false,
@@ -80,6 +80,10 @@ export class DemoBoardGamesCrud extends LitElement {
           return results.data.result.data;
         },
         getDataFromResponse(results) {
+          console.log(results);
+          return results.data;
+        },
+        getIdsFromResponse(results) {
           console.log(results);
           return results.data;
         }

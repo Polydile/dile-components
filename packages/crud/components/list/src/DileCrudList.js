@@ -87,7 +87,7 @@ export class DileCrudList extends LitElement {
 
     firstUpdated() {
         this.config = deepMerge(this.defaultConfig, this.config);
-        console.log(this.config);
+        console.log('conig en firstupdated de crud list', this.config);
         this.pageSize = this.config.pageSize ?? this.pageSize;
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
@@ -95,11 +95,12 @@ export class DileCrudList extends LitElement {
         
     }
 
-    updated(changedProperties) {
-        if (changedProperties.has('config')) {
-            this.refresh();
-        }
-    }
+    // updated(changedProperties) {
+    //     if (changedProperties.has('config')) {
+    //         console.log('ejecutar refresh con cambiar el config', this.config, changedProperties.get('config'));
+    //        this.refresh();
+    //     }
+    // }
 
     render() {
         return html`
@@ -259,6 +260,7 @@ export class DileCrudList extends LitElement {
     }
 
     refresh() {
+        console.log('se ha solicitado un refresh');
         this.loading = true;
         this.numItems = undefined;
         if (this.isSelectAllActive) {
@@ -316,7 +318,7 @@ export class DileCrudList extends LitElement {
     }
 
     getPageIds() {
-        return this.elements.map(element => element.slug);
+        return this.elements.map(element => element.id);
     }
 
     getAllIds() {
@@ -339,7 +341,7 @@ export class DileCrudList extends LitElement {
     }
 
     doSuccessGetIds(e) {
-        this.dispactSelectAll(e.detail);
+        this.dispactSelectAll(this.config.apiConfig.getIdsFromResponse(e.detail));
     }
 
     onItemsCheckboxChanged(e) {

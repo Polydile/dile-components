@@ -127,6 +127,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             validationErrorsProperty: 'errors',
             getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
             getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
+            getIdsFromResponse: function // recibe lo que te traes por ajax y te da la parte que te interesa, que sería el array de ids
           },
           formIds: {
             insertForm: 'insertform',
@@ -153,7 +154,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
 
     firstUpdated() {
         this.config = deepMerge(this.defaultConfig, this.config);
-        console.log(this.config);
+        console.log('config en furst uldate despuñes del merge', this.config);
         this.loading = false;
     }
 

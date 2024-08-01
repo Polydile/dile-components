@@ -61,7 +61,7 @@ export class DemoCountriesCrud extends LitElement {
       customization: {
         hideCountSummary: false,
         hidePageReport: false,
-        hideCheckboxSelection: true,
+        hideCheckboxSelection: false,
         hideEmptyInsertButton: false,
         disableInsert: false,
         disableEdit: false,
