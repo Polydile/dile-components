@@ -10,12 +10,12 @@ export class DileCrudPaginationNavButton extends LitElement {
                 cursor: pointer;
             }
             dile-icon {
-                --dile-icon-color: var(--dile-foregroud-color, #fff);
-                --dile-icon-rounded-background-color: var(--dile-primary-color, #2962FF);
+                --dile-icon-color: var(--dile-on-secondary-color, #fff);
+                --dile-icon-rounded-background-color: var(--dile-secondary-color, #2962FF);
             }
             dile-icon:hover {
-                --dile-icon-color: var(--primary-dark-color, #1942DF);
-                --dile-icon-rounded-background-color: var(--dile-foregroud-color, #fff);
+                --dile-icon-color: var(--dile-on-secondary-dark-color, #1942DF);
+                --dile-icon-rounded-background-color: var(--dile-on-secondary-dark-color, #fff);
             }
             dile-icon.disabled {
                 --dile-icon-color: #f5f5f5;
