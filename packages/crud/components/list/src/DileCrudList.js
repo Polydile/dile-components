@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { deepMerge } from '../../../lib/deepMerge.js';
 import '@dile/ui/components/spinner/spinner.js';
 import '@dile/ui/components/button/button.js';
 import '../../ajax/ajax.js'
@@ -77,11 +78,17 @@ export class DileCrudList extends LitElement {
         this.delayTimer = null;
         this.isSelectAllActive = false;
         this.loading = true;
+        this.defaultConfig = {
+            labels: {
+                insertAction: 'Create'
+            },
+        }
     }
 
     firstUpdated() {
+        this.config = deepMerge(this.defaultConfig, this.config);
+        console.log(this.config);
         this.pageSize = this.config.pageSize ?? this.pageSize;
-        console.log(this.pageSize);
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
         this.updateComplete.then( () => this.refresh());
@@ -142,7 +149,7 @@ export class DileCrudList extends LitElement {
                         ? html`
                             ${this.numItems} items in total. ${this.config.customization?.disablePagination ? '' : html`Showing ${this.pageSize} items per page.` }
                           `
-                        : 'Cargando...' 
+                        : 'Loading...' 
                     }
                 </span>
             </div>
@@ -180,10 +187,10 @@ export class DileCrudList extends LitElement {
     get emptyTemplate() {
         return html`
             <div class="empty">
-                <p>No hay elementos todavía</p>
+                <p>There are no items yet</p>
                 ${this.config.customization.disableInsert || this.config.customization?.hideEmptyInsertButton
                     ? ''
-                    : html`<p><dile-button @click=${this.dispatchInsertRequest}>Insertar</dile-button></p>`
+            : html`<p><dile-button @click=${this.dispatchInsertRequest}>${this.config.labels.insertAction}</dile-button></p>`
                 }
                 
             </div>

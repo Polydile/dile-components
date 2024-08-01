@@ -228,6 +228,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             <dile-modal 
                 id="modalInsert"
                 showCloseIcon
+                blocking
             >
                 <dile-crud-insert
                     title=${this.config.labels.insertWindowTitle}
@@ -247,6 +248,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             <dile-modal 
                 id="modalUpdate"
                 showCloseIcon
+                blocking
             >
                 <dile-crud-update
                     id="updateElement"

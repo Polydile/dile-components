@@ -117,7 +117,7 @@ export class DileCrudListService extends LitElement {
     this.dispatchEvent(new CustomEvent('crud-list-data-error', {
       bubbles: true,
       composed: true,
-      detail: data
+      detail: e.detail 
     }));
   }
 

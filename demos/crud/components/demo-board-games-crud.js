@@ -21,6 +21,7 @@ export class DemoBoardGamesCrud extends LitElement {
     super();
     this.config = {
       endpoint: 'https://timer.escuelait.com/api/board-games',
+      // endpoint: 'http://localhost/api/board-games',
       filters: [],
       itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
       sortOptions: [
