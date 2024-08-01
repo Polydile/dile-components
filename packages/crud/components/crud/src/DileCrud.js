@@ -9,6 +9,8 @@ import '../../ui/crud-page-size.js';
 import '../../ui/crud-filters.js';
 import '../../insert/crud-insert.js';
 import '../../update/crud-update.js';
+import '../actions.js';
+import '../crud-delete-action.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
 import { deepMerge } from '../../../lib/deepMerge.js';
@@ -101,6 +103,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
           availablePageSizes: Array,
           pageSize: number,
           itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
+          formActionsTemplate: (actionName) => html``
+          selectActionsTemplate: (selectLabel) => html``
           insertForm: () => html`<demo-countries-form id="insertform"></demo-countries-form>`,
           updateForm: () => html`<demo-countries-form id="updateform"></demo-countries-form>`,
           customization: {
@@ -142,8 +146,21 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         this.loading = true;
         this.actionIds = [];
         this.defaultConfig = {
+            selectActionsTemplate: (deleteLabel) => html`
+                <dile-select>
+                    <select slot="select">
+                        <option value="DeleteAction">${deleteLabel}</option>
+                    </select>
+                </dile-select>
+            `,
+            formActionsTemplate: (actionName) => html`
+                <dile-pages attrForSelected="action" selected="${actionName}">
+                    <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
+                </dile-pages>
+            `,
             labels: {
-                insertAction: 'Create'
+                insertAction: 'Create',
+                deleteAction: 'Delete'
             },
             formIds: {
                 insertForm: 'insertform',
@@ -274,7 +291,16 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         `
     }
     get actionsTemplate() {
-        // Overwirte
+        return html`
+            <dile-crud-actions
+                class="action-controller"
+                id="elactions"
+                .actionIds=${this.actionIds}
+                endpoint=${this.config.endpoint}
+                .selectActionsTemplate=${this.config.selectActionsTemplate(this.config.labels.deleteAction)}
+                .formActionsTemplate=${this.config.formActionsTemplate}
+            ></dile-crud-actions>
+        `
     }
     get helpTemplate() {
         // Override
@@ -287,7 +313,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                     ? html`<div slot="menu">${this.helpTemplate}</div>`
                     : ''
                 }
-                <div class="actions" slot="actions" @action-success=${this.actionSuccess}>
+                <div class="actions" slot="actions" @crud-action-success=${this.actionSuccess}>
                     ${this.actionsTemplate}
                     ${this.config.customization.disableFilter
                         ? ''
@@ -394,7 +420,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     removeActionItems(elems) {
-        // console.log('removeActionItems', elems);
         elems.forEach(item => this.detachActionId(item));
     }
 

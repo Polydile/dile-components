@@ -56,4 +56,9 @@ export class DileCrudListOptions extends LitElement {
             </dile-menu-overlay>
         `;
     }
+
+
+    close() {
+        this.shadowRoot.querySelector('dile-menu-overlay').close();  
+    } 
 }

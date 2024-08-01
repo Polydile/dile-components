@@ -24,6 +24,7 @@ export class DemoBoardGamesCrud extends LitElement {
       endpoint: 'http://localhost/api/board-games',
       filters: [],
       itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
+      //selectActionsTemplate: () => html``,
       sortOptions: [
         {
           name: 'name',
@@ -93,6 +94,7 @@ export class DemoBoardGamesCrud extends LitElement {
         updateAction: 'Save',
         insertWindowTitle: 'Insert a board game',
         updateWindowTitle: 'Update a board game',
+        deleteAction: 'Delete board games',
       },
       formIds: {
         insertForm: 'insertform',

@@ -29,6 +29,9 @@ Custom property | Default | Color
 --dile-alert-success-color | #00900f | [[color:#00900f]]
 --dile-alert-neutral-color | #2889a7 | [[color:#2889a7]]
 --dile-on-alert-color | #ffffff | [[color:#ffffff]]
+--dile-danger-color | #e31e1b | [[color:#e31e1b]]
+--dile-on-danger-color | #fff | [[color:#fff]]
+
 
 ## Color variations
 
