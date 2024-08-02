@@ -151,6 +151,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
   
   registerText(json) {
+    console.log('json', json);
     this.selectedText = json[this.displayProperty]; 
     this.loading = false;
   }
@@ -287,12 +288,16 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
   
   registerData(json) {
-    if(this.resultDataProperty === undefined || this.resultDataProperty === '') {
-      this.data = json;
-    } else {
-      this.data = json[this.resultDataProperty];
-    }
+    this.data = this.getResultData(json);
     this.updateComplete.then( () => this.loading = false )
+  }
+  
+  getResultData(json) {
+    if (this.resultDataProperty === undefined || this.resultDataProperty === '') {
+      return json;
+    } else {
+      return json[this.resultDataProperty];
+    }
   }
 
   doSelected(e) {

@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
-import { AxiosInstanceBuilder } from '../../../lib/AxiosInstanceBuilder.js';
+import { DileAxiosMixin } from '../../../lib/DileAxiosMixin.js';
 
-export class DileAjax extends LitElement {
+export class DileAjax extends DileAxiosMixin(LitElement) {
   static get properties() {
     return {
       data: {  type: Object },
@@ -15,17 +15,6 @@ export class DileAjax extends LitElement {
     this.data = {};
     this.method = 'post';
     this.url = '';
-  }
-  
-  get axiosInstance() {
-    if(window.axiosInstance) {
-      return window.axiosInstance;
-    }
-    if(window.axios) {
-      return window.axios;
-    }
-    new AxiosInstanceBuilder()
-    return window.axiosInstance;
   }
 
   generateRequest() {

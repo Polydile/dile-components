@@ -1,0 +1,1 @@
+export { DileAjaxSelectCrud } from './src/DileAjaxSelectCrud.js';
