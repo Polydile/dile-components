@@ -20,7 +20,7 @@ To use DileFormMixin you only need to extend your custom element class with the 
 ```javascript
 import { DileForm } from '@dile/ui/mixins/form';
 
-class MyElement extends DileFormMixin(HTMLElement) {
+class MyElement extends DileForm(HTMLElement) {
   // your custom element code...
 }
 ```
@@ -33,6 +33,17 @@ This mixin apply some methods to the components to recognize and operate whith f
 - The "value" property to get or set the value of the element.
 
 It works with native form elements or custom elements, as long as they have the value and name property.
+
+#### Optional requirements
+
+Optionally, the form fields can have properties designed to conveniently display validation errors.
+
+These properties are:
+
+- **errored**: Boolean, true when there is an error in this field
+- **message**: String, containing a message to display the error description
+
+These properties are available in all form elements found in the `@dile/ui` form components catalog.
 
 ### Properties 
 
@@ -57,8 +68,8 @@ showErrors({
 
 In the above code "name" and "age" are the ```name``` of the form element that shoud have a displayed error. 
 
-There is another requirement to display the error on the component. 
+The requirements to display the error on the component are: 
 
-- Should have a ```errored``` boolean property
-- Should have a ```message``` string property
+- `errored` boolean property
+- `message` string property
 

@@ -52,9 +52,16 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  opacity: 0.7;
+  margin: 1rem 0;
+}
+
+h4 {
+  font-size: 0.9rem;
   opacity: 0.6;
   margin: 1rem 0;
+  text-decoration: underline;
 }
 
 p {

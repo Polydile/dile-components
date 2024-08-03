@@ -105,14 +105,12 @@ export class DileAjaxForm extends LitElement {
     }
 
     doAction() {
-        // console.log('doaction', this.formIdentifier, this.form);
         this.feedback.clear();
         this.ajaxsave.data = this.form.getData();
         this.ajaxsave.generateRequest();
     }
 
     doErrorGet(e) {
-        // console.log('doerrorget', e.detail);
         this.feedback.negativeFeedback(e.detail.message);
         this.dispatchEvent(new CustomEvent('dile-ajax-form-get-error', { 
             bubbles: true,
@@ -124,7 +122,6 @@ export class DileAjaxForm extends LitElement {
     }
 
     doSuccessGet(e) {
-        // console.log('do success get', this.form);
         let data = this.customData(e.detail)
         this.form.setData(data);
         this.form.clearErrors();
@@ -140,7 +137,6 @@ export class DileAjaxForm extends LitElement {
     }
     
     doErrorSave(e) {
-        //console.log('doerror save', e.detail);
         let msg = this.customMessage(e.detail, true);
         this.feedback.negativeFeedbackWithDelay(e.detail.message, 5000);
         let validationErrors = this.validationErrors(e.detail);
