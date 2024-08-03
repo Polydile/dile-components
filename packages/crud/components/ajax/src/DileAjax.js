@@ -94,7 +94,7 @@ export class DileAjax extends DileAxiosMixin(LitElement) {
     } else {
       this.dispatchError('No response received from the server');
     }
-}
+  }
 
   dispatchError(message, errors = []) {
     this.dispatchEvent(new CustomEvent('ajax-error', {

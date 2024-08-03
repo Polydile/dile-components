@@ -48,6 +48,20 @@ module.exports = function(eleventyConfig) {
   // Añadir variable global con los tags
   eleventyConfig.addGlobalData("mixinTagsList", mixinTagsList);
 
+  const crudTagsList = ["ajax", "ui", "list"];
+
+  eleventyConfig.addCollection("uncategorizedCrud", function (collectionApi) {
+    return collectionApi.getFilteredByTag("crud")
+      .filter(item =>
+        !crudTagsList.some(tag => item.data.tags.includes(tag)) &&
+        item.url !== '/crud/' &&
+        item.data.hideLink !== true
+      );
+  });
+
+  // Añadir variable global con los tags
+  eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
+
   return {
     dir: {
       input: "docs",

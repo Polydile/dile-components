@@ -1,0 +1,120 @@
+---
+layout: layout.html
+title: Crud Components
+---
+
+<h1>Crud Components</h1>
+<p>
+  @dile/crud is a package that contains components for easily creating dynamic CRUD systems with a rich user experience.
+</p>
+<p>
+  It is a collection of components designed generically so that adaptable CRUD systems can be created for most web
+  services based on REST APIs.
+</p>
+
+<blockquote>
+  Please note: this is a <b>work in progress</b>, so frequent changes are to be expected.
+</blockquote>
+
+<h2>How to use the Crud Components</h2>
+
+<p>The CRUD components in this package are based on a well-known frontend library for making asynchronous connections to
+  web services, called <a href="https://axios-http.com/">Axios</a>.</p>
+<p>Each project may require different Axios configurations, so this package is open to various setups to adapt to the
+  needs
+  of each application.</p>
+<p>
+  A default Axios configuration may be implemented within the library using the <code>AxiosInstanceBuilder</code> class. 
+</p>
+
+<pre><code class="language-javascript">import { AxiosInstanceBuilder } from '@dile/crud/lib/AxiosInstanceBuilder';
+new AxiosInstanceBuilder();
+</code></pre>
+<p>After that, you can import all the components from the library that you need.</p>
+<pre><code class="language-javascript">import '@dile/crud/components/ajax/ajax.js';
+import '@dile/crud/components/ajax-form/ajax-form.js';
+</code></pre>
+
+<h2>How to customize the Axios instance</h2>
+
+<p>
+  There are two possible alternatives to customize the Axios instance that the components will use.
+</p>
+
+
+<h3>ALTERNATIVE 1: Use your own Axios instance</h3>
+<p>The first alternative is to create your own Axios instance using your JavaScript code.</p>
+<p>To generate it, you can refer to the Axios library. We simply require you to place the Axios instance in the
+  browser's
+  <code>window</code> object.
+</p>
+<pre><code class="language-javascript">window.axios = myConfiguredAxiosInstance;
+</code></pre>
+<p>This is useful because some frameworks, like Laravel, include an Axios instance by default in the <code>window</code>
+  object of the
+  browser, which is already perfectly configured for tasks like sending csrf tokens via Ajax.</p>
+<p>It is also useful if you are familiar with Axios and prefer to create your own instance, fully customized to your needs.</p>
+<h3>ALTERNATIVE 2: Create a new Axios instance</h3>
+<p>If you wish, we can assist you in easily creating the Axios instance using a minimal configuration. For this purpose,
+  the package includes a class called <code>AxiosInstanceBuilder</code> that allows for comfortable configuration.</p>
+<p>To use this class, you simply need to import it:</p>
+<pre><code class="language-javascript">import { AxiosInstanceBuilder } from '@dile/crud/lib/AxiosInstanceBuilder';
+</code></pre>
+<p>Then, we can create the Axios instance by creating an instance of the class:</p>
+<pre><code class="language-javascript">new AxiosInstanceBuilder();
+</code></pre>
+<p>The Axios instance created this way will be configured in a basic manner, simply ensuring that the necessary headers
+  are
+  sent to the server to make XMLHttpRequest requests and expect JSON responses.</p>
+<p>We can also set up a more specific configuration object ourselves and pass it as a parameter to the constructor of
+  the
+  <code>AxiosInstanceBuilder</code> class.
+</p>
+<pre><code class="language-javascript">let configuration = {
+  baseURL: 'http://localhost',
+  withCredentials: true,
+  withXSRFToken: false,
+};
+
+new AxiosInstanceBuilder(configuration);
+</code></pre>
+<p>In the above case, the configuration object used to create the Axios instance would look like this:</p>
+<pre><code class="language-javascript">{
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+    'Accept': 'application/json',
+  },
+  baseURL: 'http://localhost',
+  withCredentials: true,
+  withXSRFToken: false,
+}
+</code></pre>
+
+
+<h2>Components in this package</h2>
+
+<div class="Clasification">
+  {% for tag in crudTagsList %}        
+    <dile-card 
+     title="{{ tag | capitalize }}" 
+    >
+      <dile-selector>
+        {% for component in collections[tag] %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+  
+      </dile-selector>
+    </dile-card>
+  {% endfor %}
+
+  {% if collections.uncategorizedCrud.size > 0 %}
+    <dile-card 
+     title="Other components" 
+    >
+      {% for component in collections.uncategorizedComponents %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-card>
+  {% endif %}
+</div>
+

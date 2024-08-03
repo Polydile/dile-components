@@ -81,6 +81,33 @@
       </dile-slide-menu>
     {% endif %}
 
+    <dile-selector-item icon="navigate_next" href="/crud/">Crud</dile-selector-item>
+    {% for tag in crudTagsList %}
+    {% assign isOpened = false %}
+    {% for component in collections[tag] %}
+    {% if component.url == page.url %}
+    {% assign isOpened = true %}
+    {% endif %}
+    {% endfor %}
+    <dile-slide-menu class="collection-nav" label="{{ tag | capitalize }}" {% if isOpened %}opened{% endif %}></div>
+      {% for component in collections[tag] %}
+      {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-slide-menu>
+    {% endfor %}
+    {% if collections.uncategorizedCrud.size > 0 %}
+    {% assign isOtherOpened = false %}
+    {% for component in collections.uncategorizedComponents %}
+    {% if component.url == page.url %}
+    {% assign isOtherOpened = true %}
+    {% endif %}
+    {% endfor %}
+    <dile-slide-menu class="collection-nav" label="Other Crud Components" {% if isOpened %}opened{% endif %}></div>
+      {% for component in collections.uncategorizedCrud %}
+      {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-slide-menu>
+    {% endif %}
 
     <dile-selector-item icon="navigate_next" href="/icons/">Icons</dile-selector-item>
     
