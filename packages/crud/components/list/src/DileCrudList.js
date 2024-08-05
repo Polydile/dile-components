@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { deepMerge } from '../../../lib/deepMerge.js';
-import '@dile/ui/components/spinner/spinner.js';
+import { DileLoadingMixin, loadingStyles } from '../../../lib/DileLoadingMixin.js';
 import '@dile/ui/components/button/button.js';
 import '../../ajax/ajax.js'
 import '../../ui/crud-filters-list.js';
@@ -9,8 +9,9 @@ import '../crud-list-item.js';
 import '../crud-select-all';
 import '../crud-list-service.js';
 
-export class DileCrudList extends LitElement {
+export class DileCrudList extends DileLoadingMixin(LitElement) {
     static styles = [
+        loadingStyles,
         css`
             :host {
                 display: block;
@@ -33,7 +34,7 @@ export class DileCrudList extends LitElement {
                 margin: 0.3rem 0.2rem 0.4rem 0;
             }
 
-            .empty, .loading {
+            .empty {
                 padding: var(--dile-crud-list-empty-padding, 3rem 1rem);
                 text-align: center;
             }
@@ -59,7 +60,6 @@ export class DileCrudList extends LitElement {
         pageSize: { type: Number },
         keyword: { type: String },
         isSelectAllActive: { type: Boolean },
-        loading: { type: Boolean },
         sort: { type: Object },
         actionIds: { type: Array },
         filters: { type: Array },
@@ -155,14 +155,6 @@ export class DileCrudList extends LitElement {
                 </span>
             </div>
         `
-    }
-
-    get loadingTemplate() {
-        return html`
-            <div class="loading">
-                <dile-spinner active></dile-spinner>
-            </div>
-        `;
     }
 
     get ajaxTemplate() {

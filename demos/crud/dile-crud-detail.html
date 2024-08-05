@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-crud-detail component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/detail/crud-detail.js'
+    import '@dile/ui/components/input/input.js'
+    import '@dile/ui/components/button/button.js'
+    import './components/demo-country-detail.js'
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-crud-detail component</h1>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      export class CrudCountryDetailDemo extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+            dile-crud-detail {
+              margin-top: 1rem;
+            }
+            .hide {
+              display: none;
+            }
+            .message {
+              margin-top: 1rem;
+              font-size: 0.875rem;  
+            }
+          `
+        ];
+
+        static get properties() {
+          return {
+            message: { type: String },
+            error: { type: Boolean },
+          };
+        }
+
+        constructor() {
+          super();
+          this.apiConfig = {
+            elementGetter(response) {
+              return response.data;
+            }
+          }
+          this.resource = 'https://timer.escuelait.com/api/countries/';
+        }
+
+
+        render() {
+          return html`
+            <dile-input label="Country Id" name="countryId" value="7"></dile-input>
+            <dile-button @click=${this.showCountry}>Show</dile-button>
+            <dile-crud-detail
+              class="${this.error ? 'hide' : ''}"
+              endpoint="https://timer.escuelait.com/api/countries/7"
+              .itemDetailTemplate=${(country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`}
+              .apiConfig=${this.apiConfig}
+              @crud-item-detail-loaded=${this.detailLoaded}
+              @crud-item-detail-load-error=${this.detailLoadError}
+            ></dile-crud-detail>
+            <p class="message">${this.message}</p>
+          `;
+        }
+
+        showCountry() {
+          const elementId = this.shadowRoot.querySelector('dile-input').value;
+          const detailElement = this.shadowRoot.querySelector('dile-crud-detail');
+          detailElement.endpoint = this.resource + elementId;
+
+        }
+
+        detailLoaded() {
+          this.error = false;
+          this.message = 'Element loaded';
+        }
+
+        detailLoadError() {
+          this.error = true;
+          this.message = 'This country does not exists';
+        }
+      }
+      customElements.define('crud-country-detail-demo', CrudCountryDetailDemo);
+
+    </script>
+
+    <crud-country-detail-demo></crud-country-detail-demo>
+
+
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+
+</html>
