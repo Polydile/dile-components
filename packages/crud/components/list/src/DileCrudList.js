@@ -78,16 +78,9 @@ export class DileCrudList extends DileLoading(LitElement) {
         this.delayTimer = null;
         this.isSelectAllActive = false;
         this.loading = true;
-        this.defaultConfig = {
-            labels: {
-                insertAction: 'Create'
-            },
-        }
     }
 
     firstUpdated() {
-        this.config = deepMerge(this.defaultConfig, this.config);
-        console.log('conig en firstupdated de crud list', this.config);
         this.pageSize = this.config.pageSize ?? this.pageSize;
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
@@ -200,14 +193,14 @@ export class DileCrudList extends DileLoading(LitElement) {
                     ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
                     @item-checkbox-changed=${this.onItemsCheckboxChanged}
                 >
-                    ${this.config.itemTemplate(element)}
+                    ${this.config.templates.item(element)}
                 </dile-crud-list-item>
             `)}
         `;
     }
 
     getSuccess(e) {
-        console.log('getsuccess en crud list', e.detail);
+        // console.log('getsuccess en crud list', e.detail);
         this.loading = false;
         this.elements = e.detail.elements;
         this.numItems = e.detail.numItems;
@@ -252,7 +245,6 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     refresh() {
-        console.log('se ha solicitado un refresh');
         this.loading = true;
         this.numItems = undefined;
         if (this.isSelectAllActive) {
