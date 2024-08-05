@@ -20,7 +20,7 @@ import { LitElement, html, css } from 'lit';
           this.config = {
             endpoint: 'https://timer.escuelait.com/api/countries',
             filters: [],
-            itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
+            itemTemplate: (country) => html`<demo-country-item @continent-event=${this.showOnConsole} .country=${country}></demo-country-item>`,
             customization: {
               hideCountSummary: false,
               hidePageReport: false,
@@ -48,6 +48,10 @@ import { LitElement, html, css } from 'lit';
               .config="${this.config}"
             ></dile-crud-list>
           `;
+        }
+
+        showOnConsole(e) {
+          console.log(e.detail);
         }
 
       }
