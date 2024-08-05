@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import { formStyles } from '../../../styles/form-styles';
-import { DileLoadingMixin, loadingStyles } from '../../../lib/DileLoadingMixin.js';
+import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '../../ajax/ajax.js';
 
-export class DileCrudDetail extends DileLoadingMixin(LitElement) {
+export class DileCrudDetail extends DileLoading(LitElement) {
   static styles = [
     formStyles,
     loadingStyles,

@@ -1,7 +1,7 @@
-import { DileAxiosMixin } from '../../../lib/DileAxiosMixin.js';
+import { DileAxios } from '../../../lib/DileAxios.js';
 import { DileSelectAjax } from '@dile/ui/components/select';
 
-export class DileAjaxSelectCrud extends DileAxiosMixin(DileSelectAjax) {
+export class DileAjaxSelectCrud extends DileAxios(DileSelectAjax) {
 
   static get properties() {
     return {

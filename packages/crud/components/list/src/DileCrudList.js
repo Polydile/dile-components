@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { deepMerge } from '../../../lib/deepMerge.js';
-import { DileLoadingMixin, loadingStyles } from '../../../lib/DileLoadingMixin.js';
+import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '@dile/ui/components/button/button.js';
 import '../../ajax/ajax.js'
 import '../../ui/crud-filters-list.js';
@@ -9,7 +9,7 @@ import '../crud-list-item.js';
 import '../crud-select-all';
 import '../crud-list-service.js';
 
-export class DileCrudList extends DileLoadingMixin(LitElement) {
+export class DileCrudList extends DileLoading(LitElement) {
     static styles = [
         loadingStyles,
         css`

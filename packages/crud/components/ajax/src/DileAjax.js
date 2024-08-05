@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
-import { DileAxiosMixin } from '../../../lib/DileAxiosMixin.js';
+import { DileAxios } from '../../../lib/DileAxios.js';
 
-export class DileAjax extends DileAxiosMixin(LitElement) {
+export class DileAjax extends DileAxios(LitElement) {
   static get properties() {
     return {
       data: {  type: Object },

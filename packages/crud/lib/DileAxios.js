@@ -1,6 +1,6 @@
 import { AxiosInstanceBuilder } from './AxiosInstanceBuilder.js';
 
-export const DileAxiosMixin = (superclass) => class extends superclass {
+export const DileAxios = (superclass) => class extends superclass {
   get axiosInstance() {
     if (window.axiosInstance) {
       return window.axiosInstance;

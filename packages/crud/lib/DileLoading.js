@@ -8,7 +8,7 @@ export const loadingStyles = css`
     }
 `
 
-export const DileLoadingMixin = (superclass) => class extends superclass {
+export const DileLoading = (superclass) => class extends superclass {
 
   static get properties() {
     return {
