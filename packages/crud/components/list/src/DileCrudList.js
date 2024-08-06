@@ -81,7 +81,7 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     firstUpdated() {
-        this.pageSize = this.config.pageSize ?? this.pageSize;
+        this.pageSize = this.config.pageSize?.initial ?? this.pageSize;
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
         this.updateComplete.then( () => this.refresh());

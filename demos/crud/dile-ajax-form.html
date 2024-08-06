@@ -9,7 +9,7 @@
   <script type="module" src="axios.js"></script>
   <script type="module">
     import '@dile/crud/components/ajax-form/ajax-form.js'
-    import './components/demo-countries-form.js'
+    import './components/country/demo-country-form.js'
   </script>
 </head>
 <body>
@@ -20,13 +20,13 @@
     <dile-ajax-form
       id="ajaxelement"
       operation="insert"
-      endpoint="api/countries"
+      endpoint="https://timer.escuelait.com/api/countries"
       actionLabel="Save"
       responseDataProperty="data"
       responseMessageProperty="message"
       validationErrorsProperty="errors"
     >
-      <demo-countries-form id="form"></demo-countries-form>
+      <demo-country-form id="form"></demo-country-form>
     </dile-ajax-form>
     
     
@@ -38,15 +38,18 @@
       operation="update"
       relatedId="1"
       loadOnInit
-      endpoint="api/countries"
+      endpoint="https://timer.escuelait.com/api/countries"
       actionLabel="Save"
       responseDataProperty="data"
       responseMessageProperty="message"
       validationErrorsProperty="errors"
     >
-      <demo-countries-form id="form"></demo-countries-form>
+      <demo-country-form id="form"></demo-country-form>
     </dile-ajax-form>
     
+    <p>
+      Specify a country identifier and click the button to display its data and edit it in the form above.
+    </p>
     <p>
       <input id="relatedId" placeholder="Country id"><button id="changeCountry">Change Country</button>
     </p>

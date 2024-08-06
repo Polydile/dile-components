@@ -50,9 +50,7 @@ export class DileCrudUpdate extends LitElement {
                 ?buttonSmall="${this.buttonSmall}"
                 relatedId="${this.relatedId}"
                 ?loadOnInit="${this.loadOnInit}"
-                responseDataProperty="${this.apiConfig.responseDataProperty}"
-                responseMessageProperty="${this.apiConfig.responseMessageProperty}"
-                validationErrorsProperty="${this.apiConfig.validationErrorsProperty}"
+                .apiConfig="${this.apiConfig}"
                 formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate}

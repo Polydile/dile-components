@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import './demo-board-game-item';
-import { makeResourceConfig } from '../../../packages/crud/lib/makeResourceConfig';
+import { boardGameConfig } from './boardGameConfig';
 
-
-export class DemoBoardGamesList extends LitElement {
+export class DemoBoardGameList extends LitElement {
   static styles = [
     css`
       :host {
@@ -20,17 +19,7 @@ export class DemoBoardGamesList extends LitElement {
 
   constructor() {
     super();
-    this.config = makeResourceConfig('https://timer.escuelait.com/api/board-games', {
-      customization: {
-        hideCountSummary: false,
-      },
-      api: {
-        getElementList: (response) => response.data.result.data,
-      },
-      templates: {
-        item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
-      },
-    });
+    this.config = boardGameConfig.getConfig();
   }
     // this.config = {
     //   itemTemplate: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
@@ -61,10 +50,10 @@ export class DemoBoardGamesList extends LitElement {
     return html`
       <dile-crud-list
         .config="${this.config}"
-        pageSize="10"
+        pageSize="15"
       ></dile-crud-list>
     `;
   }
 
 }
-customElements.define('demo-board-games-list', DemoBoardGamesList);
+customElements.define('demo-board-game-list', DemoBoardGameList);

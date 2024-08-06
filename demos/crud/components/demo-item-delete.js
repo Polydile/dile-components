@@ -1,14 +1,15 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/crud/components/item-delete/crud-item-delete';
 import '@dile/ui/components/toast/toast';
+import { countryConfig } from './country/countryConfig';
 
 export class DemoItemDelete extends LitElement {
   static styles = [
     css`
-            :host {
-              display: block;
-            }
-          `
+      :host {
+        display: block;
+      }
+    `
   ];
 
   static get properties() {
@@ -19,29 +20,7 @@ export class DemoItemDelete extends LitElement {
 
   constructor() {
     super();
-    this.config = {
-      endpoint: 'api/countries',
-      filters: [],
-      itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
-      customization: {
-        hideCountSummary: false,
-        hidePageReport: false,
-        hideCheckboxSelection: true,
-        hideEmptyInsertButton: false,
-        disableInsert: false,
-        disableEdit: true,
-        disableDelete: false,
-        disablePagination: true,
-      },
-      apiConfig: {
-        responseDataProperty: 'data',
-        responseMessageProperty: 'message',
-        validationErrorsProperty: 'errors',
-        getResultsListFromResponse(results) {
-          return results.data;
-        }
-      }
-    }
+    this.config = countryConfig.getConfig();
   }
 
   render() {
@@ -51,7 +30,7 @@ export class DemoItemDelete extends LitElement {
           @delete-error=${this.deleteError}
           @delete-success=${this.deleteSuccess}
           responseMessageProperty="message"
-          endpoint="api/countries"
+          endpoint="${this.config.endpoint}"
         ></dile-crud-item-delete>
         <dile-crud-list
           id="ellist"

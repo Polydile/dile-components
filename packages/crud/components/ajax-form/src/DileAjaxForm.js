@@ -36,6 +36,7 @@ export class DileAjaxForm extends LitElement {
         responseDataProperty: { type: String },
         responseMessageProperty: { type: String },
         validationErrorsProperty: { type: String },
+        apiConfig: { type: Object },
       };
     }
 
@@ -198,32 +199,36 @@ export class DileAjaxForm extends LitElement {
     }
 
     customMessage(detail, success) {
-        let msg;
+        if(this.apiConfig) {
+            return this.apiConfig.responseMessageGetter(detail);
+        }
+        if (this.responseMessageProperty && detail[this.responseMessageProperty]) {
+            return detail[this.responseMessageProperty];
+        }
         if(success) {
-            msg = `Success ${this.operation}`;
-        } else {
-            msg = `Error ${this.operation}`;
-        }
-        if(this.responseMessageProperty && detail[this.responseMessageProperty]) {
-            msg = detail[this.responseMessageProperty];
-        }
-        return msg
+            return `Success ${this.operation}`;
+        } 
+        return `Error ${this.operation}`;
     }
 
     customData(detail) {
-        let data = detail;
+        if (this.apiConfig) {
+            return this.apiConfig.responseDataGetter(detail);
+        }
         if(this.responseDataProperty && detail[this.responseDataProperty]) {
-            data = detail[this.responseDataProperty];
+            return detail[this.responseDataProperty];
         }
         return data;
     }
 
     validationErrors(detail) {
-        let errors = [];
-        if(this.validationErrorsProperty && detail[this.validationErrorsProperty]) {
-            errors = detail[this.validationErrorsProperty];
+        if (this.apiConfig) {
+            return this.apiConfig.validationErrorsGetter(detail);
         }
-        return errors;
+        if(this.validationErrorsProperty && detail[this.validationErrorsProperty]) {
+            return detail[this.validationErrorsProperty];
+        }
+        return [];
     }
 }
 

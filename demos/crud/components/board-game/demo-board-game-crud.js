@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import './demo-board-games-form';
+import { boardGameConfig } from './boardGameConfig';
+import './demo-board-game-form';
 import './demo-board-game-item';
 import './demo-change-essential-action'
 export class DemoBoardGamesCrud extends LitElement {
@@ -19,7 +20,8 @@ export class DemoBoardGamesCrud extends LitElement {
 
   constructor() {
     super();
-    this.config = {
+    this.config = boardGameConfig.getConfig();
+    this.configqnovale = {
       endpoint: 'https://timer.escuelait.com/api/board-games',
       // endpoint: 'http://localhost/api/board-games',
       filters: [],
@@ -58,8 +60,8 @@ export class DemoBoardGamesCrud extends LitElement {
       ],
       availablePageSizes: [10,25,50],
       pageSize: 25,
-      insertForm: () => html`<demo-board-games-form id="insertform"></demo-board-games-form>`,
-      updateForm: () => html`<demo-board-games-form id="updateform"></demo-board-games-form>`,
+      insertForm: () => html`<demo-board-game-form id="insertform"></demo-board-game-form>`,
+      updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
       customization: {
         hideCountSummary: false,
         hidePageReport: false,
@@ -110,4 +112,4 @@ export class DemoBoardGamesCrud extends LitElement {
     `;
   }
 }
-customElements.define('demo-board-games-crud', DemoBoardGamesCrud);
+customElements.define('demo-board-game-crud', DemoBoardGamesCrud);

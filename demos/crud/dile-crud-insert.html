@@ -9,7 +9,7 @@
   <script type="module" src="axios.js"></script>
   <script type="module">
     import '@dile/crud/components/insert/crud-insert.js'
-    import './components/demo-countries-form.js'
+    import './components/country/demo-country-form.js'
   </script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <script type="module">
       import { LitElement, html, css } from 'lit';
-      
+      import { countryConfig } from './components/country/countryConfig.js';
       export class CrudInsertDemo extends LitElement {
         static styles = [
           css`
@@ -30,20 +30,16 @@
 
         constructor() {
           super();
-          this.apiConfig = {
-            responseDataProperty: 'data',
-            responseMessageProperty: 'message',
-            validationErrorsProperty: 'errors'
-          }
+          this.config = countryConfig.getConfig();
         }
       
         render() {
           return html`
             <dile-crud-insert
               title="Insert a country"
-              endpoint="api/countries"
-              .apiConfig=${this.apiConfig}
-              .formTemplate=${html`<demo-countries-form id="form"></demo-countries-form>`}
+              endpoint="${this.config.endpoint}"
+              .apiConfig=${this.config.api}
+              .formTemplate=${this.config.templates.insertForm()}
             ></dile-crud-insert>
           `;
         }

@@ -47,9 +47,7 @@ export class DileCrudInsert extends LitElement {
                 actionLabel="${this.actionLabel}"
                 @save-success="${this.doSuccessSave}"
                 ?buttonSmall="${this.buttonSmall}"
-                responseDataProperty="${this.apiConfig.responseDataProperty}"
-                responseMessageProperty="${this.apiConfig.responseMessageProperty}"
-                validationErrorsProperty="${this.apiConfig.validationErrorsProperty}"
+                .apiConfig="${this.apiConfig}"
                 formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate}

@@ -9,7 +9,7 @@
   <script type="module" src="axios.js"></script>
   <script type="module">
     import '@dile/crud/components/update/crud-update.js'
-    import './components/demo-countries-form.js'
+    import './components/country/demo-country-form.js'
   </script>
 </head>
 <body>
@@ -19,6 +19,7 @@
     <script type="module">
       import { LitElement, html, css } from 'lit';
       import '@dile/ui/components/select/select';
+      import { countryConfig } from './components/country/countryConfig.js';
 
       export class CrudUpdateDemo extends LitElement {
         static styles = [
@@ -38,11 +39,7 @@
         constructor() {
           super();
           this.relatedId = '1';
-          this.apiConfig = {
-            responseDataProperty: 'data',
-            responseMessageProperty: 'message',
-            validationErrorsProperty: 'errors'
-          }
+          this.config = countryConfig.getConfig();
         }
       
         render() {
@@ -61,11 +58,11 @@
 
             <dile-crud-update
               title="update a country"
-              endpoint="api/countries"
-              .apiConfig=${this.apiConfig}
+              endpoint="${this.config.endpoint}"
+              .apiConfig=${this.config.api}
               loadOnInit
               relatedId="${this.relatedId}"
-              .formTemplate=${html`<demo-countries-form id="form"></demo-countries-form>`}
+              .formTemplate=${this.config.templates.updateForm()}
             ></dile-crud-update>
           `;
         }

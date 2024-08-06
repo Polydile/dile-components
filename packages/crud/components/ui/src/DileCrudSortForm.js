@@ -47,6 +47,9 @@ export class DileCrudSortForm extends LitElement {
     this.sortOptions = [];
   }
 
+  firstUpdated() {
+    console.log('fistiñdate de crudsortform', this.sortDirection);
+  }
   render() {
     return html`
         <dile-crud-list-options class="action-controller" .icon="${sortIcon}" label="Order">
@@ -77,12 +80,14 @@ export class DileCrudSortForm extends LitElement {
   }
 
   elementChanged(e) {
+    console.log('elementChanged', e.detail);
     this.sortField = e.detail.name;
     this.sortDirection = e.detail.value;
     this.dispatchChanged();
   }
 
   radioGroupChanged(e) {
+    console.log('allll', e.detail);
     this.sortField = e.detail.value;
     this.sortDirection = this.getDirection(this.sortField);
     this.dispatchChanged();
@@ -90,7 +95,9 @@ export class DileCrudSortForm extends LitElement {
 
   getDirection(field) {
     console.log('getDirection', field);
-    return this.shadowRoot.querySelector(`dile-order-switch[name="${field}"]`).value;
+    if(field) {
+      return this.shadowRoot.querySelector(`dile-order-switch[name="${field}"]`).value;
+    }
   }
 
   dispatchChanged() {

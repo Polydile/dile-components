@@ -13,7 +13,6 @@ import '../../action/crud-actions.js';
 import '../../action/crud-delete-action.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
-import { deepMerge } from '../../../lib/deepMerge.js';
 import { crudStyles } from '../../../styles/crud-styles.js';
 import { addIcon } from '@dile/icons';
 
@@ -145,33 +144,33 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         super();
         this.loading = true;
         this.actionIds = [];
-        this.defaultConfig = {
-            selectActionsTemplate: (deleteLabel) => html`
-                <dile-select>
-                    <select slot="select">
-                        <option value="DeleteAction">${deleteLabel}</option>
-                    </select>
-                </dile-select>
-            `,
-            formActionsTemplate: (actionName) => html`
-                <dile-pages attrForSelected="action" selected="${actionName}">
-                    <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
-                </dile-pages>
-            `,
-            labels: {
-                insertAction: 'Create',
-                deleteAction: 'Delete'
-            },
-            formIds: {
-                insertForm: 'insertform',
-                updateForm: 'updateform'
-            }
-        }
+        // this.defaultConfig = {
+        //     selectActionsTemplate: (deleteLabel) => html`
+        //         <dile-select>
+        //             <select slot="select">
+        //                 <option value="DeleteAction">${deleteLabel}</option>
+        //             </select>
+        //         </dile-select>
+        //     `,
+        //     formActionsTemplate: (actionName) => html`
+        //         <dile-pages attrForSelected="action" selected="${actionName}">
+        //             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
+        //         </dile-pages>
+        //     `,
+        //     labels: {
+        //         insertAction: 'Create',
+        //         deleteAction: 'Delete'
+        //     },
+        //     formIds: {
+        //         insertForm: 'insertform',
+        //         updateForm: 'updateform'
+        //     }
+        // }
     }
 
     firstUpdated() {
-        this.config = deepMerge(this.defaultConfig, this.config);
-        console.log('config en furst uldate despuñes del merge', this.config);
+        // this.config = deepMerge(this.defaultConfig, this.config);
+        // console.log('config en furst uldate despuñes del merge', this.config);
         this.loading = false;
     }
 
@@ -251,8 +250,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 <dile-crud-insert
                     title=${this.config.labels.insertWindowTitle}
                     endpoint="${this.config.endpoint}"
-                    .apiConfig=${this.config.apiConfig}
-                    .formTemplate=${this.config.insertForm()}
+                    .apiConfig=${this.config.api}
+                    .formTemplate=${this.config.templates.insertForm()}
                     actionLabel=${this.config.labels.insertAction}
                     formIdentifier="${this.config.formIds.insertForm}"
                     @crud-insert-success="${this.modalInsertSuccess}"
@@ -272,8 +271,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                     id="updateElement"
                     title=${this.config.labels.updateWindowTitle}
                     endpoint="${this.config.endpoint}"
-                    .apiConfig=${this.config.apiConfig}
-                    .formTemplate=${this.config.updateForm()}
+                    .apiConfig=${this.config.api}
+                    .formTemplate=${this.config.templates.updateForm()}
                     actionLabel=${this.config.labels.updateAction}
                     formIdentifier="${this.config.formIds.updateForm}"
                     @crud-update-success="${this.modalUpdateSuccess}"
@@ -299,8 +298,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 id="elactions"
                 .actionIds=${this.actionIds}
                 endpoint=${this.config.endpoint}
-                .selectActionsTemplate=${this.config.selectActionsTemplate(this.config.labels.deleteAction)}
-                .formActionsTemplate=${this.config.formActionsTemplate}
+                .selectActionsTemplate=${this.config.templates.selectActions(this.config.labels.deleteAction)}
+                .formActionsTemplate=${this.config.templates.formActions}
             ></dile-crud-actions>
         `
     }
@@ -324,7 +323,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                                 class="action-controller" 
                                 id="elfilters"
                                 @filters-changed=${this.filtersChanged}
-                                .filters=${this.config.filters || []}
+                                .filters=${this.config.availableFilters || []}
                             ></dile-crud-filters>
                         `
                     }
@@ -334,8 +333,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                             <dile-crud-page-size 
                                 class="action-controller" 
                                 @page-size-changed=${this.pageSizeChanged}
-                                .pageSizes=${this.config.availablePageSizes || [10, 25, 50]}
-                                pageSize="${this.config.pageSize}"
+                                .pageSizes=${this.config.pageSize.available || [10, 25, 50]}
+                                pageSize="${this.config.pageSize.initial}"
                             ></dile-crud-page-size>
                         `
                     } 
@@ -344,9 +343,9 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                         : html`
                             <dile-crud-sort-form 
                                 class="action-controller"
-                                .sortOptions=${this.config.sortOptions || []} 
-                                sortField="${this.config.initialSortField}"
-                                sortDirection="${this.config.initialSortDirection || 'desc'}"
+                                .sortOptions=${this.config.sort.options || []} 
+                                sortField="${this.config.sort.initialSortField}"
+                                sortDirection="${this.config.sort.initialSortDirection || 'desc'}"
                                 @sort-changed=${this.sortFormChanged}
                             ></dile-crud-sort-form>  
                         `
