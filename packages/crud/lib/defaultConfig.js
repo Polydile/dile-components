@@ -28,8 +28,8 @@ export const defaultConfig = {
     responseDataGetter: response => response.data,
     responseMessageGetter: response => response.message,
     validationErrorsGetter: response => response.errors,
-    getElementList: response => response.data,
-    getPaginationData: response => response.data,
+    elementListGetter: response => response.data,
+    paginationDataGetter: response => response.data,
   },
   templates: {
     item: () => templatePlaceholder('item'),

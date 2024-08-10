@@ -31,7 +31,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
     },
   ],
   api: {
-    getElementList: (response) => response.data.result.data,
+    elementListGetter: (response) => response.data.result.data,
   },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,

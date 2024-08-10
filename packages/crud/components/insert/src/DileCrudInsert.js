@@ -27,7 +27,7 @@ export class DileCrudInsert extends LitElement {
     constructor() {
         super();
         this.actionLabel = 'Insert';
-        this.formIdentifier = 'form';
+        this.formIdentifier = 'insertform';
     }
 
     get formElement() {

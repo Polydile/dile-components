@@ -17,81 +17,53 @@ title: Crud Components
 </blockquote>
 
 <h2>How to use the Crud Components</h2>
+  <p>
+    Using the CRUD components provided by this library is as simple as using web components, where you declaratively
+    specify the functionalities you want to implement, directly in the HTML code.
+  </p>
+
+  <p>
+    There are components for making simple Ajax connections, forms that automatically submit via Ajax, components for
+    performing insertions, updates, deletions or listings, and even complete CRUD systems. Each component is thoroughly
+    detailed on its documentation page. Additionally, you will find various usage examples for each component to help you
+    better understand how to implement them.
+  </p>
+
+  <h3>Based on Axios library</h3>
 
 <p>The CRUD components in this package are based on a well-known frontend library for making asynchronous connections to
   web services, called <a href="https://axios-http.com/">Axios</a>.</p>
-<p>Each project may require different Axios configurations, so this package is open to various setups to adapt to the
-  needs
-  of each application.</p>
-<p>
-  A default Axios configuration may be implemented within the library using the <code>AxiosInstanceBuilder</code> class. 
-</p>
 
-<pre><code class="language-javascript">import { AxiosInstanceBuilder } from '@dile/crud/lib/AxiosInstanceBuilder';
-new AxiosInstanceBuilder();
-</code></pre>
-<p>After that, you can import all the components from the library that you need.</p>
-<pre><code class="language-javascript">import '@dile/crud/components/ajax/ajax.js';
-import '@dile/crud/components/ajax-form/ajax-form.js';
-</code></pre>
 
-<h2>How to customize the Axios instance</h2>
+
+<blockquote>You don't need to be familiar with the Axios library, as the CRUD components, especially the `dile-ajax` component, wrap
+that library.</blockquote>
 
 <p>
-  There are two possible alternatives to customize the Axios instance that the components will use.
+  Each project may require different Axios configurations, so this package is open to various setups to adapt to
+  the needs of each application and web services.
+</p>
+<h2>CRUD Configuration </h2>
+<p>
+Due to the complexity of operations and the need to adapt to different types of projects, it is important to consider
+some configuration aspects.
+</p>
+<ul>
+  <li>On the <a href="/crud/axios-configuration/">Axios Configuration page</a>, you will find detailed information on how to
+  configure this library to tailor requests
+  to the requirements of your project or API.</li>
+  <li>On the <a href="/crud/api-config/">API config page</a>, you will find detailed information on how to process JSON responses so that the CRUD
+  components can find the data they need to function properly.</li>
+  <li>On the <a href="/crud/resource-config/">resource configuration object page</a>, you will find information on how to configure the more complex components to
+  adapt to the specific characteristics of the resources exposed by the API.</li>
+</ul>
+  
 </p>
 
 
-<h3>ALTERNATIVE 1: Use your own Axios instance</h3>
-<p>The first alternative is to create your own Axios instance using your JavaScript code.</p>
-<p>To generate it, you can refer to the Axios library. We simply require you to place the Axios instance in the
-  browser's
-  <code>window</code> object.
-</p>
-<pre><code class="language-javascript">window.axios = myConfiguredAxiosInstance;
-</code></pre>
-<p>This is useful because some frameworks, like Laravel, include an Axios instance by default in the <code>window</code>
-  object of the
-  browser, which is already perfectly configured for tasks like sending csrf tokens via Ajax.</p>
-<p>It is also useful if you are familiar with Axios and prefer to create your own instance, fully customized to your needs.</p>
-<h3>ALTERNATIVE 2: Create a new Axios instance</h3>
-<p>If you wish, we can assist you in easily creating the Axios instance using a minimal configuration. For this purpose,
-  the package includes a class called <code>AxiosInstanceBuilder</code> that allows for comfortable configuration.</p>
-<p>To use this class, you simply need to import it:</p>
-<pre><code class="language-javascript">import { AxiosInstanceBuilder } from '@dile/crud/lib/AxiosInstanceBuilder';
-</code></pre>
-<p>Then, we can create the Axios instance by creating an instance of the class:</p>
-<pre><code class="language-javascript">new AxiosInstanceBuilder();
-</code></pre>
-<p>The Axios instance created this way will be configured in a basic manner, simply ensuring that the necessary headers
-  are
-  sent to the server to make XMLHttpRequest requests and expect JSON responses.</p>
-<p>We can also set up a more specific configuration object ourselves and pass it as a parameter to the constructor of
-  the
-  <code>AxiosInstanceBuilder</code> class.
-</p>
-<pre><code class="language-javascript">let configuration = {
-  baseURL: 'http://localhost',
-  withCredentials: true,
-  withXSRFToken: false,
-};
-
-new AxiosInstanceBuilder(configuration);
-</code></pre>
-<p>In the above case, the configuration object used to create the Axios instance would look like this:</p>
-<pre><code class="language-javascript">{
-  headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    'Accept': 'application/json',
-  },
-  baseURL: 'http://localhost',
-  withCredentials: true,
-  withXSRFToken: false,
-}
-</code></pre>
 
 
-<h2>Components in this package</h2>
+<h2>Modules and components in this package</h2>
 
 <div class="Clasification">
   {% for tag in crudTagsList %}        
@@ -111,7 +83,7 @@ new AxiosInstanceBuilder(configuration);
     <dile-card 
      title="Other components" 
     >
-      {% for component in collections.uncategorizedComponents %}
+      {% for component in collections.uncategorizedCrud %}
         {% include "layout-partials/nav-item.html" %}
       {% endfor %}
     </dile-card>

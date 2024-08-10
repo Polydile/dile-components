@@ -90,12 +90,12 @@ export class DileCrudListService extends LitElement {
 
   doSuccessGet(e) {
     // console.log('do success get on service', e.detail);
-    let elements = this.config.api.getElementList(e.detail);
+    let elements = this.config.api.elementListGetter(e.detail);
     let numItems;
     if (this.config.customization.disablePagination) {
       numItems = elements.length;
     } else {
-      let data = this.config.api.getPaginationData(e.detail);
+      let data = this.config.api.paginationDataGetter(e.detail);
       console.log('pagination data fetched', data);
       this.paginationData = {
         nextPage: data.result.next_page_url,
