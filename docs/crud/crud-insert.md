@@ -1,6 +1,6 @@
 ---
 title: Crud Insert
-tags: crud
+tags: operations
 ---
 
 # dile-crud-insert
@@ -29,7 +29,7 @@ Use the component.
   title="Insert a country"
   endpoint="api/countries"
   .apiConfig=${this.apiConfig}
-  .formTemplate=${html`<demo-countries-form id="form"></demo-countries-form>`}
+  .formTemplate=${html`<demo-countries-form id="insertform"></demo-countries-form>`}
 ></dile-crud-insert>
 ```
 
@@ -42,17 +42,19 @@ Use the component.
 - **relationId**: String, the identifier of the parent resource.
 - **formTemplate**: Object, the template with the component that acts as the form for the record to be inserted. The component must have an identifier (id attribute), typically "insertform".
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
-- **apiConfig**: Object, an API configuration object (see examples below).
+- **apiConfig**: Object, an API configuration object (see the [API Config page](/crud/api-config/)).
 - **formIdentifier**: String, the identifier of the component that acts as the insertion form. If no value is provided for this property, "insertform" is used as the default.
 
-**Methods**
+### Methods
 
 - **setData(data)**: This method sets the data passed as an argument into the corresponding form fields.
 - **clearFeedback()**: This method is used to clear the feedback component integrated into the form (it calls `clearFeedback()` on the `dile-ajax-form` component integrated into `dile-crud-insert`).
 
-**Events**
+### Events
 
-- **crud-insert-success**: Dispatched when an insertion operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.
+- **crud-update-success**: Dispatched when an update operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.
+
+> Since this component is based on `dile-ajax-form`, the events dispatched by it can also be listened to in `dile-crud-update`.
 
 ## Configuration
 

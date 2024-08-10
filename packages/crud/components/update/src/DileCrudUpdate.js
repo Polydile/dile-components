@@ -28,7 +28,7 @@ export class DileCrudUpdate extends LitElement {
         super();
         this.actionLabel = 'Update';
         this.loadOnInit = false;
-        this.formIdentifier = 'form';
+        this.formIdentifier = 'updateform';
     }
 
     get formElement() {

@@ -48,7 +48,7 @@ module.exports = function(eleventyConfig) {
   // Añadir variable global con los tags
   eleventyConfig.addGlobalData("mixinTagsList", mixinTagsList);
 
-  const crudTagsList = ["configuration", "ajax", "ui", "list"];
+  const crudTagsList = ["configuration", "ajax", "operations", "ui"];
 
   eleventyConfig.addCollection("uncategorizedCrud", function (collectionApi) {
     return collectionApi.getFilteredByTag("crud")
