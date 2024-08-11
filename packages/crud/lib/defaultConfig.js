@@ -23,6 +23,7 @@ export const defaultConfig = {
     disablePagination: false,
     disableSort: false,
     disableFilter: false,
+    disableHelp: true,
   },
   api: {
     responseDataGetter: response => response.data,
@@ -35,6 +36,7 @@ export const defaultConfig = {
     item: () => templatePlaceholder('item'),
     insertForm: () => templatePlaceholder('insertForm'),
     updateForm: () => templatePlaceholder('updateForm'),
+    help: () => templatePlaceholder('help'),
     selectActions: (deleteLabel) => html`
         <dile-select>
             <select slot="select">
@@ -54,6 +56,8 @@ export const defaultConfig = {
     deleteAction: 'Delete',
     insertWindowTitle: 'Insert a country',
     updateWindowTitle: 'Update a country',
+    helpTitle: 'Help',
+    helpButtonLabel: 'Help',
   },
   formIds: {
     insertForm: 'insertform',

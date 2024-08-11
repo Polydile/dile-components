@@ -12,7 +12,7 @@ export class DileModalHelp extends LitElement {
                 --dile-modal-width: var(--dile-modal-help-width, 95vw);
                 --dile-modal-height: auto;
                 --dile-modal-max-height: 95vh;
-                color: #303030;
+                color: var(--dile-on-primary-color, #303030);
                 --dile-icon-rounded-background-color: var(--dile-primary-color, #2962FF);
                 --dile-icon-color: var(--dile-modal-help-icon-color, #fff);
             }

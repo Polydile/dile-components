@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/input/input-search';
 import '@dile/ui/components/nav/nav';
 import '@dile/ui/components/modal/modal';
+import '@dile/ui/components/modal/modal-help';
 import '../../item-delete/crud-item-delete.js';
 import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
@@ -82,95 +83,18 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         config: { type: Object },
         actionIds: { type: Array },
         keyword: { type: String },
-        /** Cuando el crud se muestra dentro de una página como las facturas en la página del cliente */
-        hasHelp: { type: Boolean },
-        editUrl: { type: Boolean },
         loading: { type: Boolean },
       };
-
-      /*
-        idea es colocar todo lo que son datos de config que no cambiarán al usar el elemento
-        config = {
-          title: string,
-          endpoint: string,
-          belongsTo: String,
-          relationId: String,
-          sortOptions: Array,
-          initialSortField: string,
-          initialSortDirection: string
-          filters: Array,
-          availablePageSizes: Array,
-          pageSize: number,
-          itemTemplate: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
-          formActionsTemplate: (actionName) => html``
-          selectActionsTemplate: (selectLabel) => html``
-          insertForm: () => html`<demo-countries-form id="insertform"></demo-countries-form>`,
-          updateForm: () => html`<demo-countries-form id="updateform"></demo-countries-form>`,
-          customization: {
-            hideCountSummary: false,
-            hidePageReport: false,
-            hideCheckboxSelection: false,
-            hideEmptyInsertButton: false,
-            disableInsert: false,
-            disableEdit: false,
-            disableDelete: false,
-            disablePagination: false,
-            disableSort: false,
-            disableFilter: false,
-          },
-          labels: {
-             insertAction: 'Insert country',
-             updateAction: 'Save',
-             insertWindowTitle: 'Insert a country',
-             updateWindowTitle: 'Update a country',
-          }, 
-          apiConfig = {
-            responseDataProperty: 'data',
-            responseMessageProperty: 'message',
-            validationErrorsProperty: 'errors',
-            getResultsListFromResponse: function // recibe lo que traes por ajax y te da el resultado
-            getDataFromResponse: function // recibe lo que traes por ajax y te da la parte que te interesa para encontrar todos los datos, includo la páginación
-            getIdsFromResponse: function // recibe lo que te traes por ajax y te da la parte que te interesa, que sería el array de ids
-          },
-          formIds: {
-            insertForm: 'insertform',
-            updateForm: 'updateform',
-          }
-        }
-        */
     }
 
     constructor() {
         super();
         this.loading = true;
         this.actionIds = [];
-        // this.defaultConfig = {
-        //     selectActionsTemplate: (deleteLabel) => html`
-        //         <dile-select>
-        //             <select slot="select">
-        //                 <option value="DeleteAction">${deleteLabel}</option>
-        //             </select>
-        //         </dile-select>
-        //     `,
-        //     formActionsTemplate: (actionName) => html`
-        //         <dile-pages attrForSelected="action" selected="${actionName}">
-        //             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
-        //         </dile-pages>
-        //     `,
-        //     labels: {
-        //         insertAction: 'Create',
-        //         deleteAction: 'Delete'
-        //     },
-        //     formIds: {
-        //         insertForm: 'insertform',
-        //         updateForm: 'updateform'
-        //     }
-        // }
     }
 
     firstUpdated() {
-        // this.config = deepMerge(this.defaultConfig, this.config);
-        // console.log('config en furst uldate despuñes del merge', this.config);
+        console.log('config en furst uldate despuñes del merge', this.config);
         this.loading = false;
     }
 
@@ -304,15 +228,19 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         `
     }
     get helpTemplate() {
-        // Override
+        return html`
+            <dile-modal-help 
+                title="${this.config.labels.helpTitle}"
+                label="${this.config.labels.helpButtonLabel}"
+            >${this.config.templates.help()}</dile-modal-help>`
     }
 
     get navActionsTemplate() {
         return html`
             <dile-nav>
-                ${this.hasHelp
-                    ? html`<div slot="menu">${this.helpTemplate}</div>`
-                    : ''
+                ${this.config.customization.disableHelp
+                    ? html`<div slot="menu">fff</div>`
+                    : html`<div slot="menu">${this.helpTemplate}</div>`
                 }
                 <div class="actions" slot="actions">
                     ${this.actionsTemplate}

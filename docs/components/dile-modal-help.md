@@ -72,7 +72,7 @@ Custom property | Description | Default
 <script type="module">
 import '@dile/ui/components/modal/modal-help';
 </script>
-<dile-modal-help label="Some information">
+<dile-modal-help label="Some information" title="Information modal help">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut ipsa laborum deserunt, fuga culpa hic quod, dolor nostrum consectetur laudantium dignissimos accusantium et repellendus illum quis aliquam earum ab!</p>
   <p>Pariatur vero impedit repudiandae labore mod!</p>
 </dile-modal-help>
