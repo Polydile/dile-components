@@ -83,19 +83,16 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         config: { type: Object },
         actionIds: { type: Array },
         keyword: { type: String },
-        loading: { type: Boolean },
       };
     }
 
     constructor() {
         super();
-        this.loading = true;
         this.actionIds = [];
     }
 
     firstUpdated() {
         console.log('config en furst uldate despuñes del merge', this.config);
-        this.loading = false;
     }
 
     // GETTERS ELEMENTOS
@@ -118,42 +115,40 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     // TEMPLATES
 
     render() {
-        if(!this.loading) {
-            return html`
-                <header>
-                    ${this.config.title 
-                        ? html`<h1 class="main-crud-title">${this.title}</h1>`
-                        : ''
-                    }
-                    ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
-                    <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
-                </header>
+        return html`
+            <header>
+                ${this.config.title 
+                    ? html`<h1 class="main-crud-title">${this.title}</h1>`
+                    : ''
+                }
+                ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
+                <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
+            </header>
 
-                <main>
-                    ${this.navActionsTemplate}
-                    <div
-                        @crud-item-delete=${this.itemDeleteRequest}
-                        @insert-requested=${this.doInsert}
-                        @item-checkbox-changed=${this.itemCheckboxChanged}
-                        @dile-chip-icon-click=${this.removeFilter}
-                        @crud-list-all-ids-selected=${this.crudSelectAll}
-                    >
-                        ${this.listTemplate}
-                    </div>
-                </main>
-                
-                ${this.config.customization.disableUpdate ? '' : this.updateTemplate}
+            <main>
+                ${this.navActionsTemplate}
+                <div
+                    @crud-item-delete=${this.itemDeleteRequest}
+                    @insert-requested=${this.doInsert}
+                    @item-checkbox-changed=${this.itemCheckboxChanged}
+                    @dile-chip-icon-click=${this.removeFilter}
+                    @crud-list-all-ids-selected=${this.crudSelectAll}
+                >
+                    ${this.listTemplate}
+                </div>
+            </main>
+            
+            ${this.config.customization.disableUpdate ? '' : this.updateTemplate}
 
-                <dile-crud-item-delete 
-                    id="eldelete"
-                    endpoint="${this.config.endpoint}"
-                    @delete-success=${this.deleteSuccess}
-                ></dile-crud-item-delete>
+            <dile-crud-item-delete 
+                id="eldelete"
+                endpoint="${this.config.endpoint}"
+                @delete-success=${this.deleteSuccess}
+            ></dile-crud-item-delete>
 
-                ${this.insertTemplate}
-                ${this.updateTemplate}
-            `;
-        }
+            ${this.insertTemplate}
+            ${this.updateTemplate}
+        `;
     }
 
     get insertButtomTemplate() {
@@ -239,7 +234,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         return html`
             <dile-nav>
                 ${this.config.customization.disableHelp
-                    ? html`<div slot="menu">fff</div>`
+                    ? ''
                     : html`<div slot="menu">${this.helpTemplate}</div>`
                 }
                 <div class="actions" slot="actions">
