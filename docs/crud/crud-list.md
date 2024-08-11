@@ -73,7 +73,7 @@ Complete information on how to configure it easily can be found on the [general 
 
 To simplify the use of CRUD components, the configuration object required is the same for all the various CRUD components, such as lists, fully functional CRUD pages, or detail pages for a record.
 
-## Examples
+## Unpaginated List Example
 
 ### Create configuration object for a resource
 
@@ -91,7 +91,7 @@ In this first example, you can find the implementation of a list item.
 
 {% include "componentes-crud/country-item.md" %}
 
-### Unpaginated list
+### Unpaginated list component
 
 This is a simple list component without pagination. When the edit and delete icons are clicked, messages will be displayed in the console.
 
@@ -142,3 +142,61 @@ Additionally, clicking the name of the continent in each country's item will als
   customElements.define('demo-country-list', DemoCountryList);
 </script>
 <demo-country-list></demo-country-list>
+```
+
+## Paginated List Example
+
+### Create configuration object for a resource
+
+Configuration objects creation are explained on the page that explains the [resource configuration object](/crud/crud-item-delete/).
+
+{% include "componentes-crud/board-game-config.md" %}
+
+### Create a item Component
+
+This components acts as a template for the list items.
+
+{% include "componentes-crud/board-game-item.md" %}
+
+### Unpaginated list component
+
+The use of paginated lists primarily differs in the definition of a different configuration object, which has additional requirements.
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+export class DemoBoardGameList extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = window.boardGameConfig.getConfig();
+  }
+
+  render() {
+    return html`
+      <dile-crud-list
+        .config="${this.config}"
+        pageSize="15"
+      ></dile-crud-list>
+    `;
+  }
+
+}
+customElements.define('demo-board-game-list', DemoBoardGameList);
+</script>
+<demo-board-game-list></demo-board-game-list>
+```

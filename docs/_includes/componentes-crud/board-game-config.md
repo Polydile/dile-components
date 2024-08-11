@@ -1,10 +1,13 @@
+```html:preview
+<script type="module">
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
 
-export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
+// For the correct functioning of this declaration in the demo system, we have defined the variable with the configuration object globally. Normally, it would be created in a module and exported.
+window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
   customization: {
     hideCountSummary: false,
-    hideCheckboxSelection: false,
+    hideCheckboxSelection: true,
   },
   sort: {
     options: [
@@ -54,3 +57,5 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
     `,
   },
 });
+</script>
+```
