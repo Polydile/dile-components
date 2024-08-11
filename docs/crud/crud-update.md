@@ -17,10 +17,10 @@ npm i @dile/crud
 
 ## Usage
 
-Import the dile-ajax component.
+Import the dile-crud-update component.
 
 ```javascript
-import '@dile/crud/components/crud-update/crud-update.js';
+import '@dile/crud/components/update/crud-update.js';
 ```
 Use the component.
 

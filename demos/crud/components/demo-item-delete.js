@@ -38,7 +38,7 @@ export class DemoItemDelete extends LitElement {
           @crud-item-delete=${this.deleteItem}
         ></dile-crud-list>
         <dile-toast id="feedback"></dile-toast>
-          `;
+        `;
   }
 
   get feedback() {

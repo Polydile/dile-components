@@ -56,7 +56,7 @@ export class DileCrudList extends DileLoading(LitElement) {
         config: { type: Object },
         elements: { type: Array },
         paginationData: { type: Object },
-        numItems: { type: String },
+        numItems: { type: Number },
         pageSize: { type: Number },
         keyword: { type: String },
         isSelectAllActive: { type: Boolean },

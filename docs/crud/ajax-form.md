@@ -17,7 +17,7 @@ npm i @dile/crud
 
 ## Usage
 
-Import the dile-ajax component.
+Import the dile-ajax-form component.
 
 ```javascript
 import '@dile/crud/components/ajax-form/ajax-form.js';

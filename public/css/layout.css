@@ -153,7 +153,7 @@ blockquote p:last-child {
   }
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 1000px) {
   body {
     --dile-nav-padding-y: 0.7rem;
     --dile-social-icon-size: 2rem;

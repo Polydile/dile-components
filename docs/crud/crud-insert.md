@@ -1,5 +1,5 @@
 ---
-title: Crud Insert
+title: Crud item delete
 tags: operations
 ---
 
@@ -17,10 +17,10 @@ npm i @dile/crud
 
 ## Usage
 
-Import the dile-ajax component.
+Import the dile-crud-insert component.
 
 ```javascript
-import '@dile/crud/components/crud-insert/crud-insert.js';
+import '@dile/crud/components/insert/crud-insert.js';
 ```
 Use the component.
 
