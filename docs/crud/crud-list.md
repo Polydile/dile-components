@@ -81,9 +81,9 @@ Before looking at implementation examples of lists, it’s important to understa
 
 You can learn how to create configuration objects on the page that explains the [resource configuration object](/crud/crud-item-delete/).
 
+{% include "componentes-crud/country-config.md" %}
 
-
-### Item Component
+### Create a item Component
 
 The list components require a template to implement the list items. This template typically uses a component that receives the item object as an attribute to render it.
 
@@ -91,7 +91,7 @@ In this first example, you can find the implementation of a list item.
 
 {% include "componentes-crud/country-item.md" %}
 
-### List without pagination
+### Unpaginated list
 
 This is a simple list component without pagination. When the edit and delete icons are clicked, messages will be displayed in the console.
 
@@ -100,7 +100,6 @@ Additionally, clicking the name of the continent in each country's item will als
 ```html:preview
 <script type="module">
   import { LitElement, html, css } from 'lit';
-{% include "componentes-crud/country-config.md" %}
   import '@dile/crud/components/list/crud-list.js'
   
   class DemoCountryList extends LitElement {
@@ -121,10 +120,7 @@ Additionally, clicking the name of the continent in each country's item will als
     constructor() {
       super();
       // The countryConfig variable has been defined globally to simplify this demo. Ideally, it should be imported from a module.
-      console.log('constructor de la clase', window.countryConfig)
-
-      this.config = countryConfig.getConfig();
-      console.log(this.config);
+      this.config = window.countryConfig.getConfig();
     }
 
     render() {

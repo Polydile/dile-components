@@ -1,6 +1,9 @@
-
+```html:preview
+<script type="module">
+import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
-console.log('antes de crear la variable en window')
+
+// For the correct functioning of this declaration in the demo system, we have defined the variable with the configuration object globally. Normally, it would be created in a module and exported.
 window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/countries', {
   templates: {
     item: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
@@ -44,5 +47,5 @@ window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/co
       },
     ],
 });
-console.log('después de crear la variable en window', window.countryConfig)
-
+</script>
+```
