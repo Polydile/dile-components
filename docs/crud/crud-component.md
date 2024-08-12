@@ -150,7 +150,7 @@ Instructions on how to create these forms can be found in the `dile-crud-insert`
 
 For the purposes of this CRUD component demo, we will include a custom batch action.
 
-You can find more information about actions in the actions section of the CRUD documentation.
+You can find more information about actions in the [actions section of the CRUD documentation](/crud/actions-configuration/).
 
 {% include "componentes-crud/board-game-change-essential-action.md" %}
 

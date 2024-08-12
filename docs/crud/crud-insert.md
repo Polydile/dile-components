@@ -1,5 +1,5 @@
 ---
-title: Crud item delete
+title: Crud Insert
 tags: operations
 ---
 

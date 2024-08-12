@@ -12,7 +12,7 @@ export class DileCrudDeleteAction extends DileForm(LitElement) {
 
     render() {
         return html`
-            <p>¿De verdad deseas borrar esos elementos?</p>
+            <p>Are you sure you want to delete those items?</p>
         `;
     }
 }
