@@ -123,3 +123,73 @@ customElements.define('demo-country-crud', DemoCountryCrud);
 </script>
 <demo-country-crud></demo-country-crud>
 ```
+
+## Paginated Crud Example
+
+### Configuration object
+
+Find the guides for creating the configuration object on the [resource configuration page](/crud/resource-config/).
+
+{% include "componentes-crud/board-game-config.md" %}
+
+### Item component
+
+The item component serves as a template to display each of the elements in the list.
+
+{% include "componentes-crud/board-game-item.md" %}
+
+### Resource form component
+
+The resource form provides the necessary fields for adding new elements to the resource. In this case, the same form is used for both insertions and edits, but it is possible to have a different form for each operation.
+
+Instructions on how to create these forms can be found in the `dile-crud-insert` component documentation.
+
+{% include "componentes-crud/board-game-form.md" %}
+
+### Action component
+
+For the purposes of this CRUD component demo, we will include a custom batch action.
+
+You can find more information about actions in the actions section of the CRUD documentation.
+
+{% include "componentes-crud/board-game-change-essential-action.md" %}
+
+### Crud component
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class DemoBoardGameCrud extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = window.boardGameConfig.getConfig();
+    this.config.customization.hideCheckboxSelection = false;
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        .config="${this.config}"
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('demo-board-game-crud', DemoBoardGameCrud);
+</script>
+<demo-board-game-crud></demo-board-game-crud>
+```

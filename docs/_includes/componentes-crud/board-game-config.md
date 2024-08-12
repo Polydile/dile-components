@@ -9,6 +9,10 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
     hideCountSummary: false,
     hideCheckboxSelection: true,
   },
+  labels: {
+    insertWindowTitle: 'Insert a Board Game',
+    updateWindowTitle: 'Update a Board Game',
+  },
   sort: {
     options: [
       {
