@@ -128,8 +128,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             <main>
                 ${this.navActionsTemplate}
                 <div
-                    @crud-item-delete=${this.itemDeleteRequest}
-                    @insert-requested=${this.doInsert}
                     @item-checkbox-changed=${this.itemCheckboxChanged}
                     @dile-chip-icon-click=${this.removeFilter}
                     @crud-list-all-ids-selected=${this.crudSelectAll}
@@ -205,6 +203,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             <dile-crud-list
                 .config=${this.config}
                 @crud-item-edit=${this.updateRequest}
+                @crud-item-delete=${this.itemDeleteRequest}
+                @insert-requested=${this.openInsert}
                 .actionIds=${this.actionIds}
             ></dile-crud-list>
         `
@@ -281,22 +281,31 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     // BEHAVIOURS
 
     openInsert() {
+        this.dispatchEvent(new CustomEvent('crud-item-insert', { bubbles: true, composed: true }));
         this.modalInsert.open();
     }
 
     insertSaveSuccess() {
-        this.listElement.refresh();
+        this.refresh();
     }
 
     updateRequest(e) {
         console.log('itemEditRequest en crud', e.detail, this.updateElement);
-        this.updateElement.edit(e.detail.itemId);
+        this.editItem(e.detail.itemId);
         this.modalUpdate.open();
+    }
+
+    editItem(id) {
+        this.updateElement.edit(id);
     }
 
     keywordChanged(e) {
         console.log('keywordChanged');
-        this.listElement.setKeyword(e.detail.keyword);
+        this.setKeyword(e.detail.keyword);
+    }
+
+    setKeyword(keyword) {
+        this.listElement.setKeyword(keyword);
     }
 
     sortFormChanged(e) {
@@ -340,11 +349,11 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         if (e.detail.action === 'DeleteAction') {
             this.removeActionItems(e.detail.data.delete_elems);
         }
-        this.listElement.refresh();
+        this.refresh();
     }
 
-    removeActionItems(elems) {
-        elems.forEach(item => this.detachActionId(item));
+    removeActionItems(idsArray) {
+        idsArray.forEach(item => this.detachActionId(item));
     }
 
     filtersChanged(e) {
@@ -373,15 +382,21 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     // SUCCESS HANDLERS
     modalInsertSuccess() {
         this.modalInsert.close();
-        this.listElement.refresh();
+        this.refresh();
     }
+
     modalUpdateSuccess() {
         console.log('updatesuccess');
         setTimeout( () => this.updateElement.clearFeedback(), 1000);
         this.modalUpdate.close();
-        this.listElement.refresh();
+        this.refresh();
     }
+
     deleteSuccess() {
+        this.refresh();
+    }
+
+    refresh() {
         this.listElement.refresh();
     }
 }

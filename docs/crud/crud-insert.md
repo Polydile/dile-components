@@ -29,7 +29,7 @@ Use the component.
   title="Insert a country"
   endpoint="api/countries"
   .apiConfig=${this.apiConfig}
-  .formTemplate=${html`<demo-countries-form id="insertform"></demo-countries-form>`}
+  .formTemplate=${html`<demo-country-form id="insertform"></demo-country-form>`}
 ></dile-crud-insert>
 ```
 
@@ -99,7 +99,7 @@ To implement the insertion component, we will need a component that acts as a fo
           title="Insert a country"
           endpoint="https://timer.escuelait.com/api/countries"
           .apiConfig=${this.apiConfig}
-          .formTemplate=${html`<demo-countries-form id="insertform"></demo-countries-form>`}
+          .formTemplate=${html`<demo-country-form id="insertform"></demo-country-form>`}
         ></dile-crud-insert>
       `;
     }

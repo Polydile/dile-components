@@ -29,7 +29,7 @@ Use the component.
   title="Update a country"
   endpoint="api/countries"
   .apiConfig=${this.apiConfig}
-  .formTemplate=${html`<demo-countries-form id="updateform"></demo-countries-form>`}
+  .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
 ></dile-crud-update>
 ```
 
@@ -108,7 +108,7 @@ To implement the update component, we will need a component that acts as a form.
           .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
-          .formTemplate=${html`<demo-countries-form id="updateform"></demo-countries-form>`}
+          .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
         ></dile-crud-update>
       `;
     }
@@ -175,7 +175,7 @@ To implement the update component, we will need a component that acts as a form.
           .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
-          .formTemplate=${html`<demo-countries-form id="updateform"></demo-countries-form>`}
+          .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
         ></dile-crud-update>
       `;
     }

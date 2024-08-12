@@ -5,7 +5,7 @@ import '@dile/ui/components/input/input.js';
 import '@dile/ui/components/select/select.js';
 import { DileForm } from '@dile/ui/mixins/form'
 
-export class DemoCountriesForm extends DileForm(LitElement) {
+export class DemoCountryForm extends DileForm(LitElement) {
   static styles = [
     css`
       :host {
@@ -32,7 +32,7 @@ export class DemoCountriesForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-countries-form', DemoCountriesForm);
+customElements.define('demo-country-form', DemoCountryForm);
 </script>
-<demo-countries-form></demo-countries-form>
+<demo-country-form></demo-country-form>
 ```

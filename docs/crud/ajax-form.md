@@ -34,7 +34,7 @@ Use the component.
   responseMessageProperty="message"
   validationErrorsProperty="errors"
 >
-  <demo-countries-form id="form"></demo-countries-form>
+  <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>
 ```
 
@@ -138,7 +138,7 @@ Before we start looking at the demos of `dile-ajax-form`, let's include an examp
   responseMessageProperty="message"
   validationErrorsProperty="errors"
 >
-  <demo-countries-form id="form"></demo-countries-form>
+  <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>
 ```
 
@@ -156,6 +156,6 @@ Before we start looking at the demos of `dile-ajax-form`, let's include an examp
   responseMessageProperty="message"
   validationErrorsProperty="errors"
 >
-  <demo-countries-form id="form"></demo-countries-form>
+  <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>
 ```
