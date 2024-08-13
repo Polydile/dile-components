@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/input/input-search';
-import '@dile/ui/components/nav/nav';
-import '@dile/ui/components/modal/modal';
-import '@dile/ui/components/modal/modal-help';
+import '@dile/ui/components/input/input-search.js';
+import '@dile/ui/components/nav/nav.js';
+import '@dile/ui/components/select/select.js';
+import '@dile/ui/components/modal/modal.js';
+import '@dile/ui/components/modal/modal-help.js';
 import '../../item-delete/crud-item-delete.js';
 import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
@@ -91,20 +92,11 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         this.actionIds = [];
     }
 
-    firstUpdated() {
-        console.log('config en furst uldate despuñes del merge', this.config);
-    }
-
     // GETTERS ELEMENTOS
     get modalInsert() {
         return this.shadowRoot.getElementById('modalInsert');
     }
-    get modalUpdate() {
-        return this.shadowRoot.getElementById('modalUpdate');
-    }
-    get updateElement() {
-        return this.shadowRoot.getElementById('updateElement');
-    }
+    
     get listElement() {
         return this.shadowRoot.querySelector('dile-crud-list');
     }
@@ -118,7 +110,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         return html`
             <header>
                 ${this.config.title 
-                    ? html`<h1 class="main-crud-title">${this.title}</h1>`
+                    ? html`<h1 class="main-crud-title">${this.config.title}</h1>`
                     : ''
                 }
                 ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
@@ -177,27 +169,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         `
     }
 
-    get updateTemplate() {
-        return html`
-            <dile-modal 
-                id="modalUpdate"
-                showCloseIcon
-                blocking
-            >
-                <dile-crud-update
-                    id="updateElement"
-                    title=${this.config.labels.updateWindowTitle}
-                    endpoint="${this.config.endpoint}"
-                    .apiConfig=${this.config.api}
-                    .formTemplate=${this.config.templates.updateForm()}
-                    actionLabel=${this.config.labels.updateAction}
-                    formIdentifier="${this.config.formIds.updateForm}"
-                    @crud-update-success="${this.modalUpdateSuccess}"
-                ></dile-crud-update>
-            </dile-modal>
-        `
-    }
-
     get listTemplate() {
         return html`
             <dile-crud-list
@@ -207,19 +178,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 @insert-requested=${this.openInsert}
                 .actionIds=${this.actionIds}
             ></dile-crud-list>
-        `
-    }
-    get actionsTemplate() {
-        return html`
-            <dile-crud-actions
-                 @crud-action-success=${this.actionSuccess}
-                class="action-controller"
-                id="elactions"
-                .actionIds=${this.actionIds}
-                endpoint=${this.config.endpoint}
-                .selectActionsTemplate=${this.config.templates.selectActions(this.config.labels.deleteAction)}
-                .formActionsTemplate=${this.config.templates.formActions}
-            ></dile-crud-actions>
         `
     }
     get helpTemplate() {
@@ -382,13 +340,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     // SUCCESS HANDLERS
     modalInsertSuccess() {
         this.modalInsert.close();
-        this.refresh();
-    }
-
-    modalUpdateSuccess() {
-        console.log('updatesuccess');
-        setTimeout( () => this.updateElement.clearFeedback(), 1000);
-        this.modalUpdate.close();
         this.refresh();
     }
 

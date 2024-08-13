@@ -7,6 +7,8 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
     insertForm: () => html`<demo-country-form id="insertform"></demo-country-form>`,
     updateForm: () => html`<demo-country-form id="updateform"></demo-country-form>`,
     help: () => html`<p>This is the help provided to the countries resource.</p>`,
+    detail: (country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`,
+    relations: (country) => html`<demo-country-relations .country=${country}></demo-country-relations>`,
   },
   customization: {
     disablePagination: true,

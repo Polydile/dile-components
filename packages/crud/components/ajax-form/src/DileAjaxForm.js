@@ -102,6 +102,7 @@ export class DileAjaxForm extends LitElement {
     }
 
     loadData() {
+        console.log('load data en dile-ajax-form');
         this.ajaxget.generateRequest();
     }
 
@@ -123,6 +124,7 @@ export class DileAjaxForm extends LitElement {
     }
 
     doSuccessGet(e) {
+        console.log('doSucess get en dile-ajax-fomr', e.detail);
         let data = this.customData(e.detail)
         this.form.setData(data);
         this.form.clearErrors();

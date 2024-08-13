@@ -31,12 +31,14 @@ export const defaultConfig = {
     validationErrorsGetter: response => response.errors,
     elementListGetter: response => response.data,
     paginationDataGetter: response => response.data,
+    elementGetter: response => response.data,
   },
   templates: {
     item: () => templatePlaceholder('item'),
     insertForm: () => templatePlaceholder('insertForm'),
     updateForm: () => templatePlaceholder('updateForm'),
     help: () => templatePlaceholder('help'),
+    detail: () => templatePlaceholder('detail'),
     selectActions: (deleteLabel) => html`
         <dile-select>
             <select slot="select">
@@ -49,6 +51,7 @@ export const defaultConfig = {
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
         </dile-pages>
     `,
+    relations: () => '',
   },
   labels: {
     insertAction: 'Create',

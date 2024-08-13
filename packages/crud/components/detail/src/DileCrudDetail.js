@@ -78,12 +78,11 @@ export class DileCrudDetail extends DileLoading(LitElement) {
 
   firstUpdated() {
     this.ajaxget = this.shadowRoot.getElementById('ajaxget');
-    console.log(this.ajaxget);
-    this.ajaxget.generateRequest();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('endpoint')) {
+      console.log('changedProperties de crud detail', this.endpoint);
       this.refresh();
     }
   }

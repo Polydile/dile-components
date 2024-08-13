@@ -1,0 +1,1 @@
+export { DileCrudSingle } from "./src/DileCrudSingle.js";
