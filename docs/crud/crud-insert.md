@@ -66,7 +66,7 @@ The configuration of the `belongsTo` and `relationId` properties is used to cust
 
 For example, a country may belong to a continent, and when you create a country, you may want the continent to already be set, such as Europe. Similarly, an invoice belongs to a customer, and when you create an invoice, you want a specific customer to be pre-selected in the form.
 
-To achieve this, the `dile-insert-form` component should be configured with the `belongsTo` and `relationId` attributes. However, the `dile-insert-form` component does not apply this customization to the form directly; it simply passes these configurations to the form template component, which then applies them to the required fields.
+To achieve this, the `dile-insert-form` component should be configured with the `belongsTo` and `relationId` attributes. However, the `dile-insert-form` component does not apply this customization to the form directly; it simply passes these configurations to the form template component, which applies them to the required fields.
 
 ### Receiving Data in the Form Component
 
@@ -97,11 +97,13 @@ firstUpdated() {
 }
 ```
 
+You will find a complete demo in the examples section.
+
 ## Examples
 
 ### From component
 
-To implement the insertion component, we will need a component that acts as a form. This component should be developed as outlined in the `dile-ajax-form` documentation.
+To implement the insertion component, you will need a component that acts as a form. This component should be developed as outlined in the `dile-ajax-form` documentation.
 
 {% include "componentes-crud/country-form.md" %}
 
@@ -148,9 +150,11 @@ To implement the insertion component, we will need a component that acts as a fo
 
 ## BelongsTo Example
 
+Here you can see an example of the functionality that can be incorporated using the `belongsTo` and `relationId` properties of `dile-crud-insert`.
+
 ### From component
 
-Just like in the previous example, we need a component to function as the form. Additionally, this component must also declare the `belongsTo` and `relatedId` properties in order to work with them and set the related field accordingly.
+Just like in the previous example, you need a component to function as the form. Additionally, this component must also declare the `belongsTo` and `relationId` properties in order to work with them and set the related field accordingly.
 
 {% include "componentes-crud/board-game-form.md" %}
 

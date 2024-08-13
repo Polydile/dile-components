@@ -32,8 +32,6 @@ Use the component.
 
 ### Properties
 
-Aquí tienes la descripción de las propiedades:
-
 - **title**: String, title for the crud component. Optional.
 - **config**: Object, the configuration object that customizes the behavior and functionality of the CRUD system.
 - **actionIds**: Array, the list of IDs for the items selected for batch operations.
@@ -51,11 +49,12 @@ Aquí tienes la descripción de las propiedades:
 
 ### Events
 
-Este componente está basado en elementos como `dile-crud-list`, `dile-crud-insert`, `dile-crud-update`, `dile-crud-item-delete`, y muchos otros. Por lo tanto, todos los eventos documentados en esos componentes se pueden escuchar en `dile-crud`. Por favor, consulte los componentes mencionados para encontrar información sobre esos eventos.
+This component is based on elements such as `dile-crud-list`, `dile-crud-insert`, `dile-crud-update`, `dile-crud-item-delete`, and many others. Therefore, all events documented in those components can be listened to in `dile-crud`. Please refer to the mentioned components for information on those events.
 
 **Eventos específicos de `dile-crud`:**
 
 - **crud-item-insert**: Dispatched when the system shows the insert form.
+- **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties `msg` with a message from the server response, `action` with the name of the action being responded to, and `data` with any additional data that the backend may have sent as a response. Of course, the backend shoul be developed to send all this data.
 
 ## Configuration
 
@@ -79,9 +78,9 @@ The item component serves as a template to display each of the elements in the l
 
 ### Resource form component
 
-The resource form provides the necessary fields for adding new elements to the resource. In this case, the same form is used for both insertions and edits, but it is possible to have a different form for each operation.
+The resource form provides the necessary fields for adding new elements to the resource. In this example, the same form is used for both insertions and edits, but it is possible to have a different form for each operation.
 
-Instructions on how to create these forms can be found in the `dile-crud-insert` component documentation.
+Instructions on how to create these forms can be found in the [`dile-crud-insert`](/crud/crud-insert/) and [`dile-ajax-form`](/crud/ajax-form/) component documentation.
 
 {% include "componentes-crud/country-form.md" %}
 
@@ -143,7 +142,7 @@ The item component serves as a template to display each of the elements in the l
 
 The resource form provides the necessary fields for adding new elements to the resource. In this case, the same form is used for both insertions and edits, but it is possible to have a different form for each operation.
 
-Instructions on how to create these forms can be found in the `dile-crud-insert` component documentation.
+Instructions on how to create these forms can be found in the `dile-crud-insert` component documentation and `dile-ajax-form`.
 
 {% include "componentes-crud/board-game-form.md" %}
 

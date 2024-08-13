@@ -5,9 +5,9 @@ tags: operations
 
 # dile-crud-list
 
-The `dile-crud-list` component is designed to list existing elements in a REST API resource. It is a highly sophisticated component with multiple customization options to adapt to various needs and web service configurations.
+The `dile-crud-list` component is designed to list existing elements in a REST API resource. It is a sophisticated component with multiple customization options to adapt to various needs and web service configurations.
 
-The component allows you to create lists with or without pagination, provide various controls on the items, such as edit and delete buttons, as well as apply filters and different sorting options, among other features.
+The component allows you to create lists of resource elements, with or without pagination, provide various controls on the items, such as edit and delete buttons, as well as apply filters and different sorting options, among other features.
 
 ## Installation
 
@@ -71,7 +71,7 @@ This component requires a configuration object with numerous properties, methods
 
 Complete information on how to configure it easily can be found on the [general CRUD guides page](/crud/). Also, you can find implementation examples below.
 
-To simplify the use of CRUD components, the configuration object required is the same for all the various CRUD components, such as lists, fully functional CRUD pages, or detail pages for a record.
+> To simplify the use of CRUD components, the configuration object required is the same for all the various CRUD components, such as lists, fully functional CRUD pages, or detail pages for a record.
 
 ## Unpaginated List Example
 
@@ -158,7 +158,7 @@ This components acts as a template for the list items.
 
 {% include "componentes-crud/board-game-item.md" %}
 
-### Unpaginated list component
+### Paginated list component
 
 The use of paginated lists primarily differs in the definition of a different configuration object, which has additional requirements.
 

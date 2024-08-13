@@ -129,6 +129,7 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
   }
 
   actionSuccess() {
+    alert('delete accion success deberia mandar a otra pagina')
     this.refresh();
   }
 
