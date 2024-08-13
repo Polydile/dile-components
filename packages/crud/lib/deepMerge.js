@@ -13,11 +13,8 @@ export function deepMerge(target, source) {
   for (let key in source) {
     if (source.hasOwnProperty(key)) {
       if (Array.isArray(source[key])) {
-        // Si la propiedad es un array, verificamos si target también lo es y los concatenamos
-        if (!Array.isArray(result[key])) {
-          result[key] = [];
-        }
-        result[key] = result[key].concat(source[key].slice());
+        // Si la propiedad es un array, sobrescribimos el array en el result
+        result[key] = source[key].slice();
       } else if (typeof source[key] === 'object' && source[key] !== null) {
         // Si la propiedad es un objeto, llamamos recursivamente a deepMerge
         if (!result[key] || typeof result[key] !== 'object') {
