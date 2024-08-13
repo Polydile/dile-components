@@ -34,6 +34,7 @@ Use the component.
 
 Aquí tienes la descripción de las propiedades:
 
+- **title**: String, title for the crud component. Optional.
 - **config**: Object, the configuration object that customizes the behavior and functionality of the CRUD system.
 - **actionIds**: Array, the list of IDs for the items selected for batch operations.
 - **keyword**: String, the search keyword used to filter the items in the CRUD system.

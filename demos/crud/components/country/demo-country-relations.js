@@ -10,13 +10,6 @@ export class DemoCountryRelations extends LitElement {
       :host {
         display: block;
       }
-      h2 {
-        font-weight: 600;
-        font-size: 1.2rem;
-        border-top: 1px solid #ddd;
-        padding-top: 1rem;
-        margin-top: 1.5rem;
-      }
     `
   ];
 
@@ -40,8 +33,8 @@ export class DemoCountryRelations extends LitElement {
     return html`
     ${this.country
       ? html `
-        <h2>Juegos de mesa de ${this.country.name}</h2>
         <dile-crud
+          title="Juegos de ${this.country.name}"
           .config="${this.boardGameConfig}"
           belongsTo="country"
           relationId="${this.country.id}"

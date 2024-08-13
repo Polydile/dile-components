@@ -81,6 +81,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
 
     static get properties() {
       return {
+        title: { type: String },
         config: { type: Object },
         actionIds: { type: Array },
         keyword: { type: String },
@@ -111,8 +112,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     render() {
         return html`
             <header>
-                ${this.config.title 
-                    ? html`<h1 class="main-crud-title">${this.config.title}</h1>`
+                ${this.title 
+                    ? html`<h1 class="main-crud-title">${this.title}</h1>`
                     : ''
                 }
                 ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
