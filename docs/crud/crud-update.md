@@ -29,7 +29,7 @@ Use the component.
   title="Update a country"
   endpoint="api/countries"
   .apiConfig=${this.apiConfig}
-  .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
+  .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
 ></dile-crud-update>
 ```
 
@@ -40,7 +40,7 @@ Use the component.
 - **relatedId**: String, the id of the record you want to edit in the resource.
 - **actionLabel**: String, the text of the form submission button.
 - **loadOnInit**: Boolean, if true the record data is loaded into the form on the component initialization.
-- **formTemplate**: Object, the template with the component that acts as the form for the record to be updated. The component must have an identifier (id attribute), typically "updateform".
+- **formTemplate**: Object, a function that returns a template. That template usually has the component that acts as the form for the record to be updated. The component must have an identifier (id attribute), typically "updateform".
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
 - **apiConfig**: Object, an API configuration object (see the [API Config page](/crud/api-config/)).
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
@@ -108,7 +108,7 @@ To implement the update component, we will need a component that acts as a form.
           .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
-          .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
+          .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
         ></dile-crud-update>
       `;
     }
@@ -175,7 +175,7 @@ To implement the update component, we will need a component that acts as a form.
           .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
-          .formTemplate=${html`<demo-country-form id="updateform"></demo-country-form>`}
+          .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
         ></dile-crud-update>
       `;
     }

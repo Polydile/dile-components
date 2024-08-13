@@ -55,7 +55,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                     title=${this.config.labels.updateWindowTitle}
                     endpoint="${this.config.endpoint}"
                     .apiConfig=${this.config.api}
-                    .formTemplate=${this.config.templates.updateForm()}
+                    .formTemplate=${this.config.templates.updateForm}
                     actionLabel=${this.config.labels.updateAction}
                     formIdentifier="${this.config.formIds.updateForm}"
                     @crud-update-success="${this.modalUpdateSuccess}"

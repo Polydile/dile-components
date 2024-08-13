@@ -53,7 +53,7 @@ export class DileCrudUpdate extends LitElement {
                 .apiConfig="${this.apiConfig}"
                 formIdentifier="${this.formIdentifier}"
             >
-                ${this.formTemplate}
+                ${this.formTemplate()}
             </dile-ajax-form>
         `;
     }
