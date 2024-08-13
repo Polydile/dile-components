@@ -135,7 +135,10 @@ export class DileCrudActions extends LitElement {
 
   showAction() {
     this.confirmElement.open();
-    this.shadowRoot.querySelector('dile-crud-list-options').close()
+    let listOptions = this.shadowRoot.querySelector('dile-crud-list-options');
+    if (listOptions) {
+      listOptions.close()
+    }
   }
 
   get selectedActionForm() {

@@ -40,6 +40,7 @@ export const defaultConfig = {
         name: 'DeleteAction'
       }
     ],
+    single: [],
   },
   templates: {
     item: () => templatePlaceholder('item'),
@@ -53,6 +54,7 @@ export const defaultConfig = {
         </dile-pages>
     `,
     relations: () => '',
+    formSingleActions: () => '',
   },
   labels: {
     insertAction: 'Create',
