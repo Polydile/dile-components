@@ -41,18 +41,22 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
     elementListGetter: (response) => response.data.result.data,
     idsGetter: (response) => response.data,
   },
+  actions: {
+    list: [
+      {
+        label: 'Delete board games',
+        name: 'DeleteAction'
+      },
+      {
+        label: 'Change Essential',
+        name: 'DemoChangeEssentialAction'
+      },
+    ],
+  },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
     insertForm: (belongsTo, relationId) => html`<demo-board-game-form belongsTo="${belongsTo}" relationId="${relationId}" id="insertform"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
-    selectActions: (deleteLabel) => html`
-        <dile-select>
-            <select slot="select">
-                <option value="DeleteAction">${deleteLabel}</option>
-                <option value="DemoChangeEssentialAction">Change Essential</option>
-            </select>
-        </dile-select>
-    `,
     formActions: (actionName) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>

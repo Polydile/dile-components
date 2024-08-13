@@ -51,7 +51,7 @@ export class DileCrudActions extends LitElement {
       actionIds: { type: Array },
       selection: { type: String },
       endpoint: { type: String },
-      selectActionsTemplate: { type: Object },
+      actions: { type: Array },
       formActionsTemplate: { type: Object },
     };
   }
@@ -59,6 +59,7 @@ export class DileCrudActions extends LitElement {
   constructor() {
     super();
     this.actionIds = [];
+    this.actions = [];
     this.selection = 'DeleteAction'
   }
 
@@ -69,22 +70,22 @@ export class DileCrudActions extends LitElement {
 
   render() {
     return html`
-            ${this.ajaxTemplate}
-            ${this.actionListTemplate}
-            ${this.confirmActionTemplate}
+        ${this.ajaxTemplate}
+        ${this.actionListTemplate}
+        ${this.confirmActionTemplate}
         `;
   }
 
   get ajaxTemplate() {
     return html`
-            <dile-ajax
-                id="ajaxaction"
-                method="post"
-                url="${this.endpoint}/action"
-                @ajax-success="${this.doSuccessAction}"
-                @ajax-error="${this.doErrorAction}"
-            ></dile-ajax>
-        `;
+        <dile-ajax
+            id="ajaxaction"
+            method="post"
+            url="${this.endpoint}/action"
+            @ajax-success="${this.doSuccessAction}"
+            @ajax-error="${this.doErrorAction}"
+        ></dile-ajax>
+    `;
   }
 
   get actionListTemplate() {
@@ -97,6 +98,16 @@ export class DileCrudActions extends LitElement {
                 <dile-button @click=${this.showAction}>Realizar acción</dile-button>
             </dile-crud-list-options>
         `;
+  }
+
+  get selectActionsTemplate() {
+    return html`
+      <dile-select>
+          <select slot="select">
+              ${this.actions.map(action => html`<option value="${action.name}">${action.label}</option>`)}
+          </select>
+      </dile-select>
+    `
   }
 
   get confirmActionTemplate() {

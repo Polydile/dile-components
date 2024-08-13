@@ -17,24 +17,33 @@ this.config.customization.hideCheckboxSelection = false;
 
 ## Defining Actions for a Resource
 
-Resources can define any number of actions in the configuration object. This is done by defining two templates in the `templates` object of the configuration.
+Resources can define any number of actions in the configuration object. This is done by defining two properties on the config object.
 
-The templates to define are:
 
-- **selectActions**: This template is a `dile-select` element that allows selecting actions. The different `options` in this select will define the names of the actions, and the `value` should indicate the action name. The action name is used to display the appropriate form within the `formActions` template and to send it to the backend, so it knows which type of action is being requested.
-- **formActions**: This template contains the forms for each available action. To select the correct form, a `dile-pages` component is used, with the selected action name as the key to determine which form to display. Each action form element is defined in a separate component, as described below.
+The properties to define are:
+
+- **actions**: This is an array of actions. All actions are provided in an object containing a `label` property and a `name` property.
+
+```javascript
+actions: {
+  list: [
+    {
+      label: 'Delete board games',
+      value: 'DeleteAction'
+    },
+    {
+      label: 'Change Essential',
+      value: 'DemoChangeEssentialAction'
+    },
+  ],
+},
+´´´
+
+- **formActions**: This is a template containing the forms for each available action. To select the correct form, a `dile-pages` component is used, with the selected action value as the key to determine which form to display. Each action form element is defined in a separate component, as described below.
 
 ```javascript
 templates: {
     // ...
-    selectActions: (deleteLabel) => html`
-        <dile-select>
-            <select slot="select">
-                <option value="DeleteAction">${deleteLabel}</option>
-                <option value="DemoChangeEssentialAction">Change Essential</option>
-            </select>
-        </dile-select>
-    `,
     formActions: (actionName) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
