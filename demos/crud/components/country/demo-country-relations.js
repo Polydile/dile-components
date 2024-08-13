@@ -43,6 +43,8 @@ export class DemoCountryRelations extends LitElement {
         <h2>Juegos de mesa de ${this.country.name}</h2>
         <dile-crud
           .config="${this.boardGameConfig}"
+          belongsTo="country"
+          relationId="${this.country.id}"
         ></dile-crud>  
       `
       : ''

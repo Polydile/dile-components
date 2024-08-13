@@ -17,6 +17,8 @@ export class DileCrudListService extends LitElement {
       keyword: { type: String },
       paginationData: { type: Object },
       sort: { type: Object },
+      belongsTo: { type: String },
+      relationId: { type: String },
     };
   }
 
@@ -80,9 +82,9 @@ export class DileCrudListService extends LitElement {
     if (this.sort && this.sort.sortDirection) {
       data.sortDirection = this.sort.sortDirection;
     }
-    if (this.config.belongsTo && this.config.relationId) {
-      data.belongsTo = this.config.belongsTo;
-      data.relationId = this.config.relationId;
+    if (this.belongsTo && this.relationId) {
+      data.belongsTo = this.belongsTo;
+      data.relationId = this.relationId;
     }
     this.ajaxget.data = data;
     this.ajaxget.generateRequest();

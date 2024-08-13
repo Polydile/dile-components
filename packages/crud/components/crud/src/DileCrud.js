@@ -84,6 +84,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
         config: { type: Object },
         actionIds: { type: Array },
         keyword: { type: String },
+        belongsTo: { type: String },
+        relationId: { type: String },
       };
     }
 
@@ -177,6 +179,8 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 @crud-item-delete=${this.itemDeleteRequest}
                 @insert-requested=${this.openInsert}
                 .actionIds=${this.actionIds}
+                belongsTo=${this.belongsTo}
+                relationId=${this.relationId}
             ></dile-crud-list>
         `
     }

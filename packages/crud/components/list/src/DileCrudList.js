@@ -63,6 +63,8 @@ export class DileCrudList extends DileLoading(LitElement) {
         sort: { type: Object },
         actionIds: { type: Array },
         filters: { type: Array },
+        belongsTo: { type: String },
+        relationId: { type: String },
       };
     }
 
@@ -159,6 +161,8 @@ export class DileCrudList extends DileLoading(LitElement) {
                 pageSize=${this.pageSize}
                 .keyword=${this.keyword}
                 .sort=${this.sort}
+                belongsTo=${this.belongsTo}
+                relationId=${this.relationId}
                 @crud-list-get-success=${this.getSuccess}
             ></dile-crud-list-service>
             <dile-ajax
