@@ -43,7 +43,7 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
   },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
-    insertForm: () => html`<demo-board-game-form id="insertform"></demo-board-game-form>`,
+    insertForm: (belongsTo, relationId) => html`<demo-board-game-form belongsTo="${belongsTo}" relationId="${relationId}" id="insertform"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
     selectActions: (deleteLabel) => html`
         <dile-select>

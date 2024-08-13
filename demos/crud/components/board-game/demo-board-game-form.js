@@ -15,12 +15,26 @@ export class DemoBoardGamesForm extends DileForm(LitElement) {
     `
   ];
 
+  static get properties() {
+    return {
+      belongsTo: { type: String },
+      relationId: { type: String },
+    };
+  }
+
+  firstUpdated() {
+    if(this.belongsTo == "country" && this.relationId) {
+      this.shadowRoot.getElementById('countryselect').value = this.relationId;
+    }
+  }
+
   render() {
     return html`
       <dile-input label="Nombre" name="name" id="name" hideErrorOnInput></dile-input>
       <dile-input label="Slug" name="slug" id="slug" hideErrorOnInput></dile-input>
       <dile-input-integer name="year" label="Year" hideErrorOnInput id="year"></dile-input-integer>
       <dile-ajax-select-crud
+          id="countryselect"
           idProperty="id"
           name="country_id"
           label="País"

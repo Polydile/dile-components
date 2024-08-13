@@ -29,7 +29,7 @@ Use the component.
   title="Insert a country"
   endpoint="api/countries"
   .apiConfig=${this.apiConfig}
-  .formTemplate=${html`<demo-country-form id="insertform"></demo-country-form>`}
+  .formTemplate=${() => html`<demo-country-form id="insertform"></demo-country-form>`}
 ></dile-crud-insert>
 ```
 
@@ -38,9 +38,9 @@ Use the component.
 - **title**: String, optionally you can specify a title to head the form.
 - **endpoint**: String, the endpoint of the resource where we want to insert records.
 - **actionLabel**: String, the text of the form submission button.
-- **belongsTo**: String, specifies the parent resource this record belongs to.
-- **relationId**: String, the identifier of the parent resource.
-- **formTemplate**: Object, the template with the component that acts as the form for the record to be inserted. The component must have an identifier (id attribute), typically "insertform".
+- **belongsTo**: String, specifies the parent resource this record belongs to (See belongsTo explanations below).
+- **relationId**: String, the identifier of the parent resource (See belongsTo explanations below).
+- **formTemplate**: Object, a function that returns a template. That template should be the component that acts as the form for the record to be inserted. The component must have an identifier (id attribute), typically "insertform".
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
 - **apiConfig**: Object, an API configuration object (see the [API Config page](/crud/api-config/)).
 - **formIdentifier**: String, the identifier of the component that acts as the insertion form. If no value is provided for this property, "insertform" is used as the default.
@@ -59,6 +59,43 @@ Use the component.
 ## Configuration
 
 For this component to function properly, it is necessary to apply the configurations mentioned on the [CRUD system documentation page](/crud/)  and on the [dile-ajax-form component page](/crud/ajax-form/).
+
+## BelongsTo and relationId configuration
+
+The configuration of the `belongsTo` and `relationId` properties is used to customize certain form fields when creating records, so that these records are related to another entity.
+
+For example, a country may belong to a continent, and when you create a country, you may want the continent to already be set, such as Europe. Similarly, an invoice belongs to a customer, and when you create an invoice, you want a specific customer to be pre-selected in the form.
+
+To achieve this, the `dile-insert-form` component should be configured with the `belongsTo` and `relationId` attributes. However, the `dile-insert-form` component does not apply this customization to the form directly; it simply passes these configurations to the form template component, which then applies them to the required fields.
+
+### Receiving Data in the Form Component
+
+If you need to work with `belongsTo` and `relationId`, there are two steps to receive these values in the form component.
+
+**Step 1:** The function provided as the form template must accept `belongsTo` and `relationId` as parameters and pass them to the form component.
+
+```javascript
+(belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`
+```
+
+**Step 2:** The form component should declare both properties and use them to set the necessary form fields.
+
+Typically, this would be done in the `firstUpdated()` method when initializing the form.
+
+```javascript
+static get properties() {
+  return {
+    belongsTo: { type: String },
+    relationId: { type: String },
+  };
+}
+
+firstUpdated() {
+  if(this.belongsTo == "country" && this.relationId) {
+    this.shadowRoot.getElementById('countryselect').value = this.relationId;
+  }
+}
+```
 
 ## Examples
 
@@ -99,7 +136,7 @@ To implement the insertion component, we will need a component that acts as a fo
           title="Insert a country"
           endpoint="https://timer.escuelait.com/api/countries"
           .apiConfig=${this.apiConfig}
-          .formTemplate=${html`<demo-country-form id="insertform"></demo-country-form>`}
+          .formTemplate=${() => html`<demo-country-form id="insertform"></demo-country-form>`}
         ></dile-crud-insert>
       `;
     }
@@ -107,4 +144,57 @@ To implement the insertion component, we will need a component that acts as a fo
   customElements.define('crud-insert-demo', CrudInsertDemo);
 </script>
 <crud-insert-demo></crud-insert-demo>
+```
+
+## BelongsTo Example
+
+### From component
+
+Just like in the previous example, we need a component to function as the form. Additionally, this component must also declare the `belongsTo` and `relatedId` properties in order to work with them and set the related field accordingly.
+
+{% include "componentes-crud/board-game-form.md" %}
+
+### Insert example
+
+As you can see in the following example, when using the `dile-crud-insert` component, we are sending certain values in the `belongsTo` and `relatedId` properties. These properties are then received in the template function and passed on to the component that serves as the form.
+
+```html:preview
+<script type="module">
+  import '@dile/crud/components/insert/crud-insert.js'
+  import { LitElement, html, css } from 'lit';
+
+  class CrudInsertBoardGameDemo extends LitElement {
+    static styles = [
+      css`
+        :host {
+          display: block;
+        }
+      `
+    ];
+
+    constructor() {
+      super();
+      this.apiConfig = {
+        responseDataGetter: response => response.data,
+        responseMessageGetter: response => response.message,
+        validationErrorsGetter: response => response.errors,
+      }
+    }
+  
+    render() {
+      return html`
+        <dile-crud-insert
+          title="Insert a board game"
+          endpoint="https://timer.escuelait.com/api/board-games"
+          .apiConfig=${this.apiConfig}
+          belongsTo="country"
+          relationId="1"
+          .formTemplate=${(belongsTo, relationId) => html`<demo-board-game-form belongsTo="${belongsTo}" relationId="${relationId}" id="insertform"></demo-board-game-form>`}
+        ></dile-crud-insert>
+      `;
+    }
+  }
+  customElements.define('crud-insert-board-game-demo', CrudInsertBoardGameDemo);
+</script>
+<crud-insert-board-game-demo></crud-insert-board-game-demo>
 ```

@@ -50,7 +50,7 @@ export class DileCrudInsert extends LitElement {
                 .apiConfig="${this.apiConfig}"
                 formIdentifier="${this.formIdentifier}"
             >
-                ${this.formTemplate}
+                ${this.formTemplate(this.belongsTo, this.relationId)}
             </dile-ajax-form> 
         `;
     }

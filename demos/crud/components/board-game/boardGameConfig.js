@@ -36,7 +36,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
   },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
-    insertForm: () => html`<demo-board-game-form id="insertform"></demo-board-game-form>`,
+    insertForm: (belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
     selectActions: (deleteLabel) => html`
         <dile-select>

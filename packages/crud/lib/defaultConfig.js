@@ -35,7 +35,7 @@ export const defaultConfig = {
   },
   templates: {
     item: () => templatePlaceholder('item'),
-    insertForm: () => templatePlaceholder('insertForm'),
+    insertForm: (belongsTo, relationId) => templatePlaceholder('insertForm'),
     updateForm: () => templatePlaceholder('updateForm'),
     help: () => templatePlaceholder('help'),
     detail: () => templatePlaceholder('detail'),
