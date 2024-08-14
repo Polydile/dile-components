@@ -36,6 +36,8 @@ Use the component.
 - **config**: Object, the configuration object that customizes the behavior and functionality of the CRUD system.
 - **actionIds**: Array, the list of IDs for the items selected for batch operations.
 - **keyword**: String, the search keyword used to filter the items in the CRUD system.
+- **belongsTo**: String, indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. 
+- **relationId**: String, is the identifier that uniquely identifies the specific resource. 
 
 ### Methods
 
@@ -59,6 +61,15 @@ This component is based on elements such as `dile-crud-list`, `dile-crud-insert`
 ## Configuration
 
 Please refer to the [general documentation on the CRUD library](/crud/) to find the established mechanisms for configuring the `dile-crud` component.
+
+## belongTo and relationId configuration
+
+These fields facilitate the implementation of a type of filtering on the items that a `dile-crud` component will allow you to manage. For example, if you are trying to view invoices for the customer with `id=10`, `belongsTo` would be set to "customer" and `relationId` would be set to "10."
+
+This is useful, for example, for managing a specific record on an admin page, like those that can be created using the [`dile-crud-single` component](/crud/crud-single/). For instance, when viewing the details of a country, you could use a `dile-crud` component configured with `belongsTo` and `relationId` to manage all the states within that country directly from the `dile-crud-single` component.
+
+> Note that these configurations must be supported by the backend. The listing component will handle sending the necessary query strings to the backend, ensuring that the records delivered for the listings in this `dile-crud` component are properly filtered.
+
 
 ## Unpaginated Crud Example
 

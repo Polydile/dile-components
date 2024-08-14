@@ -128,9 +128,10 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
     this.element = this.config.api.elementGetter(e.detail);
   }
 
-  actionSuccess() {
-    alert('delete accion success deberia mandar a otra pagina')
-    this.refresh();
+  actionSuccess(e) {
+    if(e.detail.action != "DeleteAction") {
+      this.refresh();
+    }
   }
 
   edit() {
