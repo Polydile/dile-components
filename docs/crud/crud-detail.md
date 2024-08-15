@@ -1,5 +1,5 @@
 ---
-title: Crud Detail
+title: Detail
 tags: operations
 ---
 

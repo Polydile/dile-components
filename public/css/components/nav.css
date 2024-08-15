@@ -15,11 +15,38 @@ dile-nav img {
 }
 
 .app-menu {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0.6rem;
   font-size: 0.875rem;
   min-width: 250px;
+  --dile-selector-padding-x: 0;
 }
 
+.app-menu .general_link {
+  font-size: 1rem;
+}
+.app-menu .general_link.first {
+}
+
+.app-menu .collection-nav {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  --dile-foreground-color: #555;
+}
+
+.linkcolection {
+  --dile-selector-padding-x: 0.6rem;
+}
+.app-menu .nav-box {
+  background-color: rgba(20, 220, 50, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.5rem 0.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.app-menu .nav-box.transparent {
+  background-color: transparent;
+  margin-bottom: 0;
+}
 .app-menu .link {
   display: flex;
   align-items: center;

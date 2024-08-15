@@ -1,5 +1,6 @@
 ---
 title: Tooltip
+tags: feedback
 ---
 
 # dile-tooltip

@@ -1,5 +1,5 @@
 ---
-title: Crud list
+title: List
 tags: operations
 ---
 

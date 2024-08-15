@@ -1,5 +1,6 @@
 ---
 title: Tabs
+tags: menu
 ---
 
 # dile-tabs

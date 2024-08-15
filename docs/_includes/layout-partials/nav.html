@@ -2,113 +2,128 @@
     class="drawernav"
     selected=${this.page} 
 >
-    <dile-selector-item icon="navigate_next" href="/">Home</dile-selector-item>
-    <dile-selector-item icon="navigate_next" href="/how-to-use">How to use</dile-selector-item>
-    <dile-selector-item icon="navigate_next" href="/contribute">Contribute</dile-selector-item>
+    <div class="nav-box transparent">
+      <dile-selector-item icon="navigate_next" href="/" class="general_link first">Home</dile-selector-item>
+      <dile-selector-item icon="navigate_next" href="/how-to-use" class="general_link">How to use</dile-selector-item>
+      <dile-selector-item icon="navigate_next" href="/contribute" class="general_link">Contribute</dile-selector-item>
+    </div>
+
+    <div class="nav-box">
+
+      <dile-selector-item icon="navigate_next" href="/components/" class="general_link">Components</dile-selector-item>
+      {% for tag in componentTagsList %}
+        {% assign isOpened = false %}
+        {% for component in collections[tag] %}
+          {% if component.url == page.url %}
+            {% assign isOpened = true %}
+          {% endif %}
+        {% endfor %}
+        <dile-slide-menu 
+          class="collection-nav" 
+          label="{{ tag | capitalize }}" 
+          {% if isOpened %}opened{% endif %}
+        >
+        {% for component in collections[tag] %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+        </dile-slide-menu>
+      {% endfor %}
+  
+      {% if collections.uncategorizedComponents.size > 0 %}
+        {% assign isOtherOpened = false %}
+        {% for component in collections.uncategorizedComponents %}
+          {% if component.url == page.url %}
+            {% assign isOtherOpened = true %}
+          {% endif %}
+        {% endfor %}
+        <dile-slide-menu 
+          class="collection-nav" 
+          label="Other components" 
+          {% if isOtherOpened %}opened{% endif %}
+        >
+        {% for component in collections.uncategorizedComponents %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+        </dile-slide-menu>
+      {% endif %}
+
+    </div>
+
+    <div class="nav-box">
+
+      <dile-selector-item icon="navigate_next" href="/mixins/" class="general_link">Mixins</dile-selector-item>
+      {% for tag in mixinTagsList %}
+        {% assign isOpened = false %}
+        {% for component in collections[tag] %}
+          {% if component.url == page.url %}
+            {% assign isOpened = true %}
+          {% endif %}
+        {% endfor %}
+        <dile-slide-menu
+          class="collection-nav" 
+          label="{{ tag | capitalize }}"
+          {% if isOpened %}opened{% endif %}
+        >
+        {% for component in collections[tag] %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+        </dile-slide-menu>
+      {% endfor %}
+      {% if collections.uncategorizedMixins.size > 0 %}
+      {% assign isOtherOpened = false %}
+        {% for component in collections.uncategorizedComponents %}
+          {% if component.url == page.url %}
+            {% assign isOtherOpened = true %}
+          {% endif %}
+        {% endfor %}
+        <dile-slide-menu 
+          class="collection-nav" 
+          label="Other mixins"
+          {% if isOpened %}opened{% endif %}
+        >
+        {% for component in collections.uncategorizedMixins %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+        </dile-slide-menu>
+      {% endif %}
+
+    </div>
 
 
-    <dile-selector-item icon="navigate_next" href="/components/">Components</dile-selector-item>
-    {% for tag in componentTagsList %}
+    <div class="nav-box">
+
+      <dile-selector-item icon="navigate_next" href="/crud/" class="general_link">Crud</dile-selector-item>
+      {% for tag in crudTagsList %}
       {% assign isOpened = false %}
       {% for component in collections[tag] %}
-        {% if component.url == page.url %}
-          {% assign isOpened = true %}
-        {% endif %}
+      {% if component.url == page.url %}
+      {% assign isOpened = true %}
+      {% endif %}
       {% endfor %}
-      <dile-slide-menu 
-        class="collection-nav" 
-        label="{{ tag | capitalize }}" 
-        {% if isOpened %}opened{% endif %}
-      ></div>
-      {% for component in collections[tag] %}
+      <dile-slide-menu class="collection-nav" label="{{ tag | capitalize }}" {% if isOpened %}opened{% endif %}>
+        {% for component in collections[tag] %}
         {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
+        {% endfor %}
       </dile-slide-menu>
-    {% endfor %}
-
-    {% if collections.uncategorizedComponents.size > 0 %}
+      {% endfor %}
+      {% if collections.uncategorizedCrud.size > 0 %}
       {% assign isOtherOpened = false %}
       {% for component in collections.uncategorizedComponents %}
-        {% if component.url == page.url %}
-          {% assign isOtherOpened = true %}
-        {% endif %}
+      {% if component.url == page.url %}
+      {% assign isOtherOpened = true %}
+      {% endif %}
       {% endfor %}
-      <dile-slide-menu 
-        class="collection-nav" 
-        label="Other components" 
-        {% if isOtherOpened %}opened{% endif %}
-      ></div>
-      {% for component in collections.uncategorizedComponents %}
+      <dile-slide-menu class="collection-nav" label="Other Crud Components" {% if isOpened %}opened{% endif %}></div>
+        {% for component in collections.uncategorizedCrud %}
         {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
+        {% endfor %}
       </dile-slide-menu>
-    {% endif %}
+      {% endif %}
 
+    </div>
 
-    <dile-selector-item icon="navigate_next" href="/mixins/">Mixins</dile-selector-item>
-    {% for tag in mixinTagsList %}
-      {% assign isOpened = false %}
-      {% for component in collections[tag] %}
-        {% if component.url == page.url %}
-          {% assign isOpened = true %}
-        {% endif %}
-      {% endfor %}
-      <dile-slide-menu
-        class="collection-nav" 
-        label="{{ tag | capitalize }}"
-        {% if isOpened %}opened{% endif %}
-      ></div>
-      {% for component in collections[tag] %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-      </dile-slide-menu>
-    {% endfor %}
-    {% if collections.uncategorizedMixins.size > 0 %}
-    {% assign isOtherOpened = false %}
-      {% for component in collections.uncategorizedComponents %}
-        {% if component.url == page.url %}
-          {% assign isOtherOpened = true %}
-        {% endif %}
-      {% endfor %}
-      <dile-slide-menu 
-        class="collection-nav" 
-        label="Other mixins"
-        {% if isOpened %}opened{% endif %}
-      ></div>
-      {% for component in collections.uncategorizedMixins %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-      </dile-slide-menu>
-    {% endif %}
-
-    <dile-selector-item icon="navigate_next" href="/crud/">Crud</dile-selector-item>
-    {% for tag in crudTagsList %}
-    {% assign isOpened = false %}
-    {% for component in collections[tag] %}
-    {% if component.url == page.url %}
-    {% assign isOpened = true %}
-    {% endif %}
-    {% endfor %}
-    <dile-slide-menu class="collection-nav" label="{{ tag | capitalize }}" {% if isOpened %}opened{% endif %}></div>
-      {% for component in collections[tag] %}
-      {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-slide-menu>
-    {% endfor %}
-    {% if collections.uncategorizedCrud.size > 0 %}
-    {% assign isOtherOpened = false %}
-    {% for component in collections.uncategorizedComponents %}
-    {% if component.url == page.url %}
-    {% assign isOtherOpened = true %}
-    {% endif %}
-    {% endfor %}
-    <dile-slide-menu class="collection-nav" label="Other Crud Components" {% if isOpened %}opened{% endif %}></div>
-      {% for component in collections.uncategorizedCrud %}
-      {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-slide-menu>
-    {% endif %}
-
-    <dile-selector-item icon="navigate_next" href="/icons/">Icons</dile-selector-item>
+    <div class="nav-box">
+      <dile-selector-item icon="navigate_next" href="/icons/" class="general_link">Icons</dile-selector-item>
+    </div>
     
 </dile-selector>

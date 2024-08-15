@@ -1,5 +1,5 @@
 ---
-title: Crud Insert
+title: Insert
 tags: operations
 ---
 
