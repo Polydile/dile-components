@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '../../ajax-form/ajax-form.js'
 import { formStyles } from '../../../styles/form-styles.js';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileCrudUpdate extends LitElement {
     static styles = [
@@ -19,13 +20,14 @@ export class DileCrudUpdate extends LitElement {
             loadOnInit: { type: Boolean },
             formTemplate: { type: Object },
             buttonSmall: { type: Boolean },
-            apiConfig: { type: Object},
+            responseAdapter: { type: Object },
             formIdentifier: { type: String },
         };
     }
 
     constructor() {
         super();
+        this.responseAdapter = new ResponseApiAdapter();
         this.actionLabel = 'Update';
         this.loadOnInit = false;
         this.formIdentifier = 'updateform';
@@ -50,7 +52,7 @@ export class DileCrudUpdate extends LitElement {
                 ?buttonSmall="${this.buttonSmall}"
                 relatedId="${this.relatedId}"
                 ?loadOnInit="${this.loadOnInit}"
-                .apiConfig="${this.apiConfig}"
+                .responseAdapter="${this.responseAdapter}"
                 formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate()}

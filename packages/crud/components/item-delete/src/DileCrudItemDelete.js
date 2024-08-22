@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/confirm/confirm';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileCrudItemDelete extends LitElement {
   static styles = [
@@ -38,6 +39,7 @@ export class DileCrudItemDelete extends LitElement {
 
   constructor() {
     super();
+    this.responseAdapter = new ResponseApiAdapter();
     this.confirmMessage = 'Are you sure you want to delete this item?';
     this.cancelLabel = 'Cancel';
     this.acceptLabel = 'Delete'
@@ -94,13 +96,11 @@ export class DileCrudItemDelete extends LitElement {
   }
 
   computeResponseMessage(detail) {
-    let msg = 'Error';
-    if (this.apiConfig?.responseMessageGetter) {
-      let computedMessage = this.apiConfig.responseMessageGetter(e.detail);
-      if (computedMessage) {
-        msg = computedMessage;
-      }
-    } 
+    this.responseAdapter.setResponse(detail);
+    let msg = this.responseAdapter.getMessage();
+    if(! msg) {
+      msg = 'Error';
+    }  
     return msg;
   }
 }

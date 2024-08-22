@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '../../ajax-form/ajax-form.js'
 import { formStyles } from '../../../styles/form-styles.js';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileCrudInsert extends LitElement {
     static styles = [
@@ -19,13 +20,14 @@ export class DileCrudInsert extends LitElement {
             relationId: { type: String },
             formTemplate: { type: Object },
             buttonSmall: { type: Boolean },
-            apiConfig: { type: Object},
+            responseAdapter: { type: Object},
             formIdentifier: { type: String },
         };
     }
 
     constructor() {
         super();
+        this.responseAdapter = new ResponseApiAdapter();
         this.actionLabel = 'Insert';
         this.formIdentifier = 'insertform';
     }
@@ -47,7 +49,7 @@ export class DileCrudInsert extends LitElement {
                 actionLabel="${this.actionLabel}"
                 @save-success="${this.doSuccessSave}"
                 ?buttonSmall="${this.buttonSmall}"
-                .apiConfig="${this.apiConfig}"
+                .responseAdapter="${this.responseAdapter}"
                 formIdentifier="${this.formIdentifier}"
             >
                 ${this.formTemplate(this.belongsTo, this.relationId)}
