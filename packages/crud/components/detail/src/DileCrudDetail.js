@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { formStyles } from '../../../styles/form-styles';
 import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '../../ajax/ajax.js';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileCrudDetail extends DileLoading(LitElement) {
   static styles = [
@@ -72,8 +73,13 @@ export class DileCrudDetail extends DileLoading(LitElement) {
       endpoint: { type: String },
       element: { type: Object },
       itemDetailTemplate: { type: Object },
-      apiConfig: { type: Object },
+      responseAdapter: { type: Object },
     };
+  }
+
+  constructor() {
+    super();
+    this.responseAdapter = new ResponseApiAdapter();
   }
 
   firstUpdated() {
@@ -82,7 +88,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
 
   updated(changedProperties) {
     if (changedProperties.has('endpoint')) {
-      console.log('changedProperties de crud detail', this.endpoint);
       this.refresh();
     }
   }
@@ -136,7 +141,8 @@ export class DileCrudDetail extends DileLoading(LitElement) {
   doSuccessGet(e) {
     // console.log('success get', e.detail);
     this.loading = false;
-    this.element = this.apiConfig.elementGetter(e.detail);
+    this.responseAdapter.setResponse(e.detail);
+    this.element = this.responseAdapter.getElement();
     this.dispatchEvent(new CustomEvent('crud-item-detail-loaded', {
       bubbles: true,
       composed: true,

@@ -51,11 +51,6 @@
 
         constructor() {
           super();
-          this.apiConfig = {
-            elementGetter(response) {
-              return response.data;
-            }
-          }
           this.resource = 'https://timer.escuelait.com/api/countries/';
         }
 
@@ -68,7 +63,6 @@
               class="${this.error ? 'hide' : ''}"
               endpoint="https://timer.escuelait.com/api/countries/7"
               .itemDetailTemplate=${(country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`}
-              .apiConfig=${this.apiConfig}
               @crud-item-detail-loaded=${this.detailLoaded}
               @crud-item-detail-load-error=${this.detailLoadError}
             ></dile-crud-detail>
