@@ -1,4 +1,5 @@
 import { html } from "lit";
+import { ResponseApiAdapter } from "./ResponseApiAdapter";
 
 const templatePlaceholder = (templateName) => `Please provide config.templates.${templateName}`
 
@@ -25,14 +26,15 @@ export const defaultConfig = {
     disableFilter: false,
     disableHelp: true,
   },
-  api: {
-    responseDataGetter: response => response.data,
-    responseMessageGetter: response => response.message,
-    validationErrorsGetter: response => response.errors,
-    elementListGetter: response => response.data,
-    paginationDataGetter: response => response.data,
-    elementGetter: response => response.data,
-  },
+  responseAdapter: new ResponseApiAdapter(),
+  // api: {
+  //   responseDataGetter: response => response.data,
+  //   responseMessageGetter: response => response.message,
+  //   validationErrorsGetter: response => response.errors,
+  //   elementListGetter: response => response.data,
+  //   paginationDataGetter: response => response.data,
+  //   elementGetter: response => response.data,
+  // },
   actions: {
     list: [
       {

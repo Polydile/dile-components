@@ -3,6 +3,7 @@ import '../../ajax/ajax.js';
 import '@dile/ui/components/button/button.js';
 import '@dile/ui/components/inline-feedback/inline-feedback.js';
 import {capitalizeFirstLetter} from '../../../lib/capitalizeString.js';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileAjaxForm extends LitElement {
     static styles = [
@@ -33,15 +34,13 @@ export class DileAjaxForm extends LitElement {
         buttonSmall: { type: Boolean, reflect: true },
         formIdentifier: { type: String, },
         setDataOnInit: { type: Boolean },
-        responseDataProperty: { type: String },
-        responseMessageProperty: { type: String },
-        validationErrorsProperty: { type: String },
-        apiConfig: { type: Object },
+        responseAdapter: { type: Object },
       };
     }
 
     constructor() {
         super();
+        this.responseAdapter = new ResponseApiAdapter();
         this.formIdentifier = 'form';
         this.operation = '';
     }
@@ -102,7 +101,6 @@ export class DileAjaxForm extends LitElement {
     }
 
     loadData() {
-        console.log('load data en dile-ajax-form');
         this.ajaxget.generateRequest();
     }
 
@@ -113,19 +111,22 @@ export class DileAjaxForm extends LitElement {
     }
 
     doErrorGet(e) {
-        this.feedback.negativeFeedback(e.detail.message);
+        this.responseAdapter.setResponse(e.detail);
+        let msg = this.customMessage(false);
+        this.feedback.negativeFeedback(msg);
         this.dispatchEvent(new CustomEvent('dile-ajax-form-get-error', { 
             bubbles: true,
             composed: true,
             detail: {
-                msg: e.detail,
+                msg: msg,
+                previousDetail: e.detail
             }
         }));
     }
 
     doSuccessGet(e) {
-        console.log('doSucess get en dile-ajax-fomr', e.detail);
-        let data = this.customData(e.detail)
+        this.responseAdapter.setResponse(e.detail);
+        let data = this.responseAdapter.getData()
         this.form.setData(data);
         this.form.clearErrors();
         this.feedback.clear();
@@ -140,9 +141,10 @@ export class DileAjaxForm extends LitElement {
     }
     
     doErrorSave(e) {
-        let msg = this.customMessage(e.detail, true);
-        this.feedback.negativeFeedbackWithDelay(e.detail.message, 5000);
-        let validationErrors = this.validationErrors(e.detail);
+        this.responseAdapter.setResponse(e.detail);
+        let msg = this.customMessage(true);
+        this.feedback.negativeFeedbackWithDelay(msg, 5000);
+        let validationErrors = this.responseAdapter.getValidationErrors();
         this.form.showErrors(validationErrors);
         this.dispatchEvent(new CustomEvent('save-error', { 
             bubbles: true,
@@ -156,9 +158,10 @@ export class DileAjaxForm extends LitElement {
     }
 
     doSuccessSave(e) {
-        let msg = this.customMessage(e.detail, true);
+        this.responseAdapter.setResponse(e.detail);
+        let data = this.responseAdapter.getData();
+        let msg = this.customMessage(true);
         this.feedback.positiveFeedbackWithDelay(msg, 5000);
-        let data = this.customData(e.detail);
         this.dispatchEvent(new CustomEvent('save-success', { 
             bubbles: true,
             composed: true,
@@ -180,7 +183,7 @@ export class DileAjaxForm extends LitElement {
             case 'update':
                 return 'put';
         }
-        throw "Operation not supported in fct-ajax-form, only available 'insert' / 'update'";
+        throw "Operation not supported in fct-ajax-form use 'insert' or 'update'";
     }
 
     clearErrors() {
@@ -200,37 +203,15 @@ export class DileAjaxForm extends LitElement {
         }
     }
 
-    customMessage(detail, success) {
-        if(this.apiConfig) {
-            return this.apiConfig.responseMessageGetter(detail);
-        }
-        if (this.responseMessageProperty && detail[this.responseMessageProperty]) {
-            return detail[this.responseMessageProperty];
+    customMessage(success) {
+        let message = this.responseAdapter.getMessage();
+        if(message) {
+            return message;
         }
         if(success) {
             return `Success ${this.operation}`;
         } 
         return `Error ${this.operation}`;
-    }
-
-    customData(detail) {
-        if (this.apiConfig) {
-            return this.apiConfig.responseDataGetter(detail);
-        }
-        if(this.responseDataProperty && detail[this.responseDataProperty]) {
-            return detail[this.responseDataProperty];
-        }
-        return data;
-    }
-
-    validationErrors(detail) {
-        if (this.apiConfig) {
-            return this.apiConfig.validationErrorsGetter(detail);
-        }
-        if(this.validationErrorsProperty && detail[this.validationErrorsProperty]) {
-            return detail[this.validationErrorsProperty];
-        }
-        return [];
     }
 }
 
