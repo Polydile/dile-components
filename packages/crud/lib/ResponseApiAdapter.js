@@ -33,5 +33,9 @@ export class ResponseApiAdapter {
   getElement() {
     return this.response.data;
   }
+
+  getIds() {
+    return this.response.data;
+  }
   
 }

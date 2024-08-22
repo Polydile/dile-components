@@ -329,7 +329,8 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     doSuccessGetIds(e) {
-        this.dispactSelectAll(this.config.api.idsGetter(e.detail));
+        this.config.responseAdapter.setResponse(e.detail);
+        this.dispactSelectAll(this.config.responseAdapter.getIds());
     }
 
     onItemsCheckboxChanged(e) {

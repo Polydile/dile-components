@@ -1,5 +1,14 @@
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
+import { ResponseApiAdapter } from '@dile/crud/lib/ResponseApiAdapter';
+
+class BoardGameResponseApiAdapter extends ResponseApiAdapter {
+  getElementList() {
+    return this.response.data.result.data;
+  }
+}
+
+console.log(new BoardGameResponseApiAdapter());
 
 export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
   customization: {
@@ -30,10 +39,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
       type: 'boolean',
     },
   ],
-  api: {
-    elementListGetter: (response) => response.data.result.data,
-    idsGetter: (response) => response.data,
-  },
+  responseAdapter: new BoardGameResponseApiAdapter(),
   actions: {
     list: [
       {
