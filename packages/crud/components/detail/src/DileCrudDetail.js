@@ -139,7 +139,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
   }
 
   doSuccessGet(e) {
-    // console.log('success get', e.detail);
     this.loading = false;
     this.responseAdapter.setResponse(e.detail);
     this.element = this.responseAdapter.getElement();
@@ -147,7 +146,7 @@ export class DileCrudDetail extends DileLoading(LitElement) {
       bubbles: true,
       composed: true,
       detail: {
-        element: this.elememt,
+        element: this.element,
         previousDetail: e.detail,
       }
     }));
