@@ -97,7 +97,7 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
         id="eldetail"
         endpoint="${this.config.endpoint}/${this.relatedId}"
         .itemDetailTemplate=${this.config.templates.detail}
-        .apiConfig=${this.config.api}
+        .responseAdapter=${this.config.responseAdapter}
         @crud-item-detail-loaded=${this.elementLoaded}
       ></dile-crud-detail>
     `
@@ -125,7 +125,7 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
 
   elementLoaded(e) {
     console.log('elementloaded');
-    this.element = this.config.api.elementGetter(e.detail);
+    this.element = e.detail.element;
   }
 
   actionSuccess(e) {

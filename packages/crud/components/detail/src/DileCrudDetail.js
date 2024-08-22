@@ -146,7 +146,10 @@ export class DileCrudDetail extends DileLoading(LitElement) {
     this.dispatchEvent(new CustomEvent('crud-item-detail-loaded', {
       bubbles: true,
       composed: true,
-      detail: e.detail,
+      detail: {
+        element: this.elememt,
+        previousDetail: e.detail,
+      }
     }));
   }
 
