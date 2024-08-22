@@ -162,7 +162,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 <dile-crud-insert
                     title=${this.config.labels.insertWindowTitle}
                     endpoint="${this.config.endpoint}"
-                    .apiConfig=${this.config.api}
+                    .responseAdapter=${this.config.responseAdapter}
                     .formTemplate=${this.config.templates.insertForm}
                     actionLabel=${this.config.labels.insertAction}
                     formIdentifier="${this.config.formIds.insertForm}"

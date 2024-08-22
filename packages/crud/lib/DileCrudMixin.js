@@ -54,7 +54,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                     id="updateElement"
                     title=${this.config.labels.updateWindowTitle}
                     endpoint="${this.config.endpoint}"
-                    .apiConfig=${this.config.api}
+                    .responseAdapter=${this.config.responseAdapter}
                     .formTemplate=${this.config.templates.updateForm}
                     actionLabel=${this.config.labels.updateAction}
                     formIdentifier="${this.config.formIds.updateForm}"

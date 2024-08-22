@@ -30,7 +30,7 @@ export class DileCrudItemDelete extends LitElement {
     return {
       endpoint: { type: String },
       relatedId: { type: String },
-      apiConfig: { type: Object},
+      responseAdapter: { type: Object },
       confirmMessage: { type: String },
       cancelLabel: { type: String },
       acceptLabel: { type: String },
