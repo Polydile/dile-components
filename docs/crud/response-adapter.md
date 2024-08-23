@@ -1,6 +1,7 @@
 ---
 title: Response Adapter
 tags: configuration
+order: 2
 ---
 
 # Response Adapter Object

@@ -101,7 +101,8 @@
       {% endif %}
       {% endfor %}
       <dile-slide-menu class="collection-nav" label="{{ tag | capitalize }}" {% if isOpened %}opened{% endif %}>
-        {% for component in collections[tag] %}
+        {% assign sortedComponents = collections[tag] | sort: "data.order" %}
+        {% for component in sortedComponents %}
         {% include "layout-partials/nav-item.html" %}
         {% endfor %}
       </dile-slide-menu>

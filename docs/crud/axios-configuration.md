@@ -1,6 +1,7 @@
 ---
 title: Axios configuration
 tags: configuration
+order: 1
 ---
 
 # Axios configuration

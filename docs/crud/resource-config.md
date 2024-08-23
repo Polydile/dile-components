@@ -1,6 +1,7 @@
 ---
 title: Resource config
 tags: configuration
+order: 3
 ---
 
 # Resource Configuration Object
