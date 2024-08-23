@@ -73,7 +73,8 @@ some configuration aspects.
      title="{{ tag | capitalize }}" 
     >
       <dile-selector>
-        {% for component in collections[tag] %}
+        {% assign sortedComponents = collections[tag] | sort: "data.order" %}
+        {% for component in sortedComponents %}
           {% include "layout-partials/nav-item.html" %}
         {% endfor %}
   
