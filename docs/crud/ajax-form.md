@@ -30,9 +30,6 @@ Use the component.
   operation="insert"
   endpoint="api/countries"
   actionLabel="Save"
-  responseDataProperty="data"
-  responseMessageProperty="message"
-  validationErrorsProperty="errors"
 >
   <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>
@@ -61,10 +58,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **buttonSmall**: Boolean, where a value of `true` indicates that the button should be smaller.
 - **formIdentifier**: String, the identifier (ID attribute) of the form element provided in the slot, which contains the fields from which data will be retrieved or displayed. The default value is "form".
 - **setDataOnInit**: Boolean, if `true`, indicates that the component should use the object provided in the `data` property to populate the form fields upon initialization. This can be useful when you have an insert form that you want to prepopulate with specific values in the form fields.
-- **responseDataProperty**: String, the name of the property expected to be delivered by the web service with the response data. See the configuration section below for more details.
-- **responseMessageProperty**: String, the name of the property expected to be provided by the web service with the resulting operation message. See the configuration section below for more details.
-- **validationErrorsProperty**: String, the name of the property where the validation errors object is located. See the configuration section below for more details.
-- **apiConfig**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
+- **responseAdapter**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
 
 ### Methods
 
@@ -95,25 +89,21 @@ If you need to customize how `dile-ajax-form` uses Axios to make Ajax connection
 
 ### Response Configuration
 
-To configure the responses from the API targeted by the `dile-ajax-form` component, we can use two different approaches: one simpler and the other slightly more complex but more versatile.
+The `dile-ajax-form` component sends and receives data via HTTP requests to a REST API. To extract the necessary data in each case, the API uses a default behavior that works with typical REST APIs.
 
-#### **Alternative 1: Use `responseDataProperty`, `responseMessageProperty`, and `validationErrorsProperty`**
+To customize the component's behavior, allowing it to adapt to any type of API response, you can pass a custom adapter using the `responseAdapter` property.
 
-This alternative allows you to simply specify the names of the properties where the various data are located in the JSON response from the API.
+```html
+<dile-ajax-form
+  operation="insert"
+  endpoint="customized-api/users"
+  .responseAdapter=${customizedResponseAdapter}
+>
+  <resource-form id="form"></resource-form>
+</dile-ajax-form>
+```
 
-The properties are self-explanatory. For example, if the API response delivers the final data in a property called `data`, you should configure the `responseDataProperty` with the value `data`. Similarly, if, in case of a validation error, the validation errors array is delivered in a JSON property called `errors`, then you can configure the `validationErrorsProperty` with the value `errors`.
-
-In this way, you can configure the component to process the responses using simple text strings. This simpler alternative has lower priority than the alternative described in the following section.
-
-#### **Alternative 2: Use the `apiConfig` Object**
-
-In cases where the JSON returned by the server has a more complex format, the `responseDataProperty`, `responseMessageProperty`, and `validationErrorsProperty` might not be sufficient for correctly interpreting the responses.
-
-For example, suppose the errors are nested within a property called `data` and then inside another property called `errors`. Or perhaps the format of the errors does not match what `dile-ajax-form` expects. In such cases, a simple string might not be enough to make `dile-ajax-form` adapt to the response. That's why there is an API configuration object that can be provided to the component.
-
-The configuration object has a series of methods that allow us to process the responses and extract the data we need. For more information about this API response configuration object, you can refer to the [API Config page](/crud/api-config/).
-
-It's important to note that the component will prioritize the configuration object provided in the `apiConfig` property over the string properties mentioned in the previous alternative.
+You can find more information on how to create custom adapters on the [Response Adapter page](/crud/response-adapter/).
 
 ## dile-ajax demos
 
@@ -134,9 +124,6 @@ Before we start looking at the demos of `dile-ajax-form`, let's include an examp
   operation="insert"
   endpoint="https://timer.escuelait.com/api/countries"
   actionLabel="Save"
-  responseDataProperty="data"
-  responseMessageProperty="message"
-  validationErrorsProperty="errors"
 >
   <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>
@@ -152,9 +139,6 @@ Before we start looking at the demos of `dile-ajax-form`, let's include an examp
   loadOnInit
   endpoint="https://timer.escuelait.com/api/countries"
   actionLabel="Save"
-  responseDataProperty="data"
-  responseMessageProperty="message"
-  validationErrorsProperty="errors"
 >
   <demo-country-form id="form"></demo-country-form>
 </dile-ajax-form>

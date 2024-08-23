@@ -93,3 +93,11 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
 ```
 
 This module can be used to define configurations specific to the `countries` resource, including templates for items and forms, pagination settings, sorting options, and filters.
+
+## Adapting to API Responses
+
+The `responseAdapter` property in the configuration object is an object that defines how the CRUD system will extract data from the REST API responses.
+
+The default configuration object for the resource provides a `responseAdapter` that works with typical REST API responses. However, you can create a custom version of this object by extending the base `ResponseApiAdapter` class.
+
+For more information, refer to the page dedicated to the [`responseAdapter` object](/crud/response-adapter/).

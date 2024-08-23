@@ -2,16 +2,18 @@
 <script type="module">
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
+import { ResponseApiAdapter } from '@dile/crud/lib/ResponseApiAdapter';
 
+class BoardGameResponseApiAdapter extends ResponseApiAdapter {
+  getElementList() {
+    return this.response.data.result.data;
+  }
+}
 // For the correct functioning of this declaration in the demo system, we have defined the variable with the configuration object globally. Normally, it would be created in a module and exported.
 window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
   customization: {
     hideCountSummary: false,
-    hideCheckboxSelection: true,
-  },
-  labels: {
-    insertWindowTitle: 'Insert a Board Game',
-    updateWindowTitle: 'Update a Board Game',
+    hideCheckboxSelection: false,
   },
   sort: {
     options: [
@@ -37,10 +39,7 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
       type: 'boolean',
     },
   ],
-  api: {
-    elementListGetter: (response) => response.data.result.data,
-    idsGetter: (response) => response.data,
-  },
+  responseAdapter: new BoardGameResponseApiAdapter(),
   actions: {
     list: [
       {
@@ -55,7 +54,7 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
   },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
-    insertForm: (belongsTo, relationId) => html`<demo-board-game-form belongsTo="${belongsTo}" relationId="${relationId}" id="insertform"></demo-board-game-form>`,
+    insertForm: (belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
     formActions: (actionName) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">

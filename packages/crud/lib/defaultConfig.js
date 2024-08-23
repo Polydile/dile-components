@@ -27,14 +27,6 @@ export const defaultConfig = {
     disableHelp: true,
   },
   responseAdapter: new ResponseApiAdapter(),
-  // api: {
-  //   responseDataGetter: response => response.data,
-  //   responseMessageGetter: response => response.message,
-  //   validationErrorsGetter: response => response.errors,
-  //   elementListGetter: response => response.data,
-  //   paginationDataGetter: response => response.data,
-  //   elementGetter: response => response.data,
-  // },
   actions: {
     list: [
       {

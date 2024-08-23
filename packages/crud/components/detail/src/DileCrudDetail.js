@@ -141,7 +141,7 @@ export class DileCrudDetail extends DileLoading(LitElement) {
   doSuccessGet(e) {
     this.loading = false;
     this.responseAdapter.setResponse(e.detail);
-    this.element = this.responseAdapter.getElement();
+    this.element = this.responseAdapter.getData();
     this.dispatchEvent(new CustomEvent('crud-item-detail-loaded', {
       bubbles: true,
       composed: true,

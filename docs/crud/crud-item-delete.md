@@ -40,7 +40,7 @@ Use the component.
 
 - **endpoint**: String, the endpoint of the API resource from which the record will be deleted (without the id)
 - **relatedId**: String, the identifier of the specific record to be deleted.
-- **apiConfig**: Object, the configuration object for the API, used to retrieve a delete operation error message.
+- **responseAdapter**: Object, optional. The configuration object for the API, used to retrieve a delete operation error message (for more info visit the [response adapter page](/crud/response-adapter/)).
 - **confirmMessage**: String, the message displayed in the confirmation dialog before the deletion is processed.
 - **cancelLabel**: String, the label for the cancel button in the confirmation dialog.
 - **acceptLabel**: String, the label for the accept button in the confirmation dialog.

@@ -28,8 +28,7 @@ Use the component.
 <dile-crud-insert
   title="Insert a country"
   endpoint="api/countries"
-  .apiConfig=${this.apiConfig}
-  .formTemplate=${() => html`<demo-country-form id="insertform"></demo-country-form>`}
+  .formTemplate=${ () => html`<demo-country-form id="insertform"></demo-country-form>` }
 ></dile-crud-insert>
 ```
 
@@ -42,7 +41,7 @@ Use the component.
 - **relationId**: String, the identifier of the parent resource (See belongsTo explanations below).
 - **formTemplate**: Object, a function that returns a template. That template should be the component that acts as the form for the record to be inserted. The component must have an identifier (id attribute), typically "insertform".
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
-- **apiConfig**: Object, an API configuration object (see the [API Config page](/crud/api-config/)).
+- **responseAdapter**: Object, optional. API adapter object. See the [responseAdapter page](/crud/response-adapter/)).
 - **formIdentifier**: String, the identifier of the component that acts as the insertion form. If no value is provided for this property, "insertform" is used as the default.
 
 ### Methods
@@ -68,7 +67,7 @@ For example, a country may belong to a continent, and when you create a country,
 
 To achieve this, the `dile-insert-form` component should be configured with the `belongsTo` and `relationId` attributes. However, the `dile-insert-form` component does not apply this customization to the form directly; it simply passes these configurations to the form template component, which applies them to the required fields.
 
-### Receiving Data in the Form Component
+### Receiving belongsTo data in the Form Component
 
 If you need to work with `belongsTo` and `relationId`, there are two steps to receive these values in the form component.
 
@@ -122,22 +121,12 @@ To implement the insertion component, you will need a component that acts as a f
         }
       `
     ];
-
-    constructor() {
-      super();
-      this.apiConfig = {
-        responseDataGetter: response => response.data,
-        responseMessageGetter: response => response.message,
-        validationErrorsGetter: response => response.errors,
-      }
-    }
   
     render() {
       return html`
         <dile-crud-insert
           title="Insert a country"
           endpoint="https://timer.escuelait.com/api/countries"
-          .apiConfig=${this.apiConfig}
           .formTemplate=${() => html`<demo-country-form id="insertform"></demo-country-form>`}
         ></dile-crud-insert>
       `;
@@ -175,22 +164,12 @@ As you can see in the following example, when using the `dile-crud-insert` compo
         }
       `
     ];
-
-    constructor() {
-      super();
-      this.apiConfig = {
-        responseDataGetter: response => response.data,
-        responseMessageGetter: response => response.message,
-        validationErrorsGetter: response => response.errors,
-      }
-    }
   
     render() {
       return html`
         <dile-crud-insert
           title="Insert a board game"
           endpoint="https://timer.escuelait.com/api/board-games"
-          .apiConfig=${this.apiConfig}
           belongsTo="country"
           relationId="1"
           .formTemplate=${(belongsTo, relationId) => html`<demo-board-game-form belongsTo="${belongsTo}" relationId="${relationId}" id="insertform"></demo-board-game-form>`}

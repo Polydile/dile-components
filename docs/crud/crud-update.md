@@ -28,7 +28,6 @@ Use the component.
 <dile-crud-update
   title="Update a country"
   endpoint="api/countries"
-  .apiConfig=${this.apiConfig}
   .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
 ></dile-crud-update>
 ```
@@ -42,7 +41,7 @@ Use the component.
 - **loadOnInit**: Boolean, if true the record data is loaded into the form on the component initialization.
 - **formTemplate**: Object, a function that returns a template. That template usually has the component that acts as the form for the record to be updated. The component must have an identifier (id attribute), typically "updateform".
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
-- **apiConfig**: Object, an API configuration object (see the [API Config page](/crud/api-config/)).
+- **responseAdapter**: Object, optional. An API configuration object (see the [response adapter page](/crud/response-adapter/)).
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
 
 ### Methods
@@ -58,7 +57,7 @@ Use the component.
 
 ## Configuration
 
-To properly implement this component, we recommend familiarizing yourself with the configuration processes defined in the [CRUD library documentation](/crud/).
+To properly implement this component, we recommend familiarizing yourself with the configuration processes defined in the [CRUD library documentation](/crud/) and also [dile-ajax-form component page](/crud/ajax-form/).
 
 ## Examples
 
@@ -93,11 +92,6 @@ To implement the update component, we will need a component that acts as a form.
     constructor() {
       super();
       this.relatedId = '1';
-      this.apiConfig = {
-        responseDataGetter: response => response.data,
-        responseMessageGetter: response => response.message,
-        validationErrorsGetter: response => response.errors,
-      }
     }
   
     render() {
@@ -105,7 +99,6 @@ To implement the update component, we will need a component that acts as a form.
         <dile-crud-update
           title="Update a country"
           endpoint="https://timer.escuelait.com/api/countries"
-          .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
           .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
@@ -148,11 +141,6 @@ To implement the update component, we will need a component that acts as a form.
     constructor() {
       super();
       this.relatedId = '1';
-      this.apiConfig = {
-        responseDataGetter: response => response.data,
-        responseMessageGetter: response => response.message,
-        validationErrorsGetter: response => response.errors,
-      }
     }
   
     render() {
@@ -172,7 +160,6 @@ To implement the update component, we will need a component that acts as a form.
         <dile-crud-update
           title="Update a country"
           endpoint="https://timer.escuelait.com/api/countries"
-          .apiConfig=${this.apiConfig}
           loadOnInit
           relatedId="${this.relatedId}"
           .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}

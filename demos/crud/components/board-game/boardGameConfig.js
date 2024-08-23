@@ -8,8 +8,6 @@ class BoardGameResponseApiAdapter extends ResponseApiAdapter {
   }
 }
 
-console.log(new BoardGameResponseApiAdapter());
-
 export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
   customization: {
     hideCountSummary: false,

@@ -29,7 +29,6 @@ Use the component.
 <dile-crud-detail
   endpoint="https://timer.escuelait.com/api/countries/7"
   .itemDetailTemplate=${(country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`}
-  .apiConfig=${this.apiConfig}
 ></dile-crud-detail>
 ```
 
@@ -38,7 +37,7 @@ Use the component.
 - **endpoint**: String, the API endpoint from which the detailed information of the item will be fetched.
 - **element**: Object, the item object whose details are to be displayed by the component.
 - **itemDetailTemplate**: Object (function), the template used to define how the item’s details are displayed.
-- **apiConfig**: Object, the configuration object that customizes how the API data is processed.
+- **responseAdapter**: Object, optional. This is the configuration object that customizes how the API data is processed (see the [response adapter page](/crud/response-adapter/))
 
 ### Methods
 
@@ -53,7 +52,7 @@ Use the component.
 
 ## Configuration
 
-For this component to function properly, it is necessary to apply the configurations mentioned on the [CRUD system documentation page](/crud/)  .
+For this component to function properly, it is necessary to apply the configurations mentioned on the [CRUD system documentation page](/crud/).
 
 ## Examples
 
@@ -100,11 +99,6 @@ class CrudCountryDetailDemo extends LitElement {
 
     constructor() {
       super();
-      this.apiConfig = {
-        elementGetter(response) {
-          return response.data;
-        }
-      }
       this.resource = 'https://timer.escuelait.com/api/countries/';
     }
 
@@ -117,7 +111,6 @@ class CrudCountryDetailDemo extends LitElement {
           class="${this.error ? 'hide' : ''}"
           endpoint="https://timer.escuelait.com/api/countries/7"
           .itemDetailTemplate=${(country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`}
-          .apiConfig=${this.apiConfig}
           @crud-item-detail-loaded=${this.detailLoaded}
           @crud-item-detail-load-error=${this.detailLoadError}
         ></dile-crud-detail>
