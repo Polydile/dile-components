@@ -49,18 +49,18 @@ export class DileCrudSingleActions extends DileCrudActions {
       ${this.actions.length > 0
         ? html`
           <dile-card title="Element action">
-              <dile-box-selector 
-                  class="action-list" 
-                  attrForSelected="name"
-                  @dile-selected-changed="${this.onActionSelected}"
-              >
-                  ${this.actions.map(action => html`
-                      <dile-box-selector-item 
-                          label="${action.label}"
-                          name="${action.name}"
-                      ></dile-box-selector-item>
-                  `)}
-              </dile-box-selector>
+            <dile-box-selector 
+                class="action-list" 
+                attrForSelected="name"
+                @dile-selected-changed="${this.onActionSelected}"
+            >
+                ${this.actions.map(action => html`
+                    <dile-box-selector-item 
+                        label="${action.label}"
+                        name="${action.name}"
+                    ></dile-box-selector-item>
+                `)}
+            </dile-box-selector>
           </dile-card>
         `
         : ''
