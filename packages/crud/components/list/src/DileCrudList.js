@@ -323,6 +323,7 @@ export class DileCrudList extends DileLoading(LitElement) {
             data.relationId = this.relationId;
         }
         // console.log(data);
+        data = this.config.requestAdapter.adaptIdsRequestData(data);
         this.ajaxgetallids.data = data;
         this.ajaxgetallids.generateRequest();
       }

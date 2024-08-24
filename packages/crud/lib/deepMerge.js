@@ -1,6 +1,6 @@
 export function deepMerge(target, source) {
   // Definir propiedades que deben sobrescribirse tal cual, sin mergear
-  const overwriteProperties = ['responseAdapter']; 
+  const overwriteProperties = ['responseAdapter', 'requestAdapter']; 
 
   // Creamos una copia profunda del target
   let result = Array.isArray(target) ? [] : {};

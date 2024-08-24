@@ -1,7 +1,7 @@
 ---
 title: Actions configuration
 tags: configuration
-order: 4
+order: 5
 ---
 
 # Batch Action Configuration

@@ -1,5 +1,6 @@
 import { html } from "lit";
 import { ResponseApiAdapter } from "./ResponseApiAdapter";
+import { RequestApiAdapter } from "./RequestApiAdapter";
 
 const templatePlaceholder = (templateName) => `Please provide config.templates.${templateName}`
 
@@ -27,6 +28,7 @@ export const defaultConfig = {
     disableHelp: true,
   },
   responseAdapter: new ResponseApiAdapter(),
+  requestAdapter: new RequestApiAdapter(),
   actions: {
     list: [
       {

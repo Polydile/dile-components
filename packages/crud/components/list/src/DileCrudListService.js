@@ -86,6 +86,7 @@ export class DileCrudListService extends LitElement {
       data.belongsTo = this.belongsTo;
       data.relationId = this.relationId;
     }
+    data = this.config.requestAdapter.adaptListRequestData(data);
     this.ajaxget.data = data;
     this.ajaxget.generateRequest();
   }
