@@ -23,5 +23,8 @@
     "@dile/icons": "^2.0.10",
     "lit": "^2.7.0 || ^3.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "gitHead": "e3ddacef52e67cdc9c6b0f6e1beda9aa15aeb0f0"
 }
