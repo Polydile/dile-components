@@ -14,7 +14,7 @@ To ensure this library can work with any web service, a `requestAdapter` object 
 
 A default `requestAdapter` object exists that simply sends the data as it is prepared by the CRUD components.
 
-This object is created through an instance of the `RequestApiAdapter` class. You can view the `RequestApiAdapter` class on GitHub.
+This object is created through an instance of the `RequestApiAdapter` class. You can [view the `RequestApiAdapter` class on GitHub](https://github.com/Polydile/dile-components/blob/master/packages/crud/lib/RequestApiAdapter.js).
 
 This object does not perform any specific transformations, but it has been created so that when implementing CRUD components, it can be swapped out and adapted to various web services.
 
