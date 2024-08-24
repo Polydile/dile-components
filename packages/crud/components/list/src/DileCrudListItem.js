@@ -93,7 +93,6 @@ export class DileCrudListItem extends LitElement {
   }
 
   includes(actionIds, itemId) {
-    //console.log('includes', actionIds,  typeof itemId,  itemId, actionIds.includes(itemId));
     return actionIds.includes(itemId);
   }
 

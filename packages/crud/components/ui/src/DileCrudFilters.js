@@ -51,7 +51,6 @@ export class DileCrudFilters extends LitElement {
             }
             return filter;
         });
-        //console.log(this.filters);
         this.dispatchEvent(new CustomEvent('filters-changed', {
             bubbles: true,
             composed: true,

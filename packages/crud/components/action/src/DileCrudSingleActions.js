@@ -71,7 +71,6 @@ export class DileCrudSingleActions extends DileCrudActions {
 
 
   onActionSelected(e) {
-    // console.log('onActionSelected', e.detail);
     this.selection = e.detail.selected;
     this.showAction();
   }

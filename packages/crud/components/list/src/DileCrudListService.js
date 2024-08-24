@@ -33,9 +33,7 @@ export class DileCrudListService extends LitElement {
   }
 
   firstUpdated() {
-    // console.log('firstUpdated en service');
     this.ajaxget = this.shadowRoot.getElementById('ajaxget');
-    //this.refresh();
   }
 
   render() {
@@ -61,7 +59,6 @@ export class DileCrudListService extends LitElement {
     if(!this.ajaxget) {
       this.delayTimer = setTimeout(() => this.refresh(), this.delayTime);
     } else {
-      // console.log('refresh en service', this.pageSize);
       if (this.delayTimer) {
         clearTimeout(this.delayTimer);
       }
@@ -99,7 +96,6 @@ export class DileCrudListService extends LitElement {
       numItems = elements.length;
     } else {
       let data = this.config.responseAdapter.getPaginationData();
-      console.log('pagination data fetched', data);
       this.paginationData = {
         nextPage: data.result.next_page_url,
         prevPage: data.result.prev_page_url,
@@ -139,25 +135,21 @@ export class DileCrudListService extends LitElement {
   }
 
   setKeyword(keyword) {
-    console.log('setkeyword', keyword);
     this.keyword = keyword;
     this.cleanAndRefresh();
   }
 
   setSort(sortObject) {
-    console.log('set SORT OBJECT');
     this.sort = sortObject;
     this.cleanAndRefresh();
   }
 
   setPageSize(size) {
-    // console.log('set page size');
     this.pageSize = size;
     this.cleanAndRefresh();
   }
 
   setFilters(filters) {
-    // console.log('set filters');
     this.filters = filters;
     this.cleanAndRefresh();
   }

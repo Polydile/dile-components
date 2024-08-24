@@ -81,11 +81,9 @@ export class DileCrudListPaginationLinks extends LitElement {
   }
 
   goPrev() {
-    console.log('go prev');
     this.dispatchEvent(new CustomEvent('crud-pagination-prev'));
   }
   goNext() {
-    console.log('go next');
     this.dispatchEvent(new CustomEvent('crud-pagination-next'));
   }
 }

@@ -69,7 +69,6 @@ export class DileCrudUpdate extends LitElement {
     }
 
     edit(id) {
-        console.log('voy a load data ', id);
         this.relatedId = id;
         this.updateComplete.then(() => {
             this.formElement.loadData();

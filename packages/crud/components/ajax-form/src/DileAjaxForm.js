@@ -66,7 +66,6 @@ export class DileAjaxForm extends LitElement {
     }
 
     get form() {
-        // console.log('get form', this.formIdentifier, this);
         return this.querySelector('#' + this.formIdentifier);
     }
 

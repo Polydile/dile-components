@@ -60,14 +60,11 @@ export class DileCrudFiltersList extends LitElement {
     }
 
     findLabelInOption(filter) {
-        //console.log('buscando...', filter.options, filter.value);
         let option = filter.options.find((option) => option.name == filter.value);
         if(option) {
             return option.label;
         } else {
-            //console.log('no encontramos la opcion');
             return ''
         }
-        //return option.label;
     }
 }

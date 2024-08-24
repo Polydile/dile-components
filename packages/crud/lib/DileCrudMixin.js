@@ -65,7 +65,6 @@ export const DileCrudMixin = (superclass) => class extends superclass {
     }
 
     modalUpdateSuccess() {
-        console.log('updatesuccess');
         setTimeout(() => this.updateElement.clearFeedback(), 1000);
         this.modalUpdate.close();
         this.refresh();

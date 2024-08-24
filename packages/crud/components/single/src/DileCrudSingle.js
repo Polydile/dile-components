@@ -124,7 +124,6 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
   }
 
   elementLoaded(e) {
-    console.log('elementloaded');
     this.element = e.detail.element;
   }
 

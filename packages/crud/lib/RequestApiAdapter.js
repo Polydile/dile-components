@@ -7,13 +7,9 @@
 
 export class RequestApiAdapter {
   adaptListRequestData(data) {
-    console.log('akiii adaptListRequestData');
-    console.log(data);
     return data;
   }
   adaptIdsRequestData(data) {
-    console.log('akiii adaptIdsRequestData');
-    console.log(data);
     return data;
   }
 }

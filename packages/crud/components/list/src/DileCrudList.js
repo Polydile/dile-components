@@ -90,13 +90,6 @@ export class DileCrudList extends DileLoading(LitElement) {
         
     }
 
-    // updated(changedProperties) {
-    //     if (changedProperties.has('config')) {
-    //         console.log('ejecutar refresh con cambiar el config', this.config, changedProperties.get('config'));
-    //        this.refresh();
-    //     }
-    // }
-
     render() {
         return html`
             ${this.ajaxTemplate}
@@ -204,7 +197,6 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     getSuccess(e) {
-        // console.log('getsuccess en crud list', e.detail);
         this.loading = false;
         this.elements = e.detail.elements;
         this.numItems = e.detail.numItems;
@@ -282,7 +274,6 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     crudSelectAll(e) {
-        console.log('crud select all en crud list', e.detail);
         this.isSelectAllActive = e.detail.pageChecked || e.detail.allChecked;
         if (e.detail.pageChecked) {
             this.dispactSelectAll(this.getPageIds());
@@ -295,7 +286,6 @@ export class DileCrudList extends DileLoading(LitElement) {
 
     dispactSelectAll(ids) {
         this.actionIds = ids;
-        console.log('dispactSelectAll', ids);
         this.dispatchEvent(new CustomEvent('crud-list-all-ids-selected', {
             bubbles: true,
             composed: true,
@@ -322,7 +312,6 @@ export class DileCrudList extends DileLoading(LitElement) {
             data.belongsTo = this.belongsTo;
             data.relationId = this.relationId;
         }
-        // console.log(data);
         data = this.config.requestAdapter.adaptIdsRequestData(data);
         this.ajaxgetallids.data = data;
         this.ajaxgetallids.generateRequest();

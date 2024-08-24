@@ -255,7 +255,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     updateRequest(e) {
-        console.log('itemEditRequest en crud', e.detail, this.updateElement);
         this.editItem(e.detail.itemId);
         this.modalUpdate.open();
     }
@@ -265,7 +264,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     keywordChanged(e) {
-        console.log('keywordChanged');
         this.setKeyword(e.detail.keyword);
     }
 
@@ -274,17 +272,14 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     sortFormChanged(e) {
-        console.log('sortFormChanged');
         this.listElement.setSort(e.detail);
     }
 
     pageSizeChanged(e) {
-        console.log('pageSizeChanged');
         this.listElement.setPageSize(e.detail.pageSize);
     }
 
     itemCheckboxChanged(e) {
-        console.log('itemboxchanged');
         if(e.detail.checked) {
             this.attachActionId(e.detail.itemId);
         } else {
@@ -326,7 +321,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     removeFilter(e) {
-        // console.log('removefilter', e.detail)
         if(e.detail.name == 'keyword') {
             this.shadowRoot.querySelector('dile-input-search').clear();
         } else {
@@ -335,12 +329,10 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     crudSelectAll(e) {
-        // console.log('crud select all en dile-crud', e.detail);
         this.actionIds = e.detail.ids;
     }
 
     itemDeleteRequest(e) {
-        console.log('itemDeleteRequest', e.detail);
         this.deleteElement.delete(e.detail.itemId)
     }
 

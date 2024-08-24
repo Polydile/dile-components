@@ -65,9 +65,7 @@ export class DileCrudInsert extends LitElement {
         }));
     }
 
-    setData(data) {
-        console.log('han invocado a setData', data);
-        
+    setData(data) {        
         this.updateComplete.then(() => {
             this.formElement.setData(data);    
         });

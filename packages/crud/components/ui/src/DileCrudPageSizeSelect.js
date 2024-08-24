@@ -31,7 +31,6 @@ export class DileCrudPageSizeSelect extends LitElement {
     }
 
     pageChanged(e) {
-        console.log('pagechanged', e.detail);
         this.dispatchEvent(new CustomEvent('page-size-changed', {
             bubbles: true,
             composed: true,

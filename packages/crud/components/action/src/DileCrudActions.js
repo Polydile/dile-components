@@ -156,7 +156,6 @@ export class DileCrudActions extends LitElement {
   }
 
   doSuccessAction(e) {
-    console.log('doSuccessAction', e.detail);
     this.selectedActionForm.resetData();
     this.dispatchEvent(new CustomEvent('crud-action-success', {
       bubbles: true,
