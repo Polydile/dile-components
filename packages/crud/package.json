@@ -1,6 +1,6 @@
 {
   "name": "@dile/crud",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Components to create a generic crud system based on Web Components and Lit",
   "main": "index.js",
   "scripts": {
@@ -24,8 +24,8 @@
   },
   "homepage": "https://dile-components.polydile.com/",
   "dependencies": {
+    "@dile/ui": "^2.1.8",
     "axios": "^1.7.2",
-    "@dile/ui": "^2.1.7",
     "lit": "^2.7.0 || ^3.0.0"
   },
   "gitHead": "f8612e377dd1d5f0b89fe10f9569e44f86a74aba"
