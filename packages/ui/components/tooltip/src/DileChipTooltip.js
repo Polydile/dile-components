@@ -22,8 +22,8 @@ export class DileChipTooltip  extends LitElement {
         display: flex;
         padding: var(--dile-chip-tooltip-padding, 0.2rem 0.7rem);
         border-radius: 1rem;
-        background-color: var(--dile-chip-tooltip-background-color, #7BB93D);
-        color: var(--dile-chip-tooltip-text-color, #fff);
+        background-color: var(--dile-primary-color, #7BB93D);
+        color: var(--dile-on-primary-color, #fff);
         --dile-icon-color: var(--dile-chip-tooltip-icon-color, #fff);
         --dile-icon-size: var(--dile-chip-tooltip-icon-size, 22px);
         transition: background-color 0.3s ease-in-out;
@@ -33,8 +33,6 @@ export class DileChipTooltip  extends LitElement {
       }
       .label {
           display: inline-block;
-          position: relative;
-          top: 1px;
           margin-right: 0.3rem;
       }
       @media(min-width: 350px) {

@@ -35,7 +35,7 @@ a position that doesnt exist the position will be top.
 
 ## Styling
 
-Use the [dile-tooltip](https://dile-components.polydile.com/components/dile-tooltip/) styles and some additional styles. Not documented yet...
+Use the [dile-tooltip](/components/dile-tooltip/) styles and some additional styles. Not documented yet...
 
 ## dile-tooltip demos
 
@@ -61,9 +61,9 @@ Use the [dile-tooltip](https://dile-components.polydile.com/components/dile-tool
 ```html:preview
 <style>
   .styled {
-      --dile-chip-tooltip-background-color: #7d187b; 
-      --dile-chip-tooltip-text-color: #ffc;
-      --dile-chip-tooltip-icon-color:  rgb(239, 161, 238) 
+      --dile-primary-color: #7d187b; 
+      --dile-on-primary-color:  rgb(239, 161, 238);
+      --dile-chip-tooltip-icon-color:  rgb(239, 161, 238);
     }
 </style>
 <dile-chip-tooltip class="styled" label="Styled!" message="I am an styled tooltip"></dile-chip-tooltip>
