@@ -45,7 +45,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-avatar-size | The size of the avatar | 36px
 --dile-avatar-background-color | background color for the avatar | --dile-secondary-color or #ddd
---dile-avatar-color | Color for the initial letter | #888
+--dile-avatar-color | Color for the initial letter |--dile-on-secondary-color or #888
 --dile-avatar-font-family | Initial font family | Arial, sans-serif
 
 

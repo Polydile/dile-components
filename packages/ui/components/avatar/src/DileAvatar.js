@@ -17,7 +17,7 @@ export class DileAvatar extends LitElement {
         border-radius: var(--dile-avatar-size, 36px);
         background-size: var(--dile-avatar-size, 36px);
         background-color: var(--dile-avatar-background-color, var(--dile-secondary-color, #ddd));
-        color: var(--dile-avatar-color, #888);
+        color: var(--dile-avatar-color, var(--dile-on-secondary-color, #888));
         text-align: center;
         font-size: calc(var(--dile-avatar-size, 36px) - 14px);
         font-weight: bold;
