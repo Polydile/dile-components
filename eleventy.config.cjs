@@ -2,6 +2,8 @@ const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const { JSDOM } = require('jsdom');
 const codePreviews = require('./docs/_utilities/code-previews.cjs');
 const colorBox = require('./docs/_utilities/color-box-transform.cjs');
+const path = require('path');
+const fs = require('fs-extra');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin);
@@ -61,6 +63,25 @@ module.exports = function(eleventyConfig) {
 
   // Añadir variable global con los tags
   eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
+
+  eleventyConfig.on('eleventy.after', () => {
+    setTimeout(() => {
+
+      const sourceDir = path.join(__dirname, 'docs/static-images');
+      const outputDir = path.join(__dirname, '_site/images');
+  
+      // Asegúrate de que el directorio de destino existe
+      fs.ensureDirSync(outputDir);
+  
+      // Copiar la carpeta de imágenes manualmente después de la compilación de Vite
+      fs.copySync(sourceDir, outputDir, {
+        filter: (src) => {
+          // Asegúrate de que solo se copien archivos desde 'docs/static-images'
+          return src.startsWith(sourceDir);
+        }
+      });
+    }, 500);
+  });
 
   return {
     dir: {
