@@ -16,6 +16,9 @@ export class AxiosInstanceBuilder {
     if(configuration.baseURL) {
       axiosConfig.baseURL = configuration.baseURL;
     }
+    if(configuration.headerAuthorization) {
+      axiosConfig.headers.Authorization = configuration.headerAuthorization;
+    }
     window.axiosInstance = Axios.create(axiosConfig);
   }
 }
