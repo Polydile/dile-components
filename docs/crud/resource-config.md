@@ -12,7 +12,7 @@ This configuration object is typically used for each API resource you want to ma
 
 ## Default Configuration
 
-There are default definitions for the configuration object, which can be found in the `lib/defaultConfig.js` file.
+There are default definitions for the configuration object, which can be found in the `lib/defaultConfig.js` file. See the [default config file on GitHub](https://github.com/Polydile/dile-components/blob/master/packages/crud/lib/defaultConfig.js).
 
 It is entirely possible to follow the format defined in that file to create a custom configuration object. However, the library offers a class called `CrudConfigBuilder` that simplifies this task.
 
