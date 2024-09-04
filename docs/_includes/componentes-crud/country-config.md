@@ -22,6 +22,9 @@ window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/co
   customization: {
     disablePagination: true,
     disableHelp: false,
+    disableKeywordSearch: false,
+    disableSort: false,
+    disableFilter: false,
   },
   actions: {
     single: [

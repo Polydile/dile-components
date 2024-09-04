@@ -14,6 +14,11 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
   customization: {
     hideCountSummary: false,
     hideCheckboxSelection: false,
+    disablePagination: false,
+    disableHelp: true,
+    disableKeywordSearch: false,
+    disableSort: false,
+    disableFilter: false,
   },
   sort: {
     options: [
