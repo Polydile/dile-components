@@ -12,6 +12,11 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
   customization: {
     hideCountSummary: false,
     hideCheckboxSelection: false,
+    disablePagination: false,
+    disableHelp: true,
+    disableKeywordSearch: false,
+    disableSort: false,
+    disableFilter: false,
   },
   sort: {
     options: [

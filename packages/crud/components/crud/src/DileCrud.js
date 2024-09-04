@@ -99,12 +99,14 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     get modalInsert() {
         return this.shadowRoot.getElementById('modalInsert');
     }
-    
     get listElement() {
         return this.shadowRoot.querySelector('dile-crud-list');
     }
     get deleteElement() {
         return this.shadowRoot.getElementById('eldelete');
+    }
+    get filtersElement() {
+        return this.shadowRoot.getElementById('elfilters');
     }
 
     // TEMPLATES
@@ -117,7 +119,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                     : ''
                 }
                 ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
-                <dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>
+                ${this.config.customization.disableKeywordSearch ? '' : html`<dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>`}
             </header>
 
             <main>
@@ -197,52 +199,65 @@ export class DileCrud extends DileCrudMixin(LitElement) {
 
     get navActionsTemplate() {
         return html`
-            <dile-nav>
-                ${this.config.customization.disableHelp
-                    ? ''
-                    : html`<div slot="menu">${this.helpTemplate}</div>`
-                }
-                <div class="actions" slot="actions">
-                    ${this.actionsTemplate}
-                    ${this.config.customization.disableFilter
+            ${this.disableAllActionFunctionalities 
+                ? ''
+                : html`
+                <dile-nav>
+                    ${this.config.customization.disableHelp
                         ? ''
-                        : html`
-                            <dile-crud-filters
-                                class="action-controller" 
-                                id="elfilters"
-                                @filters-changed=${this.filtersChanged}
-                                .filters=${this.config.availableFilters || []}
-                            ></dile-crud-filters>
-                        `
+                        : html`<div slot="menu">${this.helpTemplate}</div>`
                     }
-                    ${this.config.customization.disablePagination
-                        ? ''
-                        : html`
-                            <dile-crud-page-size 
-                                class="action-controller" 
-                                @page-size-changed=${this.pageSizeChanged}
-                                .pageSizes=${this.config.pageSize.available || [10, 25, 50]}
-                                pageSize="${this.config.pageSize.initial}"
-                            ></dile-crud-page-size>
-                        `
-                    } 
-                    ${this.config.customization.disableSort
-                        ? ''
-                        : html`
-                            <dile-crud-sort-form 
-                                class="action-controller"
-                                .sortOptions=${this.config.sort.options || []} 
-                                sortField="${this.config.sort.initialSortField}"
-                                sortDirection="${this.config.sort.initialSortDirection || 'desc'}"
-                                @sort-changed=${this.sortFormChanged}
-                            ></dile-crud-sort-form>  
-                        `
-                    }
-                </div>   
-            </dile-nav>
+                    <div class="actions" slot="actions">
+                        ${this.actionsTemplate}
+                        ${this.config.customization.disableFilter
+                            ? ''
+                            : html`
+                                <dile-crud-filters
+                                    class="action-controller" 
+                                    id="elfilters"
+                                    @filters-changed=${this.filtersChanged}
+                                    .filters=${this.config.availableFilters || []}
+                                ></dile-crud-filters>
+                            `
+                        }
+                        ${this.config.customization.disablePagination
+                            ? ''
+                            : html`
+                                <dile-crud-page-size 
+                                    class="action-controller" 
+                                    @page-size-changed=${this.pageSizeChanged}
+                                    .pageSizes=${this.config.pageSize.available || [10, 25, 50]}
+                                    pageSize="${this.config.pageSize.initial}"
+                                ></dile-crud-page-size>
+                            `
+                        } 
+                        ${this.config.customization.disableSort
+                            ? ''
+                            : html`
+                                <dile-crud-sort-form 
+                                    class="action-controller"
+                                    .sortOptions=${this.config.sort.options || []} 
+                                    sortField="${this.config.sort.initialSortField}"
+                                    sortDirection="${this.config.sort.initialSortDirection || 'desc'}"
+                                    @sort-changed=${this.sortFormChanged}
+                                ></dile-crud-sort-form>  
+                            `
+                        }
+                    </div>   
+                </dile-nav>
+            `
+          }
         `
     }
 
+    get disableAllActionFunctionalities() {
+        const customization = this.config.customization;
+        return customization.disableHelp 
+            && customization.disableFilter 
+            && customization.disablePagination
+            && customization.disableSort
+            && customization.hideCheckboxSelection;
+    }
     // BEHAVIOURS
 
     openInsert() {
@@ -302,7 +317,6 @@ export class DileCrud extends DileCrudMixin(LitElement) {
             this.count = this.actionIds.length;
         }
         this.actionIds = [...this.actionIds]
-        //this.actionsElement.setActionIds(this.actionIds);
     }
 
     actionSuccess(e) {

@@ -19,6 +19,9 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
   customization: {
     disablePagination: true,
     disableHelp: false,
+    disableKeywordSearch: false,
+    disableSort: false,
+    disableFilter: false,
   },
   actions: {
     single: [

@@ -16,6 +16,7 @@ export const defaultConfig = {
     initial: 25,
   },
   customization: {
+    disableKeywordSearch: true,
     hideCountSummary: false,
     hidePageReport: false,
     hideCheckboxSelection: true,
