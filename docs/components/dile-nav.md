@@ -48,8 +48,8 @@ You can customize the navigation bar by using the CSS custom properties bellow.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-nav-color | Nav text color | #fff
 --dile-nav-background-color | Nav background color | --dile-primary-color or #2962FF
+--dile-nav-color | Nav text color | --dile-on-primary-color or #fff
 --dile-nav-align-items | Nav align items (display grid property) | center
 --dile-nav-column-gap | Nav column gap (display grid property)| 1rem
 --dile-nav-padding-x | Nav padding horizontal | 0.6rem
