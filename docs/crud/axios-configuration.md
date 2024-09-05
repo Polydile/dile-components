@@ -38,9 +38,9 @@ This is useful because some frameworks, like Laravel, include an Axios instance 
 
 It is also useful if you are familiar with Axios and prefer to create your own instance, fully customized to your needs.
 
-### ALTERNATIVE 2: Create a new Axios instance
+### ALTERNATIVE 2: Create a new Axios instance with AxiosInstanceBuilder
 
-If you wish, we can assist you in easily creating the Axios instance using a minimal configuration. For this purpose, the package includes a class called `AxiosInstanceBuilder` that allows for comfortable configuration.
+For very common use cases, we can assist you in easily creating the Axios instance using a minimal configuration. For this purpose, the package includes the `AxiosInstanceBuilder` class, that allows a easy configuration.
 
 To use this class, you simply need to import it:
 
@@ -54,15 +54,20 @@ Then, we can create the Axios instance by creating an instance of the class:
 new AxiosInstanceBuilder();
 ```
 
-The Axios instance created this way will be configured in a basic manner, simply ensuring that the necessary headers are sent to the server to make XMLHttpRequest requests and expect JSON responses.
+The Axios instance created this way will be configured in a basic way, simply ensuring that the necessary headers are sent to the server to make XMLHttpRequest requests that expect JSON responses.
 
-You can also set up a more specific configuration object and pass it as a parameter to the constructor of the `AxiosInstanceBuilder` class.
+```javascript
+headers: {
+  'X-Requested-With': 'XMLHttpRequest',
+  'Accept': 'application/json',
+},
+```
+
+You can also set up a more specific configuration sending a configuration objetc to the constructor of the `AxiosInstanceBuilder` class.
 
 ```javascript
 let configuration = {
   baseURL: 'http://localhost',
-  withCredentials: true,
-  withXSRFToken: false,
 };
 
 new AxiosInstanceBuilder(configuration);
@@ -77,7 +82,37 @@ In the above case, the configuration object used to create the Axios instance wo
     'Accept': 'application/json',
   },
   baseURL: 'http://localhost',
-  withCredentials: true,
-  withXSRFToken: false,
 }
+```
+
+#### Available configuration props
+
+The configuration object used to create the Axios instance could have the following properties:
+
+- **baseURL**: The base URL for the API.
+- **withCredentials**: Boolean, determines if cross-site Access-Control requests should be made using credentials (e.g., cookies, authorization headers).
+- **withXSRFToken**: Boolean, indicates whether XSRF tokens should be included in the requests.
+- **headerAuthorization**: String, used to set the `Authorization` header with a token or other authentication credentials.
+
+#### Example Configuration for an API with Bearer Token Authentication
+
+For a REST API that uses Bearer token authentication, you could create the Axios instance like this:
+
+```javascript
+new AxiosInstanceBuilder({
+  headerAuthorization: `Bearer ${this.token}`,
+  baseURL: 'https://timer.escuelait.com'
+});
+```
+
+#### Configuration example for a Website
+
+If you're using these components in a more traditional website or with an API that uses cookies for authentication:
+
+```javascript
+new AxiosInstanceBuilder({
+  withCredentials: true,
+  withXSRFToken: true,
+  baseURL: 'https://example.com'
+});
 ```
