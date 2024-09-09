@@ -30,6 +30,15 @@ export const defaultConfig = {
   },
   responseAdapter: new ResponseApiAdapter(),
   requestAdapter: new RequestApiAdapter(),
+  insertOperation: {
+    type: 'modal'
+  },
+  updateOperation: {
+    type: 'modal'
+  },
+  insertOperation: {
+    type: 'modal'
+  },
   actions: {
     list: [
       {

@@ -262,7 +262,11 @@ export class DileCrud extends DileCrudMixin(LitElement) {
 
     openInsert() {
         this.dispatchEvent(new CustomEvent('crud-item-insert', { bubbles: true, composed: true }));
-        this.modalInsert.open();
+        if (this.config.insertOperation?.type === 'modal') {
+            this.modalInsert.open();
+        } else if (this.config.insertOperation?.type == 'handler') {
+            this.config.insertOperation.handler(this);
+        }          
     }
 
     insertSaveSuccess() {
@@ -270,8 +274,13 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     }
 
     updateRequest(e) {
-        this.editItem(e.detail.itemId);
-        this.modalUpdate.open();
+        const itemId = e.detail.itemId;
+        if (this.config.updateOperation?.type === 'modal') {
+            this.editItem(itemId);
+            this.modalUpdate.open();
+        } else if (this.config.updateOperation?.type == 'handler') {
+            this.config.updateOperation.handler(itemId, this);
+        }        
     }
 
     editItem(id) {
