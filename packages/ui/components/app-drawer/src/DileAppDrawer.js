@@ -42,7 +42,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         height: 100vh;
         top: 0;
         left: 0;
-        z-index: var(--dile-app-drawer-modal-z-index, var(--dile-app-drawer-z-index, 10000));
+        z-index: var(--dile-app-drawer-modal-z-index, var(--dile-app-drawer-z-index, 98));
         opacity: 0;
         transition: opacity 0.3s ease;
         background-color: var(
@@ -54,7 +54,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
       .menu {
         position: fixed;
         box-sizing: border-box;
-        z-index: var(--dile-app-drawer-z-index, 10000);
+        z-index: var(--dile-app-drawer-z-index, 99);
         background-color: var(--dile-primary-light-color, #ddd);
         transition: transform 0.3s ease;
         overflow: auto;
