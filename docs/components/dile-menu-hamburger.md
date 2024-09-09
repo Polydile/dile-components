@@ -69,8 +69,8 @@ And then use the ```dile-cloak``` attribute in the menu layer to hide it. On the
 
 You can customize the icons using this CSS Custom properties defined on this components:
 
-- [@dile/dile-app-drawer](https://github.com/Polydile/dile-components/tree/master/packages/dile-app-drawer)
-- [@dile/dile-hamburger](https://github.com/Polydile/dile-components/tree/master/packages/dile-hamburger)
+- [@dile/dile-app-drawer](/components/dile-app-drawer/)
+- [@dile/dile-hamburger](/components/dile-hamburger/)
 
 Additionally, the dile-menu-hamburger component defines the following CSS Custom Properties:
 
