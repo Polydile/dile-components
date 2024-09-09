@@ -72,6 +72,13 @@ You can customize the icons using this CSS Custom properties defined on this com
 - [@dile/dile-app-drawer](https://github.com/Polydile/dile-components/tree/master/packages/dile-app-drawer)
 - [@dile/dile-hamburger](https://github.com/Polydile/dile-components/tree/master/packages/dile-hamburger)
 
+Additionally, the dile-menu-hamburger component defines the following CSS Custom Properties:
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-hamburger-always-visible-zindex | z-index hamburger icon on "always visible" state | 100
+
+
 
 ## dile-app-drawer demos
 

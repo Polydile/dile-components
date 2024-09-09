@@ -28,7 +28,7 @@ export class DileMenuHamburger extends LitElement {
       }
       :host([hamburgerAlwaysVisible]) dile-hamburger {
         position: relative;
-        z-index: 100020;
+        z-index: var(--dile-hamburger-always-visible-zindex, 100);
       }
     `;
   }
