@@ -51,7 +51,7 @@ export class DileCrudListItem extends LitElement {
 
   static get properties() {
     return {
-      itemId: { type: Number },
+      itemId: { type: String },
       actionIds: { type: Array },
       disableEdit: { type: Boolean },
       disableDelete: { type: Boolean },
