@@ -23,6 +23,7 @@ export const defaultConfig = {
     hideEmptyInsertButton: false,
     disableInsert: false,
     disableEdit: false,
+    disableDelete: false,
     disablePagination: true,
     disableSort: true,
     disableFilter: true,
