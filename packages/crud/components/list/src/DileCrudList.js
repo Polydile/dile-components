@@ -204,7 +204,7 @@ export class DileCrudList extends DileLoading(LitElement) {
     }
 
     computeItemId(element) {
-        return element.id;
+        return this.config.computeItemId(element);
     }
 
     get allIdsUrl() {

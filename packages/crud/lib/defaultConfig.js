@@ -39,6 +39,9 @@ export const defaultConfig = {
   insertOperation: {
     type: 'modal'
   },
+  computeItemId(element) {
+    return element.id;
+  },
   actions: {
     list: [
       {
