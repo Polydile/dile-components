@@ -71,9 +71,9 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           width: var(--dile-modal-width, 280px);
           min-width: var(--dile-modal-min-width, 250px);
           max-width: var(--dile-modal-max-width, 100vw);
-          height: var(--dile-modal-height, auto);
+          height: auto;
           min-height: var(--dile-modal-min-height, auto);
-          max-height: var(--dile-modal-max-height, 100vh);
+          
           background-color: var(--dile-modal-content-background-color, #fff);
           box-shadow: var(--dile-modal-content-shadow-displacement, 6px)
             var(--dile-modal-content-shadow-displacement, 6px)
@@ -87,8 +87,9 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
         article {
           overflow: auto;
           max-height: 100%;
-          height: 100%;
           padding-right: var(--dile-modal-content-padding, 1em);
+          height: var(--dile-modal-height, auto);
+          max-height: var(--dile-modal-max-height, 90vh);
         }
         .transparent {
           opacity: 0;
