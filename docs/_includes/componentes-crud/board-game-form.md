@@ -25,7 +25,6 @@ export class DemoBoardGamesForm extends DileForm(LitElement) {
   }
 
   firstUpdated() {
-    console.log('belongsTo data', this.belongsTo, this.relationId)
     if(this.belongsTo == "country" && this.relationId) {
       this.shadowRoot.getElementById('countryselect').value = this.relationId;
     }

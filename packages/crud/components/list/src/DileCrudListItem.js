@@ -93,7 +93,9 @@ export class DileCrudListItem extends LitElement {
   }
 
   includes(actionIds, itemId) {
-    return actionIds.includes(itemId);
+    const stringIds = actionIds.map(String);
+    // console.log(stringIds, String(itemId));
+    return stringIds.includes(String(itemId));
   }
 
   checkboxChanged(e) {
