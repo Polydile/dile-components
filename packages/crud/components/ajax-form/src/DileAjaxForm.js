@@ -11,7 +11,7 @@ export class DileAjaxForm extends LitElement {
             :host {
                 display: block;
             }
-            :host([small]) {
+            :host([buttonSmall]) {
                 --dile-button-padding-y: 0.25rem;
                 --dile-button-padding-x: 0.5rem;
                 --dile-button-font-size: 0.875rem;
