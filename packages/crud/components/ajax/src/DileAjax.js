@@ -7,6 +7,7 @@ export class DileAjax extends DileAxios(LitElement) {
       data: {  type: Object },
       method: { type: String },
       url: { type: String },
+      statusSuccessCodes: { type: Array },
     }
   }
 
@@ -15,6 +16,7 @@ export class DileAjax extends DileAxios(LitElement) {
     this.data = {};
     this.method = 'post';
     this.url = '';
+    this.statusSuccessCodes = [200, 201];
   }
 
   generateRequest() {
@@ -39,7 +41,7 @@ export class DileAjax extends DileAxios(LitElement) {
         break
     }
     request.then((response) => {
-      if(response.status == 200) {
+      if(this.statusSuccessCodes.includes(response.status)) {
         let res = response.data;
         if(res.error) {
           this.dispatchError(res.data);
@@ -53,7 +55,7 @@ export class DileAjax extends DileAxios(LitElement) {
           }));
         }
       } else {
-        this.dispatchError('Bad server response');
+        this.dispatchError('Unhandled success server response');
       }
     })
     .catch(err => {

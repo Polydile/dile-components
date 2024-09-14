@@ -49,6 +49,7 @@ Once the method is invoked, the response will be received in one of the two cust
 - **method**: String, the HTTP method of the connection. It must be one of the following values: "get", "post", "put", "delete", "patch".
 - **data**: Object, the data that will be sent to the server. In GET requests, the data will be sent via query string. In other types of requests, the data will be sent in the body of the HTTP request.
 - **url**: String, the URL for the conection.
+- **statusSuccessCodes**: Array, the list of http response codes handled as success by this component. By default is [200, 201].
 
 ### Methods
 

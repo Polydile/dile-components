@@ -111,7 +111,7 @@ export class DileAjaxForm extends LitElement {
 
     doErrorGet(e) {
         this.responseAdapter.setResponse(e.detail);
-        let msg = this.customMessage(false);
+        let msg = this._customErrorMessage();
         this.feedback.negativeFeedback(msg);
         this.dispatchEvent(new CustomEvent('dile-ajax-form-get-error', { 
             bubbles: true,
@@ -141,7 +141,7 @@ export class DileAjaxForm extends LitElement {
     
     doErrorSave(e) {
         this.responseAdapter.setResponse(e.detail);
-        let msg = this.customMessage(true);
+        let msg = this._customErrorMessage();
         this.feedback.negativeFeedbackWithDelay(msg, 5000);
         let validationErrors = this.responseAdapter.getValidationErrors();
         this.form.showErrors(validationErrors);
@@ -159,7 +159,7 @@ export class DileAjaxForm extends LitElement {
     doSuccessSave(e) {
         this.responseAdapter.setResponse(e.detail);
         let data = this.responseAdapter.getData();
-        let msg = this.customMessage(true);
+        let msg = this._customSuccessMessage();
         this.feedback.positiveFeedbackWithDelay(msg, 5000);
         this.dispatchEvent(new CustomEvent('save-success', { 
             bubbles: true,
@@ -202,7 +202,15 @@ export class DileAjaxForm extends LitElement {
         }
     }
 
-    customMessage(success) {
+    _customErrorMessage() {
+        return this._customMessage(false);
+    }
+
+    _customSuccessMessage() {
+        return this._customMessage(true);
+    }
+    
+    _customMessage(success) {
         let message = this.responseAdapter.getMessage();
         if(message) {
             return message;
