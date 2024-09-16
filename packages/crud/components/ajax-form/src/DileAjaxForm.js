@@ -100,7 +100,11 @@ export class DileAjaxForm extends LitElement {
     }
 
     loadData() {
-        this.ajaxget.generateRequest();
+        if(this.ajaxget) {
+            this.ajaxget.generateRequest();
+        } else {
+            setTimeout(() => this.loadData(), 100);
+        }
     }
 
     doAction() {
