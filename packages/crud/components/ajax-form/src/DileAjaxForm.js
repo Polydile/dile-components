@@ -4,8 +4,9 @@ import '@dile/ui/components/button/button.js';
 import '@dile/ui/components/inline-feedback/inline-feedback.js';
 import {capitalizeFirstLetter} from '../../../lib/capitalizeString.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileAjaxForm extends LitElement {
+export class DileAjaxForm extends DileI18nMixin(LitElement) {
     static styles = [
         css`
             :host {
@@ -88,6 +89,7 @@ export class DileAjaxForm extends LitElement {
                 url="${this.endpoint}/${this.relatedId}"
                 @ajax-success="${this.doSuccessGet}"
                 @ajax-error="${this.doErrorGet}"
+                language="${this.language}"
             ></dile-ajax>
             <dile-ajax
                 id="ajaxsave"
@@ -95,6 +97,7 @@ export class DileAjaxForm extends LitElement {
                 url="${this.endpoint}${this.operation == 'insert' ? '' : `/${this.relatedId}`}"
                 @ajax-success="${this.doSuccessSave}"
                 @ajax-error="${this.doErrorSave}"
+                language="${this.language}"
             ></dile-ajax>
         `
     }
@@ -186,7 +189,7 @@ export class DileAjaxForm extends LitElement {
             case 'update':
                 return 'put';
         }
-        throw "Operation not supported in fct-ajax-form use 'insert' or 'update'";
+        throw this.translations.ajax_form_not_supported;
     }
 
     clearErrors() {
@@ -220,9 +223,9 @@ export class DileAjaxForm extends LitElement {
             return message;
         }
         if(success) {
-            return `Success ${this.operation}`;
+            return this.translations.success_operation(this.operation);
         } 
-        return `Error ${this.operation}`;
+        return this.translations.error_operation(this.operation);
     }
 }
 

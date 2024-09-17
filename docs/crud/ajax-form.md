@@ -59,6 +59,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **formIdentifier**: String, the identifier (ID attribute) of the form element provided in the slot, which contains the fields from which data will be retrieved or displayed. The default value is "form".
 - **setDataOnInit**: Boolean, if `true`, indicates that the component should use the object provided in the `data` property to populate the form fields upon initialization. This can be useful when you have an insert form that you want to prepopulate with specific values in the form fields.
 - **responseAdapter**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 
 ### Methods
 

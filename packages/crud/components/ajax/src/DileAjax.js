@@ -1,7 +1,8 @@
 import { LitElement, html } from 'lit';
 import { DileAxios } from '../../../lib/DileAxios.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileAjax extends DileAxios(LitElement) {
+export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
   static get properties() {
     return {
       data: {  type: Object },
@@ -55,7 +56,7 @@ export class DileAjax extends DileAxios(LitElement) {
           }));
         }
       } else {
-        this.dispatchError('Unhandled success server response');
+        this.dispatchError(this.translations.http_unhandled_success);
       }
     })
     .catch(err => {
@@ -75,26 +76,29 @@ export class DileAjax extends DileAxios(LitElement) {
           if(err.response.data.message) {
             this.dispatchError(err.response.data.message);
           } else {
-            this.dispatchError("Not found error");
+            this.dispatchError(this.translations.http_404);
           }
           break;
         case 401:
-          this.dispatchError('Unauthorized. Your session may have expired');
+          this.dispatchError(this.translations.http_401);
           break;
+        case 405:
+            this.dispatchError(this.translations.http_405);
+            break;
         case 419:
-          this.dispatchError('Your session has expired. Please refresh the page');
+          this.dispatchError(this.translations.http_419);
           break;
         case 502:
-          this.dispatchError('Connection error, invalid gateway');
+          this.dispatchError(this.translations.http_502);
           break;
         case 504:
-          this.dispatchError('Connection timeout with the gateway');
+          this.dispatchError(this.translations.http_504);
           break;
         default:
-          this.dispatchError('Action not completed due to a server error');
+          this.dispatchError(this.translations.http_other_error);
       }
     } else {
-      this.dispatchError('No response received from the server');
+      this.dispatchError(this.translations.http_no_response);
     }
   }
 
