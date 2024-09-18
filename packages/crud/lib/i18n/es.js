@@ -15,4 +15,5 @@ export const translations = {
   update_label: "Actualizar",
   delete_label: "Borrar",
   cancel_label: "Cancelar",
+  delete_confirm_message: "¿Estás seguro que quieres borrar este ítem?",
 };

@@ -81,7 +81,6 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
     }
 
     actionLabelComputed(label, translations) {
-        console.log('allll', label, translations);
         return label ? label : translations?.update_label ? translations.update_label : 'Update';
     }
 }

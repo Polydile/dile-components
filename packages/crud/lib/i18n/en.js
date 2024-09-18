@@ -15,4 +15,5 @@ export const translations = {
   update_label: "Update",
   delete_label: "Delete",
   cancel_label: "Cancel",
+  delete_confirm_message: "Are you sure you want to delete this item?",
 };

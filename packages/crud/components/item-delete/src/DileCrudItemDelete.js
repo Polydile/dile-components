@@ -41,7 +41,6 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   constructor() {
     super();
     this.responseAdapter = new ResponseApiAdapter();
-    this.confirmMessage = 'Are you sure you want to delete this item?';
   }
 
   firstUpdated() {
@@ -59,12 +58,12 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
           @ajax-error="${this.doErrorDelete}"
       ></dile-ajax>
       <dile-confirm 
-          cancelLabel="${this.cancelLabel}"
-          acceptLabel="${this.acceptLabel}"
+          cancelLabel="${this.cancelLabelComputed(this.cancelLabel, this.translations)}"
+          acceptLabel="${this.acceptLabelComputed(this.acceptLabel, this.translations)}"
           id="elconfirm"
           @dile-confirm-accepted=${this.deleteAccepted}
       >
-          <p>${this.confirmMessage}</p>
+          <p>${this.confirmMessageComputed(this.confirmMessage, this.translations)}</p>
       </dile-confirm>
   `;
   }
@@ -101,5 +100,17 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
       msg = 'Error';
     }  
     return msg;
+  }
+
+  cancelLabelComputed(label, translations) {
+    return label ? label : translations?.cancel_label ? translations.cancel_label : 'Cancel';
+  }
+
+  acceptLabelComputed(label, translations) {
+    return label ? label : translations?.delete_label ? translations.delete_label : 'Delete';
+  }
+
+  confirmMessageComputed(message, translations) {
+    return message ? message : translations?.delete_confirm_message ? translations.delete_confirm_message : 'Are you sure?';
   }
 }
