@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 import '../../ajax-form/ajax-form.js'
 import { formStyles } from '../../../styles/form-styles.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudInsert extends LitElement {
+export class DileCrudInsert extends DileI18nMixin(LitElement) {
     static styles = [
         formStyles,
         css`
@@ -51,6 +52,7 @@ export class DileCrudInsert extends LitElement {
                 ?buttonSmall="${this.buttonSmall}"
                 .responseAdapter="${this.responseAdapter}"
                 formIdentifier="${this.formIdentifier}"
+                language="${this.language}"
             >
                 ${this.formTemplate(this.belongsTo, this.relationId)}
             </dile-ajax-form> 
