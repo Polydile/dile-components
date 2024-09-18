@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/confirm/confirm';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudItemDelete extends LitElement {
+export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -41,8 +42,6 @@ export class DileCrudItemDelete extends LitElement {
     super();
     this.responseAdapter = new ResponseApiAdapter();
     this.confirmMessage = 'Are you sure you want to delete this item?';
-    this.cancelLabel = 'Cancel';
-    this.acceptLabel = 'Delete'
   }
 
   firstUpdated() {

@@ -29,7 +29,6 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
     constructor() {
         super();
         this.responseAdapter = new ResponseApiAdapter();
-        this.actionLabel = 'Update';
         this.loadOnInit = false;
         this.formIdentifier = 'updateform';
     }
@@ -48,7 +47,7 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
                 id="elform"
                 operation="update"
                 endpoint="${this.endpoint}"
-                actionLabel="${this.actionLabel}"
+                actionLabel="${this.actionLabelComputed(this.actionLabel, this.translations)}"
                 @save-success="${this.doSuccessSave}"
                 ?buttonSmall="${this.buttonSmall}"
                 relatedId="${this.relatedId}"
@@ -79,5 +78,10 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
 
     clearFeedback() {
         this.formElement.clearFeedback();
+    }
+
+    actionLabelComputed(label, translations) {
+        console.log('allll', label, translations);
+        return label ? label : translations?.update_label ? translations.update_label : 'Update';
     }
 }

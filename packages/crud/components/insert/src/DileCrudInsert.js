@@ -29,7 +29,6 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
     constructor() {
         super();
         this.responseAdapter = new ResponseApiAdapter();
-        this.actionLabel = 'Insert';
         this.formIdentifier = 'insertform';
     }
 
@@ -47,7 +46,7 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
             <dile-ajax-form
                 operation="insert"
                 endpoint="${this.endpoint}"
-                actionLabel="${this.actionLabel}"
+                actionLabel="${this.actionLabelComputed(this.actionLabel, this.translations)}"
                 @save-success="${this.doSuccessSave}"
                 ?buttonSmall="${this.buttonSmall}"
                 .responseAdapter="${this.responseAdapter}"
@@ -76,5 +75,9 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
 
     clearFeedback() {
         this.formElement.clearFeedback();
+    }
+
+    actionLabelComputed(label, translations) {
+        return label ? label : translations?.insert_label ? translations.insert_label : 'Insert';
     }
 }
