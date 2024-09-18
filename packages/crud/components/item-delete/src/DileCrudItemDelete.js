@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/confirm/confirm';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
+import '../../ajax/ajax.js';
 
 export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   static styles = [
@@ -69,8 +70,12 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   }
 
   delete(itemId) {
-    this.relatedId = itemId;
-    this.elconfirm.open();
+    if(itemId != "" && itemId != undefined) {
+      this.relatedId = itemId;
+      this.elconfirm.open();
+    } else {
+      throw new Error('Please provide the element id to delete');
+    }
   }
 
   deleteAccepted() {
