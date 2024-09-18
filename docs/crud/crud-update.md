@@ -43,6 +43,7 @@ Use the component.
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
 - **responseAdapter**: Object, optional. An API configuration object (see the [response adapter page](/crud/response-adapter/)).
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 
 ### Methods
 
