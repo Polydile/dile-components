@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import { deepMerge } from '../../../lib/deepMerge.js';
 import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '@dile/ui/components/button/button.js';
 import '../../ajax/ajax.js'
