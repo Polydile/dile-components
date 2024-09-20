@@ -3,8 +3,9 @@ import '@dile/ui/components/button/button-icon.js';
 import { checkboxBlankIcon, arrowDropDownIcon, checkboxCheckedIcon } from '@dile/icons';
 import '@dile/ui/components/icon/icon.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudSelectAll  extends LitElement {
+export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
 
   static get styles() {
     return css`
@@ -18,6 +19,13 @@ export class DileCrudSelectAll  extends LitElement {
       dile-button-icon {
         display: flex;
         align-items: center;
+      }
+
+      dile-button-icon div {
+        max-width: 130px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
       dile-button-icon div {
         margin-right: 0.5rem;
@@ -75,8 +83,8 @@ export class DileCrudSelectAll  extends LitElement {
   render() {
     return html`
       <dile-menu-overlay>
-        <dile-button-icon small .icon="${this.selectIcon(this.mainChecked)}" slot="trigger">
-          <div>Select <span class="desk">all</span></div>
+        <dile-button-icon no-wrap small .icon="${this.selectIcon(this.mainChecked)}" slot="trigger">
+          <div>${this.translations.select} <span class="desk">${this.translations.all}</span></div>
           <dile-icon .icon=${arrowDropDownIcon} class="drop"></dile-icon>
         </dile-button-icon>
         <div slot="content" class="content">
@@ -86,7 +94,7 @@ export class DileCrudSelectAll  extends LitElement {
               <p class="option" @click=${this.checkPageItems}>
                 <dile-icon .icon=${this.selectIcon(this.pageChecked)} class="drop"></dile-icon>
                 <span>
-                  Todos de esta página 
+                  ${this.translations.all_in_page} 
                   (${this.pageSize > this.numItems ? this.numItems : this.pageSize})
                 </span>
               </p>
@@ -95,7 +103,7 @@ export class DileCrudSelectAll  extends LitElement {
           <p class="option" @click=${this.checkAllItems}>
             <dile-icon .icon=${this.selectIcon(this.allChecked)} class="drop"></dile-icon>
             <span>
-              Seleccionar todos 
+              ${this.translations.select_matching}
               (${this.numItems})
             </span>
           </p>

@@ -16,4 +16,14 @@ export const translations = {
   delete_label: "Borrar",
   cancel_label: "Cancelar",
   delete_confirm_message: "¿Estás seguro que quieres borrar este ítem?",
+  items_total: "Elementos en total",
+  showing_page_size: (pageSize) => `Mostrando ${pageSize} elementos por página.`,
+  empty_list: "No tenemos elementos todavía",
+  one_page: "Página 1 de 1",
+  current_page: (page, numPages) => `Página ${page} de ${numPages}`,
+  select: "Seleccionar",
+  all: "todos",
+  all_in_page: "Todos de esta página",
+  select_matching: "Seleccionar coincidentes",
+  
 };

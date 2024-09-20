@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import '../../ui/crud-pagination-nav-button';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudListPaginationLinks extends LitElement {
+export class DileCrudListPaginationLinks extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -52,7 +53,7 @@ export class DileCrudListPaginationLinks extends LitElement {
                   ></dile-crud-pagination-nav-button>
               </span>
               <span class="pagination-summary">
-                  Página ${this.paginationData.currentPage} de ${this.numPages(this.numItems, this.pageSize)}
+                  ${this.translations.current_page(this.paginationData.currentPage, this.numPages(this.numItems, this.pageSize))}
               </span>
               <span class="pagination-next">
                   <dile-crud-pagination-nav-button 
@@ -66,7 +67,7 @@ export class DileCrudListPaginationLinks extends LitElement {
     } else {
       return html`
           <div class="pagination-summary-one-page">
-                  Page 1 of 1
+                  ${this.translations.one_page}
           </div>
       `;
     }

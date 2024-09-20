@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudListService extends LitElement {
+export class DileCrudListService extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -44,6 +45,7 @@ export class DileCrudListService extends LitElement {
         url="${this.cleanUrl}"
         @ajax-success="${this.doSuccessGet}"
         @ajax-error="${this.doErrorGet}"
+        language="${this.language}"
       ></dile-ajax>
     `;
   }

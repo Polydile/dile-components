@@ -7,8 +7,9 @@ import '../../list/crud-list-pagination-links.js';
 import '../crud-list-item.js';
 import '../crud-select-all';
 import '../crud-list-service.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudList extends DileLoading(LitElement) {
+export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     static styles = [
         loadingStyles,
         css`
@@ -129,13 +130,14 @@ export class DileCrudList extends DileLoading(LitElement) {
                         pageSize=${this.pageSize}
                         numItems=${this.numItems}
                         ?disablePagination=${this.config.customization?.disablePagination}
+                        language="${this.language}"
                     ></dile-crud-select-all>
                   `
                 }
                 <span>
                     ${this.numItems != undefined 
                         ? html`
-                            ${this.numItems} items in total. ${this.config.customization?.disablePagination ? '' : html`Showing ${this.pageSize} items per page.` }
+                            ${this.numItems} ${this.translations.items_total}. ${this.config.customization?.disablePagination ? '' : this.translations.showing_page_size(this.pageSize) }
                           `
                         : 'Loading...' 
                     }
@@ -156,6 +158,7 @@ export class DileCrudList extends DileLoading(LitElement) {
                 belongsTo=${this.belongsTo}
                 relationId=${this.relationId}
                 @crud-list-get-success=${this.getSuccess}
+                language="${this.language}"
             ></dile-crud-list-service>
             <dile-ajax
                 id="ajaxgetallids"
@@ -163,18 +166,24 @@ export class DileCrudList extends DileLoading(LitElement) {
                 url="${this.allIdsUrl}"
                 @ajax-success="${this.doSuccessGetIds}"
                 @ajax-error="${this.doErrorGet}"
+                language="${this.language}"
             ></dile-ajax>
         `;
     }
     get emptyTemplate() {
         return html`
             <div class="empty">
-                <p>There are no items yet</p>
+                <p>${this.translations.empty_list}</p>
                 ${this.config.customization.disableInsert || this.config.customization?.hideEmptyInsertButton
                     ? ''
-            : html`<p><dile-button @click=${this.dispatchInsertRequest}>${this.config.labels.insertAction}</dile-button></p>`
+                    : html`
+                        <p>
+                            <dile-button @click=${this.dispatchInsertRequest}>
+                                ${this.config.labels.insertAction}
+                            </dile-button>
+                        </p>
+                      `
                 }
-                
             </div>
         `;
     }
@@ -219,6 +228,7 @@ export class DileCrudList extends DileLoading(LitElement) {
                   pageSize="${this.pageSize}"
                   @crud-pagination-prev=${this.goPrev}
                   @crud-pagination-next=${this.goNext}
+                  language="${this.language}"
             ></dile-crud-list-pagination-links>
           `
         }
