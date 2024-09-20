@@ -83,7 +83,15 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   }
 
   doSuccessDelete(e) {
-    this.dispatchEvent(new CustomEvent('delete-success', { bubbles: true, composed: true }));
+    let msg = this.computeResponseMessage(e.detail);
+    this.dispatchEvent(new CustomEvent('delete-success', { 
+      bubbles: true, 
+      composed: true,
+      detail: {
+        msg,
+        previousDetail: e.detail,
+      } 
+    }));
   }
   
   doErrorDelete(e) {
