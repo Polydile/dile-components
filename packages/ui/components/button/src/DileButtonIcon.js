@@ -24,6 +24,9 @@ export class DileButtonIcon extends DileButton {
         button:hover {
           --dile-icon-color: var(--dile-button-icon-hover-color, #303030);
         }
+        :host([no-wrap]) {
+          white-space: nowrap;
+        }
       `
     ];
   }

@@ -70,6 +70,7 @@ html`<dile-button-icon .icon=${imageIcon}>Yoga practice</dile-button-icon>`
 Same as dile-button, but also:
 
 - **icon**: Lit-html template with the content to display the icon
+- **no-wrap**: Apply the necessary CSS style so that the button's text does not break into multiple lines.
 
 ## CSS Custom Properties
 
