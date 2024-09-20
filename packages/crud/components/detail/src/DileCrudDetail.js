@@ -153,6 +153,7 @@ export class DileCrudDetail extends DileLoading(LitElement) {
   }
 
   doErrorGet(e) {
+    this.loading = false;
     this.dispatchEvent(new CustomEvent('crud-item-detail-load-error', {
       bubbles: true,
       composed: true,
