@@ -139,7 +139,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         ? html`
                             ${this.numItems} ${this.translations.items_total}. ${this.config.customization?.disablePagination ? '' : this.translations.showing_page_size(this.pageSize) }
                           `
-                        : 'Loading...' 
+                        : this.translations.loading 
                     }
                 </span>
             </div>

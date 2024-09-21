@@ -17,8 +17,9 @@ import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
 import { crudStyles } from '../../../styles/crud-styles.js';
 import { addIcon } from '@dile/icons';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrud extends DileCrudMixin(LitElement) {
+export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     static styles = [
         formStyles,
         crudStyles,
@@ -149,7 +150,9 @@ export class DileCrud extends DileCrudMixin(LitElement) {
     get insertButtomTemplate() {
         return html`
             <div class="insertButtonContainer">
-                <dile-button-icon @click="${this.openInsert}" .icon="${addIcon}">${this.config.labels.insertAction}</dile-button-icon>
+                <dile-button-icon @click="${this.openInsert}" .icon="${addIcon}">
+                    ${this.insertLabelComputed(this.config.labels.insertAction, this.translations)}
+                </dile-button-icon>
             </div>
         `
     }
@@ -162,11 +165,11 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 blocking
             >
                 <dile-crud-insert
-                    title=${this.config.labels.insertWindowTitle}
+                    title=${this.insertLabelComputed(this.config.labels.insertWindowTitle, this.translations)}
                     endpoint="${this.config.endpoint}"
                     .responseAdapter=${this.config.responseAdapter}
                     .formTemplate=${this.config.templates.insertForm}
-                    actionLabel=${this.config.labels.insertAction}
+                    actionLabel=${this.insertLabelComputed(this.config.labels.insertAction, this.translations)}
                     formIdentifier="${this.config.formIds.insertForm}"
                     @crud-insert-success="${this.modalInsertSuccess}"
                     belongsTo=${this.belongsTo}
@@ -186,14 +189,15 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                 .actionIds=${this.actionIds}
                 belongsTo=${this.belongsTo}
                 relationId=${this.relationId}
+                language="${this.language}"
             ></dile-crud-list>
         `
     }
     get helpTemplate() {
         return html`
             <dile-modal-help 
-                title="${this.config.labels.helpTitle}"
-                label="${this.config.labels.helpButtonLabel}"
+                title="${this.helpLabelComputed(this.config.labels.helpTitle, this.translations)}"
+                label="${this.helpLabelComputed(this.config.labels.helpButtonLabel, this.translations)}"
             >${this.config.templates.help()}</dile-modal-help>`
     }
 
@@ -217,6 +221,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                                     id="elfilters"
                                     @filters-changed=${this.filtersChanged}
                                     .filters=${this.config.availableFilters || []}
+                                    language="${this.language}"
                                 ></dile-crud-filters>
                             `
                         }
@@ -228,6 +233,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                                     @page-size-changed=${this.pageSizeChanged}
                                     .pageSizes=${this.config.pageSize.available || [10, 25, 50]}
                                     pageSize="${this.config.pageSize.initial}"
+                                    language="${this.language}"
                                 ></dile-crud-page-size>
                             `
                         } 
@@ -240,6 +246,7 @@ export class DileCrud extends DileCrudMixin(LitElement) {
                                     sortField="${this.config.sort.initialSortField}"
                                     sortDirection="${this.config.sort.initialSortDirection || 'desc'}"
                                     @sort-changed=${this.sortFormChanged}
+                                    language="${this.language}"
                                 ></dile-crud-sort-form>  
                             `
                         }

@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 import '../crud-list-options';
 import '../crud-page-size-select';
 import { descriptionIcon } from '@dile/icons';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudPageSize extends LitElement {
+export class DileCrudPageSize extends DileI18nMixin(LitElement) {
 
     static get properties() {
         return {
@@ -19,7 +20,7 @@ export class DileCrudPageSize extends LitElement {
 
     render() {
         return html`
-            <dile-crud-list-options .icon="${descriptionIcon}" label="Page">
+            <dile-crud-list-options .icon="${descriptionIcon}" label="${this.translations.page_label}">
                 <dile-crud-page-size-select pageSize="${this.pageSize}" .pageSizes=${this.pageSizes}></dile-crud-page-size-select>
             </dile-crud-list-options>
         `;

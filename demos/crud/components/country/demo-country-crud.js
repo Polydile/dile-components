@@ -20,6 +20,7 @@ export class DemoCountriesCrud extends LitElement {
   constructor() {
     super();
     this.config = countryConfig.getConfig();
+    console.log(this.config);
   }
 
   render() {

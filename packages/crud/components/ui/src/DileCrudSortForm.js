@@ -4,8 +4,9 @@ import '@dile/ui/components/radio-group/radio-group';
 import '@dile/ui/components/radio-group/radio';
 import { sortIcon } from '@dile/icons';
 import '../crud-list-options';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudSortForm extends LitElement {
+export class DileCrudSortForm extends DileI18nMixin(LitElement) {
   static styles = [
     css`
         :host {
@@ -49,7 +50,7 @@ export class DileCrudSortForm extends LitElement {
 
   render() {
     return html`
-        <dile-crud-list-options class="action-controller" .icon="${sortIcon}" label="Order">
+        <dile-crud-list-options class="action-controller" .icon="${sortIcon}" label="${this.translations.sort_label}">
             <dile-radio-group 
                 name="selector" 
                 @dile-radio-group-changed=${this.radioGroupChanged}

@@ -9,26 +9,6 @@ export const DileCrudMixin = (superclass) => class extends superclass {
         return this.shadowRoot.getElementById('modalUpdate');
     }
 
-    // get listElement() {
-    //     return this.shadowRoot.querySelector('dile-crud-list');
-    // }
-    // get insertElement() {
-    //     return this.shadowRoot.getElementById('elinsert');
-    // }
-    // get deleteElement() {
-    //     return this.shadowRoot.getElementById('eldelete');
-    // }
-    // get actionsElement() {
-    //     return this.shadowRoot.getElementById('elactions');
-    // }
-    // get filtersElement() {
-    //     return this.shadowRoot.getElementById('elfilters');
-    // }
-    
-    // itemDeleteRequest(e) {
-    //     this.deleteElement.delete(e.detail.itemId);
-    // }
-
     get actionsTemplate() {
         return html`
             <dile-crud-actions
@@ -52,11 +32,11 @@ export const DileCrudMixin = (superclass) => class extends superclass {
             >
                 <dile-crud-update
                     id="updateElement"
-                    title=${this.config.labels.updateWindowTitle}
+                    title="${this.updateLabelComputed(this.config.labels.updateWindowTitle, this.translations)}"
                     endpoint="${this.config.endpoint}"
                     .responseAdapter=${this.config.responseAdapter}
                     .formTemplate=${this.config.templates.updateForm}
-                    actionLabel=${this.config.labels.updateAction}
+                    actionLabel="${this.updateLabelComputed(this.config.labels.updateAction, this.translations)}"
                     formIdentifier="${this.config.formIds.updateForm}"
                     @crud-update-success="${this.modalUpdateSuccess}"
                 ></dile-crud-update>
@@ -69,4 +49,15 @@ export const DileCrudMixin = (superclass) => class extends superclass {
         this.modalUpdate.close();
         this.refresh();
     }
+
+    insertLabelComputed(label, translations) {
+        return label ? label : translations?.insert_label ? translations.insert_label : 'Insert';
+    }
+    updateLabelComputed(label, translations) {
+        return label ? label : translations?.update_label ? translations.update_label : 'Save';
+    }
+    helpLabelComputed(label, translations) {
+        return label ? label : translations?.help_label ? translations.help_label : 'Help';
+    }
+    
 }

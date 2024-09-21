@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 import { filterIcon } from '@dile/icons';
 import '../crud-filters-form.js';
 import '../crud-list-options.js'
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudFilters extends LitElement {
+export class DileCrudFilters extends DileI18nMixin(LitElement) {
     static get properties() {
       return {
         filters: { type: Array }
@@ -17,7 +18,7 @@ export class DileCrudFilters extends LitElement {
 
     render() {
         return html`
-            <dile-crud-list-options .icon="${filterIcon}" label="Filtros" >
+            <dile-crud-list-options .icon="${filterIcon}" label="${this.translations.filters_label}" >
                 <dile-crud-filters-form 
                     id="elform"
                     .filters=${this.filters} 
