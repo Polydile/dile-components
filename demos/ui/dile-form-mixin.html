@@ -54,6 +54,7 @@
     import '@dile/ui/components/select/select.js';
     import '@dile/ui/components/select/select-ajax.js';
     import '@dile/ui/components/textarea/textarea.js';
+    import '@dile/ui/components/switch/switch.js';
     import '@dile/editor/editor.js';
 
     import { LitElement, html, css } from 'lit';
@@ -92,6 +93,9 @@
           <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
           <dile-editor name="comments"># Markdown Editor\n\nWrite *something*.</dile-editor>
           <dile-input-message name="onlymessage"></dile-input-message>
+          <p>
+            <dile-switch name="active"></dile-switch>
+          </p>
         `;
       }
     }

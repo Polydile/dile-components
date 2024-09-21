@@ -69,6 +69,13 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
   },
   availableFilters: [
     {
+      name: 'essential',
+      label: 'Is essential',
+      active: false,
+      value: false,
+      type: 'boolean',
+    },
+    {
       name: 'continent',
       label: 'Continent',
       active: false,

@@ -58,27 +58,28 @@ Custom property | Description | Default
 --dile-checkbox-font-weight | Font weight for te label | normal
 --dile-checkbox-size | Checkbox size | 20px
 
-#### Customization example
+## dile-checkbox demos
 
-## Regular checkbox
+### Regular checkbox
 
 ```html:preview
 <dile-checkbox name="1stcheck" id="check1" >I agree the <a href="#">terms of use</a></dile-checkbox>
 ```
 
-## Without label
+### Without label
 
 ```html:preview
 <dile-checkbox name="name"></dile-checkbox>
 ```
 
-## Disabled checkbox
+### Disabled checkbox
 
 ```html:preview
 <dile-checkbox name="name" disabled>Disabled!</dile-checkbox>
 ```
 
-## Styled checkbox
+### Styled checkbox
+
 ```html:preview
 <style>
 .styled {

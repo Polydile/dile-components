@@ -4,8 +4,8 @@ import { DileEmmitChange } from '../../../mixins/form/index.js';
 export class DileCheckbox extends DileEmmitChange(LitElement) {
   static get properties() {
     return {
-      checked: { type: Boolean },
-      disabled: { type: Boolean },
+      checked: { type: Boolean, reflect: true, },
+      disabled: { type: Boolean, reflect: true, },
       _hasInner: { type: Boolean },
       name: { type: String },
     };
@@ -94,15 +94,21 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
         <a href="#" @click="${this.linkClick}" @keypress="${this.doKeyPress}" class="checkbox ${this.checked ? "isChecked" : "isUnchecked"}">
           ${this.checked ? this.checkedIcon : this.unCheckedIcon}
         </a>
-        ${this._hasInner
-          ? html` <span class="label">
-              <slot></slot>
-            </span>`
-          : ""}
+        ${this.innerTemplate}
       </div>
     `;
   }
 
+  get innerTemplate() {
+    return html`
+      ${this._hasInner
+        ? html` <label class="label">
+            <slot></slot>
+          </label>`
+        : ""
+      }
+    `
+  }
   doClick() {
     if (this.disabled) {
       return;

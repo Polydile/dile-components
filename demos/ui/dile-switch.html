@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-switch component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/switch/switch.js";
+  </script>
+  <style>
+    .styled {
+      --dile-switch-bar-color: #601a5f; 
+      --dile-switch-off-state-color: #f7def7;
+      --dile-switch-on-state-color: rgb(255, 221, 68); 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-switch component</h1>
+    
+    <h2>Regular switch</h2>
+    <p>
+      <dile-switch name="1stcheck" id="check1" >Select state</dile-switch>
+    </p>
+  
+    <h2>Without label</h2>
+    <p>
+      <dile-switch name="name"></dile-switch>
+    </p>
+
+    <h2>Disabled switch</h2>
+    <p>
+      <dile-switch name="name" disabled>Disabled!</dile-switch>
+    </p>
+
+    <h2>Styled switch</h2>
+    <p>
+      <dile-switch class="styled" checked>Styled!</dile-switch>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>
