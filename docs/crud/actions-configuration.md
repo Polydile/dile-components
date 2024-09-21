@@ -30,6 +30,7 @@ actions: {
     {
       label: 'Delete board games',
       name: 'DeleteAction'
+      destructive: true,
     },
     {
       label: 'Change Essential',

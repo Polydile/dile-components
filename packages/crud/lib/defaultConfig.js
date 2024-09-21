@@ -47,7 +47,8 @@ export const defaultConfig = {
     list: [
       {
         label: 'Delete',
-        name: 'DeleteAction'
+        name: 'DeleteAction',
+        destructive: true,
       }
     ],
     single: [],

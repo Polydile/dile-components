@@ -21,6 +21,13 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
             --dile-confirm-cancel-button-color: var(--dile-danger-color, #E31E1B);
             --dile-confirm-cancel-text-button-color: var(--dile-on-danger-color, #fff);
         }
+        :host([destructive]) {
+            --dile-confirm-cancel-button-color: var(--dile-primary-color, #378dca);
+            --dile-confirm-cancel-text-button-color: var(--dile-on-primary-color, #fff);
+            --dile-confirm-accept-button-color: var(--dile-danger-color, #E31E1B);
+            --dile-confirm-accept-text-button-color: var(--dile-on-danger-color, #fff);
+
+        }
         p {
           margin: 0 0 0.75rem 0;
         }
@@ -54,6 +61,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       endpoint: { type: String },
       actions: { type: Array },
       formActionsTemplate: { type: Object },
+      destructive: { type: Boolean, reflect: true, }
     };
   }
 
@@ -132,6 +140,16 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   selectorChanged(e) {
     this.selection = e.target.value;
+    if(this.isDestructive()) {
+      this.destructive = true;
+    } else {
+      this.destructive = false;
+    }
+  }
+
+  isDestructive() {
+    const currentAction = this.actions.find(action => action.name == this.selection);
+    return currentAction && currentAction.destructive;
   }
 
   showAction() {
