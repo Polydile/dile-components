@@ -4,8 +4,9 @@ import '@dile/ui/components/confirm/confirm';
 import '@dile/ui/components/select/select';
 import '../../ajax/ajax.js'
 import '../../ui/crud-list-options.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudActions extends LitElement {
+export class DileCrudActions extends DileI18nMixin(LitElement) {
   static styles = css`
         :host {
             display: block;
@@ -90,12 +91,12 @@ export class DileCrudActions extends LitElement {
 
   get actionListTemplate() {
     return html`
-            <dile-crud-list-options .icon="${moreVertIcon}" label="Acciones" class="${this.actionIds.length > 0 ? 'visible' : 'hide'}">
-                <p>${this.actionIds.length} ${this.actionIds.length == 1 ? 'elemento' : 'elementos'}</p>
+            <dile-crud-list-options .icon="${moreVertIcon}" label="${this.translations.actions_label}" class="${this.actionIds.length > 0 ? 'visible' : 'hide'}">
+                <p>${this.actionIds.length} ${this.actionIds.length == 1 ? this.translations.element_label : this.translations.element_plural_label}</p>
                 <div @element-changed=${this.selectorChanged}>
                     ${this.selectActionsTemplate}
                 </div>
-                <dile-button @click=${this.showAction}>Realizar acción</dile-button>
+                <dile-button @click=${this.showAction}>${this.translations.run_action_label}</dile-button>
             </dile-crud-list-options>
         `;
   }
@@ -114,8 +115,8 @@ export class DileCrudActions extends LitElement {
     return html`
             <dile-confirm 
                 id="elconfirm"
-                cancelLabel="Cancelar"
-                acceptLabel="Aceptar"
+                cancelLabel="${this.translations.cancel_label}"
+                acceptLabel="${this.translations.accept_label}"
                 @dile-confirm-accepted=${this.doAction}
             >
                 <div class="modalcontainer">

@@ -3,6 +3,7 @@ import { DileCrudActions } from './DileCrudActions.js';
 import '@dile/ui/components/box-selector/box-selector.js';
 import '@dile/ui/components/box-selector/box-selector-item.js';
 import '@dile/ui/components/card/card.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudSingleActions extends DileCrudActions {
   static styles = [
@@ -48,7 +49,7 @@ export class DileCrudSingleActions extends DileCrudActions {
     return html`
       ${this.actions.length > 0
         ? html`
-          <dile-card title="Element action">
+          <dile-card title="${this.translations.element_actions}">
             <dile-box-selector 
                 class="action-list" 
                 attrForSelected="name"

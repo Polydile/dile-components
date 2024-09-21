@@ -32,6 +32,7 @@ export class DemoCountrySingle extends LitElement {
       <dile-crud-single
         relatedId="1"
         .config="${this.config}"
+        language="es"
       ></dile-crud-single>
     `;
   }

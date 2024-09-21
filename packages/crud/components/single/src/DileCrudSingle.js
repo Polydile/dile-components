@@ -12,8 +12,9 @@ import '../../update/crud-update.js';
 import '../../action/crud-actions.js';
 import '../../action/crud-single-actions';
 import '../../action/crud-delete-action.js';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudSingle extends DileCrudMixin(LitElement) {
+export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
   static styles = [
     formStyles,
     css`
@@ -79,7 +80,7 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
       <main class="elcontainer">
         ${this.detailTemplate}
         <div class="actions" @action-success=${this.actionSuccess}>
-            <dile-button gray .icon="${editIcon}" @click=${this.edit}>Editar</dile-button>
+            <dile-button gray .icon="${editIcon}" @click=${this.edit}>${this.updateLabelComputed(this.config.labels.updateAction, this.translations)}</dile-button>
             ${this.actionsTemplate}
         </div>
       </main>
@@ -111,6 +112,7 @@ export class DileCrudSingle extends DileCrudMixin(LitElement) {
         .actionIds=${this.actionIds}
         endpoint=${this.config.endpoint}
         @crud-action-success=${this.actionSuccess}
+        language="${this.language}"
       ></dile-crud-single-actions>
     `
   }

@@ -60,7 +60,7 @@ export const defaultConfig = {
     detail: () => templatePlaceholder('detail'),
     formActions: (actionName) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
-            <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
+            <dile-crud-delete-action  action="DeleteAction"></dile-crud-delete-action>
         </dile-pages>
     `,
     relations: () => '',

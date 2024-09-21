@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { DileForm } from '@dile/ui/mixins/form';
+import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
-export class DileCrudDeleteAction extends DileForm(LitElement) {
+export class DileCrudDeleteAction extends DileI18nMixin(DileForm(LitElement)) {
     static styles = [
         css`
             :host {
@@ -12,7 +13,7 @@ export class DileCrudDeleteAction extends DileForm(LitElement) {
 
     render() {
         return html`
-            <p>Are you sure you want to delete those items?</p>
+            <p>${this.translations.delete_confirm_message_plural}</p>
         `;
     }
 }

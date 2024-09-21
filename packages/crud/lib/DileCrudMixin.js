@@ -19,6 +19,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                 endpoint=${this.config.endpoint}
                 .actions=${this.config.actions.list}
                 .formActionsTemplate=${this.config.templates.formActions}
+                language="${this.language}"
             ></dile-crud-actions>
         `
     }
