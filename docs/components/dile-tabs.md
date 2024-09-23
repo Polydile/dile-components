@@ -23,7 +23,7 @@ Import the component.
 
 ```javascript
 <script type="module">
-  import '@dile/ui/components/tabs/dile-tabs.js';
+  import '@dile/ui/components/tabs/tabs.js';
 </script>
 ```
 
