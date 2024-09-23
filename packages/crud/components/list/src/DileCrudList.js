@@ -179,7 +179,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                     : html`
                         <p>
                             <dile-button @click=${this.dispatchInsertRequest}>
-                                ${this.config.labels.insertAction}
+                                ${this.insertLabelComputed(this.config.labels.insertAction, this.translations)}
                             </dile-button>
                         </p>
                       `
@@ -187,6 +187,11 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             </div>
         `;
     }
+
+    insertLabelComputed(label, translations) {
+        return label ? label : translations?.insert_label ? translations.insert_label : 'Insert';
+    }
+
     get elementsTemplate() {
         return html`
             ${this.elements.map(element => html`
