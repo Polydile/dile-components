@@ -140,6 +140,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 id="eldelete"
                 endpoint="${this.config.endpoint}"
                 @delete-success=${this.deleteSuccess}
+                language="${this.language}"
             ></dile-crud-item-delete>
 
             ${this.insertTemplate}
