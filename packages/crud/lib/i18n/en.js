@@ -13,6 +13,7 @@ export const translations = {
   error_operation: (operation) => `${operation == 'insert' ? 'Insertion' : 'Update'} error`,
   insert_label: "Create",
   update_label: "Update",
+  start_update_label: "Edit",
   delete_label: "Delete",
   cancel_label: "Cancel",
   accept_label: "Accept",

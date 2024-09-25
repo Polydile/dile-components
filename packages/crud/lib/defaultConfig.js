@@ -70,6 +70,7 @@ export const defaultConfig = {
   labels: {
     // insertAction: 'Create',
     // updateAction: 'Save',
+    // startUpdateAction: 'Edit',
     // insertWindowTitle: 'Create an item',
     // updateWindowTitle: 'Update an item',
     // helpTitle: 'Help',

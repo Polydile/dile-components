@@ -58,6 +58,9 @@ export const DileCrudMixin = (superclass) => class extends superclass {
     updateLabelComputed(label, translations) {
         return label ? label : translations?.update_label ? translations.update_label : 'Save';
     }
+    startUpdateLabelComputed(label, translations) {
+        return label ? label : translations?.start_update_label ? translations.start_update_label : 'Edit';
+    }
     helpLabelComputed(label, translations) {
         return label ? label : translations?.help_label ? translations.help_label : 'Help';
     }

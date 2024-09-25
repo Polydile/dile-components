@@ -13,6 +13,7 @@ export const translations = {
   error_operation: (operation) => `Se ha producido un error en la ${operation == 'insert' ? 'inserción' : 'actualización'}`,
   insert_label: "Insertar",
   update_label: "Actualizar",
+  start_update_label: "Editar",
   delete_label: "Borrar",
   cancel_label: "Cancelar",
   accept_label: "Aceptar",
