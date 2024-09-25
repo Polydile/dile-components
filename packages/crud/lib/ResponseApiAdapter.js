@@ -33,5 +33,17 @@ export class ResponseApiAdapter {
   getIds() {
     return this.response.data;
   }
-  
+
+  getActionResponseMessage() {
+    return this.response.message;
+  }
+  getActionResponseActionName() {
+    return this.response.data.action;
+  }
+  getActionResponseActionData() {
+    return this.response.data.data;
+  }
+  getActionResponseValidationErrorMessage() {
+    return this.response.message
+  }
 }

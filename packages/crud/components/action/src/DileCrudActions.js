@@ -5,6 +5,7 @@ import '@dile/ui/components/select/select';
 import '../../ajax/ajax.js'
 import '../../ui/crud-list-options.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
+import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 
 export class DileCrudActions extends DileI18nMixin(LitElement) {
   static styles = css`
@@ -61,7 +62,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       endpoint: { type: String },
       actions: { type: Array },
       formActionsTemplate: { type: Object },
-      destructive: { type: Boolean, reflect: true, }
+      destructive: { type: Boolean, reflect: true, },
+      responseAdapter: { type: Object },
     };
   }
 
@@ -69,7 +71,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     super();
     this.actionIds = [];
     this.actions = [];
-    this.selection = 'DeleteAction'
+    this.selection = 'DeleteAction';
+    this.responseAdapter = new ResponseApiAdapter();
   }
 
   firstUpdated() {
@@ -176,23 +179,25 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   doSuccessAction(e) {
     this.selectedActionForm.resetData();
+    this.responseAdapter.setResponse(e.detail);
     this.dispatchEvent(new CustomEvent('crud-action-success', {
       bubbles: true,
       composed: true,
       detail: {
-        msg: e.detail.message,
-        action: e.detail.data.action,
-        data: e.detail.data.data,
+        msg: this.responseAdapter.getActionResponseMessage(),
+        action: this.responseAdapter.getActionResponseActionName(),
+        data: this.responseAdapter.getActionResponseActionData(),
       }
     }));
   }
 
   doErrorAction(e) {
+    this.responseAdapter.setResponse(e.detail);
     this.dispatchEvent(new CustomEvent('crud-action-error', {
       bubbles: true,
       composed: true,
       detail: {
-        msg: e.detail,
+        msg:this.responseAdapter.getActionResponseValidationErrorMessage(),
       }
     }));
   }

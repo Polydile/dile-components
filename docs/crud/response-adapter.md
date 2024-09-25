@@ -55,6 +55,14 @@ Here are the methods you can adapt in your custom `responseAdapter` class:
 
 - **getIds()**: Extracts the IDs of elements, used in batch operations. Must return an array of resource Ids. Override this method to customize how IDs are retrieved from the API response. 
 
+- **getActionResponseMessage()**: Return the action response message.
+
+- **getActionResponseActionName()**: Return the action name.
+
+- **getActionResponseActionData()**: Return action data, if exists.
+
+- **getActionResponseValidationErrorMessage()**: Ger action response validation error message, if exists.
+
 By overriding these methods, you can ensure that the custom `responseAdapter` works seamlessly with your specific API's structure and data formats.
 
 #### Validation Errors Array format
