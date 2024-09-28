@@ -20,7 +20,7 @@ export class DileAjaxSwitch extends LitElement {
       uncheckedLabel: { type: String },
       loading: { type: Boolean },
       method: { type: String },
-      requestApiAdapter: { type: Boolean },
+      requestApiAdapter: { type: Object },
     };
   }
 
