@@ -96,3 +96,13 @@ When invoking the `adaptIdsRequestData(data)` method, the format of the data sen
     ]
 }
 ```
+
+### Data sent to the adaptBooleanValue Method
+
+This boolean value is used in components like dile-ajax-switch. The data is represented with this object:
+
+```json
+{
+    "value": true
+}
+```

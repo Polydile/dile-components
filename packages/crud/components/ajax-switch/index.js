@@ -1,0 +1,1 @@
+export { DileAjaxSwitch } from "./src/DileAjaxSwitch";

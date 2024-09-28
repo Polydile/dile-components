@@ -12,4 +12,7 @@ export class RequestApiAdapter {
   adaptIdsRequestData(data) {
     return data;
   }
+  adaptBooleanValue(data) {
+    return data;
+  }
 }
