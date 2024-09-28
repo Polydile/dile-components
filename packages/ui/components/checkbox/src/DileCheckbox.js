@@ -109,6 +109,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
       }
     `
   }
+  
   doClick() {
     if (this.disabled) {
       return;

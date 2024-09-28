@@ -42,16 +42,38 @@ export class DileSwitch extends DileCheckbox {
         `
     ];
 
+    static get properties() {
+      return {
+        useReactiveLabels: { type: Boolean },
+        checkedLabel: { type: String },
+        uncheckedLabel: { type: String },
+      };
+    }
+
     render() {
         return html`
             <div @click=${this.toggle}>
               <section>
                   <span></span>
               </section>
-              ${this.innerTemplate}
+              ${this.useReactiveLabels
+                ? this.reactiveLabelsTemplate
+                : this.innerTemplate
+              }
             </div>
         `;
     }
+
+    get reactiveLabelsTemplate() {
+        return html`
+          <label class="label">
+            ${this.checked
+                ? this.checkedLabel
+                : this.uncheckedLabel
+            }
+          </label>
+        `
+      }
 
     toggle() {
         if (this.disabled) {

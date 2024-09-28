@@ -32,6 +32,9 @@ Use the component.
 - **checked**: Boolean, defines the switch state (cheked / unchecked).
 - **disabled**: Boolean, defines the switch as disabled.
 - **name**: The name of the switch, only for identification purposes
+- **useReactiveLabels**: Boolean, this property indicates that the component have to use the switch reactive labels (`checkedLabel` and `uncheckedLabels`).
+- **checkedLabel**: The label to the checked state (when `useReactiveLabels` is set to `true`)
+- **uncheckedLabel**: The label to the unchecked state (when `useReactiveLabels` is set to `true`)
 
 There is a special ```value``` property. This is not a actual component property but it mirrors the ```checked``` property, because sometimes forms colud use this property instead of checked to query or change it's state.
 
