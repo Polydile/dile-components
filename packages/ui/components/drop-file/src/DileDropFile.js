@@ -159,7 +159,6 @@ export class DileDropFile extends LitElement {
 
   _processFile(files) {
     if (files.length > 0) {
-      console.log("Mostramos el nombre del archivo",files);
       this.fileName = files[0].name;
       if(this._isValidExtension(this.fileName)) {
         this.message = this.firstMessage || '';
@@ -210,11 +209,11 @@ export class DileDropFile extends LitElement {
   }
 
   get value() {
-    this.fileInput.value;
+    return this.fileInput.value;
   }
 
   set value(value) {
     this.fileInput.value = value;
   }
-  
+
 }
