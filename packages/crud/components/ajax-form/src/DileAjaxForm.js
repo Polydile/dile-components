@@ -18,7 +18,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
                 --dile-button-font-size: 0.875rem;
             }
             .actions {
-                margin-top: var(--dile-ajax-form-actions-margin-top, 1.2rem);
+                margin-top: var(--dile-ajax-form-actions-margin-top, 1rem);
                 padding-left: 3px;
             }
         `
@@ -36,6 +36,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         formIdentifier: { type: String, },
         setDataOnInit: { type: Boolean },
         responseAdapter: { type: Object },
+        sendDataAsFormData: { type: Boolean },
       };
     }
 
@@ -98,6 +99,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
                 @ajax-success="${this.doSuccessSave}"
                 @ajax-error="${this.doErrorSave}"
                 language="${this.language}"
+                ?sendDataAsFormData=${this.sendDataAsFormData}
             ></dile-ajax>
         `
     }

@@ -10,6 +10,7 @@
   <script type="module">
     import '@dile/crud/components/ajax-form/ajax-form.js'
     import './components/country/demo-country-form.js'
+    import './components/upload-file-form.js'
   </script>
 </head>
 <body>
@@ -59,6 +60,18 @@
         });
       });
     </script>
+
+    <h2>Uploading files</h2>
+    <dile-ajax-form
+      id="ajaxupload"
+      operation="insert"
+      endpoint="https://mejoresjuegos.de/api/upload-file"
+      actionLabel="Upload"
+      sendDataAsFormData
+    >
+      <upload-file-form id="form"></upload-file-form>
+    </dile-ajax-form>
+
 
     <footer><a href="./index.html">Back</a></footer>
   </div>

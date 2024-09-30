@@ -9,7 +9,9 @@ export class DileDropFile extends LitElement {
     css`
       * { box-sizing: border-box; }
       :host {
+        display: block;
         margin-bottom: 10px;
+        padding-bottom: 1px;
       }
       #dropZone {
         width: 100%;
@@ -199,7 +201,7 @@ export class DileDropFile extends LitElement {
     this.fileInput.click();
   }
   
-  clearInput() {
+  clear() {
     this.fileInput.value = "";
     this.fileName = "";
   }
@@ -209,11 +211,13 @@ export class DileDropFile extends LitElement {
   }
 
   get value() {
-    return this.fileInput.value;
+    if(this.fileInput) {
+      return this.fileInput.files[0];
+    }
   }
 
   set value(value) {
-    this.fileInput.value = value;
+    // this.fileInput.value = value;
   }
 
 }

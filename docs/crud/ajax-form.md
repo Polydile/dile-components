@@ -60,6 +60,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **setDataOnInit**: Boolean, if `true`, indicates that the component should use the object provided in the `data` property to populate the form fields upon initialization. This can be useful when you have an insert form that you want to prepopulate with specific values in the form fields.
 - **responseAdapter**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
 
 ### Methods
 
@@ -77,6 +78,15 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **save-success**: This event is dispatched when the form has been successfully saved. The detail sends three properties: `data`, with the evaluated data from the response; `msg`, with the server's response message; and `previousDetail`, with the complete Ajax response from the server.
 
 > The component is based on `dile-ajax`, so you can also listen for the custom events documented in that component.
+
+## CSS Custom Properties
+
+You can customize the form using these CSS Custom Properties.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-ajax-form-actions-margin-top | Margin top on the action button | 1rem
+
 
 ## Configuration
 
