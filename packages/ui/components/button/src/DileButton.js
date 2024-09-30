@@ -39,9 +39,9 @@ export class DileButton extends LitElement {
         letter-spacing: var(--dile-button-letter-spacing, 0);
       }
       button:hover {
-        background-color: var(--dile-primary-light-color, #f3f3ae);
-        color: var(--dile-button-hover-text-color, #303030);
-        border-color:  var(--dile-button-hover-border-color, #666666);
+        background-color: var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae));
+        color: var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030));
+        border-color:  var(--dile-button-hover-border-color, var(--dile-primary-color, #666666));
       }
       button:focus {
         outline: none;

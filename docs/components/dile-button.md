@@ -47,9 +47,9 @@ Custom property | Description | Default
 --dile-on-primary-color | Text color | #fff
 --dile-button-font-size | Font size | 1rem
 --dile-button-font-weight | Font weight | bold
---dile-primary-light-color | Hover background color | #f3f3ae
---dile-on-primary-light-color | Hover text color | #303030
---dile-primary-color | Hover border color | #666666
+--dile-button-hover-background-color | Hover background color | --dile-primary-light-color or #f3f3ae
+--dile-button-hover-text-color | Hover text color | --dile-on-primary-light-color or #303030
+--dile-button-hover-border-color | Hover border color | --dile-primary-color or #666666
 --dile-button-ring-color | Ring color on focus state | #12c9e9
 --dile-button-ring-offset-width | Ring width on focus state | 3px
 --dile-button-disabled-background-color | Disabled background color | #b1ecf7
