@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-drop-file component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/drop-file/drop-file.js"
+  </script>
+  <style>
+
+    h1 {
+    font-weight: 300;
+    }
+    p {
+      margin-top: 0;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-drop-file component</h1>
+
+    
+    <dile-drop-file 
+      id="myFileInput" 
+      label="Image to upload" 
+      message="Select an image and press upload button"
+    ></dile-drop-file>
+    <p><button id="uploadButton">Upload</button></p>
+
+    <script>
+
+      const inputFileElement = document.getElementById('myFileInput');
+      inputFileElement.allowedExtensions = ['jpg', 'png'];
+
+      document.getElementById('uploadButton').addEventListener('click', function() {
+        handleFileUpload();
+      });
+
+      function handleFileUpload() {
+        const formData = new FormData();
+        const inputFileElement = document.getElementById('myFileInput');
+        const files = inputFileElement.getFiles();
+        
+        if (files.length > 0) {
+          formData.append('file', files[0]);
+      
+          fetch('http://localhost/api/upload-file', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.file_path) {
+              console.log('File uploaded successfully:', data.file_path);
+            } else {
+              console.error('Error on upload');
+            }
+          })
+          .catch(error => {
+            console.error('Request error:', error);
+          });
+        } else {
+          console.log('Nothing to upload');
+        }
+      }
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
