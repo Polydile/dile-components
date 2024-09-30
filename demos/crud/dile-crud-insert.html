@@ -49,8 +49,38 @@
 
     <crud-insert-demo></crud-insert-demo>
 
-   
+    
 
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+      import './components/upload-file-form';
+      export class CrudInsertDemoUpload extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+      
+        render() {
+          return html`
+            <dile-crud-insert
+              title="Insert a file"
+              endpoint="https://mejoresjuegos.de/api/upload-file"
+              .formTemplate=${() => html`<upload-file-form id="insertform"></upload-file-form>`}
+              sendDataAsFormData
+            ></dile-crud-insert>
+          `;
+        }
+      }
+      customElements.define('crud-insert-demo-upload', CrudInsertDemoUpload);
+      
+    </script>
+
+    <crud-insert-demo-upload></crud-insert-demo-upload>
+
+    
     <footer><a href="./index.html">Back</a></footer>
   </div>
 </body>

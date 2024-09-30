@@ -23,6 +23,7 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
             buttonSmall: { type: Boolean },
             responseAdapter: { type: Object},
             formIdentifier: { type: String },
+            sendDataAsFormData: { type: Boolean },
         };
     }
 
@@ -52,6 +53,7 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
                 .responseAdapter="${this.responseAdapter}"
                 formIdentifier="${this.formIdentifier}"
                 language="${this.language}"
+                ?sendDataAsFormData=${this.sendDataAsFormData}
             >
                 ${this.formTemplate(this.belongsTo, this.relationId)}
             </dile-ajax-form> 
