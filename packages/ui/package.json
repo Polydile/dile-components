@@ -1,6 +1,6 @@
 {
   "name": "@dile/ui",
-  "version": "2.1.22",
+  "version": "2.1.23",
   "description": "UI Core components from dile-components.",
   "main": "index.js",
   "scripts": {
