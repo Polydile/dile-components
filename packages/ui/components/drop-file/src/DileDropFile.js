@@ -208,4 +208,13 @@ export class DileDropFile extends LitElement {
   getFiles() {
     return this.fileInput.files;
   }
+
+  get value() {
+    this.fileInput.value;
+  }
+
+  set value(value) {
+    this.fileInput.value = value;
+  }
+  
 }
