@@ -9,6 +9,8 @@
   <script type="module" src="axios.js"></script>
   <script type="module">
     import '@dile/crud/components/ajax/ajax.js'
+    import '@dile/ui/components/input/input';
+    import '@dile/ui/components/drop-file/drop-file';
   </script>
 </head>
 <body>
@@ -18,8 +20,8 @@
     <h2>Country list</h2>
     <dile-ajax
       id="ajaxelement"
-      method="post"
-      url="https://timer.escuelait.com/api/countries/1"
+      method="get"
+      url="https://timer.escuelait.com/api/countries"
     ></dile-ajax>
     <p>
       <button id="getButton">Get country list</button>  
@@ -89,6 +91,26 @@
           messageElement.textContent = 'Country inserted';
         })
       });
+    </script>
+
+    <dile-input name="name" label="name" id="name"></dile-input>
+    <dile-drop-file name="image" label="imagen" id="image"></dile-drop-file>
+    <button id="uploadImage">Upload</button>
+    <dile-ajax
+      id="uploadajax"
+      url="https://mejoresjuegos.de/api/upload-file"
+      method="post"
+      sendDataAsFormData
+    ></dile-ajax>
+    <script>
+      document.getElementById('uploadImage').addEventListener('click', function() {
+        const uploadajax = document.getElementById('uploadajax')
+        uploadajax.data = {
+          nombre: document.getElementById('name').value,
+          file: document.getElementById('image').getFiles()[0],
+        }
+        uploadajax.generateRequest();
+      })
     </script>
 
     <footer><a href="./index.html">Back</a></footer>

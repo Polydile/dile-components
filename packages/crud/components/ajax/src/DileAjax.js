@@ -9,22 +9,32 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       method: { type: String },
       url: { type: String },
       statusSuccessCodes: { type: Array },
+      sendDataAsFormData: { type: Boolean },
     }
   }
 
   constructor() {
     super();
-    this.data = {};
     this.method = 'post';
     this.url = '';
     this.statusSuccessCodes = [200, 201];
   }
 
+  get computedData() {
+    if(this.formData) {
+      return this.formData;
+    }
+    return this.data || {};
+  }
+
   generateRequest() {
     let request;
+    if(this.sendDataAsFormData) {
+      this._prepareFormData();
+    }
     switch(this.method.toLowerCase().trim()) {
       case 'post':
-        request = this.axiosInstance.post(this.url, this.data);
+        request = this.axiosInstance.post(this.url, this.computedData);
         break;
       case 'get':
         request = this.axiosInstance.get(this.url, {
@@ -32,13 +42,13 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         });
         break;
       case 'put':
-        request = this.axiosInstance.put(this.url, this.data);
+        request = this.axiosInstance.put(this.url, this.computedData);
         break;
       case 'delete':
-        request = this.axiosInstance.delete(this.url, this.data);
+        request = this.axiosInstance.delete(this.url, this.computedData);
         break;
       case 'patch':
-        request = this.axiosInstance.patch(this.url, this.data);
+        request = this.axiosInstance.patch(this.url, this.computedData);
         break
     }
     request.then((response) => {
@@ -62,6 +72,9 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     .catch(err => {
       this.describeError(err);
     }) 
+    .finally(() => {
+      this.formData = null;
+    });
   }
 
   describeError(err) {
@@ -109,6 +122,24 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         errors
       } 
     }));
+  }
+
+  _prepareFormData() {
+    this._createFormData();
+    this._addObjectToFormData(this.data);
+  }
+
+  _createFormData() {
+    this.formData = new FormData();
+  }
+
+  _addObjectToFormData(data) {
+    if (!this.formData) {
+      this.createFormData();
+    }
+    for (const key in data) {
+      this.formData.append(key, data[key]);
+    }
   }
 }
 

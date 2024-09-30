@@ -51,10 +51,12 @@ Once the method is invoked, the response will be received in one of the two cust
 - **url**: String, the URL for the conection.
 - **statusSuccessCodes**: Array, the list of http response codes handled as success by this component. By default is [200, 201].
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax` component will send a formData object instead of a JSON object.
 
 ### Methods
 
 - **generateRequest()**: method to execute the configured connection in the dile-ajax component.
+
 
 ### Custom Events
 
