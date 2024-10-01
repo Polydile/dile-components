@@ -46,7 +46,7 @@ Use the component.
 
 ### Custom Events
 
-You can listen for[dile-ajax events](/crud/ajax/) and [dile-switch events](/components/dile-switch/)
+You can listen for [dile-ajax events](/crud/ajax/) and [dile-switch events](/components/dile-switch/)
 
 
 ### dile-ajax-switch example
