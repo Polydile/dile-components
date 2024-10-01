@@ -14,7 +14,7 @@ export class DileCrudDetail extends DileLoading(LitElement) {
             margin-bottom: 0;
         }
         .detail-data {
-            background-color: #f5f5f5;
+            background-color: var(--dile-crud-detail-data-background-color, #f5f5f5);
             padding: 1rem;
             border-top-left-radius: 0.6rem;
             border-top-right-radius: 0.6rem;
