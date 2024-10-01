@@ -3,6 +3,7 @@ export const translations = {
   http_404: "Not found error",
   http_401: "Unauthorized",
   http_405: "Method Not Allowed",
+  http_413: "Content Too Large",
   http_419: "Your session has expired. Please refresh the page",
   http_502: "Connection error, invalid gateway",
   http_504: "Connection timeout with the gateway",

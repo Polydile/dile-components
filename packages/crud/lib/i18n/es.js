@@ -3,6 +3,7 @@ export const translations = {
   http_404: "Recurso inexistente",
   http_401: "No autorizado",
   http_405: "Método HTTP no permitido",
+  http_413: "Contenido enviado al servidor demasiado largo",
   http_419: "La sesión ha expirado. Refresca la página.",
   http_502: "Error de conexión, gateway no válido",
   http_504: "Error de timeout con el gateway",
