@@ -15,6 +15,10 @@
       --dile-switch-off-state-color: #f7def7;
       --dile-switch-on-state-color: rgb(255, 221, 68); 
     }
+    .styled2 {
+      --dile-switch-flex-direction: column;
+      --dile-switch-justify-content: center;
+    }
   </style>
 </head>
 <body>
@@ -39,6 +43,11 @@
     <h2>Styled switch</h2>
     <p>
       <dile-switch class="styled" checked>Styled!</dile-switch>
+    </p>
+
+    <h2>Styled column</h2>
+    <p>
+      <dile-switch class="styled2" checked>Styled in column</dile-switch>
     </p>
 
     <h2>Reactive labels</h2>

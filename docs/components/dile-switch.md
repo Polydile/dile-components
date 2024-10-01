@@ -55,6 +55,10 @@ Custom property | Description | Default
 --dile-switch-bar-color | Central bar color | #ccc
 --dile-switch-off-state-color | Off state bullet color | #d52121
 --dile-switch-on-state-color | On state bullet color | #2566e8
+--dile-switch-flex-direction | Flex direction between switch and label  | row
+--dile-switch-gap | Gap between switch and label | 0.5rem
+--dile-switch-align-items | Flex align items between switch and label  | center
+--dile-switch-justify-content | Flex justify content between switch and label | flex-start
 
 ## dile-switch demos
 

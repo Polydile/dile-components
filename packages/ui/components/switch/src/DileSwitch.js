@@ -9,7 +9,10 @@ export class DileSwitch extends DileCheckbox {
             }
             div {
               display: flex;
-              align-items: center;
+              flex-direction: var(--dile-switch-flex-direction, row);
+              gap: var(--dile-switch-gap, 0.5rem);
+              align-items: var(--dile-switch-align-items, center);
+              justify-content: var(--dile-switch-justify-content, flex-start);  
             }
             section {
                 width: 56px;
@@ -35,9 +38,6 @@ export class DileSwitch extends DileCheckbox {
             }
             :host([disabled]) {
               opacity: 0.5;
-            }
-            label {
-              margin-left: 0.5rem;
             }
         `
     ];
