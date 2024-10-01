@@ -138,7 +138,9 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       this.createFormData();
     }
     for (const key in data) {
-      this.formData.append(key, data[key]);
+      if (data[key] !== null && data[key] !== undefined) {
+        this.formData.append(key, data[key]);
+      }
     }
   }
 }
