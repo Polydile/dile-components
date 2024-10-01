@@ -213,6 +213,8 @@ export class DileDropFile extends LitElement {
   get value() {
     if(this.fileInput) {
       return this.fileInput.files[0];
+    } else {
+      return '';
     }
   }
 
