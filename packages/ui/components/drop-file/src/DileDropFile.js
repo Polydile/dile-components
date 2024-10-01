@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 import '../file-preview.js';
 import '../../button/button.js';
 import { messageStyles } from '../../input/src/message-styles.js';
+import { DileEmmitChange } from '../../../mixins/form/index.js';
 
-export class DileDropFile extends LitElement {
+export class DileDropFile extends DileEmmitChange(LitElement) {
   static styles = [
     messageStyles,
     css`
@@ -162,6 +163,7 @@ export class DileDropFile extends LitElement {
   _processFile(files) {
     if (files.length > 0) {
       this.fileName = files[0].name;
+      this.emmitChange();
       if(this._isValidExtension(this.fileName)) {
         this.message = this.firstMessage || '';
         this.errored = false;
@@ -204,6 +206,7 @@ export class DileDropFile extends LitElement {
   clear() {
     this.fileInput.value = "";
     this.fileName = "";
+    this.emmitChange();
   }
 
   getFiles() {
