@@ -107,7 +107,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       <dile-file-preview 
         fileName="${this.fileName}"
         selectedFileLabel="${this.selectedFileLabel}"
-        @dile-file-clear=${this.clearInput}
+        @dile-file-clear=${this.clear}
       ></dile-file-preview>
     `;
   }
@@ -168,7 +168,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
         this.message = this.firstMessage || '';
         this.errored = false;
       } else {
-        this.clearInput();
+        this.clear();
         this.message = `${this.extensionErrorMessage} ${this.allowedExtensions.join(', ')}`;
         this.errored = true;
       }
