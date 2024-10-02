@@ -115,6 +115,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
         endpoint=${this.config.endpoint}
         @crud-action-success=${this.actionSuccess}
         language="${this.language}"
+        .element=${this.element}
       ></dile-crud-single-actions>
     `
   }

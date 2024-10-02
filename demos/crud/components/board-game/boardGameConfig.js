@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
 import { ResponseApiAdapter } from '@dile/crud/lib/ResponseApiAdapter';
+import '@dile/ui/components/pages/pages';
 
 class BoardGameResponseApiAdapter extends ResponseApiAdapter {
   getElementList() {
@@ -47,7 +48,8 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
     list: [
       {
         label: 'Delete board games',
-        name: 'DeleteAction'
+        name: 'DeleteAction',
+        destructive: true,
       },
       {
         label: 'Change Essential',
@@ -59,10 +61,10 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
     insertForm: (belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
-    formActions: (actionName) => html`
+    formActions: (actionName, actionIds) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
-            <demo-change-essential-action action="DemoChangeEssentialAction"></demo-change-essential-action>
+            <demo-change-essential-action action="DemoChangeEssentialAction" .actionIds=${actionIds}></demo-change-essential-action>
         </dile-pages>
     `,
   },

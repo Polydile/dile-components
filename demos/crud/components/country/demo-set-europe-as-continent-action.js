@@ -10,9 +10,15 @@ export class DemoSetEuropeAsContinentAction extends DileForm(LitElement) {
     `
   ];
 
+  static get properties() {
+    return {
+      country: { type: Object }
+    };
+  }
+
   render() {
     return html`
-    <p>Do you really want to set Europe as continent of this country?</p>
+    <p>Do you really want to set Europe as continent of ${this.country?.name}?</p>
     `;
   }
 }

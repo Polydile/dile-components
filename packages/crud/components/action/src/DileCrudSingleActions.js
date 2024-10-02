@@ -37,6 +37,7 @@ export class DileCrudSingleActions extends DileCrudActions {
   static get properties() {
     return {
       actions: { type: Array },
+      element: { type: Object },
     };
   }
 
@@ -69,7 +70,9 @@ export class DileCrudSingleActions extends DileCrudActions {
         `;
   }
 
-
+  get actionsTemplateRunner() {
+    return html`${this.formActionsTemplate(this.selection, this.element)}`;
+  }
 
   onActionSelected(e) {
     this.selection = e.detail.selected;

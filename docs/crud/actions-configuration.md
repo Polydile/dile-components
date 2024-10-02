@@ -4,11 +4,18 @@ tags: configuration
 order: 5
 ---
 
-# Batch Action Configuration
+# Actions configuration
+
+The CRUD components offer two types of actions that can be performed on resources:
+
+- Batch actions, which are executed on lists of items in the `dile-crud` components.
+- Individual actions, which are executed on specific items found in the `dile-crud-single` components.
+
+## Batch Action Configuration
 
 The CRUD system includes functionality for configuring batch actions. With this feature, you can select multiple items from a list and perform an action that affects all selected items, such as deletions, mass updates, or any other operation your system may require.
 
-## Enabling Item Checkboxes Selection
+### Enabling Item Checkboxes Selection
 
 To enable the selection of multiple items from a list, use the `hideCheckboxSelection` option in the configuration object. Set the `hideCheckboxSelection` property to `false`. You’ll find this property within the `customization` object inside the configuration object.
 
@@ -16,13 +23,13 @@ To enable the selection of multiple items from a list, use the `hideCheckboxSele
 this.config.customization.hideCheckboxSelection = false;
 ```
 
-## Defining Actions for a Resource
+### Defining Actions for a Resource
 
 Resources can define any number of actions in the configuration object. This is done by defining two properties on the config object.
 
 The properties to define are:
 
-- **actions**: This is an array of actions. All actions are provided in an object containing a `label` property and a `name` property.
+- **actions.list**: This is an array of actions. All actions are provided in an object containing a `label` property and a `name` property.
 
 ```javascript
 actions: {
@@ -40,23 +47,25 @@ actions: {
 },
 ```
 
-- **formActions**: This is a template containing the forms for each available action. A `dile-pages` component is used to select the correct component form.
+- **templates.formActions**: This is a template containing the forms for each available action. A `dile-pages` component is used to select the correct component form.
 
 The selected action name is used in the `dile-pages` component as a key to determine which form component should be displayed. Each action form element is defined in a separate component, as shown in the code below.
 
 ```javascript
 templates: {
     // ...
-    formActions: (actionName) => html`
+    formActions: (actionName, actionIds) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
-            <demo-change-essential-action action="DemoChangeEssentialAction"></demo-change-essential-action>
+            <demo-change-essential-action action="DemoChangeEssentialAction" .actionIds=${actionIds}></demo-change-essential-action>
         </dile-pages>
     `,
   },
 ```
 
-## Action Forms
+> As you can note in the previous code, to configure the list actions froms the `formActions` template method will recive the action name and action ids array as arguments.
+
+### Action Forms
 
 Action forms components, like `dile-crud-delete-action` are used to provide additional data, if needed, to the backend that will process the actions. This additional data will define the behavior of the action.
 
@@ -70,7 +79,7 @@ In the action component, you can include:
 - Explanatory text for the action, with paragraphs or other HTML elements you wish to incorporate.
 - As many form fields as needed, typically using form components from `@dile/ui` catalog or other form components that implement the basic functionalities for setting and retrieving data via `DileForm`.
 
-### Examples of Action Form Components
+### Examples of Action Form on Crud Components
 
 #### Action Without Form Fields
 
@@ -117,9 +126,20 @@ export class DemoChangeEssentialAction extends DileForm(LitElement) {
     `
   ];
 
+  static get properties() {
+    return {
+      actionIds: { type: Array }
+    };
+  }
+
+  constructor() {
+    super();
+    this.actionIds = [];
+  }
+
   render() {
     return html`
-      <p>Change essential game state.</p>
+      <p>Change essential game state of ${this.actionIds.length} elements.</p>
       <dile-select name="essential">
         <select slot="select">
           <option value="0">Not Essential</option>
@@ -131,3 +151,72 @@ export class DemoChangeEssentialAction extends DileForm(LitElement) {
 }
 customElements.define('demo-change-essential-action', DemoChangeEssentialAction);
 ```
+
+
+## Individual Actions in the dile-crud-single Component
+
+The dile-crud-single components can also include actions that can be performed on individual items. To do this, we need to define an array of actions in the resource's configuration object.
+
+- **actions.single**: In this case, the array of actions is defined in `actions.single`, as seen in the following code:
+
+```javascript
+actions: {
+    single: [
+      {
+        name: "SetEurope",
+        label: "Set Europe as continent"
+      },
+      {
+        name: "SetAsia",
+        label: "Set Asia as continent"
+      },
+    ]
+  },
+```
+
+- **templates.formSingleActions**: In this case, a template is defined to specify the different forms for each of the single actions.
+
+```javascript
+templates: {
+    // Other templates
+    formSingleActions: (actionName, country) => html`
+        <dile-pages attrForSelected="action" selected="${actionName}">
+            <demo-set-europe-as-continent-action action="SetEurope" .country=${country}></demo-set-europe-as-continent-action>
+            <demo-set-asia-as-continent-action action="SetAsia" .country=${country}></demo-set-asia-as-continent-action>
+        </dile-pages>
+    `,
+  },
+```
+
+> As shown in the code above, the `formSingleActions` template is defined through a function that receives the name of the action to be displayed and the data object of the item on which the action is to be performed. This data object can be used to customize the forms or add other functionalities to the action form components.
+
+### Example of Action Form on Single Components
+
+```javascript
+import { LitElement, html, css } from 'lit';
+import { DileForm } from '@dile/ui/mixins/form';
+
+class DemoSetEuropeAsContinentAction extends DileForm(LitElement) {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      country: { type: Object }
+    };
+  }
+
+  render() {
+    return html`
+    <p>Do you really want to set Europe as continent of ${this.country?.name}?</p>
+    `;
+  }
+}
+customElements.define('demo-set-europe-as-continent-action', DemoSetEuropeAsContinentAction);
+```
+

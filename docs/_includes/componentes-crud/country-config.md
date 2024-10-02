@@ -2,6 +2,7 @@
 <script type="module">
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
+import '@dile/ui/components/pages/pages';
 
 // For the correct functioning of this declaration in the demo system, we have defined the variable with the configuration object globally. Normally, it would be created in a module and exported.
 window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/countries', {
@@ -12,10 +13,10 @@ window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/co
     help: () => html`<p>This is the help provided to the countries resource.</p>`,
     detail: (country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`,
     relations: (country) => html`<demo-country-relations .country=${country}></demo-country-relations>`,
-    formSingleActions: (actionName) => html`
+    formSingleActions: (actionName, country) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
-            <demo-set-europe-as-continent-action action="SetEurope"></demo-set-europe-as-continent-action>
-            <demo-set-asia-as-continent-action action="SetAsia"></demo-set-asia-as-continent-action>
+            <demo-set-europe-as-continent-action action="SetEurope" .country=${country}></demo-set-europe-as-continent-action>
+            <demo-set-asia-as-continent-action action="SetAsia" .country=${country}></demo-set-asia-as-continent-action>
         </dile-pages>
     `,
   },

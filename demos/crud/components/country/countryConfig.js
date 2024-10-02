@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
+import '@dile/ui/components/pages/pages';
 
 export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/countries', {
   templates: {
@@ -9,10 +10,10 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
     help: () => html`<p>This is the help provided to the countries resource.</p>`,
     detail: (country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`,
     relations: (country) => html`<demo-country-relations .country=${country}></demo-country-relations>`,
-    formSingleActions: (actionName) => html`
+    formSingleActions: (actionName, country) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
-            <demo-set-europe-as-continent-action action="SetEurope"></demo-set-europe-as-continent-action>
-            <demo-set-asia-as-continent-action action="SetAsia"></demo-set-asia-as-continent-action>
+            <demo-set-europe-as-continent-action action="SetEurope" .country=${country}></demo-set-europe-as-continent-action>
+            <demo-set-asia-as-continent-action action="SetAsia" .country=${country}></demo-set-asia-as-continent-action>
         </dile-pages>
     `,
   },

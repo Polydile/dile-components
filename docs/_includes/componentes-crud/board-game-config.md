@@ -61,10 +61,10 @@ window.boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,
     insertForm: (belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`,
     updateForm: () => html`<demo-board-game-form id="updateform"></demo-board-game-form>`,
-    formActions: (actionName) => html`
+    formActions: (actionName, actionIds) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
-            <demo-change-essential-action action="DemoChangeEssentialAction"></demo-change-essential-action>
+            <demo-change-essential-action action="DemoChangeEssentialAction" .actionIds=${actionIds}></demo-change-essential-action>
         </dile-pages>
     `,
   },

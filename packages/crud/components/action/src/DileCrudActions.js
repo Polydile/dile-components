@@ -131,10 +131,14 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
                 @dile-confirm-accepted=${this.doAction}
             >
                 <div class="modalcontainer">
-                    ${this.formActionsTemplate(this.selection)}
+                    ${this.actionsTemplateRunner}
                 </div>
             </dile-confirm>
         `;
+  }
+
+  get actionsTemplateRunner() {
+    return this.formActionsTemplate(this.selection, this.actionIds);
   }
 
   setActionIds(items) {
