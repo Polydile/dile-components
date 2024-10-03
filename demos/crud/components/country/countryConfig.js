@@ -9,7 +9,7 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
     updateForm: () => html`<demo-country-form id="updateform"></demo-country-form>`,
     help: () => html`<p>This is the help provided to the countries resource.</p>`,
     detail: (country) => html`<demo-country-detail .country="${country}"></demo-country-detail>`,
-    relations: (country) => html`<demo-country-relations .country=${country}></demo-country-relations>`,
+    relations: (country) => html`<p>${country.name}</p><demo-country-relations .country=${country}></demo-country-relations>`,
     formSingleActions: (actionName, country) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
             <demo-set-europe-as-continent-action action="SetEurope" .country=${country}></demo-set-europe-as-continent-action>

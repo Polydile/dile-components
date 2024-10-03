@@ -90,7 +90,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       ${this.updateTemplate}
       ${this.singleActionsTemplate}
       
-      ${this.config.templates.relations(this.element)}
+      ${this.element ? this.config.templates.relations(this.element) : ''}
     `;
   }
 
