@@ -28,7 +28,7 @@ export class DileButton extends LitElement {
         border-width:  var(--dile-button-border-width, 3px);
         border-color:  var(--dile-primary-dark-color, #07193b);
         background-color: var(--dile-primary-color, #7BB93D);
-        transition-property: background-color, color;
+        transition-property: background-color, color, border-color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         border-style: solid;
