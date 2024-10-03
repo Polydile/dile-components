@@ -77,7 +77,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **dile-ajax-form-loaded**: This event is dispatched when the form has successfully finished loading the data of the resource to be edited. The detail has two properties: `data`, containing the value evaluated as the loaded data, and `previousDetail`, providing the full server response detail, including all originally received fields.
 - **save-error**: This event is dispatched when errors are encountered while saving data in the form. The detail contains three pieces of data: `msg`, with the server's message; `validationErrors`, with the captured validation errors object; and `previousDetail`, with the complete Ajax response from the server.
 - **save-success**: This event is dispatched when the form has been successfully saved. The detail sends three properties: `data`, with the evaluated data from the response; `msg`, with the server's response message; and `previousDetail`, with the complete Ajax response from the server.
-- **form-canceled**: This event is dispatched when the cancel button is pressed. The form data is located in the event detail.
+- **form-canceled**: This event is dispatched when the cancel button is pressed. The form data is located in the event `detail.data` and a boolean `detail.isDirty` form state property.
 
 > The component is based on `dile-ajax`, so you can also listen for the custom events documented in that component.
 

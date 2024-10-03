@@ -259,7 +259,8 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             bubbles: true,
             composed: true,
             detail: {
-                data: this.form.getData()
+                data: this.form.getData(),
+                isDirty: this.form.isDirty(),
             }
         }));
     }
