@@ -24,6 +24,7 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
             responseAdapter: { type: Object },
             formIdentifier: { type: String },
             sendDataAsFormData: { type: Boolean },
+            showCancelButton: { type: Boolean },
         };
     }
 
@@ -57,6 +58,7 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
                 formIdentifier="${this.formIdentifier}"
                 language="${this.language}"
                 ?sendDataAsFormData=${this.sendDataAsFormData}
+                ?showCancelButton=${this.showCancelButton}
             >
                 ${this.formTemplate()}
             </dile-ajax-form>

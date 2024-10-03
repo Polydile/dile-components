@@ -45,6 +45,7 @@ Use the component.
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
+- **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button.
 
 ### Methods
 
@@ -56,6 +57,11 @@ Use the component.
 - **crud-update-success**: Dispatched when an update operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.
 
 > Since this component is based on `dile-ajax-form`, the events dispatched by it can also be listened to in `dile-crud-update`.
+
+### CSS custom properties
+
+See the `dile-ajax-form` documentation to find the available custom CSS properties.
+
 
 ## Configuration
 

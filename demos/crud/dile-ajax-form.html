@@ -23,11 +23,18 @@
       operation="insert"
       endpoint="https://timer.escuelait.com/api/countries"
       actionLabel="Save"
+      showCancelButton
     >
       <demo-country-form id="form"></demo-country-form>
     </dile-ajax-form>
     
-    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('ajaxelement').addEventListener('form-canceled', function(e) {
+          console.log('form canceled with ', e.detail.data);
+        });
+      });
+    </script>
 
     <h2>Country update</h2>
 

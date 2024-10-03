@@ -20,6 +20,17 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             .actions {
                 margin-top: var(--dile-ajax-form-actions-margin-top, 1rem);
                 padding-left: 3px;
+                display: flex; 
+                gap: var(--dile-form-actions-gap, 1.2rem);
+                justify-content: var(--dile-form-actions-justify-content, flex-start);
+            }
+            .cancel_button {
+                --dile-primary-color: var(--dile-ajax-form-cancel-button-background-color, transparent);
+                --dile-on-primary-color: var(--dile-ajax-form-cancel-button-text-color, #303030);
+                --dile-primary-dark-color: var(--dile-ajax-form-cancel-button-border-color, transparent);
+                --dile-button-hover-background-color: var(--dile-ajax-form-cancel-button-hover-background-color, transparent);
+                --dile-button-hover-text-color: var(--dile-ajax-form-cancel-button-hover-text-color, #303030);
+                --dile-button-hover-border-color: var(--dile-ajax-form-cancel-button-hover-border-color, #303030);
             }
         `
     ];
@@ -29,6 +40,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         operation: { type: String },
         endpoint: { type: String },
         actionLabel: { type: String },
+        cancelLabel: { type: String },
         data: { type: Object },
         relatedId: { type: String },
         loadOnInit: { type: Boolean },
@@ -37,6 +49,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         setDataOnInit: { type: Boolean },
         responseAdapter: { type: Object },
         sendDataAsFormData: { type: Boolean },
+        showCancelButton: { type: Boolean },
       };
     }
 
@@ -71,13 +84,24 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         return this.querySelector('#' + this.formIdentifier);
     }
 
+    actionLabelComputed(label, translations, operation) {
+        if(operation == 'insert') {
+            return label ? label : translations?.insert_label ? translations.insert_label : 'Insert';
+        }
+        if(operation == 'update') {
+            return label ? label : translations?.update_label ? translations.update_label : 'Update';
+        }
+        return translations.send_label;
+    }
+
     render() {
         return html`
             ${this.ajaxComponents}
             <slot></slot>
             <dile-inline-feedback id="feedback"></dile-inline-feedback>
             <div class="actions">
-                <dile-button @click=${this.doAction}>${this.actionLabel}</dile-button>
+                <dile-button @click=${this.doAction}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>
+                ${this.showCancelButton ? html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.translations.cancel_label}</dile-button>` : ''}
             </div> 
         `;
     }
@@ -228,6 +252,16 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             return this.translations.success_operation(this.operation);
         } 
         return this.translations.error_operation(this.operation);
+    }
+
+    doCancel() {
+        this.dispatchEvent(new CustomEvent('form-canceled', {
+            bubbles: true,
+            composed: true,
+            detail: {
+                data: this.form.getData()
+            }
+        }));
     }
 }
 

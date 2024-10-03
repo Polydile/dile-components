@@ -61,6 +61,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **responseAdapter**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
+- **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button. If the cancel button is pressed the component will dispatch a `form-canceled` custom event.
 
 ### Methods
 
@@ -76,6 +77,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **dile-ajax-form-loaded**: This event is dispatched when the form has successfully finished loading the data of the resource to be edited. The detail has two properties: `data`, containing the value evaluated as the loaded data, and `previousDetail`, providing the full server response detail, including all originally received fields.
 - **save-error**: This event is dispatched when errors are encountered while saving data in the form. The detail contains three pieces of data: `msg`, with the server's message; `validationErrors`, with the captured validation errors object; and `previousDetail`, with the complete Ajax response from the server.
 - **save-success**: This event is dispatched when the form has been successfully saved. The detail sends three properties: `data`, with the evaluated data from the response; `msg`, with the server's response message; and `previousDetail`, with the complete Ajax response from the server.
+- **form-canceled**: This event is dispatched when the cancel button is pressed. The form data is located in the event detail.
 
 > The component is based on `dile-ajax`, so you can also listen for the custom events documented in that component.
 
@@ -86,7 +88,15 @@ You can customize the form using these CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-ajax-form-actions-margin-top | Margin top on the action button | 1rem
-
+--dile-form-actions-gap | Gap between action buttons | 1.2rem
+--dile-form-actions-gap | Gap between action buttons | 1.2rem
+--dile-form-actions-justify-content | Flex justify content for action buttons | flex-start
+--dile-ajax-form-cancel-button-background-color | Cancel button background color style | transparent
+--dile-ajax-form-cancel-button-text-color | Cancel button text color style | #303030
+--dile-ajax-form-cancel-button-border-color | Cancel button border color style | transparent
+--dile-ajax-form-cancel-button-hover-background-color | Cancel button hover background color style | transparent
+--dile-ajax-form-cancel-button-hover-text-color | Cancel button hover text color style | #303030
+--dile-ajax-form-cancel-button-hover-border-color | Cancel button hover border color style | #303030
 
 ## Configuration
 

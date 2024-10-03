@@ -12,6 +12,7 @@ export const translations = {
   ajax_form_not_supported: "Operation not supported in dile-ajax-form use 'insert' or 'update'",
   success_operation: (operation) => operation == 'insert' ? 'The new item has been created' : 'Item updated successfully',
   error_operation: (operation) => `${operation == 'insert' ? 'Insertion' : 'Update'} error`,
+  send_label: "Send",
   insert_label: "Create",
   update_label: "Update",
   start_update_label: "Edit",
