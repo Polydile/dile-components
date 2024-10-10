@@ -88,7 +88,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         state: true,
       },
       isSelected: {
-        type: Object,
+        type: Boolean,
         state: true,
       },
       /* When static is true there is no posibility to search, then all the options are displayed on the select on initialization */

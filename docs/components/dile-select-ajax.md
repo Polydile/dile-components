@@ -40,11 +40,33 @@ Use the component.
 
 ## Properties
 
-This component is not documented yet.
+- **selectDefaultPlaceholder**: String, allows setting the text for the default option, which represents an empty option after the component has fetched some data.
+- **endpoint**: String, the URL of the API endpoint where the data will be fetched for the select options.
+- **label**: String, the label text for the select field.
+- **value**: String, the value selected by the user in the select field.
+- **name**: String, the name attribute for the select field, used in form submissions.
+- **disabled**: Boolean, disables the select field when set to `true`, preventing user interaction.
+- **errored**: Boolean, indicates if the field has an error state, changing the appearance of the select field to indicate an error.
+- **data**: Array, the array of data options that populate the select field. You should not use this property as the component can fetch the data using the endpoint.
+- **placeholder**: String, the placeholder text shown when no option is selected and the user has not searched for anything.
+- **emptyMessage**: String, the message displayed when there are no available options in the select field, usually because a search on the endpoint has returned no results.
+- **selectedText**: String, the text shown when an option is selected. You should not use this property because it is assigned automatically when the user selects an option.
+- **ajaxErrorMessage**: String, the message displayed when an error occurs during an AJAX request to fetch data.
+- **ajaxError**: Boolean, indicates if there was an error in the AJAX request, typically used to show an error message or state.
+- **queryStringVariable**: String, the name of the query string variable used when sending a request to the endpoint.
+- **resultDataProperty**: String, specifies which property in the JSON response contains the data for the select options. Leave blank if the JSON result directly contains the data array.
+- **displayProperty**: String, the property in each data object used to display the option text in the select field.
+- **idProperty**: String, the property in each data object used as the unique identifier for the options.
+- **delay**: Number, the delay in milliseconds before making the request to the API endpoint, often used for search or filtering.
+- **opened**: Boolean, state property that indicates whether the select dropdown is open.
+- **keyword**: String, state property that holds the current search keyword entered by the user.
+- **loading**: Boolean, state property that indicates whether the component is currently loading data from the endpoint.
+- **isSelected**: Boolean, a property that indicates whether an option has been selected.
+- **static**: Boolean, when set to `true`, disables the search functionality and displays all options when the select is initialized.
 
 ## Methods
 
-Not documented
+Not documented yet
 
 ## Events
 

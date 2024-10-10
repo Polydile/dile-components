@@ -43,6 +43,15 @@ Use the component.
 
 > This component not documented yet.
 
+### Properties
+
+`dile-ajax-select-crud` is a specialization of `[dile-select-ajax](/components/dile-select-ajax/)`, so it offers all the properties documented for that component.
+
+In addition, `dile-ajax-select-crud` introduces these additional properties:
+
+- **maxResults**: Number, defines the maximum number of results that can be returned in a single request.
+- **pageParamName**: String, the name of the parameter used to indicate the page size in the request (corresponding to the `maxResults` property).
+- **getSelectResultList**: Object, a function that takes the full response and returns the list of selected results. This is used to extract the correct data from the JSON response object. 
 
 ### dile-ajax-select-crud example
 

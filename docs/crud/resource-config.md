@@ -38,6 +38,11 @@ Once the `CrudConfigBuilder` instance is created, you can call the `getConfig()`
 countryConfig.getConfig();
 ```
 
+## Available configuration options
+
+
+
+
 ## Creating a Configuration Module for Each Resource
 
 Since the configuration object is usually the same for each resource, it may be useful to create an independent module for each resource. This same configuration object can be used across different components, such as the listing component, the item detail component, or a complete CRUD component.
