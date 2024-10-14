@@ -21,6 +21,7 @@ Import the component.
 
 ```javascript
 import '@dile/utils/components/datepicker/datepicker.js';
+```
 
 Use the component.
 
