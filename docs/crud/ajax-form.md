@@ -93,7 +93,6 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-ajax-form-actions-margin-top | Margin top on the action button | 1rem
 --dile-form-actions-gap | Gap between action buttons | 1.2rem
---dile-form-actions-gap | Gap between action buttons | 1.2rem
 --dile-form-actions-justify-content | Flex justify content for action buttons | flex-start
 --dile-ajax-form-cancel-button-background-color | Cancel button background color style | transparent
 --dile-ajax-form-cancel-button-text-color | Cancel button text color style | #303030

@@ -56,10 +56,6 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         let res = response.data;
         if(res.error) {
           this.dispatchError(res.data);
-        } else if (res.error === false) {
-          this.dispatchEvent(new CustomEvent('ajax-success', {
-            detail: res.data
-          }));
         } else {
           this.dispatchEvent(new CustomEvent('ajax-success', {
             detail: res
