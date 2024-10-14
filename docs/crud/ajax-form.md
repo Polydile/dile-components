@@ -79,6 +79,9 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **save-error**: This event is dispatched when errors are encountered while saving data in the form. The detail contains three pieces of data: `msg`, with the server's message; `validationErrors`, with the captured validation errors object; and `previousDetail`, with the complete Ajax response from the server.
 - **save-success**: This event is dispatched when the form has been successfully saved. The detail sends three properties: `data`, with the evaluated data from the response; `msg`, with the server's response message; and `previousDetail`, with the complete Ajax response from the server.
 - **form-canceled**: This event is dispatched when the cancel button is pressed. The form data is located in the event `detail.data` and a boolean `detail.isDirty` form state property.
+- **inline**: When this property is set to true, the form is displayed inline (in a row).
+- **actionIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the submit button.
+- **cancelIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the cancel button.
 
 > The component is based on `dile-ajax`, so you can also listen for the custom events documented in that component.
 
@@ -98,11 +101,14 @@ Custom property | Description | Default
 --dile-ajax-form-cancel-button-hover-background-color | Cancel button hover background color style | transparent
 --dile-ajax-form-cancel-button-hover-text-color | Cancel button hover text color style | #303030
 --dile-ajax-form-cancel-button-hover-border-color | Cancel button hover border color style | #303030
+--action-icon-color | Color of submit icon button when actionIcon property is defined | --dile-primary-color or #674cdc
+--cancel-icon-color | Color of cancel icon button when cancelIcon property is defined | #d74c3c
+--inline-gap | Gap between form and action button when form is inline | 1rem
 
 ### Attributes for Styling
 
 - **hiddefeedback**: When this attribute is set, the form does not display feedback messages. The `display` CSS property of the feedback element is set to `none`.
-- **inline**: When this attribute is set, the form is displayed inline (in a row). Additionally, feedback messages will not be displayed.
+
 
 ## Configuration
 

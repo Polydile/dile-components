@@ -35,12 +35,19 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             :host([inline]) section {
                 display: flex;
                 align-items: center;
+                gap: var(--inline-gap, 1rem);
             }
             :host([inline]) dile-inline-feedback {
                 display: none;
             }
             :host([hidefeedback]) dile-inline-feedback {
                 display: none;
+            }
+            .actionIcon {
+                --dile-icon-color: var(--action-icon-color, var(--dile-primary-color, #674cdc));
+            }
+            .cancelIcon {
+                --dile-icon-color: var(--cancel-icon-color, #d74c3c);
             }
         `
     ];
@@ -60,6 +67,9 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         responseAdapter: { type: Object },
         sendDataAsFormData: { type: Boolean },
         showCancelButton: { type: Boolean },
+        inline: { type: Boolean, reflect: true },
+        actionIcon: { type: Object },
+        cancelIcon: { type: Object },
       };
     }
 
@@ -108,14 +118,29 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         return html`
             ${this.ajaxComponents}
             <section>
-            <slot></slot>
-            <dile-inline-feedback id="feedback"></dile-inline-feedback>
-            <div class="actions">
-                <dile-button @click=${this.doAction}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>
-                ${this.showCancelButton ? html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.translations.cancel_label}</dile-button>` : ''}
-            </div> 
+                <slot></slot>
+                ${this.inline ? this.actionsTemplate : ''}
             </section>
+            <dile-inline-feedback id="feedback"></dile-inline-feedback>
+            ${this.inline ? '' : this.actionsTemplate}
         `;
+    }
+
+    get actionsTemplate() {
+        return html`
+            <div class="actions">
+                ${this.actionIcon 
+                    ? html`<a href="#" @click=${this.doAction}><dile-icon .icon=${this.actionIcon} class="actionIcon"></dile-icon></a>`
+                    : html`<dile-button @click=${this.doAction}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>`
+                }
+                ${this.showCancelButton ? 
+                    this.cancelIcon 
+                        ? html`<a href="#" @click=${this.doCancel}><dile-icon @click=${this.doAction} .icon=${this.cancelIcon} class="cancelIcon"></dile-icon></a>`
+                        : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.translations.cancel_label}</dile-button>`
+                    : ''
+                }
+            </div> 
+        `
     }
 
     get ajaxComponents() {
@@ -148,7 +173,8 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         }
     }
 
-    doAction() {
+    doAction(e) {
+        e.preventDefault();
         this.feedback.clear();
         this.ajaxsave.data = this.form.getData();
         this.ajaxsave.generateRequest();
@@ -266,7 +292,8 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         return this.translations.error_operation(this.operation);
     }
 
-    doCancel() {
+    doCancel(e) {
+        e.preventDefault();
         this.dispatchEvent(new CustomEvent('form-canceled', {
             bubbles: true,
             composed: true,
