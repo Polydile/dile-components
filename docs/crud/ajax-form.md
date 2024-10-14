@@ -63,6 +63,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
 - **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button. If the cancel button is pressed the component will dispatch a `form-canceled` custom event.
 
+
 ### Methods
 
 - **loadData()**: Loads the data of the item to be edited. The identifier of the item must be specified in the corresponding `relatedId` property.
@@ -97,6 +98,11 @@ Custom property | Description | Default
 --dile-ajax-form-cancel-button-hover-background-color | Cancel button hover background color style | transparent
 --dile-ajax-form-cancel-button-hover-text-color | Cancel button hover text color style | #303030
 --dile-ajax-form-cancel-button-hover-border-color | Cancel button hover border color style | #303030
+
+### Attributes for Styling
+
+- **hiddefeedback**: When this attribute is set, the form does not display feedback messages. The `display` CSS property of the feedback element is set to `none`.
+- **inline**: When this attribute is set, the form is displayed inline (in a row). Additionally, feedback messages will not be displayed.
 
 ## Configuration
 

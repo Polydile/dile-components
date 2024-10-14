@@ -32,6 +32,16 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
                 --dile-button-hover-text-color: var(--dile-ajax-form-cancel-button-hover-text-color, #303030);
                 --dile-button-hover-border-color: var(--dile-ajax-form-cancel-button-hover-border-color, #303030);
             }
+            :host([inline]) section {
+                display: flex;
+                align-items: center;
+            }
+            :host([inline]) dile-inline-feedback {
+                display: none;
+            }
+            :host([hidefeedback]) dile-inline-feedback {
+                display: none;
+            }
         `
     ];
 
@@ -97,12 +107,14 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
     render() {
         return html`
             ${this.ajaxComponents}
+            <section>
             <slot></slot>
             <dile-inline-feedback id="feedback"></dile-inline-feedback>
             <div class="actions">
                 <dile-button @click=${this.doAction}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>
                 ${this.showCancelButton ? html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.translations.cancel_label}</dile-button>` : ''}
             </div> 
+            </section>
         `;
     }
 
