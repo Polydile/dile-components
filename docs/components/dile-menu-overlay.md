@@ -13,7 +13,7 @@ Web Component to implement a menu user interface, displayed in a overlay layer w
 ## Install
 
 ```bash
-npm install @dile/dile-menu-overlay
+npm install @dile/ui
 ```
 
 ## Usage
