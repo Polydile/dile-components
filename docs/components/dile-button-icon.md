@@ -74,14 +74,14 @@ Same as dile-button, but also:
 
 ## CSS Custom Properties
 
-You can customize it using the same dile-button CSS Custom Properties but also:
+You can customize it using the same [dile-button](/components/dile-button/) CSS Custom Properties but also:
 
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-button-icon-separation | Space between the icon and the button text | 0.3rem
 --dile-icon-size | Icon size | 24px
---dile-icon-color | Icon color | #888
---dile-button-icon-hover-color | Icon hover color | #888
+--dile-icon-button-color | Icon color | --dile-on-primary-color or #ffffff
+--dile-button-icon-hover-color | Icon hover color | --dile-on-primary-light-color or #888
 
 ## dile-button-icon demos
 

@@ -16,13 +16,13 @@ export class DileButtonIcon extends DileButton {
         button {
           display: flex;
           align-items: center;
-          --dile-icon-color: var(--dile-on-primary-color, #ffffff);
+          --dile-icon-color: var(--dile-icon-button-color, var(--dile-on-primary-color, #ffffff));
         }
         dile-icon {
           margin-right: var(--dile-button-icon-separation, 0.3rem);
         }
         button:hover {
-          --dile-icon-color: var(--dile-button-icon-hover-color, #303030);
+          --dile-icon-color: var(--dile-button-icon-hover-color, var(--dile-on-primary-light-color, #888));
         }
         :host([no-wrap]) {
           white-space: nowrap;
