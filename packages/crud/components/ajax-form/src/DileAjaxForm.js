@@ -166,11 +166,13 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
     }
 
     loadData() {
-        if(this.ajaxget) {
-            this.ajaxget.generateRequest();
-        } else {
-            setTimeout(() => this.loadData(), 100);
-        }
+        this.updateComplete.then(()=> {
+            if(this.ajaxget) {
+                this.ajaxget.generateRequest();
+            } else {
+                setTimeout(() => this.loadData(), 100);
+            }
+        })
     }
 
     doAction(e) {
