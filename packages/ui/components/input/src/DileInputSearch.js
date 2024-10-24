@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import '../../icon/icon.js';
 import { searchIcon, clearIcon } from '@dile/icons/index.js';
+import { DileEmmitChange } from '../../../mixins/form/index.js';
 
-export class DileInputSearch extends LitElement {
+export class DileInputSearch extends DileEmmitChange(LitElement) {
     static styles = [
         css`
             :host {
@@ -53,6 +54,8 @@ export class DileInputSearch extends LitElement {
         disabled: { type: Boolean },
         readOnly: { type: Boolean },
         errored: { type: Boolean },
+        /** Name for this input field */
+        name: { type: String },
       };
     }
 
@@ -68,6 +71,12 @@ export class DileInputSearch extends LitElement {
     firstUpdated() {
         this.input = this.shadowRoot.getElementById('elinput');
     }
+
+    updated(changedProperties) {
+        if(changedProperties.has('value')) {
+          this.emmitChange();
+        }
+      }
 
     render() {
         return html`

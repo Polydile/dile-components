@@ -33,8 +33,9 @@ Use the component.
 
 - **delay**: Miliseconds the component waits between when a keystroke occurs and when a search keyword is emitted.
 - **placeholder**: Placeholder text
-- **keyword**: the text typed into the input search component
+- **keyword**: The text typed into the input search component
 - **disabled**: The component is disabled
+- **name**: Name for this input search field
 
 ## Methods
 
@@ -53,6 +54,7 @@ Use the component.
 ```
 
 - **dile-input-search-cleared**: The search element is cleared because the user has clicked on the clear icon or `clear()` method has called. 
+- **element-changed**: The user changes the input content. In the event detail will emmit the element ```name``` and ```value```properties.
 
 ## CSS Custom Properties
 
