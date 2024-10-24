@@ -3,11 +3,15 @@ import '../../input/input-search.js';
 import '../../spinner/spinner-horizontal.js';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../select.js';
+import { messageStyles } from '../../input/src/message-styles.js';
+
 
 export class DileSelectAjax  extends DileEmmitChange(LitElement) {
 
   static get styles() {
-    return css`
+    return [
+      messageStyles,
+      css`
       * {
         box-sizing: border-box;
       }
@@ -50,7 +54,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         margin-bottom: 0;
         --dile-input-width: 100%;
       }
-    `;
+    `];
   }
 
   static get properties() {
@@ -94,7 +98,11 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       /* When static is true there is no posibility to search, then all the options are displayed on the select on initialization */
       static: {
         type: Boolean,
-      } 
+      }, 
+      /** Message Displayed */
+      message: { type: String },
+      /** Hide errors on input */
+      hideErrorOnInput: { type: Boolean },
     };
   }
 
@@ -176,6 +184,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
           : this.static ? this.loadingOrLoadedTemplate : this.searchTemplate
         }
       </div>
+      ${this.messageTemplate}
     `;
   }
 
@@ -253,6 +262,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
           id="elselect" 
           @element-changed=${this.doSelected}
           name="generated-select-field"
+          ?errored=${this.errored}
         >
           <select slot="select">
             <option value="">${this.selectDefaultPlaceholder}</option>
@@ -264,6 +274,15 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
     `;
   }
 
+  get messageTemplate() {
+    return html`
+      ${this.message 
+        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        : ''
+      }
+    `
+  }
+
   onFocus() {
     this.opened = true;
   }
@@ -271,6 +290,13 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   onTextInput(e) {
     this.keyword = e.detail.keyword;
     this.loadData();
+    this.hideErrorOnInteraction();
+  }
+
+  hideErrorOnInteraction() {
+    if (this.hideErrorOnInput && this.errored) {
+      this.clearError();
+    }
   }
 
   loadData() {
@@ -308,6 +334,12 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       this.isSelected = true;
     }
     e.stopPropagation();
+    this.hideErrorOnInteraction();
+  }
+
+  clearError() {
+    this.errored = false;
+    this.message = '';
   }
 
   onClearSelected() {
@@ -321,6 +353,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         this.search.focus();
       });
     }
+    this.hideErrorOnInteraction();
   }
 
   close() {
