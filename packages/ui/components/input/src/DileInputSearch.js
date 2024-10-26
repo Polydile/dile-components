@@ -108,7 +108,7 @@ export class DileInputSearch extends LitElement {
     }
 
     dispatchSearch(key) {
-        this.dispatchEvent(new CustomEvent('@dile-input-search=${this.hideErrorOnInteraction}', {
+        this.dispatchEvent(new CustomEvent('dile-input-search', {
             bubbles: true,
             composed: true,
             detail: {

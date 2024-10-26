@@ -289,6 +289,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
 
   onTextInput(e) {
+    console.log('onTextInput', e);
     this.keyword = e.detail.keyword;
     this.loadData();
     this.hideErrorOnInteraction();
