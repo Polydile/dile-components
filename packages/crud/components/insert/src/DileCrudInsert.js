@@ -35,7 +35,7 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
     }
 
     get formElement() {
-        return this.shadowRoot.getElementById(this.formId);
+        return this.shadowRoot.getElementById(this.formIdentifier);
     }
 
     render() {
