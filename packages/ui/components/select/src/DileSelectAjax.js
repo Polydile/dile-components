@@ -197,6 +197,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         value="${this.selectedText}"
         readOnly
         @dile-input-search-cleared=${this.onClearSelected}
+        @dile-input-search=${this.hideErrorOnInteraction}
       ></dile-input-search>
     `;
   }
@@ -212,7 +213,6 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         @focus=${this.onFocus}
         @dile-input-search=${this.onTextInput}
         delay="${this.delay}"
-        @element-changed=${this.inputSearchChanged}
       ></dile-input-search>
       <div class="anchor">
         <section class="${this.opened && this.keyword.length > 0 ? 'opened' : ''}">
@@ -291,11 +291,6 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   onTextInput(e) {
     this.keyword = e.detail.keyword;
     this.loadData();
-    this.hideErrorOnInteraction();
-  }
-
-  inputSearchChanged(e) {
-    e.stopPropagation();
     this.hideErrorOnInteraction();
   }
 

@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import '../../icon/icon.js';
 import { searchIcon, clearIcon } from '@dile/icons/index.js';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
 
-export class DileInputSearch extends DileEmmitChange(LitElement) {
+export class DileInputSearch extends LitElement {
     static styles = [
         css`
             :host {
@@ -72,12 +71,6 @@ export class DileInputSearch extends DileEmmitChange(LitElement) {
         this.input = this.shadowRoot.getElementById('elinput');
     }
 
-    updated(changedProperties) {
-        if(changedProperties.has('value')) {
-          this.emmitChange();
-        }
-      }
-
     render() {
         return html`
         <div class="${this.errored ? "errored" : ""}">
@@ -115,7 +108,7 @@ export class DileInputSearch extends DileEmmitChange(LitElement) {
     }
 
     dispatchSearch(key) {
-        this.dispatchEvent(new CustomEvent('dile-input-search', {
+        this.dispatchEvent(new CustomEvent('@dile-input-search=${this.hideErrorOnInteraction}', {
             bubbles: true,
             composed: true,
             detail: {

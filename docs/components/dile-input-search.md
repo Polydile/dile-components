@@ -54,7 +54,7 @@ Use the component.
 ```
 
 - **dile-input-search-cleared**: The search element is cleared because the user has clicked on the clear icon or `clear()` method has called. 
-- **element-changed**: The user changes the input content. In the event detail will emmit the element ```name``` and ```value```properties.
+- **dile-input-search**: The user changes the input content. In the event detail will emmit the input element content as the ```keyword``` property.
 
 ## CSS Custom Properties
 
