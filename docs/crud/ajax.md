@@ -52,6 +52,7 @@ Once the method is invoked, the response will be received in one of the two cust
 - **statusSuccessCodes**: Array, the list of http response codes handled as success by this component. By default is [200, 201].
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax` component will send a formData object instead of a JSON object.
+- **getValidationErrors**: Object, a function that receives the full response data and returns the validation errors. See the explanation below on providing validation errors.
 
 ### Methods
 
@@ -62,8 +63,23 @@ Once the method is invoked, the response will be received in one of the two cust
 
 The component dispatches two custom events to notify the reception of the response in the connections:
 
-- **ajax-success**: Dispatched when the server response has a successful HTTP status code.
-- **ajax-error**: Dispatched when the response is received with an error HTTP status code.
+> These custom events are not configured with `bubbles: true`, so they must be listened to directly on the dile-ajax component tag.
+
+- **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event is the JSON returned by the server.
+- **ajax-error**: Dispatched when the response is received with an error HTTP status code. The detail of the event is an object with these properties:
+
+```json
+ {
+  message, 
+  errors,
+  data
+ }
+ ```
+
+`message` is an human readable description of the error. `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
+
+
+- **ajax-response**: Dispatched when the response is received, in both cases (error and success). The detail of this custom event has a `response` property with the entire axios response object.
 
 In both cases, the custom event will include a detail with the data received in the server's HTTP response.
 
@@ -74,6 +90,41 @@ The `dile-ajax` component uses [Axios](https://axios-http.com/) under the hood t
 In the simplest cases, you may not need to customize any extra parameters in the HTTP requests, and thus you may not need to customize the Axios instance used for the HTTP requests. However, in most HTTP applications, it is very likely that you will need to change some details of Axios's behavior.
 
 On the [documentation page for the CRUD components](/crud/), we explain the available mechanisms to configure Axios according to the needs of your project.
+
+## Providing validation errors
+
+The component will attempt to provide the client with a complete list of validation errors detected by the server when it receives status codes 400 and 422. By default, for validation errors, the component expects to receive a JSON response like this:
+
+```json
+{
+    "message": "The name is incorrect and there are two more validation errors",
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "slug": [
+            "The slug field is required."
+        ],
+        "continent": [
+            "The continent field is required."
+        ]
+    }
+}
+```
+
+In this response, there are two properties. First, a `message` property that provides an overall description of the validation issue. Then, an `errors` property that contains the details of the validation errors.
+
+> For the `dile-ajax` component, the format of the `errors` property’s value doesn’t matter. However, for more complex CRUD components to display specific validation errors next to each field that failed validation, the `errors` property should be an object where each property name corresponds to the field with an error, and each value is an array containing the errors found for that field.
+
+If the REST API we’re working with does not send the `message` property in the JSON response, the `dile-ajax` component will send a generic error message.
+
+If the REST API does not send the `errors` property as expected, we can use the component’s `getValidationErrors` property to help `dile-ajax` locate where the errors are.
+
+```html
+<dile-ajax .getValidationErrors=${(data) => data.result.validationErrors}></dile-ajax>
+```
+
+As shown, we simply bind a function to the `getValidationErrors` property, which receives the complete JSON response from the server and returns the path to the validation errors array provided by the API.
 
 ## dile-ajax demos
 

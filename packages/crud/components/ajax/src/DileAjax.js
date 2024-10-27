@@ -10,6 +10,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       url: { type: String },
       statusSuccessCodes: { type: Array },
       sendDataAsFormData: { type: Boolean },
+      getValidationErrors: { type: Object },
     }
   }
 
@@ -18,6 +19,9 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     this.method = 'post';
     this.url = '';
     this.statusSuccessCodes = [200, 201];
+    this.getValidationErrors = (data) => {
+      return data.errors
+    }
   }
 
   get computedData() {
@@ -52,17 +56,13 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         break
     }
     request.then((response) => {
+      this.dispatchResponse(response)
       if(this.statusSuccessCodes.includes(response.status)) {
-        let res = response.data;
-        if(res.error) {
-          this.dispatchError(res.data);
-        } else {
-          this.dispatchEvent(new CustomEvent('ajax-success', {
-            detail: res
-          }));
-        }
+        this.dispatchEvent(new CustomEvent('ajax-success', {
+          detail: response.data
+        }));
       } else {
-        this.dispatchError(this.translations.http_unhandled_success);
+        this.dispatchError(this.translations.http_unhandled_success, response.data);
       }
     })
     .catch(err => {
@@ -75,51 +75,61 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
 
   describeError(err) {
     if (err.response) {
-      const status = err.response.status;
+      const res = err.response;
+      const status = res.status;
       switch (status) {
         case 422: 
         case 400: 
-          this.dispatchError(err.response.data.message, err.response.data.errors);
+          this.dispatchError(res.data.message, res.data, this.getValidationErrors(res.data));
           break;
         case 404:
-          if(err.response.data.message) {
-            this.dispatchError(err.response.data.message);
+          if(res.data.message) {
+            this.dispatchError(res.data.message, res.data);
           } else {
-            this.dispatchError(this.translations.http_404);
+            this.dispatchError(this.translations.http_404, res.data);
           }
           break;
         case 401:
-          this.dispatchError(this.translations.http_401);
+          this.dispatchError(this.translations.http_401, res.data);
           break;
         case 405:
-            this.dispatchError(this.translations.http_405);
+            this.dispatchError(this.translations.http_405, res.data);
             break;
         case 413:
-          this.dispatchError(this.translations.http_413);
+          this.dispatchError(this.translations.http_413, res.data);
           break;
         case 419:
-          this.dispatchError(this.translations.http_419);
+          this.dispatchError(this.translations.http_419, res.data);
           break;
         case 502:
-          this.dispatchError(this.translations.http_502);
+          this.dispatchError(this.translations.http_502, res.data);
           break;
         case 504:
-          this.dispatchError(this.translations.http_504);
+          this.dispatchError(this.translations.http_504, res.data);
           break;
         default:
-          this.dispatchError(this.translations.http_other_error);
+          this.dispatchError(this.translations.http_other_error, res.data);
       }
     } else {
-      this.dispatchError(this.translations.http_no_response);
+      this.dispatchError(this.translations.http_no_response, {});
     }
   }
 
-  dispatchError(message, errors = []) {
+  dispatchError(message, data, errors = []) {
     this.dispatchEvent(new CustomEvent('ajax-error', {
       detail: {
         message,
+        data,
         errors
       } 
+    }));
+  }
+
+  dispatchResponse(response) {
+    this.dispatchEvent(new CustomEvent('ajax-response', {
+      detail: {
+        response
+      }
     }));
   }
 
