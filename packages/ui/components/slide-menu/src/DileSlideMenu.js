@@ -43,10 +43,10 @@ export class DileSlideMenu extends DileSlideDown(LitElement) {
         align-items: center;
         cursor: pointer;
         font-size: var(--dile-slide-menu-font-size, 1em);
-        color: var(--dile-foreground-color, #303030);
+        color: var(--dile-primary-color, #303030);
         font-weight: var(--dile-slide-menu-font-weight, bold);
         text-decoration: var(--dile-slide-menu-text-decoration, none);
-        --dile-icon-color: var(--dile-foreground-color, #303030);
+        --dile-icon-color: var(--dile-primary-color, #303030);
         margin: var(--dile-slide-menu-control-margin, 0 0 0.25rem 0);
       }
       
