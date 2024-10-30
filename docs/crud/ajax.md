@@ -68,15 +68,17 @@ The component dispatches two custom events to notify the reception of the respon
 - **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event is the JSON returned by the server.
 - **ajax-error**: Dispatched when the response is received with an error HTTP status code. The detail of the event is an object with these properties:
 
-```json
- {
-  message, 
-  errors,
-  data
- }
- ```
+    ```json
+    {
+      message, 
+      errors,
+      data
+    }
+    ```
 
-`message` is an human readable description of the error. `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
+    - `message` is an human readable description of the error. To make the description the component try to reach a `message` property on the server response. If this property exists, then the component will use it as the message. If this property does not exists, then the component creates a standar descripcion based on the HTTP status code.
+    - `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
+    - `data` is the complete server response JSON content.
 
 > The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag.
 

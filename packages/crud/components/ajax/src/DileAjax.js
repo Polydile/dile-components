@@ -79,8 +79,10 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       const status = res.status;
       switch (status) {
         case 422: 
+          this.dispatchError(res.data.message || this.translations.http_422, res.data, this.getValidationErrors(res.data));
+          break;
         case 400: 
-          this.dispatchError(res.data.message, res.data, this.getValidationErrors(res.data));
+          this.dispatchError(res.data.message || this.translations.http_400, res.data, this.getValidationErrors(res.data));
           break;
         case 404:
           if(res.data.message) {

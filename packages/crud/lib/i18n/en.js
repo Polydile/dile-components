@@ -1,6 +1,8 @@
 export const translations = {
   http_unhandled_success: "Unhandled success server response",
   http_404: "Not found error",
+  http_400: "Bad Request",
+  http_422: "Unprocessable Entity",
   http_401: "Unauthorized",
   http_405: "Method Not Allowed",
   http_413: "Content Too Large",
