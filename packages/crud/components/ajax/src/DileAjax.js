@@ -127,6 +127,8 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
 
   dispatchResponse(response) {
     this.dispatchEvent(new CustomEvent('ajax-response', {
+      bubbles: true,
+      composed: true,
       detail: {
         response
       }

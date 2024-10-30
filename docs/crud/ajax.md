@@ -63,7 +63,7 @@ Once the method is invoked, the response will be received in one of the two cust
 
 The component dispatches two custom events to notify the reception of the response in the connections:
 
-> These custom events are not configured with `bubbles: true`, so they must be listened to directly on the dile-ajax component tag.
+
 
 - **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event is the JSON returned by the server.
 - **ajax-error**: Dispatched when the response is received with an error HTTP status code. The detail of the event is an object with these properties:
@@ -78,10 +78,10 @@ The component dispatches two custom events to notify the reception of the respon
 
 `message` is an human readable description of the error. `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
 
+> The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag.
 
-- **ajax-response**: Dispatched when the response is received, in both cases (error and success). The detail of this custom event has a `response` property with the entire axios response object.
+- **ajax-response**: Dispatched when the response is received, in both cases (error and success). The detail of this custom event has a `response` property with the entire Axios response object.
 
-In both cases, the custom event will include a detail with the data received in the server's HTTP response.
 
 ## Customize the HTTP request
 
