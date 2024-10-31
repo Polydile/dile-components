@@ -13,6 +13,11 @@ export class DileRelationChecker extends LitElement {
       dile-input-search {
         margin-bottom: 1rem;
       }
+      h2 {
+        font-size: var(--relation-checker-title-font-size, 1.25rem);
+        font-weight: var(--relation-checker-title-font-weight, bold);
+        color: #303030(--relation-checker-title-color, #303030);
+      }
     `
   ];
 
@@ -68,7 +73,10 @@ export class DileRelationChecker extends LitElement {
   render() {
     return html`
       ${this.ajaxTemplate}
-      <h2>${this.label}</h2>
+      ${this.label
+        ? html`<h2>${this.label}</h2>`
+        : ''
+      }
       <dile-input-search
         @dile-input-search=${this.searchHandler}
         @dile-input-search-cleared=${this.clearKeywordHandler}

@@ -59,7 +59,28 @@ These custom events allow for external handling of data loading and save operati
 - **relation-success-save**: Dispatched when an item’s checked status has been successfully saved to the `endpointCheck` API.
 - **relation-error-save**: Dispatched when there is an error in saving the checked status of an item to the `endpointCheck` API.
 
-## Demo
+## Styling
+
+It is possible to use these custom CSS properties in the `dile-relation-checker` component:
+
+Custom property | Description | Default
+----------------|-------------|---------
+--relation-checker-title-font-size | The font size of the title in the checker component | 1.25rem
+--relation-checker-title-font-weight | The font weight of the title in the checker component | bold
+--relation-checker-title-color | The color of the title in the checker component | #303030
+--relation-checker-checkbox-size | The size of the checkbox in the relation checker item | 24px
+--relation-checker-tooltip-icon-size | The size of the tooltip icon in the relation checker item | 18px
+--dile-chip-tooltip-padding | The padding of the tooltip chip in the relation checker item when using the "onlyicon" class | 0.15rem
+
+In addition to the CSS custom properties mentioned above, the `dile-relation-checker` component relies on other components from the Dile Components catalog:
+
+- `[dile-input-search](/components/dile-input-search/)`
+- `[dile-checkbox](/components/dile-checkbox/)`
+- `[dile-chip-tooltip](/components/dile-chip-tooltip/)`
+
+For this reason, you can also use the style customizations specified in their respective documentation pages.
+
+## dile-relation-checker Demo
 
 ```html:preview
 <script type="module">

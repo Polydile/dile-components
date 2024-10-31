@@ -7,7 +7,7 @@ export class DileRelationCheckerItem extends LitElement {
     css`
       :host {
         display: block;
-        --dile-checkbox-size: 24px;
+        --dile-checkbox-size: var(--relation-checker-checkbox-size, 24px);
       }
       div.item {
         display: flex;
@@ -24,7 +24,7 @@ export class DileRelationCheckerItem extends LitElement {
       }
       .onlyicon {
         --dile-chip-tooltip-padding: 0.15rem;
-        --dile-chip-tooltip-icon-size: 18px;
+        --dile-chip-tooltip-icon-size: var(--relation-checker-tooltip-icon-size, 18px);
       }
     `
   ];

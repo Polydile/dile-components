@@ -30,13 +30,13 @@ Use the component.
     id="countryselect"
     idProperty="id"
     name="country_id"
-    label="País"
+    label="Country"
     endpoint="https://timer.escuelait.com/api/countries" 
     queryStringVariable="keyword"
-    placeholder="Buscar país"
+    placeholder="Search country"
     resultDataProperty="data"
     displayProperty="name"
-    selectDefaultPlaceholder="Seleccionar país..."
+    selectDefaultPlaceholder="Select country..."
 ></dile-ajax-select-crud>
 ```
 
