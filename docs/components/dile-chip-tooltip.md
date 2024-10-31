@@ -1,5 +1,6 @@
 ---
 title: Chip Tooltip
+tags: feedback
 ---
 
 # dile-chip-tooltip
