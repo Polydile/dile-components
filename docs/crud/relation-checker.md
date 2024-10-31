@@ -74,9 +74,9 @@ Custom property | Description | Default
 
 In addition to the CSS custom properties mentioned above, the `dile-relation-checker` component relies on other components from the Dile Components catalog:
 
-- `[dile-input-search](/components/dile-input-search/)`
-- `[dile-checkbox](/components/dile-checkbox/)`
-- `[dile-chip-tooltip](/components/dile-chip-tooltip/)`
+- [dile-input-search](/components/dile-input-search/)
+- [dile-checkbox](/components/dile-checkbox/)
+- [dile-chip-tooltip](/components/dile-chip-tooltip/)
 
 For this reason, you can also use the style customizations specified in their respective documentation pages.
 
@@ -124,8 +124,8 @@ export class DemoRelationChecker extends LitElement {
         @element-changed=${this.selectorChanged}
     ></dile-ajax-select-crud>
       <dile-relation-checker 
-        endpointGet="http://localhost/api/board-games/${this.gameId}/mechanics"
-        endpointCheck="http://localhost/api/board-games/${this.gameId}/mechanics" 
+        endpointGet="https://timer.escuelait.com/api/board-games/${this.gameId}/mechanics"
+        endpointCheck="https://timer.escuelait.com/api/board-games/${this.gameId}/mechanics" 
         label="Board Game Mechanics"
         .computeTooltip = ${(item) => item.description}
       ></dile-relation-checker>
