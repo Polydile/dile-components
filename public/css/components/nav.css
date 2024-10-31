@@ -81,6 +81,7 @@ dile-social-icon {
 
 .fixednav dile-slide-menu {
   margin-left: 1.3rem;
+  --dile-primary-color: #303030;
 }
 .linkcolection {
   font-size: 0.875rem;

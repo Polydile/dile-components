@@ -40,9 +40,6 @@ Use the component.
 ></dile-ajax-select-crud>
 ```
 
-
-> This component not documented yet.
-
 ### Properties
 
 `dile-ajax-select-crud` is a specialization of `[dile-select-ajax](/components/dile-select-ajax/)`, so it offers all the properties documented for that component.
@@ -53,27 +50,20 @@ In addition, `dile-ajax-select-crud` introduces these additional properties:
 - **pageParamName**: String, the name of the parameter used to indicate the page size in the request (corresponding to the `maxResults` property).
 - **getSelectResultList**: Object, a function that takes the full response and returns the list of selected results. This is used to extract the correct data from the JSON response object. 
 
-### dile-ajax-select-crud example
+### Custom Events
 
-```html:preview
-<script type="module">
-  import '@dile/crud/components/ajax-select-crud/ajax-select-crud';
-</script>
-<dile-ajax-select-crud
-    id="countryselect"
-    idProperty="id"
-    name="country_id"
-    label="País"
-    endpoint="https://timer.escuelait.com/api/countries" 
-    queryStringVariable="keyword"
-    placeholder="Buscar país"
-    .getSelectResultList=${(response) => response.data.result.data}
-    displayProperty="name"
-    selectDefaultPlaceholder="Seleccionar país..."
-></dile-ajax-select-crud>
+- **element-changed**: This component extends `[dile-select-ajax](/components/dile-select-ajax/)`, so `element-changed` custom event is fired when the value property of the component changes.
+
+The custom event detail has this properties:
+
+```json
+detail: {
+  name: this.name,
+  value: this.value
+}
 ```
 
-### How to Adapt to API Responses When Fetching a List
+### Adapting API Responses When Fetching a List
 
 The `dile-ajax-select-crud` component can adapt to different API response formats when fetching a list of elements to display in the select field. There are two mechanisms available to achieve this adaptation:
 
@@ -138,4 +128,26 @@ This will only work when the server response looks like this:
 
 ```json
 [ { "id": 1, "name": "Foo" }, { "id": 2, "name": "Bar" } ]
+```
+
+> This component documentation is a work in progress.
+
+## dile-ajax-select-crud example
+
+```html:preview
+<script type="module">
+  import '@dile/crud/components/ajax-select-crud/ajax-select-crud';
+</script>
+<dile-ajax-select-crud
+    id="countryselect"
+    idProperty="id"
+    name="country_id"
+    label="País"
+    endpoint="https://timer.escuelait.com/api/countries" 
+    queryStringVariable="keyword"
+    placeholder="Buscar país"
+    .getSelectResultList="${(response) => response.data.result.data}"
+    displayProperty="name"
+    selectDefaultPlaceholder="Seleccionar país..."
+></dile-ajax-select-crud>
 ```
