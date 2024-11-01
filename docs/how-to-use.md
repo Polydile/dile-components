@@ -16,6 +16,7 @@ Dile components is managed under several packages of components, agruped by its 
 - @dile/editor: WYSIWYG editor to create Markdown contents
 - @dile/icons: Icon catalog
 - @dile/utils: General utility components
+- @dile/crud: Generic and customizable CRUD components
 
 ## 1.- Install any of the web components
 
