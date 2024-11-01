@@ -91,6 +91,9 @@ inputField.addEventListener('input', (e) => {
 ### Default textarea
 
 ```html:preview
+<script type="module">
+  import '@dile/ui/components/textarea/textarea';
+</script>
 <dile-textarea label="Comments"></dile-textarea>
 ```
 
