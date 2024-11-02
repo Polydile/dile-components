@@ -15,7 +15,7 @@ npm i @dile/crud
 
 ## Usage
 
-Import the dile-ajax component.
+Import the `dile-ajax-switch` component.
 
 ```javascript
 import '@dile/crud/components/ajax-switch/ajax-switch.js';
@@ -32,8 +32,7 @@ Use the component.
 ></dile-ajax-switch>
 ```
 
-
-> This component is implemented with dile-ajax component. So, read the [dile-ajax docs](/crud/ajax/) to get more information on configuration options.
+> This component is implemented with the `dile-ajax` component, so refer to the [dile-ajax documentation](/crud/ajax/) for more information on configuration requirements.
 
 ### Properties
 
@@ -46,7 +45,7 @@ Use the component.
 
 ### Custom Events
 
-You can listen for [dile-ajax events](/crud/ajax/) and [dile-switch events](/components/dile-switch/)
+This component does not dispatch any custom events on its own, but you can listen to the `ajax-response` custom event from [`dile-ajax`](/crud/ajax/) and also the custom events from [dile-switch events](/components/dile-switch/).
 
 
 ### dile-ajax-switch example
