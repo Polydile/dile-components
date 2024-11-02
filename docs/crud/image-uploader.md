@@ -35,8 +35,6 @@ Use the component.
 
 ### Properties
 
-Here’s the documentation for the properties of the `DileImageUploader` component:
-
 - **endpoint**: String, the API endpoint to which the image data will be sent for upload.
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **selectImageLabel**: String, the label text for the image selection field. If not provided, a translated text will be used based on the `language` property value.
@@ -45,7 +43,6 @@ Here’s the documentation for the properties of the `DileImageUploader` compone
 - **responseAdapter**: Object, optional. API adapter object. See the [responseAdapter page](/crud/response-adapter/)) page for more information.
 
 ### Custom Events
-
 
 The `dile-image-uploader` component is based on [`dile-ajax-form`](/crud/ajax-form/), so you can listen to the same custom events documented for that component.
 
