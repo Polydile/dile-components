@@ -62,7 +62,9 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
 - **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button. If the cancel button is pressed the component will dispatch a `form-canceled` custom event.
-
+- **inline**: When this property is set to true, the form is displayed inline (in a row).
+- **actionIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the submit button.
+- **cancelIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the cancel button.
 
 ### Methods
 
@@ -79,9 +81,6 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **save-error**: This event is dispatched when errors are encountered while saving data in the form. The detail contains three pieces of data: `msg`, with the server's message; `validationErrors`, with the captured validation errors object; and `previousDetail`, with the complete Ajax response from the server.
 - **save-success**: This event is dispatched when the form has been successfully saved. The detail sends three properties: `data`, with the evaluated data from the response; `msg`, with the server's response message; and `previousDetail`, with the complete Ajax response from the server.
 - **form-canceled**: This event is dispatched when the cancel button is pressed. The form data is located in the event `detail.data` and a boolean `detail.isDirty` form state property.
-- **inline**: When this property is set to true, the form is displayed inline (in a row).
-- **actionIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the submit button.
-- **cancelIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the cancel button.
 
 > The component is based on `dile-ajax`, so you can also listen for the custom events documented in that component.
 
