@@ -42,4 +42,10 @@ export const translations = {
   all_in_page: "Todos de esta página",
   select_matching: "Seleccionar coincidentes",
   element_actions: "Acciones en este ítem",
+  select_image: "Selecciona una imagen",
+  save_image: "Salvar la imagen",
+  file_drop: "Suelta aquí el archivo",
+  select_file: "Seleccionar archivo",
+  selected_file: "Archivo seleccionado",
+  extension_allowed: "Solo se permiten estas extensiones: ",
 };

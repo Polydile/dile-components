@@ -42,5 +42,10 @@ export const translations = {
   all_in_page: "All in this page",
   select_matching: "Select all matching",
   element_actions: "Element actions",
-
+  select_image: "Select an image",
+  save_image: "Save image",
+  file_drop: "Drop here your file",
+  select_file: "Select file",
+  selected_file: "Selected file",
+  extension_allowed: "Only this file extensions are allowed: ",
 };
