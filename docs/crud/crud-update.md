@@ -28,6 +28,7 @@ Use the component.
 <dile-crud-update
   title="Update a country"
   endpoint="api/countries"
+  relatedId="4"
   .formTemplate=${() => html`<demo-country-form id="updateform"></demo-country-form>`}
 ></dile-crud-update>
 ```
@@ -45,7 +46,9 @@ Use the component.
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
 - **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
-- **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button.
+- **showCancelButton**: Boolean, default false. If true, this component renders a cancel button.
+- **setDataOnInit**: Boolean, default is `false`. If `true`, this component initializes the form element values using the `data` object property.
+- **data**: Object, used only when `setDataOnInit` is `true`, to populate the form element values with its data.
 
 ### Methods
 
