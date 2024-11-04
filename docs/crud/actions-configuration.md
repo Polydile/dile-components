@@ -231,10 +231,11 @@ These methods will be executed when successful action processes are detected. To
 ```javascript
 {
   // other config properties
-  onActionListSuccess: (actionSuccessDetail) => {},
-  onActionSingleSuccess: (actionSuccessDetail) => {},
+  onActionListSuccess(actionSuccessDetail) {},
+  onActionSingleSuccess(actionSuccessDetail) {},
 }
 ```
 
 - **onActionListSuccess**: Executes when an action in the `dile-crud` component has been successfully processed.
 - **onActionSingleSuccess**: Executes when an action in the `dile-crud-single` component has been successfully processed.
+

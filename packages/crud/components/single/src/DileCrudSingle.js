@@ -138,7 +138,8 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       this.refresh();
     }
     if(this.config.onActionSingleSuccess) {
-      this.config.onActionSingleSuccess(e.detail);
+      const handler = this.config.onActionSingleSuccess.bind(this);
+      handler(e.detail);
     }
   }
 

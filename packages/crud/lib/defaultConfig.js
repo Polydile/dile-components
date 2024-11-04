@@ -74,6 +74,6 @@ export const defaultConfig = {
     insertForm: 'insertform',
     updateForm: 'updateform',
   },
-  onActionListSuccess: (actionSuccessDetail) => {},
-  onActionSingleSuccess: (actionSuccessDetail) => {},
+  onActionListSuccess(actionSuccessDetail) {},
+  onActionSingleSuccess(actionSuccessDetail) {},
 }
