@@ -230,7 +230,6 @@ These methods will be executed when successful action processes are detected. To
 
 ```javascript
 {
-  // other config properties
   onActionListSuccess(actionSuccessDetail) {},
   onActionSingleSuccess(actionSuccessDetail) {},
 }
@@ -239,3 +238,17 @@ These methods will be executed when successful action processes are detected. To
 - **onActionListSuccess**: Executes when an action in the `dile-crud` component has been successfully processed.
 - **onActionSingleSuccess**: Executes when an action in the `dile-crud-single` component has been successfully processed.
 
+### Action Handler config example
+
+The following is an example of defining behavior to be executed for specific type of action (`AttachGameAction`) when this action is processed successfully.
+
+```javascript
+{
+  // other config properties
+  onActionSingleSuccess(actionDetail) {
+    if(actionDetail.action == 'AttachGameAction') {
+      this.shadowRoot.querySelector('mj-category-relations').refreshGames();
+    }
+  }
+}
+```
