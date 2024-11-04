@@ -68,16 +68,12 @@ export const defaultConfig = {
     formSingleActions: () => '',
   },
   labels: {
-    // insertAction: 'Create',
-    // updateAction: 'Save',
-    // startUpdateAction: 'Edit',
-    // insertWindowTitle: 'Create an item',
-    // updateWindowTitle: 'Update an item',
-    // helpTitle: 'Help',
-    // helpButtonLabel: 'Help',
+
   },
   formIds: {
     insertForm: 'insertform',
     updateForm: 'updateform',
   },
+  onActionListSuccess: (actionSuccessDetail) => {},
+  onActionSingleSuccess: (actionSuccessDetail) => {},
 }

@@ -341,6 +341,9 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             this.removeActionItems(e.detail.data.delete_elems);
         }
         this.refresh();
+        if(this.config.onActionListSuccess) {
+            this.config.onActionListSuccess(e.detail);
+        }
     }
 
     removeActionItems(idsArray) {

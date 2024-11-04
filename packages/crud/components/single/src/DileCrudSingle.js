@@ -137,6 +137,9 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     if(e.detail.action != "DeleteAction") {
       this.refresh();
     }
+    if(this.config.onActionSingleSuccess) {
+      this.config.onActionSingleSuccess(e.detail);
+    }
   }
 
   edit() {

@@ -220,3 +220,21 @@ class DemoSetEuropeAsContinentAction extends DileForm(LitElement) {
 customElements.define('demo-set-europe-as-continent-action', DemoSetEuropeAsContinentAction);
 ```
 
+## Action Handlers in the Configuration
+
+Both the `dile-crud` and `dile-crud-single` components emit a `crud-action-success` custom event that can be captured in the component host tag, to create handlers affecting the application. However, when actions are executed, some operations may need to occur within the component itself, such as refreshing lists.
+
+To support this, there are two properties in the configuration object where functions can be assigned to perform actions within the component's internal context.
+
+These methods will be executed when successful action processes are detected. To aid in identifying the actions performed, the methods receive the detail objects of the executed actions.
+
+```javascript
+{
+  // other config properties
+  onActionListSuccess: (actionSuccessDetail) => {},
+  onActionSingleSuccess: (actionSuccessDetail) => {},
+}
+```
+
+- **onActionListSuccess**: Executes when an action in the `dile-crud` component has been successfully processed.
+- **onActionSingleSuccess**: Executes when an action in the `dile-crud-single` component has been successfully processed.

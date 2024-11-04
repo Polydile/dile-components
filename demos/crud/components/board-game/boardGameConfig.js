@@ -68,4 +68,5 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
         </dile-pages>
     `,
   },
+  onActionListSuccess: (detail) => { console.log('Captured process on action list success with this detail: ', detail);},
 });
