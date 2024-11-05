@@ -37,8 +37,7 @@ export class DileEditorToolbarItem extends LitElement {
         .icon=${this.item.icon} 
         @click=${this.doCommand}
       ></dile-icon> 
-      <dile-editor-link-dialog id="linkDialog"></dile-editor-link-dialog> 
-      <dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> 
+      ${this.item.dialogTemplate ? this.item.dialogTemplate : ''}
     `;
   }
 

@@ -1,3 +1,4 @@
+import { html } from "lit";
 import { undo, redo } from "prosemirror-history";
 import {
   formatBoldIcon,
@@ -46,6 +47,7 @@ export const getToolbarItems = (config) => [
     command: linkCommand,
     commandName: 'link',
     icon: insertLinkIcon,
+    dialogTemplate: html`<dile-editor-link-dialog id="linkDialog"></dile-editor-link-dialog> `,
   }),
   new ToolbarRemoveLink({
     commandName: 'removeLink',
@@ -55,6 +57,7 @@ export const getToolbarItems = (config) => [
     command: linkCommand,
     commandName: 'image',
     icon: imageIcon,
+    dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
   }),
   new ToolbarItem({
     command: setUnorderedListCommand,

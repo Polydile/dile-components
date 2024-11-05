@@ -11,6 +11,7 @@ export class ToolbarItem {
     this.command = config.command;
     this.commandName = config.commandName;
     this.icon = config.icon;
+    this.dialogTemplate = config.dialogTemplate;
   }
 
   checkActive(editorView) {
