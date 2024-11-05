@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { notesIcon } from '@dile/icons'
 import './dile-editor-toolbar-item.js';
 import '@dile/ui/components/select/select.js';
-import { toolbarItems, undoItems, blockItems } from './prosemirror/menu-items.js';
+import { getToolbarItems, getUndoItems, getBlockItems } from './prosemirror/menu-items.js';
 import { linkCommand } from './prosemirror/markdown-commands.js';
 import { schema } from "prosemirror-markdown";
 
@@ -48,32 +48,36 @@ export class DileEditorToolbar extends LitElement {
       toolbarItems: { type: Array },
       blockItems: { type: Array },
       undoItems: { type: Array },
+      menuConfig: { type: Object },
     };
   }
 
   constructor() {
     super();
-    this.toolbarItems = toolbarItems;
-
-    this.undoItems = undoItems
-
-    this.blockItems = blockItems
   }
 
   firstUpdated() {
-    
     this.blockselect = this.shadowRoot.getElementById('blockselect');
+    this.toolbarItems = getToolbarItems(this.menuConfig);
+    this.undoItems = getUndoItems(this.menuConfig);
+    this.blockItems = getBlockItems(this.menuConfig);
   }
 
   render() {
     return html`
-      ${this.showItems(this.toolbarItems, 'marks')}
-      ${this.paragraphTypes}
-      ${this.showItems(this.undoItems, 'blocks')}
+      ${this.menuConfig
+        ? html`
+          ${this.showItems(this.toolbarItems, 'marks')}
+          ${this.paragraphTypes}
+          ${this.showItems(this.undoItems, 'blocks')}
+        `
+        : ''
+      }
     `;
   }
 
   showItems(items, cssClass) {
+    if(!items) return '';
     return html`
       <div class="${cssClass}">
         ${items.map(item => html`
@@ -97,21 +101,26 @@ export class DileEditorToolbar extends LitElement {
 
   get paragraphTypes() {
     return html`
-      <div class="blocks">
-        <dile-icon .icon=${notesIcon}></dile-icon>
-        <dile-select 
-          id="blockselect" 
-          name="blockselect" 
-          @element-changed=${this.blockElementChanged} 
-          quietOnStart
-        >
-          <select slot="select">
-            ${this.blockItems.map(item => html`
-              <option value="${item.commandName}">${item.commandName}</option>
-            `)}
-          </select>
-        </dile-select>
-      </div>
+      ${this.blockItems
+        ? html `
+          <div class="blocks">
+            <dile-icon .icon=${notesIcon}></dile-icon>
+            <dile-select 
+              id="blockselect" 
+              name="blockselect" 
+              @element-changed=${this.blockElementChanged} 
+              quietOnStart
+            >
+              <select slot="select">
+                ${this.blockItems.map(item => html`
+                  <option value="${item.commandName}">${item.commandName}</option>
+                `)}
+              </select>
+            </dile-select>
+          </div>
+        `
+        : ''
+      }
     `
   }
 

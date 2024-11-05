@@ -30,10 +30,17 @@
     <p>
       <dile-editor></dile-editor>
     </p>
+
+    <h2>Disable some toolbar options</h2>
+    <p>
+       <dile-editor label="Markdown editor" disableToolbarItems="h1|h2|h3|h4|italic|image|link"># Dile editor
+This is a rich editor. This editor has a value property with the markdown code of this content editable area.
+      </dile-editor> 
+    </p>
     
       <h2>Initialized editor</h2>
     <p>
-       <dile-editor label="Markdown editor"># Dile editor
+       <dile-editor label="Markdown editor" disableToolbarItems="h4|italic"># Dile editor
 This is a rich editor. This editor has a value property with the markdown code of this content editable area.
       </dile-editor> 
     </p>

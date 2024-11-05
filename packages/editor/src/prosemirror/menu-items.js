@@ -26,7 +26,7 @@ import {
 } from './markdown-commands.js';
 import { ToolbarItem, ToolbarLink, ToolbarRemoveLink, ToolbarImage } from "./toolbar-item.js";
 
-export const toolbarItems = [
+export const getToolbarItems = (config) => [
   new ToolbarItem({
     command: boldCommand,
     commandName: 'bold',
@@ -71,9 +71,9 @@ export const toolbarItems = [
     commandName: 'lift',
     icon: formatIndentDecreaseIcon,
   }),
-];
+].filter(item => config[item.commandName]);
 
-export const undoItems = [
+export const getUndoItems = (config) => [
   new ToolbarItem({
     command: undo,
     commandName: 'undo',
@@ -84,9 +84,9 @@ export const undoItems = [
     commandName: 'redo',
     icon: redoIcon,
   })
-];
+].filter(item => config[item.commandName]);
 
-export const blockItems = [
+export const getBlockItems = (config) => [
   {
     command: setParagraphCommand,
     commandName: 'paragraph',
@@ -111,5 +111,4 @@ export const blockItems = [
     command: setCodeCommand,
     commandName: 'code',
   },
-
-];
+].filter(item => config[item.commandName]);

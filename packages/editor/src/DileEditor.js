@@ -4,6 +4,7 @@ import './dile-editor-markdown.js';
 import '@dile/ui/components/pages/pages.js';
 import '@dile/ui/components/tabs/tabs.js';
 import { messageStyles } from '@dile/ui/components/input/index.js';
+import { defaultToolbarConfig } from './defaultToolbarConfig.js';
 
 export class DileEditor extends DileEmmitChange(LitElement) {
   static styles = [
@@ -152,15 +153,24 @@ export class DileEditor extends DileEmmitChange(LitElement) {
 
       /** Hide errors on input */
       hideErrorOnInput: { type: Boolean },
+
+      /** Disable toolbar items, string with items separated by tubes like "italic|h4" */
+      disableToolbarItems: { type: String },
+    
+      /** Menu config */
+      _menuConfig: { type: Object },
     };
   }
 
   constructor() {
     super();
+    this.initialized = false;
     this.value = this.innerHTML;
     this.label = '';
     this.viewSelected = 'design';
     this.message = '';
+    this.disableToolbarItems = '';
+    this._menuConfig = {...defaultToolbarConfig}
   }
 
   updated(changedProperties) {
@@ -170,8 +180,18 @@ export class DileEditor extends DileEmmitChange(LitElement) {
   }
 
   firstUpdated() {
+    this.setupMenuConfig();
     this.editor = this.shadowRoot.getElementById('editor');
     this.textarea = this.shadowRoot.getElementById('eltextarea');
+  }
+
+  setupMenuConfig() {
+    const disabledItems = this.disableToolbarItems.split('|');
+    disabledItems.forEach(item => {
+      if (this._menuConfig.hasOwnProperty(item)) {
+        this._menuConfig[item] = false;
+      }
+    });
   }
 
   render() {
@@ -209,6 +229,8 @@ export class DileEditor extends DileEmmitChange(LitElement) {
               <dile-editor-markdown
                 id="editor"
                 @dile-editor-change=${this.updateValue}
+                ._menuConfig=${this._menuConfig}
+                @dile-editor-markdown-initialized=${this.setInitialized}
               ></dile-editor-markdown>
             </section>
           </dile-pages>
@@ -231,8 +253,12 @@ export class DileEditor extends DileEmmitChange(LitElement) {
   }
 
   updateEditorContent(value) {
-    this.editor.updateEditorContent(value);
-    this.textarea.value = value;
+    if(this.initialized) {
+      this.editor.updateEditorContent(value);
+      this.textarea.value = value;
+    } else {
+      setTimeout(() => this.updateEditorContent(value), 100);
+    }
   }
 
   get isValueExternalyUpdated() {
@@ -256,5 +282,9 @@ export class DileEditor extends DileEmmitChange(LitElement) {
       this.errored = false;
       this.message = '';
     }
+  }
+
+  setInitialized() {
+    this.initialized = true;
   }
 }

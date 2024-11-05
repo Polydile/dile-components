@@ -23,8 +23,21 @@ export class DileEditorMarkdown extends LitElement {
     `
   ];
 
+  static get properties() {
+    return {
+      _menuConfig: { type: Object }
+    };
+  }
   constructor() {
     super();
+    this._menuConfig = {}
+  }
+
+  createRenderRoot() {
+    return this;
+  }
+
+  firstUpdated() {
     const editorElement = this;
     const dispatchChange = this.dispatchChange.bind(this);
     const state = this.createState('');
@@ -37,14 +50,13 @@ export class DileEditorMarkdown extends LitElement {
       }
     })
     this.view = view;
-  }
-
-  createRenderRoot() {
-    return this;
+    this.dispatchEvent(new CustomEvent('dile-editor-markdown-initialized'));
   }
 
   get editorMarkdown() {
-    return defaultMarkdownSerializer.serialize(this.view.state.doc);
+    if(this.view) {
+      return defaultMarkdownSerializer.serialize(this.view.state.doc);
+    }
   }
 
   createState(content) {
@@ -54,7 +66,7 @@ export class DileEditorMarkdown extends LitElement {
         history(),
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
-        menuPlugin(),
+        menuPlugin(this._menuConfig),
       ]
     })
   }
