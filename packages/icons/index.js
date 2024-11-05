@@ -69,6 +69,7 @@ export { paidIcon } from "./src/paid.js";
 export { paletteIcon } from "./src/palette.js";
 export { panToolIcon } from "./src/panTool.js";
 export { pdfIcon } from "./src/pdf.js";
+export { photoIcon } from "./src/photo.js";
 export { photoCameraIcon } from "./src/photoCamera.js";
 export { priorityHighIcon } from "./src/priorityHigh.js";
 export { questionAnswerIcon } from "./src/questionAnswer.js";

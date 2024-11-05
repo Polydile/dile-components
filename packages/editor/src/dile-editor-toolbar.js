@@ -63,7 +63,6 @@ export class DileEditorToolbar extends LitElement {
     this.toolbarItems = getToolbarItems(this.menuConfig, this.addicionalCommands.toolbarItems || []);
     this.undoItems = getUndoItems(this.menuConfig, this.addicionalCommands.undoItems || []);
     this.blockItems = getBlockItems(this.menuConfig, this.addicionalCommands.blockItems || []);
-    console.log(this.blockItems);
   }
 
   render() {

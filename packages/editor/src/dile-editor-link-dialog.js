@@ -45,6 +45,15 @@ export class DileEditorLinkDialog extends LitElement {
   get menu() {
     return this.shadowRoot.querySelector('dile-menu-overlay');
   }
+
+  get urlInput() {
+    return this.shadowRoot.getElementById('url');
+  }
+
+  get titleInput() {
+    return this.shadowRoot.getElementById('title');
+  }
+
   open() {
     this.menu.open();
   }
@@ -57,10 +66,12 @@ export class DileEditorLinkDialog extends LitElement {
       bubbles: true,
       composed: true,
       detail: {
-        url: this.shadowRoot.getElementById('url').value,
-        title: this.shadowRoot.getElementById('title').value,
+        url: this.urlInput.value,
+        title: this.titleInput.value,
       }
     }));
+    this.urlInput.value = '';
+    this.titleInput.value = '';
   }
 }
 customElements.define('dile-editor-link-dialog', DileEditorLinkDialog);

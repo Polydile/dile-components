@@ -108,6 +108,10 @@ export class DileEditor extends DileEmmitChange(LitElement) {
         opacity: 0.5;
       }
 
+      .ProseMirror img {
+        max-width: 100%;
+      }
+
       dile-tabs {
         margin-bottom: 0.3rem;
       }

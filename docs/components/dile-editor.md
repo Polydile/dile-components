@@ -227,7 +227,7 @@ Do you like them?
 <script type="module">
   import { LitElement, html, css } from 'lit';
   import { ToolbarItem, ToolbarImage } from '@dile/editor/src/prosemirror/toolbar-item.js'
-  import { homeIcon, editIcon } from '@dile/icons';
+  import { homeIcon, photoIcon } from '@dile/icons';
   import {
     boldCommand,
     headingCommandCreator,
@@ -252,7 +252,7 @@ Do you like them?
       const newImage = new ToolbarImage({
         command: linkCommand,
         commandName: 'image',
-        icon: editIcon,
+        icon: photoIcon,
         dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
       });
       const heading5 = {

@@ -30,9 +30,9 @@ export class DileEditorImageDialog extends LitElement {
         <div slot="content">
           <section class="grid">
             <div>URL:</div>
-            <div><input type="text" id="src" value="https://placekitten.com/540/360"></div>
+            <div><input type="text" id="src"></div>
             <div>Alt:</div>
-            <div><input type="text" id="alt" value="Un gatito"></div>
+            <div><input type="text" id="alt"></div>
           </section>
           <dile-button @click=${this.accept}>Accept</dile-button> <dile-button @click=${this.close}>Cancel</dile-button> 
         </div>
@@ -69,6 +69,8 @@ export class DileEditorImageDialog extends LitElement {
         alt: this.altInput.value,
       }
     }));
+    this.srcInput.value = '';
+    this.altInput.value = '';
   }
 }
 customElements.define('dile-editor-image-dialog', DileEditorImageDialog);
