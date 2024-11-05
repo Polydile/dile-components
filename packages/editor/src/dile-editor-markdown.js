@@ -25,7 +25,8 @@ export class DileEditorMarkdown extends LitElement {
 
   static get properties() {
     return {
-      _menuConfig: { type: Object }
+      _menuConfig: { type: Object },
+      addicionalCommands: { type: Object },
     };
   }
   constructor() {
@@ -66,7 +67,7 @@ export class DileEditorMarkdown extends LitElement {
         history(),
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
-        menuPlugin(this._menuConfig),
+        menuPlugin(this._menuConfig, this.addicionalCommands),
       ]
     })
   }

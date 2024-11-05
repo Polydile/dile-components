@@ -49,18 +49,21 @@ export class DileEditorToolbar extends LitElement {
       blockItems: { type: Array },
       undoItems: { type: Array },
       menuConfig: { type: Object },
+      addicionalCommands: { type: Object },
     };
   }
 
   constructor() {
     super();
+    this.addicionalCommands = {}
   }
 
   firstUpdated() {
     this.blockselect = this.shadowRoot.getElementById('blockselect');
-    this.toolbarItems = getToolbarItems(this.menuConfig);
-    this.undoItems = getUndoItems(this.menuConfig);
-    this.blockItems = getBlockItems(this.menuConfig);
+    this.toolbarItems = getToolbarItems(this.menuConfig, this.addicionalCommands.toolbarItems || []);
+    this.undoItems = getUndoItems(this.menuConfig, this.addicionalCommands.undoItems || []);
+    this.blockItems = getBlockItems(this.menuConfig, this.addicionalCommands.blockItems || []);
+    console.log(this.blockItems);
   }
 
   render() {

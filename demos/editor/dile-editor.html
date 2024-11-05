@@ -61,7 +61,61 @@ Do you like it?
       <dile-editor errored message="This is the message error..." hideErrorOnInput></dile-editor>
     </p>
 
-    
+    <h2>Editor with custom option</h2>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+      import { ToolbarItem, ToolbarImage } from '@dile/editor/src/prosemirror/toolbar-item.js'
+      import { homeIcon, editIcon } from '@dile/icons';
+      import {
+        boldCommand,
+        headingCommandCreator,
+        linkCommand,
+      } from '@dile/editor/src/prosemirror/markdown-commands.js';
+      export class DileEditorCustomized extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+          `
+        ];
+      
+        constructor() {
+          super();
+          const newBold = new ToolbarItem({
+            command: boldCommand,
+            commandName: 'bold',
+            icon: homeIcon,
+          });
+          const newImage = new ToolbarImage({
+            command: linkCommand,
+            commandName: 'image',
+            icon: editIcon,
+            dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
+          });
+          const heading5 = {
+            command: headingCommandCreator(5),
+            commandName: 'h5',
+          };
+          const heading6 = {
+            command: headingCommandCreator(6),
+            commandName: 'h6',
+          };
+
+          this.addicionalCommands = {
+            toolbarItems: [newBold, newImage],
+            blockItems: [heading5, heading6],
+          }
+        }
+        render() {
+          return html`
+            <dile-editor .addicionalCommands=${this.addicionalCommands} label="Customized Editor"></dile-editor>
+          `;
+        }
+      }
+      customElements.define('dile-editor-customized', DileEditorCustomized);
+    </script>
+    <dile-editor-customized></dile-editor-customized>
 
     <footer><a href="../index.html">Back</a></footer>
   </div>

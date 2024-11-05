@@ -27,7 +27,7 @@ import {
 } from './markdown-commands.js';
 import { ToolbarItem, ToolbarLink, ToolbarRemoveLink, ToolbarImage } from "./toolbar-item.js";
 
-export const getToolbarItems = (config) => [
+export const getToolbarItems = (config, additionalItems) => [
   new ToolbarItem({
     command: boldCommand,
     commandName: 'bold',
@@ -74,9 +74,10 @@ export const getToolbarItems = (config) => [
     commandName: 'lift',
     icon: formatIndentDecreaseIcon,
   }),
-].filter(item => config[item.commandName]);
+  ...additionalItems,
+].filter(item => config[item.commandName] !== false);
 
-export const getUndoItems = (config) => [
+export const getUndoItems = (config, additionalItems) => [
   new ToolbarItem({
     command: undo,
     commandName: 'undo',
@@ -86,10 +87,15 @@ export const getUndoItems = (config) => [
     command: redo,
     commandName: 'redo',
     icon: redoIcon,
-  })
-].filter(item => config[item.commandName]);
+  }),
+  ...additionalItems,
+].filter(item => config[item.commandName] !== false);
 
-export const getBlockItems = (config) => [
+export const getBlockItems = (config, additionalItems) => [
+  {
+    command: setCodeCommand,
+    commandName: 'code',
+  },
   {
     command: setParagraphCommand,
     commandName: 'paragraph',
@@ -110,8 +116,5 @@ export const getBlockItems = (config) => [
     command: headingCommandCreator(4),
     commandName: 'h4',
   },
-  {
-    command: setCodeCommand,
-    commandName: 'code',
-  },
-].filter(item => config[item.commandName]);
+  ...additionalItems,
+].filter(item => config[item.commandName] !== false);

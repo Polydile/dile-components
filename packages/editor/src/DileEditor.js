@@ -157,6 +157,8 @@ export class DileEditor extends DileEmmitChange(LitElement) {
       /** Disable toolbar items, string with items separated by tubes like "italic|h4" */
       disableToolbarItems: { type: String },
     
+      addicionalCommands: { type: Object },
+
       /** Menu config */
       _menuConfig: { type: Object },
     };
@@ -170,7 +172,8 @@ export class DileEditor extends DileEmmitChange(LitElement) {
     this.viewSelected = 'design';
     this.message = '';
     this.disableToolbarItems = '';
-    this._menuConfig = {...defaultToolbarConfig}
+    this._menuConfig = {...defaultToolbarConfig};
+    this.addicionalCommands = {}
   }
 
   updated(changedProperties) {
@@ -231,6 +234,7 @@ export class DileEditor extends DileEmmitChange(LitElement) {
                 @dile-editor-change=${this.updateValue}
                 ._menuConfig=${this._menuConfig}
                 @dile-editor-markdown-initialized=${this.setInitialized}
+                .addicionalCommands=${this.addicionalCommands}
               ></dile-editor-markdown>
             </section>
           </dile-pages>
