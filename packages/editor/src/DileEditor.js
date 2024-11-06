@@ -192,6 +192,9 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
     if(changedProperties.has('value') && this.isValueExternalyUpdated) {
       this.updateEditorContent(this.value);
     }
+    if(changedProperties.has('value')) {
+      this.emmitChange();
+    }
   }
 
   firstUpdated() {
