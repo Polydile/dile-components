@@ -26,6 +26,7 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
         margin-bottom: 0;
         --dile-input-border-width: 0;
         --dile-input-padding: 3px;
+        --dile-input-background-color: var(--dile-editor-toolbar-block-background-color, #eee);
       }
       .marks, .blocks {
         display: flex;
@@ -59,8 +60,11 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
     this.addicionalCommands = {}
   }
 
+  get blockselect() {
+    return this.shadowRoot.getElementById('blockselect');
+  }
+  
   firstUpdated() {
-    this.blockselect = this.shadowRoot.getElementById('blockselect');
     this.toolbarItems = getToolbarItems(this.menuConfig, this.addicionalCommands.toolbarItems || []);
     this.undoItems = getUndoItems(this.menuConfig, this.addicionalCommands.undoItems || []);
     this.blockItems = getBlockItems(this.menuConfig, this.addicionalCommands.blockItems || []);
@@ -93,6 +97,7 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
                 @accept-link-dialog=${this.doLinkCommand}
                 @accept-image-dialog=${this.doImageCommand}
                 .editorView=${this.editorView}
+                language="${this.language}"
               ></dile-editor-toolbar-item>
               `
             : ''
@@ -117,7 +122,8 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
               <select slot="select">
                 ${this.blockItems.map(item => html`
                   <option value="${item.commandName}">${this.translations[item.commandName] || item.commandName}</option>
-                `)}
+                  `)}
+                  <option value="-"></option>
               </select>
             </dile-select>
           </div>
@@ -152,7 +158,11 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
     this.toolbarItems = this.computeActive(this.toolbarItems);
     this.undoItems = this.computeActive(this.undoItems);
     let currentBlock = this.blockItems.find(item => !item.command(this.editorView.state, null, this.editorView))
-    this.blockselect?.quietChange(currentBlock.commandName);
+    if(currentBlock) {
+      this.blockselect?.quietChange(currentBlock.commandName);
+    } else {
+      this.blockselect?.quietChange('-');
+    }
   }
 
   computeActive(items) {

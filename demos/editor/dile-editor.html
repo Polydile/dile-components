@@ -15,10 +15,12 @@
     --dile-editor-views-nav-background-color: orange;
     --dile-editor-views-nav-color: #ffc;
     --dile-editor-toolbar-background-color: #f4f4f4;
-    --dile-editor-toolbar-color: orange;
-    --dile-input-color: orange;
+    --dile-editor-toolbar-color: rgb(171, 111, 0);
+    --dile-input-color: rgb(171, 111, 0);
     --dile-icon-size: 18px;
     --dile-editor-border: 2px solid #666;
+    --dile-primary-color: rgb(171, 111, 0);
+    --dile-on-primary-color: rgb(242, 250, 184);
    }
   </style>
 </head>
@@ -96,7 +98,7 @@ Do you like it?
             command: linkCommand,
             commandName: 'image',
             icon: editIcon,
-            dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
+            dialogTemplate:(language) => html`<dile-editor-image-dialog language="${language}" id="imageDialog"></dile-editor-image-dialog>`,
           });
           const heading5 = {
             command: headingCommandCreator(5),

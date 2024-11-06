@@ -42,7 +42,7 @@ Use the component.
 - **sort**: Object, the sorting configuration, defining how the items should be ordered.
 - **actionIds**: Array, the IDs of the selected items for batch actions.
 - **filters**: Array, the filters applied to the list to refine the displayed items.
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 
 ### Methods
 

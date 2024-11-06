@@ -35,7 +35,7 @@ Use the component.
 - **relatedId**: String, the identifier of the specific record that is being displayed and managed by the component.
 - **element**: Object, the item object containing the details of the record to be displayed.
 - **actionIds**: Array, containing the identifier of the item being managed in the `dile-crud-single` component. This identifier is used to trigger batch actions in the CRUD system. Although this component displays a single record, an array is used for actions, with a single identifier in the array.
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 
 ### Methods
 

@@ -5,9 +5,7 @@ tags: utils
 
 # dile-editor
 
-Webcomponent to implement a rich markdown editor.
-
-> This component is suitable for production but there are some pending improvements to develop.
+Web component for implementing a rich markdown editor that allows editing in WYSIWYG mode as well as directly editing plain markdown code. It supports customization of both its appearance and the available toolbar options, making it flexible for a variety of use cases.
 
 ## Installation
 ```bash
@@ -39,6 +37,7 @@ Use the component:
 - **hideErrorOnInput**: Clean the error state when the user input some content
 - **disableToolbarItems**: String, to disable some editor options. The format of the string consists of specifying the names of the options to disable, separated by the pipe character "`|`" (something like `h3|h4|italic`). Further down on this documentation page, you'll find a list of the names of each toolbar option that can be disabled.
 - **addicionalCommands**: Object, to include additional options on the editor toolbar. See configuration instructions bellow.
+- **language**: String, the interface language. Currently, "es" and "en" are supported, with "en" as the default.
 
 ### Methods
 
@@ -72,8 +71,9 @@ Custom property | Description | Default
 --dile-input-message-font-size | Message font size | 0.875rem
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
-
-You can use the [dile-select component](https://dile-components.polydile.com/components/dile-select/) custom properties to change the paragraph type styles.
+--dile-editor-toolbar-block-background-color | Block type selector background color | #eee
+ 
+As this component is based on many other Dile Components, like [dile-select](/components/dile-select/) or [dile-button](/components/dile-button/), you can use their custom properties to change the diferent UI styles.
 
 ## Toolbar option names for disabling
 
@@ -133,7 +133,7 @@ const newImage = new ToolbarImage({
   command: linkCommand,
   commandName: 'image',
   icon: editIcon,
-  dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog>`,
+  dialogTemplate: (language) => html`<dile-editor-image-dialog language="${language}" id="imageDialog"></dile-editor-image-dialog>`,
 });
 const heading5 = {
   command: headingCommandCreator(5),
@@ -253,7 +253,7 @@ Do you like them?
         command: linkCommand,
         commandName: 'image',
         icon: photoIcon,
-        dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
+        dialogTemplate: (language) => html`<dile-editor-image-dialog language="${language}" id="imageDialog"></dile-editor-image-dialog> `,
       });
       const heading5 = {
         command: headingCommandCreator(5),

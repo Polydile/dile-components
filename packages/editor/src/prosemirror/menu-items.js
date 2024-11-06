@@ -47,7 +47,7 @@ export const getToolbarItems = (config, additionalItems) => [
     command: linkCommand,
     commandName: 'link',
     icon: insertLinkIcon,
-    dialogTemplate: html`<dile-editor-link-dialog id="linkDialog"></dile-editor-link-dialog> `,
+    dialogTemplate:(language) => html`<dile-editor-link-dialog language="${language}" id="linkDialog"></dile-editor-link-dialog> `,
   }),
   new ToolbarRemoveLink({
     commandName: 'removeLink',
@@ -57,7 +57,7 @@ export const getToolbarItems = (config, additionalItems) => [
     command: linkCommand,
     commandName: 'image',
     icon: imageIcon,
-    dialogTemplate: html`<dile-editor-image-dialog id="imageDialog"></dile-editor-image-dialog> `,
+    dialogTemplate:(language) => html`<dile-editor-image-dialog language="${language}" id="imageDialog"></dile-editor-image-dialog> `,
   }),
   new ToolbarItem({
     command: setUnorderedListCommand,

@@ -59,7 +59,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **formIdentifier**: String, the identifier (ID attribute) of the form element provided in the slot, which contains the fields from which data will be retrieved or displayed. The default value is "form".
 - **setDataOnInit**: Boolean, if `true`, indicates that the component should use the object provided in the `data` property to populate the form fields upon initialization. This can be useful when you have an insert form that you want to prepopulate with specific values in the form fields.
 - **responseAdapter**: An object with a series of methods used to adapt the response data from the API used by the form. See the configuration section below for more details.
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
 - **showCancelButton**: Boolean, default false. If true, this componente renders a cancel button. If the cancel button is pressed the component will dispatch a `form-canceled` custom event.
 - **inline**: When this property is set to true, the form is displayed inline (in a row).

@@ -24,12 +24,10 @@ export class TranslationService {
   }
 
   async importLanguage(language) {
-    console.log('overwrite!!');
     // overwrite to import the language
   }
 
   async importFallback() {
-    console.log('overwrite!!');
     // overwrite to import the fallback language
   }
 }

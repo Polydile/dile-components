@@ -3,8 +3,9 @@ import { NodeSelection } from "prosemirror-state"
 import { schema } from "prosemirror-markdown";
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
 import '@dile/ui/components/button/button.js';
+import { DileI18nMixin } from './DileI18nMixin.js';
 
-export class DileEditorImageDialog extends LitElement {
+export class DileEditorImageDialog extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -34,7 +35,7 @@ export class DileEditorImageDialog extends LitElement {
             <div>Alt:</div>
             <div><input type="text" id="alt"></div>
           </section>
-          <dile-button @click=${this.accept}>Accept</dile-button> <dile-button @click=${this.close}>Cancel</dile-button> 
+          <dile-button @click=${this.accept}>${this.translations.accept}</dile-button> <dile-button @click=${this.close}>${this.translations.cancel}</dile-button> 
         </div>
       </dile-menu-overlay>
     `;

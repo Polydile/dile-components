@@ -38,7 +38,7 @@ Use the component.
 - **keyword**: String, the search keyword used to filter the items in the CRUD system.
 - **belongsTo**: String, indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. 
 - **relationId**: String, is the identifier that uniquely identifies the specific resource. 
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 
 ### Methods
 

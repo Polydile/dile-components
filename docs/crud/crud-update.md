@@ -44,7 +44,7 @@ Use the component.
 - **buttonSmall**: Boolean, indicates whether a small button is desired for the form submission button.
 - **responseAdapter**: Object, optional. An API configuration object (see the [response adapter page](/crud/response-adapter/)).
 - **formIdentifier**: String, the identifier of the component that acts as the update form. If no value is provided for this property, "updateform" is used as the default.
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax-form` component will send a formData object to the server instead of a JSON object.
 - **showCancelButton**: Boolean, default false. If true, this component renders a cancel button.
 - **setDataOnInit**: Boolean, default is `false`. If `true`, this component initializes the form element values using the `data` object property.

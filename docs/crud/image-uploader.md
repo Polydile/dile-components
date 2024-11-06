@@ -36,7 +36,7 @@ Use the component.
 ### Properties
 
 - **endpoint**: String, the API endpoint to which the image data will be sent for upload.
-- **language**: String, the feedback messages language. Available 'en', 'es'. Falllback to 'en'.
+- **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **selectImageLabel**: String, the label text for the image selection field. If not provided, a translated text will be used based on the `language` property value.
 - **saveLabel**: String, the label text for the save action button. If not provided, a translated text will be used based on the `language` property value.
 - **allowedExtensions**: Array, defines the permitted file extensions for the uploaded image. Defaults to `['jpeg', 'jpg', 'png']`.

@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/icon/icon.js';
 import './dile-editor-link-dialog.js';
 import './dile-editor-image-dialog.js';
+import { DileI18nMixin } from './DileI18nMixin.js';
 
-export class DileEditorToolbarItem extends LitElement {
+export class DileEditorToolbarItem extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -37,7 +38,7 @@ export class DileEditorToolbarItem extends LitElement {
         .icon=${this.item.icon} 
         @click=${this.doCommand}
       ></dile-icon> 
-      ${this.item.dialogTemplate ? this.item.dialogTemplate : ''}
+      ${this.item.dialogTemplate ? this.item.dialogTemplate(this.language) : ''}
     `;
   }
 
