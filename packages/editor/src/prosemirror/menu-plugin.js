@@ -2,7 +2,7 @@ import { Plugin } from "prosemirror-state";
 
 const toolbarElement = 'dile-editor-toolbar';
 
-export const menuPlugin = (menuConfig, addicionalCommands) => new Plugin({
+export const menuPlugin = (menuConfig, addicionalCommands, language) => new Plugin({
   view(editorView) {
     let toolbar;
     if (!editorView.dom.parentElement.querySelector(toolbarElement)) {
@@ -10,6 +10,7 @@ export const menuPlugin = (menuConfig, addicionalCommands) => new Plugin({
       toolbar.menuConfig = menuConfig;
       toolbar.editorView = editorView;
       toolbar.addicionalCommands = addicionalCommands;
+      toolbar.language = language;
       editorView.dom.parentNode.insertBefore(toolbar, editorView.dom);
     } else {
       toolbar = editorView.dom.parentElement.querySelector(toolbarElement);

@@ -5,8 +5,9 @@ import '@dile/ui/components/select/select.js';
 import { getToolbarItems, getUndoItems, getBlockItems } from './prosemirror/menu-items.js';
 import { linkCommand } from './prosemirror/markdown-commands.js';
 import { schema } from "prosemirror-markdown";
+import { DileI18nMixin } from './DileI18nMixin.js';
 
-export class DileEditorToolbar extends LitElement {
+export class DileEditorToolbar extends DileI18nMixin(LitElement) {
   static styles = [
     css`
       :host {
@@ -115,7 +116,7 @@ export class DileEditorToolbar extends LitElement {
             >
               <select slot="select">
                 ${this.blockItems.map(item => html`
-                  <option value="${item.commandName}">${item.commandName}</option>
+                  <option value="${item.commandName}">${this.translations[item.commandName] || item.commandName}</option>
                 `)}
               </select>
             </dile-select>

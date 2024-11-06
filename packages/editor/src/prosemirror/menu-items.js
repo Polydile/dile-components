@@ -93,12 +93,12 @@ export const getUndoItems = (config, additionalItems) => [
 
 export const getBlockItems = (config, additionalItems) => [
   {
-    command: setCodeCommand,
-    commandName: 'code',
-  },
-  {
     command: setParagraphCommand,
     commandName: 'paragraph',
+  },
+  {
+    command: setCodeCommand,
+    commandName: 'code',
   },
   {
     command: headingCommandCreator(1),

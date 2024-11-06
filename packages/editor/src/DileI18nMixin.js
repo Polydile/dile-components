@@ -2,13 +2,5 @@ import { DileI18nMixin as OriginalDileI18nMixin } from '@dile/ui/mixins/i18n/Dil
 import { translationService } from './translationService';
 export const DileI18nMixin = (superclass) => 
   class extends OriginalDileI18nMixin(translationService)(superclass) {
-    constructor() {
-      super();
-      this.translations = {
-        success_operation: () => '',
-        error_operation: () => '',
-        showing_page_size: () => '',
-        current_page: () => '',
-      };
-    }
+    
   };

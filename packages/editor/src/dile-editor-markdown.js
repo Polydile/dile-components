@@ -12,11 +12,15 @@ import { history } from "prosemirror-history";
 import { buildKeymap } from "prosemirror-example-setup";
 import './dile-editor-toolbar.js';
 import { menuPlugin } from './prosemirror/menu-plugin.js';
+import { DileI18nMixin } from './DileI18nMixin.js';
 
-export class DileEditorMarkdown extends LitElement {
+export class DileEditorMarkdown extends DileI18nMixin(LitElement) {
   
   static styles = [
     css`
+      * {
+        box-sizing: border-box;
+      }
       :host {
         display: block;
       }
@@ -67,7 +71,7 @@ export class DileEditorMarkdown extends LitElement {
         history(),
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
-        menuPlugin(this._menuConfig, this.addicionalCommands),
+        menuPlugin(this._menuConfig, this.addicionalCommands, this.language),
       ]
     })
   }

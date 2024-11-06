@@ -5,8 +5,9 @@ import '@dile/ui/components/pages/pages.js';
 import '@dile/ui/components/tabs/tabs.js';
 import { messageStyles } from '@dile/ui/components/input/index.js';
 import { defaultToolbarConfig } from './defaultToolbarConfig.js';
+import { DileI18nMixin } from './DileI18nMixin.js';
 
-export class DileEditor extends DileEmmitChange(LitElement) {
+export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
   static styles = [
     messageStyles,
     css`
@@ -112,6 +113,11 @@ export class DileEditor extends DileEmmitChange(LitElement) {
         max-width: 100%;
       }
 
+      .ProseMirror code {
+        background-color: #eee;
+        padding: 0.4rem;
+      }
+
       dile-tabs {
         margin-bottom: 0.3rem;
       }
@@ -165,6 +171,8 @@ export class DileEditor extends DileEmmitChange(LitElement) {
 
       /** Menu config */
       _menuConfig: { type: Object },
+
+      /** Language config */
     };
   }
 
@@ -220,7 +228,7 @@ export class DileEditor extends DileEmmitChange(LitElement) {
               attrForSelected="name"
               @dile-selected-changed=${this.tabSelectedChange}
             >
-              <dile-tab name="design">Design view</dile-tab>
+              <dile-tab name="design">${this.translations.design_view}</dile-tab>
               <dile-tab name="markdown">Markdown</dile-tab>
             </dile-tabs>
           </nav>
@@ -239,6 +247,7 @@ export class DileEditor extends DileEmmitChange(LitElement) {
                 ._menuConfig=${this._menuConfig}
                 @dile-editor-markdown-initialized=${this.setInitialized}
                 .addicionalCommands=${this.addicionalCommands}
+                language="${this.language}"
               ></dile-editor-markdown>
             </section>
           </dile-pages>
