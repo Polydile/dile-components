@@ -173,6 +173,7 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
   }
 
   blockElementChanged(e) {
+    e.stopPropagation();
     let commandName = e.detail.value;
     let commandElement = this.blockItems.find(item => item.commandName == commandName);
     commandElement.command(this.editorView.state, this.editorView.dispatch);
