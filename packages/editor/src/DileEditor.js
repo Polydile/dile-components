@@ -113,9 +113,14 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
         max-width: 100%;
       }
 
-      .ProseMirror code {
+      .ProseMirror pre {
         background-color: #eee;
         padding: 0.4rem;
+      }
+
+      .ProseMirror p code {
+        background-color: #eee;
+        padding: 1px;
       }
 
       dile-tabs {

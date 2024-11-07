@@ -193,7 +193,7 @@ Placing any markdown content inside the host tag as a slot. This is a much more 
 
 ```html:preview
 <dile-editor label="Markdown editor" disableToolbarItems="h4|italic"># Dile editor
-This is a rich editor. This editor has a value property with the markdown code of this content editable area.
+In this editor, some options are disabled due to the property: `disableToolbarItems="h4|italic"`.
 </dile-editor> 
 ```
 
@@ -203,11 +203,11 @@ This is a rich editor. This editor has a value property with the markdown code o
 <style>
   .styled {
   --dile-editor-background-color: #ffc;
-  --dile-editor-views-nav-background-color: orange;
+  --dile-editor-views-nav-background-color: rgb(171, 111, 0);
   --dile-editor-views-nav-color: #ffc;
   --dile-editor-toolbar-background-color: #f4f4f4;
-  --dile-editor-toolbar-color: orange;
-  --dile-input-color: orange;
+  --dile-editor-toolbar-color: rgb(171, 111, 0);
+  --dile-input-color: rgb(171, 111, 0);
   --dile-icon-size: 18px;
   --dile-editor-border: 2px solid #666;
   }
