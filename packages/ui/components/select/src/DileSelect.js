@@ -56,6 +56,10 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     `];
   }
 
+  static get formAssociated() {
+    return true;
+  }
+
   static get properties() {
     return {
       label: { type: String },
@@ -95,6 +99,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     this.hideErrorOnInput = false;
     this.changeHandler = this.onChange.bind(this);
     this.quiet = false;
+    this.internals = this.attachInternals();
   }
 
 
@@ -131,6 +136,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
       } else {
         this.emmitChange();
       }
+      this.internals.setFormValue(this.value);
     }
     if(changedProperties.has("disabled")) {
       this.elselect.disabled = this.disabled;

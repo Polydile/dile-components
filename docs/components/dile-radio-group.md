@@ -23,7 +23,7 @@ npm i @dile/ui
 Import the components.
 
 ```javascript
-import '@dile/ui/components/radio-group/radio.js';
+import '@dile/ui/components/radio-group/radio-group.js';
 ```
 
 Use the components.

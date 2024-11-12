@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
+import '../../input/input-message.js';
 
 export class DileRange extends DileEmmitChange(LitElement) {
 
@@ -7,6 +8,19 @@ export class DileRange extends DileEmmitChange(LitElement) {
     return css`
       :host {
         display: block;
+        margin-bottom: 10px;
+      }
+
+      :host([errored]) {
+        --dile-range-line-color: var(--dile-range-line-errored-color, #c00);
+      }
+
+      label {
+        display: block;
+        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
+        font-size: var(--dile-input-label-font-size, 1em);
+        color: var(--dile-input-label-color, #59e);
+        font-weight: var(--dile-input-label-font-weight, normal);
       }
 
       /*********** Baseline, reset styles ***********/
@@ -24,10 +38,12 @@ export class DileRange extends DileEmmitChange(LitElement) {
         outline: none;
       }
 
+      
+
       /******** Chrome, Safari, Opera and Edge Chromium styles ********/
       /* slider track */
       input[type="range"]::-webkit-slider-runnable-track {
-        background-color: var(--dile-range-line-color, #7BB93D);
+        background-color: var(--dile-range-line-color, var(--dile-primary-color, #7BB93D));
         border-radius: 0.5rem;
         height: var(--dile-range-line-height, 0.5rem);
       }
@@ -51,7 +67,7 @@ export class DileRange extends DileEmmitChange(LitElement) {
       /*********** Firefox styles ***********/
       /* slider track */
       input[type="range"]::-moz-range-track {
-        background-color: var(--dile-range-line-color, #7BB93D);
+        background-color: var(--dile-range-line-color, var(--dile-primary-color, #7BB93D));
         border-radius: 0.5rem;
         height: var(--dile-range-line-height, 0.5rem);
       }
@@ -69,7 +85,13 @@ export class DileRange extends DileEmmitChange(LitElement) {
         outline: 3px solid var(--dile-range-thumb-color, #303030);
         outline-offset: 0.125rem;
       }
+
+
     `;
+  }
+
+  static get formAssociated() {
+    return true;
   }
 
   static get properties() {
@@ -79,6 +101,10 @@ export class DileRange extends DileEmmitChange(LitElement) {
       step: { type: Number },
       value: { type: Number },
       name: { type: String },
+      label: { type: String },
+      message: { type: String },
+      errored: { type: Boolean, reflect: true },
+      hideErrorOnInput: { type: Boolean },
     };
   }
 
@@ -89,13 +115,19 @@ export class DileRange extends DileEmmitChange(LitElement) {
     this.min = 0;
     this.step = 1;
     this.value = 1;
+    this.message = ""
+    this.internals = this.attachInternals();
   }
 
   render() {
     return html`
+      ${this.label
+          ? html`<label for="inputrange">${this.label}</label>`
+          : ""
+      }
       <input 
         type="range" 
-        id="${this.name}" 
+        id="inputrange" 
         name="${this.name}" 
         min="${this.min}" 
         max="${this.max}" 
@@ -103,17 +135,27 @@ export class DileRange extends DileEmmitChange(LitElement) {
         value="${this.value}"
         @input="${this.rangeChanged}"
       >
+      <dile-input-message ?errored="${this.errored}" message="${this.message}"></dile-input-message>
     `;
   }
 
   rangeChanged(e) {
     this.value = e.target.value;
+    if (this.hideErrorOnInput && this.errored) {
+      this.clearError();  
+    }
   }
 
   updated(changedProperties) {
     if (changedProperties.has('value')) {
       this.emmitChange();
+      this.internals.setFormValue(this.value);
     }
+  }
+  
+  clearError() {
+    this.errored = false;
+    this.message = '';
   }
   
 }

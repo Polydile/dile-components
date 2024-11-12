@@ -28,6 +28,7 @@ export class DileInputNumberMask extends DileInput {
   }
 
   updated(changedProperties) {
+    super.updated(changedProperties);
     if (changedProperties.has('mask')) {
       this.maskController.setPattern(this.mask);
       this.updateValue();

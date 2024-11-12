@@ -91,5 +91,9 @@ export class DileEditorMarkdown extends DileI18nMixin(LitElement) {
   get markdownCode() {
     return defaultMarkdownSerializer.serialize(this.view.state.doc);
   }
+
+  focus() {
+    this.view.focus();
+  }
 }
 customElements.define('dile-editor-markdown', DileEditorMarkdown);

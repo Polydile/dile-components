@@ -38,6 +38,7 @@ export class DileInputInteger extends DileInput {
     }
 
     updated(changedProperties) { 
+        super.updated(changedProperties);
         if(changedProperties.has('value') && this.value) {
             this.changed = true;
         }

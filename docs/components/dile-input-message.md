@@ -7,11 +7,11 @@ tags: forms
 
 Input text message field.
 
-This component inherits all properties and methods from `<dile-input>`, but it is only created for messaging purposes. 
+This component inherits all properties and methods from `<dile-input>`, but it is specifically designed for messaging purposes.
 
-So, this component has not got any input interface. It can show messages and error messages. And is integrated with dile-form-mixin to show error messages on validation errors.
+Therefore, this component does not include any input interface. It is intended for displaying messages and error messages and is integrated with `dile-form-mixin` to show validation error messages.
 
-> Usually, you won't need this component, unless you are developing a custom form element that you plan to work in conjunction with our dile-form-mixin."
+> Usually, you won't need this component, unless you are developing a custom form element that you plan to work in conjunction with our [DileForm](/mixins/dile-form-mixin) mixin.
 
 ## Install
 

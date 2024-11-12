@@ -22,7 +22,7 @@ npm install @dile/ui
 Import the component.
 
 ```javascript
-import '@dile/ui/components/textarea/textarea';
+import '@dile/ui/components/textarea/textarea.js';
 ```
 
 Use the component
@@ -78,6 +78,8 @@ Custom property | Description | Default
 
 ### input
 
+- **element-changed**:  The ```element-changed``` event is dispatched when value on the input changes. In the event detail will emmit the element ```name``` and ```value```properties.
+
 This element acts as an native textarea element. So, you can listen the native `input` event.
 
 ```javascript
@@ -85,6 +87,8 @@ inputField.addEventListener('input', (e) => {
   console.log('input event named ', e.target.name, ' has value: ', e.target.value);
 });
 ```
+
+
 
 ## dile-textarea demos
 

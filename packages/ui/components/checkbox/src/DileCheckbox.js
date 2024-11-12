@@ -11,10 +11,15 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
     };
   }
 
+  static get formAssociated() {
+    return true;
+  }
+
   constructor() {
     super();
     this.checked = false;
     this.name = '';
+    this.internals = this.attachInternals();
   }
 
   static get styles() {
@@ -85,6 +90,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   updated(changedProperties) {
     if (changedProperties.has("checked")) {
       this.emmitChange();
+      this.internals.setFormValue(this.checked ? 'true' : null);
     }
   }
 

@@ -64,8 +64,13 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       fileName: { type: String },
       selectedFileLabel: { type: String },
       allowedExtensions: { type: Array },
-      extensionErrorMessage: { type: String},
+      extensionErrorMessage: { type: String },
+      name: { type: String },
     };
+  }
+
+  static get formAssociated() {
+    return true;
   }
   
   constructor() {
@@ -78,6 +83,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     this.selectedFileLabel = "Selected file";
     this.extensionErrorMessage = "Only this file extensions are allowed: "
     this.allowedExtensions = [];
+    this.internals = this.attachInternals();
   } 
 
   firstUpdated() {
@@ -161,6 +167,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   }
 
   _processFile(files) {
+    this.internals.setFormValue(files.length > 0 ? files[0] : null);
     if (files.length > 0) {
       this.fileName = files[0].name;
       this.emmitChange();
@@ -206,6 +213,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   clear() {
     this.fileInput.value = "";
     this.fileName = "";
+    this.internals.setFormValue(null);
     this.emmitChange();
   }
 

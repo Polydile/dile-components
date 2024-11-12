@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { messageStyles } from '../../input/index.js';
+import { DileEmmitChange } from '../../../mixins/form/index.js';
 
-export class DileTextarea extends LitElement {
+export class DileTextarea extends DileEmmitChange(LitElement) {
 
   static get styles() {
     return [
@@ -50,6 +51,10 @@ export class DileTextarea extends LitElement {
     `];
   }
 
+  static get formAssociated() {
+    return true;
+  }
+
   static get properties() {
     return {
       name: { type: String },
@@ -80,6 +85,7 @@ export class DileTextarea extends LitElement {
     this.rows = 3;
     this.maxRows = 10;
     this._maxHeight = 100;
+    this.internals = this.attachInternals();
   }
 
   firstUpdated() {
@@ -95,6 +101,10 @@ export class DileTextarea extends LitElement {
   updated(changedProperties) {
     if(changedProperties.has('maxRows')) {
       this.calculateMaxHeight();
+    }
+    if(changedProperties.has("value")) {
+      this.emmitChange();
+      this.internals.setFormValue(this.value);
     }
   }
   

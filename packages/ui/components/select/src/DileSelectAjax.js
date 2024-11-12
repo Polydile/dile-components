@@ -57,6 +57,10 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
     `];
   }
 
+  static get formAssociated() {
+    return true;
+  }
+
   static get properties() {
     return {
       /* Allows to set a text for the default option, that is a empty option and do not selects nothing in the interface. */
@@ -109,6 +113,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   updated(changedProperties) {
     if(changedProperties.has("value")) {
       this.emmitChange();
+      this.internals.setFormValue(this.value);
     }
   }
 
@@ -129,6 +134,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
     this.queryStringVariable = 'q';
     this.delay = 300;
     this.idProperty = 'id';
+    this.internals = this.attachInternals();
   }
 
   connectedCallback() {
@@ -159,8 +165,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
   
   registerText(json) {
-    console.log('json', json);
-    this.selectedText = json[this.displayProperty]; 
+    this.selectedText = json[this.resultDataProperty][this.displayProperty]; 
     this.loading = false;
   }
 

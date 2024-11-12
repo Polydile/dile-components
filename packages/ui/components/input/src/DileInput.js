@@ -62,16 +62,8 @@ export class DileInput extends DileEmmitChange(LitElement) {
         };
     }
 
-    firstUpdated() {
-      if(this.focusOnStart) {
-        this.focus();
-      }
-    }
-
-    updated(changedProperties) {
-      if(changedProperties.has('value')) {
-        this.emmitChange();
-      }
+    static get formAssociated() {
+      return true;
     }
 
     constructor() {
@@ -85,6 +77,20 @@ export class DileInput extends DileEmmitChange(LitElement) {
         this.name = '';
         this.type = 'text';
         this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];     
+        this.internals = this.attachInternals();
+    }
+
+    firstUpdated() {
+      if(this.focusOnStart) {
+        this.focus();
+      }
+    }
+
+    updated(changedProperties) {
+      if(changedProperties.has('value')) {
+        this.emmitChange();
+        this.internals.setFormValue(this.value);
+      }
     }
 
     static get styles() {

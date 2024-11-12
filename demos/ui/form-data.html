@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormData demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/input/input.js";
+    import "@dile/editor/editor.js";
+    import '@dile/ui/components/checkbox/checkbox.js';
+    import '@dile/utils/components/datepicker/datepicker.js';
+    import "@dile/ui/components/drop-file/drop-file.js"
+    import '@dile/ui/components/input/input-integer';
+    import '@dile/ui/components/radio-group/radio-group.js';
+    import '@dile/ui/components/range/range.js';
+    import '@dile/ui/components/select/select.js';
+    import '@dile/ui/components/select/select-ajax.js';
+    import '@dile/ui/components/switch/switch.js';
+    import '@dile/ui/components/textarea/textarea';
+  </script>
+
+  <style>
+    
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>FormData demo</h1>
+    
+    <form id="myForm">
+      <p>
+        <input type="text" name="username" value="miguel">
+        <input type="checkbox" name="readed" value="true"> Readed
+        <input type="file" name="fileinput">
+      </p>
+      <dile-range errored hideErrorOnInput message="Satisfaction!!!" label="Enter your satisfaction grade" name="satisfaction"></dile-range>
+      <dile-radio-group id="group" name="interested" label="Are you interested in this subject?">
+        <dile-radio label="Yes" value="yes"></dile-radio>
+        <dile-radio label="Some interested" value="some"></dile-radio>
+        <dile-radio label="Not at all" value="not"></dile-radio>
+      </dile-radio-group>
+      <dile-datepicker name="date" label="date"></dile-datepicker>
+      <dile-input label="Website Name" name="website" value="EscuelaIT"></dile-input>
+      <dile-editor label="Comments" name="comment" value="EscuelaIT is a **great** platform!!"></dile-editor>
+      <dile-input-integer
+        name="units"
+        label="Units"
+      ></dile-input-integer>
+      <p>
+        <dile-checkbox name="accept_terms" checked>accept_terms</dile-checkbox>
+      </p>
+      <dile-drop-file 
+        id="myFileInput" 
+        name="fileinput_dile"
+        label="Image to upload" 
+        message="Select an image and press upload button"
+      ></dile-drop-file>
+      <dile-select id="select1" value="3" label="Favorite option" name="favorite_option">
+        <select slot="select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </dile-select>
+      <dile-select-ajax 
+        id="select1"
+        name="country_id"
+        label="Country"
+        displayProperty="name" 
+        endpoint="https://timer.escuelait.com/api/countries"
+        delay="500"
+        queryStringVariable="keyword"
+        resultDataProperty="data"
+        name="country_id"
+        value="20"
+      ></dile-select-ajax>
+
+        <dile-switch name="status" id="check1" >Status</dile-switch>
+        <dile-textarea name="update_profile" label="New profile information"></dile-textarea>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+
+    </form>
+    
+    <script>
+      document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const form = event.target;
+        const formData = new FormData(form); 
+
+        
+        const formObject = {};
+        formData.forEach((value, key) => {
+          console.log(key, value);
+          formObject[key] = value;
+        });
+        console.log('.....................');
+        console.log(formObject); 
+        console.log('.....................');
+      });
+    </script>
+    
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

@@ -177,8 +177,11 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       /** Menu config */
       _menuConfig: { type: Object },
 
-      /** Language config */
     };
+  }
+
+  static get formAssociated() {
+    return true;
   }
 
   constructor() {
@@ -190,7 +193,8 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
     this.message = '';
     this.disableToolbarItems = '';
     this._menuConfig = {...defaultToolbarConfig};
-    this.addicionalCommands = {}
+    this.addicionalCommands = {};
+    this.internals = this.attachInternals();
   }
 
   updated(changedProperties) {
@@ -199,6 +203,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
     }
     if(changedProperties.has('value')) {
       this.emmitChange();
+      this.internals.setFormValue(this.value);
     }
   }
 
@@ -226,7 +231,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       }
       <main>
         ${this.label
-          ? html`<label for="textField">${this.label}</label>`
+          ? html`<label for="textField" @click=${this.focus}>${this.label}</label>`
           : ""
         }
         <section class="for-input ${this.errored ? 'errored' : ''}">
@@ -262,8 +267,6 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
         </section>
       </main>
     </div>
-    
-      
     `;
   }
 
@@ -311,5 +314,13 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
 
   setInitialized() {
     this.initialized = true;
+  }
+
+  focus() {
+    if(this.viewSelected == 'design') {
+      console.log(this.editor);
+      this.editor.focus();
+    }
+    this.textarea.focus();
   }
 }

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
+import '../radio.js';
 
 export class DileRadioGroup extends DileEmmitChange(LitElement) {
   static styles = [
@@ -21,6 +22,10 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
     `
   ];
 
+  static get formAssociated() {
+    return true;
+  }
+
   static get properties() {
     return {
       label: { type: String },
@@ -37,6 +42,7 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
     super();
     this.init = false;
     this.disabled = false;
+    this.internals = this.attachInternals();
   }
 
   updated(changedProperties) {
@@ -44,6 +50,7 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
       this.doSelection(this.value);
       this.emmitChange();
       this.dispatchChangeEvent();
+      this.internals.setFormValue(this.value);
     }
   }
 
