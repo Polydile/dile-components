@@ -10,6 +10,7 @@ This is the "dile-components" catalog monorepo, a library of Custom Elements bas
 - `@dile/utils`: Components that provide useful functionalities for web development.
 - `@dile/icons`: Templates for implementing SVG icons within your components.
 - `@dile/editor`: A Markdown WYSIWYG (What You See Is What You Get) editor for the web.
+- `@dile/crud`: Customizable generic CRUD components.
 
 To utilize this component library, follow these steps.
 
