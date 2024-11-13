@@ -37,7 +37,7 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
         endpoint=${this.endpoint}
         actionLabel="${this.saveLabelComputed(this.saveLabel, this.translations)}"
         sendDataAsFormData
-        language="es"
+        language="${this.language}"
         @save-success=${this.imageSaveSuccess}
         .responseAdapter=${this.responseAdapter}
       >
