@@ -247,27 +247,39 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
           </nav>
           <dile-pages selected="${this.viewSelected}" attrForSelected="name">
             <section name="markdown">
-              <textarea 
-                id="eltextarea" 
-                .value="${this.value}"
-                @input=${this.doTextareaKeypress}
-              ></textarea>
+              ${this.textareaTemplate}
             </section>
             <section class="editor" name="design">
-              <dile-editor-markdown
-                id="editor"
-                @dile-editor-change=${this.updateValue}
-                ._menuConfig=${this._menuConfig}
-                @dile-editor-markdown-initialized=${this.setInitialized}
-                .addicionalCommands=${this.addicionalCommands}
-                language="${this.language}"
-              ></dile-editor-markdown>
+              ${this.editorMarkdownTemplate}
             </section>
           </dile-pages>
         </section>
       </main>
     </div>
     `;
+  }
+
+  get editorMarkdownTemplate() {
+    return html`
+      <dile-editor-markdown
+        id="editor"
+        @dile-editor-change=${this.updateValue}
+        ._menuConfig=${this._menuConfig}
+        @dile-editor-markdown-initialized=${this.setInitialized}
+        .addicionalCommands=${this.addicionalCommands}
+        language="${this.language}"
+      ></dile-editor-markdown>
+    `
+  }
+
+  get textareaTemplate() {
+    return html`
+      <textarea 
+        id="eltextarea" 
+        .value="${this.value}"
+        @input=${this.doTextareaKeypress}
+      ></textarea>
+    `
   }
 
   updateValue(e) {
