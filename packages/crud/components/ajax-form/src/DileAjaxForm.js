@@ -95,9 +95,6 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         if(this.setDataOnInit) {
             this.initData();
         }
-        if(!this.actionLabel) {
-            this.actionLabel = capitalizeFirstLetter(this.operation);
-        }
     }
 
     get form() {
@@ -105,11 +102,17 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
     }
 
     actionLabelComputed(label, translations, operation) {
+        if(label) {
+            return label;
+        }
+        if(! translations) {
+            return operation == 'insert' ? 'Insert' : 'Update';
+        }
         if(operation == 'insert') {
-            return label ? label : translations?.insert_label ? translations.insert_label : 'Insert';
+            return translations.insert_label;
         }
         if(operation == 'update') {
-            return label ? label : translations?.update_label ? translations.update_label : 'Update';
+            return translations.update_label;
         }
         return translations.send_label;
     }
