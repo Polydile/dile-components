@@ -117,6 +117,13 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         return translations.send_label;
     }
 
+    cancelLabelComputed(label, translations) {
+        if(label) {
+            return label;
+        }
+        return translations ? translations.cancel_label : 'Cancel';
+    }
+
     render() {
         return html`
             ${this.ajaxComponents}
@@ -139,7 +146,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
                 ${this.showCancelButton ? 
                     this.cancelIcon 
                         ? html`<a href="#" @click=${this.doCancel}><dile-icon @click=${this.doAction} .icon=${this.cancelIcon} class="cancelIcon"></dile-icon></a>`
-                        : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.translations.cancel_label}</dile-button>`
+                        : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.cancelLabelComputed(this.cancelLabel, this.translations)}</dile-button>`
                     : ''
                 }
             </div> 
