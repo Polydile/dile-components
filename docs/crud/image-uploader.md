@@ -5,7 +5,7 @@ tags: 'Crud extras'
 
 # dile-image-uploader
 
-The `dile-image-uploader` component is a tool to set boolean properties in a resource.
+The `dile-image-uploader` component is a tool to upload images vía Ajax.
 
 ## Installation
 
