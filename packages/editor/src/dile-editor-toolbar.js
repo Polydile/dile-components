@@ -51,13 +51,13 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
       blockItems: { type: Array },
       undoItems: { type: Array },
       menuConfig: { type: Object },
-      addicionalCommands: { type: Object },
+      additionalCommands: { type: Object },
     };
   }
 
   constructor() {
     super();
-    this.addicionalCommands = {}
+    this.additionalCommands = {}
   }
 
   get blockselect() {
@@ -65,9 +65,9 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
   }
   
   firstUpdated() {
-    this.toolbarItems = getToolbarItems(this.menuConfig, this.addicionalCommands.toolbarItems || []);
-    this.undoItems = getUndoItems(this.menuConfig, this.addicionalCommands.undoItems || []);
-    this.blockItems = getBlockItems(this.menuConfig, this.addicionalCommands.blockItems || []);
+    this.toolbarItems = getToolbarItems(this.menuConfig, this.additionalCommands.toolbarItems || []);
+    this.undoItems = getUndoItems(this.menuConfig, this.additionalCommands.undoItems || []);
+    this.blockItems = getBlockItems(this.menuConfig, this.additionalCommands.blockItems || []);
   }
 
   render() {

@@ -172,7 +172,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       /** Disable toolbar items, string with items separated by tubes like "italic|h4" */
       disableToolbarItems: { type: String },
     
-      addicionalCommands: { type: Object },
+      additionalCommands: { type: Object },
 
       /** Menu config */
       _menuConfig: { type: Object },
@@ -193,7 +193,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
     this.message = '';
     this.disableToolbarItems = '';
     this._menuConfig = {...defaultToolbarConfig};
-    this.addicionalCommands = {};
+    this.additionalCommands = {};
     this.internals = this.attachInternals();
   }
 
@@ -266,7 +266,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
         @dile-editor-change=${this.updateValue}
         ._menuConfig=${this._menuConfig}
         @dile-editor-markdown-initialized=${this.setInitialized}
-        .addicionalCommands=${this.addicionalCommands}
+        .additionalCommands=${this.additionalCommands}
         language="${this.language}"
       ></dile-editor-markdown>
     `

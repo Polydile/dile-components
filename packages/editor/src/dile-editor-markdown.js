@@ -30,7 +30,7 @@ export class DileEditorMarkdown extends DileI18nMixin(LitElement) {
   static get properties() {
     return {
       _menuConfig: { type: Object },
-      addicionalCommands: { type: Object },
+      additionalCommands: { type: Object },
     };
   }
   constructor() {
@@ -71,7 +71,7 @@ export class DileEditorMarkdown extends DileI18nMixin(LitElement) {
         history(),
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
-        menuPlugin(this._menuConfig, this.addicionalCommands, this.language),
+        menuPlugin(this._menuConfig, this.additionalCommands, this.language),
       ]
     })
   }

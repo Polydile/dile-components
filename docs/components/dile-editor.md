@@ -36,7 +36,7 @@ Use the component:
 - **message**: Message Displayed
 - **hideErrorOnInput**: Clean the error state when the user input some content
 - **disableToolbarItems**: String, to disable some editor options. The format of the string consists of specifying the names of the options to disable, separated by the pipe character "`|`" (something like `h3|h4|italic`). Further down on this documentation page, you'll find a list of the names of each toolbar option that can be disabled.
-- **addicionalCommands**: Object, to include additional options on the editor toolbar. See configuration instructions bellow.
+- **additionalCommands**: Object, to include additional options on the editor toolbar. See configuration instructions bellow.
 - **language**: String, the interface language. Currently, "es" and "en" are supported, with "en" as the default.
 
 ### Methods
@@ -99,9 +99,9 @@ These are the names of the options available in the toolbar, which can be used t
 
 ## Adding Additional Options to the Editor Toolbar
 
-The `dile-editor` component allows adding other custom actions to the editor's toolbar. To achieve this, it is possible to assign an object value to the `addicionalCommands` property.
+The `dile-editor` component allows adding other custom actions to the editor's toolbar. To achieve this, it is possible to assign an object value to the `additionalCommands` property.
 
-### Syntax of the `addicionalCommands` Object
+### Syntax of the `additionalCommands` Object
 
 The object to be added consists of three properties, all optional, where you can set an array of new commands. These properties place actions in different locations of the toolbar.
 
@@ -144,7 +144,7 @@ const heading6 = {
   commandName: 'h6',
 };
 
-this.addicionalCommands = {
+this.additionalCommands = {
   toolbarItems: [newBold, newImage],
   blockItems: [heading5, heading6],
 };
@@ -153,7 +153,7 @@ this.addicionalCommands = {
 Once the additional commands object is created, we can bind it to the `dile-editor` component:
 
 ```html
-<dile-editor .addicionalCommands=${this.addicionalCommands} label="Customized Editor"></dile-editor>
+<dile-editor .additionalCommands=${this.additionalCommands} label="Customized Editor"></dile-editor>
 ```
 
 ## dile-editor demos
@@ -264,14 +264,14 @@ Do you like them?
         commandName: 'h6',
       };
 
-      this.addicionalCommands = {
+      this.additionalCommands = {
         toolbarItems: [newBold, newImage],
         blockItems: [heading5, heading6],
       }
     }
     render() {
       return html`
-        <dile-editor .addicionalCommands=${this.addicionalCommands} label="Customized Editor"></dile-editor>
+        <dile-editor .additionalCommands=${this.additionalCommands} label="Customized Editor"></dile-editor>
       `;
     }
   }

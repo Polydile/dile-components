@@ -110,14 +110,14 @@ There are `h1|h2|h3|h4|italic|image|link` disabled items.
             commandName: 'h6',
           };
 
-          this.addicionalCommands = {
+          this.additionalCommands = {
             toolbarItems: [newBold, newImage],
             blockItems: [heading5, heading6],
           }
         }
         render() {
           return html`
-            <dile-editor .addicionalCommands=${this.addicionalCommands} label="Customized Editor"></dile-editor>
+            <dile-editor .additionalCommands=${this.additionalCommands} label="Customized Editor"></dile-editor>
           `;
         }
       }
