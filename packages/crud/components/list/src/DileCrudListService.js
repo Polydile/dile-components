@@ -106,6 +106,8 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
       numItems = data.countItems;
     }
     this.dispatchEvent(new CustomEvent('crud-list-get-success', {
+      bubbles: true,
+      composed: true,
       detail: {
         elements,
         numItems,
