@@ -72,6 +72,11 @@ Custom property | Description | Default
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
 --dile-editor-toolbar-block-background-color | Block type selector background color | #eee
+--dile-editor-line-height | Editor content line-height | 1.3rem
+--dile-editor-code-background-color | The background color of the code block | #eee
+--dile-editor-code-font-family | The font family used for the code block | Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace
+--dile-editor-code-font-size | The font size of the code text | 0.9em
+--dile-editor-code-color | The text color of the code block | #657b83
  
 As this component is based on many other Dile Components, like [dile-select](/components/dile-select/) or [dile-button](/components/dile-button/), you can use their custom properties to change the diferent UI styles.
 

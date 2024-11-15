@@ -63,6 +63,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       }
 
       .ProseMirror {
+        line-height: var(--dile-editor-line-height, 1.3rem);
         position: relative;
         word-wrap: break-word;
         white-space: pre-wrap;
@@ -72,7 +73,6 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
         font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
         outline: none;
         padding: 0 10px;
-
         max-width: 100%;
         overflow: auto;
       }
@@ -112,15 +112,23 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       .ProseMirror img {
         max-width: 100%;
       }
+      .ProseMirror pre, .ProseMirror p code {
+        background-color: var(--dile-editor-code-bakground-color, #eee);
+        font-family: var(--dile-editor-code-font-family, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace);
+        font-size: var(--dile-editor-code-font-size, 0.9em);
+        color: var(--dile-editor-code-color, #657b83);
+      }
 
       .ProseMirror pre {
-        background-color: #eee;
         padding: 0.4rem;
+        overflow-x: auto;
+        line-height: 1.5em;
+        tab-size: 4;
+        hyphens: none;
       }
 
       .ProseMirror p code {
-        background-color: #eee;
-        padding: 1px;
+        padding: 2px;
       }
 
       dile-tabs {
@@ -144,6 +152,11 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
          display: flex; 
          flex-direction: column-reverse;
       }
+
+      li p {
+        margin: 0.25rem 0 !important;
+      }
+      
     `
   ];
 
