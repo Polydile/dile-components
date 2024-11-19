@@ -43,6 +43,7 @@ Use the component.
 - **actionIds**: Array, the IDs of the selected items for batch actions.
 - **filters**: Array, the filters applied to the list to refine the displayed items.
 - **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
+- **disableLoadOnStart**: Boolean, controls whether the component should automatically load elements when it initializes. When set to true, the component will not trigger the initial loading of data on startup, allowing for manual data loading to be managed as needed.
 
 ### Methods
 

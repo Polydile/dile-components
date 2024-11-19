@@ -65,6 +65,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         filters: { type: Array },
         belongsTo: { type: String },
         relationId: { type: String },
+        disableLoadOnStart: { type: Boolean },
       };
     }
 
@@ -80,14 +81,16 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.delayTimer = null;
         this.isSelectAllActive = false;
         this.loading = true;
+        this.disableLoadOnStart = false;
     }
 
     firstUpdated() {
         this.pageSize = this.config.pageSize?.initial ?? this.pageSize;
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
-        this.updateComplete.then( () => this.refresh());
-        
+        if(!this.disableLoadOnStart) {
+            this.updateComplete.then( () => this.refresh()); 
+        }
     }
 
     render() {
