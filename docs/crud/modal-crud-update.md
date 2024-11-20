@@ -18,7 +18,7 @@ npm i @dile/crud
 Import the `dile-modal-crud-update` component.
 
 ```javascript
-import '@dile/crud/components/insert/modal-crud-insert.js';
+import '@dile/crud/components/update/modal-crud-update.js';
 ```
 
 Use the component.
@@ -37,7 +37,7 @@ Use the component.
 
 ### Properties
 
-This component extends properties from the `dile-crud-update` component. Please refer to [dile-crud-update documentation](/crud/crud-insert/) for inherited properties. Additionally, it introduces the following:
+This component extends properties from the `dile-crud-update` component. Please refer to [dile-crud-update documentation](/crud/crud-update/) for inherited properties. Additionally, it introduces the following:
 
 - **openModalLabel**: String, the label displayed on the button that opens the modal. Default is `"Open"`.
 - **openModalIcon**: Object, the icon template used for the modal open button. If defined, it replaces the label.
@@ -51,7 +51,7 @@ This component extends methods from the `dile-crud-update` component. Please ref
 
 ### Custom Events
 
-Please refer to [dile-crud-update documentation](/crud/crud-insert/) for inherited custom events.
+Please refer to [dile-crud-update documentation](/crud/crud-update/) for inherited custom events.
 
 ## CSS Custom Properties
 
