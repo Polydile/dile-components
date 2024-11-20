@@ -40,8 +40,8 @@ export const DileModalCrudOperationsMixin = (superclass) => class extends superc
         showCloseIcon
         @save-success=${this.doSuccessActions}
       >
-        ${this.titleTemplate}
         <section>
+          ${this.titleTemplate}
           ${this.ajaxFormTemplate}
         </section>
       </dile-modal>
