@@ -38,6 +38,10 @@
       --dile-modal-height: 95vh;
       --dile-modal-border-radius: 0;
     }
+    .blocking {
+      --dile-modal-close-icon-size: 32px;
+      --dile-modal-width: 800px;
+    }
 
   </style>
 </head>
@@ -67,7 +71,7 @@
       <p>I have other cursor in the close icon!</p>
     </dile-modal>
 
-    <dile-modal class="modalbox" id="elmodal4" showCloseIcon blocking>
+    <dile-modal class="modalbox blocking" id="elmodal4" showCloseIcon blocking>
       <h2>Blocking</h2>
       <p>Event you click outside, the modal do not closes</p>
       <p>Pariatur vero impedit repudiandae labore mod!</p>

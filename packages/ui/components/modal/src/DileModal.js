@@ -45,6 +45,7 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
         }
         .closeicon {
           --dile-icon-color: var( --dile-modal-close-icon-color, #888);
+          --dile-icon-size: var(--dile-modal-close-icon-size, 24px);
         }
         section {
           position: fixed;
@@ -107,8 +108,6 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           top: var(--dile-modal-close-icon-top, 5px);
           right: var(--dile-modal-close-icon-right, 18px);
           z-index: 1002;
-          width: var(--dile-modal-close-icon-size, 24px);
-          height: var(--dile-modal-close-icon-size, 24px);
           cursor: var(--dile-modal-close-icon-cursor, pointer);
         }
         .contentIconSeparation {
