@@ -43,30 +43,42 @@ export class DileCrudUpdate extends DileI18nMixin(LitElement) {
 
   render() {
     return html`
-            ${this.title
-        ? html`<h1>${this.title}</h1>`
-        : ''
-      }
-          <dile-ajax-form
-              id="elform"
-              operation="update"
-              endpoint="${this.endpoint}"
-              actionLabel="${this.actionLabelComputed(this.actionLabel, this.translations)}"
-              @save-success="${this.doSuccessSave}"
-              ?buttonSmall="${this.buttonSmall}"
-              relatedId="${this.relatedId}"
-              ?loadOnInit="${this.loadOnInit}"
-              .responseAdapter="${this.responseAdapter}"
-              formIdentifier="${this.formIdentifier}"
-              language="${this.language}"
-              ?sendDataAsFormData=${this.sendDataAsFormData}
-              ?showCancelButton=${this.showCancelButton}
-              ?setDataOnInit=${this.setDataOnInit}
-              .data=${this.data}
-          >
-              ${this.formTemplate()}
-          </dile-ajax-form>
-        `;
+      ${this.titleTemplate}
+      ${this.ajaxFormTemplate}
+    `;
+  }
+
+  get titleTemplate() {
+    return html`
+        ${this.title
+            ? html`<h1>${this.title}</h1>`
+            : ''
+        }    
+    `;
+  }
+
+  get ajaxFormTemplate() {
+    return html`
+        <dile-ajax-form
+            id="elform"
+            operation="update"
+            endpoint="${this.endpoint}"
+            actionLabel="${this.actionLabelComputed(this.actionLabel, this.translations)}"
+            @save-success="${this.doSuccessSave}"
+            ?buttonSmall="${this.buttonSmall}"
+            relatedId="${this.relatedId}"
+            ?loadOnInit="${this.loadOnInit}"
+            .responseAdapter="${this.responseAdapter}"
+            formIdentifier="${this.formIdentifier}"
+            language="${this.language}"
+            ?sendDataAsFormData=${this.sendDataAsFormData}
+            ?showCancelButton=${this.showCancelButton}
+            ?setDataOnInit=${this.setDataOnInit}
+            .data=${this.data}
+        >
+            ${this.formTemplate()}
+        </dile-ajax-form>
+    `;
   }
 
   doSuccessSave(e) {

@@ -54,3 +54,7 @@ Please refer to [dile-crud-insert documentation](/crud/crud-insert/) for inherit
 ## CSS Custom Properties
 
 This component inherits styles from `dile-crud-insert`, `dile-modal`, `dile-button` and `dile-button-icon`.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-modal-crud-extra-padding | Padding for the form container | 3px
