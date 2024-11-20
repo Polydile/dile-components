@@ -73,6 +73,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **clearErrors()**: Clears all validation errors that the form or the component itself is displaying.
 - **clearFeedback()**: Clears the feedback messages that the form is displaying. This does not include the feedback messages of the form elements.
 - **initData()**: Sends the values from the object stored in the component's `data` property to the corresponding form fields.
+- **clearForm()**: Clear the form data.
 
 ### Custom Events
 

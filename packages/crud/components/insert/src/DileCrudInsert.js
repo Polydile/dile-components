@@ -40,11 +40,22 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
 
     render() {
         return html`
+            ${this.titleTemplate}
+            ${this.ajaxFormTemplate}
+        `;
+    }
+
+    get titleTemplate() {
+        return html`
             ${this.title
                 ? html`<h1>${this.title}</h1>`
                 : ''
-            }
-            
+            }    
+        `;
+    }
+
+    get ajaxFormTemplate() {
+        return html`
             <dile-ajax-form
                 operation="insert"
                 endpoint="${this.endpoint}"

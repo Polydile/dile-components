@@ -245,7 +245,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         let msg = this._customSuccessMessage();
         this.feedback.positiveFeedbackWithDelay(msg, 5000);
         if(this.operation == 'insert') {
-            this.form.clearData();
+            this.clearForm();
         }
         this.dispatchEvent(new CustomEvent('save-success', { 
             bubbles: true,
@@ -315,6 +315,10 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
                 isDirty: this.form.isDirty(),
             }
         }));
+    }
+
+    clearForm() {
+        this.form.clearData();
     }
 }
 
