@@ -65,6 +65,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **inline**: When this property is set to true, the form is displayed inline (in a row).
 - **actionIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the submit button.
 - **cancelIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the cancel button.
+- **disableClearAfterInsert**: Boolean, if set to `true`, the form will retain its input values after a successful insert operation. See additional details in the "Form cleanup after insert operations" section below.
 
 ### Methods
 
@@ -108,7 +109,6 @@ Custom property | Description | Default
 
 - **hiddefeedback**: When this attribute is set, the form does not display feedback messages. The `display` CSS property of the feedback element is set to `none`.
 
-
 ## Configuration
 
 The `dile-form-ajax` component is designed to adapt to different types of APIs and websites. It can define various types of requests and handle different types of responses.
@@ -136,6 +136,38 @@ To customize the component's behavior, allowing it to adapt to any type of API r
 ```
 
 You can find more information on how to create custom adapters on the [Response Adapter page](/crud/response-adapter/).
+
+## Form Cleanup After Insert Operations
+
+By default, forms are automatically cleared after a successful insert operation. This behavior ensures a clean state for subsequent insertions and avoids unintentional re-submissions of the same data.
+
+### Preventing Automatic Cleanup
+
+If you wish to retain the form's data after an insert operation, you can use the **`disableClearAfterInsert`** property. Setting this property to `true` prevents the automatic cleanup and keeps the form's current values intact.
+
+### Implementing Custom Cleanup
+
+For scenarios requiring a tailored cleanup process, you can override the **`clearData()`** method in the form provided via the slot to the `dile-ajax-form component`. This method is responsible for clearing the form's fields and is invoked automatically when cleanup is required.
+
+The **`clearData()`** method is inherited by the form when it applies the `DileForm` mixin. The default implementation performs a generic cleanup of the form fields. However, you can override it in your custom forms to implement specific behaviors as needed.
+
+#### Example: Overriding `clearData()`
+
+```javascript
+import { LitElement } from 'lit';
+import { DileForm } from '@dile/ui/mixins/form';
+
+class CustomForm extends DileForm(LitElement) {
+  clearData() {
+    this.shadowRoot.querySelector('#specificField').value = '';
+  }
+}
+
+customElements.define('custom-form', CustomForm);
+``` 
+
+This flexibility allows you to adapt the cleanup behavior to match your application's requirements.
+
 
 ## dile-ajax demos
 

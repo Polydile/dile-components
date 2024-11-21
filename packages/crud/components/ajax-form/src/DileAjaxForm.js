@@ -70,6 +70,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         inline: { type: Boolean, reflect: true },
         actionIcon: { type: Object },
         cancelIcon: { type: Object },
+        disableClearAfterInsert: { type: Boolean },
       };
     }
 
@@ -248,7 +249,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         let data = this.responseAdapter.getData();
         let msg = this._customSuccessMessage();
         this.feedback.positiveFeedbackWithDelay(msg, 5000);
-        if(this.operation == 'insert') {
+        if(this.operation == 'insert' && !this.disableClearAfterInsert) {
             this.clearForm();
         }
         this.dispatchEvent(new CustomEvent('save-success', { 
