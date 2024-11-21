@@ -27,7 +27,7 @@ export class DileTooltip extends LitElement {
       .tooltip-top {
         position: absolute;
         z-index: 1;
-        bottom: 150%;
+        bottom: var(--dile-tooltip-top--bottom, 150%);
         left: 50%;
         margin-left: -60px;
       }
