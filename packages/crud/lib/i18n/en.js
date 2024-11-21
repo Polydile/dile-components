@@ -4,6 +4,7 @@ export const translations = {
   http_400: "Bad Request",
   http_422: "Unprocessable Entity",
   http_401: "Unauthorized",
+  http_403: "You do not have permission to access this resource",
   http_405: "Method Not Allowed",
   http_413: "Content Too Large",
   http_419: "Your session has expired. Please refresh the page",

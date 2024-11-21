@@ -96,9 +96,12 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         case 401:
           this.dispatchError(this.translations.http_401, res.data);
           break;
+        case 403:
+          this.dispatchError(this.translations.http_403, res.data);
+          break;
         case 405:
-            this.dispatchError(this.translations.http_405, res.data);
-            break;
+          this.dispatchError(this.translations.http_405, res.data);
+          break;
         case 413:
           this.dispatchError(this.translations.http_413, res.data);
           break;

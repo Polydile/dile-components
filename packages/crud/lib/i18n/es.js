@@ -4,6 +4,7 @@ export const translations = {
   http_400: "Solicitud incorrecta",
   http_422: "Validación de la solicitud incorrecta",
   http_401: "No autorizado",
+  http_403: "Acceso prohibido para el usuario autenticado",
   http_405: "Método HTTP no permitido",
   http_413: "Contenido enviado al servidor demasiado largo",
   http_419: "La sesión ha expirado. Refresca la página.",
