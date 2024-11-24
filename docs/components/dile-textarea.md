@@ -8,7 +8,7 @@ tags: forms
 Input textarea field Web Component, with customizable design.
 
 ```html
-<dile-textarea label="The label" placeholder="Write something..."></dile-textarea>
+<dile-textarea name="comments" label="Comments" placeholder="Write something..."></dile-textarea>
 ```
 
 ## Install
@@ -29,6 +29,7 @@ Use the component
 
 ```html
 <dile-textarea
+  name="textarea_input_name"
   label="Text to the label"
   max-rows="5"
   rows="2"
