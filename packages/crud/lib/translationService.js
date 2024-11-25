@@ -1,6 +1,6 @@
 import {TranslationService as OriginalTranslationService} from '@dile/ui/mixins/i18n/TranslationService.js';
 
-const translations = import.meta.glob('./i18n/*.js');
+const translations = import.meta.glob('./i18n/*.js', { eager: true })
 
 class TranslationService extends OriginalTranslationService {
   async importLanguage(language) {
