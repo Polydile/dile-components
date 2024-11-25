@@ -1,16 +1,26 @@
-import {TranslationService as OriginalTranslationService} from '@dile/ui/mixins/i18n/TranslationService.js';
+import { TranslationService as OriginalTranslationService } from '@dile/ui/mixins/i18n/TranslationService.js';
 
-const translations = import.meta.glob('./i18n/*.js', { eager: true })
+const translations = import.meta.glob('./i18n/*.js', { eager: true });
 
 class TranslationService extends OriginalTranslationService {
   async importLanguage(language) {
-    const module = await import(`./i18n/${language}.js`);
-    return module;
+    const importPath = `./i18n/${language}.js`;
+
+    if (translations[importPath]) {
+      return translations[importPath];
+    } else {
+      throw new Error(`Translation file for language "${language}" not found.`);
+    }
   }
 
   async importFallback() {
-    const defaultModule = await import('./i18n/en.js');
-    return defaultModule;
+    const fallbackPath = './i18n/en.js';
+
+    if (translations[fallbackPath]) {
+      return translations[fallbackPath];
+    } else {
+      throw new Error('Fallback translation file not found.');
+    }
   }
 }
 
