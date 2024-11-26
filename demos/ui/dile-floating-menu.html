@@ -1,0 +1,125 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dile-floating-menu demo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module">
+      import '@dile/ui/components/floating-menu/floating-menu.js';
+      import '@dile/ui/components/floating-menu/floating-menu-item.js'
+    </script>
+    <style> 
+
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      dile-floating-menu {
+        --dile-floating-menu-margin: 3rem;
+        font-size: 1rem;
+      }
+
+      p {
+        color: aliceblue;
+      }
+
+      .title {
+        margin-top: 0;
+        font-weight: bold;
+      }
+
+      .message {
+        margin-bottom: 0;
+        font-style: italic;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .menus {
+        height: 400px;
+      }
+
+      footer {
+        text-align: left;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>dile-floating-menu demo </h1>
+    </div>
+    
+    <div class="container menus"> 
+      <dile-floating-menu>
+        <p class="title" slot="content-top">Title:</p>
+        <div role="list">
+          <dile-floating-menu-item href="#" target="">Nav Item One</dile-floating-menu-item>
+          <dile-floating-menu-item href="#" target="">Nav Item Two</dile-floating-menu-item>
+        </div>
+        <p class="message" slot="content-bottom">Footer</p>
+      </dile-floating-menu>
+
+      <dile-floating-menu top right>
+        <p class="title" slot="content-top">Title:</p>
+        <div role="list">
+          <dile-floating-menu-item href="#" target="">Nav Item One</dile-floating-menu-item>
+          <dile-floating-menu-item href="#" target="">Nav Item Two</dile-floating-menu-item>
+        </div>
+        <p class="message" slot="content-bottom">Footer</p>
+      </dile-floating-menu>
+
+      <dile-floating-menu bottom right>
+        <p class="title" slot="content-top">Title:</p>
+        <div role="list">
+          <dile-floating-menu-item href="#" target="">Nav Item One</dile-floating-menu-item>
+          <dile-floating-menu-item href="#" target="">Nav Item Two</dile-floating-menu-item>
+        </div>
+        <p class="message" slot="content-bottom">Footer</p>
+      </dile-floating-menu>
+      
+      <dile-floating-menu bottom left>
+        <p class="title" slot="content-top">Title:</p>
+        <div role="list">
+          <dile-floating-menu-item href="#" target="">Nav Item One</dile-floating-menu-item>
+          <dile-floating-menu-item href="#" target="">Nav Item Two</dile-floating-menu-item>
+        </div>
+        <p class="message" slot="content-bottom">Footer</p>
+      </dile-floating-menu>
+
+    </div>
+
+    <div class="container">
+      <footer><a href="../index.html">Back</a></footer>
+    </div>
+
+    <script>
+      const floatingMenus = document.querySelectorAll('dile-floating-menu');
+
+      floatingMenus.forEach(item => {
+        item.addEventListener('click', (ev) => {
+          floatingMenus.forEach(itemEvent => {
+            if(itemEvent !== ev.currentTarget) {
+              itemEvent.removeAttribute('opened');
+              console.log(ev);
+            }
+          });
+        });
+      });
+    </script>
+
+  </body>
+
+  </html>
