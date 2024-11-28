@@ -1,6 +1,6 @@
 ---
 title: Floating Menu Item
-tags: menu, navigation, item
+tags: menu
 ---
 
 # dile-floating-menu-item

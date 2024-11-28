@@ -1,6 +1,6 @@
 ---
 title: Floating Menu
-tags: menu, navigation
+tags: menu
 ---
 
 # dile-floating-menu
@@ -53,7 +53,11 @@ Custom property | Description | Default
 
 Use the complementary component `dile-floating-menu-item` and wrap them in a `div` with `role:"list"`:
 
-```html
+```html:preview
+<script type="module">
+    import "@dile/ui/components/floating-menu/floating-menu.js"
+    import "@dile/ui/components/floating-menu/floating-menu-item.js"
+</script>
 <dile-floating-menu>
     <div role="list">
         <dile-floating-menu-item href="#" target="">Nav Item One</dile-floating-menu-item>
@@ -87,6 +91,7 @@ Use the complementary component `dile-floating-menu-item` and wrap them in a `di
 ```
 
 ### Displaying custom main content:
+
 ```html
 <dile-floating-menu bottom right>
         <p>Hello World</p>
