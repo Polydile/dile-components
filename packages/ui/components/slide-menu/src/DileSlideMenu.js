@@ -56,6 +56,7 @@ export class DileSlideMenu extends DileSlideDown(LitElement) {
       
       dile-icon {
         transform: var(--dile-slide-menu-closed-transform, rotate(-90deg));
+        --dile-icon-color: var(--dile-slide-menu-icon-color, var(--dile-primary-color, #303030));
         transition: transform 0.5s ease;
       }
 

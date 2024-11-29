@@ -59,6 +59,7 @@ Custom property | Description | Default
 --dile-slide-menu-closed-transform | Transformation to the icon on closed state | rotate(-90deg)
 --dile-slide-menu-opened-transform | Transformation to the icon on opened state | rotate(0deg)
 --dile-slide-menu-icon-margin | Icon Margin | 0 0.25rem 0 0
+--dile-slide-menu-icon-color | Icon color | --dile-primary-color or #303030
 
 ## dile-slide-menu demos
 
