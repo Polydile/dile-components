@@ -52,7 +52,7 @@ You can customize the component styles using this CSS custom properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-slide-menu-font-size | Font size for the open or close labels | 1em
---dile-foreground-color | Label text color | #303030
+--dile-slide-menu-color | Label text color | #303030
 --dile-slide-menu-font-weight | Label font weight | bold
 --dile-slide-menu-text-decoration | Label text decoration | none
 --dile-slide-menu-control-margin | Margin to the controler label | 0 0 0 0.25rem
