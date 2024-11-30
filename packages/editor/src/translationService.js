@@ -1,27 +1,26 @@
 import { TranslationService as OriginalTranslationService } from '@dile/ui/mixins/i18n/TranslationService.js';
 
-const translations = import.meta.glob('./i18n/*.js', { eager: true });
-
 class TranslationService extends OriginalTranslationService {
-  async importLanguage(language) {
-    const importPath = `./i18n/${language}.js`;
 
-    if (translations[importPath]) {
-      return translations[importPath];
-    } else {
-      throw new Error(`Translation file for language "${language}" not found.`);
+  async importLanguage(language) {
+    switch (language) {
+      case 'es':
+        return import('./i18n/es.js');
+      case 'en':
+        return import('./i18n/en.js');
+      default:
+        throw new Error(`Unsupported language: ${language}`);
     }
   }
 
   async importFallback() {
-    const fallbackPath = './i18n/en.js';
-
-    if (translations[fallbackPath]) {
-      return translations[fallbackPath];
-    } else {
+    try {
+      return import('./i18n/en.js');
+    } catch (error) {
       throw new Error('Fallback translation file not found.');
     }
   }
+
 }
 
 export const translationService = new TranslationService();
