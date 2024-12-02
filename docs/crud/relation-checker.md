@@ -43,6 +43,10 @@ Use the component.
 - **getRelationItems**: Object, a function that processes the server response to retrieve the list of items for relationships. By default, it expects the items in the `data` property of the response.
 - **computeTooltip**: Object, a function that generates a tooltip for each item in the list. It receives an item object as an argument and returns the tooltip text. The default behavior returns `null` (no tooltip).
 
+### Methods
+
+- **refresh()**: Refresh the relation items.
+
 ### Custom events
 
 These custom events allow for external handling of data loading and save operation outcomes, making it easy to display feedback to users or trigger other actions based on these events.
