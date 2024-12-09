@@ -31,7 +31,7 @@ import '@dile/ui/components/select/select.js';
 Use the component.
 
 ```html
-<dile-select id="select1">
+<dile-select name="select1" label="Selector">
   <select slot="select">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>

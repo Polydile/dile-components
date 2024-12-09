@@ -36,7 +36,7 @@ export class DileAjaxSelectCrud extends DileAxios(DileSelectAjax) {
 
   loadData() {
     this.loading = true;
-    let params = {}
+    let params = this.additionalQueryString || {};
     if (this.pageParamName && this.maxResults) {
       params[this.pageParamName] = this.maxResults;
     }

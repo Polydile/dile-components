@@ -42,7 +42,7 @@ Use the component.
 
 ### Properties
 
-`dile-ajax-select-crud` is a specialization of `[dile-select-ajax](/components/dile-select-ajax/)`, so it offers all the properties documented for that component.
+`dile-ajax-select-crud` is a specialization of [`dile-select-ajax`](/components/dile-select-ajax/), so it offers all the properties documented for that component.
 
 In addition, `dile-ajax-select-crud` introduces these additional properties:
 
@@ -52,7 +52,7 @@ In addition, `dile-ajax-select-crud` introduces these additional properties:
 
 ### Custom Events
 
-- **element-changed**: This component extends `[dile-select-ajax](/components/dile-select-ajax/)`, so `element-changed` custom event is fired when the value property of the component changes.
+- **element-changed**: This component extends [`dile-select-ajax`](/components/dile-select-ajax/), so `element-changed` custom event is fired when the value property of the component changes.
 
 The custom event detail has this properties:
 

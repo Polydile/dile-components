@@ -65,6 +65,7 @@ Use the component.
 - **static**: Boolean, when set to `true`, disables the search functionality and displays all options when the select is initialized.
 - **message**: A custom message to display.
 - **hideErrorOnInput**: Hide error messages and error state if the user interacts with this component.
+- **additionalQueryString**: Object with additional query string data to be placed in the request url.
 
 ## Methods
 

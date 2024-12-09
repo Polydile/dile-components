@@ -107,6 +107,8 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       message: { type: String },
       /** Hide errors on input */
       hideErrorOnInput: { type: Boolean },
+      /** Additional query string data */
+      additionalQueryString: {type: Object },
     };
   }
 
@@ -294,7 +296,6 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
 
   onTextInput(e) {
-    console.log('onTextInput', e);
     this.keyword = e.detail.keyword;
     this.loadData();
     this.hideErrorOnInteraction();
@@ -309,11 +310,28 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   loadData() {
     this.loading = true;
     this.ajaxError = false;
-    fetch(`${this.endpoint}?${this.queryStringVariable}=${this.keyword}`)
+    const url = this.computeRequestURL();
+    
+    fetch(url)
       .then(response => response.json())
       .then(json => this.registerData(json))
       .catch(error => this.registerError(error));
   }
+  
+  computeRequestURL() {
+    const baseUrl = `${this.endpoint}?${this.queryStringVariable}=${this.keyword}`;
+    
+    if (this.additionalQueryString && typeof this.additionalQueryString === 'object') {
+      const additionalParams = Object.entries(this.additionalQueryString)
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+        .join('&');
+        
+      return `${baseUrl}&${additionalParams}`;
+    }
+    
+    return baseUrl;
+  }
+  
 
   registerError(err) {
     this.ajaxError = true;
