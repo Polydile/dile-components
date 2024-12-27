@@ -64,7 +64,7 @@ Custom property | Description | Default
 <dile-spinner-horizontal class="styled" active></dile-spinner-horizontal>
 ```
 
-### Iteractive demo
+### Interactive demo
 
 ```html:preview
 <script type="module">
