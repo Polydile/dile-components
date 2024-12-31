@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/crud/components/item-delete/crud-item-delete';
-import '@dile/ui/components/toast/toast';
+import '@dile/ui/components/toast/toast.js';
 import { countryConfig } from './country/countryConfig';
 
 export class DemoItemDelete extends LitElement {

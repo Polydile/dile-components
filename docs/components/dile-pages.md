@@ -24,7 +24,7 @@ npm i @dile/ui
 Import the component.
 
 ```javascript
-  import '@dile/ui/components/pages/pages.js';
+import '@dile/ui/components/pages/pages.js';
 ```
 
 Use the component.

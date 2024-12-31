@@ -26,6 +26,12 @@ Import the components.
 import '@dile/ui/components/radio-group/radio-group.js';
 ```
 
+Usually, it's not necessary to import the dile-radio component individually, as it is implicitly imported along with dile-radio-group. However, if you need to import it for any reason, you would do so with the following code:
+
+```javascript
+import '@dile/ui/components/radio-group/radio.js';
+```
+
 Use the components.
 
 ```html

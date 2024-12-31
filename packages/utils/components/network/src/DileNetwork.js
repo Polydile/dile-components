@@ -1,7 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { closeIcon, warningIcon } from "@dile/icons/index.js";
-import '@dile/ui/components/toast/toast-persistent';
-import '@dile/ui/components/icon/icon';
+import '@dile/ui/components/toast/toast-persistent.js';
+import '@dile/ui/components/icon/icon.js';
 
 export class DileNetwork extends LitElement {
   static get styles() {

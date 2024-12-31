@@ -18,7 +18,7 @@ npm install @dile/ui
 ### Import the component
 
 ```javascript
-import '@dile/ui/components/modal/modal';
+import '@dile/ui/components/modal/modal.js';
 ```
 
 ## Use the component

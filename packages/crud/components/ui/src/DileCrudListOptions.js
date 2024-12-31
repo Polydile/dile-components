@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/icon/icon';
-import '@dile/ui/components/button/button-icon';
-import '@dile/ui/components/menu-overlay/menu-overlay';
+import '@dile/ui/components/button/button-icon.js';
+import '@dile/ui/components/menu-overlay/menu-overlay.js';
 
 export class DileCrudListOptions extends LitElement {
     static styles = [

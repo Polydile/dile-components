@@ -18,7 +18,7 @@ npm install @dile/ui
 Import the component
 
 ```javascript
-import '@dile/ui/components/toast/toast-persistent';
+import '@dile/ui/components/toast/toast-persistent.js';
 ```
 
 Use the component
@@ -78,7 +78,7 @@ Custom property | Description | Default
 ```html:preview
 <script type="module">
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/toast/toast-persistent';
+import '@dile/ui/components/toast/toast-persistent.js';
 
 class MyComponent extends LitElement {
   

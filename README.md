@@ -27,7 +27,7 @@ npm install @dile/ui
 To utilize a component from this library, you must import the element you need. For example, to use the toast feedback element, use the following import:
 
 ```javascript
-import '@dile/ui/components/toast/toast';
+import '@dile/ui/components/toast/toast.js';
 ```
 
 After importing, you can use the component in your application like so:

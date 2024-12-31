@@ -22,7 +22,7 @@ npm i @dile/ui
 ```javascript
 import { DileEmmitChange } from '@dile/ui/mixins/form';
 
-class MyElement extends DileEmmitChangeMixin(HTMLElement) {
+class MyElement extends DileEmmitChange(HTMLElement) {
   // your custom element code...
 }
 ```

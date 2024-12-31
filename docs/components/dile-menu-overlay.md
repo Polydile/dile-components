@@ -21,7 +21,7 @@ npm install @dile/ui
 Import the component.
 
 ```javascript
-import '@dile/ui/components/menu-overlay/menu-overlay';
+import '@dile/ui/components/menu-overlay/menu-overlay.js';
 ```
 
 Use the component.

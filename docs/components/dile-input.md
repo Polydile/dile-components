@@ -30,7 +30,7 @@ npm install @dile/ui
 Import the component.
 
 ```javascript
-import '@dile/ui/components/input/input';
+import '@dile/ui/components/input/input.js';
 ```
 
 Use the component
