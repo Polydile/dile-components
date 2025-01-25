@@ -8,7 +8,7 @@ h1.homeh1 {
   color: #666;
   font-size: 1.1rem;
   font-style: italic;
-  margin: 1.5rem;
+  margin: 1.5rem 0;
 }
 .subtitle img {
   max-width: 100%;
@@ -35,12 +35,15 @@ h1.homeh1 {
     margin-right: 2rem;
   }
 }
-@media(min-width: 650px) {
+@media(min-width: 680px) {
   .subtitle {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     column-gap: 3rem;
+  }
+  .subtitle-text {
+    min-width: 300px;
   }
   h1.homeh1 {
     margin-top: 2rem;
@@ -62,7 +65,7 @@ h1.homeh1 {
     font-size: 2.5rem;
   }
   .subtitle {
-    margin: 3rem;
+    margin: 3rem 0.75rem;
   }
   .subtitle p {
     font-size: 1.4rem;
@@ -78,16 +81,12 @@ h1.homeh1 {
     font-size: 3rem;
   }
   .subtitle {
-    margin: 3rem 4rem 4.5rem;
-    column-gap: 6rem;
+    margin: 3rem 1rem 4.5rem;
+    column-gap: 4rem;
   }
 }
 
-@media(min-width: 950px) {
-  .subtitle {
-    column-gap: 8rem;
-  }
-}
+
 
 @media(min-width: 1200px) {
   .subtitle {
