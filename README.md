@@ -1,6 +1,8 @@
 # Dile Components V2
 
-This is the "dile-components" catalog monorepo, a library of Custom Elements based on Lit and Web Components.
+This is the "dile-components" catalog repository, a library of Custom Elements based on Web Components and Lit.
+
+Find the full documentation and details of the 'dile-components' catalog at [dile-components.com](https://dile-components.com/)
 
 > If you are looking for the previous version of this component catalog, you can find it in this repository: <https://github.com/Polydile/Components-legacy>
 
