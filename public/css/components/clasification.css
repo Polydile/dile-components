@@ -11,3 +11,14 @@
   }
 }
 
+@media(min-width: 650px) {
+  .Clasification {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(min-width: 1200px) {
+  .Clasification {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
