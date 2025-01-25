@@ -138,3 +138,43 @@ customElements.define('other-component', OtherComponent);
 <other-component></other-component>
 ```
 
+### Using an image as icon
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class OtherComponentIcon extends LitElement {
+  static get styles() {
+    return css`
+      :host {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+      }
+      .styled {
+        --dile-icon-color: red;
+        --dile-icon-size: 32px;
+      }
+      .styled2 {
+        --dile-icon-color: #990099;
+        --dile-icon-size: 18px;
+      }
+      .styled3 {
+        --dile-icon-color: blue;
+        --dile-icon-size: 40px;
+      }
+    `
+  }
+
+  render() {
+    return html`
+       <dile-icon .icon=${html`<img src="/images/loto.png">`}></dile-icon>
+    `
+  }
+
+}
+customElements.define('other-component-icon', OtherComponentIcon);
+</script>
+<other-component-icon></other-component-icon>
+```
