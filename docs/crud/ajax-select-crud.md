@@ -7,7 +7,7 @@ tags: 'Crud extras'
 
 The `dile-ajax-select-crud` component is a tool to select elements with ajax searches. 
 
-Is based on [dile-select-ajax](/components/dile-select-ajax/) component but configured to use [dile-ajax](/components/dile-select-ajax/) in replacement of the navigator fetch interface.
+Is based on [dile-select-ajax](/components/dile-select-ajax/) component but configured to use [dile-ajax](/components/dile-select-ajax/) in replacement of the navigator fetch Javascript interface.
 
 ## Installation
 
@@ -17,10 +17,10 @@ npm i @dile/crud
 
 ## Usage
 
-Import the dile-ajax component.
+Import the dile-ajax-select-crud component.
 
 ```javascript
-import '@dile/crud/components/ajax-select-crud/ajax-select-crud';
+import '@dile/crud/components/ajax-select-crud/ajax-select-crud.js';
 ```
 
 Use the component.
@@ -136,18 +136,37 @@ This will only work when the server response looks like this:
 
 ```html:preview
 <script type="module">
-  import '@dile/crud/components/ajax-select-crud/ajax-select-crud';
+    import { LitElement, html, css } from 'lit';
+    import '@dile/crud/components/ajax-select-crud/ajax-select-crud';
+
+    export class DileSelectAjaxCrudDemo extends LitElement {
+        static styles = [
+            css`
+            :host {
+                display: block;
+            }
+            `
+        ];
+
+        render() {
+            return html`
+                <dile-ajax-select-crud
+                    id="countryselect"
+                    idProperty="id"
+                    name="country_id"
+                    label="País"
+                    endpoint="https://timer.escuelait.com/api/countries" 
+                    queryStringVariable="keyword"
+                    placeholder="Buscar país"
+                    .getSelectResultList="${(response) => response.data}"
+                    displayProperty="name"
+                    selectDefaultPlaceholder="Seleccionar país..."
+                ></dile-ajax-select-crud>
+            `;
+        }
+    }
+    customElements.define('dile-select-ajax-crud-demo', DileSelectAjaxCrudDemo);
+
 </script>
-<dile-ajax-select-crud
-    id="countryselect"
-    idProperty="id"
-    name="country_id"
-    label="País"
-    endpoint="https://timer.escuelait.com/api/countries" 
-    queryStringVariable="keyword"
-    placeholder="Buscar país"
-    .getSelectResultList="${(response) => response.data.result.data}"
-    displayProperty="name"
-    selectDefaultPlaceholder="Seleccionar país..."
-></dile-ajax-select-crud>
+<dile-select-ajax-crud-demo></dile-select-ajax-crud-demo>
 ```
