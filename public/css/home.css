@@ -71,9 +71,6 @@ h1.homeh1 {
     font-size: 1.4rem;
 
   }
-  .options {
-    flex-direction: row;
-  }
 }
 
 @media(min-width: 850px) {
