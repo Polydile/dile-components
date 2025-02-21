@@ -5,8 +5,11 @@ tags: feedback
 
 # dile-tooltip
 
-Web component to display a configurable tooltip.
+Here’s an improved version of your explanation:
 
+`dile-tooltip` is a web component that provides a customizable tooltip interface.
+
+It displays a message in an overlay when the user hovers over an element. You can control the position of the tooltip using the component's properties. Additionally, the dile-tooltip apareance can be fully customized using CSS custom properties.
 
 ## Installation
 
@@ -32,13 +35,13 @@ Use the component.
 
 ## Properties
 
-The component has the properties bellow:
+The `dile-tooltip` component has the properties bellow:
 
 - **tooltip**: This property sets the text that will be displayed when the mouse hover the element.
 - **position**: This property sets the orientation where the tooltiptext will be displayed, we have 4 values: top, left, right, bottom. By default is top. if you set
 a position that doesnt exist the position will be top.
-- **fadeIn**: This is a boolean property and establishes if the tooltip will be displayed with an arrow. By default is false.
-- **arrow**: This is a boolean property and establishes if the tooltiptext will be displayed with an animation. By default is false.
+- **fadeIn**: This is a boolean property and establishes if the tooltiptext will be displayed with an animation. By default is false.
+- **arrow**: This is a boolean property and establishes if the tooltip will be displayed with an arrow. By default is false.
 
 ## Styling
 
