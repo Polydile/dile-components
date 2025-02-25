@@ -11,15 +11,18 @@
  */
 export const DileCloseDocumentClick = (SuperClass) =>
   class extends SuperClass {
+
     constructor() {
-      super();
+      super()
+      if(!DileCloseDocumentClick.elements) {
+        DileCloseDocumentClick.elements = [];
+      }
       this.closeDocumentHandler = this.closeAll.bind(this);
     }
 
     connectedCallback() {
       super.connectedCallback();
-      if (!DileCloseDocumentClick.elements) {
-        DileCloseDocumentClick.elements = [];
+      if (!DileCloseDocumentClick.elements.length) {
         document.addEventListener("click", this.closeDocumentHandler);
       }
       DileCloseDocumentClick.elements.push(this);
@@ -40,8 +43,10 @@ export const DileCloseDocumentClick = (SuperClass) =>
      * Close all the elements of this type
      */
     closeAll() {
-      for (let ele of DileCloseDocumentClick.elements) {
-        ele.close();
+      if(DileCloseDocumentClick.elements) {
+        for (let ele of DileCloseDocumentClick.elements) {
+          ele.close();
+        }
       }
     }
 
