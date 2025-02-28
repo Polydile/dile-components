@@ -11,6 +11,7 @@
     import "@dile/ui/components/spinner/spinner.js";
     import "@dile/ui/components/spinner/spinner-horizontal.js";
     import "@dile/ui/components/spinner/spinner-modal.js";
+    import "@dile/ui/components/spinner/spinner-block.js";
   </script>
   <style>
     .styledspinner {
@@ -74,6 +75,20 @@
 
     </script>
 
+    <h2>dile-spinner-block</h2>
+    <dile-spinner-block></dile-spinner-block>
+
+    <h2>Styled dile-spinner-block</h2>
+    <style>
+      .styledblock {
+        border-radius: 2rem;
+        background-color: aliceblue;
+        --dile-spinner-block-height: 300px;
+        --dile-spinner-color: rgb(123, 0, 255);
+        --dile-spinner-dot-size: 4px;
+      }
+    </style>
+    <dile-spinner-block class="styledblock"></dile-spinner-block>
     <footer><a href="../index.html">Back</a></footer>
   </div>
 </body>
