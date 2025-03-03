@@ -1,6 +1,6 @@
 {
   "name": "@dile/editor",
-  "version": "2.4.15",
+  "version": "2.4.16",
   "description": "Webcomponent to create a user editor interface, configured on various ways",
   "keywords": [
     "markdown",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@dile/icons": "^2.1.1",
-    "@dile/ui": "^2.5.4",
+    "@dile/ui": "^2.5.5",
     "lit": "^2.7.0 || ^3.0.0",
     "prosemirror-commands": "^1.6.2",
     "prosemirror-example-setup": "^1.2.3",
