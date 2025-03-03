@@ -22,7 +22,6 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
   constructor() {
     super();
     this.pageTitle = '';
-    console.log('soy auth guard');
   }
 
   createRenderRoot() {
@@ -31,7 +30,6 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
 
   render() {
     return html`
-    eeste es el auth guard
       ${this.loaded
         ? html`<slot></slot>`
         : this.loadingTemplate
