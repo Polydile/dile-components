@@ -7,7 +7,7 @@ tags: spinner
 
 Web component to implement a block-style spinner interface, useful for showing loading states in a section of the page. 
 
-> This component always shows the loading state with the spinner continuously spinning. There is no option to stop it, unlike other spinner components in this catalog, such as [dile-spinner](https://dile-components.com/components/dile-spinner/).
+> This component always shows the loading state with the spinner continuously spinning. There is no option to stop it, unlike other spinner components in this catalog, such as [dile-spinner](https://dile-components.com/components/dile-spinner/).  If you need to stop the loading interface, you can simply remove the dile-spinner-block from the template of your component. By doing this, the block, along with the spinner, will be removed from the DOM, effectively stopping the loading state from being displayed.
 
 ## Installation
 
