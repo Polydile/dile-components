@@ -1,6 +1,6 @@
 {
   "name": "@dile/utils",
-  "version": "2.5.5",
+  "version": "2.5.6",
   "description": "Utility Components of Diverse Uses Based on the Lit Library and Web Components Standard.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://dile-components.com/",
   "dependencies": {
-    "@dile/ui": "^2.5.5",
+    "@dile/ui": "^2.5.6",
     "@lion/calendar": "^0.20.1",
     "@lion/localize": "^0.26.0",
     "linkify-string": "^4.1.3",
