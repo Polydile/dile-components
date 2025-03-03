@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Polydile/dile-components/issues"
   },
-  "homepage": "https://dile-components.polydile.com/",
+  "homepage": "https://dile-components.com/",
   "dependencies": {
     "@dile/ui": "^2.5.5",
     "axios": "^1.7.2",

@@ -4,4 +4,4 @@ This package contains some useful icons and a style declaration to customize the
 
 ## Docs and demos
 
-Read the docs and find demos on the [dile-components site](https://dile-components.polydile.com/icons/)
+Read the docs and find demos on the [dile-components site](https://dile-components.com/icons/)

@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Polydile/Components/issues"
   },
-  "homepage": "https://dile-components.polydile.com/",
+  "homepage": "https://dile-components.com/",
   "dependencies": {
     "@dile/ui": "^2.5.5",
     "@lion/calendar": "^0.20.1",
