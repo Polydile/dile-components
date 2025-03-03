@@ -5,7 +5,7 @@ tags: spinner
 
 # dile-spinner
 
-Web component to implement the tipical "Ajax loading" spinner interface. 
+This is a web component designed to implement the typical "Ajax loading" spinner interface, commonly used to indicate that content is being loaded or processed in the background while the user waits for a response from the server.
 
 ## Installation
 
