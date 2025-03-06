@@ -74,6 +74,7 @@ Not documented yet
 ## Events
 
 - **element-changed**: This component implements [DileEmmitChangeMixin](https://dile-components.com/mixins/dile-emmit-change-mixin/), so element-changed is fired when the value property of the component changes.
+- **dile-select-ajax-selected-text-changed**: This event is triggered when the selected element changes. The event detail includes the text of the selected element in the `selectedText` property.
 
 ## dile-select-ajax demo
 

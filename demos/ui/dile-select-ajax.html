@@ -36,13 +36,21 @@
 
     <h2>Simple implementation</h2>
    
-    <dile-select-ajax id="select1" displayProperty="title" endpoint="https://jsonplaceholder.typicode.com/posts"></dile-select-ajax>
+    <dile-select-ajax 
+      id="select1" 
+      displayProperty="title" 
+      endpoint="https://jsonplaceholder.typicode.com/posts"
+    ></dile-select-ajax>
     <div id="msg1"></div>
+    <div id="msg2"></div>
     <script>
       const select1 = document.querySelector('#select1');
       select1.addEventListener('element-changed', (e) => {
         document.querySelector('#msg1').innerHTML = `Selected value: ${e.detail.value}`;
       });
+      select1.addEventListener('dile-select-ajax-selected-text-changed', (e) => {
+        document.querySelector('#msg2').innerHTML = `Selected text : ${e.detail.selectedText}`;
+      })
     </script>
 
     <h2>Static select ajax</h2>

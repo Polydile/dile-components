@@ -115,6 +115,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   updated(changedProperties) {
     if(changedProperties.has("value")) {
       this.emmitChange();
+      this.dispatchSelectedTextChanged();
       this.internals.setFormValue(this.value);
     }
   }
@@ -397,5 +398,15 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       this.isSelected = true;
       this.searchValueInitial();
     }
+  }
+
+  dispatchSelectedTextChanged() {
+    this.dispatchEvent(new CustomEvent('dile-select-ajax-selected-text-changed', 
+      { 
+        bubbles: true,
+        composed: true,
+        detail: { selectedText: this.selectedText }
+      }
+    ));
   }
 }
