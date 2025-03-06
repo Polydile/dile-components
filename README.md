@@ -40,10 +40,10 @@ After importing, you can use the component in your application like so:
 
 ## Complete docs
 
-You will find a complete list of the custom elements, along with their properties, methods, events, and examples on the [dile-components website](https://dile-components.polydile.com/):
+You will find a complete list of the custom elements, along with their properties, methods, events, and examples on the [dile-components website](https://dile-components.com/):
 
 <https://dile-components.com>
 
 ## Contribute
 
-If you like to contribute publishing a component to this library, you will find a complete [guide to understand the components organization](https://dile-components.polydile.com/contribute/).
+If you like to contribute publishing a component to this library, you will find a complete [guide to understand the components organization](https://dile-components.com/contribute/).

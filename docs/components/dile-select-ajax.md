@@ -73,7 +73,7 @@ Not documented yet
 
 ## Events
 
-- **element-changed**: This component implements [DileEmmitChangeMixin](https://dile-components.polydile.com/mixins/dile-emmit-change-mixin/), so element-changed is fired when the value property of the component changes.
+- **element-changed**: This component implements [DileEmmitChangeMixin](https://dile-components.com/mixins/dile-emmit-change-mixin/), so element-changed is fired when the value property of the component changes.
 
 ## dile-select-ajax demo
 
