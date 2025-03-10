@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-search component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/input/input-contact.js"
+  </script>
+  <style>
+    .styled {
+      --dile-input-border-radius: 0;
+      --dile-input-border-color: #e553e3;
+      --dile-input-border-width: 4px;
+      --dile-input-line-height: 2.5rem;
+      --dile-input-background-color: #333;
+      --dile-input-placeholder-color: #999;
+      --dile-input-color: #fff;
+      --dile-input-width: 300px;
+      --dile-icon-size: 32px;
+      --dile-icon-color: #c923c6;
+      --dile-input-focus-border-color: #6c32c4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-contact component</h1>
+
+    <h2>Contact input mobile</h2>
+    <p>
+      <dile-input-contact id="mobile" disableAutocomplete mobile value=""></dile-input-contact>
+    </p>
+
+    <h2>Contact input mobile with message error</h2>
+    <p>
+      <dile-input-contact id="mobileMsg" disableAutocomplete mobile messageError="El móvil es incorrecto"></dile-input-contact>
+    </p>
+
+    <h2>Contact input with initial error value</h2>
+    <p>
+      <dile-input-contact id="mobile" disableAutocomplete mobile value="aaaaa"></dile-input-contact>
+    </p>
+
+    <h2>Contact input phone</h2>
+    <p>
+      <dile-input-contact id="phone" disableAutocomplete phone label="Telófono fijo"></dile-input-contact>
+    </p>
+
+    <h2>Contact input phone with message error</h2>
+    <p>
+      <dile-input-contact id="phoneMsg" disableAutocomplete phone messageError="El teléfono es incorrecto"></dile-input-contact>
+    </p>
+
+    <h2>Contact input fax</h2>
+    <p>
+      <dile-input-contact id="fax" disableAutocomplete fax></dile-input-contact>
+    </p>
+
+    <h2>Contact input fax with message error</h2>
+    <p>
+      <dile-input-contact id="faxMsg" disableAutocomplete fax messageError="El fax es incorrecto"></dile-input-contact>
+    </p>
+
+    <h2>Contact input email</h2>
+    <p>
+      <dile-input-contact id="email" disableAutocomplete email></dile-input-contact>
+    </p>
+
+    <h2>Contact input email with message error</h2>
+    <p>
+      <dile-input-contact id="emailMsg" disableAutocomplete email messageError="El email es incorrecto"></dile-input-contact>
+    </p>
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
