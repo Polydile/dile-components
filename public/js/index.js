@@ -19,6 +19,7 @@ import '@dile/ui/components/input/input-integer';
 import '@dile/ui/components/input/input-money';
 import '@dile/ui/components/input/input-number-mask.js';
 import '@dile/ui/components/input/input-percentage';
+import '@dile/ui/components/input/input-contact.js';
 import '@dile/ui/components/input/input-search.js';
 import '@dile/ui/components/input/input.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
