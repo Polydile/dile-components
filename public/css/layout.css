@@ -127,6 +127,7 @@ blockquote p:last-child {
   }
   dile-nav span.site-name a {
     font-size: 1rem;
+    color: #303030;
   }
 }
 
