@@ -25,7 +25,7 @@
   "homepage": "https://dile-components.com/",
   "dependencies": {
     "@dile/ui": "^2.6.0",
-    "axios": "^1.7.2",
+    "axios": "^1.8.4",
     "lit": "^2.7.0 || ^3.0.0"
   },
   "publishConfig": {
