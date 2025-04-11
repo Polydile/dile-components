@@ -1,12 +1,12 @@
-const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const { JSDOM } = require('jsdom');
 const codePreviews = require('./docs/_utilities/code-previews.cjs');
 const colorBox = require('./docs/_utilities/color-box-transform.cjs');
 const path = require('path');
 const fs = require('fs-extra');
 
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(EleventyVitePlugin);
+module.exports = async function(eleventyConfig) {
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
+  eleventyConfig.addPlugin(EleventyPluginVite);
   eleventyConfig.addTransform("colorBoxTransform", colorBox)
   eleventyConfig.addTransform('html-transform', function (content) {
     // Parse the template and get a Document object
@@ -82,6 +82,9 @@ module.exports = function(eleventyConfig) {
       });
     }, 500);
   });
+
+  eleventyConfig.addPassthroughCopy('docs/assets/js')
+  eleventyConfig.addPassthroughCopy('docs/assets/css')
 
   return {
     dir: {
