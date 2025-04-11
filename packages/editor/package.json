@@ -1,14 +1,15 @@
 {
   "name": "@dile/editor",
   "version": "2.4.19",
-  "description": "Webcomponent to create a user editor interface, configured on various ways",
+  "description": "Flexible Web Component for rich text editing with WYSIWYG and Markdown support. Easy to integrate, customizable UI, powered by ProseMirror.",
   "keywords": [
     "markdown",
     "editor",
     "wysiwyg",
     "rich editor",
     "Lit",
-    "Web Component"
+    "Web Component",
+    "ProseMirror"
   ],
   "type": "module",
   "author": "midesweb <miguel@desarrolloweb.com>",
