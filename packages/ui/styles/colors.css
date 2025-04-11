@@ -33,3 +33,47 @@
   --dile-gray-dark-color: #555555;
   --dile-on-gray-dark-color: #ffffff;
 }
+
+:root.dark-theme {
+  --dile-background-color: #1e1e1e;
+  --dile-on-background-color: #ffffff;
+
+  --dile-primary-color: #e1e181;
+  --dile-on-primary-color: #1e1e1e;
+
+  --dile-secondary-color: #5fd878;
+  --dile-on-secondary-color: #1e1e1e;
+
+  --dile-terciary-color: #50c4e0;
+  --dile-on-terciary-color: #1e1e1e;
+
+  --dile-neutral-color: #2c2c2c;
+  --dile-on-neutral-color: #ffffff;
+
+  --dile-alert-error-color: #ff6a6a;
+  --dile-alert-success-color: #33cc55;
+  --dile-alert-neutral-color: #58c0da;
+  --dile-on-alert-color: #1e1e1e;
+
+  --dile-danger-color: #ff4b47;
+  --dile-on-danger-color: #ffffff;
+
+  /* Variaciones */
+  --dile-primary-light-color: #f3f3ae;
+  --dile-on-primary-light-color: #1e1e1e;
+  --dile-primary-dark-color: #b5b53e;
+  --dile-on-primary-dark-color: #ffffff;
+
+  --dile-secondary-light-color: #9ff2b1;
+  --dile-on-secondary-light-color: #1e1e1e;
+  --dile-secondary-dark-color: #2a7038;
+  --dile-on-secondary-dark-color: #ffffff;
+
+  --dile-terciary-light-color: #a5e6f8;
+  --dile-on-terciary-light-color: #1e1e1e;
+  --dile-terciary-dark-color: #0e3e49;
+  --dile-on-terciary-dark-color: #ffffff;
+
+  --dile-gray-dark-color: #cccccc;
+  --dile-on-gray-dark-color: #1e1e1e;
+}
