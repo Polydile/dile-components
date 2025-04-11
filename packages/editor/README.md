@@ -1,6 +1,8 @@
 # @dile/dile-editor
 
-Webcomponent to create a WYSIWYG Markdown editor, customizable on diferent ways.
+Flexible Web Component for rich text editing with WYSIWYG and Markdown support. Easy to integrate, customizable UI, powered by ProseMirror.
+
+![Rich text editor component interface](./images/editor-interface-demo.png)
 
 ## Docs an demos
 
