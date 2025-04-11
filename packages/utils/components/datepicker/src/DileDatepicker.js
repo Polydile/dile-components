@@ -3,7 +3,10 @@ import { DileInput } from '@dile/ui/components/input/index.js';
 import '@dile/ui/components/icon/icon.js';
 import { calendarIcon } from '@dile/icons/index.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
-import { formatDate } from '@lion/localize';
+
+import {
+  formatDate,
+} from '@lion/ui/localize.js';
 
 export class DileDatepicker extends DileInput {
   static get styles() {

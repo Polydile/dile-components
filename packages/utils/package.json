@@ -21,8 +21,7 @@
   "homepage": "https://dile-components.com/",
   "dependencies": {
     "@dile/ui": "^2.6.1",
-    "@lion/calendar": "^0.20.1",
-    "@lion/localize": "^0.26.0",
+    "@lion/ui": "^0.11.2",
     "linkify-string": "^4.1.3",
     "linkifyjs": "^4.1.3",
     "lit": "^2.7.0 || ^3.0.0"

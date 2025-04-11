@@ -1,5 +1,6 @@
 import { css } from 'lit';
-import { LionCalendar } from '@lion/calendar';
+//import { LionCalendar } from '@lion/ui/components/calendar/src/LionCalendar.js';
+import { LionCalendar } from '@lion/ui/calendar.js';
 
 export class DileCalendar extends LionCalendar {
     static get styles() {
