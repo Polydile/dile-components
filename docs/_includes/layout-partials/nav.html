@@ -3,14 +3,14 @@
     selected=${this.page} 
 >
     <div class="nav-box transparent">
-      <dile-selector-item icon="navigate_next" href="/" class="general_link first">Home</dile-selector-item>
-      <dile-selector-item icon="navigate_next" href="/how-to-use" class="general_link">How to use</dile-selector-item>
-      <dile-selector-item icon="navigate_next" href="/contribute" class="general_link">Contribute</dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link first"><a href="/">Home</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/how-to-use/">How to use</a></dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/contribute/">Contribute</a></dile-selector-item>
     </div>
 
     <div class="nav-box">
 
-      <dile-selector-item icon="navigate_next" href="/components/" class="general_link">UI Components</dile-selector-item>
+      <dile-selector-item icon="navigate_next" class="general_link"><a href="/components/">UI Components</a></dile-selector-item>
       {% for tag in componentTagsList %}
         {% assign isOpened = false %}
         {% for component in collections[tag] %}
