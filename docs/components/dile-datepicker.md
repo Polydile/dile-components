@@ -29,6 +29,20 @@ Use the component.
 <dile-datepicker name="date" label="date"></dile-datepicker>
 ```
 
+## Localization
+
+The component is localized automaticaly to the lang declared on the HTML tag:
+
+```html
+<html lang="en">
+```
+
+Supports many languages, for example:
+
+```html
+<html lang="es">
+```
+
 ## Properties
 
 This component extends [dile-input](/components/dile-input) and has all dile-input properties. 
@@ -69,20 +83,6 @@ Custom property | Description | Default
 --dile-calendar-day-size | Size of the calendar day square | Depends on the window size (responsive) from 28px to 36px 
 --dile-calendar-navigation-justify-content | Year and month navigation justify content on a flex container | space-between
 --dile-calendar-navigation-text-size | Year and month navigation font size when window size is more than 400px | 1.1rem
-
-## Localization
-
-The component is localized automaticaly to the lang declared on the HTML tag:
-
-```html
-<html lang="en">
-```
-
-Supports many languages, for example:
-
-```html
-<html lang="es">
-```
 
 ## Datepicker demos
 
