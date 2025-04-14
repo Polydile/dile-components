@@ -3,7 +3,23 @@ html {
   
   --dile-hamburger-padding-x: 0.15rem;
   
-  --dile-social-icon-color: #303030;
+  --dile-social-icon-color: var(--dile-on-primary-color);
   --dile-social-icon-size: 1.2rem;
+  --dile-hamburger-active-color: #000;
+}
+html.dark-theme {
+  --dile-hamburger-active-color: #888;
 }
 
+html.dark-theme blockquote {
+  border-left: 7px solid var(--dile-secondary-color);
+  background-color: #555;
+}
+
+html.dark-theme tr:nth-child(even) {
+  background: var(--dile-primary-dark-color);
+}
+
+html.dark-theme footer {
+  background-color: var(--dile-secondary-dark-color);
+}

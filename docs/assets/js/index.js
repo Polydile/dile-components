@@ -29,6 +29,7 @@ import '@dile/ui/components/tabs/tabs.js';
 import '@dile/ui/components/password/password.js';
 import '@dile/ui/components/progress-bar/progress-bar.js';
 import '@dile/ui/components/slide-menu/slide-menu.js';
+import '@dile/ui/components/light-mode-switch/light-mode-switch.js';
 import './components/dile-icon-name.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {

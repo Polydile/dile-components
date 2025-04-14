@@ -9,6 +9,8 @@ body {
   --dile-nav-padding-y: 5px;
   --dile-nav-padding-x: 0.75rem;
   line-height: 1.55rem;
+  background-color: var(--dile-background-color, #fff);
+  color: var(--dile-on-background-color, #303030);
 }
 
 dile-nav, main, .footer {
@@ -17,7 +19,7 @@ dile-nav, main, .footer {
 }
 
 dile-nav {
-  color: #303030;
+  color: var(--dile-on-primary-color);
 }
 
 main {
@@ -34,6 +36,10 @@ main {
 
 .fixednav {
   display: none;
+}
+
+dile-light-mode-switch {
+  margin-right: 0.4rem;
 }
 
 header {
@@ -84,7 +90,7 @@ table {
 th {
   border-bottom: 1px solid #ddd;
   background-color: var(--dile-primary-color);
-  color: #303030;
+  color: var(--dile-on-primary-color);
   padding: 0.5rem 0.5rem;
 }
 td {
@@ -127,7 +133,7 @@ blockquote p:last-child {
   }
   dile-nav span.site-name a {
     font-size: 1rem;
-    color: #303030;
+    color: var(--dile-on-primary-color);
   }
 }
 

@@ -59,6 +59,8 @@ Custom property | Description | Default
 --dile-switch-gap | Gap between switch and label | 0.5rem
 --dile-switch-align-items | Flex align items between switch and label  | center
 --dile-switch-justify-content | Flex justify content between switch and label | flex-start
+--dile-switch-on-focus-color | Focus border color on cheked state | #6fc
+--dile-switch-off-focus-color | Focus border color on uncheked state | #fdb423
 
 ## dile-switch demos
 

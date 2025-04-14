@@ -51,6 +51,8 @@ Custom property | Description | Default
 --dile-light-mode-switch-dark-state-bar-color | Switch bar color in dark mode | #0e0e0e
 --dile-light-mode-switch-light-state-icon-color | Icon color in light mode | #303030
 --dile-light-mode-switch-dark-state-icon-color | Icon color in dark mode | #e5e5e5
+--dile-light-mode-switch-light-state-focus-color | Border color when the element has the focus in light mode | #3d91e5
+--dile-light-mode-switch-dark-state-focus-color | Border color when the element has the focus in light mode | #ff9
 
 ## dile-light-mode-switch demos
 

@@ -102,7 +102,7 @@ Custom property | Description | Default
 ```html:preview
 <style>
   .styled {
-    --dile-foreground-color: purple;
+    --dile-on-primary-color: purple;
     --dile-slide-menu-font-size: 0.875rem;
     --dile-slide-menu-font-weight: 300;
   }

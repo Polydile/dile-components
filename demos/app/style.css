@@ -6,7 +6,6 @@ body {
   background-color: #ededed;
   line-height: 1.6rem;
 
-  --dile-foreground-color: #fff;
   --dile-primary-color: #303030;
 }
 dile-nav span {

@@ -28,13 +28,17 @@ dile-nav img {
   color: inherit;
   text-decoration: none;
 }
+
+html.dark-theme .general_link a, html.dark-theme .linkcolection a  {
+  color: var(--dile-on-primary-color);
+}
+
 .app-menu .general_link.first {
 }
 
 .app-menu .collection-nav {
   margin-left: 0.5rem;
   font-size: 1rem;
-  --dile-foreground-color: #555;
 }
 
 .linkcolection {
@@ -47,9 +51,14 @@ dile-nav img {
   margin-bottom: 0.6rem;
 }
 
+html.dark-theme .app-menu .nav-box {
+  background-color: var(--dile-primary-dark-color);
+}
+
+
 .app-menu .nav-box.transparent {
   background-color: transparent;
-  margin-bottom: 0;
+
 }
 .app-menu .link {
   display: flex;
@@ -57,6 +66,7 @@ dile-nav img {
   --dile-icon-size: 22px;
   --dile-icon-color: var(--dile-secondary-color);
 }
+
 .app-menu .link dile-icon-name {
   transform: rotate(-90deg);
   margin-right: 0.25rem;
@@ -92,4 +102,14 @@ dile-social-icon {
   --dile-selector-icon-size: 16px;
   --dile-selector-icon-color: var(--dile-secondary-color);
   margin-left: 0.25rem;
+}
+
+html.dark-theme .linkcolection {
+  --dile-selector-icon-color: #fff;
+}
+
+html.dark-theme nav {
+  --dile-slide-menu-color: #fff;
+  --dile-slide-menu-icon-color: var(--dile-secondary-color);
+  
 }

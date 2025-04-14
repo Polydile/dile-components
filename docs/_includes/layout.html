@@ -13,6 +13,51 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dile/ui/styles/colors.css">
+  <style>
+    :root.dark-theme {
+  --dile-background-color: #303030;
+  --dile-on-background-color: #ffffff;
+
+  --dile-primary-color: #195251;
+  --dile-on-primary-color: #ffffff;
+
+  --dile-secondary-color: #5fd878;
+  --dile-on-secondary-color: #1e1e1e;
+
+  --dile-terciary-color: #50c4e0;
+  --dile-on-terciary-color: #1e1e1e;
+
+  --dile-neutral-color: #2c2c2c;
+  --dile-on-neutral-color: #ffffff;
+
+  --dile-alert-error-color: #ff6a6a;
+  --dile-alert-success-color: #33cc55;
+  --dile-alert-neutral-color: #58c0da;
+  --dile-on-alert-color: #1e1e1e;
+
+  --dile-danger-color: #ff4b47;
+  --dile-on-danger-color: #ffffff;
+
+  /* Variaciones */
+  --dile-primary-light-color: #4e4e2f;
+  --dile-on-primary-light-color: #ffffff;
+  --dile-primary-dark-color: #041c19;
+  --dile-on-primary-dark-color: #ffffff;
+
+  --dile-secondary-light-color: #9ff2b1;
+  --dile-on-secondary-light-color: #1e1e1e;
+  --dile-secondary-dark-color: #052b0c;
+  --dile-on-secondary-dark-color: #ffffff;
+
+  --dile-terciary-light-color: #a5e6f8;
+  --dile-on-terciary-light-color: #1e1e1e;
+  --dile-terciary-dark-color: #0e3e49;
+  --dile-on-terciary-dark-color: #ffffff;
+
+  --dile-gray-dark-color: #cccccc;
+  --dile-on-gray-dark-color: #1e1e1e;
+}
+  </style>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
@@ -31,6 +76,7 @@
         </nav>
       </dile-menu-hamburger>
       <span slot="actions" class="actionsnav">
+        <dile-light-mode-switch></dile-light-mode-switch>
         <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
         <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
       </span>
