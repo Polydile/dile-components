@@ -57,7 +57,7 @@ export class DileHamburger extends LitElement {
       .hamburger-inner::after {
         width: var(--dile-hamburger-width, 24px);
         height: var(--dile-hamburger-line-size, 3px);
-        background-color: var(--dile-foreground-color, #000);
+        background-color: var(--dile-on-primary-color, var(--dile-foreground-color, #000));
         border-radius: var(--dile-hamburger-line-size, 3px);
         position: absolute;
         transition-property: transform;
