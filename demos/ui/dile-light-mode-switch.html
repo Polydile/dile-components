@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-light-mode-switch component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/light-mode-switch/light-mode-switch.js";
+    import "@dile/ui/components/button/button.js";
+  </script>
+  <style>
+    .dark-theme body {
+      background-color: #555;
+    
+    }
+    .dark-theme .container {
+      background-color: #8888;
+      color: #fff;
+      box-shadow: 4px 4px 8px #000;
+    }
+    .dark-theme .container a {
+      color: #ffc;
+    }
+    dile-light-mode-switch.styled {
+      --dile-light-mode-switch-light-state-color: #699; 
+      --dile-light-mode-switch-dark-state-color: #ffa; 
+      --dile-light-mode-switch-light-state-bar-color: #faa;
+      --dile-light-mode-switch-dark-state-bar-color: #a99;
+      --dile-light-mode-switch-light-state-icon-color: #993333;
+      --dile-light-mode-switch-dark-state-icon-color: #ffa;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-light-mode-switch component</h1>
+    
+    <h2>Regular switch</h2>
+    <p>
+      <dile-light-mode-switch></dile-light-mode-switch>
+    </p>
+
+    <dile-button id="changeStyles">Change switch style colors</dile-button>
+
+    <script>
+      document.getElementById('changeStyles').addEventListener('click', () => {
+        const switchElement = document.querySelector('dile-light-mode-switch');
+        switchElement.classList.toggle('styled');
+      });
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>
