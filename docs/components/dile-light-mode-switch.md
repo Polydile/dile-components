@@ -30,16 +30,20 @@ Use the component.
 ### Properties
 
 - **darkMode**: Boolean. Indicates whether the dark mode is active. When `true`, the `darkModeClass` is added to the root HTML element.
+- **syncName**: String. This property is used to synchronize multiple `dile-light-mode-switch` elements that may exist on the same page. Elements that should be synchronized must have an identical, non-null string value assigned to this property.
 - **darkModeClass**: String. The class name to be toggled on `document.documentElement`. Default: `"dark-theme"`.
 
 > At the time of component initialization, it will look for the class defined by the `darkModeClass` property to set the value of the boolean property `darkMode`. If it finds the class on the `<html>` tag, it will initialize `darkMode` as `true`; if it does not find it, then `darkMode` will be initialized as `false`.
 
-
-## Methods
+### Methods
 
 The component also provides a method to controls the component state programmatically.
 
 - **toggle()**: Toggles the mode.
+
+### Custom Events
+
+- **dile-ligth-mode-changed**: this event is dispatched when the theme state has changed. The detail object contains a `darkMode` boolean property with the current component value.
 
 ### CSS Custom Properties
 

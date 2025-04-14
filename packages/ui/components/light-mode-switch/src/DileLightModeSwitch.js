@@ -34,7 +34,14 @@ export class DileLightModeSwitch extends LitElement {
     return {
       darkModeClass: { type: String },
       darkMode: { type: Boolean, reflect: true },
+      syncName: { type: String },
     };
+  }
+
+  sync(e) {
+    if(e.detail.syncName && e.detail.syncName == this.syncName && this.darkMode != e.detail.darkMode) {
+      this.darkMode = e.detail.darkMode;
+    }
   }
   
   constructor() {
@@ -48,6 +55,17 @@ export class DileLightModeSwitch extends LitElement {
     } else {
       this.darkMode = document.documentElement.classList.contains(this.darkModeClass);
     }
+    this.syncHandler = this.sync.bind(this);
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('dile-ligth-mode-changed', this.syncHandler);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    document.removeEventListener('dile-ligth-mode-changed', this.syncHandler);
   }
 
   updated(changedProperties) {
@@ -59,6 +77,14 @@ export class DileLightModeSwitch extends LitElement {
         document.documentElement.classList.remove(this.darkModeClass);
         localStorage.setItem("dile_light_mode_switch_state", "light");
       }
+      this.dispatchEvent(new CustomEvent('dile-ligth-mode-changed', { 
+        bubbles: true,
+        composed: true,
+        detail: { 
+          darkMode: this.darkMode,
+          syncName: this.syncName
+        }
+      }));
     }
   }
 
