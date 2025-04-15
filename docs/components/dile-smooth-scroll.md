@@ -111,6 +111,7 @@ class SecondComponent extends LitElement {
         max-height: 200px;
         overflow: scroll;
         padding: 30px 50px;
+        color: #303030;
       }
       #withScroll h2 {
         margin-top: 0;

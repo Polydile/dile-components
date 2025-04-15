@@ -16,7 +16,7 @@ html.dark-theme {
   --dile-input-error-background-color: #fee;
 }
 a {
-  color: #39f;
+  color: var(--dile-link-color);
 }
 .logo-light {
   display: none;

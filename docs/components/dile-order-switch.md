@@ -94,11 +94,11 @@ customElements.define('my-component', MyComponent);
 ```html:preview
 <style>
   dile-order-switch {
-    color: blue;
+    color: var(--dile-link-color, blue);
     font-size: 1.5rem;
     font-weight: bold;
     --dile-icon-size: 2rem;
-    --dile-icon-color: blue;
+    --dile-icon-color: var(--dile-link-color, blue);
   }
 </style>
 <dile-order-switch id="order" name="stock" label="Stock units" value="desc"></dile-order-switch>

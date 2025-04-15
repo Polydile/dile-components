@@ -71,6 +71,9 @@ Custom property | Description | Default
     margin: 0 0.5rem;
     font-size: 0.9rem;
   }
+  dile-slide-menu {
+    --dile-slide-menu-icon-color: var(--dile-secondary-color, #999);
+  }
 </style>
 <dile-slide-menu>
   <ul class="menulist">
@@ -132,6 +135,10 @@ import { addIcon } from "@dile/icons/index.js";
 class MyComponent extends LitElement {
   static get styles() {
     return css`
+      :host {
+        --dile-slide-menu-icon-color: #f45;
+      }
+      
       ul {
         margin: 0;
         padding: 0;
@@ -140,6 +147,9 @@ class MyComponent extends LitElement {
         padding: 0;
         margin: 0 0 0.5rem 0.5rem;
         list-style: none;
+      }
+      a {
+        color: #69c;
       }
     `
   }

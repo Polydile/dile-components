@@ -45,6 +45,14 @@ In order to make the desired conversions you need to provide the following attri
 
 This component load [Linkify.js](https://linkify.js.org/) library by it-self, to convert the URLs in the text into links. You don't need to load this library manually.
 
+## Customization
+
+You can customize the component styles using this CSS Custom properties:
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-link-color | Links color | #3399ff;
+
 ## dile-html-transform demos
 
 ### Simple demo

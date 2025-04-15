@@ -62,6 +62,9 @@ Custom property | Description | Default
 ### Default network status component
 
 ```html:preview
+<script type="module">
+  import '@dile/utils/components/network/network.js';
+</script>
 <dile-network showOffLineStatus></dile-network>
 <p style="margin-bottom: 0;"><i><b>Go offline to see this component in action.</b></i></p>
 ```

@@ -62,9 +62,9 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-breadcrumbs-separator-width | Space between the separator and the text |  0.5rem 
 --dile-breadcrumbs-text-decoration | Text decoration for the links | none
---dile-breadcrumbs-text-color | Text color for the separator and items that hasn't got links |  #303030
+--dile-breadcrumbs-text-color | Text color for the separator and items that hasn't got links | --dile-on-background-color or #303030
 --dile-breadcrumbs-font-size | Checked color for check control | 1rem
---dile-breadcrumbs-link-color | Color for the links | #39c
+--dile-breadcrumbs-link-color | Color for the links | --dile-link-color or #39c
 
 ## Breadcrumbs demo
 

@@ -7,6 +7,7 @@ export class DemoCountryDetail extends LitElement {
     css`
       :host {
         display: block;
+        color: #303030;
       }
       p {
         margin: 0 0 1rem;

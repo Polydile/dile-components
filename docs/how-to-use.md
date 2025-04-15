@@ -34,7 +34,7 @@ npm install @dile/ui
 You can do that with an ESModules import in your Javascript code, usually using the npm package name. 
 
 ```javascript
-import '@dile/ui/components/dile-input/dile-input.js';
+import '@dile/ui/components/input/input.js';
 ```
 
 In order process imports with the package name in the browser you will need to use a frontend tool like Vite, Webpack or Rollup. 

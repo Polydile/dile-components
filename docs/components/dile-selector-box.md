@@ -40,6 +40,6 @@ Use the component.
 
 ## Not Documented
 
-This component has not been fully documented yet, as it may not provide significant utility on its own. We primarily use it to present available actions for resources in a REST API within the [`dile-crud-single` component](/crud/crud-single/).
+This component has not been fully documented yet, as it may not provide significant utility on its own. We primarily use it to present available actions for resources in a REST API within the [dile-crud-single component](/crud/crud-single/).
 
-It only customizes the styles for selection items, based on the implementation of the [`DileSelectable` mixin](/mixins/dile-selectable-mixin/). This component can serve as a good example of how to use that mixin to create your own selection components.
+It only customizes the styles for selection items, based on the implementation of the [DileSelectable mixin](/mixins/dile-selectable-mixin/). This component can serve as a good example of how to use that mixin to create your own selection components.

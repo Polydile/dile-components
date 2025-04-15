@@ -89,12 +89,12 @@ Custom property | Description | Default
 --dile-selector-padding-y | The padding top and bottom of the selection elements | 0.2rem
 --dile-selector-padding-x | The padding left and right of the selection elements | 0.5rem
 --dile-selector-background-color | The option background color | Transparent
---dile-selector-text-color | The option text color | #000
+--dile-selector-text-color | The option text color |  #000
 --dile-selector-selected-text-color | The selected option text color | #fff
 --dile-selector-selected-background-color | The selected option background color | #039be5;
 --dile-selector-selected-font-weight | The selected option text font weight  | normal
---dile-selector-icon-color | Defines the icon color | #039be5
---dile-selector-selected-icon-color | Defines the icon color | #fff
+--dile-selector-icon-color | Defines the icon color | --dile-selector-primary-color or #039be5
+--dile-selector-selected-icon-color | Defines the icon color | --dile-selector-primary-color or #fff
 --dile-selector-icon-size | Icon size | 20px
 --dile-selector-text-decoration | Only for links when using href | none
 

@@ -105,6 +105,9 @@ Custom property | Description | Default
     --dile-nav-padding-x: 1rem;
     color: #666;
   }
+  html.dark-theme .styled {
+    color: #fff;
+  }
   .demoactions {
     display: inline-block;
     margin: 0 0.6rem;

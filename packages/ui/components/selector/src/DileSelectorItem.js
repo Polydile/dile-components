@@ -25,7 +25,7 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
         padding-left:  var(--dile-selector-padding-x, 0.5rem); 
         padding-right:  var(--dile-selector-padding-x, 0.5rem); 
         background-color: var(--dile-selector-background-color, transparent);
-        color: var(--dile-selector-text-color, #000);
+        color: var(--dile-selector-text-color, var(--dile-on-background-color, #303030));
         transition: all 0.3s ease-in;
       }
       .selected {
@@ -41,7 +41,7 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
       }
       .icon svg {
         color: red;
-        fill: var(--dile-selector-icon-color, #039be5);
+        fill: var(--dile-selector-icon-color, var(--dile-selector-primary-color, #039be5));
         width: var(--dile-selector-icon-size, 20px);
         height: var(--dile-selector-icon-size, 20px);
       }

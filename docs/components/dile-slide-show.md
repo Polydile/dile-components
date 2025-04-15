@@ -156,8 +156,8 @@ customElements.define('my-component', MyComponent);
 ```html:preview
 <style>
   .styled {
-    --dile-slide-show-text-color: #085439;
-    --dile-slide-show-icon-color: #13d366;
+    --dile-slide-show-text-color:rgb(28, 127, 93);
+    --dile-slide-show-icon-color:rgb(65, 141, 164);
     --dile-slide-show-text-decoration: underline;
     --dile-slide-show-align-control: center;
     --dile-slide-down-font-size: 1.5rem;

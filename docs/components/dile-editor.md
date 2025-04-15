@@ -59,7 +59,8 @@ Custom property | Description | Default
 --dile-input-label-color | Color for the label text | #59e
 --dile-input-label-font-weight | Label text font weight | normal
 --dile-input-label-margin-bottom | Label marging bottom | 4px
---dile-editor-background-color | Editor background color | #fff;
+--dile-editor-background-color | Editor background color | #ffffff;
+--dile-editor-text-color | Editor text color | #303030;
 --dile-editor-views-nav-background-color | Editor views selector background color | #f5f5f5
 --dile-editor-views-nav-color | Editor views selector text color | #106eda
 --dile-editor-views-nav-selected-color | Editor views selected view text color | #0f4e96

@@ -79,7 +79,7 @@ Custom property | Description | Default
     --dile-light-mode-switch-light-state-color: #555;
     --dile-light-mode-switch-dark-state-color: #fff;
     --dile-light-mode-switch-light-state-bar-color: #bbb;
-    --dile-light-mode-switch-dark-state-bar-color: #333;
+    --dile-light-mode-switch-dark-state-bar-color: #369;
     --dile-light-mode-switch-light-state-icon-color: #666;
     --dile-light-mode-switch-dark-state-icon-color: #eee;
   }
