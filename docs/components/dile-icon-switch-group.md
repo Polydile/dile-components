@@ -29,6 +29,15 @@ import '@dile/ui/components/icon-switch/icon-switch-group.js';
 </dile-icon-switch-group>
 ```
 
+## Custom CSS properties
+
+Each icon in the switch group adopts the custom styles via CSS custom properties defined in the [dile-icon-switch](/components/dile-icon-switch/) component.
+
+
+## Custom events
+
+This component does not emit specific custom events itself, but you can listen to the custom events dispatched by the [dile-icon-switch](/components/dile-icon-switch/) components implemented in the group — in particular, the `dile-icon-switch-changed` event, which is triggered whenever an icon is selected.
+
 ## dile-icon-switch-group demos
 
 

@@ -65,6 +65,7 @@ Use the [dile-tooltip](/components/dile-tooltip/) styles and some additional sty
       --dile-primary-color: #7d187b; 
       --dile-on-primary-color:  rgb(239, 161, 238);
       --dile-chip-tooltip-icon-color:  rgb(239, 161, 238);
+      --dile-chip-tooltip-hover-background-color:rgb(91, 24, 89);
     }
 </style>
 <dile-chip-tooltip class="styled" label="Styled!" message="I am an styled tooltip"></dile-chip-tooltip>

@@ -37,4 +37,10 @@ document.querySelectorAll('.code-preview__button').forEach(button => {
     let control = button.getAttribute('aria-controls');
     document.querySelector('#' + control).style.display = 'block'
   })
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[dile-cloak]').forEach(el => {
+    el.removeAttribute('dile-cloak');
+  });
 })

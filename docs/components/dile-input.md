@@ -105,6 +105,7 @@ Custom property | Description | Default
 --dile-input-label-font-weight | Label text font weight | normal
 --dile-input-label-margin-bottom | Label marging bottom | 4px
 --dile-input-background-color | Color for the background input element | #fff
+--dile-input-error-background-color | Color for the background on a errored input element | --dile-input-background-color or #fff
 --dile-input-padding | Padding for the input text | 5px
 --dile-input-color | Input text color | #303030
 --dile-input-placeholder-color | Placeholder color | #ccc
@@ -179,9 +180,15 @@ customElements.define('my-component', MyComponent);
   --dile-input-label-font-weight: bold;
   --dile-input-border-radius: 0;
   --dile-input-border-color: #6d3d6c;
-  --dile-input-border-width: 2px;
+  --dile-input-border-width: 3px;
   --dile-input-label-margin-bottom: 0.5rem;
   --dile-input-line-height: 2.5rem;
+}
+html.dark-theme .styled {
+  --dile-input-border-color:rgb(168, 81, 166);
+  --dile-input-background-color: #ffe;
+  --dile-input-label-color: rgb(184, 116, 183);;
+
 }
 </style>
 <dile-input class="styled" name="name" label="Name" placeholder="Write your name" disableAutocomplete></dile-input>

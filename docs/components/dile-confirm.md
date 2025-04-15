@@ -61,7 +61,7 @@ In addition, the confirm box display two buttons inside the modal interface:
 
 These are the dile-confirm CSS custom properties. 
 
-Remember, as this component is based on ```<dile-modal>```, you may also customize the modal box interface by using the CSS custom properties of the [dile-modal component](/components/dile-modal).
+Remember, as this component is based on ```<dile-modal>```, you may also customize the modal box interface by using the CSS custom properties of the [dile-modal component](/components/dile-modal/).
 
 Custom property | Description | Default
 ----------------|-------------|---------

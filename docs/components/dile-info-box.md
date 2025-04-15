@@ -83,7 +83,7 @@ Custom property | Description | Default
 .styled {
   font-size: 1rem;
   --dile-icon-color: #bbdefb;
-  --dile-info-box-background-color: #303030;
+  --dile-info-box-background-color: #666;
   --dile-info-box-text-color: white;
   --dile-info-box-border-radius: 2rem;
   --dile-info-box-title-text-color: #ffa;

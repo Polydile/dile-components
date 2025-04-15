@@ -82,7 +82,7 @@ import '@dile/ui/components/modal/modal-help';
 
 ```html:preview
 <style>
-  dile-modal-help {
+  dile-modal-help.onlyicon {
     --dile-primary-color: var(--dile-secondary-color);
   }
 </style>

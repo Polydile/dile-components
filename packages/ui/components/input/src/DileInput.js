@@ -143,6 +143,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
             }
             .errored {
               border-color: var(--dile-input-error-border-color, #c00);
+              background-color: var(--dile-input-error-background-color, var(--dile-input-background-color, #fff));
             }
             section.for-input {
               display: flex;

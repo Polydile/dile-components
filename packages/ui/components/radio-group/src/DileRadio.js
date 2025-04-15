@@ -7,6 +7,7 @@ export class DileRadio extends LitElement {
         css`
             :host {
                 display: block;
+                --radio-default-color: var(--dile-on-background-color, #303030);
             }
             article {
                 display: flex;
@@ -16,17 +17,17 @@ export class DileRadio extends LitElement {
                 margin-right: var(--dile-radio-space-between-label-and-icon, 0.4rem);
                 display: flex;
                 --dile-icon-size: var(--dile-radio-icon-size, 1.2rem);
-                --dile-icon-color: var(--dile-radio-icon-color, #303030);
+                --dile-icon-color: var(--dile-radio-icon-color, var(--radio-default-color));
             }
             .label {
                 font-size: var(--dile-radio-label-font-size, 1rem);
-                color: var(--dile-radio-label-color, #303030);
+                color: var(--dile-radio-label-color, var(--radio-default-color));
             }
             :host([selected]) .radio {
-                --dile-icon-color: var(--dile-radio-selected-icon-color, var(--dile-radio-icon-color, #303030));
+                --dile-icon-color: var(--dile-radio-selected-icon-color, var(--dile-radio-icon-color, var(--radio-default-color)));
             }
             :host([selected]) .label {
-                color: var(--dile-radio-selected-label-color, var(--dile-radio-label-color, #303030));
+                color: var(--dile-radio-selected-label-color, var(--dile-radio-label-color, var(--radio-default-color)));
             }
         `
     ];

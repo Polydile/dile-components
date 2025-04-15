@@ -115,12 +115,18 @@ blockquote p:last-child {
 :not(pre) > code {
     font-family: 'Courier New', Courier, monospace;
     background-color: #f5f5f5;
-    color: #c7254e;
+    color:rgb(152, 29, 60);
     padding: 2px 4px;
-    font-size: 90%;
+    font-size: 95%;
     border-radius: 4px;
 }
+.darkmodemobile {
+  margin: 0 0 0.2rem 0.5rem;
+}
 
+.darkmodedesktop {
+  display: none;
+}
 
 @media(min-width: 380px) {
   body {
@@ -146,6 +152,13 @@ blockquote p:last-child {
     --dile-hamburger-line-separation: -8px;
     --dile-nav-padding-y: 0.5rem;
     --dile-social-icon-size: 1.6rem;
+  }
+
+  .darkmodedesktop {
+    display: block;
+  }
+  .darkmodemobile {
+    display: none;
   }
   dile-nav span.site-name a {
     font-size: 1.2rem;
