@@ -29,7 +29,7 @@ export class DileChipTooltip  extends LitElement {
         transition: background-color 0.3s ease-in-out;
       }
       .chip:hover {
-        background-color: var(--dile-chip-tooltip-hover-background-color, #303030);
+        background-color: var(--dile-chip-tooltip-hover-background-color, var(--dile-primary-dark-color, #14644f));
       }
       .label {
           display: inline-block;

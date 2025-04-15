@@ -51,7 +51,7 @@
 
     <div class="nav-box">
 
-      <dile-selector-item icon="navigate_next" href="/mixins/" class="general_link">Mixins</dile-selector-item>
+      <dile-selector-item icon="navigate_next" href="/mixins/" class="general_link"><a href="/mixins/">Mixins</a></dile-selector-item>
       {% for tag in mixinTagsList %}
         {% assign isOpened = false %}
         {% for component in collections[tag] %}
@@ -92,7 +92,7 @@
 
     <div class="nav-box">
 
-      <dile-selector-item icon="navigate_next" href="/crud/" class="general_link">Crud</dile-selector-item>
+      <dile-selector-item icon="navigate_next" href="/crud/" class="general_link"><a href="/crud/">Crud</a></dile-selector-item>
       {% for tag in crudTagsList %}
       {% assign isOpened = false %}
       {% for component in collections[tag] %}
@@ -124,7 +124,7 @@
     </div>
 
     <div class="nav-box">
-      <dile-selector-item icon="navigate_next" href="/icons/" class="general_link">Icons</dile-selector-item>
+      <dile-selector-item icon="navigate_next" href="/icons/" class="general_link"><a href="/icons/">Icons</a></dile-selector-item>
     </div>
     
 </dile-selector>

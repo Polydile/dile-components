@@ -54,7 +54,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-icon-size | Icon size | 24px
 --dile-icon-switch-active-color | Icon color on active state | #7BB93D
---dile-icon-switch-inactive-color | Icon color on inactive state | #303030
+--dile-icon-switch-inactive-color | Icon color on inactive state | #888
 
 ## dile-icon-switch demos
 

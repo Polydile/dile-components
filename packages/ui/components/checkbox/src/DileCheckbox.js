@@ -67,10 +67,10 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
       .label {
         margin-left: 10px;
         font-weight: var(--dile-checkbox-font-weight, normal);
-        color: var(--dile-checkbox-label-color, #303030);
+        color: var(--dile-checkbox-label-color, var(--dile-on-background-color, #303030));
       }
       .disabled .label {
-        color: var(--dile-checkbox-label-disabled-color, #303030);
+        color: var(--dile-checkbox-label-disabled-color, #777);
       }
     `;
   }

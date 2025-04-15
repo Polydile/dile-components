@@ -26,7 +26,7 @@ export class DileBreadcrumbs extends LitElement {
       ::slotted(dile-breadcrumbs-item.separator)::before {
         padding-right: var(--dile-breadcrumbs-separator-width, 0.5rem);
         font-size: var(--dile-breadcrumbs-font-size, 1rem);
-        color: var(--dile-breadcrumbs-text-color, #303030);
+        color: var(--dile-breadcrumbs-text-color, var(--dile-on-background-color, #303030));
       }
       .separator {
         padding-left: var(--dile-breadcrumbs-separator-width, 0.5rem);
@@ -34,7 +34,7 @@ export class DileBreadcrumbs extends LitElement {
       .separator::before {
         padding-right: var(--dile-breadcrumbs-separator-width, 0.5rem);
         font-size: var(--dile-breadcrumbs-font-size, 1rem);
-        color: var(--dile-breadcrumbs-text-color, #000);
+        color: var(--dile-breadcrumbs-text-color, var(--dile-on-background-color, #303030));
       }  
     `;
   }

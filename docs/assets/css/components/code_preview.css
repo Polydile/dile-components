@@ -3,6 +3,10 @@
   margin-bottom: 1.5rem;
 }
 
+html.dark-theme .code-preview {
+  color: #fff;
+}
+
 .code-preview__preview {
   padding: 1rem;
   border-bottom: 1px solid #ddd;

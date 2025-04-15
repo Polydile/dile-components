@@ -41,7 +41,8 @@ You can customize it using CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-secondary-dark-color | Color of the separator line and label text | none
+--dile-form-separator-color | Color of the separator line | --dile-secondary-dark-color or #888
+--dile-form-separator-text-color | Color of the separator label text | --dile-secondary-dark-color or #888
 
 ## dile-form-separator demos
 
@@ -72,6 +73,10 @@ Custom property | Description | Default
 <style>
   .styled {
     --dile-secondary-dark-color: #8b0000;
+  }
+  html.dark-theme .styled {
+    --dile-form-separator-color: #cb4444;
+    --dile-form-separator-text-color: #fcc;
   }
 </style>
 <dile-form-separator class="styled" label="Styled Separator"></dile-form-separator>

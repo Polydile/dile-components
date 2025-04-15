@@ -9,7 +9,7 @@ export class DileBreadcrumbsItem extends LitElement {
             }
             a, .named {
                 text-decoration: var(--dile-breadcrumbs-text-decoration, none);
-                color: var(--dile-breadcrumbs-link-color, #39c);
+                color: var(--dile-breadcrumbs-link-color, var(--dile-link-color, #39c));
             }  
             .named {
                 cursor: pointer;

@@ -17,7 +17,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       #dropZone {
         width: 100%;
         min-height: var(--dile-drop-zone-min-height, auto);
-        border: 2px dashed #ccc;
+        border: 2px dashed var(--dile-drop-zone-border-color, #ccc);
         display: flex;
         flex-direction: column;
         align-items: center;

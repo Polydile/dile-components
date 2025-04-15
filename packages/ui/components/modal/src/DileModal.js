@@ -74,7 +74,7 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
           max-width: var(--dile-modal-max-width, 100vw);
           height: auto;
           min-height: var(--dile-modal-min-height, auto);
-          
+          color: var(--dile-modal-content-text-color, #303030);
           background-color: var(--dile-modal-content-background-color, #fff);
           box-shadow: var(--dile-modal-content-shadow-displacement, 6px)
             var(--dile-modal-content-shadow-displacement, 6px)

@@ -88,7 +88,7 @@ class OtherComponent extends LitElement {
   static get styles() {
     return css`
      dile-hamburger {
-      --dile-foreground-color: #4cc;
+      --dile-on-primary-color: #4cc;
       --dile-hamburger-active-color: rgb(238, 30, 151);
       --dile-hamburger-line-size: 6px;
       --dile-hamburger-width: 48px;

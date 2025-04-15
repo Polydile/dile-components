@@ -77,7 +77,24 @@ Custom property | Description | Default
 > **Tip:** You can use the hamburger menu on this site to see this component in action.
 
 ```html:preview
-<dile-app-drawer id="menu">
+<style>
+  html.dark-theme #menudemo {
+    color: #fff;
+  }
+  html.dark-theme #menudemo a {
+    color: #ffd;
+  }
+  #menudemo .menu-content {
+    padding: 1rem;
+  }
+  #menudemo .menu-content h2 {
+    margin-top: 0.5rem;
+  }
+  #menudemo .menu-content p {
+    margin: 0 0 0.5rem 0;
+  }
+</style>
+<dile-app-drawer id="menudemo">
   <div class="menu-content">
     <h2>Menu <span>(Click outside to close)</span></h2>
     <p><a href="#">Link 1</a></p>
@@ -89,7 +106,7 @@ Custom property | Description | Default
 <button id="open">Show app drawer</button>
 <script>
 document.getElementById('open').addEventListener('click', () => {
-  document.getElementById('menu').open();
+  document.getElementById('menudemo').open();
 });
 </script>
 ```

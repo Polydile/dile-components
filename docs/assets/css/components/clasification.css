@@ -2,9 +2,13 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-
-  
 }
+
+html.dark-theme .Clasification {
+  --dile-card-background-color: #666;
+  --dile-card-title-color: #fff;
+}
+
 @media(min-width: 450px) {
   .Clasification {
     grid-template-columns: 1fr 1fr;

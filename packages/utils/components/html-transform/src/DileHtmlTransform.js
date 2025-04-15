@@ -1,7 +1,5 @@
 import { html, css, LitElement } from "lit";
-//import { StrBlock } from './StrBlock';
 import linkifyStr from 'linkify-string';
-import * as linkify from 'linkifyjs';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const options = { defaultProtocol: 'https' };
@@ -12,6 +10,9 @@ export class DileHtmlTransform extends LitElement {
     return css`
         :host {
           display: inline;
+        }
+        a {
+          color: var(--dile-link-color, #3399ff);
         }
       `
   }

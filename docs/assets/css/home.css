@@ -5,7 +5,6 @@ h1.homeh1 {
 }
 
 .subtitle {
-  color: #666;
   font-size: 1.1rem;
   font-style: italic;
   margin: 1.5rem 0;
@@ -103,9 +102,12 @@ h1.homeh1 {
   --dile-icon-color: var(--dile-secondary-color);
   --dile-icon-size: 4rem;
   font-size: 1.2rem;
-
 }  
 
+html.dark-theme .Featured {
+  background-color: var(--dile-primary-dark-color);
+  color: var(--dile-on-primary-dark-color);
+}
 .Featured a {
     color: inherit;
     text-decoration: none;

@@ -64,6 +64,7 @@ Custom property | Description | Default
 --dile-input-label-color | Color of the label | #59e
 --dile-input-label-font-weight | Font weight of the label | normal
 --dile-input-section-width | Width of the input section | 100%
+--dile-drop-zone-border-color | Drop section border color | #ccc
 
 ### Custom Events
 

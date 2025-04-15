@@ -13,6 +13,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dile/ui/styles/colors.css">
+  <style>
+    :root.dark-theme {
+  --dile-background-color: #303030;
+  --dile-on-background-color: #ffffff;
+
+  --dile-primary-color: #205d5c;
+  --dile-on-primary-color: #ffffff;
+
+  --dile-secondary-color: #5f9cd8;
+  --dile-on-secondary-color: #1e1e1e;
+
+  --dile-terciary-color: #9650e0;
+  --dile-on-terciary-color: #1e1e1e;
+
+  --dile-neutral-color: #2c2c2c;
+  --dile-on-neutral-color: #ffffff;
+
+  --dile-alert-error-color: #ff6a6a;
+  --dile-alert-success-color: #33cc55;
+  --dile-alert-neutral-color: #58c0da;
+  --dile-on-alert-color: #1e1e1e;
+
+  --dile-danger-color: #ff4b47;
+  --dile-on-danger-color: #ffffff;
+  --dile-link-color: #3399ff;
+
+  /* Variaciones */
+  --dile-primary-light-color: #9f9f68;
+  --dile-on-primary-light-color: #000;
+  --dile-primary-dark-color: #204036;
+  --dile-on-primary-dark-color: #ffffff;
+
+  --dile-secondary-light-color: #9fecf2;
+  --dile-on-secondary-light-color: #1e1e1e;
+  --dile-secondary-dark-color: #134f62;
+  --dile-on-secondary-dark-color: #ffffff;
+
+  --dile-terciary-light-color: #d5a5f8;
+  --dile-on-terciary-light-color: #1e1e1e;
+  --dile-terciary-dark-color: #310e49;
+  --dile-on-terciary-dark-color: #ffffff;
+
+  --dile-gray-dark-color: #cccccc;
+  --dile-on-gray-dark-color: #1e1e1e;
+}
+  </style>
+  <script>
+    const storedMode = localStorage.getItem("dile_light_mode_switch_state");
+    if(storedMode == "dark") {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
@@ -21,16 +73,21 @@
     <dile-nav menu="right">
       <span slot="title" class="site-name">
         <a href="/">
-          <img src="/images/logo-polydile.png" alt="logo polydile">
+          <img class="logo-dark" src="/images/logo-polydile.png" alt="logo polydile">
+          <img class="logo-light" src="/images/logo-polydile-light.png" alt="logo polydile en modo oscuro">
           <b>dile-components</b>
         </a>
       </span>
       <dile-menu-hamburger hamburgerAlwaysVisible slot="menu" direction="left">
         <nav class="app-menu" slot="menu" dile-cloak>
+          <div class="darkmodemobile">
+            <dile-light-mode-switch syncName="dark"></dile-light-mode-switch>
+          </div>
           {% include "layout-partials/nav.html" %}
         </nav>
       </dile-menu-hamburger>
       <span slot="actions" class="actionsnav">
+        <dile-light-mode-switch syncName="dark" class="darkmodedesktop"></dile-light-mode-switch>
         <a href="https://github.com/Polydile/dile-components"><dile-social-icon icon="github" class="github"></dile-social-icon></a>
         <a href="https://twitter.com/DileComponents" class="xsmallandup"><dile-social-icon icon="twitter" class="twitter"></dile-social-icon></a>
       </span>
@@ -40,7 +97,9 @@
 
   <main>
     <nav class="fixednav">
-      {% include "layout-partials/nav.html" %}
+      <div dile-cloak>
+        {% include "layout-partials/nav.html" %}
+      </div>
     </nav>
     <div class="maincontent">
       {{ content }}

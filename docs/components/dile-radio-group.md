@@ -79,11 +79,11 @@ Custom property | Description | Default
 --dile-radio-disabled-icon-color | Color for the icon when it is disabled | #ccc
 --dile-radio-space-between-label-and-icon | Separation label on radios | 0.4rem
 --dile-radio-icon-size | Radio icon size | 1.2rem
---dile-radio-icon-color | Radio icon color | #303030
+--dile-radio-icon-color | Radio icon color | --dile-on-background-color or #303030
 --dile-radio-label-font-size | Radio label text size | 1rem
---dile-radio-label-color | Radio label text color | #303030
---dile-radio-selected-icon-color | Radio icon color | --dile-radio-icon-color or #303030
---dile-radio-selected-label-color | Radio label selected text color | --dile-radio-label-color or #303030
+--dile-radio-label-color | Radio label text color |--dile-on-background-color or #303030
+--dile-radio-selected-icon-color | Radio icon color | --dile-radio-icon-color or --dile-on-background-color or #303030
+--dile-radio-selected-label-color | Radio label selected text color | --dile-radio-label-color or --dile-on-background-color or #303030
 
 ## dile-radio-group demos
 

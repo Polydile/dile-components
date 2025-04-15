@@ -69,9 +69,10 @@ Custom property | Description | Default
 --dile-modal-height | Conten layer height | auto
 --dile-modal-min-height | Content layer max height | auto
 --dile-modal-max-height | Content layer max height | 100vh
---dile-modal-content-background-color | Content layer background color | #fff
---dile-modal-content-padding | Content layer padding | 1em
 --dile-modal-border-radius | Content layer border radius | 15px
+--dile-modal-content-background-color | Content layer background color | #fff
+--dile-modal-content-text-color | Content text color | #303030
+--dile-modal-content-padding | Content layer padding | 1em
 --dile-modal-content-shadow-displacement | content layer shadow offset | 6px
 --dile-modal-content-shadow-blur | Content layer shadow blur | 16px
 --dile-modal-content-shadow-color | Content layer shadow color | #000

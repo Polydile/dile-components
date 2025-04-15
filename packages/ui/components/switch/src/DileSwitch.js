@@ -7,6 +7,7 @@ export class DileSwitch extends DileCheckbox {
             :host {
                 display: inline-block;
             }
+            
             div {
               display: flex;
               flex-direction: var(--dile-switch-flex-direction, row);
@@ -23,7 +24,8 @@ export class DileSwitch extends DileCheckbox {
                 align-items: center;
                 justify-content: flex-start;  
             }
-            span {
+            button {
+                cursor: pointer;
                 width: 24px;
                 height: 24px;
                 left: 0px;
@@ -31,10 +33,18 @@ export class DileSwitch extends DileCheckbox {
                 border-radius: 50%;
                 background-color: var(--dile-switch-off-state-color, #d52121);
                 transition: all 0.2s linear;
+                outline: none;
+                border: none;
             }
-            :host([checked]) span {
+            :host([checked]) button {
                 left: 32px;
                 background-color: var(--dile-switch-on-state-color, #2566e8);
+            }
+            button:focus {
+              border: 3px solid var(--dile-switch-off-focus-color, #fdb423);
+            }
+            :host([checked]) button:focus {
+              border: 3px solid var(--dile-switch-on-focus-color, #6fc);
             }
             :host([disabled]) {
               opacity: 0.5;
@@ -54,7 +64,7 @@ export class DileSwitch extends DileCheckbox {
         return html`
             <div @click=${this.toggle}>
               <section>
-                  <span></span>
+                  <button></button> 
               </section>
               ${this.useReactiveLabels
                 ? this.reactiveLabelsTemplate

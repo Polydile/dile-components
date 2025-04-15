@@ -20,7 +20,7 @@ export class DileIconSwitch extends LitElement {
           display: inline-block;
         }
         dile-icon {
-          --dile-icon-color: var(--dile-icon-switch-inactive-color, #303030);
+          --dile-icon-color: var(--dile-icon-switch-inactive-color, #888);
         }
         :host([active]) dile-icon{
           --dile-icon-color: var(--dile-icon-switch-active-color, #7BB93D);

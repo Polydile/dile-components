@@ -91,8 +91,23 @@ Custom property | Description | Default
   .menu1-content {
     padding: 1rem 1.5rem;
   }
+  html.dark-theme #menu1 {
+    color: #fff;
+  }
+  html.dark-theme #menu1 a {
+    color: #ffd;
+  }
+  #menu1 .menu1-content {
+    padding: 1rem;
+  }
+  #menu1 .menu1-content h2 {
+    margin-top: 0.5rem;
+  }
+  #menu1 .menu1-content p {
+    margin: 0 0 0.5rem 0;
+  }
 </style>
-<dile-menu-hamburger id="menu">
+<dile-menu-hamburger id="menu1">
   <div class="menu1-content" slot="menu">
     <h2>Menu</h2>
     <p><a href="#">Link 1</a></p>
@@ -107,20 +122,34 @@ Custom property | Description | Default
 
 ```html:preview
 <style>
-  #menu {
+  #menu2 {
     --dile-app-drawer-background-color: #ffc;
     --dile-app-drawer-box-shadow: 1px 0 18px rgba(100, 100, 10, 0.3);
     --dile-app-drawer-modal-background-color: rgba(250, 250, 250, 0.7);
   }
-  #menu div {
+  #menu2 div {
     min-width: 260px;
   }
-  .menu-content {
+  .menu2-content {
     padding: 1.5rem;
   }
+
+  html.dark-theme #menu2 {
+    color: #fff;
+  }
+  html.dark-theme #menu2 a {
+    color: #ffd;
+  }
+  .menu1-content h2 {
+    margin-top: 0.5rem;
+  }
+  .menu1-content p {
+    margin: 0 0 0.5rem 0;
+  }
+
 </style>
-<dile-menu-hamburger id="menu" direction="left">
-  <div class="menu-content" slot="menu">
+<dile-menu-hamburger id="menu2" direction="left">
+  <div class="menu2-content" slot="menu">
     <h2>Menu</h2>
     <p><a href="#">Link 1</a></p>
     <p><a href="#">Another link</a></p>

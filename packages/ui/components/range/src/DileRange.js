@@ -53,14 +53,14 @@ export class DileRange extends DileEmmitChange(LitElement) {
         -webkit-appearance: none; /* Override default look */
         appearance: none;
         margin-top: var(--dile-range-thumb-margin-top, -8px); /* Centers thumb on the track */
-        background-color: var(--dile-range-thumb-color, #303030);
+        background-color: var(--dile-range-thumb-color, var(--dile-on-background-color, #303030));
         border-radius: var(--dile-range-thumb-border-radius, 2rem);
         height: var(--dile-range-thumb-height, 1.5rem);
         width: var(--dile-range-thumb-width, 1.5rem);
       }
 
       input[type="range"]:focus::-webkit-slider-thumb {
-        outline: 3px solid var(--dile-range-thumb-color, #303030);
+        outline: 3px solid var(--dile-range-thumb-color, var(--dile-on-background-color, #303030));
         outline-offset: 0.125rem;
       }
 

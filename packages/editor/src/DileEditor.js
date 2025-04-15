@@ -38,7 +38,8 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       border: var(--dile-editor-border, 2px solid #ddd);
       border-radius: 0.5rem;
       font-size: 0.9rem;
-      background-color: var(--dile-editor-background-color, #fff);
+      background-color: var(--dile-editor-background-color, #ffffff);
+      color:  var(--dile-editor-text-color, #303030);
     }
     section.for-input:focus-within {
       border: 2px solid var(--dile-editor-focus-color, #6af);
