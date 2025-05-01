@@ -174,6 +174,11 @@ blockquote p:last-child {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
+
+  dile-nav .logo-dile-components {
+    height: 40px;
+  }
+  
 }
 
 @media(min-width: 1000px) {
@@ -184,9 +189,10 @@ blockquote p:last-child {
   dile-nav span.site-name a {
     font-size: 1.4rem;
   }
-  dile-nav a img {
-    height: 48px;
+  .logo-dile-components {
+    height: 38px;
   }
+  
   .fixednav {
     display: block;
     min-width: 220px;

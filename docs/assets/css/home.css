@@ -1,17 +1,27 @@
 h1.homeh1 {
   text-align: center;
   line-height: 1.8rem;
-  margin: 0.25rem 0 1.8rem;
+  margin: 0.25rem 0 0.75rem;
 }
 
 .subtitle {
   font-size: 1.1rem;
   font-style: italic;
-  margin: 1.5rem 0;
+  margin: 0.75rem 0;
 }
-.subtitle img {
-  max-width: 100%;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.hero-right img {
+  height: 150px;
+}
+
 .subtitle p {
   margin: 1rem 0 1.5rem;
   text-align: center;
@@ -20,14 +30,12 @@ h1.homeh1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  column-gap: 1rem;
+  column-gap: 0.75rem;
   row-gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 @media(min-width: 450px) {
-  .subtitle .image {
-    margin: 0 2rem;
-  }
+
   .subtitle p {
     font-size: 1.3rem;
     margin-left: 2rem;
@@ -35,36 +43,54 @@ h1.homeh1 {
   }
 }
 @media(min-width: 680px) {
-  .subtitle {
+
+  .hero {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    column-gap: 3rem;
   }
+  
+  .hero-right img {
+    height: 320px;
+    margin: 1.5rem 0; 
+  }
+  
+
   .subtitle-text {
     min-width: 300px;
   }
+  .subtitle p {
+    margin: 0 0 1.2rem 0;
+    text-align: left;
+  }
   h1.homeh1 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
-    text-align: center;
+    text-align: left;
+    line-height: 1.2em;
+    max-width: 400px;
   }
-  .subtitle .image {
-    flex-grow: 1;
-    margin: 0;
-  }
+
   .subtitle p {
     max-width: 250px;
     font-size: 1.3rem;
   }
+
+  .options {
+    flex-direction: row;
+  }
+  
 }
 @media(min-width: 750px) {
   h1.homeh1 {
     font-size: 2.5rem;
   }
   .subtitle {
-    margin: 3rem 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .subtitle-text, .subtitle-text p {
+    margin-bottom: 2rem;
   }
   .subtitle p {
     font-size: 1.4rem;
@@ -77,8 +103,11 @@ h1.homeh1 {
     font-size: 3rem;
   }
   .subtitle {
-    margin: 3rem 1rem 4.5rem;
     column-gap: 4rem;
+  }
+
+  .hero-right img {
+    margin: 2rem 0; 
   }
 }
 

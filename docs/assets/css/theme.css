@@ -18,17 +18,7 @@ html.dark-theme {
 a {
   color: var(--dile-link-color);
 }
-.logo-light {
-  display: none;
-}
 
-html.dark-theme .logo-light {
-  display: block;
-}
-
-html.dark-theme .logo-dark {
-  display: none;
-}
 
 html.dark-theme {
   --dile-hamburger-active-color: #888;

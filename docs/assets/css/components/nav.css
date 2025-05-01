@@ -7,10 +7,13 @@ span.site-name a {
 dile-nav a {
   text-decoration: none;
 }
+
+.logo-dile-components {
+  height: 30px;
+}
+
 dile-nav img {
   position: relative;
-  top: 3px;
-  height: 40px;
   margin-right: 0.5rem;
 }
 
