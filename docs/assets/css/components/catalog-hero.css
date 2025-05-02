@@ -1,0 +1,23 @@
+
+.catalog-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.catalog-hero img {
+  max-width: 100%;
+}
+
+@media(min-width: 680px) {
+  .catalog-hero {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1.25rem;
+  }
+
+  .catalog-hero-explain {
+    padding: 1rem 0;
+  }
+}
