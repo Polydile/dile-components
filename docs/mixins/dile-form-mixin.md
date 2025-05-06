@@ -20,7 +20,7 @@ To use DileFormMixin you only need to extend your custom element class with the 
 ```javascript
 import { DileForm } from '@dile/ui/mixins/form';
 
-class MyElement extends DileForm(HTMLElement) {
+class MyElement extends DileForm(LitElement) {
   // your custom element code...
 }
 ```
