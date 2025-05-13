@@ -42,7 +42,7 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
   stateChanged(state) {
     if(!state) return;
     if (state.user.isInitialized) {
-      if(state.user.isLoggedIn && state.user.userData.is_admin === true) {
+      if(state.user.isLoggedIn && this.validateAdditionalRules(state)) {
         this.loaded = true;
       } else {
         this.goToUrl('/', this.pageTitle);
@@ -54,5 +54,9 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
     return  html`
       <dile-spinner-block></dile-spinner-block>
     `;
+  }
+
+  validateAdditionalRules() {
+    return true;
   }
 }
