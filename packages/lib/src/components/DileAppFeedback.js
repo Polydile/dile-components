@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileState } from '../lib/DileState.js';
-import '@dile/ui/components/toast/toast';
+import '@dile/ui/components/toast/toast.js';
 
 export const DileAppFeedback = (store) => class extends DileState(store)(LitElement) {
   static styles = [
@@ -36,7 +36,6 @@ export const DileAppFeedback = (store) => class extends DileState(store)(LitElem
   }
 
   stateChanged(state) {
-    console.log('state', state)
     this.incomingMsg = state.feedback.message; 
   }
 

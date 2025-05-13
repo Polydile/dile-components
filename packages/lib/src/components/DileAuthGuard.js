@@ -24,10 +24,6 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
     this.pageTitle = '';
   }
 
-  createRenderRoot() {
-    return this;
-  }
-
   render() {
     return html`
       ${this.loaded
