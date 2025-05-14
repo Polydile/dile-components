@@ -5,7 +5,6 @@ export const DileAppRouter = (superclass) => class extends superclass {
   static get properties() {
     return {
       _routes: { type: Object },
-      _router: { type: Object },
     };
   }
 
@@ -19,7 +18,7 @@ export const DileAppRouter = (superclass) => class extends superclass {
       null, 
       e.detail.url || 'App', 
       e.detail.url);
-    setTimeout(() => this._router.goto(e.detail.url), 100);
+    setTimeout(() => this._routes.goto(e.detail.url), 100);
   }
 
   connectedCallback() {
@@ -33,8 +32,8 @@ export const DileAppRouter = (superclass) => class extends superclass {
   }
 
   createRoutes(routes) {
-    this._router = new Router(this, routes);
+    new Router(this, []);
 
-    //this._routes = new Routes(this, routes);
+    this._routes = new Routes(this, routes);
   }
 }
