@@ -9,4 +9,9 @@ export const DileAppNavigate = (superclass) => class extends superclass {
       }
     }));
   }
+
+  routerLinkHandler(e) {
+    e.preventDefault();
+    this.goToUrl(e.target.getAttribute('href'));
+  }
 }
