@@ -16,12 +16,14 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
     return {
       loaded: { type: Boolean },
       pageTitle: { type: String },
+      guestRedirectUrl: { type: String },
     };
   }
 
   constructor() {
     super();
     this.pageTitle = '';
+    this.guestRedirectUrl = '/';
   }
 
   render() {
@@ -45,7 +47,7 @@ export const DileAuthGuard = (store) => class extends DileAppNavigate(DileState(
       if(state.user.isLoggedIn && this.validateAdditionalRules(state)) {
         this.loaded = true;
       } else {
-        this.goToUrl('/', this.pageTitle);
+        this.goToUrl(this.guestRedirectUrl, this.pageTitle);
       }
     } 
   }
