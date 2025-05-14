@@ -19,7 +19,7 @@ export const DileAppRouter = (superclass) => class extends superclass {
       null, 
       e.detail.url || 'App', 
       e.detail.url);
-    setTimeout(() => this._routes.goto(e.detail.url), 100);
+    setTimeout(() => this._router.goto(e.detail.url), 100);
   }
 
   connectedCallback() {
