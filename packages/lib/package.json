@@ -1,6 +1,6 @@
 {
   "name": "@dile/lib",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Common App libraries, mixins and helpers",
   "main": "index.js",
   "scripts": {
