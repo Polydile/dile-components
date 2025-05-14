@@ -21,3 +21,4 @@ export { DileAppNavigate } from './src/lib/DileAppNavigate.js';
 export { DileAppFeedback } from './src/components/DileAppFeedback.js';
 export { DileAppLoading } from './src/components/DileAppLoading.js';
 export { DileAuthGuard } from './src/components/DileAuthGuard.js';
+export { DileRouterLink } from './src/components/DileRouterLink.js';
