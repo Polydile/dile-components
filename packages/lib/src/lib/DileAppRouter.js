@@ -5,6 +5,7 @@ export const DileAppRouter = (superclass) => class extends superclass {
   static get properties() {
     return {
       _routes: { type: Object },
+      _router: { type: Object },
     };
   }
 
@@ -32,8 +33,8 @@ export const DileAppRouter = (superclass) => class extends superclass {
   }
 
   createRoutes(routes) {
-    new Router(this, []);
+    this._router = new Router(this, routes);
 
-    this._routes = new Routes(this, routes);
+    //this._routes = new Routes(this, routes);
   }
 }
