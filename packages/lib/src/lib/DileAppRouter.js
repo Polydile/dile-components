@@ -14,11 +14,17 @@ export const DileAppRouter = (superclass) => class extends superclass {
   }
 
   programaticNavigation(e) {
+    const title = e.detail.title;
+    const url = e.detail.url;
     history.pushState(
       null, 
-      e.detail.url || 'App', 
-      e.detail.url);
+      title || 'App', 
+      url);
     setTimeout(() => this._routes.goto(e.detail.url), 100);
+
+    if(title) {
+      document.title = title;
+    }
   }
 
   connectedCallback() {
