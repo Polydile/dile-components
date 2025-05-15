@@ -56,6 +56,7 @@
     import '@dile/ui/components/textarea/textarea.js';
     import '@dile/ui/components/switch/switch.js';
     import '@dile/ui/components/number-picker/number-picker.js';
+    import '@dile/ui/components/time-picker/time-picker.js';
     import '@dile/editor/editor.js';
 
     import { LitElement, html, css } from 'lit';
@@ -97,7 +98,8 @@
           <p>
             <dile-switch name="active"></dile-switch>
           </p>
-          <dile-number-picker name="units" label="Unidades" value="9" hideErrorOnInput></dile-number-picker>
+          <dile-number-picker name="units" label="Units" value="9" hideErrorOnInput></dile-number-picker>
+          <dile-time-picker name="start_time" label="Start time" value="12:06:30" hideErrorOnInput></dile-time-picker>
         `;
       }
     }
@@ -132,6 +134,7 @@
           price: 10050,
           comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye",
           profile: "This is a profile information...",
+          start_time: "02:02:50"
         });
       });
 
@@ -153,7 +156,8 @@
           age: "Error on age field",
           comments: "Error on comments field",
           onlymessage: "This element has no input. It is only created for messaging purposes",
-          units: "Please increase the units"
+          units: "Please increase the units",
+          start_time: "Please set a start time",
         })
       });
 
