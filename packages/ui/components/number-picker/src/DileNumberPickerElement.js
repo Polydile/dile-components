@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { arrowDropUpIcon, arrowDropDownIcon } from '@dile/icons';
+import { arrowDropUpLargeIcon, arrowDropDownLargeIcon } from '@dile/icons';
 import '../../icon/icon.js'
 
 export class DileNumberPickerElement extends LitElement {
@@ -7,10 +7,13 @@ export class DileNumberPickerElement extends LitElement {
     return css`
         :host {
           display: block;
+          --dile-icon-size: var(--dile-number-picker-icon-size, 16px);
+          --dile-icon-color: var(--dile-number-picker-icon-color, #888);
         }
         section {
           display: flex;
           align-items: stretch;
+          gap: 0.2rem;
         }
         input {
           border-radius: var(--dile-input-border-radius, 5px);
@@ -28,6 +31,7 @@ export class DileNumberPickerElement extends LitElement {
           display: flex;
           flex-direction: column;
           align-items: center;
+          gap: 0.3rem;
         }
         dile-icon {
           cursor: pointer;
@@ -116,8 +120,8 @@ export class DileNumberPickerElement extends LitElement {
           ?disabled=${this.disabled}
         >
         <div class="controls">
-          <dile-icon .icon=${arrowDropUpIcon} @click=${this.increment}></dile-icon>
-          <dile-icon .icon=${arrowDropDownIcon} @click=${this.decrement}></dile-icon>
+          <dile-icon .icon=${arrowDropUpLargeIcon} @click=${this.increment}></dile-icon>
+          <dile-icon .icon=${arrowDropDownLargeIcon} @click=${this.decrement}></dile-icon>
         </div>
       </section>
     `;

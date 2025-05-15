@@ -93,13 +93,9 @@ export class DileDatepicker extends DileInput {
             ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
             : html`
               <dile-menu-overlay moveTop="${this.moveTop}" moveLeft="${this.moveLeft}" verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
-                <dile-icon .icon="${calendarIcon}" slot="trigger"></dile-icon>
+                ${this.iconTemplate}
                 <div slot="content" class="calendar">
-                  <dile-calendar 
-                    class="demo-calendar"
-                    .firstDayOfWeek="${this.firstDayOfWeek}"
-                    @user-selected-date-changed=${this.showDate} 
-                  ></dile-calendar> 
+                  ${this.contentTemplate}
                 </div>
               </dile-menu-overlay>
             `
@@ -114,4 +110,18 @@ export class DileDatepicker extends DileInput {
     this.value = date;
     this.shadowRoot.getElementById('menu').close();
   }  
+
+  get iconTemplate() {
+    return html`<dile-icon .icon="${calendarIcon}" slot="trigger"></dile-icon>`
+  }
+
+  get contentTemplate() {
+    return html`
+      <dile-calendar 
+        class="demo-calendar"
+        .firstDayOfWeek="${this.firstDayOfWeek}"
+        @user-selected-date-changed=${this.showDate} 
+      ></dile-calendar>
+    `
+  }
 }
