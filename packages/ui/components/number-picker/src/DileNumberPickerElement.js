@@ -36,6 +36,11 @@ export class DileNumberPickerElement extends LitElement {
         :host([errored]) input {
           border-color: var(--dile-input-error-border-color, #c00);
         }
+
+        input:disabled {
+          background-color: #f5f5f5;
+          border-color: var(--dile-input-disabled-border-color, #eee);
+        }
       `
   }
 
@@ -49,8 +54,29 @@ export class DileNumberPickerElement extends LitElement {
       errored: { type: Boolean },
       /** Set the application focus to this the input component after the initialization */
       focusOnStart: { type: Boolean },
-      min: { type: Number },
-      max: { type: Number },
+      min: { 
+        type: String,
+        converter: {
+          fromAttribute: (value, type) => {
+            return value === undefined || value === "" ? undefined : parseInt(value);
+          },
+          toAttribute: (value, type) => {
+            return value;
+          }
+        }
+      },
+      max: { 
+        type: String,
+        converter: {
+          fromAttribute: (value, type) => {
+            return value === undefined || value === "" ? undefined : parseInt(value);
+          },
+          toAttribute: (value, type) => {
+            return value;
+          }
+        }
+      },
+      disabled: { type: Boolean },
     };
   }
 
@@ -60,6 +86,7 @@ export class DileNumberPickerElement extends LitElement {
     this.digits = 2;
     this.leadingZeros = false;
     this.step = 1;
+    this.disabled = false;
   }
 
   get elinput() {
@@ -69,8 +96,13 @@ export class DileNumberPickerElement extends LitElement {
   firstUpdated() {
     this._transformInput(this.value || "0");
     if(this.focusOnStart) {
-      console.log('haremos focus');
       this.focus();
+    }
+  }
+
+  updated(changedProperties) {
+    if(changedProperties.has('value')) {
+      this._transformInput(this.value);
     }
   }
 
@@ -81,6 +113,7 @@ export class DileNumberPickerElement extends LitElement {
           type="text" 
           id="elinput"
           @input=${this._onInput}
+          ?disabled=${this.disabled}
         >
         <div class="controls">
           <dile-icon .icon=${arrowDropUpIcon} @click=${this.increment}></dile-icon>
@@ -147,24 +180,28 @@ export class DileNumberPickerElement extends LitElement {
   }
 
   increment() {
-    let current = parseInt(this._clean(this.elinput.value), 10) || 0;
-    let next = current + this.step;
-    let asString = next.toString();
-
-    // Si el resultado excede digits, no hacemos nada
-    if (asString.length > this.digits) {
-      return;
+    if(!this.disabled) {
+      let current = parseInt(this._clean(this.elinput.value), 10) || 0;
+      let next = current + this.step;
+      let asString = next.toString();
+  
+      // Si el resultado excede digits, no hacemos nada
+      if (asString.length > this.digits) {
+        return;
+      }
+  
+      this._transformInput(asString);
     }
-
-    this._transformInput(asString);
   }
 
   decrement() {
-    let current = parseInt(this._clean(this.elinput.value), 10) || 0;
-    let next = Math.max(0, current - this.step);
-    let asString = next.toString();
+    if(!this.disabled) {
+      let current = parseInt(this._clean(this.elinput.value), 10) || 0;
+      let next = Math.max(0, current - this.step);
+      let asString = next.toString();
 
-    this._transformInput(asString);
+      this._transformInput(asString);
+    }
   }
 
   focus() {

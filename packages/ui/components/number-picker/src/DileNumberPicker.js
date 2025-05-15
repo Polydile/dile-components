@@ -57,8 +57,8 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
       /** Set the application focus to this the input component after the initialization */
       focusOnStart: { type: Boolean },
 
-      min: { type: Number },
-      max: { type: Number },
+      min: { type: String },
+      max: { type: String },
     };
   }
 
@@ -87,8 +87,9 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
                 @dile-number-picker-value-changed=${this.valueChanged}
                 ?focusOnStart=${this.focusOnStart}
                 ?errored=${this.errored}
-                min=${this.min}
-                max=${this.max}
+                min=${this._numericMin(this.min)}
+                max=${this._numericMax(this.max)}
+                ?disabled=${this.disabled}
               ></dile-number-picker-element>
             </section>
             ${this.messageTemplate}
@@ -108,6 +109,15 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
       }
     `
   }
+
+  _numericMin(min) {
+    return min !== undefined && min !== '' ? parseInt(min, 10) : undefined;
+  }
+
+  _numericMax(max) {
+    return max !== undefined && max !== '' ? parseInt(max, 10) : undefined;
+  }
+
 
   clear() {
     this.value = 0;
