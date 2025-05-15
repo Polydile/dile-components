@@ -3,7 +3,6 @@ import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../number-picker-element.js';
 import { messageStyles } from '../../input/src/message-styles.js';
 
-
 export class DileNumberPicker extends DileEmmitChange(LitElement) {
   static styles = [
       messageStyles,
