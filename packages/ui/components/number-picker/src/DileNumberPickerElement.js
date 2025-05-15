@@ -49,6 +49,8 @@ export class DileNumberPickerElement extends LitElement {
       errored: { type: Boolean },
       /** Set the application focus to this the input component after the initialization */
       focusOnStart: { type: Boolean },
+      min: { type: Number },
+      max: { type: Number },
     };
   }
 
@@ -115,11 +117,25 @@ export class DileNumberPickerElement extends LitElement {
       cleaned = cleaned.substring(0, this.digits);
     }
 
-    if (!this.leadingZeros) {
-      return parseInt(cleaned || "0", 10);
+    let num = parseInt(cleaned || "0", 10);
+
+    const maxByDigits = Math.pow(10, this.digits) - 1;
+    if (num > maxByDigits) {
+      num = maxByDigits;
     }
 
-    return cleaned || "0";
+    if (typeof this.min === 'number' && num < this.min) {
+      num = this.min;
+    }
+    if (typeof this.max === 'number' && num > this.max) {
+      num = this.max;
+    }
+
+    if (!this.leadingZeros) {
+      return num;
+    }
+
+    return num.toString();
   }
 
   _formatNumber(value) {
