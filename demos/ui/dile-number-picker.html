@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-number-picker component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/number-picker/number-picker.js";
+  </script>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-number-picker component</h1>
+    
+    <h2>Regular component</h2>
+
+    <dile-number-picker></dile-number-picker>
+  
+    <h2>Leading Zeros</h2>
+    <dile-number-picker leadingZeros value="6">
+    </dile-number-picker>
+
+
+    <h2>3 digits with leading Zeros</h2>
+    <dile-number-picker digits="3" leadingZeros step="10">
+    </dile-number-picker>
+
+    <h2>3 digits step 50</h2>
+    <dile-number-picker label="Valor" focusOnStart digits="3" step="50">
+    </dile-number-picker>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

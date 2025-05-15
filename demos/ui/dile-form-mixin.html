@@ -55,6 +55,7 @@
     import '@dile/ui/components/select/select-ajax.js';
     import '@dile/ui/components/textarea/textarea.js';
     import '@dile/ui/components/switch/switch.js';
+    import '@dile/ui/components/number-picker/number-picker.js';
     import '@dile/editor/editor.js';
 
     import { LitElement, html, css } from 'lit';
@@ -96,6 +97,7 @@
           <p>
             <dile-switch name="active"></dile-switch>
           </p>
+          <dile-number-picker name="units" label="Unidades" value="9" hideErrorOnInput></dile-number-picker>
         `;
       }
     }
@@ -151,6 +153,7 @@
           age: "Error on age field",
           comments: "Error on comments field",
           onlymessage: "This element has no input. It is only created for messaging purposes",
+          units: "Please increase the units"
         })
       });
 
