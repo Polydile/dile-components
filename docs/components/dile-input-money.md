@@ -12,7 +12,7 @@ This component is customized to allow only to introduce money values, with cents
 ## Install
 
 ```bash
-npm install @dile/dile-input
+npm install @dile/ui
 ```
 
 ## Usage
