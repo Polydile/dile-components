@@ -32,6 +32,7 @@ export const translations = {
   run_action_label: "Realizar acción",
   loading: "Cargando...",
   delete_confirm_message: "¿Estás seguro que quieres borrar este ítem?",
+  restore_confirm_message: "¿Estás seguro que quieres restaurar este ítem?",
   delete_confirm_message_plural: "¿Seguro que quieres borrar estos elementos?",
   items_total: "Elementos en total",
   showing_page_size: (pageSize) => `Mostrando ${pageSize} elementos por página.`,

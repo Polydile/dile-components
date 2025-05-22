@@ -4,6 +4,8 @@ import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 import '../../ajax/ajax.js';
 
+const OPERATION_ITEM_MISSING_ERROR = 'Please provide the element id to delete';
+
 export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   static styles = [
     css`
@@ -36,12 +38,17 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
       confirmMessage: { type: String },
       cancelLabel: { type: String },
       acceptLabel: { type: String },
+      method: { type: String },
     };
   }
 
   constructor() {
     super();
+    this.successEventName = 'delete-success';
+    this.errorEventName = 'delete-error';
     this.responseAdapter = new ResponseApiAdapter();
+    this.method = 'delete';
+    this.ITEM_TO_DELETE_
   }
 
   firstUpdated() {
@@ -53,8 +60,8 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
     return html`
       <dile-ajax
           id="ajaxdelete"
-          method="delete"
-          url="${this.endpoint}/${this.relatedId}"
+          method="${this.method}"
+          url="${this.computeUrl(this.endpoint, this.relatedId)}"
           @ajax-success="${this.doSuccessDelete}"
           @ajax-error="${this.doErrorDelete}"
       ></dile-ajax>
@@ -69,12 +76,16 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   `;
   }
 
+  computeUrl(endpoint, relatedId) {
+    return `${endpoint}/${relatedId}`
+  }
+
   delete(itemId) {
     if(itemId != "" && itemId != undefined) {
       this.relatedId = itemId;
       this.elconfirm.open();
     } else {
-      throw new Error('Please provide the element id to delete');
+      throw new Error(OPERATION_ITEM_MISSING_ERROR);
     }
   }
 
@@ -84,7 +95,7 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
 
   doSuccessDelete(e) {
     let msg = this.computeResponseMessage(e.detail);
-    this.dispatchEvent(new CustomEvent('delete-success', { 
+    this.dispatchEvent(new CustomEvent(this.successEventName, { 
       bubbles: true, 
       composed: true,
       detail: {
@@ -96,7 +107,7 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   
   doErrorDelete(e) {
     let msg = this.computeResponseMessage(e.detail);
-    this.dispatchEvent(new CustomEvent('delete-error', { 
+    this.dispatchEvent(new CustomEvent(this.errorEventName, { 
       bubbles: true, 
       composed: true,
       detail: {

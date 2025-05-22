@@ -201,8 +201,9 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 <dile-crud-list-item 
                     itemId="${this.computeItemId(element)}"
                     .actionIds="${this.actionIds}"
-                    ?disableEdit="${this.config?.customization?.disableEdit}"
-                    ?disableDelete="${this.config?.customization?.disableDelete}"
+                    ?disableEdit=${this.config?.customization?.disableEdit}
+                    ?disableDelete=${this.config?.customization?.disableDelete}
+                    ?disableRestore=${this.config?.customization?.disableRestore}
                     ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
                     @item-checkbox-changed=${this.onItemsCheckboxChanged}
                     ?isDeleted=${element.deleted_at}

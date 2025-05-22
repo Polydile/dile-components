@@ -87,6 +87,7 @@ export { receiptIcon } from "./src/receipt.js";
 export { receiptLongIcon } from "./src/receiptLong.js";
 export { redoIcon } from "./src/redo.js";
 export { refreshIcon } from "./src/refresh.js";
+export { restoreFromTrashIcon } from "./src/restoreFromTrash.js";
 export { rotateLeftIcon } from "./src/rotateLeft.js";
 export { rotateRightIcon } from "./src/rotateRight.js";
 export { saveIcon } from "./src/save.js";

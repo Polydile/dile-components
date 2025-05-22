@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/checkbox/checkbox';
 import '@dile/ui/components/icon/icon';
-import { deleteIcon, editIcon } from '@dile/icons';
+import { deleteIcon, editIcon, restoreFromTrashIcon } from '@dile/icons';
 
 export class DileCrudListItem extends LitElement {
   static styles = [
@@ -66,6 +66,7 @@ export class DileCrudListItem extends LitElement {
     this.actionIds = [];
     this.disableEdit = false;
     this.disableDelete = false;
+    this.disableRestore = false;
     this.hideCheckboxSelection = false;
 
   }
@@ -81,7 +82,7 @@ export class DileCrudListItem extends LitElement {
             </main>
             <div class="actions">
                 ${this.isDeleted
-                  ? ''
+                  ? this.restoreActionsTemplate
                   : this.regularActionsTemplate
                 }
             </div>
@@ -102,9 +103,17 @@ export class DileCrudListItem extends LitElement {
     `
   }
 
+  get restoreActionsTemplate() {
+    return html`
+      ${this.disableRestore
+        ? ''
+        : html`<dile-icon .icon="${restoreFromTrashIcon}" @click=${this.restoreClick}></dile-icon>`
+      }
+    `
+  }
+
   includes(actionIds, itemId) {
     const stringIds = actionIds.map(String);
-    // console.log(stringIds, String(itemId));
     return stringIds.includes(String(itemId));
   }
 
@@ -131,6 +140,16 @@ export class DileCrudListItem extends LitElement {
 
   deleteClick() {
     this.dispatchEvent(new CustomEvent('crud-item-delete', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        itemId: this.itemId
+      }
+    }));
+  }
+
+  restoreClick() {
+    this.dispatchEvent(new CustomEvent('crud-item-restore', {
       bubbles: true,
       composed: true,
       detail: {

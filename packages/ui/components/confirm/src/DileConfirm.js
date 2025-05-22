@@ -88,11 +88,11 @@ export class DileConfirm extends LitElement {
   }
 
   open() {
-    this.opened = true;
+    this.modal.open();
   }
 
   close() {
-    this.opened = false;
+    this.modal.close();
   }
 
   firstUpdated() {

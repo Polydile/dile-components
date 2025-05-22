@@ -5,6 +5,7 @@ import '@dile/ui/components/select/select.js';
 import '@dile/ui/components/modal/modal.js';
 import '@dile/ui/components/modal/modal-help.js';
 import '../../item-delete/crud-item-delete.js';
+import '../../item-restore/crud-item-restore.js';
 import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
 import '../../ui/crud-page-size.js';
@@ -106,6 +107,9 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     get deleteElement() {
         return this.shadowRoot.getElementById('eldelete');
     }
+    get restoreElement() {
+        return this.shadowRoot.getElementById('elrestore');
+    }
     get filtersElement() {
         return this.shadowRoot.getElementById('elfilters');
     }
@@ -142,6 +146,13 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 @delete-success=${this.deleteSuccess}
                 language="${this.language}"
             ></dile-crud-item-delete>
+
+            <dile-crud-item-restore 
+                id="elrestore"
+                endpoint="${this.config.endpoint}"
+                @restore-success=${this.restoreSuccess}
+                language="${this.language}"
+            ></dile-crud-item-restore>
 
             ${this.insertTemplate}
             ${this.updateTemplate}
@@ -186,6 +197,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 .config=${this.config}
                 @crud-item-edit=${this.updateRequest}
                 @crud-item-delete=${this.itemDeleteRequest}
+                @crud-item-restore=${this.itemRestoreRequest}
                 @insert-requested=${this.openInsert}
                 .actionIds=${this.actionIds}
                 belongsTo=${this.belongsTo}
@@ -371,6 +383,10 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         this.deleteElement.delete(e.detail.itemId)
     }
 
+    itemRestoreRequest(e) {
+        this.restoreElement.restore(e.detail.itemId)
+    }
+
     // SUCCESS HANDLERS
     modalInsertSuccess() {
         this.modalInsert.close();
@@ -378,6 +394,10 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     }
 
     deleteSuccess() {
+        this.refresh();
+    }
+
+    restoreSuccess() {
         this.refresh();
     }
 

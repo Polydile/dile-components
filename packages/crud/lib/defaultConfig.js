@@ -24,6 +24,7 @@ export const defaultConfig = {
     disableInsert: false,
     disableEdit: false,
     disableDelete: false,
+    disableRestore: false,
     disablePagination: true,
     disableSort: true,
     disableFilter: true,

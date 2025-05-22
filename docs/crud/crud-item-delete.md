@@ -5,7 +5,7 @@ tags: operations
 
 # dile-crud-item-delete
 
-The `crud-item-delete` component is designed to delete a specific record from any resource in a REST API.
+The `dile-crud-item-delete` component is designed to delete a specific record from any resource in a REST API.
 
 This component does not provide any functionality for selecting the record to be deleted; instead, its `delete(itemId)` method must be invoked to trigger the deletion process for the item whose identifier is provided as an argument.
 
@@ -44,6 +44,7 @@ Use the component.
 - **confirmMessage**: String, the message displayed in the confirmation dialog before the deletion is processed.
 - **cancelLabel**: String, the label for the cancel button in the confirmation dialog.
 - **acceptLabel**: String, the label for the accept button in the confirmation dialog.
+- **method**: String, the HTTP method for the request, default is "delete".
 
 ### Methods
 
