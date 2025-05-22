@@ -57,6 +57,7 @@ export class DileCrudListItem extends LitElement {
       disableDelete: { type: Boolean },
       /** Hide checkboxes on the item list */
       hideCheckboxSelection: { type: Boolean },
+      isDeleted: { type: Boolean },
     };
   }
 
@@ -79,17 +80,26 @@ export class DileCrudListItem extends LitElement {
                 <slot></slot>
             </main>
             <div class="actions">
-                ${this.disableEdit
-        ? ''
-        : html`<dile-icon .icon="${editIcon}" @click=${this.editClick}></dile-icon>`
-      }
-                ${this.disableDelete
-        ? ''
-        : html`<dile-icon class="delete" .icon="${deleteIcon}" @click=${this.deleteClick}></dile-icon>`
-      }
+                ${this.isDeleted
+                  ? ''
+                  : this.regularActionsTemplate
+                }
             </div>
         </section>
     `;
+  }
+
+  get regularActionsTemplate() {
+    return html`
+      ${this.disableEdit
+        ? ''
+        : html`<dile-icon .icon="${editIcon}" @click=${this.editClick}></dile-icon>`
+      }
+      ${this.disableDelete
+        ? ''
+        : html`<dile-icon class="delete" .icon="${deleteIcon}" @click=${this.deleteClick}></dile-icon>`
+      }
+    `
   }
 
   includes(actionIds, itemId) {
