@@ -1,5 +1,6 @@
 ---
 layout: layout.html
+Title: How to use dile-components
 ---
 
 # How to use dile-components
@@ -50,6 +51,11 @@ This is a simple example of using a web component in your HTML.
   value="John"
 ></dile-input>
 ```
+
+When using the components, it’s also very important to customize them so they match the look & feel of your website. All components include CSS custom properties that let you adjust their appearance, changing things like color, spacing, borders, etc.
+
+To better understand how to customize components globally and create a consistent look across your entire site, we recommend reading the dedicated [theming page](/theming/).
+
 
 ## 4.- Read the docs
 
