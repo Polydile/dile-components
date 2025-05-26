@@ -1,6 +1,6 @@
 {
   "name": "@dile/utils",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "Utility Components of Diverse Uses Based on the Lit Library and Web Components Standard.",
   "main": "index.js",
   "scripts": {
