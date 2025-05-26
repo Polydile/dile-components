@@ -9,6 +9,23 @@ function formatToIsoOnlyDate(date) {
     return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
+function formatIfIso8601(dateStr) {
+  const iso8601Regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
+
+  if (!iso8601Regex.test(dateStr)) {
+    return dateStr;
+  }
+
+  const date = new Date(dateStr);
+  if (isNaN(date)) {
+    return dateStr;
+  }
+
+  const pad = n => n.toString().padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ` +
+         `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+}
+
 export class DileDatetimepicker extends DileDatepicker {
 
   static get styles() {
@@ -91,4 +108,8 @@ export class DileDatetimepicker extends DileDatepicker {
     }
     this.showDate(date);
   }  
+
+  computeValue(value){
+    return formatIfIso8601(value);
+  }
 }
