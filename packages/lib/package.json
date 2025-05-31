@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@dile/ui": "^2.8.1",
+    "@dile/icons": "^2.8.1",
     "@lit-labs/router": "^0.1.4",
     "@reduxjs/toolkit": "^2.5.1",
     "lit": "^2.7.0 || ^3.0.0"

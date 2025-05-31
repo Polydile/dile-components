@@ -1,5 +1,9 @@
+import { html } from 'lit';
 import '@dile/ui/components/nav/nav';
+import '@dile/ui/components/button/button';
 import '@dile/ui/components/menu-hamburger/menu-hamburger';
+import './js/components/demo-app.js';
+import './js/components/demo-modal-feedback.js'
 
 const icons = {
   deployed_code: html`

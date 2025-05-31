@@ -1,10 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const MODAL_DEFAULT_MESSAGE = {
+  message: '',
+  icon: null,
+  iconClass: null,
+  label: 'Close',
+}
+
 export const feedbackSlice = createSlice({
   name: 'feedback',
   initialState: {
     message: null,
     loading: false,
+    modalMessage: null,
+    modalOpened: false,
   },
   reducers: {
     positiveFeedback(state, action) {
@@ -30,6 +39,16 @@ export const feedbackSlice = createSlice({
     },
     stopLoading(state) {
       state.loading = false;
+    },
+    modalMessage(state, action) {
+      state.modalMessage = {
+        ...MODAL_DEFAULT_MESSAGE,
+        ...action.payload,
+      }
+      state.modalOpened = true;
+    },
+    modalClose(state) {
+      state.modalOpened = false;
     }
   }
 });
@@ -40,4 +59,6 @@ export const {
   neutralFeedback,
   startLoading,
   stopLoading,
+  modalMessage,
+  modalClose,
 } = feedbackSlice.actions;

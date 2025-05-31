@@ -36,6 +36,7 @@ export { draftIcon } from "./src/draft.js";
 export { eastIcon } from "./src/east.js";
 export { editIcon } from "./src/edit.js";
 export { emailIcon } from "./src/email.js";
+export { errorIcon } from "./src/error.js";
 export { euroIcon } from "./src/euro.js";
 export { favoriteIcon } from "./src/favorite.js";
 export { filterIcon } from "./src/filter.js";
