@@ -1,6 +1,6 @@
 {
   "name": "@dile/lib",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Common App libraries, mixins and helpers",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,8 @@
   "homepage": "https://dile-components.com/",
   "license": "MIT",
   "dependencies": {
-    "@dile/ui": "^2.8.1",
-    "@dile/icons": "^2.8.1",
+    "@dile/icons": "^2.4.0",
+    "@dile/ui": "^2.8.2",
     "@lit-labs/router": "^0.1.4",
     "@reduxjs/toolkit": "^2.5.1",
     "lit": "^2.7.0 || ^3.0.0"
