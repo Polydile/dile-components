@@ -36,6 +36,9 @@ export const DileAppModalFeedback = (store) => class extends DileState(store)(Li
       .neutral {
         --dile-icon-color: var(--dile-alert-neutral-color, #2889a7);
       }
+      .actions {
+        text-align: var(--dile-action-text-align, left);
+      }
     `
   ];
 
