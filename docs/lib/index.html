@@ -1,0 +1,44 @@
+---
+layout: layout.html
+title: Crud Components
+---
+
+<h1>Lib Components</h1>
+<p>
+  @dile/lib is a package that contains components for easily creating apps, integrating common features with minimal effort.
+</p>
+<p>
+  This library contains a collection of tools for frontend application development. Its goal is to cover areas such as feedback message handling, user management, and making it easier to develop routes in the routing system, among others.
+</p>
+
+<h2>What does @dile/lib offer?</h2>
+<p>This package provides a set of core features for applications, including:</p>
+<h3>Redux slices for managing basic application features:</h3>
+<ul>
+<li><code>UserSlice</code>, for user management</li>
+<li><code>FeedbackSlice</code>, for handling feedback messages and loading states</li>
+</ul>
+<h3>Components that work with the Redux store:</h3>
+<ul>
+<li>Components for displaying feedback messages</li>
+<li>Components for showing loading indicators</li>
+</ul>
+<h3>Components to help with routing system features:</h3>
+<ul>
+<li>A route guard that protects components from unauthorized access, redirecting to a configurable route when the user is not authenticated or lacks the required permissions</li>
+<li>Link components that activate the routing system when clicked</li>
+</ul>
+<h3>Utility mixins:</h3>
+<ul>
+<li>For navigation using the routing system</li>
+<li>To remove boilerplate code related to routing</li>
+<li>To easily send feedback messages and loading states</li>
+<li>To sync components with the Redux store</li>
+</ul>
+<h2>Dependencies of @dile/lib</h2>
+<p>While other components and utilities from <code>dile-components</code> are designed to work independently, without enforcing a specific technology stack beyond Web Components and Lit, <code>@dile/lib</code> does define a couple of key dependencies that may or may not be preferred by all developers:</p>
+<ul>
+<li>Redux and Redux Toolkit</li>
+<li>Lit Router</li>
+</ul>
+<p>In any case, by using this library of modules, components, and mixins, starting a new app will be much faster than building everything from scratch. The benefits clearly justify the additional dependencies added to your project.</p>
