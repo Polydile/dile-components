@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-local-time component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/utils/components/local-time/local-time.js";
+  </script>
+  <style>
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-local-time component</h1>
+    <p>
+      This is a component to show a time in the local time to the user with customized format.
+    </p>    
+    <p>
+      Default Formated time: 
+      <dile-local-time isoDatetime="2025-07-19T04:30:00+01:00"></dile-local-time>
+    </p>
+    <p>
+      12 hour Formated time: 
+      <dile-local-time hour12 isoDatetime="2025-07-19T04:30:00+01:00"></dile-local-time>
+    </p>
+    <p>
+      Show timezone: 
+      <dile-local-time showTimeZone isoDatetime="2025-07-19T04:30:00+01:00"></dile-local-time>
+    </p>
+    
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

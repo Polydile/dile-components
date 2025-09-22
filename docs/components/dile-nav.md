@@ -48,8 +48,8 @@ You can customize the navigation bar by using the CSS custom properties bellow.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-nav-background-color | Nav background color | --dile-primary-color or #2962FF
---dile-nav-color | Nav text color | --dile-on-primary-color or #fff
+--dile-primary-color | Nav background color | #2962FF
+--dile-on-primary-color | Nav text color | #fff
 --dile-nav-align-items | Nav align items (display grid property) | center
 --dile-nav-column-gap | Nav column gap (display grid property)| 1rem
 --dile-nav-padding-x | Nav padding horizontal | 0.6rem
@@ -61,9 +61,9 @@ Custom property | Description | Default
 
 ```html:preview
 <style>
-  main dile-nav.demo {
+  dile-nav.demo {
     --dile-primary-color: #2962FF;
-    --dile-foreground-color: #fff;
+    --dile-on-primary-color: #fff;
   }
   dile-nav.demo h2 {
     margin: 0 0 0 1rem; 
@@ -99,11 +99,10 @@ Custom property | Description | Default
     --dile-hamburger-color: #369;
   }
   .styled {
-    --dile-nav-background-color: #bbdefb;
-    --dile-nav-color: #303030;
+    --dile-primary-color: #9b0298;
+    --dile-on-primary-color: #faf6cbff;
     --dile-nav-padding-y: 1rem;
     --dile-nav-padding-x: 1rem;
-    color: #666;
   }
   html.dark-theme .styled {
     color: #fff;
@@ -114,7 +113,7 @@ Custom property | Description | Default
   }
 </style>
 <dile-nav class="styled" menu="right">
-  <h2 slot="title">Nav title</h2>
+  <h2 slot="title">Styled nav title</h2>
   <span slot="menu"><dile-hamburger class="hamburger2"></dile-hamburger></span>
   <span slot="actions" class="demoactions">Action</span>
 </dile-nav>
