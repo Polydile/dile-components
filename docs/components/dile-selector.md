@@ -22,8 +22,8 @@ npm i @dile/ui
 Import the component.
 
 ```javascript
-import '@dile/ui/components/selector/dile-selector.js';
-import '@dile/ui/components/selector/dile-selector-item.js'; 
+import '@dile/ui/components/selector/selector.js';
+import '@dile/ui/components/selector/selector-item.js'; 
 ```
 
 Use the component.
