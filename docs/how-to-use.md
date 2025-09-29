@@ -61,10 +61,10 @@ To better understand how to customize components globally and create a consisten
 
 In the component documentation of each component you will find more information about component properties, CSS custom properties, API methods and custom events.
 
-## 5.- Serve your proyect
+## 5.- Serve Your Project
 
 There are many development servers to help you in this point. Our recomendation is to use [ViteJS](https://vitejs.dev/) or [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/). 
 
-## 6.- Build your Project
+## 6.- Build Your Project
 
 To build your project is necesary to use Webpack, Rollup or similar. At this moment, the best and easiest option is to use ViteJS.
