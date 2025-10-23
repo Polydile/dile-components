@@ -33,7 +33,6 @@ module.exports = async function(eleventyConfig) {
         );
   });
 
-  // Añadir variable global con los tags
   eleventyConfig.addGlobalData("componentTagsList", componentTagsList);
 
   const mixinTagsList = ["formData", "effects", "scroll"];
@@ -47,7 +46,6 @@ module.exports = async function(eleventyConfig) {
         );
   });
 
-  // Añadir variable global con los tags
   eleventyConfig.addGlobalData("mixinTagsList", mixinTagsList);
 
   const crudTagsList = ["configuration", "ajax", "operations", "main", "Crud extras"];
@@ -61,7 +59,7 @@ module.exports = async function(eleventyConfig) {
       );
   });
 
-  // Añadir variable global con los tags
+  // Añadir variable global con los crud tags
   eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
 
   eleventyConfig.on('eleventy.after', () => {
@@ -70,13 +68,10 @@ module.exports = async function(eleventyConfig) {
       const sourceDir = path.join(__dirname, 'docs/static-images');
       const outputDir = path.join(__dirname, '_site/images');
   
-      // Asegúrate de que el directorio de destino existe
       fs.ensureDirSync(outputDir);
   
-      // Copiar la carpeta de imágenes manualmente después de la compilación de Vite
       fs.copySync(sourceDir, outputDir, {
         filter: (src) => {
-          // Asegúrate de que solo se copien archivos desde 'docs/static-images'
           return src.startsWith(sourceDir);
         }
       });
