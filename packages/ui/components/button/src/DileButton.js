@@ -12,11 +12,11 @@ export class DileButton extends LitElement {
     super();
     this.disabled = false;
   }
-
   static get styles() {
     return css`
       :host {
         display: inline-block;
+        border-radius: var(--dile-button-border-radius, 2rem);
       }
       button {
         cursor: pointer;
@@ -68,19 +68,15 @@ export class DileButton extends LitElement {
       button {
         user-select: none;
       }
+      :host([disabled]) {
+        pointer-events: none;
+      }
     `;
   }
 
   render() {
     return html`
-      <button @click="${this.doClick}"><slot></slot></button>
+      <button ?disabled=${this.disabled}><slot></slot></button>
     `;
-  }
-
-  doClick(e) {
-    if (this.disabled) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
   }
 }
