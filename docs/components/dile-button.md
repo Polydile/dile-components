@@ -31,6 +31,7 @@ Use the component.
 
 - **disabled**: Boolean, mark button as disabled.
 - **name**: The name of the button
+- **type**: Use this attribute to create a submit or reset buttom, ie: `type="submit"`
 
 ### CSS Custom Properties
 

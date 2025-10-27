@@ -1,17 +1,23 @@
 import { html, css, LitElement } from "lit";
 
 export class DileButton extends LitElement {
+
+  static formAssociated = true;
+
   static get properties() {
     return {
       disabled: { type: Boolean },
       name: { type: String },
+      type: { type: String },
     };
   }
 
   constructor() {
     super();
     this.disabled = false;
+    this._internals = this.attachInternals();
   }
+
   static get styles() {
     return css`
       :host {
@@ -76,7 +82,25 @@ export class DileButton extends LitElement {
 
   render() {
     return html`
-      <button ?disabled=${this.disabled}><slot></slot></button>
+      <button 
+        @click=${this._onClick} 
+        ?disabled=${this.disabled}
+        type=${this.type}
+      ><slot></slot></button>
     `;
+  }
+
+  _onClick(e) {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
+    if (this.type === "submit") {
+      this._internals.form?.requestSubmit();
+    } else if (this.type === "reset") {
+      this._internals.form?.reset();
+    }
   }
 }
