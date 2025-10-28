@@ -62,7 +62,7 @@ When you use ```<dile-icon>``` you will have configured the icon custom properti
 import { calendarIcon } from '@dile/icons';
 import '@dile/dile-icon/dile-icon.js';
 
-html`<dile-icon icon=${calendarIcon}</dile-icon>`;
+html`<dile-icon .icon=${calendarIcon}</dile-icon>`;
 ```
 
 See [dile-icon docs](/components/dile-icon) for more information.
