@@ -71,24 +71,18 @@ export class DileAccordionItem extends LitElement {
     this.opened = false;
     this._height = 0;
     this.title = '';
-    this._calculatedHeight = this.querySelector('[slot="accordion-item-content"]').clientHeight;
+    this._calculatedHeight = 0;
   }
 
-  willUpdate(changed){
-    if(changed.has('opened')){
-      this._height = this.opened ? this._calculatedHeight : 0;
-    }
+  firstUpdated(){
+    this.calculateHeight();
+    this._height = this.opened ? this._calculatedHeight : 0;
   }
 
-  // firstUpdated(){
-  //   this.calculateHeight();
-  //   this._height = this.opened ? this._calculatedHeight : 0;
-  // }
-
-  // calculateHeight() {
-  //   const content = this.shadowRoot.getElementById('content');
-  //   this._calculatedHeight = content.clientHeight;
-  // }
+  calculateHeight() {
+    const content = this.shadowRoot.getElementById('content');
+    this._calculatedHeight = content.clientHeight;
+  }
 
   render() {
     return html`
