@@ -1,28 +1,52 @@
 import { LitElement, html, css } from 'lit';
-import './DileAccordionItem.js';
 
 export class DileAccordion extends LitElement {
+
   static styles = [
     css`
       :host {
-        display: block;
-        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: var(--dile-accordion-gap, .5rem);
       }
     `
   ];
 
+  static get properties() {
+    return {
+      items: { type: Array },
+    };
+  }
+
+  constructor(){
+    super();
+    this.items = [];
+    this.current = null;
+  };
+
+  connectedCallback(){
+    super.connectedCallback();
+    this.addEventListener('accordion-item-opened', (e) => {
+      const openedItem = e.detail.item;
+      this.closeOtherItems(openedItem);
+    })
+  }
+
+  closeOtherItems(openedItem) {
+    const items = this.getElementsByTagName('dile-accordion-item');
+
+    for (const item of items) {
+      if (item !== openedItem) {
+        item.opened = false;
+      }
+    }
+  }
+
+
   render() {
     return html`
-      <!-- <dile-accordion-item title="Enter here your accordion item title"></dile-accordion-item> -->
-      ${this.accordionItem}
+      <slot></slot>
     `;
   }
 
-  get accordionItem() {
-    return html`
-      <button>
-        ${this.title}
-      </button>
-    `
-  }
 }
