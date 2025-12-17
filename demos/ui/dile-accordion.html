@@ -16,22 +16,54 @@
       padding: 1rem;
     }
 
-    dile-accordion-item{
-      --dile-accordion-item-width: 300px;
-      /* background-color: black; */
+    .content h2{
+      margin: 1rem 0;
+    }
+
+    .content.custom dile-accordion{
+      --dile-accordion-gap: .3rem;
+    }
+
+    .content.custom-isolated dile-accordion-item{
+      --dile-accordion-item-max-width: 500px;
+      --dile-accordion-item-color: black;
+      --dile-accordion-item-button-color: white;
+      --dile-accordion-item-button-icon-color: green;
+      /* --dile-accordion-item-button-color: red;
+      --dile-accordion-item-background: white; */
+      --dile-accordion-item-button-background: linear-gradient(to left, #F3F3AE 10%, #2a8a74b6 90%);
+      --dile-accordion-item-content-background: linear-gradient(to left, #F3F3AE 10%, #2a8a74b6 90%);
       /* border-radius: .5rem; */
-      --dile-accordion-item-inner-separation: 5px;
-      --dile-accordion-item-button-border-radius: 0;
-      --dile-accordion-item-content-border-radius: 0;
+      --dile-accordion-item-inner-separation: 1rem;
+      --dile-accordion-item-border-radius: 1rem;
+      /* --dile-accordion-item-button-border-radius: 0;
+      --dile-accordion-item-content-border-radius: 0; */
+      --dile-accordion-item-button-box-shadow: 2px 2px 15px #00000091;
+      --dile-accordion-item-content-box-shadow: 2px 2px 15px #00000091;
+      /* --dile-accordion-item-content-border-radius: 1rem; */
+    }
+
+    .content.custom dile-accordion-item{
+      border: 1px solid #0000008a;
+      --dile-accordion-item-max-width: 800px;
+      --dile-accordion-item-background: white;
+      --dile-accordion-item-color: black;
+      --dile-accordion-item-border-radius: 0;
+      --dile-accordion-item-inner-separation: 0;
       --dile-accordion-item-button-box-shadow: none;
       --dile-accordion-item-content-box-shadow: none;
-      /* --dile-accordion-item-content-border-radius: 1rem; */
+      --dile-accordion-item-button-icon-closed-color: green;
+      --dile-accordion-item-button-icon-opened-color: red;
+      --dile-accordion-item-button-font-size: 1.5rem;
+    }
+
+    .content.custom dile-accordion-item p{
+      margin: 0;
     }
 
     [dile-cloak]{
       display: none !important;
     }
-
 
   </style>
 </head>
@@ -39,11 +71,31 @@
   <div class="container">
     <h1>dile-accordion component</h1>
 
+    <!-- ACCORDION ITEM ISOLATED - BASIC -->
     <div class="content">
+      <h2>dile-accordion-item (isolated)</h2>
+      <dile-accordion-item dile-cloak title="Accordion item 1 title">
+        <div opened slot="accordion-item-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+          </div>
+      </dile-accordion-item>
+    </div>
 
+    <!-- ACCORDION ITEM ISOLATED - CUSTOMIZED -->
+    <div class="content custom-isolated">
+      <h2>dile-accordion-item (isolated) - Customized</h2>
+      <dile-accordion-item dile-cloak title="Accordion item 1 title">
+        <div opened slot="accordion-item-content">
+          <p class="prueba">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+          </div>
+      </dile-accordion-item>
+    </div>
+
+    <!-- ACCORDION BASIC-->
+    <div class="content">
+      <h2>dile-accordion - Basic</h2>
       <dile-accordion>
-
-        <dile-accordion-item opened dile-cloak title="Accordion item 1 title">
+        <dile-accordion-item dile-cloak title="Accordion item 1 title">
           <div opened slot="accordion-item-content">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
             </div>
@@ -54,7 +106,25 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
           </div>
         </dile-accordion-item>
+      </dile-accordion>
 
+    </div>
+
+    <!-- ACCORDION CUSTOMIZED-->
+    <div class="content custom">
+      <h2>dile-accordion - Customized</h2>
+      <dile-accordion>
+        <dile-accordion-item dile-cloak title="Accordion item 1 title">
+          <div opened slot="accordion-item-content">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+            </div>
+        </dile-accordion-item>
+
+        <dile-accordion-item dile-cloak title="Accordion item 2 title">
+          <div opened slot="accordion-item-content">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+          </div>
+        </dile-accordion-item>
       </dile-accordion>
 
     </div>
