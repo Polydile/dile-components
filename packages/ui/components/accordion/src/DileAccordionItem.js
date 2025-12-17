@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { arrowDropDownIcon } from '@dile/icons/index.js';
 
 export class DileAccordionItem extends LitElement {
+
   static styles = [
     css`
       :host {
