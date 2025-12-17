@@ -22,7 +22,6 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         color: var(--dile-accordion-item-color, white);
         background: var(--dile-accordion-item-background, transparent);
 
-        /* overflow: hidden; */
       }
 
       button{
