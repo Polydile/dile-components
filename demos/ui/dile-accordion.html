@@ -17,8 +17,19 @@
     }
 
     dile-accordion-item{
-      /* --dile-accordion-item-button-background-color: linear-gradient(to right, red 10%, blue 90%); */
-      /* --dile-accordion-accordion-item-button-border: 4px solid green; */
+      --dile-accordion-item-width: 300px;
+      /* background-color: black; */
+      /* border-radius: .5rem; */
+      --dile-accordion-item-inner-separation: 5px;
+      --dile-accordion-item-button-border-radius: 0;
+      --dile-accordion-item-content-border-radius: 0;
+      --dile-accordion-item-button-box-shadow: none;
+      --dile-accordion-item-content-box-shadow: none;
+      /* --dile-accordion-item-content-border-radius: 1rem; */
+    }
+
+    [dile-cloak]{
+      display: none !important;
     }
 
 
@@ -32,13 +43,13 @@
 
       <dile-accordion>
 
-        <dile-accordion-item opened title="Accordion item 1 title">
+        <dile-accordion-item opened dile-cloak title="Accordion item 1 title">
           <div opened slot="accordion-item-content">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
             </div>
         </dile-accordion-item>
 
-        <dile-accordion-item opened title="Accordion item 2 title">
+        <dile-accordion-item dile-cloak title="Accordion item 2 title">
           <div opened slot="accordion-item-content">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
           </div>
