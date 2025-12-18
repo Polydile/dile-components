@@ -81,13 +81,13 @@ Methods for `dile-accordion-item`:
 
 ## Events
 
-Methods for `dile-accordion-item`:
+Events for `dile-accordion-item`:
 
 - **accordion-item-opened**: Dispatched when state is "opened".
 
 ## CSS customization
 
-There are some CSS custom properties to customize the style and the animation of this accordion component.
+There are some CSS custom properties to customize the style of this accordion component.
 
 **NOTE**: It's important to know that some properties have some diferent levels. Let's explain it with an example:
 
@@ -103,9 +103,9 @@ This way you can set a global property if all elements need the same value. If y
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-accordion-item-max-width | Max width for the entire component | 100%
---dile-accordion-item-border-radius | Component border radius. Button and expandable content follow this rule | none
---dile-accordion-item-color | General color. Button text, button icon and expandable content follows this rule | white
---dile-accordion-item-background | Component border radius. Button and expandable containers follow this rule | transparent
+--dile-accordion-item-border-radius | Component border radius. Button and expandable content follow this rule if is not set on them | none
+--dile-accordion-item-color | General color. Button text, button icon and expandable content follow this rule if is not set on them | white
+--dile-accordion-item-background | Component background. Button and expandable container follow this rule if is not set on them | transparent
 --dile-accordion-item-inner-separation | Separation between button and expandable content | .5rem
 
 ### **dile-accordion-item** BUTTON css variables
@@ -132,9 +132,7 @@ Custom property | Description | Default
 --dile-accordion-item-content-box-shadow | Expandable content box shadow | 2px 2px 10px gray
 --dile-accordion-item-content-background | Expandable content background | var(--dile-accordion-item-background, black)
 --dile-accordion-item-content-font-size | Expandable content font size | 1rem
---dile-accordion-content-color | Expandable content color | var(--dile-accordion-item-color, white)
---dile-accordion-item-button-icon-closed-color | Button icon color when closed | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
---dile-accordion-item-button-icon-opened-color | Button icon color when opened | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+--dile-accordion-item-content-color | Expandable content color | var(--dile-accordion-item-color, white)
 
 ### **dile-accordion** css variables
 

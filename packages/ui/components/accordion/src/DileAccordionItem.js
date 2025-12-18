@@ -89,7 +89,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         border-radius: var(--dile-accordion-item-content-border-radius, var(--dile-accordion-item-border-radius, .5rem));
         box-shadow: var(--dile-accordion-item-content-box-shadow, 2px 2px 10px gray);
         background: var(--dile-accordion-item-content-background, var(--dile-accordion-item-background, black));
-        color: var(--dile-accordion-content-color, var(--dile-accordion-item-color, white));
+        color: var(--dile-accordion-item-content-color, var(--dile-accordion-item-color, white));
         transition: height .3s ease-in-out;
       }
 
