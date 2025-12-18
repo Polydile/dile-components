@@ -26,6 +26,7 @@
 
     .content.custom-isolated dile-accordion-item{
 
+
       --dile-accordion-item-max-width: 500px;
       --dile-accordion-item-color: black;
       --dile-accordion-item-button-color: white;
@@ -36,9 +37,11 @@
       --dile-accordion-item-content-background: linear-gradient(to left, #F3F3AE 10%, #2a8a74b6 90%);
       /* border-radius: .5rem; */
       --dile-accordion-item-inner-separation: 1rem;
-      --dile-accordion-item-border-radius: 1rem;
-      /* --dile-accordion-item-button-border-radius: 0;
-      --dile-accordion-item-content-border-radius: 0; */
+
+      --dile-accordion-item-border-radius: 3rem;
+      --dile-accordion-item-button-border-radius: 2rem;
+      --dile-accordion-item-content-border-radius: 1rem;
+
       --dile-accordion-item-button-box-shadow: 2px 2px 15px #00000091;
       --dile-accordion-item-content-box-shadow: 2px 2px 15px #00000091;
       /* --dile-accordion-item-content-border-radius: 1rem; */
@@ -76,7 +79,7 @@
     <div class="content">
       <h2>dile-accordion-item (isolated)</h2>
       <dile-accordion-item dile-cloak title="Accordion item 1 title">
-        <div opened slot="accordion-item-content">
+        <div slot="accordion-item-content">
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
           </div>
       </dile-accordion-item>

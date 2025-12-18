@@ -5,9 +5,7 @@ title: Accordion
 
 # dile-accordion
 
-Web component to create a simple animated menu, useful as app global menu, with a look & feel similar to the material design navigation drawer component.
-
-> **Tip:** Check the [dile-menu-hamburger](/components/dile-menu-hamburger) component to implement a app drawer menu in a easier way.
+Web component to create a simple accordion, useful for displaying expandable content such as FAQs.
 
 ## Installation
 
@@ -17,95 +15,254 @@ npm i @dile/ui
 
 ## Usage
 
-Import the component.
+This component is made up of two subcomponents:
+
+- `<dile-accordion-item>`: Each expandable item of the accordion
+- `<dile-accordion>`: The container that allows you to sync all items inside
+
+Import the components.
 
 ```javascript
-import '@dile/ui/components/app-drawer/app-drawer.js';
+import "@dile/ui/components/accordion/accordion.js"
+import '@dile/ui/components/accordion/accordion-item.js';
 ```
 
 Use the component.
 
 ```html
-<dile-app-drawer>
-  <p><a href="#">Link 1</a></p>
-  <p><a href="#">Another link</a></p>
-  <p><a href="#">More information</a></p>
-  <p><a href="#">Contact us</a></p>
-</dile-app-drawer>
+<dile-accordion>
+  <dile-accordion-item title="Title for accordion item 1">
+    <div slot="accordion-item-content">
+      ...Content...
+    </div>
+  </dile-accordion-item>
+  ...Add as many items as you need
+</dile-accordion>
 ```
+
+> Note: Content inside **<dile-accordion-iten>** must have attribute **slot="accordion-item-content"**
+
+### Prevent content flickering
+
+To prevent flickering of the content inserted in the slot, you can do the following:
+
+1. Add `dile-cloak` attribute to the dile-accordion-item component:
+
+```html
+<dile-accordion-item dile-cloak title="Accordion item 1 title">
+```
+
+2. Add this style (preferably in a style tag within the html):
+
+```html
+<style>
+  [dile-cloak] {
+    display: none !important;
+  }
+</style>
+```
+
+The component itself will display the content once it is loaded, which means the content of the light dom will not be visible until then.
 
 ## Properties
 
-This componen has two properties:
+Properties for `dile-accordion-item`:
 
 - **opened**: Set the state of the component between opened and closed. Boolean property.
-- **direction**: Defines de animation and direction to open the menú. String property one of "top" or "left". Default is "top".
-- **noModal**: Makes the app drawer always visible (fixed when it is in opened state)
+- **title**: Defines text show in the button.
 
 ## Methods
 
-The component also provides a set of useful methods to controls the component state programmatically.
+Methods for `dile-accordion-item`:
 
-- **open()**: Opens the menu.
-- **close()**: Closes the menu.
-- **toggle()**: Changes the state, from open to close or close to open.
+- **open()**: Opens the expandable content.
+- **close()**: Closes the expandable content.
+- **toggle()**: Changes the state, from open to close or close to open. When state is "opened", it also generates a custom event which `dile-accordion` uses to close the rest of the items it contains.
 
 ## Events
 
-- **dile-app-drawer-closed**: Dispatched when the interface closes by any reason.
-- **dile-app-drawer-click-outside**: This custom event is dispatched when the drawer panel is closed because a user click outside the menu layer.
+Methods for `dile-accordion-item`:
+
+- **accordion-item-opened**: Dispatched when state is "opened".
 
 ## CSS customization
 
-There are some CSS custom properties to customize the style and the animation of this drawer component.
+There are some CSS custom properties to customize the style and the animation of this accordion component.
+
+**NOTE**: It's important to know that some properties have some diferent levels. Let's explain it with an example:
+
+- `--dile-accordion-item-color` applies color property to the whole component. If they are not specifically set, button text, button icon and content text will follow this rule.
+- `--dile-accordion-item-button-color` applies color property just in the button content. If they are not specifically set, button text and button icon will follow this rule.
+- `--dile-accordion-item-button-icon-color` applies color property just icon of the button.
+- `--dile-accordion-item-content-color` applies color property just for the expandable content text.
+
+This way you can set a global property if all elements need the same value. If you need to give specific styles to each element, you can use concrete variables, which will override the global ones.
+
+### **dile-accordion-item** GLOBAL css variables
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-app-drawer-content-height | Height of the menu | auto (or 100vh on "letf" direction)
---dile-app-drawer-content-width | Width of the menu | 100vw (or auto on "left" direction)
---dile-primary-light-color | Background color menu layer | #ddd
---dile-app-drawer-z-index | z-index menu layer | 99
---dile-app-drawer-closed-top | Drawer content top position in closed state | -100vh (or 0 on "left" direction)
---dile-app-drawer-closed-left | Drawer content left position in closed state | 0 (or -100vw on "left" direction)
---dile-app-drawer-box-shadow | Menu shadow | 0 1px 8px #000 (or 1px 0 8px #000 on "left" direction)
---dile-app-drawer-modal-background-color | Menu modal layer background color | rgba(20, 20, 20, 0.7)
---dile-app-drawer-modal-z-index | Menu modal layer z-index | 98
+--dile-accordion-item-max-width | Max width for the entire component | 100%
+--dile-accordion-item-border-radius | Component border radius. Button and expandable content follow this rule | none
+--dile-accordion-item-color | General color. Button text, button icon and expandable content follows this rule | white
+--dile-accordion-item-background | Component border radius. Button and expandable containers follow this rule | transparent
+--dile-accordion-item-inner-separation | Separation between button and expandable content | .5rem
 
-## dile-app-drawer demos
+### **dile-accordion-item** BUTTON css variables
 
-> **Tip:** You can use the hamburger menu on this site to see this component in action.
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-accordion-item-button-padding | Button padding | .7rem
+--dile-accordion-item-button-border | Button border | none
+--dile-accordion-item-button-border-radius | Button border radius | var(--dile-accordion-item-border-radius, .5rem)
+--dile-accordion-item-button-box-shadow | Button box shadow | 2px 2px 10px gray
+--dile-accordion-item-button-font-size | Button font size | 1.1rem
+--dile-accordion-item-button-background | Button background | var(--dile-accordion-item-background, black)
+--dile-accordion-item-button-color | Button color | var(--dile-accordion-item-color, white)
+--dile-accordion-item-button-icon-closed-color | Button icon color when closed | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+--dile-accordion-item-button-icon-opened-color | Button icon color when opened | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+
+### **dile-accordion-item** EXPANDABLE CONTENT css variables
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-accordion-item-content-padding | Expandable content padding | .7rem
+--dile-accordion-item-content-border | Expandable content border | none
+--dile-accordion-item-content-border-radius | Expandable content border radius | var(--dile-accordion-item-border-radius, .5rem)
+--dile-accordion-item-content-box-shadow | Expandable content box shadow | 2px 2px 10px gray
+--dile-accordion-item-content-background | Expandable content background | var(--dile-accordion-item-background, black)
+--dile-accordion-item-content-font-size | Expandable content font size | 1rem
+--dile-accordion-content-color | Expandable content color | var(--dile-accordion-item-color, white)
+--dile-accordion-item-button-icon-closed-color | Button icon color when closed | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+--dile-accordion-item-button-icon-opened-color | Button icon color when opened | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+
+### **dile-accordion** css variables
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-accordion-gap | Separation between each item | .5rem
+
+
+## dile-accordion demos
+
+### dile-accordion-item isolated - BASIC
+
+```html:preview
+<dile-accordion-item title="Accordion item 1 title">
+  <div slot="accordion-item-content">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+</dile-accordion-item>
+
+<script type="module">
+  import "@dile/ui/components/accordion/accordion-item.js"
+</script>
+```
+
+### dile-accordion-item isolated - CUSTOMIZED
 
 ```html:preview
 <style>
-  html.dark-theme #menudemo {
-    color: #fff;
+  [dile-cloak] {
+    display: none !important;
   }
-  html.dark-theme #menudemo a {
-    color: #ffd;
-  }
-  #menudemo .menu-content {
-    padding: 1rem;
-  }
-  #menudemo .menu-content h2 {
-    margin-top: 0.5rem;
-  }
-  #menudemo .menu-content p {
-    margin: 0 0 0.5rem 0;
-  }
+
+  dile-accordion-item#isolated-custom {
+      --dile-accordion-item-max-width: 500px;
+      --dile-accordion-item-color: black;
+      --dile-accordion-item-button-color: white;
+      --dile-accordion-item-button-icon-color: green;
+      --dile-accordion-item-button-background: linear-gradient(to left, #F3F3AE 10%, #2a8a74b6 90%);
+      --dile-accordion-item-content-background: linear-gradient(to left, #F3F3AE 10%, #2a8a74b6 90%);
+      --dile-accordion-item-inner-separation: 1rem;
+      --dile-accordion-item-border-radius: 3rem;
+      --dile-accordion-item-button-border-radius: 2rem;
+      --dile-accordion-item-content-border-radius: 1rem;
+      --dile-accordion-item-button-box-shadow: 2px 2px 15px #00000091;
+      --dile-accordion-item-content-box-shadow: 2px 2px 15px #00000091;
+    }
 </style>
-<dile-app-drawer id="menudemo">
-  <div class="menu-content">
-    <h2>Menu <span>(Click outside to close)</span></h2>
-    <p><a href="#">Link 1</a></p>
-    <p><a href="#">Another link</a></p>
-    <p><a href="#">More information</a></p>
-    <p><a href="#">Contact us</a></p>
-  </div>
-</dile-app-drawer>
-<button id="open">Show app drawer</button>
-<script>
-document.getElementById('open').addEventListener('click', () => {
-  document.getElementById('menudemo').open();
-});
+
+<dile-accordion-item id="isolated-custom" dile-cloak title="Accordion item 1 title">
+  <div opened slot="accordion-item-content">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+</dile-accordion-item>
+
+<script type="module">
+  import "@dile/ui/components/accordion/accordion-item.js"
+</script>
+```
+
+### dile-accordion - BASIC
+
+```html:preview
+<dile-accordion>
+  <dile-accordion-item title="Accordion item 1 title">
+    <div opened slot="accordion-item-content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+  </dile-accordion-item>
+  <dile-accordion-item title="Accordion item 2 title">
+    <div opened slot="accordion-item-content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+  </dile-accordion-item>
+</dile-accordion>
+
+<script type="module">
+  import "@dile/ui/components/accordion/accordion.js"
+  import "@dile/ui/components/accordion/accordion-item.js"
+</script>
+```
+
+### dile-accordion - CUSTOMIZED
+
+```html:preview
+<style>
+  [dile-cloak] {
+    display: none !important;
+  }
+
+  dile-accordion#custom{
+    --dile-accordion-gap: .3rem;
+  }
+
+  dile-accordion-item.custom-item{
+    border: 1px solid #0000008a;
+    --dile-accordion-item-max-width: 800px;
+    --dile-accordion-item-background: white;
+    --dile-accordion-item-color: black;
+    --dile-accordion-item-border-radius: 0;
+    --dile-accordion-item-inner-separation: 0;
+    --dile-accordion-item-button-box-shadow: none;
+    --dile-accordion-item-content-box-shadow: none;
+    --dile-accordion-item-button-icon-closed-color: green;
+    --dile-accordion-item-button-icon-opened-color: red;
+    --dile-accordion-item-button-font-size: 1.5rem;
+  }
+
+  dile-accordion-item.custom-item p{
+    margin: 0;
+  }
+
+</style>
+
+<dile-accordion id="custom">
+  <dile-accordion-item class="custom-item" dile-cloak title="Accordion item 1 title">
+    <div opened slot="accordion-item-content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+  </dile-accordion-item>
+  <dile-accordion-item class="custom-item" dile-cloak title="Accordion item 2 title">
+    <div opened slot="accordion-item-content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat modi blanditiis autem aspernatur quibusdam earum eveniet itaque perferendis culpa repellendus, reprehenderit beatae mollitia eum id recusandae porro. Eius, in molestiae!</p>
+    </div>
+  </dile-accordion-item>
+</dile-accordion>
+
+<script type="module">
+  import "@dile/ui/components/accordion/accordion.js"
+  import "@dile/ui/components/accordion/accordion-item.js"
 </script>
 ```

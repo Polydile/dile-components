@@ -21,7 +21,6 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         /** Others */
         color: var(--dile-accordion-item-color, white);
         background: var(--dile-accordion-item-background, transparent);
-
       }
 
       button{
@@ -31,12 +30,13 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         height: 100%;
         padding: var(--dile-accordion-item-button-padding, .7rem);
         border: var(--dile-accordion-item-button-border, none);
-        border-radius: var(--dile-accordion-item-border-radius, var(--dile-accordion-item-button-border-radius, .5rem));
+        border-radius: var(--dile-accordion-item-button-border-radius, var(--dile-accordion-item-border-radius, .5rem));
         box-shadow: var(--dile-accordion-item-button-box-shadow, 2px 2px 10px gray);
         margin-bottom: 0;
         transition: margin-bottom .2s .3s ease-in-out;
 
         /** Others */
+        font-family: inherit;
         font-size: var(--dile-accordion-item-button-font-size, 1.1rem);
         background: var(--dile-accordion-item-button-background, var(--dile-accordion-item-background, black));
         color: var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white));
@@ -86,7 +86,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
 
         /** Others */
         border: var(--dile-accordion-item-content-border, none);
-        border-radius: var(--dile-accordion-item-border-radius, var(--dile-accordion-item-content-border-radius, .5rem));
+        border-radius: var(--dile-accordion-item-content-border-radius, var(--dile-accordion-item-border-radius, .5rem));
         box-shadow: var(--dile-accordion-item-content-box-shadow, 2px 2px 10px gray);
         background: var(--dile-accordion-item-content-background, var(--dile-accordion-item-background, black));
         color: var(--dile-accordion-content-color, var(--dile-accordion-item-color, white));
@@ -94,7 +94,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
       }
 
       .content{
-        font-size: 1rem;
+        font-size: var(--dile-accordion-item-content-font-size, 1rem);
         padding: var(--dile-accordion-item-content-padding, .7rem);
       }
 
@@ -133,7 +133,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
 
   render() {
     return html`
-      <button @click=${this.toggleOpened} class="${this.opened ? 'opened' : ''}">
+      <button @click=${this.toggle} class="${this.opened ? 'opened' : ''}">
         <div class="buttonContent">
           <span>${this.title}</span>
           <span class="icon ${this.opened ? 'opened' : ''}">${arrowDropDownIcon}</span>
@@ -148,7 +148,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
     `;
   }
 
-  toggleOpened(){
+  toggle(){
     this.opened = !this.opened;
 
     if (this.opened) {

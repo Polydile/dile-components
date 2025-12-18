@@ -12,15 +12,8 @@ export class DileAccordion extends LitElement {
     `
   ];
 
-  static get properties() {
-    return {
-      items: { type: Array },
-    };
-  }
-
   constructor(){
     super();
-    this.items = [];
     this.current = null;
   };
 
@@ -41,7 +34,6 @@ export class DileAccordion extends LitElement {
       }
     }
   }
-
 
   render() {
     return html`
