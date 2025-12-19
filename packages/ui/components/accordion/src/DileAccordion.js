@@ -12,11 +12,6 @@ export class DileAccordion extends LitElement {
     `
   ];
 
-  constructor(){
-    super();
-    this.current = null;
-  };
-
   connectedCallback(){
     super.connectedCallback();
     this.addEventListener('accordion-item-opened', (e) => {
