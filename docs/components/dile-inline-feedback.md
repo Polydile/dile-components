@@ -18,7 +18,7 @@ npm i @dile/ui
 Import the component.
 
 ```javascript
-import '@dile/ui/components/inline-feedback/dile-inline-feedback.js';
+import '@dile/ui/components/inline-feedback/inline-feedback.js';
 ```
 
 Use the component.
