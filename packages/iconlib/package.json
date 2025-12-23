@@ -1,0 +1,28 @@
+{
+  "name": "@dile/iconlib",
+  "version": "0.0.0",
+  "description": "Icon Component Library based on popular libraries",
+  "keywords": [
+    "UI",
+    "Components",
+    "Icons"
+  ],
+  "homepage": "https://dile-components.com",
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "license": "MIT",
+  "author": "EscuelaIT",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

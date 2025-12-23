@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-icon library demos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/iconlib/lucide-icons/accessibility.js';
+    import '@dile/iconlib/lucide-icons/bird.js';
+    import '@dile/iconlib/lucide-icons/dribbble.js';
+    import '@dile/iconlib/lucide-icons/warehouse.js';
+    import '@dile/iconlib/lucide-icons/chromium.js';
+    import '@dile/iconlib/lucide-icons/notebook.js';
+    import '@dile/iconlib/dile-lucide-icon.js';
+  </script>
+  <style>
+   .styled {
+    --dile-icon-color: red;
+    --dile-icon-size: 32px;
+   }
+   .styled2 {
+    --dile-icon-color: blue;
+    --dile-icon-size: 48px;
+   }
+   dile-lucide-icon {
+      --dile-icon-color: orange;
+      --dile-icon-size: 48px;
+   }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Icon demos</h1>
+    <dile-lucide-icon-accessibility></dile-lucide-icon-accessibility>
+    <dile-lucide-icon-bird></dile-lucide-icon-bird>
+
+    <h1>Styled demos</h1>
+    <dile-lucide-icon-dribbble class="styled"></dile-lucide-icon-dribbble>
+    <dile-lucide-icon-warehouse class="styled2"></dile-lucide-icon-warehouse>
+
+    <h1>Icon by name</h1>
+    <dile-lucide-icon icon="notebook"></dile-lucide-icon>
+    <dile-lucide-icon icon="chromium"></dile-lucide-icon>
+    
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

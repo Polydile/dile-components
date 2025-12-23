@@ -7,3 +7,5 @@ docs/_merged_includes/
 
 # Eleventy ignore files
 _site
+
+src-icons
