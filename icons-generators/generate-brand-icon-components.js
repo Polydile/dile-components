@@ -8,8 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Rutas de directorios
-const BRAND_ICONS_DIR = path.join(__dirname, '..', 'src-icons/lucide-icons');
-const COMPONENTS_OUTPUT_DIR = path.join(__dirname, '..', 'packages', 'iconlib', 'lucide-icons');
+const BRAND_ICONS_DIR = path.join(__dirname, '..', 'src-icons/font-awesome/brands');
+const COMPONENTS_OUTPUT_DIR = path.join(__dirname, '..', 'packages', 'iconlib', 'fontawesome-brand-icons');
 
 /**
  * Convierte el nombre de archivo SVG a nombre de clase de componente
@@ -33,7 +33,7 @@ function svgFileNameToClassName(fileName) {
  */
 function svgFileNameToCustomElementName(fileName) {
   const nameWithoutExtension = fileName.replace('.svg', '');
-  return `dile-lucide-icon-${nameWithoutExtension}`;
+  return `dile-fontawesome-icon-${nameWithoutExtension}`;
 }
 
 /**
@@ -73,7 +73,7 @@ customElements.define('${customElementName}', ${className});
 function generateComponents() {
   console.log('🚀 Iniciando generación de componentes de iconos...\n');
   
-  // Verificar que existe el directorio de iconos de Lucide
+  // Verificar que existe el directorio de iconos de fontawesome
   if (!fs.existsSync(BRAND_ICONS_DIR)) {
     console.error(`❌ Error: No se encontró el directorio ${BRAND_ICONS_DIR}`);
     process.exit(1);
