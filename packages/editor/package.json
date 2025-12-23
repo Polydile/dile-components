@@ -1,6 +1,6 @@
 {
   "name": "@dile/editor",
-  "version": "2.5.8",
+  "version": "2.5.9",
   "description": "Flexible Web Component for rich text editing with WYSIWYG and Markdown support. Easy to integrate, customizable UI, powered by ProseMirror.",
   "keywords": [
     "markdown",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@dile/icons": "^2.4.2",
-    "@dile/ui": "^2.8.6",
+    "@dile/ui": "^2.8.7",
     "lit": "^2.7.0 || ^3.0.0",
     "prosemirror-commands": "^1.6.2",
     "prosemirror-example-setup": "^1.2.3",
