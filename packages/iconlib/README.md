@@ -1,5 +1,7 @@
 # Dile Icons
 
+Not documented yet....
+
 **Dile Icons** is a Web Components implementation of the [Lucide Icons](https://lucide.dev) library — a beautiful, consistent set of open-source icons.
 This package allows you to use Lucide icons as **standard JavaScript Web Components**, without depending on any framework.
 
