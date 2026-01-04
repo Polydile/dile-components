@@ -104,8 +104,8 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-accordion-item-max-width | Max width for the entire component | 100%
 --dile-accordion-item-border-radius | Component border radius. Button and expandable content follow this rule if is not set on them | none
---dile-accordion-item-color | General color. Button text, button icon and expandable content follow this rule if is not set on them | white
---dile-accordion-item-background | Component background. Button and expandable container follow this rule if is not set on them | transparent
+--dile-accordion-item-color | General color. Button text, button icon and expandable content follow this rule if is not set on them | --dile-on-primary-color or white
+--dile-accordion-item-background | Component background. Button and expandable container follow this rule if is not set on them | --dile-primary-color or transparent
 --dile-accordion-item-inner-separation | Separation between button and expandable content | .5rem
 
 ### **dile-accordion-item** BUTTON css variables
@@ -115,12 +115,12 @@ Custom property | Description | Default
 --dile-accordion-item-button-padding | Button padding | .7rem
 --dile-accordion-item-button-border | Button border | none
 --dile-accordion-item-button-border-radius | Button border radius | var(--dile-accordion-item-border-radius, .5rem)
---dile-accordion-item-button-box-shadow | Button box shadow | 2px 2px 10px gray
+--dile-accordion-item-button-box-shadow | Button box shadow | none
 --dile-accordion-item-button-font-size | Button font size | 1.1rem
---dile-accordion-item-button-background | Button background | var(--dile-accordion-item-background, black)
---dile-accordion-item-button-color | Button color | var(--dile-accordion-item-color, white)
---dile-accordion-item-button-icon-closed-color | Button icon color when closed | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
---dile-accordion-item-button-icon-opened-color | Button icon color when opened | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white)))
+--dile-accordion-item-button-background | Button background | --dile-accordion-item-background or dile-primary-color or black)
+--dile-accordion-item-button-color | Button color | --dile-accordion-item-color or dile-on-primary-color or white)
+--dile-accordion-item-button-icon-closed-color | Button icon color when closed | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white))))
+--dile-accordion-item-button-icon-opened-color | Button icon color when opened | var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white))))
 
 ### **dile-accordion-item** EXPANDABLE CONTENT css variables
 
@@ -129,10 +129,10 @@ Custom property | Description | Default
 --dile-accordion-item-content-padding | Expandable content padding | .7rem
 --dile-accordion-item-content-border | Expandable content border | none
 --dile-accordion-item-content-border-radius | Expandable content border radius | var(--dile-accordion-item-border-radius, .5rem)
---dile-accordion-item-content-box-shadow | Expandable content box shadow | 2px 2px 10px gray
---dile-accordion-item-content-background | Expandable content background | var(--dile-accordion-item-background, black)
+--dile-accordion-item-content-box-shadow | Expandable content box shadow | none
+--dile-accordion-item-content-background | Expandable content background | --dile-accordion-item-background or --dile-background-color or transparent
 --dile-accordion-item-content-font-size | Expandable content font size | 1rem
---dile-accordion-item-content-color | Expandable content color | var(--dile-accordion-item-color, white)
+--dile-accordion-item-content-color | Expandable content color | --dile-accordion-item-color or --dile-on-background-color or #303030
 
 ### **dile-accordion** css variables
 

@@ -19,8 +19,8 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         border-radius: var(--dile-accordion-item-border-radius, none);
 
         /** Others */
-        color: var(--dile-accordion-item-color, white);
-        background: var(--dile-accordion-item-background, transparent);
+        color: var(--dile-accordion-item-color, var(--dile-on-background-color, white));
+        background: var(--dile-accordion-item-background, var(--dile-background-color, transparent));
       }
 
       button{
@@ -31,15 +31,15 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         padding: var(--dile-accordion-item-button-padding, .7rem);
         border: var(--dile-accordion-item-button-border, none);
         border-radius: var(--dile-accordion-item-button-border-radius, var(--dile-accordion-item-border-radius, .5rem));
-        box-shadow: var(--dile-accordion-item-button-box-shadow, 2px 2px 10px gray);
+        box-shadow: var(--dile-accordion-item-button-box-shadow, none);
         margin-bottom: 0;
         transition: margin-bottom .2s .3s ease-in-out;
 
         /** Others */
         font-family: inherit;
         font-size: var(--dile-accordion-item-button-font-size, 1.1rem);
-        background: var(--dile-accordion-item-button-background, var(--dile-accordion-item-background, black));
-        color: var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white));
+        background: var(--dile-accordion-item-button-background, var(--dile-accordion-item-background, var(--dile-primary-color, black)));
+        color: var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white)));
         cursor: pointer;
 
       }
@@ -59,7 +59,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
       }
 
       span.icon svg{
-        fill: var(--dile-accordion-item-button-icon-closed-color, var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white))));
+        fill: var(--dile-accordion-item-button-icon-closed-color, var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white)))));
         scale: 1.8;
         transition: fill .3s ease-in-out;
       }
@@ -74,7 +74,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
       }
 
       span.icon.opened svg{
-        fill: var(--dile-accordion-item-button-icon-opened-color, var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, white))));
+        fill: var(--dile-accordion-item-button-icon-opened-color, var(--dile-accordion-item-button-icon-color, var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white)))));
       }
 
       .contentContainer{
@@ -87,9 +87,9 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         /** Others */
         border: var(--dile-accordion-item-content-border, none);
         border-radius: var(--dile-accordion-item-content-border-radius, var(--dile-accordion-item-border-radius, .5rem));
-        box-shadow: var(--dile-accordion-item-content-box-shadow, 2px 2px 10px gray);
-        background: var(--dile-accordion-item-content-background, var(--dile-accordion-item-background, black));
-        color: var(--dile-accordion-item-content-color, var(--dile-accordion-item-color, white));
+        box-shadow: var(--dile-accordion-item-content-box-shadow, none);
+        background: var(--dile-accordion-item-content-background, var(--dile-accordion-item-background, var(--dile-background-color, transparent)));
+        color: var(--dile-accordion-item-content-color, var(--dile-accordion-item-color, var(--dile-on-background-color, #303030)));
         transition: height .3s ease-in-out;
       }
 
