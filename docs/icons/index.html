@@ -1,0 +1,51 @@
+---
+layout: layout.html
+title: Icon libraries Web Components catalog
+---
+
+<script type="module">
+import "@dile/ui/components/accordion/accordion.js"
+import '@dile/ui/components/accordion/accordion-item.js';
+</script>
+
+<h1>Icon libraries Web Components catalog</h1>
+<p>
+  Here we have native components based on the Web Components standard that let you use popular icon libraries in a convenient and developer-friendly way.
+</p>
+<p>
+  Through these components, you can easily integrate icon libraries like <a href="https://fonts.google.com/icons">Material icons</a>, <a href="https://lucide.dev/">Lucide Icons</a> or <a href="https://fontawesome.com/">FontAwesome</a> using simple HTML tags that wrap the SVGs. This allows you to style the icons (color, size, etc.) comfortably with CSS custom properties.
+</p>
+
+<dile-accordion>
+  <dile-accordion-item title="Lucide icons">
+    <div slot="accordion-item-content">
+      <p>
+        <a href="https://lucide.dev/">Lucide Icons</a> is an open-source icon library offering over 1,000 lightweight, scalable vector graphics (SVGs) designed for consistent style and readability across digital projects. Originating as a community-driven fork of Feather Icons, it emphasizes strict design rules—like a 24x24 pixel canvas, 2-pixel stroke width, and 1-2 pixel spacing—to ensure recognizability and optical balance at any size.
+      </p>
+      <p>
+        Here you will find an <a href="/icons/lucide-icons/">implementation of Lucide Icons as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
+      </p>
+    </div>
+  </dile-accordion-item>
+  <dile-accordion-item title="FontAwesome icons">
+    <div slot="accordion-item-content">
+      <p>
+        <a href="https://fontawesome.com/">Font Awesome</a> is a widely-used icon toolkit that provides thousands of scalable vector icons as web fonts, SVGs, and React/Vue/Angular components.  Font Awesome offers a robust icon library with a free tier for most projects, alongside a Pro subscription that unlocks premium icon sets.
+      </p>
+      <p>
+        Dile Components offers an <a href="/icons/fontawesome-icons/">implementation of FontAwesome Icons as native Web Components</a> that makes them easier to implement across any project, providing a lightweight, framework-agnostic solution.
+      </p>
+    </div>
+  </dile-accordion-item>
+  <dile-accordion-item title="Material icons">
+    <div slot="accordion-item-content">
+      <p>
+        <a href="https://fonts.google.com/icons">Material Icons</a> is Google's open-source icon collection featuring over 2,500 minimalist, pixel-perfect symbols designed specifically for Material Design, available as SVGs, web fonts, and framework-specific packages for seamless integration across Android, iOS, web, and Flutter applications. 
+      </p>
+      <p>
+        Dile Components provides a <a href="./material-icons/">partial implementation of Material Icons</a> as native Web Components, featuring a curated selection of the most commonly used icons optimized for Material Design principles. This implementation leverages Lit templates to deliver customizable icons using CSS Custom Properties.
+      </p>
+    </div>
+  </dile-accordion-item>
+</dile-accordion>
+
