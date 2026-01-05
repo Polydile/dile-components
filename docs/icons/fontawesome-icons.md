@@ -33,7 +33,7 @@ First, import the icon you want to use in your app or website:
 import '@dile/iconlib/fontawesome-icons/xbox.js';
 ```
 
-> Icon names follow FontAwesome conventions. For brands, use names like "xbox", "amazon". For solid icons use the icon name as you find in FontAwesome docs. For regular icons, prefix with "regular-", like "regular-angry". Check the [FontAwesome icons](https://fontawesome.com/icons) page for available icons.
+> Icon names follow FontAwesome conventions. For brands, use names like "xbox", "amazon". For solid icons use the icon name, as you find in FontAwesome docs. For regular icons, prefix with "regular-", like "regular-angry". Check the [FontAwesome icons](https://fontawesome.com/icons) page for available icons. Please note that this package includes only freely distributed FontAwesome icons.
 
 Once imported, use the corresponding Custom Element tag:
 
@@ -46,7 +46,7 @@ Once imported, use the corresponding Custom Element tag:
 The `rounded` boolean attribute adds a rounded background around the SVG for a button-like look.
 
 ```html
-<dile-fontawesome-icon name="xbox" rounded></dile-fontawesome-icon>
+<dile-fontawesome-icon icon="xbox" rounded></dile-fontawesome-icon>
 ```
 
 It uses CSS custom properties like `--dile-icon-rounded-background-color` and `--dile-icon-rounded-padding`.
