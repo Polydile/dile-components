@@ -5,7 +5,10 @@ title: FontAwesome Icons Web Components
 
 # FontAwesome Icons Web Components
 
-These native Custom Elements, based on the Web Components standard, let you integrate FontAwesome free icons using simple HTML tags:
+FontAwesome provides a consistent icon library with thousands of scalable vector icons. The `@dile/iconlib` package makes these icons accessible through native Custom Elements based on the Web Components standard.
+
+These elements let you integrate FontAwesome icons using simple HTML tags like this:
+
 
 ```html
 <dile-fontawesome-icon-xbox></dile-fontawesome-icon-xbox>

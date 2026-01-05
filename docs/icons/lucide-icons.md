@@ -5,7 +5,9 @@ title: Lucide Icons Web Components
 
 # Lucide Icons Web Components
 
-These native Custom Elements, based on the Web Components standard, let you integrate [Lucide Icons](https://lucide.dev/icons/) using simple HTML tags:
+The `@dile/iconlib` package provides an easy way to use icons from the [Lucide Icons](https://lucide.dev/icons/) library through native Custom Elements based on the Web Components standard.
+
+These elements let you integrate icons using simple HTML tags like this:
 
 ```html
 <dile-lucide-icon-bird></dile-lucide-icon-bird>
