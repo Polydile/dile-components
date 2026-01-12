@@ -5,7 +5,7 @@ tags: forms
 
 # dile-checkbox
 
-Web Component to create a customizable checkbox input interface.
+Web Component to create a customizable checkbox input form element.
 
 ## Installation
 
@@ -15,13 +15,13 @@ npm i @dile/ui
 
 ## Usage
 
-Import the component.
+Import the component:
 
 ```javascript
 import '@dile/ui/components/checkbox/checkbox.js';
 ```
 
-Use the component.
+Use the component:
 
 ```html
 <dile-checkbox>Label for the checkbox element</dile-checkbox>
