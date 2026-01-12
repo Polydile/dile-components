@@ -53,6 +53,7 @@ Custom property | Description | Default
 --dile-checkbox-unchecked-color | Unchecked color for check control | #303030
 --dile-checkbox-label-color | label regular color | --dile-on-background-color or #303030
 --dile-checkbox-label-disabled-color | Label color for disabled status | #888
+--dile-checkbox-label-margin-left | Label margin to the input element | 0.25rem
 --dile-checkbox-font-weight | Font weight for te label | normal
 --dile-checkbox-size | Checkbox size | 20px
 

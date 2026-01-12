@@ -71,7 +71,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has("checked")) {
+    if (changedProperties.has('checked')) {
       this.emmitChange();
       this.internals.setFormValue(this.checked ? 'true' : null);
     }
