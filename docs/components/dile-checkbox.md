@@ -50,7 +50,7 @@ You can customize it using CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-checkbox-checked-color | Checked color for check control | #30a030
---dile-checkbox-unchecked-color | Unchecked color for check control | #303030
+--dile-checkbox-unchecked-color | Unchecked color for check control | --dile-on-background-color or #303030
 --dile-checkbox-label-color | label regular color | --dile-on-background-color or #303030
 --dile-checkbox-label-disabled-color | Label color for disabled status | #888
 --dile-checkbox-label-margin-left | Label margin to the input element | 0.25rem

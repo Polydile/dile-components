@@ -46,7 +46,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
         justify-content: center;
       }
       .isUnchecked {
-        --dile-icon-color: var(--dile-checkbox-unchecked-color, #303030);
+        --dile-icon-color: var(--dile-checkbox-unchecked-color, var(--dile-on-background-color, #303030));
       }
       .label {
         margin-left: var(--dile-checkbox-label-margin-left, 0.25rem);
