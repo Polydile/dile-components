@@ -1,6 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { DileEmmitChange } from '../../../mixins/form/index.js'; 
 import { checkboxBlankIcon, checkboxCheckedIcon } from '@dile/icons';
+import '../../icon/icon.js';
 
 export class DileCheckbox extends DileEmmitChange(LitElement) {
   static get properties() {
