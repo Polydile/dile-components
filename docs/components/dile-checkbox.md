@@ -50,9 +50,7 @@ You can customize it using CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-checkbox-checked-color | Checked color for check control | #30a030
---dile-checkbox-unchecked-color | Unchecked color for check control | #ccc
---dile-checkbox-fill-color | Fill color for the check control | #fff
---dile-checkbox-unchecked-fill-color | Checked color for check control when is in unchecked status| #fff
+--dile-checkbox-unchecked-color | Unchecked color for check control | #303030
 --dile-checkbox-label-color | label regular color | --dile-on-background-color or #303030
 --dile-checkbox-label-disabled-color | Label color for disabled status | #888
 --dile-checkbox-font-weight | Font weight for te label | normal
@@ -85,12 +83,10 @@ Custom property | Description | Default
 .styled {
   --dile-checkbox-checked-color: #006;
   --dile-checkbox-unchecked-color: #f66;
-  --dile-checkbox-fill-color: #fcc;
-  --dile-checkbox-unchecked-fill-color: #666;
   --dile-checkbox-label-color: #c57;
   --dile-checkbox-font-weight: bold;
   --dile-checkbox-label-disabled-color: #ddd;
-  --dile-checkbox-size: 28px;
+  --dile-checkbox-size: 32px;
 }
 </style>
 <dile-checkbox class="styled" checked>Styled!</dile-checkbox>

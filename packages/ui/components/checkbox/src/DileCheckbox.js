@@ -1,5 +1,6 @@
 import { html, css, LitElement } from "lit";
 import { DileEmmitChange } from '../../../mixins/form/index.js'; 
+import { checkboxBlankIcon, checkboxCheckedIcon } from '@dile/icons';
 
 export class DileCheckbox extends DileEmmitChange(LitElement) {
   static get properties() {
@@ -26,6 +27,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
     return css`
       :host {
         display: inline-block;
+        --dile-icon-size: var(--dile-checkbox-size, 20px);
       }
       div {
         display: flex;
@@ -38,34 +40,15 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
       }
       .checkbox {
         display: flex;
-        background-color: var(--dile-checkbox-checked-color, #30a030);
-        border-radius: 4px;
-        width: var(--dile-checkbox-size, 20px);
-        height: var(--dile-checkbox-size, 20px);
-        line-height: 0;
+        --dile-icon-color: var(--dile-checkbox-checked-color, #30a030);
         align-items: center;
         justify-content: center;
       }
       .isUnchecked {
-        background-color: var(--dile-checkbox-unchecked-color, #ccc);
-      }
-      path[fill="none"],
-      .checked path[fill="none"] {
-        fill: transparent;
-      }
-      path {
-        fill: var(--dile-checkbox-fill-color, #fff);
-      }
-      .checked path {
-        fill: var(--dile-checkbox-unchecked-fill-color, #fff);
-      }
-      svg {
-        width: var(--dile-checkbox-size, 20px);
-        height: var(--dile-checkbox-size, 20px);
-        line-height: var(--dile-checkbox-size, 20px);
+        --dile-icon-color: var(--dile-checkbox-unchecked-color, #303030);
       }
       .label {
-        margin-left: 10px;
+        margin-left: var(--dile-checkbox-label-margin-left, 0.25rem);
         font-weight: var(--dile-checkbox-font-weight, normal);
         color: var(--dile-checkbox-label-color, var(--dile-on-background-color, #303030));
       }
@@ -134,20 +117,10 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   }
 
   get checkedIcon() {
-    return html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path
-        d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-      />
-    </svg>`;
+    return html`<dile-icon .icon="${checkboxCheckedIcon}"></dile-icon>`;
   }
   get unCheckedIcon() {
-    return html`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path
-        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-      />
-      <path d="M0 0h24v24H0z" fill="none" />
-    </svg>`;
+    return html`<dile-icon .icon="${checkboxBlankIcon}"></dile-icon>`;
   }
 
   doKeyPress(e) {
