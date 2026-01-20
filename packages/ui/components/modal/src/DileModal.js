@@ -175,15 +175,17 @@ export class DileModal extends DileCloseOnEscPressed(LitElement) {
   }
 
   close() {
-    this.opened = false;
-    this._toChange = true;
-    this.dispatchEvent(
-      new CustomEvent("dile-modal-closed", {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      })
-    );
+    if(this.opened) {
+      this.opened = false;
+      this._toChange = true;
+      this.dispatchEvent(
+        new CustomEvent("dile-modal-closed", {
+          bubbles: true,
+          composed: true,
+          detail: this,
+        })
+      );
+    }
   }
 
   animationEnd() {
