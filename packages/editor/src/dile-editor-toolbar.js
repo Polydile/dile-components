@@ -67,6 +67,7 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
   firstUpdated() {
     this.toolbarItems = getToolbarItems(this.menuConfig, this.additionalCommands.toolbarItems || []);
     this.undoItems = getUndoItems(this.menuConfig, this.additionalCommands.undoItems || []);
+    console.log('additiona-items', this.additionalCommands.blockItems);
     this.blockItems = getBlockItems(this.menuConfig, this.additionalCommands.blockItems || []);
   }
 
@@ -123,7 +124,6 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
                 ${this.blockItems.map(item => html`
                   <option value="${item.commandName}">${this.translations[item.commandName] || item.commandName}</option>
                   `)}
-                  <option value="-"></option>
               </select>
             </dile-select>
           </div>

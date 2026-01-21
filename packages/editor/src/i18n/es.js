@@ -1,6 +1,6 @@
 export const translations = {
   design_view: 'Editor',
-  code: 'Markdown',
+  code: 'Código',
   paragraph: 'Párrafo',
   accept: 'Aceptar',
   cancel: 'Cancelar',
