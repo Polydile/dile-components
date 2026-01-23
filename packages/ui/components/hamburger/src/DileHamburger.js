@@ -119,6 +119,7 @@ export class DileHamburger extends LitElement {
       <button
         class="hamburger hamburger--squeeze ${this.active ? "is-active" : ""}"
         type="button"
+        aria-label="Open navigation menu"
       >
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
