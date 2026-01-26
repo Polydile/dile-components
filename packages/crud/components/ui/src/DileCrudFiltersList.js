@@ -60,7 +60,7 @@ export class DileCrudFiltersList extends LitElement {
     }
 
     findLabelInOption(filter) {
-        let option = filter.options.find((option) => option.name == filter.value);
+        let option = filter.options.find((option) => option.value == filter.value);
         if(option) {
             return option.label;
         } else {

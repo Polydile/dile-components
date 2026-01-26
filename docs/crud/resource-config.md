@@ -88,15 +88,15 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
       type: 'select',
       options: [
         {
-          name: 'Europe',
+          value: 'Europe',
           label: 'Europe'
         },
         {
-          name: 'Africa',
+          value: 'Africa',
           label: 'Africa'
         },
         {
-          name: 'Asia',
+          value: 'Asia',
           label: 'Asia'
         },
       ]

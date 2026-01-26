@@ -61,15 +61,15 @@ window.countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/co
         type: 'select',
         options: [
             {
-                name: 'Europe',
+                value: 'Europe',
                 label: 'Europe'
             },
             {
-                name: 'Africa',
+                value: 'Africa',
                 label: 'Africa'
             },
             {
-              name: 'Asia',
+              value: 'Asia',
               label: 'Asia'
           },
         ]

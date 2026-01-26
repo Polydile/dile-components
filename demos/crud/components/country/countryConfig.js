@@ -51,29 +51,29 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
     initialSortField: 'name',
   },
   availableFilters: [
-      {
-        name: 'continent',
-        label: 'Continent',
-        active: false,
-        value: false,
-        type: 'select',
-        options: [
-            {
-                name: 'Europe',
-                label: 'Europe'
-            },
-            {
-                name: 'Africa',
-                label: 'Africa'
-            },
-            {
-              name: 'Asia',
-              label: 'Asia'
-          },
-        ]
-      },
-    ],
-    onActionSingleSuccess(detail) {
-      console.log('Action on single process defined with onActionSingleSuccess and this detail', detail, this);
-    }
+    {
+      name: 'continent',
+      label: 'Continent',
+      active: false,
+      value: false,
+      type: 'select',
+      options: [
+        {
+          value: 'Europe',
+          label: 'Europe'
+        },
+        {
+          value: 'Africa',
+          label: 'Africa'
+        },
+        {
+          value: 'Asia',
+          label: 'Asia'
+        },
+      ]
+    },
+  ],
+  onActionSingleSuccess(detail) {
+    console.log('Action on single process defined with onActionSingleSuccess and this detail', detail, this);
+  }
 });
