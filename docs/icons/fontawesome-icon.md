@@ -47,6 +47,7 @@ Set the `icon` attribute to the icon name string:
 
 ```html
 <dile-fontawesome-icon icon="facebook"></dile-fontawesome-icon>
+<dile-fontawesome-icon icon="google"></dile-fontawesome-icon>
 ```
 
 This supports dynamic icon switching via data-bound strings, suitable for lists or conditional rendering.

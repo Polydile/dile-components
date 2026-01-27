@@ -48,6 +48,7 @@ Set the `icon` attribute to the icon name string:
 
 ```html
 <dile-lucide-icon icon="notebook"></dile-lucide-icon>
+<dile-lucide-icon icon="chromium"></dile-lucide-icon>
 ```
 
 This enables dynamic icon switching via data-bound strings, ideal for lists or conditional rendering.

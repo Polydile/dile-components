@@ -1,0 +1,13 @@
+.flex-items-center {
+  display: flex;
+  align-items: center;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.icons-on-background {
+  --dile-icon-color: var(--dile-on-background-color);
+}

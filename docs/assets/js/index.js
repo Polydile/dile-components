@@ -31,6 +31,7 @@ import '@dile/ui/components/progress-bar/progress-bar.js';
 import '@dile/ui/components/slide-menu/slide-menu.js';
 import '@dile/ui/components/light-mode-switch/light-mode-switch.js';
 import './components/dile-icon-name.js';
+import '@dile/iconlib/lucide-icons/arrow-big-right.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {

@@ -1,12 +1,12 @@
 import { iconStylesNamedIcons } from "../src/lucideIconStyles.js";
-import '../lucide-icons/dot.js';
+import '../fontawesome-icons/dot-circle.js';
 
 export class DileFontawesomeIcon extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.adoptedStyleSheets = [iconStylesNamedIcons];
-    this.icon = "dot";
+    this.icon = "dot-circle";
     this.rounded = false;
     this.render();
 
