@@ -129,6 +129,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
                 cancelLabel="${this.translations.cancel_label}"
                 acceptLabel="${this.translations.accept_label}"
                 @dile-confirm-accepted=${this.doAction}
+                @dile-confirm-cancelled=${this.cancelAction}
+                dontCloseOnAccept
             >
                 <div class="modalcontainer">
                     ${this.actionsTemplateRunner}
@@ -183,6 +185,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   doSuccessAction(e) {
     this.selectedActionForm.resetData();
+    this.selectedActionForm.clearErrors();
+    this.confirmElement.close();
     this.responseAdapter.setResponse(e.detail);
     this.dispatchEvent(new CustomEvent('crud-action-success', {
       bubbles: true,
@@ -197,6 +201,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   doErrorAction(e) {
     this.responseAdapter.setResponse(e.detail);
+    this.selectedActionForm.showErrors(e.detail.errors);  
     this.dispatchEvent(new CustomEvent('crud-action-error', {
       bubbles: true,
       composed: true,
@@ -206,4 +211,13 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     }));
   }
 
+  getActionForm() {
+    let actionForm = this.shadowRoot.querySelector(`[action="${this.selection}"]`)
+    return actionForm;
+  }
+
+  cancelAction() {
+    this.selectedActionForm.clearErrors();
+    this.selectedActionForm.resetData();
+  }
 }

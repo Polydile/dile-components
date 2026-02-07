@@ -55,6 +55,10 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
         label: 'Change Essential',
         name: 'DemoChangeEssentialAction'
       },
+      {
+        label: 'Change name',
+        name: 'DemoChangeNameAction'
+      },
     ],
   },
   templates: {
@@ -65,6 +69,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
         <dile-pages attrForSelected="action" selected="${actionName}">
             <dile-crud-delete-action action="DeleteAction"></dile-crud-delete-action>
             <demo-change-essential-action action="DemoChangeEssentialAction" .actionIds=${actionIds}></demo-change-essential-action>
+            <demo-change-name-action action="DemoChangeNameAction" .actionIds=${actionIds}></demo-change-name-action>
         </dile-pages>
     `,
   },

@@ -164,7 +164,13 @@ For the purposes of this CRUD component demo, we will include a custom batch act
 
 You can find more information about actions in the [actions section of the CRUD documentation](/crud/actions-configuration/).
 
+#### Change Essentian Action
+
 {% include "componentes-crud/board-game-change-essential-action.md" %}
+
+#### Change Name Action
+
+{% include "componentes-crud/change-name-action.md" %}
 
 ### Crud component
 

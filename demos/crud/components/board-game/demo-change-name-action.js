@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileForm } from '@dile/ui/mixins/form';
-import '@dile/ui/input/input.js';
+import '@dile/ui/components/input/input.js';
 
 export class DemoChangeNameAction extends DileForm(LitElement) {
   static styles = [

@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 import { boardGameConfig } from './boardGameConfig';
 import './demo-board-game-form';
 import './demo-board-game-item';
-import './demo-change-essential-action'
+import './demo-change-essential-action';
+import './demo-change-name-action';
 export class DemoBoardGamesCrud extends LitElement {
   static styles = [
     css`

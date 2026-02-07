@@ -21,6 +21,7 @@ export class DileCrudListItem extends LitElement {
         }
         dile-checkbox {
             margin-right: 0.5rem;
+            --dile-checkbox-unchecked-color: #888;
         }
         main {
             flex-grow: 1;
