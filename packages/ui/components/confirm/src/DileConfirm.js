@@ -46,6 +46,7 @@ export class DileConfirm extends LitElement {
       acceptLabel: { type: String },
       cancelLabel: { type: String },
       blocking: { type: Boolean },
+      dontCloseOnAccept: { type: Boolean },
     };
   }
 
@@ -100,7 +101,9 @@ export class DileConfirm extends LitElement {
   }
 
   accept() {
-    this.close();
+    if(!this.dontCloseOnAccept) {
+      this.close();
+    }
     this.dispatchEvent(
       new CustomEvent("dile-confirm-accepted", {
         bubbles: true,

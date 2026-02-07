@@ -44,6 +44,7 @@ In addition, the confirm box display two buttons inside the modal interface:
 - **cancelLabel**: The text to the cancel button.
 - **acceptLabel**: The text to the accept button.
 - **blocking**: Make a answer manadatory, so clicks outside the dialog do not closes the confirm box.
+- **dontCloseOnAccept**: The dialog box remains open after the ACCEPT button is clicked. Therefore, it must be closed manually when necessary by explicitly calling the component’s close() method.
 
 ## Methods
 
