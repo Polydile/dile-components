@@ -17,7 +17,7 @@ export class DileCrudSingleActions extends DileCrudActions {
       dile-card {
           --dile-card-border: none;
           margin-bottom: 1.5rem;
-          --dile-card-background-color: var(--dile-secondary-light-color);
+          --dile-card-background-color: var(--dile-secondary-light-color, #beed8e);
       }
       .action-list {
           display: grid;
@@ -26,9 +26,9 @@ export class DileCrudSingleActions extends DileCrudActions {
           align-items: stretch;
       }
       dile-box-selector-item:hover {
-          --dile-box-selector-item-background-color: var(--dile-primary-light-color);
-          --dile-box-selector-item-color: var(--dile-on-primary-light-color);
-          --dile-box-selector-item-border: 4px solid var(--dile-primary-color);
+          --dile-box-selector-item-background-color: var(--dile-primary-light-color, #fbfbe9);
+          --dile-box-selector-item-color: var(--dile-on-primary-light-color, #303030);
+          --dile-box-selector-item-border: 4px solid var(--dile-primary-color, #f3f3ae);
       }
       
     `

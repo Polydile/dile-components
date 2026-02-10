@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test dile-crud-cli</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=alexandria:300,400,700" rel="stylesheet" />
+  <style>
+    html {
+      font-family: 'Alexandria', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Crud-cli Examples</h1>
+  <p>The current exampes are generated using this crud-cli command:</p>
+  <pre><code>
+dile g-entity BoardGame --endpoint=https://timer.escuelait.com/api/board-games  
+</code></pre>
+
+  <hr style="margin: 2rem 0;">
+  
+  <h2>Generated crud detail component</h2>
+
+  <board-game-single
+    itemid="1"
+  ></board-game-single>
+  
+  <hr style="margin: 2rem 0;">
+  
+  <h2>Generated crud component</h2>
+
+  <board-game-crud></board-game-crud>
+
+  <script type="module" src="./components/board-game/board-game-crud.js"></script>
+  <script type="module" src="./components/board-game/board-game-single.js"></script>
+</body>
+</html>

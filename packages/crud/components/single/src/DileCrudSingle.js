@@ -13,6 +13,7 @@ import '../../action/crud-actions.js';
 import '../../action/crud-single-actions';
 import '../../action/crud-delete-action.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
+import { crudStyles } from '../../../styles/crud-styles.js';
 
 export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
   static styles = [
@@ -25,7 +26,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
           margin-bottom: 1.5rem;
       }
       .actions {
-          background-color: var(--dile-primary-dark-color);
+          background-color: var(--dile-primary-dark-color, #d7d353);
           padding: 0.5rem;
           display: flex;
           justify-content: flex-end;
