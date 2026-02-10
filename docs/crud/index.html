@@ -39,6 +39,30 @@ that library.</blockquote>
   Each project may require different Axios configurations, so this package is open to various setups to adapt to
   the needs of each application and web services.
 </p>
+
+<h2>CRUD CLI </h2>
+
+<p>
+  To use CRUD components in a more comfortable and agile way, you can rely on the CLI that allows generating the *scaffolding* for each of the pieces of the CRUD system.
+</p>
+<p>
+  You can find summarized information on how to install this tool on the dedicated <a href="/cli/">CRUD CLI</a> page.
+</p>
+<h3>
+  Generating Components for Entity Management
+</h3>
+<p>
+There is a command that allows you to create the scaffolding for all the components needed to manage a CRUD entity at once—from the list component, the single component with item details, to the forms for inserting and editing the entity.
+</p>
+<p>
+For example, if you want to create the components for managing the users entity CRUD, you can run this command:
+</p>
+
+<pre><code class="language-bash">dile g-entity user --endpoint=https://example.com/api/users
+</code></pre>
+<p>In addition to the necessary components, this command creates the <a href="https://dile-components.com/crud/resource-config/">resource configuration module</a> with default settings that you can quickly edit.</p>
+
+
 <h2>CRUD Configuration </h2>
 <p>
 Due to the complexity of operations and the need to adapt to different types of projects, it is important to consider
@@ -59,9 +83,6 @@ some configuration aspects.
 </ul>
   
 </p>
-
-
-
 
 <h2>Modules and components in this package</h2>
 

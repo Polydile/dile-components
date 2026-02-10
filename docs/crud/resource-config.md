@@ -10,6 +10,25 @@ The more advanced components in the CRUD library require a configuration object 
 
 This configuration object is typically used for each API resource you want to manage with the CRUD system.
 
+## Generating CRUD Resource Config
+
+Using the Dile CLI, you can quickly generate the configuration object for CRUD system components.
+
+1. [Install the CLI as indicated on this page](/cli/)
+2. Run the command `dile g-resource-config <resource>`
+
+Example:
+
+```bash
+dile g-resource-config country --endpoint https://example.com/api/countries
+```
+
+Find more information on `g-resource-config` configurations using the following help command:
+
+```bash
+dile g-resource-config --help
+```
+
 ## Default Configuration
 
 There are default definitions for the configuration object, which can be found in the `lib/defaultConfig.js` file. See the [default config file on GitHub](https://github.com/Polydile/dile-components/blob/master/packages/crud/lib/defaultConfig.js).
@@ -37,10 +56,6 @@ Once the `CrudConfigBuilder` instance is created, you can call the `getConfig()`
 ```javascript
 countryConfig.getConfig();
 ```
-
-## Available configuration options
-
-
 
 
 ## Creating a Configuration Module for Each Resource
