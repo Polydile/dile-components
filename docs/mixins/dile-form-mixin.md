@@ -25,7 +25,25 @@ class MyElement extends DileForm(LitElement) {
 }
 ```
 
-### Requirements
+## Create a form using the CLI
+
+Dile Components provides a CLI that offers the essential scaffolding for a form component, where the DileForm mixin is applied.
+
+Once the [CLI is installed](/cli/), you can create form components with this command:
+
+```bash
+dile g-form <component-name>
+```
+
+This command will create the component in the folders defined in `dile.config.js` or, by default, in `src/components` if no configuration file exists. Additionally, it's possible to generate the form with examples of various components already included, to facilitate the integration of diverse form fields.
+
+To see the complete help for this command, run it like this:
+
+```bash
+dile g-form --help
+```
+
+### Form element requirements
 
 This mixin apply some methods to the components to recognize and operate whith forms. To be recognized the form elements should have:
 

@@ -59,6 +59,22 @@ This component is based on elements such as `dile-crud-list`, `dile-crud-insert`
 - **crud-item-insert**: Dispatched when the system shows the insert form.
 - **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties `msg` with a message from the server response, `action` with the name of the action being responded to, and `data` with any additional data that the backend may have sent as a response. Of course, the backend shoul be developed to send all this data.
 
+## Generating CRUD Components for Entities with the CLI
+
+You can use the [Dile Components CLI](/cli/) to create the scaffolding for CRUD components that are already configured for use with `dile-crud`. To do this, run the following command:
+
+```bash
+dile g-crud post/post-crud
+```
+
+> This command requires that the resource configuration file has been generated previously, which can be done with the CLI command `g-resource-config`. You can find more information on the [resource configuration page](/crud/resource-config/).
+
+You can get the help with the complete options for this command by running:
+
+```bash
+dile g-crud --help
+```
+
 ## Configuration
 
 Please refer to the [general documentation on the CRUD library](/crud/) to find the established mechanisms for configuring the `dile-crud` component.

@@ -47,6 +47,8 @@ All these functionalities are achieved by applying a mixin to the form found in 
 
 You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin/) for more information.
 
+> A [Dile Components CLI](/cli/) command can generate the scaffolding for form components suitable for working with ajax-form. You can find the complete information on the [DileForm mixin](/mixins/dile-form-mixin/) documentation page.
+
 ### Properties
 
 - **operation**: String, can have two possible values: "insert" or "update".

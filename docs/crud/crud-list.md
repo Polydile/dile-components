@@ -89,6 +89,8 @@ You can learn how to create configuration objects on the page that explains the 
 
 The list components require a template to implement the list items. This template typically uses a component that receives the item object as an attribute to render it.
 
+> Here you can [find more information on how to create components for list items](/crud/crud-list-item/), as well as examples and a guide to generate their scaffolding using the [Dile Components CLI](/cli/).
+
 In this first example, you can find the implementation of a list item. 
 
 {% include "componentes-crud/country-item.md" %}

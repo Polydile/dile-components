@@ -54,6 +54,24 @@ Particularly useful events include:
 
 Refer to the documentation of other components to discover many more events available in `dile-crud-single`.
 
+
+## Generating Single Components with the CLI
+
+You can use the [Dile Components CLI](/cli/) to create the scaffolding for single components from `@dile/crud` that are already configured for use with `dile-crud-single`. To do this, run the following command:
+
+```bash
+dile g-single post/post-single
+```
+
+> This command requires that the resource configuration file has been generated previously, which you can do using the CLI command `g-resource-config`. More information is available on the [resource configuration page](/crud/resource-config/).
+
+If you want to see the help with the complete options for this command, run:
+
+```bash
+dile g-single --help
+```
+
+
 ## Configuration
 
 Please refer to the [general documentation](/crud/) to find the established mechanisms for configuring the `dile-crud` component.

@@ -35,7 +35,7 @@ Use the component.
   method="post"
 ></dile-crud-item-restore>
 <script>
-  document.querySelector('dile-crud-item-restore').delete(1);
+  document.querySelector('dile-crud-item-restore').restore(1);
 </script>
 ```
 

@@ -50,6 +50,21 @@ Use the component.
 - **crud-item-detail-loaded**: This event is dispatched when the item details have been successfully loaded from the API. The event detail includes the loaded data.
 - **crud-item-detail-load-error**: This event is dispatched when there is an error loading the item details from the API. The event detail includes the error encountered message and data of the server response.
 
+
+## Generating detail components with the CLI
+
+You have the `g-detail` command from Dile Components CLI available to generate detail components.
+
+```bash
+dile g-detail user-detail
+```
+
+You can find complete help for this command with `--help`:
+
+```bash
+dile g-detail --help
+```
+
 ## Configuration
 
 For this component to function properly, it is necessary to apply the configurations mentioned on the [CRUD system documentation page](/crud/).

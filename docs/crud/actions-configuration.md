@@ -79,6 +79,20 @@ In the action component, you can include:
 - Explanatory text for the action, with paragraphs or other HTML elements you wish to incorporate.
 - As many form fields as needed, typically using form components from `@dile/ui` catalog or other form components that implement the basic functionalities for setting and retrieving data via `DileForm`.
 
+#### Generating action form components with the CLI
+
+[Dile Components CLI](/cli/) allows you to create action component scaffolding using the `g-action` command:
+
+```bash
+dile g-action verify-user-action
+```
+
+You can get the complete help for this command to see its configuration options by running:
+
+```bash
+dile g-action --help
+```
+
 ### Examples of Action Form on Crud Components
 
 #### Action Without Form Fields
