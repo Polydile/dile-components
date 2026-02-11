@@ -8,7 +8,7 @@ tags: configuration
 
 The dile-components catalog provides a CLI that lets you generate components which require careful configuration work, especially those from the `@dile/crud` package, saving a significant amount of development effort.
 
-You can find this project in the [dile-cli GitHub repository](https://github.com/Polydile/dile-cli), where you'll find all the documentation that provides a complete guide on how to use it, the available commands, and their various configuration options.
+You can find this project in the [dile-cli GitHub repository](https://github.com/Polydile/dile-cli) and the [Dile CLI documentation page](https://cli.dile-components.com), where you'll find all the documentation that provides a complete guide on how to use it, the available commands, and their various configuration options.
 
 On this page, you can find some basic instructions as a summary.
 
