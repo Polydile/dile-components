@@ -11,7 +11,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
      */
 
     /**
-     * Liten to the native input event to recive text input updates
+     * Listen to the native input event to receive text input updates
      *
      * @event input
      */

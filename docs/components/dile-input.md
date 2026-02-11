@@ -48,28 +48,33 @@ Use the component
 
 ## Properties
 
-- **name**: the name of the input element. This is usefull to distinguish the related element in an input event listener.
+- **name**: the name of the input element. This helps identify which input triggered an event.
 - **label**: the element label
 - **type**: the input type
 - **value**: defines the text inside the input element
-- **placeholder**: Defines the texts present in the input element when is empty
+- **placeholder**: Defines the text displayed in the input element when empty
 - **disabled**: when true, the element is disabled
 - **readonly**: when true, is not editable
 - **errored**: when true, the element is marked as error
 - **disableAutocomplete**: when true, the input autocomplete HTML featured is disabled
-- **selectOnFocus**: allways select the content of the input on focus
-- **message**: optionaly, the input can display a message
+- **selectOnFocus**: always select the content of the input on focus
+- **message**: optionally, the input can display a message
 - **labelRight**: text placed on the right side of the input
-- **hideErrorOnInput**: when true, the errored state truns off when the user changes the input element and the message is cleared
-- **focusOnStart**: when true, Set the application focus to this the input component after the initialization
+- **hideErrorOnInput**: when true, the errored state turns off when the user changes the input element and the message is cleared
+- **focusOnStart**: when true, set application focus to this input component after initialization
+
+## Form Integration
+
+This component is a form-associated element, meaning it integrates seamlessly with native HTML forms. The input value is automatically synchronized with the form state.
 
 ## Useful Methods
 
 - **focus()**: focus the input element
+- **clearError()**: removes the errored state and clears the error message
 
 ## Events
 
-- **input**: This element acts as an native input element. So, you can listen the native `input` event.
+- **input**: This is a native input element. You can listen to the native `input` event.
 
 ```javascript
 inputField.addEventListener('input', (e) => {
