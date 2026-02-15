@@ -27,6 +27,8 @@ export class DileHamburger extends LitElement {
         border: 0;
         margin: 0;
         overflow: visible;
+        position: relative;
+        top: var(--dile-hamburguer-position-top, -1px);
       }
       .hamburger:hover {
         opacity: 0.7;

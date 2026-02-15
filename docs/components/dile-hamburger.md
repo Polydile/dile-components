@@ -51,6 +51,8 @@ Custom property | Description | Default
 --dile-hamburger-width | Width of the entire icon | 24px
 --dile-hamburger-height | Height of the entire icon | 24px
 --dile-hamburger-line-separation | Separation between lines, only in inactive state icon | -6px
+--dile-hamburguer-position-top | Hamburger relative position | -1px
+
 
 ## dile-hamburger demos
 
