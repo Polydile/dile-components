@@ -3,13 +3,12 @@ import { store } from '../redux/store';
 import { modalMessage } from '@dile/lib';
 import { FeedbackMixin } from '../mixins/FeedbackMixin';
 
-const logo = new URL('./assets/logo-polydile.svg', import.meta.url).href;
-
 export class DemoApp extends FeedbackMixin(LitElement) {
   static styles = [
     css`
       :host {
         display: block;
+        --dile-on-primary-color: #fff;
       }
       dile-nav span {
         font-weight: bold;
@@ -50,8 +49,7 @@ export class DemoApp extends FeedbackMixin(LitElement) {
     return html`
       <dile-nav menu="right">
         <span slot="title">
-          <img alt="Polydile logo" src=${logo} />
-          App title
+          App title molon
         </span>
         <dile-menu-hamburger hamburgerAlwaysVisible slot="menu">
           <nav class="app-menu" slot="menu">
