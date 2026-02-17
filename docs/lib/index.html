@@ -1,9 +1,9 @@
 ---
 layout: layout.html
-title: Crud Components
+title: Lib Components and mixins
 ---
 
-<h1>Lib Components</h1>
+<h1>Lib Components and mixins</h1>
 <p>
   @dile/lib is a package that contains components for easily creating apps, integrating common features with minimal effort.
 </p>
@@ -36,9 +36,22 @@ title: Crud Components
 <li>To sync components with the Redux store</li>
 </ul>
 <h2>Dependencies of @dile/lib</h2>
-<p>While other components and utilities from <code>dile-components</code> are designed to work independently, without enforcing a specific technology stack beyond Web Components and Lit, <code>@dile/lib</code> does define a couple of key dependencies that may or may not be preferred by all developers:</p>
+<p>
+  While other components and utilities from Dile Components are designed to work independently, without enforcing a specific technology stack beyond Web Components and Lit, <code>@dile/lib</code> does define a couple of extra key dependencies that must be used to unlock its full potential:
+</p>
 <ul>
 <li>Redux and Redux Toolkit</li>
 <li>Lit Router</li>
 </ul>
-<p>In any case, by using this library of modules, components, and mixins, starting a new app will be much faster than building everything from scratch. The benefits clearly justify the additional dependencies added to your project.</p>
+<p>
+  In any case, by using this library of modules, components, and mixins, starting a new app will be much faster than building everything from scratch. The benefits clearly justify the additional dependencies added to your project.
+</p>
+
+<h2>Getting started</h2>
+
+<p>To start using <code>@dile/lib</code>, you need to install the package:</p>
+
+<pre><code class="language-bash">npm install @dile/lib</code></pre>
+
+<p>Once installed, we recommend beginning with Redux implementation in your application, using the store generation utilities provided by this library.</p>
+<p>You can find more information on the <a href="/lib/redux-implementation/">Redux implementation page</a>.</p>
