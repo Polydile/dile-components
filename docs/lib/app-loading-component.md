@@ -3,54 +3,59 @@ layout: layout.html
 title: App Loading Component
 ---
 
+
 # App Loading Component
 
-En @dile/lib se encuentra un componente de carga (loading/spinner) que se enlaza de manera cómoda al store de Redux, permitiendo recibir las solicitudes de inicio y fin de operaciones de carga emitidas por [FeedbackMixin](/lib/feedback-mixin/).
+In **@dile/lib** you can find a loading/spinner component that connects easily to the Redux store, allowing it to receive loading start and end requests emitted by the [FeedbackMixin](/lib/feedback-mixin/).
 
 ## Usage
 
-Para poder usar este componente necesitamos:
+To use this component, you need to:
 
-- Haber instalado @dile/lib
-- Haber configurado el store, con las indicaciones de [implementación de Redux](/lib/redux-implementation/).
+- Install **@dile/lib**.
+- Have configured your store following the [Redux implementation](/lib/redux-implementation/) guidelines.
 
-### Factoría de componentes
 
-En realidad App Loading Component es una función factoría de componentes, no un componente en sí. Por tanto, hay que invocar la factoría para poder crear la clase del componente.
+### Component Factory
 
-A la factoría le tenemos que enviar el store con el que deseamos que el componente se enlace.
+Actually, the App Loading Component is a component factory function, not a component itself.  
+Therefore, you must call the factory to create the component class.
 
-El código de ejemplo se puede ver a continuación:
+You need to provide the store you want the component to connect to as an argument to the factory.
+
+Here’s an example code snippet:
 
 ```javascript
 import { DileAppLoading } from "@dile/lib";
 import { store } from "../../redux/store.js";
 
+
 customElements.define('dile-app-loading', DileAppLoading(store));
 ```
 
-- DileAppLoading es la factoría de componentes.
-- El import del store debe obtener el store implementado en tu propia aplicación
-- El customElements.define() realiza el registro del componente.
-  - El primer parámetro 'dile-app-loading' indica el nombre del componente que estás creando. Puedes personalizarlo a tu gusto, ya que este código debe residir en tu propia aplicación.
-  - El segundo parámetro DileAppLoading(store) ejecuta la factoría del componente, enviando el store de tu aplicación.
+- `DileAppLoading` is the component factory.  
+- The `store` import must refer to the `store` implemented in your own application.  
+- The `customElements.define()` call registers the component.  
+  - The first parameter `'dile-app-loading'` is the component name you are creating. You can customize it as you wish since this code resides in your application.  
+  - The second parameter `DileAppLoading(store)` executes the component factory, passing in your application’s store.
 
-### Implementar tu propio componente registrado
+### Implementing Your Own Registered Component
 
-Una vez registrado el componente simplemente lo debes de incluir en tu aplicación, lo que generalmente se hará en el componente raíz.
+Once the component is registered, you simply include it in your application, typically in the root component.
 
-Primero tendrás que importar tu componente, de la ruta donde lo hayas definido.
+First, import your component from the path where you defined it:
 
 ```javascript
 import './feedback/dile-app-loading.js';
 ```
 
-Luego tendrás que usar el componente mediante la etiqueta que has usado al registrarlo, en este caso 'dile-app-loading'.
+Then, use the element tag you used during registration, in this case `'dile-app-loading'`:
 
 ```html
 <dile-app-loading></dile-app-loading>
 ```
 
-Eso es todo! el componente estará activo esperando las solicitudes de inicio y fin de carga.
+That’s it! The component will now be active, ready to handle the start and end loading requests.
 
-> Dado que el componente está enlazado con el store de Redux no es necesario hacer ningún tipo de binding para recibir datos de otros componentes de la aplicación, simplemente lo activaremos con los métodos proporcionados en [Feedback Mixin](/lib/feedback-mixin/) (como `startLoading()` y `stopLoading()`).
+> Since the component is connected to the Redux store, you don’t need to create any manual data bindings to receive updates from other components. You can simply trigger it using the methods provided by the [Feedback Mixin](/lib/feedback-mixin/) (such as `startLoading()` and `stopLoading()`).
+```  

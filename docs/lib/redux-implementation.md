@@ -3,48 +3,48 @@ layout: layout.html
 title: Redux implementation to use Lib Components
 ---
 
-# Implementación de Redux en @dile/lib
+# Redux Implementation in @dile/lib
 
-El package @dile/lib requiere el uso de Redux y Redux Toolkit para ofrecer todo su potencial, ya que los componentes usan esta librería para propagar el estado de elementos como:
+The **@dile/lib** package requires Redux and Redux Toolkit to unlock its full potential, as components use this library to propagate state for elements like:
 
-- Cajas de diálogo para feedbak al usuario
-- Almacenamiento del usuario logueado en la aplicación
+- User feedback dialogs  
+- Logged-in user storage  
 
-> A veces se dice que Redux es complicado para lo que ofrece, pero desde la aparición de Redux Toolkit las cosas se han simplificado mucho, por lo que no consideramos que sea una librería problemática y apreciamos las ventajas que nos ofrece.
+> Redux is sometimes called overly complex for what it offers, but since Redux Toolkit appeared, things have simplified greatly. We don’t consider it problematic and value its benefits.
 
 ## Redux slices
 
-Para facilitar la integración de Redux en las aplicaciones ahora tenemos [Redux Toolkit](https://redux-toolkit.js.org/), que elimina la mayor parte del código boilerplate.
+To simplify Redux integration in applications, we now have [Redux Toolkit](https://redux-toolkit.js.org/), which eliminates most boilerplate code.
 
-Para facilitar todavía más las cosas @dile/lib ofrece algunas utilidades que permitirán crear los slices de Redux para la gestión del componentes de diálogo y gestión del usuario.
+**@dile/lib** provides utilities to create Redux slices for dialog components and user management even more easily.
 
 ### feedbackSlice
 
-Este slice de Redux Toolkit nos ofrece numerosas utilidades para gestión de componentes de diálogo.
+This Redux Toolkit slice offers utilities for managing dialog components.
 
-Podemos importarlo así:
+Import it like this:
 
 ```javascript
 import { feedbackSlice } from '@dile/lib';
 ```
 
-Para interactuar con las acciones de feedback en los componentes de tu aplicación puedes implementar el [DileFeedback mixin](/lib/feedback-mixin/), que te ofrece toda una serie de métodos para conseguir gestionar diversos tipos de cajas de diálogo y estados de carga.
+To interact with feedback actions in your application components, implement the [DileFeedback mixin](/lib/feedback-mixin/), which provides methods to manage various dialog types and loading states.
 
 ### userSlice
 
-Este slice nos permite implementar el estado típico necesario para almacenar el usuario de la aplicación.
+This slice enables the typical state needed to store the application user.
 
-Se puede importar así:
+Import it like this:
 
 ```javascript
 import { userSlice } from '@dile/lib';
 ```
 
-## Implementación del store
+## Store implementation
 
-Para usar esos slices y las acciones que nos ofrecen simplemente tenemos que crear un store en nuestro proyecto, que podremos alojar en el archivo que consideremos necesario, típicamente en la ruta `src/js/redux/store.js`.
+To use these slices and their actions, create a store in your project. Place it in a suitable file, typically at `src/js/redux/store.js`.
 
-El código para configurar el store, usando Redux Toolkit y los slices de @dile/lib sería el siguiente:
+Here’s the code to configure the store using Redux Toolkit and **@dile/lib** slices:
 
 ```javascript
 import { configureStore } from '@reduxjs/toolkit';
@@ -59,4 +59,4 @@ export const store = configureStore({
 });
 ```
 
-Por supuesto, tú puedes agregar cualquier otro slice que juzgues oportuno para gestionar el estado global de tu aplicación.
+You can add any other slices you need for managing your application’s global state.
