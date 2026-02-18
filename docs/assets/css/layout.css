@@ -119,9 +119,8 @@ blockquote p:last-child {
 :not(pre) > code {
     font-family: 'Courier New', Courier, monospace;
     background-color: #f5f5f5;
-    color:rgb(106, 13, 36);
-    padding: 2px 4px;
-    font-size: 95%;
+    color:rgb(75, 15, 30);
+    padding: 2px 6px;
     border-radius: 4px;
 }
 .darkmodemobile {
