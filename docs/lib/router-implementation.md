@@ -9,108 +9,36 @@ The **@dile/lib** package provides a procedure to implement the **@[lit-labs/rou
 
 > **URLPattern** is a modern feature available in all current browsers. It may not work in older browsers, where you’d need a [urlpattern polyfill](https://github.com/kenchris/urlpattern-polyfill).
 
-## DileAppRouter Mixin
+## Getting Started
 
-This mixin installs in your application’s root component and separates routing logic, avoiding most boilerplate code for route registration.
+To manage the routing system in an SPA application, you'll need to follow these steps:
 
-### Import DileAppRouter
+### Implement the DileAppRouter Mixin
 
-Import the mixin into the root component:
+In your application's root component, implement the `DileAppRouter` mixin, which allows you to quickly apply the routes your application will manage. You'll need to declare the routes in an array and then pass them to the mixin's `createRoutes()` method.
 
-```javascript
-import { DileAppRouter } from '@dile/lib';
-```
+Additionally, this mixin defines navigation event handlers in your root component, which are important for programmatic navigation components to work properly.
 
-### Implement the mixin
+You can find complete information on the [DileAppRouter documentation page](/lib/router-mixin/).
 
-Extend the root component with the mixin:
+### Use the Programmatic Navigation Mixin
 
-```javascript
-export class DileApp extends DileAppRouter(LitElement) {
-  // Class content
-}
-```
+If you need to perform programmatic navigation in any component, you can rely on the `goToUrl()` method provided by the `DileAppNavigate` mixin.
 
-### Register routes
+All the information is available on the [DileAppNavigate mixin documentation page](/lib/navigate-mixin/).
 
-In the root component, use the `createRoutes()` method provided by this mixin to register routes. Do this in the component’s constructor.
+### Use the DileRouterLink Component
 
-```javascript
-constructor() {
-  super();
-  this.createRoutes(routes);
-}
-```
+A more direct alternative to implement navigation through the routing system is to use the `DileRouterLink` component from the `@dile/lib` package.
 
-Finally, place the router outlet in the `render()` method of your root component where you want routed pages to appear.
+You can find all the implementation information in the [DileRouterLink documentation](/lib/router-link-component/).
 
-```javascript
-render() {
-  return html`
-  <main class="container">
-    ${this._routes.outlet()}
-  </main>
-`;
-}
-```
+## When traditional links are detected by the Routing System
 
-### Route declaration
+All links you place in your app root component will be detected by the routing system, to prevent the default behavior and produce navigation without reloading the entire page. This is the desired behavior for a single-page application, as we don't want the whole page to reload when clicking a navigation link.
 
-To declare the routes we pass to the mixin’s createRoutes() method, create an array of objects through which each route can be defined.
+Additionally, any links in components rendered within the router outlet will also be captured by the routing system to enable navigation without a full page reload.
 
-In the following example, you can see several route declarations that implement the route, introducing parameters in some cases, along with the view to display for each route. Additionally, through the `enter()` callback, you can define actions to perform when entering the route, where you can perform dynamic imports to implement lazy loading of the route components.
+However, if your root component contains other components with their own shadow DOM, the links might not navigate as desired and could instead cause a full page reload.
 
-Additionally, there are other callbacks and utilities for declaring routes that can be found in the documentation. Refer to the @[lit-labs/router](https://www.npmjs.com/package/@lit-labs/router) library documentation for more information.
-
-```javascript
-import { html } from 'lit';
-
-export const routes = [
-  {
-    path: '/', render: () => {
-      return html`<tm-page-home></tm-page-home>`
-    }
-  },
-  {
-    path: '/games',
-    render: () => html`<mj-board-games></mj-board-games>`,
-    enter: async () => {
-      await import('../components/board-game/mj-board-games.js');
-    },
-  },
-  {
-    path: '/games/:id',
-    render: ({id}) => html`<mj-board-game-single slug="${id || 0}"></mj-board-game-single>`,
-    enter: async () => {
-      await import('../components/board-game/mj-board-game-single.js');
-    },
-  },
-  {
-    path: '/videos',
-    render: () => html`<mj-videos></mj-videos>`,
-    enter: async () => {
-      await import('../components/videos/mj-videos.js');
-    },
-  },
-  {
-    path: '/video-request',
-    render: () => html`<mj-video-requests></mj-video-requests>`,
-    enter: async () => {
-      await import('../components/video-requests/mj-video-requests.js');
-    },
-  },
-  {
-    path: '/videos/:id',
-    render: ({id}) => html`<mj-videos-single videoId="${id || 0}"></mj-videos-single>`,
-    enter: async () => {
-      await import('../components/videos/mj-videos-single.js');
-    },
-  },
-];
-```
-
-### dile-lib-navigate events
-
-This mixin also declares two `dile-lib-navigate` event handlers in the component where it’s implemented. These detect programmatic navigation requests from other components.
-
-These handlers are essential so components like **DileRouterLink** and the **DileAppNavigate** mixin from **@dile/lib** can trigger the routing system and navigate to other pages.
+In such cases, we recommend using the [programmatic navigation mixin](/lib/navigate-mixin/) or the [DileRouterLink component](/lib/router-link-component/).
