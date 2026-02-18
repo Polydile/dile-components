@@ -24,7 +24,7 @@ customElements.define('dile-router-link', DileRouterLink);
 
 Then you can use it in your templates as a replacement for a standard anchor element:
 
-```html:preview
+```html
 <dile-router-link href="/games" title="Games section">
   Go to games
 </dile-router-link>
@@ -38,6 +38,7 @@ The **DileRouterLink** component exposes the following public properties:
 
 - `href` (String): Target URL or path to navigate to when the link is clicked.  
 - `title` (String): Optional title or label for the navigation. It is forwarded to the navigation method and can be used by your routing system (for example, to set the document title).
+- `name` (String): Optional name or identifier for the link. This value is included in the `dile-router-link-clicked` event detail.
 
 Example with both properties:
 
@@ -45,6 +46,26 @@ Example with both properties:
 <dile-router-link href="/videos/123" title="Video details">
   View video
 </dile-router-link>
+```
+
+## Events
+
+The **DileRouterLink** component dispatches the following custom event:
+
+- `dile-router-link-clicked`: Fired when the user clicks the link, before navigation occurs. This event has the following characteristics:
+  - `composed: true` - The event can propagate through the shadow DOM boundary.
+  - `bubbles: true` - The event bubbles up through the DOM tree.
+  - `detail` - Contains an object with the following properties:
+    - `href`: The target URL or path.
+    - `title`: The navigation title.
+    - `name`: The link's identifier.
+
+Example listener:
+
+```javascript
+document.addEventListener('dile-router-link-clicked', (e) => {
+  console.log('Navigation requested:', e.detail);
+});
 ```
 
 ## Styling

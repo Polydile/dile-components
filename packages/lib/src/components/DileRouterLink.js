@@ -18,6 +18,7 @@ export class DileRouterLink extends DileAppNavigate(LitElement) {
     return {
       href: { type: String },
       title: { type: String },
+      name: { type: String },
     };
   }
 
@@ -31,6 +32,17 @@ export class DileRouterLink extends DileAppNavigate(LitElement) {
 
   handleLink(e) {
     e.preventDefault();
+
+    this.dispatchEvent(new CustomEvent('dile-router-link-clicked', {
+      composed: true,
+      bubbles: true,
+      detail: {
+        href: this.href,
+        title: this.title,
+        name: this.name,
+      },
+    }));
+    
     this.goToUrl(this.href, this.title);
   }
 }
