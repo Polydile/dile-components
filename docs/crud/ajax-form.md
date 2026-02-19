@@ -35,7 +35,7 @@ Use the component.
 </dile-ajax-form>
 ```
 
-## dile-ajax-form Requirements 
+### dile-ajax-form Requirements 
 
 For `dile-ajax-form` to work correctly, the form component provided in the slot needs to have some basic functionalities:
 
@@ -52,6 +52,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 ### Properties
 
 - **operation**: String, can have two possible values: "insert" or "update".
+- **method**: String, the HTTP method to be used when sending form data (e.g., 'get', 'post', 'put', 'patch', 'delete'). This property is only considered if no value has been defined in the `operation` property.
 - **endpoint**: String, the URL of the web service with the resource to be inserted or edited.
 - **actionLabel**: String, the text that will appear on the form submission button.
 - **data**: Object, the data object that will be sent to the endpoint, which is automatically obtained by querying the form fields.

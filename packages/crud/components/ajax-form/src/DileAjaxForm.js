@@ -55,6 +55,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
     static get properties() {
       return {
         operation: { type: String },
+        method: { type: String },
         endpoint: { type: String },
         actionLabel: { type: String },
         cancelLabel: { type: String },
@@ -166,7 +167,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             ></dile-ajax>
             <dile-ajax
                 id="ajaxsave"
-                method="${this.saveMethod(this.operation)}"
+                method="${this.saveMethod(this.operation, this.method)}"
                 url="${this.endpoint}${this.operation == 'insert' ? '' : `/${this.relatedId}`}"
                 @ajax-success="${this.doSuccessSave}"
                 @ajax-error="${this.doErrorSave}"
@@ -264,14 +265,26 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         
     }
 
-    saveMethod(operation) {
-        switch(operation) {
-            case 'insert':
-                return 'post';
-            case 'update':
-                return 'put';
+    saveMethod(operation, method) {
+        if(this.operation != '') {
+            switch(operation) {
+                case 'insert':
+                    return 'post';
+                case 'update':
+                    return 'put';
+            }
+        } else if(this.isValidMethod(method)) {
+            return method;
         }
         throw this.translations.ajax_form_not_supported;
+    }
+
+    isValidMethod(method) {
+        if (!method || typeof method !== 'string') {
+            return false;
+        }
+        const validMethods = ['get', 'post', 'put', 'patch', 'delete'];
+        return validMethods.includes(method.toLowerCase());
     }
 
     clearErrors() {
