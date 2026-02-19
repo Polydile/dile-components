@@ -24,7 +24,7 @@ export class AxiosInstanceBuilder {
       axiosConfig.headers.Authorization = configuration.headerAuthorization;
     }
     this.axios = Axios.create(axiosConfig);
-    window.axiosInstance = this.axios;
+    window.axios = this.axios;
   }
 
   getInstance() {
