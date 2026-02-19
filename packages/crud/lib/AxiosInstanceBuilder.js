@@ -23,6 +23,11 @@ export class AxiosInstanceBuilder {
     if(configuration.headerAuthorization) {
       axiosConfig.headers.Authorization = configuration.headerAuthorization;
     }
-    window.axiosInstance = Axios.create(axiosConfig);
+    this.axios = Axios.create(axiosConfig);
+    window.axiosInstance = this.axios;
+  }
+
+  getInstance() {
+    return this.axios;  
   }
 }
