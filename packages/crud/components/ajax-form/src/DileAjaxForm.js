@@ -168,7 +168,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             <dile-ajax
                 id="ajaxsave"
                 method="${this.saveMethod(this.operation, this.method)}"
-                url="${this.endpoint}${this.operation == 'insert' ? '' : `/${this.relatedId}`}"
+                url="${this.generateEndpoint(this.operation, this.method, this.relatedId)}"
                 @ajax-success="${this.doSuccessSave}"
                 @ajax-error="${this.doErrorSave}"
                 language="${this.language}"
@@ -285,6 +285,22 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         }
         const validMethods = ['get', 'post', 'put', 'patch', 'delete'];
         return validMethods.includes(method.toLowerCase());
+    }
+
+    generateEndpoint(operation, method, relatedId) {
+        if (operation === 'insert') {
+            return this.endpoint;
+        } else if (operation === 'update') {
+            return `${this.endpoint}/${relatedId}`;
+        } else if (method) {
+            const methodLower = method.toLowerCase();
+            if (methodLower === 'post') {
+                return this.endpoint;
+            } else if (['put', 'patch', 'delete'].includes(methodLower) && relatedId) {
+                return `${this.endpoint}/${relatedId}`;
+            }
+        }
+        return this.endpoint;
     }
 
     clearErrors() {
