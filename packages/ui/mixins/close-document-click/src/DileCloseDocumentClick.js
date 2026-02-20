@@ -12,18 +12,28 @@
 export const DileCloseDocumentClick = (SuperClass) =>
   class extends SuperClass {
 
+    static closeDocumentHandler = null;
+
     constructor() {
       super()
       if(!DileCloseDocumentClick.elements) {
         DileCloseDocumentClick.elements = [];
       }
-      this.closeDocumentHandler = this.closeAll.bind(this);
     }
 
     connectedCallback() {
       super.connectedCallback();
-      if (!DileCloseDocumentClick.elements.length) {
-        document.addEventListener("click", this.closeDocumentHandler);
+      if (!DileCloseDocumentClick.elements?.length) {
+        if (!DileCloseDocumentClick.closeDocumentHandler) {
+          DileCloseDocumentClick.closeDocumentHandler = () => {
+            if(DileCloseDocumentClick.elements) {
+              for (let ele of DileCloseDocumentClick.elements) {
+                ele.close();
+              }
+            }
+          };
+        }
+        document.addEventListener("click", DileCloseDocumentClick.closeDocumentHandler);
       }
       DileCloseDocumentClick.elements.push(this);
     }
@@ -34,8 +44,7 @@ export const DileCloseDocumentClick = (SuperClass) =>
         (item) => item != this
       );
       if (DileCloseDocumentClick.elements.length == 0) {
-        DileCloseDocumentClick.elements = null;
-        document.removeEventListener("click", this.closeDocumentHandler);
+        document.removeEventListener("click", DileCloseDocumentClick.closeDocumentHandler);
       }
     }
 
