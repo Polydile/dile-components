@@ -11,7 +11,7 @@ This mixin enables any application component to display feedback messages easily
 
 To use this mixin, you must have **@dile/lib** installed as described on the [@dile/lib homepage](/lib/).
 
-It works through Redux, so you need to implement the Redux store and the feedback slice provided by **@dile/lib**, as explained in the [Redux implementation guide](/lib/redux-implementation).
+It works through Redux, so you need to implement the Redux store and the feedback slice provided by **@dile/lib**, as explained in the [Redux implementation guide](/lib/redux-implementation/).
 
 Once you have the store in your application, import it into the component where you want to use **FeedbackMixin** and apply the mixin by providing your application’s store.
 
@@ -116,7 +116,7 @@ this.closeModalFeedback();
 
 ## Required components for mixin operation
 
-As mentioned, these methods dispatch actions from the `redux/feedback-slice` provided by **@dile/lib** and require the store and feedback slice to be properly [integrated into the application](/lib/redux-implementation).
+As mentioned, these methods dispatch actions from the `redux/feedback-slice` provided by **@dile/lib** and require the store and feedback slice to be properly [integrated into the application](/lib/redux-implementation/).
 
 To receive state changes and display feedback messages, your application — typically in the root component or before `</body>` in web pages — needs a component correctly linked to the store.
 

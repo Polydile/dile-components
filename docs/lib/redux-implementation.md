@@ -30,6 +30,8 @@ import { feedbackSlice } from '@dile/lib';
 
 To interact with feedback actions in your application components, implement the [DileFeedback mixin](/lib/feedback-mixin/), which provides methods to manage various dialog types and loading states.
 
+For more information about this slice, see the [**Redux Feedback Slice**](/lib/redux-feedback-slice/) page.
+
 ### userSlice
 
 This slice enables the typical state needed to store the application user.
@@ -39,6 +41,9 @@ Import it like this:
 ```javascript
 import { userSlice } from '@dile/lib';
 ```
+
+For more information about this slice, see the [**Redux User Slice**](/lib/redux-feedback-slice/) page.
+
 
 ## Store implementation
 
@@ -60,3 +65,9 @@ export const store = configureStore({
 ```
 
 You can add any other slices you need for managing your application’s global state.
+
+## State Mixin
+
+To make it easier for your components to subscribe to Redux store changes, you can use **DileState**. This mixin can be implemented in any component where you need to read the state on demand or automatically receive state updates when it changes.
+
+You can find the complete documentation for this utility on the [**DileState** documentation](/lib/state-mixin/) page.
