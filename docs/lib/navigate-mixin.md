@@ -1,6 +1,8 @@
 ---
 layout: layout.html
 title: DileAppNavigate Mixin
+tags: routing
+order: 3
 ---
 
 # DileAppNavigate Mixin

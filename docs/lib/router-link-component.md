@@ -1,17 +1,19 @@
 ---
 layout: layout.html
-title: RouterLink Component
+title: Router link
+tags: 'app components'
+order: 4
 ---
 
 # Router Link Component
 
-The **DileRouterLink** component is a lightweight link element that integrates with the routing system provided by **@dile/lib**. It allows you to perform programmatic navigation using the **[DileAppNavigate** mixin](/lib/navigate-mixin/) instead of relying on the browser’s default link behavior.
+The **DileRouterLink** component is a lightweight link element that integrates with the routing system provided by **@dile/lib**. It allows you to perform programmatic navigation using the [**DileAppNavigate** mixin](/lib/navigate-mixin/) instead of relying on the browser’s default link behavior.
 
 ## Usage
 
 To use this component you need:
 
-- A routing system implemented with the [route library implementation](/lib/router-implementation).  
+- A routing system implemented with the [route library implementation](/lib/router-implementation/).  
 - The [**DileAppRouter** mixin](/lib/router-mixin/) installed in your application’s root component to handle navigation events.
 
 First, import and register the component in your application:

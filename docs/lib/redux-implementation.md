@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: Redux implementation to use Lib Components
+title: Redux implementation
+tags: 'state management'
+order: 1
 ---
 
 # Redux Implementation in @dile/lib
@@ -42,7 +44,7 @@ Import it like this:
 import { userSlice } from '@dile/lib';
 ```
 
-For more information about this slice, see the [**Redux User Slice**](/lib/redux-feedback-slice/) page.
+For more information about this slice, see the [**Redux User Slice**](/lib/redux-user-slice/) page.
 
 
 ## Store implementation

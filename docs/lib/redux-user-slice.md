@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: Redux user slice
+title: User slice
+tags: 'state management'
+order: 3
 ---
 
 # Redux user slice
@@ -9,7 +11,7 @@ Using @dile/lib, you can manage the logged-in user state in a page or applicatio
 
 ## User slice implementation
 
-The implementation of the user slice is detailed on the [Redux utilities implementation](/lib/redux-implementation) page of @dile/lib.
+The implementation of the user slice is detailed on the [Redux utilities implementation](/lib/redux-implementation/) page of @dile/lib.
 
 ## State managed by the user slice
 

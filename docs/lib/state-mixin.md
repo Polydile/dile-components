@@ -1,6 +1,8 @@
 ---
 layout: layout.html
 title: State Mixin
+tags: 'state management'
+order: 5
 ---
 
 # State Mixin

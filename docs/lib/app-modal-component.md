@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: App Modal Component
+title: App Modal
+tags: 'app components'
+order: 2
 ---
 
 # App Modal Component

@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: App Loading Component
+title: App Loading
+tags: 'app components'
+order: 3
 ---
 
 

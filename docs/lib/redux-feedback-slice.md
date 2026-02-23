@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: Redux Feedback Slice
+title: Feedback Slice
+tags: 'state management'
+order: 2
 ---
 
 # Redux Feedback Slice
@@ -9,7 +11,7 @@ The feedback slice is used to centralize and globally provide the necessary mech
 
 ## Feedback slice implementation
 
-The implementation of the slice is detailed on the [Redux utilities implementation](/lib/redux-implementation) page of @dile/lib.
+The implementation of the slice is detailed on the [Redux utilities implementation](/lib/redux-implementation/) page of @dile/lib.
 
 ## Using the slice from the mixin
 

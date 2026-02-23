@@ -1,6 +1,8 @@
 ---
 layout: layout.html
-title: App Toast Component
+title: App Toast
+tags: 'app components'
+order: 1
 ---
 
 # App Toast Component

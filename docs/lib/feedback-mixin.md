@@ -1,6 +1,8 @@
 ---
 layout: layout.html
 title: Feedback Mixin
+tags: 'state management'
+order: 4
 ---
 
 # Feedback Mixin

@@ -1,6 +1,8 @@
 ---
 layout: layout.html
 title: Route library implementation 
+tags: routing
+order: 1
 ---
 
 # Route Library Implementation

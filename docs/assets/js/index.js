@@ -1,5 +1,5 @@
 import './prism.js'
-import '@dile/ui/components/card/card';
+import '@dile/ui/components/card/card.js';
 import '@dile/ui/components/avatar/avatar';
 import '@dile/ui/components/menu-hamburger/menu-hamburger';
 import '@dile/ui/components/nav/nav';

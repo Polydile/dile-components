@@ -1,6 +1,8 @@
 ---
 layout: layout.html
 title: App Router Mixin 
+tags: routing
+order: 2
 ---
 
 # DileAppRouter Mixin
@@ -54,7 +56,7 @@ To declare the routes we pass to the mixin’s createRoutes() method, create an 
 
 In the following example, you can see several route declarations that implement the route, introducing parameters in some cases, along with the view to display for each route. Additionally, through the `enter()` callback, you can define actions to perform when entering the route, where you can perform dynamic imports to implement lazy loading of the route components.
 
-Additionally, there are other callbacks and utilities for declaring routes that can be found in the documentation. Refer to the @[lit-labs/router](https://www.npmjs.com/package/@lit-labs/router) library documentation for more information.
+Additionally, there are other callbacks and utilities for declaring routes that can be found in the documentation. Refer to the [@lit-labs/router](https://www.npmjs.com/package/@lit-labs/router) library documentation for more information.
 
 ```javascript
 import { html } from 'lit';
@@ -107,4 +109,4 @@ export const routes = [
 
 This mixin also declares two `dile-lib-navigate` event handlers in the component where it’s implemented. These detect programmatic navigation requests from other components.
 
-These handlers are essential so components like **DileRouterLink** and the **DileAppNavigate** mixin from **@dile/lib** can trigger the routing system and navigate to other pages.
+These handlers are essential so components like [**DileRouterLink**](/lib/router-link-component/) and the [**DileAppNavigate**](/lib/navigate-mixin/) mixin from **@dile/lib** can trigger the routing system and navigate to other pages.
