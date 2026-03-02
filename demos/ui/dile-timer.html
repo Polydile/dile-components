@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-timer component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/timer/timer.js";
+    import "@dile/ui/components/progress-bar/progress-bar.js";
+  </script>
+  <style>
+
+    .timer {
+      --dile-timer-width: 460px;
+      --dile-timer-height: 78px;
+      --dile-timer-background: #ffffff;
+      --dile-timer-border-radius: 14px;
+      --dile-timer-display-background: #f4f6f8;
+      --dile-timer-title-color: #12354d;
+      --dile-timer-subtitle-color: rgba(18, 53, 77, 0.75);
+      --dile-timer-display-color: #12354d;
+      --dile-timer-button-focus-ring: rgba(123, 185, 61, 0.35);
+    }
+
+    .timer.warm {
+      --dile-timer-width: 350px;
+      --dile-timer-height: 60px;
+      --dile-timer-display-border-radius: 55px;
+      --dile-timer-display-background: rgba(147, 144, 140, 0.12);
+      --dile-timer-finished-display-background: rgba(223, 144, 144, 0.12);
+      --dile-timer-finished-color: #b71c1c;
+      --dile-timer-button-hover-background: rgba(255, 152, 0, 0.10);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-timer component</h1>
+
+    <h2>Timer</h2>
+    <p>
+      <dile-timer
+        id="t1"
+        class="timer"
+        title="Session ends in"
+        subtitle="Finish your action before timeout"
+        duration="15000"
+        tick="100"
+        controls
+        start-text="Start"
+        pause-text="Pause"
+        reset-text="Reset"
+      ></dile-timer>
+    </p>
+    <h2>Customized Timer</h2>
+    <p>
+      <dile-timer
+        class="timer warm"
+        title="Offer ends in"
+        duration="60000"
+        autoStart
+        tick="100"
+        controls
+        start-text="Init"
+        pause-text="Pause"
+        reset-text="Reset"
+      ></dile-timer>
+    </p>
+    <h2>Timer without controls or titles</h2>
+    <p>
+      <dile-timer
+        class="timer warm"
+        duration="120000"
+        autoStart
+        tick="100"
+      ></dile-timer>
+    </p>
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
