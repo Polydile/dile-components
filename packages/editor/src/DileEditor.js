@@ -344,7 +344,6 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
 
   focus() {
     if(this.viewSelected == 'design') {
-      console.log(this.editor);
       this.editor.focus();
     }
     this.textarea.focus();
