@@ -25,6 +25,7 @@ export const DileSelectable = (SuperClass) =>
       this.hashSelection = false;
       this.itemSelectedChangedHandler = this._itemSelectedChanged.bind(this);
       this.onHashChangeHandler = this._onHashChange.bind(this);
+      this.someItemChangedHandler = this.someItemChanged.bind(this);
     }
 
     _onHashChange() {
@@ -64,12 +65,14 @@ export const DileSelectable = (SuperClass) =>
       super.connectedCallback();
       this.addEventListener('dile-item-selected', this.itemSelectedChangedHandler);
       window.addEventListener("hashchange", this.onHashChangeHandler);
+      window.addEventListener("dile-selected-changed", this.someItemChangedHandler);
     }
 
     disconnectedCallback() {
       super.disconnectedCallback();
       this.removeEventListener('dile-item-selected', this.itemSelectedChangedHandler);
       window.removeEventListener("hashchange", this.onHashChangeHandler);
+      window.removeEventListener("dile-selected-changed", this.someItemChangedHandler);
     }
 
     firstUpdated() {
@@ -150,5 +153,13 @@ export const DileSelectable = (SuperClass) =>
 
     getItems() {
       return this.shadowRoot.querySelector('slot').assignedElements({flatten: true});
+    }
+
+    someItemChanged(e) {
+      if(this.selectorId && e.detail.selectorId === this.selectorId) {
+        if(this.selected != e.detail.selected) {
+          this.selected = e.detail.selected;
+        }
+      }
     }
   }
