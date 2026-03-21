@@ -5,7 +5,8 @@ export class DileRouterLink extends DileAppNavigate(LitElement) {
   static styles = [
     css`
       :host {
-        display: inline-block
+        display: inline-block;
+        cursor: pointer;
       }
       a {
         color: var(--dile-router-link-color, inherit);
@@ -22,6 +23,11 @@ export class DileRouterLink extends DileAppNavigate(LitElement) {
     };
   }
 
+  constructor() {
+    super();
+    this.addEventListener('click', (e) => this.handleClick());
+  }
+
   render() {
     return html`
       <a href="${this.href}" @click=${this.handleLink}>
@@ -32,7 +38,9 @@ export class DileRouterLink extends DileAppNavigate(LitElement) {
 
   handleLink(e) {
     e.preventDefault();
+  }
 
+  handleClick() {
     this.dispatchEvent(new CustomEvent('dile-router-link-clicked', {
       composed: true,
       bubbles: true,
