@@ -13,6 +13,7 @@ Find the full documentation and details of the Dile Components catalog at [dile-
 - `@dile/icons`: Templates for integrating SVG icons into your components.
 - `@dile/editor`: A Markdown WYSIWYG (What You See Is What You Get) editor for the web.
 - `@dile/crud`: Customizable and generic CRUD components.
+- `@dile/lib`: A library featuring components and classes designed to simplify frontend application development.
 - `@dile/iconlib`: Icon libraries web components implementations.
 
 To use components from this library, follow the steps below.
