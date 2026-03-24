@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-confirm-text component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/confirm-text/confirm-text.js"
+  </script>
+  <style>
+    h1 {
+      font-weight: 300;
+    }
+    p {
+      margin-top: 0;
+    }
+    h2 {
+      font-weight: 400;
+      font-size: 1.2em;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+    
+    /* Basic demo */
+    #basicConfirm {
+      --dile-modal-background-color: rgba(90, 0, 0, 0.8);
+      --dile-modal-content-shadow-color: rgba(20, 0, 0, 0.5);
+      --dile-confirm-cancel-button-color: #007bff;
+      --dile-confirm-accept-button-color: #dc3545;
+    }
+
+    /* Customized demo */
+    #customizedConfirm {
+      --dile-modal-background-color: rgba(0, 100, 150, 0.9);
+      --dile-modal-content-shadow-color: rgba(0, 50, 100, 0.7);
+      --dile-modal-content-background-color: #f0f8ff;
+      --dile-modal-border-radius: 10px;
+      --dile-modal-width: 90%;
+      --dile-confirm-cancel-button-color: #28a745;
+      --dile-confirm-accept-button-color: #ff9800;
+      --dile-confirm-border-radius-button: 25px;
+      --dile-confirm-padding-button: 10px 15px;
+      --dile-confirm-font-weight-button: bold;
+      --dile-confirm-buttons-text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-confirm-text component</h1>
+    
+    <h2>Basic Demo</h2>
+    <p>A confirm dialog that requires the user to type "CONFIRM" to proceed.</p>
+    <button id="openBasic">Open Basic Confirm</button>
+    
+    <dile-confirm-text 
+      id="basicConfirm"
+      title="Delete Account"
+      acceptLabel="Delete"
+      cancelLabel="Cancel">
+      <p>Are you sure you want to permanently delete your account?</p>
+    </dile-confirm-text>
+
+    <h2>Customized Demo</h2>
+    <p>A confirm dialog with custom text and styling for a sensitive operation.</p>
+    <button id="openCustomized">Open Customized Confirm</button>
+    
+    <dile-confirm-text 
+      id="customizedConfirm"
+      title="Archive All Data"
+      confirmationText="ARCHIVE"
+      inputLabel="Type ARCHIVE to confirm archiving all your data"
+      inputMessage="This action will archive all your data and it cannot be undone easily."
+      wrongTextMessage="You must type ARCHIVE exactly as shown"
+      emptyTextMessage="Please type ARCHIVE in the field above"
+      acceptLabel="Archive Now"
+      cancelLabel="Keep Data">
+      <p>This will archive all your data. Please read carefully before proceeding.</p>
+      <strong>This is an irreversible operation.</strong>
+    </dile-confirm-text>
+    
+    <script>
+      // Basic demo
+      const basicConfirm = document.getElementById('basicConfirm');
+      basicConfirm.addEventListener('dile-confirm-accepted', () => {
+        console.log('Account deletion confirmed');
+        alert('Account has been deleted!');
+      });
+      basicConfirm.addEventListener('dile-confirm-cancelled', () => {
+        console.log('Account deletion cancelled');
+      });
+      document.getElementById('openBasic').addEventListener('click', () => {
+        basicConfirm.open();
+      });
+
+      // Customized demo
+      const customizedConfirm = document.getElementById('customizedConfirm');
+      customizedConfirm.addEventListener('dile-confirm-accepted', () => {
+        console.log('Data archiving confirmed');
+        alert('Your data has been archived!');
+      });
+      customizedConfirm.addEventListener('dile-confirm-cancelled', () => {
+        console.log('Data archiving cancelled');
+      });
+      document.getElementById('openCustomized').addEventListener('click', () => {
+        customizedConfirm.open();
+      });
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
