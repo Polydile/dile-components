@@ -8,7 +8,6 @@ export class DileCrudFiltersList extends LitElement {
                 display: block;
             }
             div {
-                padding: 0.5rem;
                 display: flex;
                 flex-wrap: wrap;
             }
