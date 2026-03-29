@@ -48,7 +48,6 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       relatedId: { type: String },
       element: { type: Object },
       actionIds: { type: Array },
-      getEndpointOverwrite: { type: String },
     };
   }
 
@@ -100,7 +99,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     return html`
       <dile-crud-detail
         id="eldetail"
-        endpoint="${this.getEndpointOverwrite ? this.getEndpointOverwrite : this.config.endpoint}/${this.relatedId}"
+        endpoint="${this.config.endpoint}/${this.relatedId}"
         .itemDetailTemplate=${this.config.templates.detail}
         .responseAdapter=${this.config.responseAdapter}
         @crud-item-detail-loaded=${this.elementLoaded}
