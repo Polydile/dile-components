@@ -60,7 +60,6 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             .insertButtonContainer {
                 display: flex;
                 justify-content: flex-end;
-                margin-bottom: 0.5rem;
             }
             @media(min-width: 400px) {
                 .simplecard {
