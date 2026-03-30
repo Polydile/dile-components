@@ -55,6 +55,10 @@ this.dispatchEvent(new CustomEvent('dile-item-selected', {
 - **attrForSelected**: if its set, this property declares the attribute in the selected items to match the ```selected``` property. 
 - **selectorId** (optional): A property to link this component to a [dile-pages](https://github.com/Polydile/dile-components/tree/master/packages/dile-pages) component and change automaticaly the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
 
+### Methods
+
+- **changeSelectedTo(item)**: set the selected item.
+
 ## Implementations of DileSelectable
 
 There are some components that implements DileSelectable.

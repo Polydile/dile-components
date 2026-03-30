@@ -44,6 +44,10 @@ Use the component.
 - **selectorId** (optional): A property to link this component to a dile-pages component and change automatically the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
 - **hashSelection**: Boolean property. Connects the tabs component with the URL hash. When the component detects changes in the URL hash, it automatically changes its selected tab. Additionally, when a tab is selected, the component updates the URL hash.
 
+### Methods
+
+- **changeSelectedTo(item)**: set the selected item.
+
 ## More complex example
 
 The next example shows how to use the attrForSelected property.
