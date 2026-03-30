@@ -50,6 +50,7 @@ Particularly useful events include:
 
 - **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties the `action` name, the `msg` and `data` with any additional data that the backend may have sent as a response.
 - **crud-item-detail-loaded**: This event is dispatched when the item details have been successfully loaded from the API. The event detail includes the loaded data.
+- **crud-item-detail-load-error**: This event is dispatched when the item details can't be loaded.
 - **crud-update-success**: Dispatched when an update operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.
 
 Refer to the documentation of other components to discover many more events available in `dile-crud-single`.
