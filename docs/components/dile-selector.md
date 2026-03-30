@@ -5,7 +5,7 @@ tags: menu
 
 # dile-selector
 
-Web Component to create easily a generic selector interface from one value between several posibilities.
+Web Component to create easily a generic selector interface from one value between several possibilities.
 
 This component is designed to be used in more complex components, specifically to create a navigation interface.
 
@@ -39,14 +39,14 @@ Use the component.
 
 ## Properties
 
-- **selected**: This property sets the currently selected tab of the interface. By default the selected value need to be an integer, specifying th index of the selected tab (starting at 0 for the first tab, 1 for the second...).
-- **attrForSelected**: This property tells the ```<dile-selector>``` component which attribute need to match the ```selected``` property to set the active tab. By default ```atrrForSelected``` is ```undefined```. In that case the ```selected``` property should be an integer and match to the index of the tab. If you set ```atrrForSelected``` with a value, then the ```selected``` property will be matched with the value of the attribute named in ```attrForSelected```.
-- **selectorId** (optional): A property to link this component to a dile-pages component and change automaticaly the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
+- **selected**: This property sets the currently selected tab of the interface. By default the selected value needs to be an integer, specifying the index of the selected tab (starting at 0 for the first tab, 1 for the second...).
+- **attrForSelected**: This property tells the ```<dile-selector>``` component which attribute needs to match the ```selected``` property to set the active tab. By default ```attrForSelected``` is ```undefined```. In that case the ```selected``` property should be an integer and match to the index of the tab. If you set ```attrForSelected``` with a value, then the ```selected``` property will be matched with the value of the attribute named in ```attrForSelected```.
+- **selectorId** (optional): A property to link this component to a dile-pages component and change automatically the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
 - **hashSelection**: Boolean property. Connects the tabs component with the URL hash. When the component detects changes in the URL hash, it automatically changes its selected tab. Additionally, when a tab is selected, the component updates the URL hash.
 
 ## More complex example
 
-The next example show how to use the attrForSelected property.
+The next example shows how to use the attrForSelected property.
 
 ```html
 <dile-selector selected="posts" attrForSelected="name">
@@ -60,7 +60,15 @@ The next example show how to use the attrForSelected property.
 
 ## Custom Events
 
-- **dile-selected-changed**: When ```selected``` property changes by a user interaction inside the ```<dile-selector>``` component, it dispatch the ```dile-selected-changed``` custom event. You will recive the new selected value in the ```detail``` event object property.
+- **dile-selected-changed**: When ```selected``` property changes by a user interaction inside the ```<dile-selector>``` component, it dispatches the ```dile-selected-changed``` custom event. You will receive the new selected value in the ```detail``` event object property and other useful data:
+
+```json
+{
+  selected: this.selected, // Selected value 
+  selectorId: this.selectorId, // Selector id, used to link to other structures like dile-pages component
+  initializationEvent, // Boolean value, true if it is the first change, on initialization
+}
+```
 
 ## dile-selector-item
 
@@ -72,12 +80,12 @@ If you like to use it you need to import the component.
 import '@dile/ui/components/selector/dile-selector-item.js';
 ```
 
-> The use of this component is not mandatory. If you like to create your own selector element, with a custom UI, we recomend to use the [dile-selector-mixin](/mixins/dile-selector-mixin/)
+> The use of this component is not mandatory. If you like to create your own selector element, with a custom UI, we recommend to use the [dile-selector-mixin](/mixins/dile-selector-mixin/)
 
 ### Properties
 
-- **selected**: make this option selected. This property also changes when the selected element is this item and reflects its value on the host tag.
-- **icon**: Use an icon, from one of this posible values: "navigate_next", "arrow_forward", "star", "label_important", "add"
+- **selected**: makes this option selected. This property also changes when the selected element is this item and reflects its value on the host tag.
+- **icon**: Use an icon, from one of these possible values: "navigate_next", "arrow_forward", "star", "label_important", "add"
 - **href**: Optional url to create a link to that url in the selector item
 
 ## CSS custom properties

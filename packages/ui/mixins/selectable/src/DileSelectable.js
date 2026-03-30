@@ -86,7 +86,7 @@ export const DileSelectable = (SuperClass) =>
       this._onHashChange();
       this.setSelectedItem();
       if(this.selected !== undefined) {
-        setTimeout( () => this.dispatchSelectedChanged(), 500);
+        setTimeout( () => this.dispatchSelectedChanged(true), 500);
       }
     }
 
@@ -136,13 +136,14 @@ export const DileSelectable = (SuperClass) =>
       this.dispatchSelectedChanged();
     }
   
-    dispatchSelectedChanged() {
+    dispatchSelectedChanged(initializationEvent = false) {
       this.dispatchEvent(new CustomEvent('dile-selected-changed', {
         bubbles: true,
         composed: true,
         detail: {
           selected: this.selected,
           selectorId: this.selectorId,
+          initializationEvent,
         }
       }));
     }
