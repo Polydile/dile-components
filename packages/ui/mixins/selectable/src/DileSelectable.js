@@ -150,6 +150,9 @@ export const DileSelectable = (SuperClass) =>
     
     updated(changedProperties) {
       this.setSelectedItem();
+      if(changedProperties.has('selected')) {
+        this.dispatchSelectedChanged();
+      }
     }
 
     getItems() {
