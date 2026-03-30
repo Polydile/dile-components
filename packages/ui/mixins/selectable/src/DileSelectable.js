@@ -150,9 +150,6 @@ export const DileSelectable = (SuperClass) =>
     
     updated(changedProperties) {
       this.setSelectedItem();
-      if(changedProperties.has('selected')) {
-        this.dispatchSelectedChanged();
-      }
     }
 
     getItems() {
@@ -165,5 +162,10 @@ export const DileSelectable = (SuperClass) =>
           this.selected = e.detail.selected;
         }
       }
+    }
+
+    changeSelectedTo(elem) {
+      this.selected = elem;
+      this.dispatchSelectedChanged();
     }
   }
