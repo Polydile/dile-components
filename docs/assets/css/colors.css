@@ -1,0 +1,126 @@
+:root {
+  /* Main colors */
+  --dile-background-color: #ffffff;
+  --dile-on-background-color: #303030;
+  --dile-primary-color: #f3f3ae;
+  --dile-on-primary-color: #303030;
+  --dile-secondary-color: #27a744;
+  --dile-on-secondary-color: #ffffff;
+  --dile-terciary-color: #2789a7;
+  --dile-on-terciary-color: #ffffff;
+  --dile-neutral-color: #f4f4f4;
+  --dile-on-neutral-color: #303030;
+  --dile-alert-error-color: #cf3535;
+  --dile-alert-success-color: #00900f;
+  --dile-alert-warning-color: #d7b740;
+  --dile-alert-neutral-color: #2889a7;
+  --dile-on-alert-color: #ffffff;
+  --dile-danger-color: #e31e1b;
+  --dile-on-danger-color: #ffffff;
+  --dile-link-color: #3399ff;
+
+  /* Color variations */
+  --dile-primary-light-color: #fbfbe9;
+  --dile-on-primary-light-color: #303030;
+  --dile-primary-dark-color: #d7d353;
+  --dile-on-primary-dark-color: #303030;
+  --dile-secondary-light-color: #beed8e;
+  --dile-on-secondary-light-color: #303030;
+  --dile-secondary-dark-color: #43842e;
+  --dile-on-secondary-dark-color: #ffffff;
+  --dile-terciary-light-color: #85d4f0;
+  --dile-on-terciary-light-color: #303030;
+  --dile-terciary-dark-color: #125462;
+  --dile-on-terciary-dark-color: #ffffff;
+  --dile-gray-dark-color: #555555;
+  --dile-on-gray-dark-color: #ffffff;
+}
+
+:root.dark-theme {
+  --dile-background-color: #1e1e1e;
+  --dile-on-background-color: #ffffff;
+
+  --dile-primary-color: #e1e181;
+  --dile-on-primary-color: #1e1e1e;
+
+  --dile-secondary-color: #5fd878;
+  --dile-on-secondary-color: #1e1e1e;
+
+  --dile-terciary-color: #50c4e0;
+  --dile-on-terciary-color: #1e1e1e;
+
+  --dile-neutral-color: #2c2c2c;
+  --dile-on-neutral-color: #ffffff;
+
+  --dile-alert-error-color: #ff6a6a;
+  --dile-alert-success-color: #33cc55;
+  --dile-alert-neutral-color: #58c0da;
+  --dile-on-alert-color: #1e1e1e;
+
+  --dile-danger-color: #ff4b47;
+  --dile-on-danger-color: #ffffff;
+
+  /* Variaciones */
+  --dile-primary-light-color: #f3f3ae;
+  --dile-on-primary-light-color: #1e1e1e;
+  --dile-primary-dark-color: #b5b53e;
+  --dile-on-primary-dark-color: #ffffff;
+
+  --dile-secondary-light-color: #9ff2b1;
+  --dile-on-secondary-light-color: #1e1e1e;
+  --dile-secondary-dark-color: #2a7038;
+  --dile-on-secondary-dark-color: #ffffff;
+
+  --dile-terciary-light-color: #a5e6f8;
+  --dile-on-terciary-light-color: #1e1e1e;
+  --dile-terciary-dark-color: #0e3e49;
+  --dile-on-terciary-dark-color: #ffffff;
+
+  --dile-gray-dark-color: #cccccc;
+  --dile-on-gray-dark-color: #1e1e1e;
+}
+
+:root.dark-theme {
+  --dile-background-color: #303030;
+  --dile-on-background-color: #ffffff;
+
+  --dile-primary-color: #205d5c;
+  --dile-on-primary-color: #ffffff;
+
+  --dile-secondary-color: #5f9cd8;
+  --dile-on-secondary-color: #1e1e1e;
+
+  --dile-terciary-color: #9650e0;
+  --dile-on-terciary-color: #1e1e1e;
+
+  --dile-neutral-color: #2c2c2c;
+  --dile-on-neutral-color: #ffffff;
+
+  --dile-alert-error-color: #ff6a6a;
+  --dile-alert-success-color: #33cc55;
+  --dile-alert-neutral-color: #58c0da;
+  --dile-on-alert-color: #1e1e1e;
+
+  --dile-danger-color: #ff4b47;
+  --dile-on-danger-color: #ffffff;
+  --dile-link-color: #3399ff;
+
+  /* Variaciones */
+  --dile-primary-light-color: #9f9f68;
+  --dile-on-primary-light-color: #000;
+  --dile-primary-dark-color: #204036;
+  --dile-on-primary-dark-color: #ffffff;
+
+  --dile-secondary-light-color: #9fecf2;
+  --dile-on-secondary-light-color: #1e1e1e;
+  --dile-secondary-dark-color: #134f62;
+  --dile-on-secondary-dark-color: #ffffff;
+
+  --dile-terciary-light-color: #d5a5f8;
+  --dile-on-terciary-light-color: #1e1e1e;
+  --dile-terciary-dark-color: #310e49;
+  --dile-on-terciary-dark-color: #ffffff;
+
+  --dile-gray-dark-color: #cccccc;
+  --dile-on-gray-dark-color: #1e1e1e;
+}
