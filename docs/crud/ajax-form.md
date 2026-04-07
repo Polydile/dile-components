@@ -69,6 +69,7 @@ You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin
 - **actionIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the submit button.
 - **cancelIcon**: Object with an icon template (used the same way as the `icon` property in the `dile-icon` component). If defined, the icon is shown instead of the cancel button.
 - **disableClearAfterInsert**: Boolean, if set to `true`, the form will retain its input values after a successful insert operation. See additional details in the "Form cleanup after insert operations" section below.
+- **hideActions**: Boolean, default false. If the hideActions property is set to true, the `dile-ajax-form` component will not display the action buttons. In that case, you need to create your own action buttons and call the `doAction()` method to perform the required action.
 
 ### Methods
 

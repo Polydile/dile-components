@@ -72,6 +72,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         actionIcon: { type: Object },
         cancelIcon: { type: Object },
         disableClearAfterInsert: { type: Boolean },
+        hideActions: { type: Boolean },
       };
     }
 
@@ -139,20 +140,24 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
     }
 
     get actionsTemplate() {
-        return html`
-            <div class="actions">
-                ${this.actionIcon 
-                    ? html`<a href="#" @click=${this.doActionHandler}><dile-icon .icon=${this.actionIcon} class="actionIcon"></dile-icon></a>`
-                    : html`<dile-button @click=${this.doActionHandler}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>`
-                }
-                ${this.showCancelButton ? 
-                    this.cancelIcon 
-                        ? html`<a href="#" @click=${this.doCancel}><dile-icon @click=${this.doActionHandler} .icon=${this.cancelIcon} class="cancelIcon"></dile-icon></a>`
-                        : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.cancelLabelComputed(this.cancelLabel, this.translations)}</dile-button>`
-                    : ''
-                }
-            </div> 
-        `
+        if(! this.hideActions) {
+            return html`
+                <div class="actions">
+                    ${this.actionIcon 
+                        ? html`<a href="#" @click=${this.doActionHandler}><dile-icon .icon=${this.actionIcon} class="actionIcon"></dile-icon></a>`
+                        : html`<dile-button @click=${this.doActionHandler}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>`
+                    }
+                    ${this.showCancelButton ? 
+                        this.cancelIcon 
+                            ? html`<a href="#" @click=${this.doCancel}><dile-icon @click=${this.doActionHandler} .icon=${this.cancelIcon} class="cancelIcon"></dile-icon></a>`
+                            : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.cancelLabelComputed(this.cancelLabel, this.translations)}</dile-button>`
+                        : ''
+                    }
+                </div> 
+            `
+        } else {
+            return '';
+        }
     }
 
     get ajaxComponents() {
