@@ -11,15 +11,16 @@ On every single component documentation, you will find specific instructions on 
 
 ## Package organization
 
-Dile components is managed under several packages of components, agruped by its utility.
+Dile components are managed in several component packages, grouped by utility:
 
-- @dile/ui: User interface components
-- @dile/editor: WYSIWYG editor to create Markdown contents
-- @dile/icons: Icon catalog
-- @dile/utils: General utility components
-- @dile/crud: Generic and customizable CRUD components
+- @dile/ui: User interface web components.
+- @dile/editor: WYSIWYG editor to create Markdown contents.
+- @dile/icons: Popular open‑source icon catalogs provided as custom elements.
+- @dile/utils: General utility components.
+- @dile/crud: Generic and customizable CRUD components.
+- @dile/lib: Components and utilities for easily creating apps.
 
-## 1.- Install any of the web components
+## 1. Install any of the web components
 
 You need to install the package that contains the component you need. For example if you want to use dile-input you should install @dile/ui via npm:
 
@@ -27,10 +28,10 @@ You need to install the package that contains the component you need. For exampl
 npm install @dile/ui
 ```
 
-> Each component documentation has the specific installation instruccions.
+> Each component documentation has the specific installation instructions.
 
 
-## 2.- Import the component
+## 2. Import the component
 
 You can do that with an ESModules import in your Javascript code, usually using the npm package name. 
 
@@ -38,9 +39,9 @@ You can do that with an ESModules import in your Javascript code, usually using 
 import '@dile/ui/components/input/input.js';
 ```
 
-In order process imports with the package name in the browser you will need to use a frontend tool like Vite, Webpack or Rollup. 
+In order to process imports with the package name in the browser you will need to use a frontend tool like Vite, Webpack or Rollup. 
 
-## 3.- Use the component
+## 3. Use the component
 
 This is a simple example of using a web component in your HTML.
 
@@ -52,19 +53,19 @@ This is a simple example of using a web component in your HTML.
 ></dile-input>
 ```
 
-When using the components, it’s also very important to customize them so they match the look & feel of your website. All components include CSS custom properties that let you adjust their appearance, changing things like color, spacing, borders, etc.
+When using the components, it’s also very important to customize them so they match the look and feel of your website. All components include CSS custom properties that let you adjust their appearance, changing things like color, spacing, borders, etc.
 
 To better understand how to customize components globally and create a consistent look across your entire site, we recommend reading the dedicated [theming page](/theming/).
 
 
-## 4.- Read the docs
+## 4. Read the docs
 
 In the component documentation of each component you will find more information about component properties, CSS custom properties, API methods and custom events.
 
-## 5.- Serve Your Project
+## 5. Serve Your Project
 
-There are many development servers to help you in this point. Our recomendation is to use [ViteJS](https://vitejs.dev/) or [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/). 
+There are many development servers to help you in this point. Our recommendation is to use [ViteJS](https://vitejs.dev/) or [web-dev-server](https://modern-web.dev/docs/dev-server/overview/). 
 
-## 6.- Build Your Project
+## 6. Build Your Project
 
-To build your project is necesary to use Webpack, Rollup or similar. At this moment, the best and easiest option is to use ViteJS.
+To build your project is necessary to use Webpack, Rollup or similar. Right now, the best and easiest option is to use [Vite](https://vite.dev/).

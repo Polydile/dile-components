@@ -30,7 +30,7 @@ Custom property | Default | Color
 --dile-alert-neutral-color | #2889a7 | [[color:#2889a7]]
 --dile-on-alert-color | #ffffff | [[color:#ffffff]]
 --dile-danger-color | #e31e1b | [[color:#e31e1b]]
---dile-on-danger-color | #fff | [[color:#fff]]
+--dile-on-danger-color | #ffffff | [[color:#ffffff]]
 
 
 ## Color variations

@@ -81,34 +81,7 @@ some configuration aspects.
   <li>On the <a href="/crud/actions-configuration/">actions configuration page</a>, you will find information on how to
     configure batch actions.</li>
 </ul>
-  
-</p>
 
-<h2>Modules and components in this package</h2>
 
-<div class="Clasification">
-  {% for tag in crudTagsList %}        
-    <dile-card 
-     title="{{ tag | capitalize }}" 
-    >
-      <dile-selector>
-        {% assign sortedComponents = collections[tag] | sort: "data.order" %}
-        {% for component in sortedComponents %}
-          {% include "layout-partials/nav-item.html" %}
-        {% endfor %}
-  
-      </dile-selector>
-    </dile-card>
-  {% endfor %}
 
-  {% if collections.uncategorizedCrud.size > 0 %}
-    <dile-card 
-     title="Other components" 
-    >
-      {% for component in collections.uncategorizedCrud %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-card>
-  {% endif %}
-</div>
 
