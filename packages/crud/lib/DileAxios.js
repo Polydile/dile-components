@@ -9,6 +9,6 @@ export const DileAxios = (superclass) => class extends superclass {
       return window.axios;
     }
     new AxiosInstanceBuilder()
-    return window.axiosInstance;
+    return window.axios;
   }
 }
