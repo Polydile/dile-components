@@ -82,40 +82,20 @@ Cada bloque se define así:
     sourceDir: path.join(__dirname, '../docs/crud'),
     blocks: [
       {
+        title: 'Introduction',
+        suffix: '',
+        documents: ['docs/crud/general-information.md', 'docs/cli/index.md']
+      },
+      {
         title: 'Configuration',
         suffix: 'documentation',
-        documents: ['docs/cli/index.md', 'docs/crud/axios-configuration.md', 'docs/crud/response-adapter.md', 'docs/crud/request-adapter.md', 'docs/crud/resource-config.md', 'docs/crud/actions-configuration.md']
+        documents: ['docs/crud/axios-configuration.md', 'docs/crud/response-adapter.md', 'docs/crud/request-adapter.md', 'docs/crud/resource-config.md', 'docs/crud/actions-configuration.md']
       }
     ]
 }
 
-Cada una de las p
+Cada una de los bloques necesitamos hacer lo mismo con cada uno de los documentos, es decir, copiarlos en la carpeta md y luego listarlos al generar los contenidos de estas secciones especiales.
+
+Adicionalmente, verás que muchos de los archivos .md que sobraron en la carpeta indicada en la sección en este caso "docs/crud" no se encuentran listados en los array "documents" de cada uno de los "blocks". Todos esos archivos quiero que se coloquen también en la sección listados como "Components" con el sufijo "component".
 
 
-<h2>Modules and components in this package</h2>
-
-<div class="Clasification">
-  {% for tag in crudTagsList %}        
-    <dile-card 
-     title="{{ tag | capitalize }}" 
-    >
-      <dile-selector>
-        {% assign sortedComponents = collections[tag] | sort: "data.order" %}
-        {% for component in sortedComponents %}
-          {% include "layout-partials/nav-item.html" %}
-        {% endfor %}
-  
-      </dile-selector>
-    </dile-card>
-  {% endfor %}
-
-  {% if collections.uncategorizedCrud.size > 0 %}
-    <dile-card 
-     title="Other components" 
-    >
-      {% for component in collections.uncategorizedCrud %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-card>
-  {% endif %}
-</div>

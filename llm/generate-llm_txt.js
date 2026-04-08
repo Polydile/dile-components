@@ -29,6 +29,25 @@ const SECTIONS = [
     sourceDir: path.join(__dirname, '../docs/mixins')
   }
 ];
+const BLOCK_SECTIONS = [
+  {
+    key: 'crud',
+    title: 'Crud Components',
+    sourceDir: path.join(__dirname, '../docs/crud'),
+    blocks: [
+      {
+        title: 'Introduction',
+        suffix: '',
+        documents: ['docs/crud/general-information.md', 'docs/cli/index.md']
+      },
+      {
+        title: 'Configuration',
+        suffix: 'documentation',
+        documents: ['docs/crud/axios-configuration.md', 'docs/crud/response-adapter.md', 'docs/crud/request-adapter.md', 'docs/crud/resource-config.md', 'docs/crud/actions-configuration.md']
+      }
+    ]
+  }
+];
 
 /**
  * Extrae el título del frontmatter de un archivo markdown
@@ -133,6 +152,104 @@ function processGeneralInfoPages() {
 }
 
 /**
+ * Procesa una sección con bloques
+ */
+function processBlockSection(blockSection) {
+  const blocks = [];
+  const processedFiles = new Set();
+
+  blockSection.blocks.forEach(block => {
+    const blockFiles = [];
+
+    block.documents.forEach(docPath => {
+      const sourcePath = path.join(__dirname, '../', docPath);
+      
+      if (!fs.existsSync(sourcePath)) {
+        console.warn(`⚠️  Archivo no encontrado: ${sourcePath}`);
+        return;
+      }
+
+      const content = fs.readFileSync(sourcePath, 'utf-8');
+      const fileName = path.basename(docPath);
+      const destPath = path.join(MD_OUTPUT_DIR, blockSection.key, fileName);
+      
+      // Crear directorio si no existe
+      ensureDir(path.dirname(destPath));
+      
+      // Copiar archivo
+      fs.writeFileSync(destPath, content, 'utf-8');
+      
+      // Extraer título del frontmatter
+      const title = extractTitleFromFrontmatter(content) || fileName.replace('.md', '');
+      
+      const mdRelativePath = `md/${blockSection.key}/${fileName}`;
+      blockFiles.push({
+        title,
+        markdownFile: mdRelativePath
+      });
+
+      processedFiles.add(docPath);
+      console.log(`✓ Copiado: ${fileName} → ${destPath}`);
+    });
+
+    blocks.push({
+      title: block.title,
+      suffix: block.suffix,
+      files: blockFiles
+    });
+  });
+
+  return { title: blockSection.title, blocks, processedFiles };
+}
+
+/**
+ * Obtiene archivos no utilizados en una sección con bloques
+ */
+function getUnusedFiles(blockSection, processedDocuments) {
+  const unusedFiles = [];
+
+  if (!fs.existsSync(blockSection.sourceDir)) {
+    console.warn(`⚠️  Directorio no encontrado: ${blockSection.sourceDir}`);
+    return unusedFiles;
+  }
+
+  const mdFiles = fs.readdirSync(blockSection.sourceDir)
+    .filter(file => file.endsWith('.md'))
+    .sort();
+
+  mdFiles.forEach(file => {
+    const fullPath = path.join(blockSection.sourceDir, file);
+    const relativePath = `docs/${blockSection.key}/${file}`;
+    
+    // Verificar si el archivo está en los documentos procesados
+    const isProcessed = Array.from(processedDocuments).some(docPath => 
+      docPath.endsWith(file)
+    );
+
+    if (!isProcessed) {
+      const content = fs.readFileSync(fullPath, 'utf-8');
+      const destPath = path.join(MD_OUTPUT_DIR, blockSection.key, file);
+      
+      // Copiar archivo
+      ensureDir(path.dirname(destPath));
+      fs.writeFileSync(destPath, content, 'utf-8');
+      
+      // Extraer título del frontmatter
+      const title = extractTitleFromFrontmatter(content) || file.replace('.md', '');
+      
+      unusedFiles.push({
+        title,
+        markdownFile: `md/${blockSection.key}/${file}`
+      });
+
+      console.log(`✓ Copiado (no utilizado): ${file} → ${destPath}`);
+    }
+  });
+
+  return unusedFiles;
+}
+
+/**
  * Genera el contenido del llm.txt
  */
 function generateLlmTxt(structure) {
@@ -141,20 +258,53 @@ function generateLlmTxt(structure) {
   structure.forEach(section => {
     content += `## ${section.title}\n\n`;
     
-    section.files.forEach(file => {
-      if (section.suffix) {
-        // Formato con enlace absoluto y sufijo
-        const linkText = `${file.title} ${section.suffix}`;
-        const url = `${BASE_URL}${file.markdownFile}`;
-        content += `- [${linkText}](${url})\n`;
-      } else {
-        // Formato para secciones sin sufijo (General Information)
-        const url = `${BASE_URL}${file.markdownFile}`;
-        content += `- [${file.title}](${url})\n`;
+    // Si tiene bloques (sección especial)
+    if (section.blocks) {
+      section.blocks.forEach(block => {
+        if (block.title) {
+          content += `### ${block.title}\n\n`;
+        }
+
+        block.files.forEach(file => {
+          if (block.suffix) {
+            const linkText = `${file.title} ${block.suffix}`;
+            const url = `${BASE_URL}${file.markdownFile}`;
+            content += `- [${linkText}](${url})\n`;
+          } else {
+            const url = `${BASE_URL}${file.markdownFile}`;
+            content += `- [${file.title}](${url})\n`;
+          }
+        });
+        
+        content += '\n';
+      });
+
+      // Agregar archivos no utilizados como componentes si existen
+      if (section.unusedFiles && section.unusedFiles.length > 0) {
+        content += `### Components\n\n`;
+        section.unusedFiles.forEach(file => {
+          const linkText = `${file.title} component`;
+          const url = `${BASE_URL}${file.markdownFile}`;
+          content += `- [${linkText}](${url})\n`;
+        });
+        content += '\n';
       }
-    });
-    
-    content += '\n';
+    } 
+    // Si es una sección simple con archivos
+    else if (section.files) {
+      section.files.forEach(file => {
+        if (section.suffix) {
+          const linkText = `${file.title} ${section.suffix}`;
+          const url = `${BASE_URL}${file.markdownFile}`;
+          content += `- [${linkText}](${url})\n`;
+        } else {
+          const url = `${BASE_URL}${file.markdownFile}`;
+          content += `- [${file.title}](${url})\n`;
+        }
+      });
+      
+      content += '\n';
+    }
   });
 
   return content;
@@ -169,11 +319,22 @@ async function main() {
   // Procesar páginas de información general primero
   const generalInfo = processGeneralInfoPages();
   
-  // Procesar cada sección
+  // Procesar cada sección simple
   const sections = SECTIONS.map(section => processSection(section));
 
-  // Construir la estructura completa (general info al principio)
-  const structure = [generalInfo, ...sections];
+  // Procesar block sections
+  const blockSections = BLOCK_SECTIONS.map(blockSection => {
+    const blockData = processBlockSection(blockSection);
+    const unusedFiles = getUnusedFiles(blockSection, blockData.processedFiles);
+    return {
+      title: blockData.title,
+      blocks: blockData.blocks,
+      unusedFiles
+    };
+  });
+
+  // Construir la estructura completa (general info, secciones simples, luego block sections)
+  const structure = [generalInfo, ...sections, ...blockSections];
 
   // Asegurar que el directorio de salida existe
   const outputDir = path.dirname(LLM_TXT_OUTPUT);

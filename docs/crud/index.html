@@ -3,85 +3,43 @@ layout: layout.html
 title: Crud Components
 ---
 
-<h1>Crud Components</h1>
+<h1>Dile Components Crud System</h1>
 <p>
-  @dile/crud is a package that contains components for easily creating dynamic CRUD systems with a rich user experience.
-</p>
-<p>
-  It is a collection of components designed generically so that adaptable CRUD systems can be created for most web
-  services based on REST APIs.
+  The dile-components catalog offers the <code>@dile/crud</code> package, a complete set for creating advanced and fully configurable CRUD systems. Thanks to these components and utilities, you can <b>build administration panels quickly and easily</b>, avoiding tedious and repetitive tasks.
 </p>
 
-<h2>How to use the Crud Components</h2>
-  <p>
-    Using the CRUD components provided by this library is as simple as using web components, where you declaratively
-    specify the functionalities you want to implement, directly in the HTML code.
-  </p>
-
-  <p>
-    There are components for making simple Ajax connections, forms that automatically submit via Ajax, components for
-    performing insertions, updates, deletions or listings, and even complete CRUD systems. Each component is thoroughly
-    detailed on its documentation page. Additionally, you will find various usage examples for each component to help you
-    better understand how to implement them.
-  </p>
-
-  <h3>Based on Axios library</h3>
-
-<p>The CRUD components in this package are based on a well-known frontend library for making asynchronous connections to
-  web services, called <a href="https://axios-http.com/">Axios</a>.</p>
-
-
-
-<blockquote>You don't need to be familiar with the Axios library, as the CRUD components, especially the `dile-ajax` component, wrap
-that library.</blockquote>
-
 <p>
-  Each project may require different Axios configurations, so this package is open to various setups to adapt to
-  the needs of each application and web services.
+  This CRUD system is designed to communicate via Ajax with a backend that exposes data and resource operations as a REST API. You can adjust everything from its appearance to the backend communications, so it adapts to the format of requests or responses. In addition, it provides a <a href="/cli/">CLI</a> to easily and quickly generate the scaffolding for components.
 </p>
+<blockquote>
+  To learn more about the features of this library, we recommend starting with the <a href="/crud/general-information/">CRUD general information page</a>.
+</blockquote>
 
-<h2>CRUD CLI </h2>
+<h2>Modules and components in this package</h2>
 
-<p>
-  To use CRUD components in a more comfortable and agile way, you can rely on the CLI that allows generating the *scaffolding* for each of the pieces of the CRUD system.
-</p>
-<p>
-  You can find summarized information on how to install this tool on the dedicated <a href="/cli/">CRUD CLI</a> page.
-</p>
-<h3>
-  Generating Components for Entity Management
-</h3>
-<p>
-There is a command that allows you to create the scaffolding for all the components needed to manage a CRUD entity at once—from the list component, the single component with item details, to the forms for inserting and editing the entity.
-</p>
-<p>
-For example, if you want to create the components for managing the users entity CRUD, you can run this command:
-</p>
+<div class="Clasification">
+  {% for tag in crudTagsList %}        
+    <dile-card 
+     title="{{ tag | capitalize }}" 
+    >
+      <dile-selector>
+        {% assign sortedComponents = collections[tag] | sort: "data.order" %}
+        {% for component in sortedComponents %}
+          {% include "layout-partials/nav-item.html" %}
+        {% endfor %}
+  
+      </dile-selector>
+    </dile-card>
+  {% endfor %}
 
-<pre><code class="language-bash">dile g-entity user --endpoint=https://example.com/api/users
-</code></pre>
-<p>In addition to the necessary components, this command creates the <a href="https://dile-components.com/crud/resource-config/">resource configuration module</a> with default settings that you can quickly edit.</p>
-
-
-<h2>CRUD Configuration </h2>
-<p>
-Due to the complexity of operations and the need to adapt to different types of projects, it is important to consider
-some configuration aspects.
-</p>
-<ul>
-  <li>On the <a href="/crud/axios-configuration/">Axios Configuration page</a>, you will find detailed information on how to
-  configure this library to tailor requests
-  to the requirements of your project or API.</li>
-  <li>On the <a href="/crud/response-adapter/">response adapter page</a>, you will find detailed information on how to process JSON responses of your API REST, so that the CRUD
-  components can find the data they need to function properly.</li>
-  <li>On the <a href="/crud/request-adapter/">request adapter page</a>, you will find detailed information on how to adapt to
-    the request data objects of your API REST.</li>
-  <li>On the <a href="/crud/resource-config/">resource configuration object page</a>, you will find information on how to configure the more complex components to
-  adapt to the specific characteristics of the resources exposed by the API.</li>
-  <li>On the <a href="/crud/actions-configuration/">actions configuration page</a>, you will find information on how to
-    configure batch actions.</li>
-</ul>
-
-
-
+  {% if collections.uncategorizedCrud.size > 0 %}
+    <dile-card 
+     title="Other components" 
+    >
+      {% for component in collections.uncategorizedCrud %}
+        {% include "layout-partials/nav-item.html" %}
+      {% endfor %}
+    </dile-card>
+  {% endif %}
+</div>
 

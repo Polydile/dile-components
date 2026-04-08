@@ -1,7 +1,8 @@
 ---
 layout: layout.html
 title: CLI
-tags: configuration
+tags: introduction
+order: 1
 ---
 
 # Dile Components CLI
