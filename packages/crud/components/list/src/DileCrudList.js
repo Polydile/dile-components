@@ -33,6 +33,9 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             dile-crud-select-all {
                 margin: 0.3rem 0.2rem 0.4rem 0;
             }
+            dile-crud-filters-list-item {
+                margin-top: 0.25rem;
+            }
 
             .empty {
                 padding: var(--dile-crud-list-empty-padding, 3rem 1rem);
