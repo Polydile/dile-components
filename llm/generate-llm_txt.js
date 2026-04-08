@@ -78,7 +78,29 @@ const BLOCK_SECTIONS = [
         ]
       }
     ]
-  }
+  },
+  {
+    key: 'icons',
+    title: 'Icon Libraries',
+    sourceDir: path.join(__dirname, '../docs/icons'),
+    blocks: [
+      {
+        title: 'Lucide icons',
+        suffix: '',
+        documents: ['docs/icons/lucide-icons.md', 'docs/icons/lucide-icon.md']
+      },
+      {
+        title: 'Font Awesone icons',
+        suffix: '',
+        documents: ['docs/icons/fontawesome-icons.md', 'docs/icons/fontawesome-icon.md',]
+      },
+      {
+        title: 'Material icons',
+        suffix: '',
+        documents: ['docs/icons/material-icons.md',]
+      }
+    ]
+  },
 ];
 
 /**

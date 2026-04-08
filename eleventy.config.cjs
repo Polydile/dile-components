@@ -62,6 +62,12 @@ module.exports = async function(eleventyConfig) {
   // Añadir variable global con los crud tags
   eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
 
+
+  const iconsTagsList = ["lucide", "fontawesome", "material"];
+
+  eleventyConfig.addGlobalData("iconsTagsList", iconsTagsList);
+
+
 const libTagList = ["state management", "routing", "app components"];
 eleventyConfig.addGlobalData("libTagList", libTagList)
 

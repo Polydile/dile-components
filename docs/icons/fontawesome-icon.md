@@ -1,7 +1,7 @@
 ---
 layout: layout.html
-title: FontAwesome Icon
-tags: icons
+title: FontAwesome generic
+tags: fontawesome
 ---
 
 # Generic FontAwesome Icon Web Component

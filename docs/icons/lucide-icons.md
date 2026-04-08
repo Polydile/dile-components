@@ -1,6 +1,7 @@
 ---
 layout: layout.html
-title: Lucide Icons Web Components
+title: Lucide elements
+tags: lucide
 ---
 
 # Lucide Icons Web Components

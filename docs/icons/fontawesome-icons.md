@@ -1,6 +1,7 @@
 ---
 layout: layout.html
-title: FontAwesome Icons Web Components
+title: FontAwesome elements
+tags: fontawesome
 ---
 
 # FontAwesome Icons Web Components
