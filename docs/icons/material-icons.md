@@ -1,5 +1,7 @@
 ---
 layout: layout.html
+title: Icons
+tags: material
 ---
 
 # icons

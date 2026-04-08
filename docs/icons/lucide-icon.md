@@ -1,7 +1,7 @@
 ---
 layout: layout.html
-title: Lucide Icon
-tags: icons
+title: Lucide Generic
+tags: lucide
 ---
 
 # Generic Lucide Icon Web Component
