@@ -1,12 +1,16 @@
 ---
 layout: layout.html
 title: CLI
-tags: configuration
+tags: introduction
+order: 1
 ---
 
 # Dile Components CLI
 
-The dile-components catalog provides a CLI that lets you generate components which require careful configuration work, especially those from the `@dile/crud` package, saving a significant amount of development effort.
+The dile-components catalog provides a CLI that lets you generate boilerplate code for components and applications.
+
+- The CLI can generate a complete application with feedback components, user management, and a routing system.  
+- It can also generate scaffolding for components that require careful configuration, especially those from the `@dile/crud` package, saving a significant amount of development effort.
 
 You can find this project in the [dile-cli GitHub repository](https://github.com/Polydile/dile-cli) and the [Dile CLI documentation page](https://cli.dile-components.com), where you'll find all the documentation that provides a complete guide on how to use it, the available commands, and their various configuration options.
 
@@ -41,6 +45,7 @@ You can configure the base output paths in this recommended way:
 export default {
   components: { basePath: 'src/components' },
   resources: { basePath: 'src/resources' },
+  componentPrefix: "my"
 };
 ```
 
@@ -50,7 +55,8 @@ As an alternative you can configure the pathis in the `package.json` file:
 {
   "dile": {
     "components": { "basePath": "src/components" },
-    "resources": { "basePath": "src/resources" }
+    "resources": { "basePath": "src/resources" },
+    "componentPrefix": "my"
   }
 }
 ```

@@ -48,7 +48,7 @@ module.exports = async function(eleventyConfig) {
 
   eleventyConfig.addGlobalData("mixinTagsList", mixinTagsList);
 
-  const crudTagsList = ["configuration", "ajax", "operations", "main", "Crud extras"];
+  const crudTagsList = ["introduction", "configuration", "ajax", "operations", "main", "Crud extras"];
 
   eleventyConfig.addCollection("uncategorizedCrud", function (collectionApi) {
     return collectionApi.getFilteredByTag("crud")
