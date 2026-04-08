@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Constantes de rutas
-const LLM_TXT_OUTPUT = path.join(__dirname, '../_site/llm.txt');
+const LLM_TXT_OUTPUT = path.join(__dirname, '../_site/llms.txt');
 const MD_OUTPUT_DIR = path.join(__dirname, '../_site/md');
 const BASE_URL = 'https://dile-components.com/';
 const GENERAL_INFO_PAGES = [
@@ -360,7 +360,7 @@ function getUnusedFiles(blockSection, processedDocuments) {
 }
 
 /**
- * Genera el contenido del llm.txt
+ * Genera el contenido del llms.txt
  */
 function generateLlmTxt(structure) {
   let content = '# Dile Components - Web Components Library\n\nCustom elements, mixins, and helpful Web apps utilities for any project or framework.\n\n';
@@ -450,7 +450,7 @@ async function main() {
   const outputDir = path.dirname(LLM_TXT_OUTPUT);
   ensureDir(outputDir);
 
-  // Generar llm.txt
+  // Generar llms.txt
   const llmContent = generateLlmTxt(structure);
   fs.writeFileSync(LLM_TXT_OUTPUT, llmContent, 'utf-8');
 

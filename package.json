@@ -11,7 +11,7 @@
     "dev": "vite",
     "lerna": "lerna",
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy && node llm/generate-llm_txt.js"
+    "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js"
   },
   "repository": {
     "type": "git",
