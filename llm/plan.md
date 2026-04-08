@@ -99,3 +99,10 @@ Cada una de los bloques necesitamos hacer lo mismo con cada uno de los documento
 Adicionalmente, verás que muchos de los archivos .md que sobraron en la carpeta indicada en la sección en este caso "docs/crud" no se encuentran listados en los array "documents" de cada uno de los "blocks". Todos esos archivos quiero que se coloquen también en la sección listados como "Components" con el sufijo "component".
 
 
+----
+
+Ahora hay otro detalle que me gustaría pulir y es que en los archivos que vamos copiando en la carpeta "md" en el código markdown a veces hay enlaces que van a rutas como estas "/crud/crud-component/" o "/lib/redux-implementation/".
+
+Me gustaría que transformases esas rutas para que se editen las rutas de los enlaces, de modo que se lleven a los archivos md que se han colocado en la carpeta, así los sistemas llm puedan seguirlos fácilmente. 
+
+Ten en cuenta que puede haber enlaces que lleven a otras páginas web, en cuyo caso no se deberían cambiar.

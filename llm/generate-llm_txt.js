@@ -46,6 +46,38 @@ const BLOCK_SECTIONS = [
         documents: ['docs/crud/axios-configuration.md', 'docs/crud/response-adapter.md', 'docs/crud/request-adapter.md', 'docs/crud/resource-config.md', 'docs/crud/actions-configuration.md']
       }
     ]
+  },
+  {
+    key: 'lib',
+    title: 'App utilities',
+    sourceDir: path.join(__dirname, '../docs/lib'),
+    blocks: [
+      {
+        title: 'Introduction',
+        suffix: '',
+        documents: ['docs/lib/index.md']
+      },
+      {
+        title: 'State management',
+        suffix: 'documentation',
+        documents: [
+          'docs/lib/redux-implementation.md', 
+          'docs/lib/redux-feedback-slice.md', 
+          'docs/lib/redux-user-slice.md', 
+          'docs/lib/feedback-mixin.md', 
+          'docs/lib/state-mixin.md', 
+        ]
+      },
+      {
+        title: 'Routing',
+        suffix: 'documentation',
+        documents: [
+          'docs/lib/router-implementation.md', 
+          'docs/lib/router-mixin.md', 
+          'docs/lib/navigate-mixin.md', 
+        ]
+      }
+    ]
   }
 ];
 
@@ -59,9 +91,52 @@ function extractTitleFromFrontmatter(content) {
   if (!match) return null;
   
   const frontmatter = match[1];
-  const titleMatch = frontmatter.match(/title:\s*['"](.*?)['"]/);
+  // Buscar la línea con 'title:' y capturar todo hasta el final de la línea
+  const titleMatch = frontmatter.match(/title:\s*(.+?)(?:\n|$)/);
   
-  return titleMatch ? titleMatch[1] : null;
+  if (titleMatch) {
+    // Eliminar comillas de los bordes si las hay y hacer trim
+    return titleMatch[1].replace(/^["']|["']$/g, '').trim();
+  }
+  
+  return null;
+}
+
+/**
+ * Convierte enlaces internos en archivos markdown
+ * Transforma /section/file/ en ../section/file.md
+ * Preserva enlaces externos (http://, https://)
+ */
+function convertInternalLinks(content) {
+  // Expresión regular para encontrar enlaces markdown [texto](ruta)
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  
+  return content.replace(linkRegex, (match, text, url) => {
+    // Si es una URL externa, no cambiar
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return match;
+    }
+    
+    // Si no comienza con /, no es un enlace interno relativo a root
+    if (!url.startsWith('/')) {
+      return match;
+    }
+    
+    // Conversión simple: /section/file/ -> ../section/file.md
+    let cleanPath = url.replace(/\/$/, '');
+    
+    const segments = cleanPath.split('/').filter(s => s);
+    
+    if (segments.length === 0) {
+      return match;
+    }
+    
+    const section = segments[0];
+    const fileName = segments.slice(1).join('/') || 'index';
+    
+    const newUrl = `../${section}/${fileName}.md`;
+    return `[${text}](${newUrl})`;
+  });
 }
 
 /**
@@ -96,7 +171,11 @@ function processSection(section) {
     const destPath = path.join(outputDir, file);
     
     // Copiar archivo
-    const content = fs.readFileSync(sourcePath, 'utf-8');
+    let content = fs.readFileSync(sourcePath, 'utf-8');
+    
+    // Convertir enlaces internos
+    content = convertInternalLinks(content);
+    
     fs.writeFileSync(destPath, content, 'utf-8');
     
     // Extraer título del frontmatter
@@ -134,8 +213,9 @@ function processGeneralInfoPages() {
     // Crear directorio si no existe
     ensureDir(path.dirname(destPath));
     
-    // Copiar archivo
-    fs.writeFileSync(destPath, content, 'utf-8');
+    // Convertir enlaces internos y copiar archivo
+    let processedContent = convertInternalLinks(content);
+    fs.writeFileSync(destPath, processedContent, 'utf-8');
     
     // Extraer título del frontmatter
     const title = extractTitleFromFrontmatter(content) || fileName.replace('.md', '');
@@ -170,19 +250,23 @@ function processBlockSection(blockSection) {
       }
 
       const content = fs.readFileSync(sourcePath, 'utf-8');
-      const fileName = path.basename(docPath);
-      const destPath = path.join(MD_OUTPUT_DIR, blockSection.key, fileName);
+      
+      // Extraer la ruta relativa desde 'docs/' para mantener la estructura
+      const relativePathFromDocs = docPath.replace('docs/', '');
+      const destPath = path.join(MD_OUTPUT_DIR, relativePathFromDocs);
       
       // Crear directorio si no existe
       ensureDir(path.dirname(destPath));
       
-      // Copiar archivo
-      fs.writeFileSync(destPath, content, 'utf-8');
+      // Convertir enlaces internos y copiar archivo
+      let processedContent = convertInternalLinks(content);
+      fs.writeFileSync(destPath, processedContent, 'utf-8');
       
       // Extraer título del frontmatter
+      const fileName = path.basename(docPath);
       const title = extractTitleFromFrontmatter(content) || fileName.replace('.md', '');
       
-      const mdRelativePath = `md/${blockSection.key}/${fileName}`;
+      const mdRelativePath = `md/${relativePathFromDocs}`;
       blockFiles.push({
         title,
         markdownFile: mdRelativePath
@@ -219,7 +303,6 @@ function getUnusedFiles(blockSection, processedDocuments) {
 
   mdFiles.forEach(file => {
     const fullPath = path.join(blockSection.sourceDir, file);
-    const relativePath = `docs/${blockSection.key}/${file}`;
     
     // Verificar si el archivo está en los documentos procesados
     const isProcessed = Array.from(processedDocuments).some(docPath => 
@@ -228,11 +311,16 @@ function getUnusedFiles(blockSection, processedDocuments) {
 
     if (!isProcessed) {
       const content = fs.readFileSync(fullPath, 'utf-8');
+      
+      // Mantener la estructura: docs/{key}/ → md/{key}/
       const destPath = path.join(MD_OUTPUT_DIR, blockSection.key, file);
       
       // Copiar archivo
       ensureDir(path.dirname(destPath));
-      fs.writeFileSync(destPath, content, 'utf-8');
+      
+      // Convertir enlaces internos y copiar archivo
+      let processedContent = convertInternalLinks(content);
+      fs.writeFileSync(destPath, processedContent, 'utf-8');
       
       // Extraer título del frontmatter
       const title = extractTitleFromFrontmatter(content) || file.replace('.md', '');
