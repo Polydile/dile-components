@@ -26,7 +26,7 @@
     <h1>Mixin dile-form-mixin demo </h1>
     
     <form-example></form-example>
-    
+    <hr>
     <p>
       <button id="get">Show value in console</button>
       <button id="set">Set data</button>
@@ -35,6 +35,7 @@
       <button id="resetsex">Reset only sex field</button>
       <button id="errors">Set some errors</button>
       <button id="dirty">log dirty</button>
+      <button id="reset_only_array_item">Reset only array items.1</button>
     </p>
 
     <footer><a href="../index.html">Back</a></footer>
@@ -90,7 +91,7 @@
           </p>
           <dile-input-money name="price" label="Price"></dile-input-money>
           <dile-input-integer name="quantity" label="Quantity"></dile-input-integer>
-          <dileQuantity-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
+          <dile-select-ajax id="select1" label="Album" value="2" displayProperty="title" name="album" endpoint="https://jsonplaceholder.typicode.com/albums"></dile-select-ajax>
           <dile-input name="company" label="Company"></dile-input>
           <dile-input-percentage name="discount" label="Discount" value="445.2" decimalSeparator=","></dile-input-percentage>
           <dile-editor name="comments"># Markdown Editor\n\nWrite *something*.</dile-editor>
@@ -100,6 +101,13 @@
           </p>
           <dile-number-picker name="units" label="Units" value="9" hideErrorOnInput></dile-number-picker>
           <dile-time-picker name="start_time" label="Start time" value="12:06:30" hideErrorOnInput></dile-time-picker>
+          
+          <fieldset>
+            <legend>Array fields (items[]):</legend>
+            <dile-input name="items[]" label="Item 1" value="First item"></dile-input>
+            <dile-input name="items[]" label="Item 2" value="Second item"></dile-input>
+            <dile-input name="items[]" label="Item 3" value="Third item"></dile-input>
+          </fieldset>
         `;
       }
     }
@@ -134,7 +142,8 @@
           price: 10050,
           comments: "# Hi my friend!\n\nSome `Markdown` content.\n\n- Hello\n- Bye",
           profile: "This is a profile information...",
-          start_time: "02:02:50"
+          start_time: "02:02:50",
+          items: ["Updated item 1", "Updated item 2", "Updated item 3"]
         });
       });
 
@@ -158,6 +167,8 @@
           onlymessage: "This element has no input. It is only created for messaging purposes",
           units: "Please increase the units",
           start_time: "Please set a start time",
+          "items.0": 'error en el item cero',
+          "company.0.data": 'este es un error complejo',
         })
       });
 
@@ -165,6 +176,10 @@
         console.log(form.isDirty());
       });
 
+      document.getElementById('reset_only_array_item').addEventListener('click', () => {
+        form.resetField('items.1');
+      });
+      
       // document.querySelector('form-example').addEventListener('element-changed', (e) => {
       //   console.log('element-changed', e.detail);
       // })
