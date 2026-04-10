@@ -8,7 +8,7 @@ export class DileFormSeparator extends LitElement {
       }
       div {
         border-top: 1px solid var(--dile-form-separator-color, var(--dile-secondary-dark-color, #888));
-        margin: 1.5rem 0.2rem 1rem;
+        margin: var(--dile-form-separator-margin, 1.5rem 0.2rem 1rem);
       }
       h3 {
         margin: 1rem 0 0.5rem 0;
@@ -18,6 +18,9 @@ export class DileFormSeparator extends LitElement {
       }
       :host([removeline]) div {
         border-top: none;
+      }
+      :host([removeline]) h3 {
+        margin-top: 0;
       }
     `
   ];

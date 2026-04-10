@@ -43,6 +43,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-form-separator-color | Color of the separator line | --dile-secondary-dark-color or #888
 --dile-form-separator-text-color | Color of the separator label text | --dile-secondary-dark-color or #888
+--dile-form-separator-margin | Form separator margin | 1.5rem 0.2rem 1rem
 
 ## dile-form-separator demos
 
