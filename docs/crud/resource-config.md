@@ -129,3 +129,125 @@ The `responseAdapter` property in the configuration object is an object that def
 The default configuration object for the resource provides a `responseAdapter` that works with typical REST API responses. However, you can create a custom version of this object by extending the base `ResponseApiAdapter` class.
 
 For more information, refer to the page dedicated to the [`responseAdapter` object](/crud/response-adapter/).
+
+
+
+## Configuration properties
+
+Here is a complete list of the configuration object properties that can be supplied for the resource.
+
+
+
+
+### Property `availableFilters`
+
+This property is used to define the filters that the `dile-crud` component will offer.
+
+Filter configuration allows two types of filters that generate different query interfaces, either with checkboxes or select boxes. In the following example, you can see a filter configuration:
+
+```json
+availableFilters: [
+  {
+    type: 'boolean',
+    name: 'column',
+    label: 'Column',
+    active: false,
+    value: false,
+  },
+  {
+    type: 'select',
+    name: 'column2',
+    label: 'Column 2',
+    active: false,
+    value: false,
+    options: [
+      {
+        value: '1',
+        label: 'Value 1'
+      },
+      {
+        value: '2',
+        label: 'Value 2'
+      },
+    ]
+  },
+],
+```
+
+> When filters are enabled in the CRUD component, requests are made to the API sending the filter state through the query string.
+
+#### Default `availableFilters` value
+
+By default, `availableFilters` is an empty array.
+
+```javascript
+availableFilters: []
+```
+
+
+### Property `insertOperation`
+
+This property defines how the insert button behaves in the `dile-crud` component. By default, when the insert button is clicked, a modal opens with the form for inserting the entity being managed. However, you can define any other behavior you wish, such as navigating to another page where the insert content is displayed.
+
+To do this, `insertOperation` accepts an object with a property called `type`. By setting the `type` value to `handler`, you can define a handler to execute custom code when the Insert button is pressed. Here’s an example:
+
+```javascript
+insertOperation: {
+  type: "handler",
+  handler: (crudComponent) => {
+    navigateService.goToUrl('/create-invoice');
+  }
+},
+```
+
+> Note that the `handler` function receives the `dile-crud` component itself, allowing you to interact with the panel if needed.
+
+#### Default value
+
+The default value of `insertOperation` causes a modal window to open when the insert button is clicked.
+
+```json
+insertOperation: {
+  type: 'modal'
+},
+```
+
+
+
+
+### Property `requestAdapter`
+
+This property allows adapting the requests sent from the CRUD system to the API endpoints, so that it can communicate with the web service in the required way.
+
+There is a detailed page with explanations about the [request adapter](/crud/request-adapter/).
+
+#### Default `requestAdapter` value
+
+The default configuration creates a generic request adapter using an instance of the `RequestApiAdapter` class.
+
+```javascript
+new RequestApiAdapter()
+```
+
+### Property `responseAdapter`
+
+This property allows adapting the API responses that the CRUD system communicates with. Thanks to this object, the components can work with any API, regardless of how its responses are structured.
+
+On this site you can find a detailed page explaining [how to create the response adapter](/crud/response-adapter/).
+
+#### Default `responseAdapter` value
+
+The default configuration creates a generic response adapter using an instance of the `ResponseApiAdapter` class.
+
+```javascript
+new ResponseApiAdapter()
+```
+
+
+
+
+
+
+### Documentation in progress
+
+This documentation is a work in progress.
