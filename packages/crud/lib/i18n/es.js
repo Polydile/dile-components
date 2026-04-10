@@ -16,7 +16,7 @@ export const translations = {
   success_operation: (operation) => `${operation == 'insert' ? 'Inserción' : 'Actualización'} completada con éxito`,
   error_operation: (operation) => `Se ha producido un error en la ${operation == 'insert' ? 'inserción' : 'actualización'}`,
   send_label: "Enviar",
-  insert_label: "Insertar",
+  insert_label: "Crear",
   update_label: "Actualizar",
   start_update_label: "Editar",
   delete_label: "Borrar",
