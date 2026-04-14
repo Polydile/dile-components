@@ -23,6 +23,9 @@
       --dile-button-text-transform: uppercase;
       --dile-button-letter-spacing: 0.1rem;
     }
+    .shadow {
+      --dile-button-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -42,6 +45,11 @@
     <h2>Disabled button</h2>
     <p>
       <dile-button name="disabeldbutton" disabled id="disabeldbutton">Disabled button</dile-button>
+    </p>
+
+    <h2>Button with shadow</h2>
+    <p>
+      <dile-button name="shadowbutton" id="shadowbutton" class="shadow">Button with shadow</dile-button>
     </p>
 
     <script>

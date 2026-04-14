@@ -57,6 +57,7 @@ Custom property | Description | Default
 --dile-button-disabled-border-color | Disabled border color | #bbb
 --dile-button-disabled-text-color | Disabled text color | #999
 --dile-button-letter-spacing | Text letter spacing | 0
+--dile-button-box-shadow | Box shadow | none
 
 ## dile-button demos
 

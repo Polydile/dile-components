@@ -43,6 +43,8 @@ export class DileButton extends LitElement {
         font-weight: var(--dile-button-font-weight, bold);
         text-transform: var(--dile-button-text-transform, none);
         letter-spacing: var(--dile-button-letter-spacing, 0);
+        user-select: none;
+        box-shadow: var(--dile-button-box-shadow, none);
       }
       button:hover {
         background-color: var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae));
@@ -70,9 +72,6 @@ export class DileButton extends LitElement {
         outline: none;
         border-color: #aaa;
         box-shadow: none;
-      }
-      button {
-        user-select: none;
       }
       :host([disabled]) {
         pointer-events: none;
