@@ -76,6 +76,7 @@ export class DileCrudSingleActions extends DileCrudActions {
 
   onActionSelected(e) {
     this.selection = e.detail.selected;
+    this.computeDestructive();
     this.showAction();
   }
 }

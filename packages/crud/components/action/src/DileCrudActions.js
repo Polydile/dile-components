@@ -149,6 +149,10 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   selectorChanged(e) {
     this.selection = e.target.value;
+    this.computeDestructive();
+  }
+
+  computeDestructive() {
     if(this.isDestructive()) {
       this.destructive = true;
     } else {
