@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileForm } from '@dile/ui/mixins/form';
+import { DileForm } from '@dile/ui/mixins/form/index.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudDeleteAction extends DileI18nMixin(DileForm(LitElement)) {

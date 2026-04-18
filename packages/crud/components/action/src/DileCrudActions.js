@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { moreVertIcon } from '@dile/icons';
-import '@dile/ui/components/confirm/confirm';
-import '@dile/ui/components/select/select';
+import '@dile/ui/components/confirm/confirm.js';
+import '@dile/ui/components/select/select.js';
 import '../../ajax/ajax.js'
 import '../../ui/crud-list-options.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
