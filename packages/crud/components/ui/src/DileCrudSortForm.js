@@ -3,7 +3,7 @@ import '@dile/ui/components/order-switch/order-switch.js';
 import '@dile/ui/components/radio-group/radio-group.js';
 import '@dile/ui/components/radio-group/radio.js';
 import { sortIcon } from '@dile/icons';
-import '../crud-list-options';
+import '../crud-list-options.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudSortForm extends DileI18nMixin(LitElement) {

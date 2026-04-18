@@ -10,7 +10,7 @@ import '../../crud/crud.js';
 import '../../detail/crud-detail.js';
 import '../../update/crud-update.js';
 import '../../action/crud-actions.js';
-import '../../action/crud-single-actions';
+import '../../action/crud-single-actions.js';
 import '../../action/crud-delete-action.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 import { crudStyles } from '../../../styles/crud-styles.js';

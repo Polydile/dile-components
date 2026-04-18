@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '../../ui/crud-pagination-nav-button';
+import '../../ui/crud-pagination-nav-button.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudListPaginationLinks extends DileI18nMixin(LitElement) {

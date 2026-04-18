@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '../crud-filters-list-item';
+import '../crud-filters-list-item.js';
 
 export class DileCrudFiltersList extends LitElement {
     static styles = [

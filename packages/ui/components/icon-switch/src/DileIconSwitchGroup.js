@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '../icon-switch';
+import '../icon-switch.js';
 
 export class DileIconSwitchGroup extends LitElement {
   static styles = [

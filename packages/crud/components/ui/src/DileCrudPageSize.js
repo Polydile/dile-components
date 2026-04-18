@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import '../crud-list-options';
-import '../crud-page-size-select';
+import '../crud-list-options.js';
+import '../crud-page-size-select.js';
 import { descriptionIcon } from '@dile/icons';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 

@@ -5,7 +5,7 @@ import '../../ajax/ajax.js'
 import '../../ui/crud-filters-list.js';
 import '../../list/crud-list-pagination-links.js';
 import '../crud-list-item.js';
-import '../crud-select-all';
+import '../crud-select-all.js';
 import '../crud-list-service.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
