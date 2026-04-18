@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileFormChangeDetect, DileForm } from '@dile/ui/mixins/form';
+import { DileFormChangeDetect, DileForm } from '@dile/ui/mixins/form/index.js';
 import '@dile/ui/components/checkbox/checkbox.js';
 import '@dile/ui/components/select/select.js';
 

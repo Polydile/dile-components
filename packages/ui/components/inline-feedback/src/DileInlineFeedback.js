@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { DileSlideDown } from '../../../mixins/slide-down';
+import { DileSlideDown } from '../../../mixins/slide-down/index.js';
 
 export class DileInlineFeedback extends DileSlideDown(LitElement) {
   static get properties() {

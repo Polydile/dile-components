@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { arrowDropDownIcon } from '@dile/icons/index.js';
-import { DileSlideDown } from '@dile/ui/mixins/slide-down';
+import { DileSlideDown } from '@dile/ui/mixins/slide-down/index.js';
 
 export class DileAccordionItem extends DileSlideDown(LitElement) {
 

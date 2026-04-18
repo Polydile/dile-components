@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileSlideDown } from '../../../mixins/slide-down';
+import { DileSlideDown } from '../../../mixins/slide-down/index.js';
 import { closeIcon, infoIcon, warningIcon, iconStyles } from '@dile/icons/index.js';
 
 export class DileInfoBox  extends DileSlideDown(LitElement) {

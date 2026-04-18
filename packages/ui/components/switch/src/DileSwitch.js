@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileCheckbox } from '../../checkbox/src/DileCheckbox';
+import { DileCheckbox } from '../../checkbox/src/DileCheckbox.js';
 
 export class DileSwitch extends DileCheckbox {
     static styles = [

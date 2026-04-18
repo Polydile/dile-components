@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { formStyles } from '../../../styles/form-styles';
+import { formStyles } from '../../../styles/form-styles.js';
 import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '../../ajax/ajax.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';

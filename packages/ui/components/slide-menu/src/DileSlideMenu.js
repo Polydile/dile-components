@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileSlideDown } from '../../../mixins/slide-down';
+import { DileSlideDown } from '../../../mixins/slide-down/index.js';
 import { arrowDropDownIcon } from '@dile/icons';
 import '@dile/ui/components/icon/icon.js';
 

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { DileOverlay } from "../../../mixins/overlay/index.js"
-import { DileCloseDocumentClick } from "../../../mixins/close-document-click";
+import { DileCloseDocumentClick } from "../../../mixins/close-document-click/index.js";
 
 export class DileMenuOverlay extends DileOverlay(DileCloseDocumentClick(LitElement)) {
   static get styles() {

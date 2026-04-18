@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/switch/switch';
 import '../../ajax/ajax';
-import { RequestApiAdapter } from '../../../lib/RequestApiAdapter';
+import { RequestApiAdapter } from '../../../lib/RequestApiAdapter.js';
 
 export class DileAjaxSwitch extends LitElement {
   static styles = [

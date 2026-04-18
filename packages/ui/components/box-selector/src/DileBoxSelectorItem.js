@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { DileSelectableItem } from "../../../mixins/selectable";
+import { DileSelectableItem } from "../../../mixins/selectable/index.js";
 
 export class DileBoxSelectorItem extends DileSelectableItem(LitElement) {
 
