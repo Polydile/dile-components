@@ -1,6 +1,6 @@
 import { html } from "lit";
-import { ResponseApiAdapter } from "./ResponseApiAdapter";
-import { RequestApiAdapter } from "./RequestApiAdapter";
+import { ResponseApiAdapter } from "./ResponseApiAdapter.js";
+import { RequestApiAdapter } from "./RequestApiAdapter.js";
 
 const templatePlaceholder = (templateName) => `Please provide config.templates.${templateName}`
 
