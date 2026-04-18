@@ -1,3 +1,3 @@
 
-import { DileCrudFiltersForm } from "./src/DileCrudFiltersForm";
+import { DileCrudFiltersForm } from "./src/DileCrudFiltersForm.js";
 customElements.define('dile-crud-filters-form', DileCrudFiltersForm);

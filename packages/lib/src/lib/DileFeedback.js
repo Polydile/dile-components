@@ -8,7 +8,7 @@ import {
   stopLoading,
   modalMessage,
   modalClose,
-} from '../redux/feedback-slice';
+} from '../redux/feedback-slice.js';
 
 const AVAILABLE_ICONS = [
   {

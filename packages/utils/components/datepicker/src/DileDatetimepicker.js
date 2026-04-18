@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileDatepicker } from './DileDatepicker';
+import { DileDatepicker } from './DileDatepicker.js';
 import { dateTimeIcon } from '@dile/icons';
 import '@dile/ui/components/time-picker/time-picker.js';
 import { doneIcon } from '@dile/icons';

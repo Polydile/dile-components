@@ -1,1 +1,1 @@
-export { DileTooltip } from './src/DileTooltip';
+export { DileTooltip } from './src/DileTooltip.js';

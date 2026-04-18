@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileInput } from './DileInput';
+import { DileInput } from './DileInput.js';
 
 export class DileInputMoney extends DileInput {
     static styles = [

@@ -1,1 +1,1 @@
-export { DileChip } from "./src/DileChip";
+export { DileChip } from "./src/DileChip.js";

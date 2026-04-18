@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { DileInput } from "./DileInput";
+import { DileInput } from "./DileInput.js";
 
 export class DileInputMessage extends DileInput {
   

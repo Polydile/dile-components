@@ -1,1 +1,1 @@
-export { DileFormSeparator } from './src/DileFormSeparator';
+export { DileFormSeparator } from './src/DileFormSeparator.js';

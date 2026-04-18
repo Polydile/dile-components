@@ -1,1 +1,1 @@
-export { DileAjaxSwitch } from "./src/DileAjaxSwitch";
+export { DileAjaxSwitch } from "./src/DileAjaxSwitch.js";

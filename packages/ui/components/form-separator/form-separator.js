@@ -1,2 +1,2 @@
-import { DileFormSeparator } from './src/DileFormSeparator';
+import { DileFormSeparator } from './src/DileFormSeparator.js';
 customElements.define('dile-form-separator', DileFormSeparator);

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileAppNavigate } from '../lib/DileAppNavigate';
+import { DileAppNavigate } from '../lib/DileAppNavigate.js';
 import { DileState } from '../lib/DileState.js';
 import '@dile/ui/components/spinner/spinner-block.js';
 

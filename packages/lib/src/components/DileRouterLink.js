@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileAppNavigate } from '../lib/DileAppNavigate';
+import { DileAppNavigate } from '../lib/DileAppNavigate.js';
 
 export class DileRouterLink extends DileAppNavigate(LitElement) {
   static styles = [

@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit';
 import { DileInput } from '../../input/index.js';
-import { Mask } from './Mask';
+import { Mask } from './Mask.js';
 
 export class DileInputNumberMask extends DileInput {
 

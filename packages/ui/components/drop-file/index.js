@@ -1,2 +1,2 @@
-export { DileDropFile } from "./src/DileDropFile";
-export { DileFilePreview } from './src/DileFilePreview'
+export { DileDropFile } from "./src/DileDropFile.js";
+export { DileFilePreview } from './src/DileFilePreview.js'
