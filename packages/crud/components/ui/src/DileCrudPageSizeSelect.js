@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/select/select';
+import '@dile/ui/components/select/select.js';
 
 export class DileCrudPageSizeSelect extends LitElement {
     static styles = [

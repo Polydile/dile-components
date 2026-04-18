@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/checkbox/checkbox.js';
-import '@dile/ui/components/tooltip/chip-tooltip';
+import '@dile/ui/components/tooltip/chip-tooltip.js';
 
 export class DileRelationCheckerItem extends LitElement {
   static styles = [

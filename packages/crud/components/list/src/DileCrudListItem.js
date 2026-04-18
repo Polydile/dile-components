@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/checkbox/checkbox';
-import '@dile/ui/components/icon/icon';
+import '@dile/ui/components/checkbox/checkbox.js';
+import '@dile/ui/components/icon/icon.js';
 import { deleteIcon, editIcon, restoreFromTrashIcon } from '@dile/icons';
 
 export class DileCrudListItem extends LitElement {

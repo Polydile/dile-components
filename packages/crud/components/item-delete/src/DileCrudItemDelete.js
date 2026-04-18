@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/confirm/confirm';
+import '@dile/ui/components/confirm/confirm.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 import '../../ajax/ajax.js';

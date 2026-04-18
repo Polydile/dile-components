@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileState } from '../lib/DileState.js';
-import '@dile/ui/components/spinner/spinner-modal';
+import '@dile/ui/components/spinner/spinner-modal.js';
 
 export const DileAppLoading = (store) => class extends DileState(store)(LitElement) {
   static get styles() {

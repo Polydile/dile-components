@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/icon/icon';
+import '@dile/ui/components/icon/icon.js';
 import '@dile/ui/components/button/button-icon.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
 

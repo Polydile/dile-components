@@ -1,5 +1,5 @@
 import { DileAxios } from '../../../lib/DileAxios.js';
-import { DileSelectAjax } from '@dile/ui/components/select';
+import { DileSelectAjax } from '@dile/ui/components/select/index.js';
 
 export class DileAjaxSelectCrud extends DileAxios(DileSelectAjax) {
 

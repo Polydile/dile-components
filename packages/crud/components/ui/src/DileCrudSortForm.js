@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/order-switch/order-switch';
-import '@dile/ui/components/radio-group/radio-group';
-import '@dile/ui/components/radio-group/radio';
+import '@dile/ui/components/order-switch/order-switch.js';
+import '@dile/ui/components/radio-group/radio-group.js';
+import '@dile/ui/components/radio-group/radio.js';
 import { sortIcon } from '@dile/icons';
 import '../crud-list-options';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import '@dile/ui/components/switch/switch';
-import '../../ajax/ajax';
+import '@dile/ui/components/switch/switch.js';
+import '../../ajax/ajax.js';
 import { RequestApiAdapter } from '../../../lib/RequestApiAdapter.js';
 
 export class DileAjaxSwitch extends LitElement {

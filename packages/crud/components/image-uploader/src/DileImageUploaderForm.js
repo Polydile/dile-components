@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileForm } from '@dile/ui/mixins/form/index.js'
-import "@dile/ui/components/drop-file/drop-file.js"
+import '@dile/ui/components/drop-file/drop-file.js';
 
 export class DileImageUploaderForm extends DileForm(LitElement) {
   static styles = [

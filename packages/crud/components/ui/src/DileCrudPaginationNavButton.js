@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { doubleArrowLeftIcon, doubleArrowRightIcon } from '@dile/icons';
-import '@dile/ui/components/icon/icon';
+import '@dile/ui/components/icon/icon.js';
 
 export class DileCrudPaginationNavButton extends LitElement {
     static styles = [
