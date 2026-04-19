@@ -32,6 +32,19 @@
       <dile-checkbox name="name"></dile-checkbox>
     </p>
 
+    <h2>With message</h2>
+    <p>
+      <dile-checkbox hideErrorOnInput id="checkmessage" name="name" message="Hi, this is a message">Input with message</dile-checkbox>
+    </p>
+    <p>
+      <button id="toggeErrored">Toggle errored</button>
+    </p>
+    <script>
+      document.getElementById('toggeErrored').addEventListener('click', () => {
+        const checkbox = document.getElementById('checkmessage');
+        checkbox.errored = !checkbox.errored;
+      });
+    </script>
     <h2>Disabled checkbox</h2>
     <p>
       <dile-checkbox name="name" disabled>Disabled!</dile-checkbox>

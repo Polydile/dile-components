@@ -2,6 +2,7 @@ import { html, css, LitElement } from "lit";
 import { DileEmmitChange } from '../../../mixins/form/index.js'; 
 import { checkboxBlankIcon, checkboxCheckedIcon } from '@dile/icons';
 import '../../icon/icon.js';
+import '../../input/input-message.js';
 
 export class DileCheckbox extends DileEmmitChange(LitElement) {
   static get properties() {
@@ -10,6 +11,9 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
       disabled: { type: Boolean, reflect: true, },
       _hasInner: { type: Boolean },
       name: { type: String },
+      message: { type: String },
+      errored: { type: Boolean },
+      hideErrorOnInput: { type: Boolean },
     };
   }
 
@@ -22,6 +26,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
     this.checked = false;
     this.name = '';
     this.internals = this.attachInternals();
+    this.message = ''
   }
 
   static get styles() {
@@ -86,6 +91,10 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
         </a>
         ${this.innerTemplate}
       </div>
+      ${this.message
+        ? html`<dile-input-message message="${this.message}" ?errored=${this.errored}></dile-input-message>`
+        : ''
+      }
     `;
   }
 
@@ -103,6 +112,10 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   doClick() {
     if (this.disabled) {
       return;
+    }
+    if(this.hideErrorOnInput && this.errored) {
+      this.message = '';
+      this.errored = false;
     }
     this.checked = !this.checked;
     this.dispatchEvent(
