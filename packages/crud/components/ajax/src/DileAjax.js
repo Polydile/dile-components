@@ -18,7 +18,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     super();
     this.method = 'post';
     this.url = '';
-    this.statusSuccessCodes = [200, 201];
+    this.statusSuccessCodes = [200, 201, 202];
     this.getValidationErrors = (data) => {
       return data.errors
     }
