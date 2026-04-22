@@ -67,6 +67,17 @@ Use the component.
 - **crud-pagination-prev**: Dispatched when the previous page button is clicked.
 - **crud-pagination-next**: Dispatched when the next page button is clicked.
 
+
+### CSS Custom Properties
+
+You can customize it using CSS Custom Properties.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-crud-list-empty-padding | Padding of the empty list message | 3rem 1rem
+--dile-crud-list-empty-text-align | Text alignment of the empty list message | center
+
+
 ## Configuration
 
 This component requires a configuration object with numerous properties, methods, and templates to customize its behavior, functionality, and appearance.

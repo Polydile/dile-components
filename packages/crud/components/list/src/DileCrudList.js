@@ -39,7 +39,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
             .empty {
                 padding: var(--dile-crud-list-empty-padding, 3rem 1rem);
-                text-align: center;
+                text-align: var(--dile-crud-list-empty-text-align, center);
             }
             
             @media(min-width: 500px) {
