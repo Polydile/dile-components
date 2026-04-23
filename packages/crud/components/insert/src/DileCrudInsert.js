@@ -60,7 +60,8 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
                 operation="insert"
                 endpoint="${this.endpoint}"
                 actionLabel="${this.actionLabelComputed(this.actionLabel, this.translations)}"
-                @save-success="${this.doSuccessSave}"
+                @save-success=${this.doSuccessSave}
+                @save-error=${this.doSuccessError}
                 ?buttonSmall="${this.buttonSmall}"
                 .responseAdapter="${this.responseAdapter}"
                 formIdentifier="${this.formIdentifier}"
@@ -75,6 +76,14 @@ export class DileCrudInsert extends DileI18nMixin(LitElement) {
 
     doSuccessSave(e) {
         this.dispatchEvent(new CustomEvent('crud-insert-success', { 
+            bubbles: true,
+            composed: true,
+            detail: e.detail
+        }));
+    }
+
+    doSuccessError(e) {
+        this.dispatchEvent(new CustomEvent('crud-insert-error', { 
             bubbles: true,
             composed: true,
             detail: e.detail

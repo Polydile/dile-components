@@ -55,6 +55,7 @@ Use the component.
 ### Events
 
 - **crud-insert-success**: Dispatched when an insert operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.
+- **crud-insert-error**: Dispatched when an insert operation is has an error. It sends the same detail that is received from the `dile-ajax-form` component.
 
 > Since this component is based on `dile-ajax-form`, the events dispatched by it can also be listened to in `dile-crud-insert`.
 
