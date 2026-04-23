@@ -186,6 +186,10 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     if(this.allowedExtensions.length === 0) {
       return true;
     }
+    // If wildcard '*' is present, allow any extension
+    if(this.allowedExtensions.includes('*')) {
+      return true;
+    }
     const extension = fileName.split('.').pop().toLowerCase();
     if(this.allowedExtensions.includes(extension)) {
       return true;

@@ -46,6 +46,8 @@ export const translations = {
   element_actions: "Element actions",
   select_image: "Select an image",
   save_image: "Save image",
+  select_file_label: "Select a file",
+  save_file_label: "Save file",
   file_drop: "Drop here your file",
   select_file: "Select file",
   selected_file: "Selected file",

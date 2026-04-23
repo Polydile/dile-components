@@ -43,7 +43,7 @@ Use the component
 - **dropLabel**: String, label displayed inside the drop zone, instructing the user to drop a file.
 - **buttonLabel**: String, label of the button shown in the drop zone.
 - **selectedFileLabel**: String, label shown when a file is selected.
-- **allowedExtensions**: Array, specifies the allowed file extensions for validation.
+- **allowedExtensions**: Array, specifies the allowed file extensions for validation. Use `['*']` to allow any file extension without validation. Example: `['pdf', 'doc', 'docx']` or `['*']`.
 - **extensionErrorMessage**: String, error message displayed when the selected file does not match the allowed extensions.
 
 ### Methods
