@@ -61,9 +61,11 @@ Once the method is invoked, the response will be received in one of the two cust
 
 ### Custom Events
 
-The component dispatches two custom events to notify the reception of the response in the connections:
+The component dispatches custom events to notify the lifecycle of the HTTP request and the reception of the response:
 
+- **dile-ajax-request-start**: Dispatched when the request begins, right before sending the HTTP request to the server. Useful for showing loading indicators or disabling controls while the request is in progress.
 
+- **dile-ajax-request-end**: Dispatched when the request finishes, regardless of success or error. This includes the finally stage of the Promise. Useful for hiding loading indicators or re-enabling controls.
 
 - **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event is the JSON returned by the server.
 - **ajax-error**: Dispatched when the response is received with an error HTTP status code. The detail of the event is an object with these properties:
@@ -80,7 +82,7 @@ The component dispatches two custom events to notify the reception of the respon
     - `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
     - `data` is the complete server response JSON content.
 
-> The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag.
+> The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag. However, `dile-ajax-request-start` and `dile-ajax-request-end` are configured with `bubbles: true` and `composed: true`, allowing them to be listened to on parent elements.
 
 - **ajax-response**: Dispatched when the response is received, in both cases (error and success). The detail of this custom event has a `response` property with the entire Axios response object.
 

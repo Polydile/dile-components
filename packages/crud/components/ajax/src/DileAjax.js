@@ -33,6 +33,10 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
 
   generateRequest() {
     let request;
+    this.dispatchEvent(new CustomEvent('dile-ajax-request-start', {
+      bubbles: true,
+      composed: true
+    }));
     if(this.sendDataAsFormData) {
       this._prepareFormData();
     }
@@ -70,6 +74,10 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     }) 
     .finally(() => {
       this.formData = null;
+      this.dispatchEvent(new CustomEvent('dile-ajax-request-end', {
+        bubbles: true,
+        composed: true
+      }));
     });
   }
 
