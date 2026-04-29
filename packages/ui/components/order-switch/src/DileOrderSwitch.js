@@ -45,9 +45,13 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
 
   render() {
     return html`
-      <div @click=${this.toggle}>
-        <dile-icon .icon="${switchLeftIcon}" class="${this.value}"></dile-icon>
-        <span>
+      <div>
+        <dile-icon 
+          .icon="${switchLeftIcon}" 
+          class="${this.value}"
+           @click=${this.toggle}
+        ></dile-icon>
+        <span @click=${this.onlyChange}>
           ${this.label}
         </span>
       </div>
@@ -64,11 +68,12 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
     }
   }
 
+  onlyChange() {
+    console.log('this.onlyChange');
+    this.emmitChange();
+  }
+
   toggle() {
-    if (this.value === "asc") {
-      this.value = "desc";
-    } else {
-      this.value = "asc";
-    }
+    this.value = this.value === "asc" ? "desc" : "asc";
   }
 }
