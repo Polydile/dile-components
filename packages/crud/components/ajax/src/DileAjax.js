@@ -95,35 +95,31 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
           this.dispatchError(res.data.message || this.translations.http_400, res.data, this.getValidationErrors(res.data));
           break;
         case 404:
-          if(res.data.message) {
-            this.dispatchError(res.data.message, res.data);
-          } else {
-            this.dispatchError(this.translations.http_404, res.data);
-          }
+          this.dispatchError(res.data.message || this.translations.http_404, res.data);
           break;
         case 401:
-          this.dispatchError(this.translations.http_401, res.data);
+          this.dispatchError(res.data.message || this.translations.http_401, res.data);
           break;
         case 403:
-          this.dispatchError(this.translations.http_403, res.data);
+          this.dispatchError(res.data.message || this.translations.http_403, res.data);
           break;
         case 405:
-          this.dispatchError(this.translations.http_405, res.data);
+          this.dispatchError(res.data.message || this.translations.http_405, res.data);
           break;
         case 413:
-          this.dispatchError(this.translations.http_413, res.data);
+          this.dispatchError(res.data.message || this.translations.http_413, res.data);
           break;
         case 419:
-          this.dispatchError(this.translations.http_419, res.data);
+          this.dispatchError(res.data.message || this.translations.http_419, res.data);
           break;
         case 502:
-          this.dispatchError(this.translations.http_502, res.data);
+          this.dispatchError(res.data.message || this.translations.http_502, res.data);
           break;
         case 504:
-          this.dispatchError(this.translations.http_504, res.data);
+          this.dispatchError(res.data.message || this.translations.http_504, res.data);
           break;
         default:
-          this.dispatchError(this.translations.http_other_error, res.data);
+          this.dispatchError(res.data.message || this.translations.http_other_error, res.data);
       }
     } else {
       this.dispatchError(this.translations.http_no_response, {});
