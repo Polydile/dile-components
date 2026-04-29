@@ -54,10 +54,21 @@ Use the component.
 
 This component is based on elements such as `dile-crud-list`, `dile-crud-insert`, `dile-crud-update`, `dile-crud-item-delete`, and many others. Therefore, all events documented in those components can be listened to in `dile-crud`. Please refer to the mentioned components for information on those events.
 
-**Eventos específicos de `dile-crud`:**
+**Specific events of `dile-crud`:**
 
 - **crud-item-insert**: Dispatched when the system shows the insert form.
 - **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties `msg` with a message from the server response, `action` with the name of the action being responded to, and `data` with any additional data that the backend may have sent as a response. Of course, the backend shoul be developed to send all this data.
+
+### CRUD component CSS Custom Properties
+
+It is possible to customize the appearance of CRUD components using Custom CSS Properties. This component uses elements such as <dile-button> and <dile-input-search>, and therefore supports the custom CSS properties documented for those components. It also uses CSS custom properties that are consistently applied across the entire component catalog, some of which are detailed on the theming page.
+
+Additionally, there are specific custom properties for dile-crud, which are detailed in the following table:
+
+Custom property | Description | Default
+--filter-list-margin | Margin of the filter list container | 0 0.5rem
+--filter-list-gap | Gap between filter list items | 0.5rem
+
 
 ## Generating CRUD Components for Entities with the CLI
 
