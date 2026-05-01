@@ -80,7 +80,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
   actions: {
     list: [
       {
-        label: 'Delete resorce',
+        label: 'Delete resource',
         name: 'DeleteAction',
         destructive: true,
       },
