@@ -1,6 +1,6 @@
 {
   "name": "@dile/crud",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "description": "Components to create a generic crud system based on Web Components and Lit",
   "main": "index.js",
   "scripts": {
