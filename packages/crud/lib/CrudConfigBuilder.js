@@ -7,7 +7,12 @@ export class CrudConfigBuilder {
     this.config.endpoint = endpoint;
   }
  
-  getConfig() {
+  getConfig(endpoint = null) {
+    if (endpoint !== null) {
+      const configCopy = { ...this.config };
+      configCopy.endpoint = endpoint;
+      return configCopy;
+    }
     return this.config;
   }
 }
