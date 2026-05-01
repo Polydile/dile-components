@@ -15,6 +15,7 @@ export const defaultConfig = {
     available: [10, 25, 50],
     initial: 25,
   },
+  maxBatchActionItems: 100,
   customization: {
     disableKeywordSearch: true,
     hideCountSummary: false,

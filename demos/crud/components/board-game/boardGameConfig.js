@@ -10,6 +10,7 @@ class BoardGameResponseApiAdapter extends ResponseApiAdapter {
 }
 
 export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/board-games', {
+  maxBatchActionItems: 200,
   customization: {
     hideCountSummary: false,
     hideCheckboxSelection: false,

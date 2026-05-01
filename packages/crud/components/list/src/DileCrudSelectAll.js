@@ -71,6 +71,7 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
       pageSize: { type: Number },
       numItems: { type: Number },
       disablePagination: { type: Boolean },
+      maxBatchActionItems: { type: Number },
     };
   }
 
@@ -82,34 +83,58 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
 
   render() {
     return html`
-      <dile-menu-overlay>
-        <dile-button-icon no-wrap small .icon="${this.selectIcon(this.mainChecked)}" slot="trigger">
-          <div>${this.translations.select} <span class="desk">${this.translations.all}</span></div>
-          <dile-icon .icon=${arrowDropDownIcon} class="drop"></dile-icon>
-        </dile-button-icon>
-        <div slot="content" class="content">
-          ${this.disablePagination
-            ? ''
-            : html`
-              <p class="option" @click=${this.checkPageItems}>
-                <dile-icon .icon=${this.selectIcon(this.pageChecked)} class="drop"></dile-icon>
-                <span>
-                  ${this.translations.all_in_page} 
-                  (${this.pageSize > this.numItems ? this.numItems : this.pageSize})
-                </span>
-              </p>
-            `
-          }
-          <p class="option" @click=${this.checkAllItems}>
-            <dile-icon .icon=${this.selectIcon(this.allChecked)} class="drop"></dile-icon>
-            <span>
-              ${this.translations.select_matching}
-              (${this.numItems})
-            </span>
-          </p>
-        </div>
-      </dile-menu-overlay>
+      ${this.shouldShowElementSelection(
+          this.maxBatchActionItems, 
+          this.disablePagination, 
+          this.pageSize, 
+          this.numItems
+        ) 
+        ? this.elementTemplate 
+        : ''
+      }
     `;
+  }
+
+  get elementTemplate() {
+    return html`
+        <dile-menu-overlay>
+          <dile-button-icon no-wrap small .icon="${this.selectIcon(this.mainChecked)}" slot="trigger">
+            <div>${this.translations.select} <span class="desk">${this.translations.all}</span></div>
+            <dile-icon .icon=${arrowDropDownIcon} class="drop"></dile-icon>
+          </dile-button-icon>
+          <div slot="content" class="content">
+            ${this.disablePagination
+              ? ''
+              : html`
+                <p class="option" @click=${this.checkPageItems}>
+                  <dile-icon .icon=${this.selectIcon(this.pageChecked)} class="drop"></dile-icon>
+                  <span>
+                    ${this.translations.all_in_page} 
+                    (${this.pageSize > this.numItems ? this.numItems : this.pageSize})
+                  </span>
+                </p>
+              `
+            }
+            ${this.numItems <= this.maxBatchActionItems
+              ? html`
+                <p class="option" @click=${this.checkAllItems}>
+                  <dile-icon .icon=${this.selectIcon(this.allChecked)} class="drop"></dile-icon>
+                  <span>
+                    ${this.translations.select_matching}
+                    (${this.numItems})
+                  </span>
+                </p>
+              `
+              : ''
+            }
+          </div>
+        </dile-menu-overlay>
+      `;
+  }
+
+  shouldShowElementSelection(maxBatchActionItems, disablePagination, pageSize, numItems) {
+    console.log(maxBatchActionItems, disablePagination, pageSize, numItems, disablePagination ? maxBatchActionItems >= numItems : maxBatchActionItems >= pageSize);
+    return disablePagination ? maxBatchActionItems >= numItems : maxBatchActionItems >= pageSize;
   }
 
   selectIcon(checked) {

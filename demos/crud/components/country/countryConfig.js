@@ -3,6 +3,7 @@ import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
 import '@dile/ui/components/pages/pages';
 
 export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/api/countries', {
+  maxBatchActionItems: 100,
   templates: {
     item: (country) => html`<demo-country-item .country=${country}></demo-country-item>`,
     insertForm: () => html`<demo-country-form id="insertform"></demo-country-form>`,
