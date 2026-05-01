@@ -15,10 +15,11 @@ Dile components are managed in several component packages, grouped by utility:
 
 - @dile/ui: User interface web components.
 - @dile/editor: WYSIWYG editor to create Markdown contents.
-- @dile/icons: Popular open‑source icon catalogs provided as custom elements.
 - @dile/utils: General utility components.
 - @dile/crud: Generic and customizable CRUD components.
 - @dile/lib: Components and utilities for easily creating apps.
+- @dile/iconlib: Popular open‑source icon catalogs provided as custom elements
+- @dile/icons: A sub-set of Material Icons as Lit-html templates
 
 ## 1. Install any of the web components
 
