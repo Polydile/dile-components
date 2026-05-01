@@ -19,7 +19,7 @@ export class DileAvatar extends LitElement {
         background-color: var(--dile-avatar-background-color, var(--dile-secondary-color, #ddd));
         color: var(--dile-avatar-color, var(--dile-on-secondary-color, #888));
         text-align: center;
-        font-size: calc(var(--dile-avatar-size, 36px) - 14px);
+        font-size: var(--dile-avatar-font-size, calc(var(--dile-avatar-size, 36px) - var(--dile-avatar-font-size-subtract, 14)));
         font-weight: bold;
         text-transform: uppercase;
       }
