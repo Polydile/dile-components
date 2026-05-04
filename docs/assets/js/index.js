@@ -30,6 +30,7 @@ import '@dile/ui/components/password/password.js';
 import '@dile/ui/components/progress-bar/progress-bar.js';
 import '@dile/ui/components/slide-menu/slide-menu.js';
 import '@dile/ui/components/light-mode-switch/light-mode-switch.js';
+import '@dile/ui/components/copy-text/copy-text.js';
 import './components/dile-icon-name.js';
 import '@dile/iconlib/lucide-icons/arrow-big-right.js';
 
