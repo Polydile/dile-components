@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-copy-markdown-url component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+  import "@dile/ui/components/copy-markdown-url/copy-markdown-url.js";
+  import "@dile/ui/components/button/button.js";
+  </script>
+  <style>
+    .demo-box {
+      display: block;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    
+    .code-example {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .styled-copy-markdown {
+      --dile-copy-text-color: #0066cc;
+      --dile-copy-text-hover-color: #004499;
+      --dile-copy-text-hover-text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .alternative-style {
+      --dile-copy-text-color: #ff6b35;
+      --dile-copy-text-hover-color: #ff4500;
+    }
+
+    #output {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-copy-markdown-url component</h1>
+    
+    <h2>Basic usage - GitHub raw content</h2>
+    
+    <div class="demo-box">
+      <p>Click on the link to fetch and copy markdown content from a URL:</p>
+      <dile-copy-markdown-url 
+        id="copy-github"
+        url="../doc-to-copy.md"
+        feedbackText="Markdown copied!"
+      >
+        Copy Dile Components README
+      </dile-copy-markdown-url>
+    </div>
+
+    <h2>Styled component</h2>
+    
+    <div class="demo-box">
+      <p>Using CSS variables for styling:</p>
+      <dile-copy-markdown-url 
+        id="copy-styled"
+        url="../doc-to-copy.md"
+        feedbackText="Copied!"
+        class="styled-copy-markdown"
+      >
+        🎨 Copy with custom styling
+      </dile-copy-markdown-url>
+    </div>
+
+    <h2>Alternative styling</h2>
+    
+    <div class="demo-box">
+      <p>Another style variant with orange accent:</p>
+      <dile-copy-markdown-url 
+        id="copy-alt"
+        url="../doc-to-copy.md"
+        feedbackText="License copied!"
+        class="alternative-style"
+      >
+        <dile-button>Copy license</dile-button>
+      </dile-copy-markdown-url>
+    </div>
+
+    <h2>With custom feedback duration</h2>
+    
+    <div class="demo-box">
+      <p>Control how long the feedback message appears:</p>
+      <dile-copy-markdown-url 
+        id="copy-duration"
+        url="../doc-to-copy.md"
+        feedbackText="Package.json copied!"
+        copiedDuration="3000"
+      >
+        Copy (3 second feedback)
+      </dile-copy-markdown-url>
+    </div>
+
+    <h2>Without feedback icon</h2>
+    
+    <div class="demo-box">
+      <p>You can hide the icon using the <code>hideIcon</code> attribute:</p>
+      <dile-copy-markdown-url 
+        id="copy-no-icon"
+        url="../doc-to-copy.md"
+        feedbackText="Copied to clipboard!"
+        hideIcon
+      >
+        Copy (no icon feedback)
+      </dile-copy-markdown-url>
+    </div>
+
+    
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>

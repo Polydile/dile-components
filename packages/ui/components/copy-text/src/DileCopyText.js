@@ -30,7 +30,7 @@ export class DileCopyText extends LitElement {
 
   static get properties() {
     return {
-      copy: { type: String },
+      content: { type: String },
       copiedDuration: { type: Number },
       feedbackText: { type: String },
       hideIcon: { type: Boolean }
@@ -39,7 +39,7 @@ export class DileCopyText extends LitElement {
 
   constructor() {
     super();
-    this.copy = '';
+    this.content = '';
     this.copiedDuration = 1000; // 2 seconds by default
     this.feedbackText = 'Copied!';
     this.hideIcon = false;
@@ -83,7 +83,7 @@ export class DileCopyText extends LitElement {
     try {
       // Try to use Clipboard API first (modern browsers)
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(this.copy);
+        await navigator.clipboard.writeText(this.content);
       } else {
         // Fallback for older browsers
         this.copyWithExecCommand();
@@ -92,7 +92,7 @@ export class DileCopyText extends LitElement {
       // Dispatch custom event
       this.dispatchEvent(
         new CustomEvent('dile-text-copied', {
-          detail: { text: this.copy },
+          detail: { text: this.content },
           bubbles: true,
           composed: true
         })
@@ -107,7 +107,7 @@ export class DileCopyText extends LitElement {
         this.copyWithExecCommand();
         this.dispatchEvent(
           new CustomEvent('dile-text-copied', {
-            detail: { text: this.copy },
+            detail: { text: this.content },
             bubbles: true,
             composed: true
           })
@@ -121,7 +121,7 @@ export class DileCopyText extends LitElement {
 
   copyWithExecCommand() {
     const textArea = document.createElement('textarea');
-    textArea.value = this.copy;
+    textArea.value = this.content;
     textArea.style.position = 'fixed';
     textArea.style.left = '-999999px';
     textArea.style.top = '-999999px';
@@ -140,5 +140,9 @@ export class DileCopyText extends LitElement {
     if (feedback) {
       feedback.show();
     }
+  }
+
+  async copy() {
+    await this.copyToClipboard();
   }
 }

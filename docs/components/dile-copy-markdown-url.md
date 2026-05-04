@@ -1,11 +1,11 @@
 ---
-title: Copy Text
+title: Copy Markdown URL
 tags: utils
 ---
 
-# dile-copy-text
+# dile-copy-markdown-url
 
-Web Component that provides a clickable link to copy text to the clipboard with visual feedback.
+Web Component that fetches content from a URL and provides a clickable link to copy the content to the clipboard with visual feedback. Built on top of `dile-copy-text`.
 
 ## Installation
 
@@ -18,15 +18,15 @@ npm i @dile/ui
 Import the component
 
 ```javascript
-import '@dile/ui/components/copy-text/copy-text.js';
+import '@dile/ui/components/copy-markdown-url/copy-markdown-url.js';
 ```
 
 Use the component
 
 ```html
-<dile-copy-text content="Text to copy">
-  Click to copy
-</dile-copy-text>
+<dile-copy-markdown-url url="https://example.com/file.md">
+  Click to copy content
+</dile-copy-markdown-url>
 ```
 
 ## Slots
@@ -37,14 +37,14 @@ This component has one slot.
 
 ## Properties
 
-- **content**: Text to copy to clipboard, string (required).
+- **url**: URL of the content to fetch and copy, string (required).
 - **feedbackText**: Text shown in the feedback message, string. Default: `'Copied!'`.
 - **copiedDuration**: Duration of the feedback message in milliseconds, number. Default: `1000`.
 - **hideIcon**: Hide the icon in the feedback message even if one is defined, boolean. Default: `false`.
 
 ## Events
 
-- **dile-text-copied**: Custom event dispatched when text is successfully copied. Contains the copied text in `event.detail.text`.
+- **dile-text-copied**: Custom event dispatched when text is successfully copied. Inherited from `dile-copy-text`. Contains the copied text in `event.detail.text`.
 
 ```javascript
 element.addEventListener('dile-text-copied', (e) => {
@@ -52,9 +52,17 @@ element.addEventListener('dile-text-copied', (e) => {
 });
 ```
 
+- **dile-copy-markdown-url-error**: Custom event dispatched when there is an error fetching the content from the URL.
+
+```javascript
+element.addEventListener('dile-copy-markdown-url-error', (e) => {
+  console.error('Error:', e.detail.message);
+});
+```
+
 ### CSS Custom Properties
 
-You can customize it using CSS Custom Properties.
+Inherits all CSS custom properties from `dile-copy-text`.
 
 Custom property | Description | Default
 ----------------|-------------|---------
@@ -65,54 +73,34 @@ Custom property | Description | Default
 --dile-copy-text-focus-outline | Link focus outline | 2px solid #0066cc
 --dile-copy-text-transition-duration | Animation duration | 0.3s
 
-## dile-copy-text demos
+## dile-copy-markdown-url demos
 
 ### Basic usage
 
 ```html:preview
 <script type="module">
-  import '@dile/ui/components/copy-text/copy-text.js';
+  import '@dile/ui/components/copy-markdown-url/copy-markdown-url.js';
 </script>
-<dile-copy-text content="Hello, World!">
-  Click to copy
-</dile-copy-text>
-```
-
-### Copy email address
-
-```html:preview
-<style>
-  dile-copy-text {
-    --dile-copy-text-color: #0066cc;
-    --dile-copy-text-hover-color: #004499;
-  }
-</style>
-<dile-copy-text content="contact@example.com">
-  <dile-button>Copy contact@example.com</dile-button>
-</dile-copy-text>
+<dile-copy-markdown-url url="/md/components/dile-copy-text.md">
+  Copy README from GitHub
+</dile-copy-markdown-url>
 ```
 
 ### With custom feedback text
 
 ```html:preview
-<dile-copy-text content="Custom text" feedbackText="✅ Copied to clipboard!">
-  Copy this
-</dile-copy-text>
-```
-
-### Without icon feedback
-
-```html:preview
-<dile-copy-text content="No icon feedback" hideIcon>
-  Copy without icon
-</dile-copy-text>
+<dile-copy-markdown-url url="/md/components/dile-copy-text.md" feedbackText="Content copied to clipboard!">
+  <dile-button>
+  Copy with custom feedback
+  </dile-button>
+</dile-copy-markdown-url>
 ```
 
 ### Styled variant
 
 ```html:preview
 <style>
-  .styled-copy {
+  .styled-copy-markdown {
     --dile-copy-text-color: #28a745;
     --dile-copy-text-hover-color: #1e7e34;
     --dile-copy-text-hover-text-decoration: none;
@@ -120,7 +108,7 @@ Custom property | Description | Default
     font-weight: 500;
   }
 </style>
-<dile-copy-text content="Copy this styled text" class="styled-copy">
+<dile-copy-markdown-url url="/md/components/dile-copy-text.md" class="styled-copy-markdown">
   🎯 Copy styled
-</dile-copy-text>
+</dile-copy-markdown-url>
 ```
