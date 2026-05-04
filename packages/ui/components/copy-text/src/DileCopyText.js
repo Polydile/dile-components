@@ -47,22 +47,23 @@ export class DileCopyText extends LitElement {
 
   render() {
     return html`
-      <a
-        href="#"
-        role="button"
-        tabindex="0"
-        @click="${this.handleCopy}"
-        @keydown="${this.handleKeydown}"
-      >
-        <slot></slot>
-      </a>
       <dile-floating-feedback
         id="copy-feedback"
         feedback="${this.feedbackText}"
         duration="${this.copiedDuration}"
         ?hideIcon=${this.hideIcon}
         .icon=${contentCopyIcon}
-      ></dile-floating-feedback>
+      >
+        <a
+          href="#"
+          role="button"
+          tabindex="0"
+          @click="${this.handleCopy}"
+          @keydown="${this.handleKeydown}"
+        >
+          <slot></slot>
+        </a>
+      </dile-floating-feedback>
     `;
   }
 

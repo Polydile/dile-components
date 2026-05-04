@@ -111,11 +111,12 @@
     
     <div class="demo-box">
       <p>El componente se activa mediante el método <code>show()</code>:</p>
-      <dile-floating-feedback feedback="¡Guardado!"></dile-floating-feedback>
-      <button id="btn-basic">Click para feedback</button>
+      <dile-floating-feedback feedback="¡Guardado!" id="feedback-basic">
+        <button id="btn-basic">Click para feedback</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-basic').addEventListener('click', function() {
-          document.querySelector('[feedback="¡Guardado!"]').show();
+          document.getElementById('feedback-basic').show();
         });
       </script>
     </div>
@@ -124,20 +125,26 @@
     
     <div class="demo-box">
       <p>Pasar texto directamente al método <code>show()</code>:</p>
-      <dile-floating-feedback id="feedback-dynamic"></dile-floating-feedback>
-      <button id="btn-dynamic-1">+1</button>
-      <button id="btn-dynamic-2">✓ Ok</button>
-      <button id="btn-dynamic-3">⭐ Guardado</button>
+      <div class="button-group">
+        <dile-floating-feedback id="feedback-dynamic-1">
+          <button id="btn-dynamic-1">+1</button>
+        </dile-floating-feedback>
+        <dile-floating-feedback id="feedback-dynamic-2">
+          <button id="btn-dynamic-2">✓ Ok</button>
+        </dile-floating-feedback>
+        <dile-floating-feedback id="feedback-dynamic-3">
+          <button id="btn-dynamic-3">⭐ Guardado</button>
+        </dile-floating-feedback>
+      </div>
       <script>
-        const feedbackDynamic = document.getElementById('feedback-dynamic');
         document.getElementById('btn-dynamic-1').addEventListener('click', function() {
-          feedbackDynamic.show('+1');
+          document.getElementById('feedback-dynamic-1').show('+1');
         });
         document.getElementById('btn-dynamic-2').addEventListener('click', function() {
-          feedbackDynamic.show('✓ Ok');
+          document.getElementById('feedback-dynamic-2').show('✓ Ok');
         });
         document.getElementById('btn-dynamic-3').addEventListener('click', function() {
-          feedbackDynamic.show('⭐ Guardado');
+          document.getElementById('feedback-dynamic-3').show('⭐ Guardado');
         });
       </script>
     </div>
@@ -148,8 +155,9 @@
       <p>Personalizar estilo con CSS variables:</p>
       
       <h3>Green style</h3>
-      <dile-floating-feedback feedback="✓ Añadido" id="feedback-green" class="styled-feedback"></dile-floating-feedback>
-      <button id="btn-green">Agregar</button>
+      <dile-floating-feedback feedback="✓ Añadido" id="feedback-green" class="styled-feedback">
+        <button id="btn-green">Agregar</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-green').addEventListener('click', function() {
           document.getElementById('feedback-green').show();
@@ -157,8 +165,9 @@
       </script>
 
       <h3>Blue style</h3>
-      <dile-floating-feedback feedback="ℹ Información" id="feedback-blue" class="styled-feedback-blue"></dile-floating-feedback>
-      <button id="btn-blue">Info</button>
+      <dile-floating-feedback feedback="ℹ Información" id="feedback-blue" class="styled-feedback-blue">
+        <button id="btn-blue">Info</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-blue').addEventListener('click', function() {
           document.getElementById('feedback-blue').show();
@@ -166,8 +175,9 @@
       </script>
 
       <h3>Orange style</h3>
-      <dile-floating-feedback feedback="⚠ Aviso" id="feedback-orange" class="styled-feedback-orange"></dile-floating-feedback>
-      <button id="btn-orange">Advertencia</button>
+      <dile-floating-feedback feedback="⚠ Aviso" id="feedback-orange" class="styled-feedback-orange">
+        <button id="btn-orange">Advertencia</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-orange').addEventListener('click', function() {
           document.getElementById('feedback-orange').show();
@@ -175,8 +185,9 @@
       </script>
 
       <h3>Pink style</h3>
-      <dile-floating-feedback feedback="❤ Me gusta" id="feedback-pink" class="styled-feedback-pink"></dile-floating-feedback>
-      <button id="btn-pink">Like</button>
+      <dile-floating-feedback feedback="❤ Me gusta" id="feedback-pink" class="styled-feedback-pink">
+        <button id="btn-pink">Like</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-pink').addEventListener('click', function() {
           document.getElementById('feedback-pink').show();
@@ -190,12 +201,14 @@
       <p>Puedes agregar iconos al feedback:</p>
 
       <h3>Apps icon</h3>
-      <dile-floating-feedback id="feedback-icon-apps" feedback="Aplicaciones" class="styled-feedback"></dile-floating-feedback>
-      <button id="btn-icon-apps">Abrir panel</button>
+      <dile-floating-feedback id="feedback-icon-apps" feedback="Aplicaciones" class="styled-feedback">
+        <button id="btn-icon-apps">Abrir panel</button>
+      </dile-floating-feedback>
 
       <h3>Favorite icon</h3>
-      <dile-floating-feedback id="feedback-icon-favorite" feedback="Guardado" class="styled-feedback-pink"></dile-floating-feedback>
-      <button id="btn-icon-favorite">Agregar a favoritos</button>
+      <dile-floating-feedback id="feedback-icon-favorite" feedback="Guardado" class="styled-feedback-pink">
+        <button id="btn-icon-favorite">Agregar a favoritos</button>
+      </dile-floating-feedback>
     </div>
 
     <h2>Custom animation duration</h2>
@@ -204,8 +217,9 @@
       <p>Controlar la duración de la animación con la propiedad <code>duration</code>:</p>
 
       <h3>Fast (500ms)</h3>
-      <dile-floating-feedback id="feedback-fast" feedback="Rápido" duration="500"></dile-floating-feedback>
-      <button id="btn-fast">Feedback rápido</button>
+      <dile-floating-feedback id="feedback-fast" feedback="Rápido" duration="500">
+        <button id="btn-fast">Feedback rápido</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-fast').addEventListener('click', function() {
           document.getElementById('feedback-fast').show();
@@ -213,8 +227,9 @@
       </script>
 
       <h3>Normal (1000ms)</h3>
-      <dile-floating-feedback id="feedback-normal" feedback="Normal" duration="1000"></dile-floating-feedback>
-      <button id="btn-normal">Feedback normal</button>
+      <dile-floating-feedback id="feedback-normal" feedback="Normal" duration="1000">
+        <button id="btn-normal">Feedback normal</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-normal').addEventListener('click', function() {
           document.getElementById('feedback-normal').show();
@@ -222,8 +237,9 @@
       </script>
 
       <h3>Slow (2000ms)</h3>
-      <dile-floating-feedback id="feedback-slow" feedback="Lento" duration="2000"></dile-floating-feedback>
-      <button id="btn-slow">Feedback lento</button>
+      <dile-floating-feedback id="feedback-slow" feedback="Lento" duration="2000">
+        <button id="btn-slow">Feedback lento</button>
+      </dile-floating-feedback>
       <script>
         document.getElementById('btn-slow').addEventListener('click', function() {
           document.getElementById('feedback-slow').show();

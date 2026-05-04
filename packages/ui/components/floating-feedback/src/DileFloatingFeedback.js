@@ -35,7 +35,7 @@ export class DileFloatingFeedback extends LitElement {
 
   render() {
     return html`
-      <div class="feedback-anchor"></div>
+      <slot class="feedback-anchor"></slot>
     `;
   }
 
@@ -116,8 +116,15 @@ export class DileFloatingFeedback extends LitElement {
     // Add content container to floating element
     floatingElement.appendChild(contentContainer);
 
-    // Calculate position relative to this component
-    const rect = this.getBoundingClientRect();
+    // Calculate position relative to the slot's content
+    const anchorElement = this.children[0];
+    if (!anchorElement) {
+      console.warn('dile-floating-feedback: No element in slot to anchor to');
+      floatingElement.remove();
+      return;
+    }
+    
+    const rect = anchorElement.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top;
 

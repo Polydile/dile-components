@@ -10,6 +10,8 @@
   --dile-button-padding-x: 0.5rem;
   --dile-button-font-size: 0.875rem;
   --dile-button-border-width: 2px;
+  --dile-floating-feedback-padding: 0.15rem 0.5rem;
+  --dile-floating-feedback-border-radius: 8rem;
 }
 
 .MarkdownLink-actions {

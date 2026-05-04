@@ -28,11 +28,14 @@ Use the component
   feedback="Success!"
   duration="1000"
 >
+  <button>Click me</button>
 </dile-floating-feedback>
 
 <script>
   const feedback = document.getElementById('my-feedback');
-  feedback.show();
+  document.querySelector('button').addEventListener('click', () => {
+    feedback.show();
+  });
 </script>
 ```
 
@@ -40,7 +43,7 @@ Use the component
 
 This component has one slot.
 
-- **main slot** (unnamed slot): optional, for custom content inside the feedback message.
+- **main slot** (unnamed slot): The element you want to anchor the floating feedback to. This element's position will be used to calculate where the feedback message appears.
 
 ## Properties
 
@@ -84,8 +87,9 @@ Custom property | Description | Default
   import '@dile/ui/components/floating-feedback/floating-feedback.js';
 </script>
 <div>
-  <dile-floating-feedback id="feedback1" feedback="Operation successful!"></dile-floating-feedback>
-  <dile-button onclick="document.getElementById('feedback1').show()">Show Feedback</dile-button>
+  <dile-floating-feedback id="feedback1" feedback="Operation successful!">
+    <dile-button onclick="document.getElementById('feedback1').show()">Show Feedback</dile-button>
+  </dile-floating-feedback>
 </div>
 ```
 
@@ -93,8 +97,9 @@ Custom property | Description | Default
 
 ```html:preview
 <div>
-  <dile-floating-feedback id="feedback2" feedback="Quick message!" duration="2000"></dile-floating-feedback>
-  <dile-button onclick="document.getElementById('feedback2').show()">Show (2000ms)</dile-button>
+  <dile-floating-feedback id="feedback2" feedback="Slow message!" duration="2000">
+    <dile-button onclick="document.getElementById('feedback2').show()">Show (2000ms)</dile-button>
+  </dile-floating-feedback>
 </div>
 ```
 
@@ -127,13 +132,14 @@ export class StyledIconFeedback extends LitElement {
         feedback="Success!" 
         class="styled-feedback"
         .icon=${doneIcon}
-      ></dile-floating-feedback>
-      <dile-button @click=${this.showFeedback}>Show Styled</dile-button>
+      >
+        <dile-button @click=${this.showFeedback}>Show Styled</dile-button>
+      </dile-floating-feedback>
     `;
   }
 
   showFeedback() {
-    this.shadowRoot.getElementById('feedback3').show();
+    this.shadowRoot.querySelector('#feedback3').show();
   }
 }
 customElements.define('styled-icon-feedback', StyledIconFeedback);
