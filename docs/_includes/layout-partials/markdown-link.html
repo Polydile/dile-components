@@ -1,4 +1,5 @@
 {% if hasMarkdown %}
+  {% assign mdFileName = page.inputPath | split: "/" | last | replace: ".md", "" %}
   <div class="MarkdownLink">
       {% if tags %}
         <span class="MarkdownLink-tags">
@@ -8,7 +9,7 @@
         </span>
       {% endif %}
       <div class="MarkdownLink-actions">
-        <dile-copy-text content="{{ site.url }}/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
+        <dile-copy-text content="{{ site.url }}/md/{{ markdownFolder }}/{{ mdFileName }}.md">
           <dile-button>
               <span>
                 <dile-lucide-icon-copy></dile-lucide-icon-copy>
@@ -16,7 +17,7 @@
               </span>
           </dile-button>
         </dile-copy-text>
-        <dile-copy-markdown-url url="/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
+        <dile-copy-markdown-url url="/md/{{ markdownFolder }}/{{ mdFileName }}.md">
           <dile-button>
               <span>
                 <dile-lucide-icon-copy></dile-lucide-icon-copy>

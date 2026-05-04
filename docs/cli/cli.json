@@ -1,0 +1,6 @@
+{
+  "layout": "layout.html",
+  "tags": "cli",
+  "hasMarkdown": true,
+  "markdownFolder": "cli"
+}
