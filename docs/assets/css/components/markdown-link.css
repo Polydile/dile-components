@@ -1,0 +1,47 @@
+.MarkdownLink {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.MarkdownLink-actions {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+.MarkdownLink a {
+  color: #303030;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.MarkdownLink-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+.MarkdownLink-tag {
+  display: flex;
+  text-transform: capitalize;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #e3f9ce;
+}
+
+@media(min-width: 500px) {
+  .MarkdownLink {
+    flex-direction: row;
+    align-items: center;
+  }
+  .MarkdownLink-tags {
+    margin-bottom: 0;
+  }
+}

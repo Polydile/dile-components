@@ -1,4 +1,6 @@
 {
   "layout": "layout.html",
-  "tags": "components"
+  "tags": "components",
+  "hasMarkdown": true,
+  "markdownFolder": "components"
 }

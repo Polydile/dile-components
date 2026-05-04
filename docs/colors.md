@@ -43,7 +43,7 @@ Custom property | Default | Color
 --dile-on-primary-light-color | #303030 | [[color:#303030]]
 --dile-primary-dark-color | #d7d353 | [[color:#d7d353]]
 --dile-on-primary-dark-color | #303030 | [[color:#303030]]
---dile-secondary-light-color | #beed8e | [[color:#beed8e]]
+--dile-secondary-light-color | #d2f6ae | [[color:#beed8e]]
 --dile-on-secondary-light-color | #303030 | [[color:#303030]]
 --dile-secondary-dark-color | #43842e | [[color:#43842e]]
 --dile-on-secondary-dark-color | #ffffff | [[color:#ffffff]]

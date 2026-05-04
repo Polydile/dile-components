@@ -1,0 +1,15 @@
+{% if hasMarkdown %}
+  <div class="MarkdownLink">
+      {% if tags %}
+        <span class="MarkdownLink-tags">
+          {% for tag in tags %}
+            <span class="MarkdownLink-tag">{{ tag }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+      <div class="MarkdownLink-actions">
+        <a href="/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">{{ site.url }}/md/{{ markdownFolder }}/{{ page.fileSlug }}.md</a>
+      </div>
+  </div>
+{% endif %}
+
