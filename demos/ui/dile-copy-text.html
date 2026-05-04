@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-copy-text component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+  import "@dile/ui/components/copy-text/copy-text.js";
+  </script>
+  <style>
+    .demo-box {
+      display: block;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    
+    .code-example {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .styled-copy {
+      --dile-copy-text-color: #0066cc;
+      --dile-copy-text-hover-color: #004499;
+      --dile-copy-text-hover-text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .alternative-style {
+      --dile-copy-text-color: #ff6b35;
+      --dile-copy-text-hover-color: #ff4500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-copy-text component</h1>
+    
+    <h2>Basic usage</h2>
+    
+    <div class="demo-box">
+      <p>Click on the link to copy text to clipboard:</p>
+      <dile-copy-text copy="Hello, World!">
+        Copy this text
+      </dile-copy-text>
+    </div>
+
+    <h2>Copy email address</h2>
+    
+    <div class="demo-box">
+      <p>Click to copy email address:</p>
+      <dile-copy-text copy="contact@example.com">
+        📧 contact@example.com
+      </dile-copy-text>
+    </div>
+
+    <h2>Copy code snippet</h2>
+    
+    <div class="demo-box">
+      <p>Click to copy code to clipboard:</p>
+      <dile-copy-text copy="const greeting = 'Hello, dile-copy-text!';">
+        Click to copy code
+      </dile-copy-text>
+    </div>
+
+    <h2>Styled component</h2>
+    
+    <div class="demo-box">
+      <p>Using CSS variables for styling:</p>
+      <dile-copy-text copy="Custom styled text!" class="styled-copy">
+        🎨 Click to copy styled
+      </dile-copy-text>
+    </div>
+
+    <h2>Alternative styling</h2>
+    
+    <div class="demo-box">
+      <p>Another style variant:</p>
+      <dile-copy-text copy="Alternative style example" class="alternative-style">
+        🎯 Alternative style
+      </dile-copy-text>
+    </div>
+
+    <h2>API URL copy</h2>
+    
+    <div class="demo-box">
+      <p>Useful for API endpoints:</p>
+      <dile-copy-text copy="https://api.example.com/v1/users/123">
+        https://api.example.com/v1/users/123
+      </dile-copy-text>
+    </div>
+
+    <h2>Multi-line content</h2>
+    
+    <div class="demo-box">
+      <p>Click to copy a longer text:</p>
+      <dile-copy-text copy="Line 1: First line of text
+Line 2: Second line of text
+Line 3: Third line of text">
+        📋 Click to copy multi-line text
+      </dile-copy-text>
+    </div>
+
+    <h2>With icon (default behavior)</h2>
+    
+    <div class="demo-box">
+      <p>The feedback shows a copy icon by default:</p>
+      <dile-copy-text copy="This shows the copy icon in feedback">
+        Click to copy (with icon)
+      </dile-copy-text>
+    </div>
+
+    <h2>Without icon</h2>
+    
+    <div class="demo-box">
+      <p>You can hide the icon using the <code>hide-icon</code> attribute:</p>
+      <dile-copy-text copy="This hides the copy icon" hideIcon>
+        Click to copy (no icon)
+      </dile-copy-text>
+    </div>
+
+    <script>
+      // Listen to copy events and log to console
+      document.querySelectorAll('dile-copy-text').forEach(function(element) {
+        element.addEventListener('dile-text-copied', function(e) {
+          console.log('Text copied:', e.detail.text);
+        });
+      });
+    </script>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+</body>
+</html>

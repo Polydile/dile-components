@@ -22,6 +22,7 @@ export { clearIcon } from "./src/clear.js";
 export { closeIcon } from "./src/close.js";
 export { codeIcon } from "./src/code.js";
 export { contactSupportIcon } from "./src/contactSupport.js";
+export { contentCopyIcon } from "./src/content_copy.js";
 export { cookieIcon } from "./src/cookie.js";
 export { cropIcon } from "./src/crop.js";
 export { darkMode } from "./src/darkMode.js";

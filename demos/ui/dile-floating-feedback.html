@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-floating-feedback component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+  import "@dile/ui/components/floating-feedback/floating-feedback.js";
+  </script>
+  <style>
+    .demo-box {
+      display: block;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #004499;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .styled-feedback {
+      --dile-floating-feedback-background-color: rgba(76, 175, 80, 0.9);
+      --dile-floating-feedback-text-color: #fff;
+      --dile-floating-feedback-font-size: 1rem;
+      --dile-floating-feedback-padding: 0.75rem 1rem;
+    }
+
+    .styled-feedback-blue {
+      --dile-floating-feedback-background-color: rgba(33, 150, 243, 0.9);
+      --dile-floating-feedback-text-color: #fff;
+    }
+
+    .styled-feedback-orange {
+      --dile-floating-feedback-background-color: rgba(255, 152, 0, 0.9);
+      --dile-floating-feedback-text-color: #fff;
+    }
+
+    .styled-feedback-pink {
+      --dile-floating-feedback-background-color: rgba(233, 30, 99, 0.9);
+      --dile-floating-feedback-text-color: #fff;
+    }
+
+    .multiple-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .multiple-buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .info-box {
+      background-color: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #1976d2;
+    }
+
+    .feature-list {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    .feature-list li {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-floating-feedback component</h1>
+
+    <h2>Basic usage</h2>
+    
+    <div class="demo-box">
+      <p>El componente se activa mediante el método <code>show()</code>:</p>
+      <dile-floating-feedback feedback="¡Guardado!"></dile-floating-feedback>
+      <button id="btn-basic">Click para feedback</button>
+      <script>
+        document.getElementById('btn-basic').addEventListener('click', function() {
+          document.querySelector('[feedback="¡Guardado!"]').show();
+        });
+      </script>
+    </div>
+
+    <h2>Dynamic text via method</h2>
+    
+    <div class="demo-box">
+      <p>Pasar texto directamente al método <code>show()</code>:</p>
+      <dile-floating-feedback id="feedback-dynamic"></dile-floating-feedback>
+      <button id="btn-dynamic-1">+1</button>
+      <button id="btn-dynamic-2">✓ Ok</button>
+      <button id="btn-dynamic-3">⭐ Guardado</button>
+      <script>
+        const feedbackDynamic = document.getElementById('feedback-dynamic');
+        document.getElementById('btn-dynamic-1').addEventListener('click', function() {
+          feedbackDynamic.show('+1');
+        });
+        document.getElementById('btn-dynamic-2').addEventListener('click', function() {
+          feedbackDynamic.show('✓ Ok');
+        });
+        document.getElementById('btn-dynamic-3').addEventListener('click', function() {
+          feedbackDynamic.show('⭐ Guardado');
+        });
+      </script>
+    </div>
+
+    <h2>Styled variations</h2>
+    
+    <div class="demo-box">
+      <p>Personalizar estilo con CSS variables:</p>
+      
+      <h3>Green style</h3>
+      <dile-floating-feedback feedback="✓ Añadido" id="feedback-green" class="styled-feedback"></dile-floating-feedback>
+      <button id="btn-green">Agregar</button>
+      <script>
+        document.getElementById('btn-green').addEventListener('click', function() {
+          document.getElementById('feedback-green').show();
+        });
+      </script>
+
+      <h3>Blue style</h3>
+      <dile-floating-feedback feedback="ℹ Información" id="feedback-blue" class="styled-feedback-blue"></dile-floating-feedback>
+      <button id="btn-blue">Info</button>
+      <script>
+        document.getElementById('btn-blue').addEventListener('click', function() {
+          document.getElementById('feedback-blue').show();
+        });
+      </script>
+
+      <h3>Orange style</h3>
+      <dile-floating-feedback feedback="⚠ Aviso" id="feedback-orange" class="styled-feedback-orange"></dile-floating-feedback>
+      <button id="btn-orange">Advertencia</button>
+      <script>
+        document.getElementById('btn-orange').addEventListener('click', function() {
+          document.getElementById('feedback-orange').show();
+        });
+      </script>
+
+      <h3>Pink style</h3>
+      <dile-floating-feedback feedback="❤ Me gusta" id="feedback-pink" class="styled-feedback-pink"></dile-floating-feedback>
+      <button id="btn-pink">Like</button>
+      <script>
+        document.getElementById('btn-pink').addEventListener('click', function() {
+          document.getElementById('feedback-pink').show();
+        });
+      </script>
+    </div>
+
+    <h2>With icons</h2>
+
+    <div class="demo-box">
+      <p>Puedes agregar iconos al feedback:</p>
+
+      <h3>Apps icon</h3>
+      <dile-floating-feedback id="feedback-icon-apps" feedback="Aplicaciones" class="styled-feedback"></dile-floating-feedback>
+      <button id="btn-icon-apps">Abrir panel</button>
+
+      <h3>Favorite icon</h3>
+      <dile-floating-feedback id="feedback-icon-favorite" feedback="Guardado" class="styled-feedback-pink"></dile-floating-feedback>
+      <button id="btn-icon-favorite">Agregar a favoritos</button>
+    </div>
+
+    <h2>Custom animation duration</h2>
+    
+    <div class="demo-box">
+      <p>Controlar la duración de la animación con la propiedad <code>duration</code>:</p>
+
+      <h3>Fast (500ms)</h3>
+      <dile-floating-feedback id="feedback-fast" feedback="Rápido" duration="500"></dile-floating-feedback>
+      <button id="btn-fast">Feedback rápido</button>
+      <script>
+        document.getElementById('btn-fast').addEventListener('click', function() {
+          document.getElementById('feedback-fast').show();
+        });
+      </script>
+
+      <h3>Normal (1000ms)</h3>
+      <dile-floating-feedback id="feedback-normal" feedback="Normal" duration="1000"></dile-floating-feedback>
+      <button id="btn-normal">Feedback normal</button>
+      <script>
+        document.getElementById('btn-normal').addEventListener('click', function() {
+          document.getElementById('feedback-normal').show();
+        });
+      </script>
+
+      <h3>Slow (2000ms)</h3>
+      <dile-floating-feedback id="feedback-slow" feedback="Lento" duration="2000"></dile-floating-feedback>
+      <button id="btn-slow">Feedback lento</button>
+      <script>
+        document.getElementById('btn-slow').addEventListener('click', function() {
+          document.getElementById('feedback-slow').show();
+        });
+      </script>
+    </div>
+
+    <footer><a href="../index.html">Back</a></footer>
+
+  </div>
+
+  <script type="module">
+    import { appsIcon, favoriteIcon } from "@dile/icons/index.js";
+
+    // Set icons on feedback components
+    document.getElementById('feedback-icon-apps').icon = appsIcon;
+    document.getElementById('feedback-icon-favorite').icon = favoriteIcon;
+
+    // Add event listeners
+    document.getElementById('btn-icon-apps').addEventListener('click', function() {
+      document.getElementById('feedback-icon-apps').show();
+    });
+
+    document.getElementById('btn-icon-favorite').addEventListener('click', function() {
+      document.getElementById('feedback-icon-favorite').show();
+    });
+  </script>
+</body>
+</html>
