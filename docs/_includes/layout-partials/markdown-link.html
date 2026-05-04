@@ -8,7 +8,9 @@
         </span>
       {% endif %}
       <div class="MarkdownLink-actions">
-        <a href="/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">{{ site.url }}/md/{{ markdownFolder }}/{{ page.fileSlug }}.md</a>
+        <dile-copy-text copy="/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
+          <dile-button>Copy markdown URL</dile-button>
+        </dile-copy-text>
       </div>
   </div>
 {% endif %}
