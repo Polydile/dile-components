@@ -33,27 +33,32 @@ export class DileCopyMarkdownUrl extends LitElement {
         .feedbackText="${this.feedbackText}"
         .copiedDuration="${this.copiedDuration}"
         ?hideIcon="${this.hideIcon}"
-        @click="${this.handleClick}"
       >
         <slot></slot>
       </dile-copy-text>
     `;
   }
 
-  async handleClick(e) {
-    if (this.loading) {
-      e.preventDefault();
-      return;
-    }
+  connectedCallback() {
+    super.connectedCallback();
+    // Listen in capture phase to intercept click before dile-copy-text handles it
+    this.addEventListener('click', (e) => this.handleClickCapture(e), true);
+  }
 
+  async handleClickCapture(e) {
+    // If no content yet and URL is set, fetch before letting dile-copy-text handle the copy
     if (!this.content && this.url) {
       e.preventDefault();
+      e.stopPropagation();
+      
       await this.fetchContent();
       
-      // After fetching, trigger copy on the component using its public API
-      const copyComponent = this.shadowRoot.querySelector('#copy-component');
-      if (copyComponent && this.content) {
-        await copyComponent.copy();
+      // Only trigger copy if fetch was successful
+      if (this.content && !this.error) {
+        const copyComponent = this.shadowRoot.querySelector('#copy-component');
+        if (copyComponent) {
+          await copyComponent.copy();
+        }
       }
     }
   }
@@ -61,13 +66,7 @@ export class DileCopyMarkdownUrl extends LitElement {
   async fetchContent() {
     if (!this.url) {
       this.error = 'URL is not set';
-      this.dispatchEvent(
-        new CustomEvent('dile-copy-markdown-url-error', {
-          detail: { message: this.error },
-          bubbles: true,
-          composed: true
-        })
-      );
+      this.dispatchError(this.error);
       return;
     }
 
@@ -84,16 +83,19 @@ export class DileCopyMarkdownUrl extends LitElement {
       this.content = await response.text();
     } catch (err) {
       this.error = err.message || 'Error fetching content';
-      
-      this.dispatchEvent(
-        new CustomEvent('dile-copy-markdown-url-error', {
-          detail: { message: this.error },
-          bubbles: true,
-          composed: true
-        })
-      );
+      this.dispatchError(this.error);
     } finally {
       this.loading = false;
     }
+  }
+
+  dispatchError(message) {
+    this.dispatchEvent(
+      new CustomEvent('dile-copy-markdown-url-error', {
+        detail: { message },
+        bubbles: true,
+        composed: true
+      })
+    );
   }
 }
