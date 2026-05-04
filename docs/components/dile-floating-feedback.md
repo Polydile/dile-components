@@ -1,5 +1,6 @@
 ---
 title: Floating Feedback
+tags: feedback
 ---
 
 # dile-floating-feedback

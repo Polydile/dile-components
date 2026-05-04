@@ -1,5 +1,6 @@
 ---
 title: Copy Text
+tags: utils
 ---
 
 # dile-copy-text
