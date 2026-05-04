@@ -125,8 +125,48 @@ function extractTitleFromFrontmatter(content) {
 }
 
 /**
+ * Procesa los includes de Jekyll/Eleventy
+ * Reemplaza {% include "ruta/archivo.md" %} con el contenido del archivo
+ * Los includes se buscan en /docs/_includes/
+ */
+function processIncludes(content, processedPaths = new Set()) {
+  const includeRegex = /\{%\s*include\s+"([^"]+)"\s*%\}/g;
+  
+  return content.replace(includeRegex, (match, includePath) => {
+    const fullIncludePath = path.join(__dirname, '../docs/_includes', includePath);
+    
+    // Evitar bucles infinitos rastreando rutas procesadas
+    if (processedPaths.has(fullIncludePath)) {
+      console.warn(`⚠️  Referencia circular detectada en include: ${includePath}`);
+      return match;
+    }
+    
+    if (!fs.existsSync(fullIncludePath)) {
+      console.warn(`⚠️  Include no encontrado: ${includePath}`);
+      return match;
+    }
+    
+    try {
+      let includedContent = fs.readFileSync(fullIncludePath, 'utf-8');
+      
+      // Agregar la ruta actual al conjunto de rutas procesadas
+      const newProcessedPaths = new Set(processedPaths);
+      newProcessedPaths.add(fullIncludePath);
+      
+      // Procesar includes recursivamente en el contenido incluido
+      includedContent = processIncludes(includedContent, newProcessedPaths);
+      
+      return includedContent;
+    } catch (err) {
+      console.warn(`⚠️  Error al leer include ${includePath}: ${err.message}`);
+      return match;
+    }
+  });
+}
+
+/**
  * Convierte enlaces internos en archivos markdown
- * Transforma /section/file/ en ../section/file.md
+ * Transforma /section/file/ en URL absoluta: https://dile-components.com/md/section/file.md
  * Preserva enlaces externos (http://, https://)
  */
 function convertInternalLinks(content) {
@@ -144,7 +184,7 @@ function convertInternalLinks(content) {
       return match;
     }
     
-    // Conversión simple: /section/file/ -> ../section/file.md
+    // Conversión a URL absoluta: /section/file/ -> https://dile-components.com/md/section/file.md
     let cleanPath = url.replace(/\/$/, '');
     
     const segments = cleanPath.split('/').filter(s => s);
@@ -156,7 +196,7 @@ function convertInternalLinks(content) {
     const section = segments[0];
     const fileName = segments.slice(1).join('/') || 'index';
     
-    const newUrl = `../${section}/${fileName}.md`;
+    const newUrl = `${BASE_URL}md/${section}/${fileName}.md`;
     return `[${text}](${newUrl})`;
   });
 }
@@ -194,6 +234,9 @@ function processSection(section) {
     
     // Copiar archivo
     let content = fs.readFileSync(sourcePath, 'utf-8');
+    
+    // Procesar includes
+    content = processIncludes(content);
     
     // Convertir enlaces internos
     content = convertInternalLinks(content);
@@ -235,8 +278,9 @@ function processGeneralInfoPages() {
     // Crear directorio si no existe
     ensureDir(path.dirname(destPath));
     
-    // Convertir enlaces internos y copiar archivo
-    let processedContent = convertInternalLinks(content);
+    // Procesar includes y enlaces internos y copiar archivo
+    let processedContent = processIncludes(content);
+    processedContent = convertInternalLinks(processedContent);
     fs.writeFileSync(destPath, processedContent, 'utf-8');
     
     // Extraer título del frontmatter
@@ -280,8 +324,9 @@ function processBlockSection(blockSection) {
       // Crear directorio si no existe
       ensureDir(path.dirname(destPath));
       
-      // Convertir enlaces internos y copiar archivo
-      let processedContent = convertInternalLinks(content);
+      // Procesar includes y enlaces internos y copiar archivo
+      let processedContent = processIncludes(content);
+      processedContent = convertInternalLinks(processedContent);
       fs.writeFileSync(destPath, processedContent, 'utf-8');
       
       // Extraer título del frontmatter
@@ -340,8 +385,9 @@ function getUnusedFiles(blockSection, processedDocuments) {
       // Copiar archivo
       ensureDir(path.dirname(destPath));
       
-      // Convertir enlaces internos y copiar archivo
-      let processedContent = convertInternalLinks(content);
+      // Procesar includes y enlaces internos y copiar archivo
+      let processedContent = processIncludes(content);
+      processedContent = convertInternalLinks(processedContent);
       fs.writeFileSync(destPath, processedContent, 'utf-8');
       
       // Extraer título del frontmatter

@@ -93,7 +93,7 @@ The `dile-ajax` component uses [Axios](https://axios-http.com/) under the hood t
 
 In the simplest cases, you may not need to customize any extra parameters in the HTTP requests, and thus you may not need to customize the Axios instance used for the HTTP requests. However, in most HTTP applications, it is very likely that you will need to change some details of Axios's behavior.
 
-On the [documentation page for the CRUD components](/crud/), we explain the available mechanisms to configure Axios according to the needs of your project.
+On the [documentation page for the CRUD components](/crud/general-information/), we explain the available mechanisms to configure Axios according to the needs of your project.
 
 ## Providing validation errors
 

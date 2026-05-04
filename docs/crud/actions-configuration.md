@@ -72,7 +72,7 @@ Action forms components, like `dile-crud-delete-action` are used to provide addi
 - For example, if you want to create a batch action to mark or unmark items as favorites, you would need to send a value, usually a boolean, that lets the backend know whether the items should be marked as favorites or not.
 - For example, if you want to create duplicates of invoices, you should send the name of the new duplicated invoice, the client, and any other data the backend needs to generate the duplicate invoices.
 
-Action forms are regular forms with specifications explained in the [`dile-ajax-form`](http://localhost:8080/crud/ajax-form/) component. The basic requirement is that the form implements the [`DileForm` mixin](http://localhost:8080/mixins/dile-form-mixin/), to provide various methods for setting and retrieving form data.
+Action forms are regular forms with specifications explained in the [`dile-ajax-form`](/crud/ajax-form/) component. The basic requirement is that the form implements the [`DileForm` mixin](/mixins/dile-form-mixin/), to provide various methods for setting and retrieving form data.
 
 In the action component, you can include:
 
