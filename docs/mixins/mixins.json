@@ -1,4 +1,6 @@
 {
   "layout": "layout.html",
-  "tags": "mixins"
+  "tags": "mixins",
+  "hasMarkdown": true,
+  "markdownFolder": "mixins"
 }

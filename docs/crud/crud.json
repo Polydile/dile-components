@@ -1,4 +1,6 @@
 {
   "layout": "layout.html",
-  "tags": "crud"
+  "tags": "crud",
+  "hasMarkdown": true,
+  "markdownFolder": "crud"
 }

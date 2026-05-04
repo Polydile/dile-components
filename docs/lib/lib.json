@@ -1,6 +1,6 @@
 {
   "layout": "layout.html",
-  "tags": "libicons",
+  "tags": "lib",
   "hasMarkdown": true,
-  "markdownFolder": "icons"
+  "markdownFolder": "lib"
 }

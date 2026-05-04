@@ -1,4 +1,6 @@
 import './prism.js'
+import '@dile/iconlib/lucide-icons/copy.js';
+import '@dile/iconlib/lucide-icons/arrow-big-right.js';
 import '@dile/ui/components/card/card.js';
 import '@dile/ui/components/avatar/avatar';
 import '@dile/ui/components/menu-hamburger/menu-hamburger';
@@ -31,8 +33,7 @@ import '@dile/ui/components/progress-bar/progress-bar.js';
 import '@dile/ui/components/slide-menu/slide-menu.js';
 import '@dile/ui/components/light-mode-switch/light-mode-switch.js';
 import '@dile/ui/components/copy-text/copy-text.js';
-import './components/dile-icon-name.js';
-import '@dile/iconlib/lucide-icons/arrow-big-right.js';
+import '@dile/ui/components/copy-markdown-url/copy-markdown-url.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {

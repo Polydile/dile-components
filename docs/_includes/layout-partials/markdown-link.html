@@ -8,9 +8,22 @@
         </span>
       {% endif %}
       <div class="MarkdownLink-actions">
-        <dile-copy-text copy="{{ site.url }}/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
-          <dile-button>Copy markdown URL</dile-button>
+        <dile-copy-text content="{{ site.url }}/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
+          <dile-button>
+              <span>
+                <dile-lucide-icon-copy></dile-lucide-icon-copy>
+                Doc URL
+              </span>
+          </dile-button>
         </dile-copy-text>
+        <dile-copy-markdown-url url="/md/{{ markdownFolder }}/{{ page.fileSlug }}.md">
+          <dile-button>
+              <span>
+                <dile-lucide-icon-copy></dile-lucide-icon-copy>
+                Content
+              </span>
+          </dile-button>
+        </dile-copy-markdown-url>
       </div>
   </div>
 {% endif %}
