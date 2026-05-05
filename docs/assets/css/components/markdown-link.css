@@ -19,7 +19,12 @@
   display: flex;
   align-items: center;
   --dile-icon-size: 16px;
+  --dile-icon-color: var(--dile-on-primary-color);
   gap: 0.35rem;
+}
+
+.MarkdownLink dile-button span:hover {
+  --dile-icon-color: var(--dile-on-primary-light-color);
 }
 
 .MarkdownLink-actions {
@@ -40,7 +45,8 @@
   text-transform: capitalize;
   padding: 0.15rem 0.5rem;
   border-radius: 0.5rem;
-  background-color: #e3f9ce;
+  background-color:  var(--dile-secondary-light-color);
+  color:  var(--dile-on-primary-light-color);
 }
 
 @media(min-width: 500px) {
