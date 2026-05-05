@@ -22,9 +22,7 @@ npm i @dile/ui
 Import the component.
 
 ```javascript
-<script type="module">
-  import '@dile/ui/components/tabs/tabs.js';
-</script>
+import '@dile/ui/components/tabs/tabs.js';
 ```
 
 Use the component

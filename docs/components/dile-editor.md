@@ -1,6 +1,6 @@
 ---
 title: Editor
-tags: utils
+tags: utils, markdown
 ---
 
 # dile-editor
@@ -23,7 +23,12 @@ import '@dile/editor/editor.js';
 Use the component:
 
 ```html
-<dile-editor></dile-editor>
+<dile-editor 
+  name="comments" 
+  label="Send us your comments"
+># Initial content
+This is a markdown editor.
+</dile-editor>
 ```
 
 ### Properties
