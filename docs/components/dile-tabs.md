@@ -75,6 +75,26 @@ The detail object has this properties:
 - The ```selected``` attribute is the tab name. Usually you will use this value. It can be the tab index or the value defined by the attribute with the ```attrForSelected``` name.
 - The ```selectorId``` attribute is the value of the ```selectorId``` component property.
 
+## Methods
+
+### changeSelectedTo(elem)
+
+This method allows you to programmatically change the selected tab. It updates the ```selected``` property and dispatches the ```dile-selected-changed``` event.
+
+**Parameters:**
+- `elem` (String or Number): The new selected value. This can be either a tab index (when `attrForSelected` is not defined) or the attribute value (when `attrForSelected` is defined).
+
+**Example:**
+
+```javascript
+const tabsComponent = document.querySelector('dile-tabs');
+// Change to second tab (index 1)
+tabsComponent.changeSelectedTo(1);
+
+// Or if using attrForSelected
+tabsComponent.changeSelectedTo('posts');
+```
+
 ## CSS custom properties
 
 You can customize the tabs using the CSS custom properties bellow.
