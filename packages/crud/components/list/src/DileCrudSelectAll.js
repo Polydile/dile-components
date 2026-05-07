@@ -133,7 +133,6 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
   }
 
   shouldShowElementSelection(maxBatchActionItems, disablePagination, pageSize, numItems) {
-    console.log(maxBatchActionItems, disablePagination, pageSize, numItems, disablePagination ? maxBatchActionItems >= numItems : maxBatchActionItems >= pageSize);
     return disablePagination ? maxBatchActionItems >= numItems : maxBatchActionItems >= pageSize;
   }
 
