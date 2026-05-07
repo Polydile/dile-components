@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../radio.js';
+import '../input/input-message.js';
 
 export class DileRadioGroup extends DileEmmitChange(LitElement) {
   static styles = [
@@ -31,6 +32,9 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
       label: { type: String },
       value: { type: String },
       name: { type: String },
+      message: { type: String },
+      errored: { type: Boolean },
+      hideErrorOnInput: { type: Boolean },
       disabled: { 
         type: Boolean,
         reflect: true
@@ -43,6 +47,7 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
     this.init = false;
     this.disabled = false;
     this.internals = this.attachInternals();
+    this.message = '';
   }
 
   updated(changedProperties) {
@@ -72,11 +77,19 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
         }
         <slot></slot>
       </div>
+      ${this.message
+        ? html`<dile-input-message message="${this.message}" ?errored=${this.errored}></dile-input-message>`
+        : ''
+      }
     `;
   }
 
   changeValue(e) {
     if(!this.disabled) {
+      if(this.hideErrorOnInput && this.errored) {
+        this.message = '';
+        this.errored = false;
+      }
       this.value = e.detail.value;
     }
   }

@@ -32,6 +32,9 @@ Use the component:
 - **checked**: Boolean, defines the checkbox state (cheked / unchecked).
 - **disabled**: Boolean, defines the checkbox as disabled.
 - **name**: The name of the checkbox, only for identification purposes
+- **message**: Text message to display below the checkbox (typically for validation errors)
+- **errored**: Boolean property to indicate the checkbox is in error state
+- **hideErrorOnInput**: Boolean property to automatically clear the error message when the user toggles the checkbox
 
 There is a special ```value``` property. This is not a actual component property but it mirrors the ```checked``` property, because sometimes forms colud use this property instead of checked to query or change it's state.
 
@@ -91,5 +94,41 @@ Custom property | Description | Default
 }
 </style>
 <dile-checkbox class="styled" checked>Styled!</dile-checkbox>
+```
+
+### Checkbox with message and error state
+
+```html:preview
+<script type="module">
+import '@dile/ui/components/checkbox/checkbox.js';
+import { LitElement, html, css } from 'lit';
+
+class MyComponent extends LitElement {
+  render() {
+    return html`
+      <dile-checkbox 
+        id="check" 
+        name="terms"
+        .hideErrorOnInput="${true}">
+        I accept the terms and conditions
+      </dile-checkbox>
+      <button @click="${this.validate}">Validate</button>
+    `
+  }
+
+  validate() {
+    const checkbox = this.shadowRoot.getElementById('check');
+    if (!checkbox.checked) {
+      checkbox.message = 'You must accept the terms to continue';
+      checkbox.errored = true;
+    } else {
+      checkbox.message = '';
+      checkbox.errored = false;
+    }
+  }
+}
+customElements.define('my-component', MyComponent);
+</script>
+<my-component></my-component>
 ```
 

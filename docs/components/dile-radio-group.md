@@ -50,6 +50,9 @@ Use the components.
 - **name**: element name
 - **label**: Text label for the group
 - **value**: The selected radio value
+- **message**: Text message to display below the radio group (typically for validation errors)
+- **errored**: Boolean property to indicate the radio group is in error state
+- **hideErrorOnInput**: Boolean property to automatically clear the error message when the user selects a value
 
 ### For dile-radio component
 
@@ -159,4 +162,45 @@ customElements.define('my-component', MyComponent);
   <dile-radio label="Bus" value="bus"></dile-radio>
   <dile-radio label="Train" value="train"></dile-radio>
 </dile-radio-group>
+```
+
+### Radio group with message and error state
+
+```html:preview
+<script type="module">
+import '@dile/ui/components/radio-group/radio-group.js';
+import { LitElement, html, css } from 'lit';
+
+class MyComponent extends LitElement {
+  render() {
+    return html`
+      <dile-radio-group 
+        id="group" 
+        name="terms" 
+        label="Do you accept the terms and conditions?" 
+        .hideErrorOnInput="${true}">
+        <dile-radio label="Yes, I accept" value="accept"></dile-radio>
+        <dile-radio label="No, I don't accept" value="reject"></dile-radio>
+      </dile-radio-group>
+      <button @click="${this.validate}">Validate</button>
+    `
+  }
+
+  validate() {
+    const group = this.shadowRoot.getElementById('group');
+    if (!group.value) {
+      group.message = 'You must select an option';
+      group.errored = true;
+    } else if (group.value === 'reject') {
+      group.message = 'You must accept the terms to continue';
+      group.errored = true;
+    } else {
+      group.message = '';
+      group.errored = false;
+    }
+  }
+}
+customElements.define('my-component', MyComponent);
+</script>
+<my-component></my-component>
 ```
