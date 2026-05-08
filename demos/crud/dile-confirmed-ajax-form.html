@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-confirmed-ajax-form component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/ajax-form/confirmed-ajax-form.js'
+    import './components/country/demo-country-form.js'
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-confirmed-ajax-form component</h1>
+    
+    <h2>Country Insert with Confirmation</h2>
+    <p>
+      This example shows the confirmed ajax form in action. When you submit the form, 
+      a confirmation dialog will appear asking you to confirm the submission.
+    </p>
+    <dile-confirmed-ajax-form
+      id="ajaxelement"
+      operation="insert"
+      endpoint="https://timer.escuelait.com/api/countries"
+      showCancelButton
+    >
+      <demo-country-form id="form"></demo-country-form>
+    </dile-confirmed-ajax-form>
+    
+    <h2>Country Insert with Custom Confirmation</h2>
+    <p>
+      This example demonstrates custom confirmation text and button labels.
+    </p>
+    <dile-confirmed-ajax-form
+      id="confirmedInsert"
+      operation="insert"
+      endpoint="https://timer.escuelait.com/api/countries"
+      showCancelButton
+      confirmText="Please verify all the data is correct before submitting this new country."
+      acceptLabel="Yes, submit"
+      cancelLabel="No, cancel"
+    >
+      <demo-country-form id="form"></demo-country-form>
+    </dile-confirmed-ajax-form>
+
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('confirmedInsert').addEventListener('form-canceled', function(e) {
+          console.log('form canceled with ', e.detail.data);
+        });
+        document.getElementById('confirmedInsert').addEventListener('save-success', function(e) {
+          console.log('form saved successfully with data:', e.detail.data);
+        });
+      });
+    </script>
+
+    <h2>Country Update with Confirmation</h2>
+    <p>
+      Update a country with confirmation. Specify a country identifier and click the button below to load its data.
+    </p>
+    <dile-confirmed-ajax-form
+      id="confirmedUpdate"
+      operation="update"
+      relatedId="1"
+      loadOnInit
+      endpoint="https://timer.escuelait.com/api/countries"
+      actionLabel="Save Changes"
+      responseDataProperty="data"
+      responseMessageProperty="message"
+      validationErrorsProperty="errors"
+      confirmText="Are you sure you want to update this country?"
+      acceptLabel="Confirm update"
+    >
+      <demo-country-form id="form"></demo-country-form>
+    </dile-confirmed-ajax-form>
+    
+    <p>
+      Specify a country identifier and click the button to display its data and edit it in the form above.
+    </p>
+    <p>
+      <input id="relatedId" placeholder="Country id"><button id="changeCountry">Change Country</button>
+    </p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('changeCountry').addEventListener('click', function() {
+          let relatedId = document.getElementById('relatedId').value;
+          document.getElementById('confirmedUpdate').relatedId = relatedId;
+        });
+      });
+    </script>
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+</html>

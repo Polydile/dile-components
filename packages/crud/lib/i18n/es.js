@@ -52,4 +52,6 @@ export const translations = {
   select_file: "Seleccionar archivo",
   selected_file: "Archivo seleccionado",
   extension_allowed: "Solo se permiten estas extensiones: ",
+  confirm_submit_title: "Confirmar envío",
+  confirm_submit_text: "¿Estás seguro de que deseas enviar este formulario?",
 };
