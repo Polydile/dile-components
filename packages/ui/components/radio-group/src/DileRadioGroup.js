@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../radio.js';
-import '../input/input-message.js';
+import '../../input/input-message.js';
 
 export class DileRadioGroup extends DileEmmitChange(LitElement) {
   static styles = [
