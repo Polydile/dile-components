@@ -77,6 +77,13 @@ h4 {
 p {
   margin: 0 0 1rem;
 }
+
+hr {
+  margin: 1.5rem 0 1.5rem 0;
+  border: none;
+  border-top: 2px solid var(--dile-primary-color);
+  opacity: 0.5;
+}
  
 pre, pre code {
   margin: 0 0 1rem;
@@ -129,6 +136,13 @@ blockquote p:last-child {
 
 .darkmodedesktop {
   display: none;
+}
+table a {
+  text-decoration: none;
+}
+table a code {
+  background-color: transparent;
+  color: var(--dile-link-color);
 }
 
 @media(min-width: 380px) {

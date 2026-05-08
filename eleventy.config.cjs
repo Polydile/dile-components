@@ -3,8 +3,13 @@ const codePreviews = require('./docs/_utilities/code-previews.cjs');
 const colorBox = require('./docs/_utilities/color-box-transform.cjs');
 const path = require('path');
 const fs = require('fs-extra');
+const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = async function(eleventyConfig) {
+  const md = markdownIt({ html: true }).use(markdownItAttrs);
+  eleventyConfig.setLibrary('md', md);
+
   const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
   eleventyConfig.addPlugin(EleventyPluginVite);
   eleventyConfig.addTransform("colorBoxTransform", colorBox)

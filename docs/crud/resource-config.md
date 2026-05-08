@@ -136,137 +136,82 @@ For more information, refer to the page dedicated to the [`responseAdapter` obje
 
 Here is a complete list of the configuration object properties that can be supplied for the resource.
 
+### Quick Reference
 
+| Property | Type | Description |
+|----------|------|-------------|
+| [`availableFilters`](#availableFilters) | Array | Configure filters to narrow down the list of items |
+| [`sort`](#sort) | Object | Define sorting options and initial sort field |
+| [`pageSize`](#pageSize) | Object | Configure pagination options for list views |
+| [`insertOperation`](#insertOperation) | Object | Customize the behavior of the insert button |
+| [`maxBatchActionItems`](#maxBatchActionItems) | Number | Set the maximum number of items for batch actions |
+| [`customization`](#customization) | Object | Customize the behavior and visibility of UI elements |
+| [`requestAdapter`](#requestAdapter) | Object | Adapt requests sent to API endpoints |
+| [`responseAdapter`](#responseAdapter) | Object | Adapt API responses to the CRUD system |
+| [`isItemEditable`](#isItemEditable) | Function | Determine if a specific item can be edited |
+| [`isItemDeletable`](#isItemDeletable) | Function | Determine if a specific item can be deleted |
 
+---
 
-### Property `availableFilters`
+### Property `availableFilters` {#availableFilters}
 
-This property is used to define the filters that the `dile-crud` component will offer.
+{% include "resource-config/availableFilters.md" %}
 
-Filter configuration allows two types of filters that generate different query interfaces, either with checkboxes or select boxes. In the following example, you can see a filter configuration:
+---
 
-```json
-availableFilters: [
-  {
-    type: 'boolean',
-    name: 'column',
-    label: 'Column',
-    active: false,
-    value: false,
-  },
-  {
-    type: 'select',
-    name: 'column2',
-    label: 'Column 2',
-    active: false,
-    value: false,
-    options: [
-      {
-        value: '1',
-        label: 'Value 1'
-      },
-      {
-        value: '2',
-        label: 'Value 2'
-      },
-    ]
-  },
-],
-```
+### Property `sort` {#sort}
 
-> When filters are enabled in the CRUD component, requests are made to the API sending the filter state through the query string.
+{% include "resource-config/sort.md" %}
 
-#### Default `availableFilters` value
+---
 
-By default, `availableFilters` is an empty array.
+### Property `pageSize` {#pageSize}
 
-```javascript
-availableFilters: []
-```
+{% include "resource-config/pageSize.md" %}
 
+---
 
-### Property `insertOperation`
+### Property `insertOperation` {#insertOperation}
 
-This property defines how the insert button behaves in the `dile-crud` component. By default, when the insert button is clicked, a modal opens with the form for inserting the entity being managed. However, you can define any other behavior you wish, such as navigating to another page where the insert content is displayed.
+{% include "resource-config/insertOperation.md" %}
 
-To do this, `insertOperation` accepts an object with a property called `type`. By setting the `type` value to `handler`, you can define a handler to execute custom code when the Insert button is pressed. Here’s an example:
+---
 
-```javascript
-insertOperation: {
-  type: "handler",
-  handler: (crudComponent) => {
-    navigateService.goToUrl('/create-invoice');
-  }
-},
-```
+### Property `maxBatchActionItems` {#maxBatchActionItems}
 
-> Note that the `handler` function receives the `dile-crud` component itself, allowing you to interact with the panel if needed.
+{% include "resource-config/maxBatchActionItems.md" %}
 
-#### Default value
+---
 
-The default value of `insertOperation` causes a modal window to open when the insert button is clicked.
+### Property `customization` {#customization}
 
-```json
-insertOperation: {
-  type: 'modal'
-},
-```
+{% include "resource-config/customization.md" %}
 
+---
 
-### Property `maxBatchActionItems`
+### Property `requestAdapter` {#requestAdapter}
 
-This property sets the maximum number of items that can be selected for batch actions in the CRUD component.
+{% include "resource-config/requestAdapter.md" %}
 
-It is used to show or hide the component that allows users to select all items in the current page or all items in a resource.
+---
 
-Note: The component itself does not check the number of items the user selects. This validation must be performed on the backend before processing the batch actions.
+### Property `responseAdapter` {#responseAdapter}
 
-This is useful to prevent users from performing batch operations on an excessive number of items at once, which could impact performance.
+{% include "resource-config/responseAdapter.md" %}
 
-#### Default value
+---
 
-By default, `maxBatchActionItems` is set to `100`.
+### Property `isItemEditable` {#isItemEditable}
 
-```javascript
-maxBatchActionItems: 100
-```
+{% include "resource-config/isItemEditable.md" %}
 
-You can override this value in your resource configuration object if you need a different limit for your use case.
+---
 
+### Property `isItemDeletable` {#isItemDeletable}
 
+{% include "resource-config/isItemDeletable.md" %}
 
-### Property `requestAdapter`
-
-This property allows adapting the requests sent from the CRUD system to the API endpoints, so that it can communicate with the web service in the required way.
-
-There is a detailed page with explanations about the [request adapter](/crud/request-adapter/).
-
-#### Default `requestAdapter` value
-
-The default configuration creates a generic request adapter using an instance of the `RequestApiAdapter` class.
-
-```javascript
-new RequestApiAdapter()
-```
-
-### Property `responseAdapter`
-
-This property allows adapting the API responses that the CRUD system communicates with. Thanks to this object, the components can work with any API, regardless of how its responses are structured.
-
-On this site you can find a detailed page explaining [how to create the response adapter](/crud/response-adapter/).
-
-#### Default `responseAdapter` value
-
-The default configuration creates a generic response adapter using an instance of the `ResponseApiAdapter` class.
-
-```javascript
-new ResponseApiAdapter()
-```
-
-
-
-
-
+---
 
 ### Documentation in progress
 
