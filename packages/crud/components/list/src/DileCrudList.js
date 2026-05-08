@@ -205,8 +205,8 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 <dile-crud-list-item 
                     itemId="${this.computeItemId(element)}"
                     .actionIds="${this.actionIds}"
-                    ?disableEdit=${this.config?.customization?.disableEdit}
-                    ?disableDelete=${this.config?.customization?.disableDelete}
+                    ?disableEdit=${!this.isItemEditable(element)}
+                    ?disableDelete=${!this.isItemDeletable(element)}
                     ?disableRestore=${this.config?.customization?.disableRestore}
                     ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
                     @item-checkbox-changed=${this.onItemsCheckboxChanged}
@@ -227,6 +227,18 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
     computeItemId(element) {
         return this.config.computeItemId(element);
+    }
+
+    isItemEditable(element) {
+        const isGloballyDisabled = this.config?.customization?.disableEdit;
+        const isItemEditable = this.config?.isItemEditable(element) ?? true;
+        return !isGloballyDisabled && isItemEditable;
+    }
+
+    isItemDeletable(element) {
+        const isGloballyDisabled = this.config?.customization?.disableDelete;
+        const isItemDeletable = this.config?.isItemDeletable(element) ?? true;
+        return !isGloballyDisabled && isItemDeletable;
     }
 
     get allIdsUrl() {

@@ -39,11 +39,14 @@ export const defaultConfig = {
   updateOperation: {
     type: 'modal'
   },
-  insertOperation: {
-    type: 'modal'
-  },
   computeItemId(element) {
     return element.id;
+  },
+  isItemEditable(element) {
+    return true;
+  },
+  isItemDeletable(element) {
+    return true;
   },
   actions: {
     list: [
