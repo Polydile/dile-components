@@ -91,3 +91,39 @@ The requirements to display the error on the component are:
 - `errored` boolean property
 - `message` string property
 
+#### Template Methods for Data Transformation
+
+The following are template methods that can be overridden in your component to adapt data structure before sending or receiving data:
+
+- **adaptDataOut(data)** Template method called by `getData()` before returning the data. Override this method to transform the structure of outgoing data. By default, it returns the data without any modifications.
+
+- **adaptDataIn(data)** Template method called by `setData()` before setting the form values. Override this method to transform the structure of incoming data. By default, it returns the data without any modifications.
+
+##### Example: Using data adaptation methods
+
+```javascript
+import { DileForm } from '@dile/ui/mixins/form';
+import { LitElement } from 'lit';
+
+class MyFormComponent extends DileForm(LitElement) {
+  // Transform data structure before returning it
+  adaptDataOut(data) {
+    return {
+      ...data,
+      // Custom transformations
+      fullName: `${data.firstName} ${data.lastName}`,
+    };
+  }
+
+  // Transform data structure before setting it
+  adaptDataIn(data) {
+    return {
+      ...data,
+      // Custom transformations
+      firstName: data.fullName?.split(' ')[0] || '',
+      lastName: data.fullName?.split(' ')[1] || '',
+    };
+  }
+}
+```
+

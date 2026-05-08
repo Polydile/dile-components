@@ -44,32 +44,33 @@ export const DileForm = (superclass) => class extends superclass {
         data[fieldName] = node.value;
       }
     });
-    return data;
+    return this.adaptDataOut(data);
   }
 
   setData(data) {
+    const adaptedData = this.adaptDataIn(data);
     this.allNodeElements.forEach(node => {
       const name = node.getAttribute('name');
       const isArray = name.endsWith('[]');
       const fieldName = isArray ? name.slice(0, -2) : name;
       
-      if (isArray && Array.isArray(data[fieldName])) {
+      if (isArray && Array.isArray(adaptedData[fieldName])) {
         // with arrays, the index is the element order in the DOM
         const arrayElements = Array.from(this.allNodeElements).filter(el => el.getAttribute('name') === name);
         const elementIndex = arrayElements.indexOf(node);
-        if (elementIndex >= 0 && elementIndex < data[fieldName].length) {
-          const value = data[fieldName][elementIndex];
+        if (elementIndex >= 0 && elementIndex < adaptedData[fieldName].length) {
+          const value = adaptedData[fieldName][elementIndex];
           if (typeof node.set === "function") {
             node.set(value);
           } else {
             node.value = value;
           }
         }
-      } else if (!isArray && data[fieldName] !== undefined && data[fieldName] !== null) {
+      } else if (!isArray && adaptedData[fieldName] !== undefined && adaptedData[fieldName] !== null) {
         if (typeof node.set === "function") {
-          node.set(data[fieldName]);
+          node.set(adaptedData[fieldName]);
         } else {
-          node.value = data[fieldName];
+          node.value = adaptedData[fieldName];
         }
       }
     });
@@ -194,6 +195,26 @@ export const DileForm = (superclass) => class extends superclass {
       }
     }
     return false;
+  }
+
+  /**
+   * Template method: Adapt data before it's returned from getData()
+   * Override this method in your component to transform the structure of outgoing data
+   * @param {Object} data - The data object from form fields
+   * @returns {Object} - The adapted data object
+   */
+  adaptDataOut(data) {
+    return data;
+  }
+
+  /**
+   * Template method: Adapt data before it's set to form fields in setData()
+   * Override this method in your component to transform the structure of incoming data
+   * @param {Object} data - The data object to be set
+   * @returns {Object} - The adapted data object
+   */
+  adaptDataIn(data) {
+    return data;
   }
 
 }
