@@ -111,6 +111,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       itemTemplate: { type: Object },
       getListItems: { type: Object },
       addRelationLabel: { type: String },
+      emptyListMessage: { type: String },
       bodyIdProperty: { type: String },
 
       // Internal state
@@ -204,7 +205,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       ${this._loadingList
         ? html`<dile-spinner active></dile-spinner>`
         : this._items.length === 0
-          ? html`<p class="empty-msg">${this.translations?.empty_list ?? 'There are no items yet'}</p>`
+          ? html`<p class="empty-msg">${this.emptyListMessageComputed(this.emptyListMessage, this.translations)}</p>`
           : this._items.map(item => html`
               <div class="relation-item">
                 <span class="relation-item-content">${this.itemTemplate(item)}</span>
@@ -295,5 +296,9 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   selectDefaultPlaceholderComputed(value, translations) {
     return value ? value : translations?.select_relation_placeholder ?? 'Select...';
+  }
+
+  emptyListMessageComputed(message, translations) {
+    return message ? message : translations?.empty_list ?? 'There are no items yet';
   }
 }
