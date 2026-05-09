@@ -231,10 +231,6 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   _onSelectChanged(e) {
     this._selectedId = e.detail.value || null;
-    if (this.hideErrorOnInput && this.errored) {
-      this.message = '';
-      this.errored = false;
-    }
   }
 
   _addSelectedItem() {
@@ -251,6 +247,10 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this._selectedId = null;
     this._clearSelect();
     this._refreshList();
+    if (this.hideErrorOnInput && this.errored) {
+      this.message = '';
+      this.errored = false;
+    }
     this._dispatch('many-relation-add-success');
   }
 

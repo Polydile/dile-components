@@ -77,7 +77,7 @@ Basic usage:
 - **language**: String. Language code for the i18n system (`'en'`, `'es'`). Propagated from the parent.
 - **message**: String. Feedback message displayed below the component using `dile-input-message`.
 - **errored**: Boolean. When `true`, the message is styled as an error. Requires `message` to be set.
-- **hideErrorOnInput**: Boolean. When `true`, clears `message` and `errored` automatically as soon as the user selects an item in the select.
+- **hideErrorOnInput**: Boolean. When `true`, clears `message` and `errored` automatically once a relation has been successfully added (i.e., after the POST completes).
 
 ### Custom events
 
