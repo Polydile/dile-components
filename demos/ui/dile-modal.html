@@ -9,6 +9,7 @@
   <script type="module">
     import "@dile/ui/components/modal/modal.js";
     import "@dile/utils/components/datepicker/datepicker.js";
+    import '@dile/ui/components/button/button.js';
   </script>
   <style>
 
@@ -35,12 +36,16 @@
     }
     #elmodal5 {
       --dile-modal-width: 95vw;
-      --dile-modal-height: 95vh;
       --dile-modal-border-radius: 0;
     }
     .blocking {
       --dile-modal-close-icon-size: 32px;
       --dile-modal-width: 800px;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
   </style>
@@ -83,11 +88,13 @@
       <p><dile-datepicker name="date" label="Date only for demo purpouses"></dile-datepicker></p>
     </dile-modal>
   
-    <button id="modalregular">Open regular modal</button>
-    <button id="modalstyled">Open styled modal</button>
-    <button id="modalcursor">Open cursor modal</button>
-    <button id="modalblocking">Open blocking modal</button>
-    <button id="modaloverlay">Open modal with other overlay element inside</button>
+    <section class="buttons">
+      <dile-button id="modalregular">Open regular modal</dile-button>
+      <dile-button id="modalstyled">Open styled modal</dile-button>
+      <dile-button id="modalcursor">Open cursor modal</dile-button>
+      <dile-button id="modalblocking">Open blocking modal</dile-button>
+      <dile-button id="modaloverlay">Open modal with other overlay element inside</dile-button>
+    </section>
     
     <script>
 
