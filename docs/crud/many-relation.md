@@ -69,6 +69,7 @@ Basic usage:
 
 #### List customisation
 
+- **label**: String. Optional heading label displayed above the select input. When not set, no label is rendered.
 - **itemTemplate**: Object (Function). Function used to render each related item in the list. Receives the item object and must return a lit-html template. Defaults to rendering `item[displayProperty]`. Example: `.itemTemplate=${item => html\`<b>${item.name}</b>\`}`.
 - **getListItems**: Object (Function). Function to extract the items array from the `endpointList` response. Defaults to `(response) => response.data`.
 - **addRelationLabel**: String. Override the label of the add button shown as a tooltip. If not set, the i18n value is used (`"Add"` / `"Añadir"`).
@@ -86,12 +87,16 @@ Basic usage:
 
 Custom property | Description | Default
 ----------------|-------------|---------
+`--dile-input-label-font-size` | Font size of the label heading | `1em`
+`--dile-input-label-color` | Color of the label heading | `#59e`
+`--dile-input-label-font-weight` | Font weight of the label heading | `normal`
+`--dile-input-label-margin-bottom` | Bottom margin of the label heading | `4px`
 `--many-relation-item-font-size` | Font size of each related item label | `0.9rem`
 `--many-relation-item-color` | Text color of each related item label | `inherit`
 `--many-relation-add-size` | Size of the add icon button (also controls the width of all icon columns for alignment) | `38px`
 `--many-relation-add-color` | Color of the add icon | `#2962ff`
 `--many-relation-add-disabled-color` | Color of the add icon when no item is selected | `#ccc`
-`--many-relation-remove-size` | Size of the remove icon | `22px`
+`--many-relation-remove-size` | Size of the remove icon | `24px`
 `--many-relation-remove-color` | Color of the remove icon | `#c00`
 `--many-relation-empty-font-size` | Font size of the empty list message | `0.9rem`
 `--many-relation-empty-color` | Text color of the empty list message | `#888`
@@ -135,7 +140,7 @@ export class DemoManyRelation extends LitElement {
         name="game_id"
         label="Board Game"
         endpoint="https://timer.escuelait.com/api/board-games"
-        queryStringVariable="keyword"
+        queryStringVariable="search"
         value="${this.gameId}"
         placeholder="Search board game..."
         .getSelectResultList=${(response) => response.data.result.data}

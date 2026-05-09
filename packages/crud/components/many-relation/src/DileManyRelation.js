@@ -12,6 +12,13 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       :host {
         display: block;
       }
+      label {
+        display: block;
+        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
+        font-size: var(--dile-input-label-font-size, 1em);
+        color: var(--dile-input-label-color, #59e);
+        font-weight: var(--dile-input-label-font-weight, normal);
+      }
       dile-ajax-select-crud{
           margin-bottom: 0;
       }
@@ -45,7 +52,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       }
       button.remove-btn dile-icon {
         --dile-icon-color: var(--many-relation-remove-color, #c00);
-        --dile-icon-size: var(--many-relation-remove-size, 22px);
+        --dile-icon-size: var(--many-relation-remove-size, 24px);
       }
       .add-row {
         display: flex;
@@ -77,6 +84,8 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   static get properties() {
     return {
+      label: { type: String },
+
       // Endpoints
       endpointGet: { type: String },
       endpointList: { type: String },
@@ -164,6 +173,10 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
         @ajax-error="${this._onRemoveError}"
       ></dile-ajax>
 
+      ${this.label
+          ? html`<label for="textField">${this.label}</label>`
+          : ""
+      }
       <div class="add-row">
         <dile-ajax-select-crud
           id="theselect"
