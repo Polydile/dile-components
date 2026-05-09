@@ -75,6 +75,9 @@ Basic usage:
 - **emptyListMessage**: String. Custom message shown when there are no related items. If not set, the i18n value is used (`"There are no items yet"` / `"No tenemos elementos todavía"`).
 - **addRelationLabel**: String. Override the label of the add button shown as a tooltip. If not set, the i18n value is used (`"Add"` / `"Añadir"`).
 - **language**: String. Language code for the i18n system (`'en'`, `'es'`). Propagated from the parent.
+- **message**: String. Feedback message displayed below the component using `dile-input-message`.
+- **errored**: Boolean. When `true`, the message is styled as an error. Requires `message` to be set.
+- **hideErrorOnInput**: Boolean. When `true`, clears `message` and `errored` automatically as soon as the user selects an item in the select.
 
 ### Custom events
 

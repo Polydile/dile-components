@@ -5,6 +5,7 @@ import '../../ajax/ajax.js';
 import '../../ajax-select-crud/ajax-select-crud.js';
 import '@dile/ui/components/icon/icon.js';
 import '@dile/ui/components/spinner/spinner.js';
+import '@dile/ui/components/input/input-message.js';
 
 export class DileManyRelation extends DileI18nMixin(LitElement) {
   static styles = [
@@ -113,6 +114,9 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       addRelationLabel: { type: String },
       emptyListMessage: { type: String },
       bodyIdProperty: { type: String },
+      message: { type: String },
+      errored: { type: Boolean },
+      hideErrorOnInput: { type: Boolean },
 
       // Internal state
       _items: { type: Array, state: true },
@@ -218,11 +222,19 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
               </div>
             `)
       }
+      ${this.message
+        ? html`<dile-input-message message="${this.message}" ?errored=${this.errored}></dile-input-message>`
+        : ''
+      }
     `;
   }
 
   _onSelectChanged(e) {
     this._selectedId = e.detail.value || null;
+    if (this.hideErrorOnInput && this.errored) {
+      this.message = '';
+      this.errored = false;
+    }
   }
 
   _addSelectedItem() {
