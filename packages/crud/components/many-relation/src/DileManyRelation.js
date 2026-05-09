@@ -225,7 +225,10 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
   }
 
   _addSelectedItem() {
-    if (!this._selectedId) return;
+    if (!this._selectedId) {
+      this._dispatch('many-relation-add-no-selection');
+      return;
+    }
     const bodyKey = this.bodyIdProperty || this.idProperty;
     this._ajaxadd.data = { [bodyKey]: this._selectedId };
     this._ajaxadd.generateRequest();

@@ -81,6 +81,7 @@ Basic usage:
 - **many-relation-add-error**: Dispatched when the POST request to add a relation fails.
 - **many-relation-remove-success**: Dispatched when a relation has been successfully deleted via DELETE.
 - **many-relation-remove-error**: Dispatched when the DELETE request to remove a relation fails.
+- **many-relation-add-no-selection**: Dispatched when the user clicks the add button without having selected an item first. Use this to show a warning message prompting the user to select an item before adding.
 - **many-relation-list-error**: Dispatched when the GET request to refresh the related items list fails.
 
 ## Styling
