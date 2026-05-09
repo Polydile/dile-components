@@ -54,4 +54,6 @@ export const translations = {
   extension_allowed: "Solo se permiten estas extensiones: ",
   confirm_submit_title: "Confirmar envío",
   confirm_submit_text: "¿Estás seguro de que deseas enviar este formulario?",
+  add_relation_label: "Añadir",
+  select_relation_placeholder: "Selecciona...",
 };

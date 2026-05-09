@@ -54,4 +54,6 @@ export const translations = {
   extension_allowed: "Only this file extensions are allowed: ",
   confirm_submit_title: "Confirm submission",
   confirm_submit_text: "Are you sure you want to submit this form?",
+  add_relation_label: "Add",
+  select_relation_placeholder: "Select...",
 };

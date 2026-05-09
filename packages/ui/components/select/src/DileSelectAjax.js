@@ -20,6 +20,9 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         position: relative;
         margin-bottom: 10px;
       }
+      #result {
+          margin-bottom: 0.5rem;
+      }
       label {
         display: block;
         margin-bottom: var(--dile-input-label-margin-bottom, 4px);
@@ -83,11 +86,11 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       displayProperty: { type: String },
       idProperty: { type: String },
       delay: { type: Number },
-      opened: { 
+      opened: {
         type: Boolean,
         state: true,
       },
-      keyword: { 
+      keyword: {
         type: String,
         state: true,
        },
@@ -102,7 +105,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       /* When static is true there is no posibility to search, then all the options are displayed on the select on initialization */
       static: {
         type: Boolean,
-      }, 
+      },
       /** Message Displayed */
       message: { type: String },
       /** Hide errors on input */
@@ -166,9 +169,9 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       .then(json => this.registerText(json))
       .catch(error => this.registerError(error));
   }
-  
+
   registerText(json) {
-    this.selectedText = json[this.resultDataProperty][this.displayProperty]; 
+    this.selectedText = json[this.resultDataProperty][this.displayProperty];
     this.loading = false;
   }
 
@@ -198,9 +201,9 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
 
   get selectedTemplate() {
     return html`
-      <dile-input-search 
+      <dile-input-search
         id="result"
-        ?errored=${this.errored} 
+        ?errored=${this.errored}
         ?disabled=${this.disabled}
         value="${this.selectedText}"
         readOnly
@@ -212,11 +215,11 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
 
   get searchTemplate() {
     return html`
-      <dile-input-search 
+      <dile-input-search
         id="search"
-        placeholder="${this.placeholder}" 
-        label="${this.label}" 
-        ?errored=${this.errored} 
+        placeholder="${this.placeholder}"
+        label="${this.label}"
+        ?errored=${this.errored}
         ?disabled=${this.disabled}
         @focus=${this.onFocus}
         @dile-input-search=${this.onTextInput}
@@ -267,8 +270,8 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
 
   get dataTemplate() {
     return html`
-        <dile-select 
-          id="elselect" 
+        <dile-select
+          id="elselect"
           @element-changed=${this.doSelected}
           name="generated-select-field"
           ?errored=${this.errored}
@@ -279,13 +282,13 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
               <option value="${item[this.idProperty]}">${item[this.displayProperty]}</option>
             `)}
           </select>
-        </dile-select> 
+        </dile-select>
     `;
   }
 
   get messageTemplate() {
     return html`
-      ${this.message 
+      ${this.message
         ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
@@ -312,38 +315,38 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
     this.loading = true;
     this.ajaxError = false;
     const url = this.computeRequestURL();
-    
+
     fetch(url)
       .then(response => response.json())
       .then(json => this.registerData(json))
       .catch(error => this.registerError(error));
   }
-  
+
   computeRequestURL() {
     const baseUrl = `${this.endpoint}?${this.queryStringVariable}=${this.keyword}`;
-    
+
     if (this.additionalQueryString && typeof this.additionalQueryString === 'object') {
       const additionalParams = Object.entries(this.additionalQueryString)
         .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
         .join('&');
-        
+
       return `${baseUrl}&${additionalParams}`;
     }
-    
+
     return baseUrl;
   }
-  
+
 
   registerError(err) {
     this.ajaxError = true;
     this.loading = false;
   }
-  
+
   registerData(json) {
     this.data = this.getResultData(json);
     this.updateComplete.then( () => this.loading = false )
   }
-  
+
   getResultData(json) {
     if (this.resultDataProperty === undefined || this.resultDataProperty === '') {
       return json;
@@ -401,8 +404,8 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   }
 
   dispatchSelectedTextChanged() {
-    this.dispatchEvent(new CustomEvent('dile-select-ajax-selected-text-changed', 
-      { 
+    this.dispatchEvent(new CustomEvent('dile-select-ajax-selected-text-changed',
+      {
         bubbles: true,
         composed: true,
         detail: { selectedText: this.selectedText }
