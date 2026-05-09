@@ -63,8 +63,8 @@ Basic usage:
 - **placeholder**: String. Placeholder text for the search input inside the select.
 - **selectDefaultPlaceholder**: String. Placeholder shown in the select dropdown when no item is selected. Defaults to the i18n value (`"Select..."` / `"Selecciona..."`).
 - **resultDataProperty**: String. Property path in the `endpointGet` response that contains the array of items for the select (e.g. `'data'`).
-- **maxResults**: Number. Maximum number of results requested per search query.
-- **pageParamName**: String. Query string parameter name used to pass the page size to `endpointGet`.
+- **maxResults**: Number. Maximum number of results requested per search query. **Must be set together with `pageParamName`** — if only one of the two is provided, neither has any effect.
+- **pageParamName**: String. Query string parameter name used to pass the page size to `endpointGet`. **Must be set together with `maxResults`** — if only one of the two is provided, neither has any effect.
 - **getSelectResultList**: Object (Function). Custom function to extract the items array from the `endpointGet` response. Signature: `(response) => []`.
 
 #### List customisation
