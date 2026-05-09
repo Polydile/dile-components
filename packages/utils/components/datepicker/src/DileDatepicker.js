@@ -15,11 +15,14 @@ export class DileDatepicker extends DileInput {
       css`
       div.container {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
+        gap: 0.75rem;
       }
       section.input {
         flex-grow: 1;
-        margin-right: 10px;
+      }
+      .icon-container {
+        margin-top: var(--icon-container-margin-top, 0.5rem);
       }
       dile-icon {
         cursor: pointer;
@@ -88,19 +91,29 @@ export class DileDatepicker extends DileInput {
         <section class="input">
           ${super.render()}
         </section>
-        <span>
-          ${this.disabled 
-            ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
-            : html`
-              <dile-menu-overlay moveTop="${this.moveTop}" moveLeft="${this.moveLeft}" verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
-                ${this.iconTemplate}
-                <div slot="content" class="calendar">
-                  ${this.contentTemplate}
+        <div>
+          ${this.label
+            ? html`
+                <div class="label">
+                  &nbsp;
                 </div>
-              </dile-menu-overlay>
-            `
+              `
+            : ''
           }
-        </span>
+          <span class="icon-container">
+            ${this.disabled 
+              ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
+              : html`
+                <dile-menu-overlay moveTop="${this.moveTop}" moveLeft="${this.moveLeft}" verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
+                  ${this.iconTemplate}
+                  <div slot="content" class="calendar">
+                    ${this.contentTemplate}
+                  </div>
+                </dile-menu-overlay>
+              `
+            }
+          </span>
+        </div>
       </div>
     `;
   }
