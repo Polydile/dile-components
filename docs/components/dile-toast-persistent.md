@@ -37,9 +37,10 @@ Once you have the toast, you can use the open() and close() component methods to
 
 The component offers several properties to configure the way it works.
 
-- **right**: Bolean property. By default the toast message appears on the left. When the ```right```  property is setted to true, the toast will appea on the right side. 
-- **moveTop**: Number of pixels to modify the default vertical position of the toast. Accepts positive (move down) an negative (move up) values. Default is -16.
-- **moveLeft**: The component inherits this property from [DileOverlayMixin](/mixins/dile-overlay-mixin) but is not very useful un this toast message. Only works well on the toast right position, to translate to the left the toast overlay when using negative values. Default -10.
+- **right**: Boolean property. By default the toast message appears on the left. When the `right` property is set to true, the toast will appear on the right side.
+- **center**: Boolean property. When set to true, the toast will appear centered at the bottom of the viewport. If both `center` and `right` are set, `right` takes precedence.
+- **moveTop**: Number of pixels to modify the default vertical position of the toast. Accepts positive (move down) and negative (move up) values. Default is -16.
+- **moveLeft**: The component inherits this property from [DileOverlayMixin](/mixins/dile-overlay-mixin) but is not very useful in this toast message. Only works well on the toast right position, to translate to the left the toast overlay when using negative values. Default -10.
 - **openOnInit**: Boolean. If true the toast opens on initialization.
 
 ## Methods
@@ -162,4 +163,49 @@ class SecondComponent extends LitElement {
 customElements.define('second-component', SecondComponent);
 </script>
 <second-component></second-component>
+```
+
+### Open the toast centered
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+class ThirdComponent extends LitElement {
+  
+  static get styles() {
+    return css`
+      :host {
+        position: relative;
+        z-index: 1000;
+      }
+      dile-toast-persistent {
+        --dile-toast-persistent-padding: 0 10px;
+        --dile-toast-persistent-background-color: #1a6e3c;
+      }
+    `
+  }
+
+  render() {
+    return html`
+      <dile-toast-persistent id="toast" center>
+        <p>
+          I am a centered toast message
+        </p>
+      </dile-toast-persistent>
+      <button id="open">Show center toast</button>
+      <button id="close">Close center toast</button>
+    `
+  }
+  firstUpdated() {
+    this.shadowRoot.getElementById('open').addEventListener('click', () => {
+      this.shadowRoot.getElementById('toast').open();
+    });
+    this.shadowRoot.getElementById('close').addEventListener('click', () => {
+      this.shadowRoot.getElementById('toast').close();
+    });
+  }
+}
+customElements.define('third-component', ThirdComponent);
+</script>
+<third-component></third-component>
 ```

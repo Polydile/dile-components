@@ -19,6 +19,14 @@
       --dile-toast-persistent-box-shadow: 4px 4px 10px rgba(182, 12, 12, 0.4), -4px -4px 10px rgba(182, 12, 12, 0.4), -4px 4px 10px rgba(182, 12, 12, 0.4), 4px -4px 10px rgba(182, 12, 12, 0.4);
       --dile-toast-persistent-border-radius: 6px;
     }
+    #eltoastcenter {
+      --dile-toast-persistent-background-color: #1a6e3c;
+      --dile-toast-persistent-border-radius: 6px;
+    }
+    #eltoastcenterright {
+      --dile-toast-persistent-background-color: #7b3f00;
+      --dile-toast-persistent-border-radius: 6px;
+    }
   </style>
 </head>
 <body>
@@ -36,35 +44,49 @@
       <br>
       <button id="closeright">Close</button>
     </dile-toast-persistent>
+    <dile-toast-persistent id="eltoastcenter" center>
+      Toast center!!
+      <br>
+      <button id="closecenter">Close</button>
+    </dile-toast-persistent>
+    <dile-toast-persistent id="eltoastcenterright" center right>
+      center + right (right wins)
+      <br>
+      <button id="closecenterright">Close</button>
+    </dile-toast-persistent>
 
-    <button id="toastopen">Open</button>
-    <button id="toastclose">Close</button>
+    <button id="toastopen">Open left</button>
+    <button id="toastclose">Close left</button>
     <button id="toastopenright">Open right</button>
     <button id="toastcloseright">Close right</button>
+    <button id="toastopencenter">Open center</button>
+    <button id="toastclosecenter">Close center</button>
+    <button id="toastopencenterright">Open center+right</button>
+    <button id="toastclosecenterright">Close center+right</button>
     
     <script>
 
       document.addEventListener("DOMContentLoaded", function() {
         let toast = document.getElementById("eltoast");
         let toastright = document.getElementById("eltoastright");
-        document.getElementById("toastopen").addEventListener("click", function() {
-          toast.open();
-        });
-        document.getElementById("toastclose").addEventListener("click", function() {
-          toast.close();
-        });
-        document.getElementById("toastopenright").addEventListener("click", function() {
-          toastright.open();
-        });
-        document.getElementById("toastcloseright").addEventListener("click", function() {
-          toastright.close();
-        });
-        document.getElementById("close").addEventListener("click", function() {
-          toast.close();
-        });
-        document.getElementById("closeright").addEventListener("click", function() {
-          toastright.close();
-        });
+        let toastcenter = document.getElementById("eltoastcenter");
+        let toastcenterright = document.getElementById("eltoastcenterright");
+
+        document.getElementById("toastopen").addEventListener("click", () => toast.open());
+        document.getElementById("toastclose").addEventListener("click", () => toast.close());
+        document.getElementById("close").addEventListener("click", () => toast.close());
+
+        document.getElementById("toastopenright").addEventListener("click", () => toastright.open());
+        document.getElementById("toastcloseright").addEventListener("click", () => toastright.close());
+        document.getElementById("closeright").addEventListener("click", () => toastright.close());
+
+        document.getElementById("toastopencenter").addEventListener("click", () => toastcenter.open());
+        document.getElementById("toastclosecenter").addEventListener("click", () => toastcenter.close());
+        document.getElementById("closecenter").addEventListener("click", () => toastcenter.close());
+
+        document.getElementById("toastopencenterright").addEventListener("click", () => toastcenterright.open());
+        document.getElementById("toastclosecenterright").addEventListener("click", () => toastcenterright.close());
+        document.getElementById("closecenterright").addEventListener("click", () => toastcenterright.close());
       });
 
     </script>
