@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dile-card-slide component demo</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/style.css" />
+        <script type="module">
+            import "@dile/ui/components/card/card-slide.js";
+            import { arrowRightIcon } from "@dile/icons";
+
+            document.addEventListener("DOMContentLoaded", () => {
+                document.getElementById("custom-icon-card").icon =
+                    arrowRightIcon;
+
+                document
+                    .getElementById("btn-open")
+                    .addEventListener("click", () => {
+                        document.getElementById("controlled-card").open();
+                    });
+                document
+                    .getElementById("btn-close")
+                    .addEventListener("click", () => {
+                        document.getElementById("controlled-card").close();
+                    });
+            });
+        </script>
+        <style>
+            .styled-slide {
+                --dile-card-border: 2px solid #add;
+                --dile-card-border-radius: 20px;
+                --dile-card-background-color: #f4f4f4;
+                --dile-card-title-font-weight: 700;
+                --dile-card-title-color: rgb(106, 34, 148);
+                --dile-card-footer-border-separator: 2px solid #add;
+                --dile-card-footer-background-color: #eff;
+                --dile-card-slide-icon-color: rgb(106, 34, 148);
+                --dile-icon-size: 40px;
+            }
+            .controls {
+                display: flex;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            button {
+                padding: 0.4rem 1rem;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>dile-card-slide component</h1>
+
+            <h2>Basic slide card</h2>
+            <p>Click the title to expand or collapse the content.</p>
+            <dile-card-slide title="Click me to expand">
+                This is the card body. It slides in and out smoothly when the
+                title is clicked.
+            </dile-card-slide>
+
+            <h2>Slide card opened by default</h2>
+            <dile-card-slide title="I start opened" opened>
+                This card starts in the opened state. You can click the title to
+                collapse it.
+            </dile-card-slide>
+
+            <h2>Slide card with footer</h2>
+            <dile-card-slide title="Card with footer" shadow-md>
+                Main content of the card with a footer section below.
+                <div slot="footer">
+                    <a href="#">Footer action</a>
+                </div>
+            </dile-card-slide>
+
+            <h2>Styled slide card</h2>
+            <dile-card-slide
+                title="Styled collapsible card"
+                class="styled-slide"
+            >
+                Customized appearance using CSS custom properties.
+                <span slot="footer">Footer content</span>
+            </dile-card-slide>
+
+            <h2>Custom icon</h2>
+            <p>
+                The icon property is replaceable with any icon from
+                <code>@dile/icons</code>.
+            </p>
+            <dile-card-slide
+                id="custom-icon-card"
+                title="Card with arrow-right icon"
+            >
+                This card uses a custom icon instead of the default chevron.
+            </dile-card-slide>
+
+            <h2>Programmatic control</h2>
+            <p>
+                Use the <code>open()</code> and <code>close()</code> methods to
+                control the card from JavaScript.
+            </p>
+            <div class="controls">
+                <button id="btn-open">Open</button>
+                <button id="btn-close">Close</button>
+            </div>
+            <dile-card-slide
+                id="controlled-card"
+                title="Programmatically controlled card"
+                shadow-lg
+            >
+                This card is controlled by the buttons above via
+                <code>open()</code> and <code>close()</code> methods.
+            </dile-card-slide>
+
+            <footer><a href="../index.html">Back</a></footer>
+        </div>
+    </body>
+</html>
