@@ -38,6 +38,9 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
         h1.opened dile-icon {
           transform: rotate(0deg);
         }
+        main {
+          padding-top: var(--dile-card-slide-main-padding-top, var(--dile-card-padding-y, 1rem));
+        }
       `
     ];
   }

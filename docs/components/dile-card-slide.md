@@ -69,6 +69,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-card-slide-icon-color | Chevron icon color | --dile-primary-color or #303030
 --dile-card-slide-title-padding-bottom | Padding below the title when collapsed | --dile-card-padding-y or 1rem
+--dile-card-slide-main-padding-top | Padding top of the main content area | --dile-card-padding-y or 1rem
 
 All `--dile-card-*` custom properties from `dile-card` are also available.
 
