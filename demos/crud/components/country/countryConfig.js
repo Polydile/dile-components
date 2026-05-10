@@ -76,5 +76,5 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
   ],
   onActionSingleSuccess(detail) {
     console.log('Action on single process defined with onActionSingleSuccess and this detail', detail, this);
-  }
+  },
 });

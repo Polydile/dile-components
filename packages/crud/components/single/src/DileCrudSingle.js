@@ -145,8 +145,14 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
   }
 
   edit() {
-    this.updateElement.edit(this.relatedId);
-    this.modalUpdate.open();
+    if (this.config.updateOperation?.type === 'modal') {
+      this.updateElement.edit(this.relatedId);
+      this.modalUpdate.open();
+    } else if (this.config.updateOperation?.type == 'handler') {
+      this.config.updateOperation.handler(this.relatedId, this);
+    }  
+
+    
   }
 
   
