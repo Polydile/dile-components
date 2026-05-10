@@ -24,6 +24,10 @@ export class DileToastPersistent extends DileOverlay(LitElement) {
         right: 0px;
         left: auto;
       }
+      :host([center]:not([right])) span {
+        left: 50%;
+        right: auto;
+      }
       #overlay {
         box-sizing: border-box;
         color: var(--dile-toast-persistent-color, #fff);
@@ -53,7 +57,11 @@ export class DileToastPersistent extends DileOverlay(LitElement) {
 
   static get properties() {
     return {
-      right: { 
+      right: {
+        type: Boolean,
+        reflect: true
+      },
+      center: {
         type: Boolean,
         reflect: true
       },
@@ -79,8 +87,17 @@ export class DileToastPersistent extends DileOverlay(LitElement) {
   }
   
   updated(changedProperties) {
-    if(changedProperties.has('right') && this.right !== undefined) {
-      this.horizontalAlign = this.right ? 'left' : 'right';
+    if(changedProperties.has('right') || changedProperties.has('center')) {
+      if (this.right) {
+        this.horizontalAlign = 'left';
+        this.moveLeft = -10;
+      } else if (this.center) {
+        this.horizontalAlign = 'center';
+        this.moveLeft = 0;
+      } else {
+        this.horizontalAlign = 'right';
+        this.moveLeft = -10;
+      }
     }
   }
 

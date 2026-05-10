@@ -12,6 +12,7 @@
     import "@dile/ui/components/spinner/spinner-horizontal.js";
     import "@dile/ui/components/spinner/spinner-modal.js";
     import "@dile/ui/components/spinner/spinner-block.js";
+    import "@dile/ui/components/spinner/spinner-bar.js";
   </script>
   <style>
     .styledspinner {
@@ -30,6 +31,37 @@
       --dile-spinner-horizontal-line-size: 6px;
       --dile-spinner-horizontal-height: 1.5rem;
       --dile-spinner-horizontal-time: 1s;
+    }
+    .bar-demo {
+      padding: 1.5rem;
+      background: #f5f5f5;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .bar-warm {
+      --dile-spinner-bar-color-1: #f7971e;
+      --dile-spinner-bar-color-2: #ffd200;
+      --dile-spinner-bar-height: 6px;
+      --dile-spinner-bar-border-radius: 3px;
+    }
+    .bar-thick {
+      --dile-spinner-bar-height: 12px;
+      --dile-spinner-bar-color-1: #11998e;
+      --dile-spinner-bar-color-2: #38ef7d;
+      --dile-spinner-bar-border-radius: 6px;
+      --dile-spinner-bar-animation-time: 1.2s;
+    }
+    .bar-dark {
+      --dile-spinner-bar-height: 4px;
+      --dile-spinner-bar-color-1: #e96c6c;
+      --dile-spinner-bar-color-2: #ffffff;
+      --dile-spinner-bar-animation-time: 2.5s;
+    }
+    .bar-demo-dark {
+      padding: 1.5rem;
+      background: #222;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
@@ -74,6 +106,26 @@
       });
 
     </script>
+
+    <h2>dile-spinner-bar component (default)</h2>
+    <div class="bar-demo">
+      <dile-spinner-bar active></dile-spinner-bar>
+    </div>
+
+    <h2>dile-spinner-bar — warm colors, rounded</h2>
+    <div class="bar-demo">
+      <dile-spinner-bar active class="bar-warm"></dile-spinner-bar>
+    </div>
+
+    <h2>dile-spinner-bar — thick green, fast</h2>
+    <div class="bar-demo">
+      <dile-spinner-bar active class="bar-thick"></dile-spinner-bar>
+    </div>
+
+    <h2>dile-spinner-bar — dark background</h2>
+    <div class="bar-demo-dark">
+      <dile-spinner-bar active class="bar-dark"></dile-spinner-bar>
+    </div>
 
     <h2>dile-spinner-block</h2>
     <dile-spinner-block></dile-spinner-block>
