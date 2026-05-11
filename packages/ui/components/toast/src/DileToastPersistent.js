@@ -38,7 +38,7 @@ export class DileToastPersistent extends DileOverlay(LitElement) {
         max-width: var(--dile-toast-persistent-max-width, 300px);
         box-shadow: var(--dile-toast-persistent-box-shadow, 0 0 2px rgba(200, 200, 200, 0.5));
         padding: var(--dile-toast-persistent-padding, 1px);
-        overfloy: var(--dile-toast-persistent-overflow, visible);
+        overflow: var(--dile-toast-persistent-overflow, visible);
         display: none;
         position: absolute;
         opacity: 0;
