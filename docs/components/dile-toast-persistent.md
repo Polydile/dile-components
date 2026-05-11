@@ -31,46 +31,43 @@ This component needs to configure the toast content as slot
 </dile-toast-persistent>
 ```
 
-Once you have the toast, you can use the open() and close() component methods to show or hide the toast message.
+Once you have the toast, you can use the `open()` and `close()` methods to show or hide it, or set the `opened` property directly.
 
 ## Properties
 
-The component offers several properties to configure the way it works.
-
-- **right**: Boolean property. By default the toast message appears on the left. When the `right` property is set to true, the toast will appear on the right side.
-- **center**: Boolean property. When set to true, the toast will appear centered at the bottom of the viewport. If both `center` and `right` are set, `right` takes precedence.
-- **moveTop**: Number of pixels to modify the default vertical position of the toast. Accepts positive (move down) and negative (move up) values. Default is -16.
-- **moveLeft**: The component inherits this property from [DileOverlayMixin](/mixins/dile-overlay-mixin) but is not very useful in this toast message. Only works well on the toast right position, to translate to the left the toast overlay when using negative values. Default -10.
+- **opened**: Boolean property. Controls the visibility of the toast. Setting it to `true` shows the toast with animation; setting it to `false` hides it. Reflects to an attribute.
+- **right**: Boolean property. When set, the toast appears on the right side of the viewport.
+- **center**: Boolean property. When set, the toast appears centered at the bottom of the viewport. If both `center` and `right` are set, `right` takes precedence.
 - **openOnInit**: Boolean. If true the toast opens on initialization.
 
 ## Methods
 
-- **open()**: Use it to open the menu overlay box
-- **close()**: Use it to close the menu overlay box
-- **toggle()**: Toggles the toast-persistent box
-- **closeAll()**: Close all the elements of this type
-- **closeOthers()**: Close the other items of this type (distinct to this)
+- **open()**: Opens the toast.
+- **close()**: Closes the toast.
+- **toggle()**: Toggles the toast visibility.
 
 ## Custom events
 
-- **overlay-opened**: dispatched when the overlay opens.
-- **overlay-closed**: dispatched when the overlay closes.
+- **overlay-opened**: dispatched when the toast opens.
+- **overlay-closed**: dispatched when the toast closes.
 
 ## Style customization
 
-You can customize the menu box interface by using the CSS custom properties bellow.
+You can customize the toast interface by using the CSS custom properties below.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-toast-persistent-background-color | menu overlay layer background color | #0e6ff6
---dile-toast-persistent-color | Overlay text color | #fff
---dile-toast-persistent-z-index | menu overlay layer z-index | 999
---dile-toast-persistent-width | Menu overlay layer width | 300px
---dile-toast-persistent-max-width | Menu overlay layer max width | 300px
---dile-toast-persistent-border-radius | Menu overlay layer border radius | 0
---dile-toast-persistent-box-shadow | Menu overlay box shadow | 0 0 2px rgba(200, 200, 200, 0.5)
---dile-toast-persistent-padding | Menu layer padding | 1px
---dile-toast-persistent-transition | Open / Close transition configuration | ease 0.5s
+--dile-toast-persistent-background-color | Toast background color | #0e6ff6
+--dile-toast-persistent-color | Toast text color | #fff
+--dile-toast-persistent-z-index | Toast z-index | 999
+--dile-toast-persistent-width | Toast width | 300px
+--dile-toast-persistent-max-width | Toast max width | 300px
+--dile-toast-persistent-border-radius | Toast border radius | 0
+--dile-toast-persistent-box-shadow | Toast box shadow | 0 0 2px rgba(200, 200, 200, 0.5)
+--dile-toast-persistent-padding | Toast padding | 1px
+--dile-toast-persistent-overflow | Toast overflow | visible
+--dile-toast-persistent-transition | Open / Close transition | 0.5s ease
+--dile-toast-persistent-gap | Space between the toast and the viewport edges | 1rem
 
 ## dile-toast-persistent demos
 
@@ -85,10 +82,6 @@ class MyComponent extends LitElement {
   
   static get styles() {
     return css`
-      :host {
-        position: relative;
-        z-index: 1000;
-      }
       dile-toast-persistent {
         --dile-toast-persistent-padding: 0 10px;
       }
@@ -129,10 +122,6 @@ class SecondComponent extends LitElement {
   
   static get styles() {
     return css`
-      :host {
-        position: relative;
-        z-index: 1000;
-      }
       dile-toast-persistent {
         --dile-toast-persistent-padding: 0 10px;
         --dile-toast-persistent-background-color: #923;
@@ -174,10 +163,6 @@ class ThirdComponent extends LitElement {
   
   static get styles() {
     return css`
-      :host {
-        position: relative;
-        z-index: 1000;
-      }
       dile-toast-persistent {
         --dile-toast-persistent-padding: 0 10px;
         --dile-toast-persistent-background-color: #1a6e3c;
