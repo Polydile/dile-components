@@ -32,7 +32,7 @@ export class DileToastPersistent extends DileOverlay(LitElement) {
         box-sizing: border-box;
         color: var(--dile-toast-persistent-color, #fff);
         z-index: var(--dile-toast-persistent-z-index, 999);
-        background-color: var(--dile-toast-persistent-background-color, #0e6ff6);
+        background-color: var(--dile-toast-persistent-background-color, #0e6ff5);
         border-radius: var(--dile-toast-persistent-border-radius, 0);
         width: var(--dile-toast-persistent-width, 300px);
         max-width: var(--dile-toast-persistent-max-width, 300px);
