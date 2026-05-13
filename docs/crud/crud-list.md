@@ -74,8 +74,8 @@ You can customize it using CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-primary-light-color | Background color of the summary section | #999
---dile-on-primary-light-color | Text color of the summary section | #fff
+--dile-crud-list-summary-background-color | Background color of the summary section | var(--dile-primary-light-color, #999)
+--dile-crud-list-summary-color | Text color of the summary section | var(--dile-on-primary-light-color, #fff)
 --dile-crud-list-summary-font-size | Font size of the summary section | 0.8rem
 --dile-crud-list-summary-border-bottom | Border bottom of the summary section | 1px solid #ccc
 --dile-crud-list-summary-padding | Padding of the summary section | 0.4rem 1rem

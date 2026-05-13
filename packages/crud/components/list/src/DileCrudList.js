@@ -22,8 +22,8 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             .prev-summary {
                 display: flex;
                 flex-direction: column;
-                background-color: var(--dile-primary-light-color, #999);
-                color: var(--dile-on-primary-light-color, #fff);;
+                background-color: var(--dile-crud-list-summary-background-color, var(--dile-primary-light-color, #999));
+                color: var(--dile-crud-list-summary-color, var(--dile-on-primary-light-color, #fff));
                 font-size: var(--dile-crud-list-summary-font-size, 0.8rem);
                 margin-bottom: 0.5rem;
                 border-bottom: var(--dile-crud-list-summary-border-bottom, 1px solid #ccc);
