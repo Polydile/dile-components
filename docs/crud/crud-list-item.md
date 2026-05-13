@@ -80,3 +80,28 @@ customElements.define('user-list-item', userListItem);
 ```
 
 This component only displays the name and email of a user, with a very rudimentary style, but you could display it with any other style and add more detailed information, as well as functionality if necessary.
+
+## CSS Custom Properties
+
+The item component accepts the following CSS custom properties to customize its appearance:
+
+| Custom Property | Default Value | Description |
+|---|---|---|
+| `--dile-crud-list-item-line-separator` | `1px solid #ddd` | Border style between items |
+| `--dile-checkbox-unchecked-color` | `#888` | Color of unchecked checkboxes |
+| `--dile-icon-size` | `24px` | Size of action icons |
+| `--dile-icon-color` | `#33ad67` | Color of edit icon |
+| `--edit-icon-color` | `#33ad67` | Color of the edit action icon |
+| `--delete-icon-color` | `#e33` | Color of the delete action icon |
+
+You can customize these properties in your CSS to match your design:
+
+```css
+dile-crud-list-item {
+  --dile-crud-list-item-line-separator: 2px solid #ccc;
+  --dile-checkbox-unchecked-color: #666;
+  --dile-icon-size: 20px;
+  --edit-icon-color: #0066cc;
+  --delete-icon-color: #cc0000;
+}
+```

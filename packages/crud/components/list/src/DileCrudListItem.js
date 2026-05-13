@@ -17,7 +17,7 @@ export class DileCrudListItem extends LitElement {
             display: flex;
             align-items: center;
             padding: 0.5rem 0.5rem;
-            border-bottom: 1px solid #ddd;
+            border-bottom: var(--dile-crud-list-item-line-separator, 1px solid #ddd);
         }
         dile-checkbox {
             margin-right: 0.5rem;
