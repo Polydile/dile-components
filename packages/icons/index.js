@@ -83,6 +83,7 @@ export { pdfIcon } from "./src/pdf.js";
 export { photoIcon } from "./src/photo.js";
 export { photoCameraIcon } from "./src/photoCamera.js";
 export { priorityHighIcon } from "./src/priorityHigh.js";
+export { progressActivityIcon } from "./src/progressActivity.js";
 export { questionAnswerIcon } from "./src/questionAnswer.js";
 export { radioCheckedIcon } from "./src/radioChecked.js";
 export { receiptIcon } from "./src/receipt.js";
