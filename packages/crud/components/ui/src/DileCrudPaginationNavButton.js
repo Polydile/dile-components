@@ -18,8 +18,8 @@ export class DileCrudPaginationNavButton extends LitElement {
                 --dile-icon-rounded-background-color: var(--dile-secondary-dark-color, #fff);
             }
             dile-icon.disabled {
-                --dile-icon-color: #f5f5f5;
-                --dile-icon-rounded-background-color: #ddd;
+                --dile-icon-color: var(--dile-crud-pagination-nav-button-disabled-icon-color, #f5f5f5);
+                --dile-icon-rounded-background-color: var(--dile-crud-pagination-nav-button-disabled-background-color, #ddd);
                 cursor: default;
             }
         `

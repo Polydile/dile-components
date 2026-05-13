@@ -74,9 +74,27 @@ You can customize it using CSS Custom Properties.
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-primary-light-color | Background color of the summary section | #999
+--dile-on-primary-light-color | Text color of the summary section | #fff
+--dile-crud-list-summary-font-size | Font size of the summary section | 0.8rem
+--dile-crud-list-summary-border-bottom | Border bottom of the summary section | 1px solid #ccc
+--dile-crud-list-summary-padding | Padding of the summary section | 0.4rem 1rem
+--dile-crud-list-pagination-margin-top | Top margin of the pagination section | 1rem
+--dile-crud-filters-list-margin | Margin of the filters list container | 0 0.5rem
+--dile-crud-filters-list-gap | Gap between filter items | 0.5rem
 --dile-crud-list-empty-padding | Padding of the empty list message | 3rem 1rem
 --dile-crud-list-empty-text-align | Text alignment of the empty list message | center
+--dile-icon-color | Icon color in pagination navigation buttons | var(--dile-on-secondary-color, #fff)
+--dile-icon-rounded-background-color | Background color of pagination navigation buttons | var(--dile-secondary-color, #2962FF)
+--dile-on-secondary-dark-color | Icon color on hover for pagination navigation buttons | #1942DF
+--dile-secondary-dark-color | Background color on hover for pagination navigation buttons | #fff
+--dile-crud-pagination-nav-button-disabled-icon-color | Icon color when pagination button is disabled | #f5f5f5
+--dile-crud-pagination-nav-button-disabled-background-color | Background color when pagination button is disabled | #ddd
+--dile-crud-select-all-checkbox-color | Checkbox icon color in select all button | #303030
+--dile-crud-select-all-checkbox-size | Checkbox icon size in select all | 1.5rem
+--dile-crud-select-all-overlay-checkbox-color | Checkbox icon color in select all overlay menu | #303030
 
+To customize the appearance of the listings, check other CRUD system components such as [dile-list-item](/crud/crud-list-item/) or [dile-chip](/dile-chip/).
 
 ## Configuration
 

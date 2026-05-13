@@ -22,12 +22,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             .prev-summary {
                 display: flex;
                 flex-direction: column;
-                background-color: #999;
-                color: white;
-                font-size: 0.8em;
+                background-color: var(--dile-primary-light-color, #999);
+                color: var(--dile-on-primary-light-color, #fff);;
+                font-size: var(--dile-crud-list-summary-font-size, 0.8rem);
                 margin-bottom: 0.5rem;
-                border-bottom: 1px solid #ccc;
-                padding: 0.4rem 1rem;
+                border-bottom: var(--dile-crud-list-summary-border-bottom, 1px solid #ccc);
+                padding: var(--dile-crud-list-summary-padding, 0.4rem 1rem);
                 line-height: 1.2rem;
             }
             dile-crud-select-all {

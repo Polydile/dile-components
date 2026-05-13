@@ -11,10 +11,10 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
     return css`
       :host {
         display: block;
-        --dile-icon-color: #303030;
+        --dile-crud-select-all-checkbox-color: #303030;
       }
       .drop {
-        --dile-icon-size: 1.5rem;
+        --dile-icon-size: var(--dile-crud-select-all-checkbox-size, 1.5rem);
       }
       dile-button-icon {
         display: flex;
@@ -44,8 +44,8 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
         cursor: pointer;
       }
       .option dile-icon {
-        --dile-icon-size: 1.5rem;
-        --dile-icon-color: var(--primary-dark-color, #303030);
+        --dile-icon-size: var(--dile-crud-select-all-checkbox-size, 1.5rem);
+        --dile-icon-color: var(--dile-crud-select-all-overlay-checkbox-color, #303030);
         margin-right: 0.5rem;
       }
 

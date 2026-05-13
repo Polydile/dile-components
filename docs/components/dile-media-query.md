@@ -5,7 +5,7 @@ tags: utils
 
 # dile-media-query
 
-Web Component to make media queries and recive events when its state changes.
+Web Component to make media queries and receive events when its state changes.
 
 ## Installation
 
@@ -33,7 +33,7 @@ Use the component.
 
 ### Events
 
-- **dile-media-query-changed**: te component dile-media-query dispatchs this event when the media query match changes between states. This event is dispatched also when the ```query``` property is set.
+- **dile-media-query-changed**: The component dile-media-query dispatches this event when the media query match changes between states. This event is also dispatched when the `query` property is set.
 
 # dile-media-query demos
 

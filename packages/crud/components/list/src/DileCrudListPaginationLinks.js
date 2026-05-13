@@ -9,7 +9,7 @@ export class DileCrudListPaginationLinks extends DileI18nMixin(LitElement) {
         display: block;
       }
       .pagination {
-        margin-top: 1rem;
+        margin-top: var(--dile-crud-list-pagination-margin-top, 1rem);
         display: grid;
         align-items: center;
         grid-template-columns: auto 1fr auto;

@@ -8,10 +8,10 @@ export class DileCrudFiltersList extends LitElement {
                 display: block;
             }
             div {
-                margin: var(--filter-list-margin, 0 0.5rem); 
+                margin: var(--dile-crud-filters-list-margin, 0 0.5rem); 
                 display: flex;
                 flex-wrap: wrap;
-                gap: var(--filter-list-gap, 0.5rem);
+                gap: var(--dile-crud-filters-list-gap, 0.5rem);
             }
         `
     ];

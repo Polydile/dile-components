@@ -141,8 +141,11 @@ table a {
   text-decoration: none;
 }
 table a code {
-  background-color: transparent;
   color: var(--dile-link-color);
+}
+
+table a code, table code {
+  background-color: transparent;
 }
 
 @media(min-width: 380px) {
