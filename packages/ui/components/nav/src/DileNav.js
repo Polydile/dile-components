@@ -6,8 +6,8 @@ export class DileNav extends LitElement {
         :host {
           display: grid;
           grid-template-columns: auto 1fr auto;
-          color: var(--dile-on-primary-color, #fff);
-          background-color: var(--dile-primary-color, #2962FF);
+          color: var(--dile-nav-color, var(--dile-on-primary-color, #fff));
+          background-color: var(--dile-nav-background-color, var(--dile-primary-color, #2962FF));
           align-items: var(--dile-nav-align-items, center);
           column-gap: var(--dile-nav-column-gap, 1rem);
           padding: var(--dile-nav-padding-y, 0.8rem) var(--dile-nav-padding-x, 0.6rem);
