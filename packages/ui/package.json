@@ -1,6 +1,6 @@
 {
   "name": "@dile/ui",
-  "version": "2.23.4",
+  "version": "2.23.5",
   "description": "UI Core components from dile-components.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://dile-components.com/",
   "dependencies": {
-    "@dile/icons": "^2.4.3",
+    "@dile/icons": "^2.5.0",
     "lit": "^2.7.0 || ^3.0.0"
   },
   "publishConfig": {
