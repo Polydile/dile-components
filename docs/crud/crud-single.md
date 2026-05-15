@@ -48,7 +48,10 @@ This component is built on multiple components from the `@dile/crud` catalog. As
 
 Particularly useful events include:
 
-- **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties the `action` name, the `msg` and `data` with any additional data that the backend may have sent as a response.
+- **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties: 
+  - `action` name of the action
+  - `msg` message sent from the backend
+  - `data` with any additional data that the backend may have sent as a response.
 - **crud-action-errors**: Dispatched when an action encounters an error. The event detail includes the msg property from the response. The error messages will appear next to their corresponding elements in the action form.
 - **crud-item-detail-loaded**: This event is dispatched when the item details have been successfully loaded from the API. The event detail includes the loaded data.
 - **crud-item-detail-load-error**: This event is dispatched when the item details can't be loaded.
