@@ -39,6 +39,7 @@ Once you have the toast, you can use the `open()` and `close()` methods to show 
 - **right**: Boolean property. When set, the toast appears on the right side of the viewport.
 - **center**: Boolean property. When set, the toast appears centered at the bottom of the viewport. If both `center` and `right` are set, `right` takes precedence.
 - **openOnInit**: Boolean. If true the toast opens on initialization.
+- **inline**: Boolean property. When set, the toast uses relative positioning instead of fixed positioning, allowing it to flow within the document layout rather than appearing as an overlay.
 
 ## Methods
 

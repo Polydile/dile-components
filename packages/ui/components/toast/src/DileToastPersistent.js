@@ -41,6 +41,13 @@ export class DileToastPersistent extends LitElement {
         opacity: 1;
         transform: translateY(0);
       }
+      :host([inline]) {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+      }
     `;
   }
 
@@ -61,6 +68,10 @@ export class DileToastPersistent extends LitElement {
       openOnInit: {
         type: Boolean,
       },
+      inline: {
+        type: Boolean,
+        reflect: true,
+      },
     };
   }
 
@@ -70,6 +81,7 @@ export class DileToastPersistent extends LitElement {
     this.right = false;
     this.center = false;
     this.openOnInit = false;
+    this.inline = false;
   }
 
   firstUpdated() {
