@@ -40,6 +40,7 @@ export class DileNav extends LitElement {
 
         .title {
           overflow: var(--dile-nav-title-overflow, hidden);
+          min-width: 0;
         }
       `
   }
