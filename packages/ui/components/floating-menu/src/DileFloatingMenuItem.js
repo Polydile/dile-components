@@ -4,23 +4,17 @@ export class DileFloatingMenuItem extends LitElement {
     static styles = [
         css`
             :host {
-
-                --dile-floating-menu-item-color: aliceblue;
-                --dile-floating-menu-item-color-hover: lightblue;
-                --dile-floating-menu-item-margin: 0.5rem 0;
-
                 display: block;
-                margin: var(--dile-floating-menu-item-margin);
             }
-
+            
             a {
                 text-decoration: none;
-                color: var(--dile-floating-menu-item-color);
-                margin: 0;
+                color: var(--dile-floating-menu-item-color, aliceblue);
+                margin: var(--dile-floating-menu-item-margin, 0.5rem 0);
             }
 
             a:hover {
-                color: var(--dile-floating-menu-item-color-hover);
+                color: var(--dile-floating-menu-item-color-hover, lightblue);
             }
         `
     ];
