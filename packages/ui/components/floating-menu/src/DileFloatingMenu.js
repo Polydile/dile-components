@@ -14,7 +14,7 @@ export class DileFloatingMenu extends LitElement {
                 --dile-floating-menu-background-color-hover: mediumblue;
                 --dile-floating-menu-icon-background-color: aliceblue;
 
-                position: absolute;
+                position: fixed;
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
@@ -22,6 +22,7 @@ export class DileFloatingMenu extends LitElement {
                 gap: 1rem;
                 top: var(--dile-floating-menu-margin-top, var(--dile-floating-menu-margin));
                 left: var(--dile-floating-menu-margin-left, var(--dile-floating-menu-margin));
+                z-index: var(--dile-floating-menu-zindex, 2);
             }
             :host([bottom]) {
                 bottom: var(--dile-floating-menu-margin-bottom, var(--dile-floating-menu-margin));

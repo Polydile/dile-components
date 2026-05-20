@@ -46,6 +46,7 @@ Custom property | Description | Default
 --dile-floating-menu-background-color | Background color for the floating button | navy
 --dile-floating-menu-background-color-hover | Hover background color for the floating button | mediumblue
 --dile-floating-menu-icon-background-color | Menu icon background color | aliceblue
+--dile-floating-menu-zindex | Z-index layer for the floating menu | 2
 
 ## Demos
 
