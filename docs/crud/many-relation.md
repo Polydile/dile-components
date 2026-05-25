@@ -72,6 +72,7 @@ Basic usage:
 - **label**: String. Optional heading label displayed above the select input. When not set, no label is rendered.
 - **itemTemplate**: Object (Function). Function used to render each related item in the list. Receives the item object and must return a lit-html template. Defaults to rendering `item[displayProperty]`. Example: `.itemTemplate=${item => html\`<b>${item.name}</b>\`}`.
 - **getListItems**: Object (Function). Function to extract the items array from the `endpointList` response. Defaults to `(response) => response.data`.
+- **listIcon**: Object. Optional icon object to display before each related item in the list. When not set, no icon is rendered. Use with an icon from `@dile/icons`. Example: `.listIcon=${myIcon}`.
 - **emptyListMessage**: String. Custom message shown when there are no related items. If not set, the i18n value is used (`"There are no items yet"` / `"No tenemos elementos todavía"`).
 - **addRelationLabel**: String. Override the label of the add button shown as a tooltip. If not set, the i18n value is used (`"Add"` / `"Añadir"`).
 - **language**: String. Language code for the i18n system (`'en'`, `'es'`). Propagated from the parent.
@@ -98,6 +99,8 @@ Custom property | Description | Default
 `--dile-input-label-margin-bottom` | Bottom margin of the label heading | `4px`
 `--many-relation-item-font-size` | Font size of each related item label | `0.9rem`
 `--many-relation-item-color` | Text color of each related item label | `inherit`
+`--many-relation-list-icon-size` | Size of the optional list icon before each item | `24px`
+`--many-relation-list-icon-color` | Color of the optional list icon before each item | `#666`
 `--many-relation-add-size` | Size of the add icon button (also controls the width of all icon columns for alignment) | `38px`
 `--many-relation-add-color` | Color of the add icon | `#2962ff`
 `--many-relation-add-disabled-color` | Color of the add icon when no item is selected | `#ccc`

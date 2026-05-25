@@ -35,6 +35,10 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
         font-size: var(--many-relation-item-font-size, 0.9rem);
         color: var(--many-relation-item-color, inherit);
       }
+      .relation-item > dile-icon {
+        --dile-icon-color: var(--many-relation-list-icon-color, #666);
+        --dile-icon-size: var(--many-relation-list-icon-size, 24px);
+      }
       button.remove-btn,
       button.add-btn {
         background: none;
@@ -111,6 +115,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       // Related list customisation
       itemTemplate: { type: Object },
       getListItems: { type: Object },
+      listIcon: { type: Object },
       addRelationLabel: { type: String },
       emptyListMessage: { type: String },
       bodyIdProperty: { type: String },
@@ -212,6 +217,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
           ? html`<p class="empty-msg">${this.emptyListMessageComputed(this.emptyListMessage, this.translations)}</p>`
           : this._items.map(item => html`
               <div class="relation-item">
+                ${this.listIcon ? html`<dile-icon .icon="${this.listIcon}"></dile-icon>` : ''}
                 <span class="relation-item-content">${this.itemTemplate(item)}</span>
                 <button
                   class="remove-btn"
