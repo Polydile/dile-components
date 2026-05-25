@@ -26,13 +26,14 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       .relation-item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--many-relation-item-gap, 0.5rem);
         padding: 0.25rem 0;
       }
       .relation-item-content {
         flex: 1;
-        padding-left: 0.4rem;
+        padding-left: var(--many-relation-item-content-padding-left, 0.4rem);
         font-size: var(--many-relation-item-font-size, 0.9rem);
+        font-weight: var(--many-relation-item-content-font-weight, normal);
         color: var(--many-relation-item-color, inherit);
       }
       .relation-item > dile-icon {
