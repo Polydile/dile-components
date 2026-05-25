@@ -36,3 +36,7 @@ html.dark-theme tr:nth-child(even) {
 html.dark-theme footer {
   background-color: var(--dile-secondary-dark-color);
 }
+
+html.dark-theme table a code, html.dark-theme table code {
+  background-color: #f5f5f5;
+}
