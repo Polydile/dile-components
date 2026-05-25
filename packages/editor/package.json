@@ -1,6 +1,6 @@
 {
   "name": "@dile/editor",
-  "version": "2.6.31",
+  "version": "2.6.32",
   "description": "Flexible Web Component for rich text editing with WYSIWYG and Markdown support. Easy to integrate, customizable UI, powered by ProseMirror.",
   "keywords": [
     "markdown",
@@ -30,8 +30,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/icons": "^2.5.0",
-    "@dile/ui": "^2.23.9",
+    "@dile/icons": "^2.5.1",
+    "@dile/ui": "^2.23.10",
     "lit": "^2.7.0 || ^3.0.0",
     "prosemirror-commands": "^1.6.2",
     "prosemirror-example-setup": "^1.2.3",
