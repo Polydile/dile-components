@@ -81,6 +81,38 @@ customElements.define('user-list-item', userListItem);
 
 This component only displays the name and email of a user, with a very rudimentary style, but you could display it with any other style and add more detailed information, as well as functionality if necessary.
 
+## Properties
+
+The `dile-crud-list-item` component accepts the following properties:
+
+- **item**: Object. The item data object that will be rendered in the list item.
+- **itemId**: String. Unique identifier for the item.
+- **actionIds**: Array. Array of item IDs that are currently selected.
+- **disableEdit**: Boolean. When `true`, hides the edit action icon. Defaults to `false`.
+- **disableDelete**: Boolean. When `true`, hides the delete action icon. Defaults to `false`.
+- **hideCheckboxSelection**: Boolean. When `true`, hides the checkbox for item selection. Defaults to `false`.
+- **isDeleted**: Boolean. When `true`, shows the restore action instead of edit/delete actions. Defaults to `false`.
+
+## Events
+
+The `dile-crud-list-item` component dispatches the following events:
+
+- **item-checkbox-changed**: Dispatched when the item checkbox is toggled. The event detail contains:
+  - `checked`: Boolean indicating if the checkbox is now checked.
+  - `itemId`: String with the item ID.
+
+- **crud-item-edit**: Dispatched when the edit icon is clicked. The event detail contains:
+  - `item`: Object with the complete item data.
+  - `itemId`: String with the item ID.
+
+- **crud-item-delete**: Dispatched when the delete icon is clicked. The event detail contains:
+  - `item`: Object with the complete item data.
+  - `itemId`: String with the item ID.
+
+- **crud-item-restore**: Dispatched when the restore icon is clicked. The event detail contains:
+  - `item`: Object with the complete item data.
+  - `itemId`: String with the item ID.
+
 ## CSS Custom Properties
 
 The item component accepts the following CSS custom properties to customize its appearance:

@@ -203,6 +203,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         return html`
             ${this.elements.map(element => html`
                 <dile-crud-list-item 
+                    .item=${element}
                     itemId="${this.computeItemId(element)}"
                     .actionIds="${this.actionIds}"
                     ?disableEdit=${!this.isItemEditable(element)}

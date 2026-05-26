@@ -52,6 +52,7 @@ export class DileCrudListItem extends LitElement {
 
   static get properties() {
     return {
+      item: { type: Object },
       itemId: { type: String },
       actionIds: { type: Array },
       disableEdit: { type: Boolean },
@@ -129,33 +130,26 @@ export class DileCrudListItem extends LitElement {
     }));
   }
 
-  editClick() {
-    this.dispatchEvent(new CustomEvent('crud-item-edit', {
+  _dispatchItemEvent(eventName) {
+    this.dispatchEvent(new CustomEvent(eventName, {
       bubbles: true,
       composed: true,
       detail: {
-        itemId: this.itemId
+        item: this.item,
+        itemId: this.itemId,
       }
     }));
+  }
+
+  editClick() {
+    this._dispatchItemEvent('crud-item-edit');
   }
 
   deleteClick() {
-    this.dispatchEvent(new CustomEvent('crud-item-delete', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        itemId: this.itemId
-      }
-    }));
+    this._dispatchItemEvent('crud-item-delete');
   }
 
   restoreClick() {
-    this.dispatchEvent(new CustomEvent('crud-item-restore', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        itemId: this.itemId
-      }
-    }));
+    this._dispatchItemEvent('crud-item-restore');
   }
 }

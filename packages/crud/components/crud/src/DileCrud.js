@@ -294,11 +294,12 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
     updateRequest(e) {
         const itemId = e.detail.itemId;
+        const item = e.detail.item;
         if (this.config.updateOperation?.type === 'modal') {
             this.editItem(itemId);
             this.modalUpdate.open();
         } else if (this.config.updateOperation?.type == 'handler') {
-            this.config.updateOperation.handler(itemId, this);
+            this.config.updateOperation.handler(itemId, this, item);
         }        
     }
 

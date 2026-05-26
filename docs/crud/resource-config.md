@@ -144,6 +144,7 @@ Here is a complete list of the configuration object properties that can be suppl
 | [`sort`](#sort) | Object | Define sorting options and initial sort field |
 | [`pageSize`](#pageSize) | Object | Configure pagination options for list views |
 | [`insertOperation`](#insertOperation) | Object | Customize the behavior of the insert button |
+| [`updateOperation`](#updateOperation) | Object | Customize the behavior of the edit/update operation |
 | [`maxBatchActionItems`](#maxBatchActionItems) | Number | Set the maximum number of items for batch actions |
 | [`customization`](#customization) | Object | Customize the behavior and visibility of UI elements |
 | [`requestAdapter`](#requestAdapter) | Object | Adapt requests sent to API endpoints |
@@ -174,6 +175,12 @@ Here is a complete list of the configuration object properties that can be suppl
 ### Property `insertOperation` {#insertOperation}
 
 {% include "resource-config/insertOperation.md" %}
+
+---
+
+### Property `updateOperation` {#updateOperation}
+
+{% include "resource-config/updateOperation.md" %}
 
 ---
 
