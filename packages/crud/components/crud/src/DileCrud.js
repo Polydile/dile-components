@@ -237,7 +237,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                                 ></dile-crud-filters>
                             `
                         }
-                        ${this.config.customization.disablePagination || this.config.pageSize.available.length < 2
+                        ${this.config.customization.disablePagination || this.config.pageSize.available.length <= 1
                             ? ''
                             : html`
                                 <dile-crud-page-size 
