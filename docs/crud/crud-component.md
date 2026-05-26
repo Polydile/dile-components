@@ -61,7 +61,7 @@ This component is based on elements such as `dile-crud-list`, `dile-crud-insert`
 
 ### CRUD component CSS Custom Properties
 
-It is possible to customize the appearance of CRUD components using Custom CSS Properties. This component uses elements such as <dile-button> and <dile-input-search>, and therefore supports the custom CSS properties documented for those components. It also uses CSS custom properties that are consistently applied across the entire component catalog, some of which are detailed on the theming page.
+It is possible to customize the appearance of CRUD components using Custom CSS Properties. This component uses elements such as `dile-button` and `dile-input-search`, and therefore supports the custom CSS properties documented for those components. It also uses CSS custom properties that are consistently applied across the entire component catalog, some of which are detailed on the theming page.
 
 Additionally, there are specific custom properties for dile-crud, which are detailed in the following table:
 
