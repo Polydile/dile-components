@@ -82,6 +82,7 @@ Custom property | Description | Default
 --dile-crud-list-pagination-margin-top | Top margin of the pagination section | 1rem
 --dile-crud-filters-list-margin | Margin of the filters list container | 0 0.5rem
 --dile-crud-filters-list-gap | Gap between filter items | 0.5rem
+--dile-crud-list-filters-list-margin | Margin of the filters list inside dile-crud-list | 0
 --dile-crud-list-empty-padding | Padding of the empty list message | 3rem 1rem
 --dile-crud-list-empty-text-align | Text alignment of the empty list message | center
 --dile-icon-color | Icon color in pagination navigation buttons | var(--dile-on-secondary-color, #fff)
