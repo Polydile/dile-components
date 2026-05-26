@@ -33,7 +33,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
         flex: 1;
         padding-left: var(--many-relation-item-content-padding-left, 0.4rem);
         font-size: var(--many-relation-item-font-size, 0.9rem);
-        font-weight: var(--many-relation-item-content-font-weight, normal);
+        font-weight: var(--many-relation-item-font-weight, normal);
         color: var(--many-relation-item-color, inherit);
       }
       .relation-item > dile-icon {

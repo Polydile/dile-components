@@ -99,7 +99,7 @@ Custom property | Description | Default
 `--dile-input-label-margin-bottom` | Bottom margin of the label heading | `4px`
 `--many-relation-item-font-size` | Font size of each related item label | `0.9rem`
 `--many-relation-item-color` | Text color of each related item label | `inherit`
-`--many-relation-item-content-font-weight` | Font weight of each related item label | `normal`
+`--many-relation-item-font-weight` | Font weight of each related item label | `normal`
 `--many-relation-item-gap` | Gap between elements in each related item | `0.5rem`
 `--many-relation-item-content-padding-left` | Left padding of each related item label | `0.4rem`
 `--many-relation-list-icon-size` | Size of the optional list icon before each item | `24px`
