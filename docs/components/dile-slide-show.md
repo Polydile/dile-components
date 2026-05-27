@@ -55,6 +55,7 @@ Custom property | Description | Default
 --dile-slide-show-font-weight | Label font weight | bold
 --dile-slide-show-text-decoration | Label text decoration | none
 --dile-slide-show-icon-color | Color for the arrow icon | #39c
+--dile-slide-show-nav-padding | Padding for the open / close control | 0.5rem 0 0 0
 
 
 ## dile-slide-show demos

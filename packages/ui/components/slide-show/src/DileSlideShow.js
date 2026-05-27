@@ -35,9 +35,10 @@ export class DileSlideShow extends DileSlideDown(LitElement) {
         -webkit-transition: height 0.5s ease-in;
         padding: 1px 0;
       }
-      nav {
-        padding-top: 0.5em;
+      a {
+        display: block;
         cursor: pointer;
+        padding: var(--dile-slide-show-nav-padding, 0.5rem 0 0 0);
         text-align: var(--dile-slide-show-align-control, left);
         font-size: var(--dile-slide-show-font-size, 1em);
         color: var(--dile-slide-show-text-color, #39c);
@@ -75,16 +76,21 @@ export class DileSlideShow extends DileSlideDown(LitElement) {
     <div id="content">
       <slot></slot>
     </div> 
-    <nav @click="${this.toggle}" class="${this._opened ? 'showmoreopen' : 'showmoreclose'}">
+    <a href="#" @click="${this.toggleHandler}" class="${this._opened ? 'showmoreopen' : 'showmoreclose'}" role="button" tabindex="0">
       <span>
         ${this._opened ? this.hideLabel : this.showLabel}
       </span>
-    </nav>
+    </a>
     `;
   }
 
   firstUpdated() {
     this.content = this.shadowRoot.getElementById('content');
+  }
+
+  toggleHandler(e) {
+    e.preventDefault();
+    this.toggle();
   }
 
   toggle() {
