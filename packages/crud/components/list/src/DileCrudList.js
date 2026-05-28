@@ -332,12 +332,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     getPageIds() {
-        return this.elements.map(element => element.id);
+        return this.elements.map(element => this.config.computeItemId(element));
     }
 
     getAllIds() {
       if(this.config.customization?.disablePagination) {
-        let ids = this.elements.map(item => item.id);
+        let ids = this.elements.map(item => this.config.computeItemId(item));
         this.dispactSelectAll(ids);
       } else{
         let data = {
