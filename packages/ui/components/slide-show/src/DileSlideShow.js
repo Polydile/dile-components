@@ -33,7 +33,9 @@ export class DileSlideShow extends DileSlideDown(LitElement) {
         overflow: hidden;
         transition: height 0.5s ease-in;
         -webkit-transition: height 0.5s ease-in;
-        padding: 1px 0;
+      }
+      .inside {
+        padding: var(--dile-slide-show-inside-padding, 1px 0);
       }
       a {
         display: block;
@@ -74,7 +76,9 @@ export class DileSlideShow extends DileSlideDown(LitElement) {
   render() {
     return html`
     <div id="content">
-      <slot></slot>
+      <div class="inside">
+        <slot></slot>
+      </div>
     </div> 
     <a href="#" @click="${this.toggleHandler}" class="${this._opened ? 'showmoreopen' : 'showmoreclose'}" role="button" tabindex="0">
       <span>
