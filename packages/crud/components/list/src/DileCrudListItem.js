@@ -16,7 +16,7 @@ export class DileCrudListItem extends LitElement {
             overflow: hidden;
             display: flex;
             align-items: center;
-            padding: 0.5rem 0.5rem;
+            padding: var(--dile-crud-list-item-padding, 0.5rem 0.5rem);
             border-bottom: var(--dile-crud-list-item-line-separator, 1px solid #ddd);
         }
         dile-checkbox {
@@ -44,7 +44,7 @@ export class DileCrudListItem extends LitElement {
         }
         @media(min-width: 550px) {
             section {
-                padding: 0.5rem 1rem;
+                padding: var(--dile-crud-list-item-padding, 0.5rem 1rem);
             }
         }
     `
