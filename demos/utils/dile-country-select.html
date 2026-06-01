@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-country-select component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/utils/components/country-select/country-select.js";
+  </script>
+  <style>
+    .demo-section {
+      margin: 40px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border-left: 4px solid #39c;
+    }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-country-select component</h1>
+    <p>
+      A web component for selecting countries with support for multiple languages (Spanish and English).
+    </p>
+
+    <div class="demo-section">
+      <h2>Spanish Version</h2>
+      <p>Language: Spanish with default label and placeholder</p>
+      <dile-country-select 
+        id="countrySelectEs"
+        name="country_es"
+        language="es">
+      </dile-country-select>
+      <div class="result" id="resultEs">Selected country: -</div>
+    </div>
+
+    <div class="demo-section">
+      <h2>English Version</h2>
+      <p>Language: English with default label and placeholder</p>
+      <dile-country-select 
+        id="countrySelectEn"
+        name="country_en"
+        language="en">
+      </dile-country-select>
+      <div class="result" id="resultEn">Selected country: -</div>
+    </div>
+
+    <div class="demo-section">
+      <h2>With Custom Label</h2>
+      <p>Using custom label text while keeping the language</p>
+      <dile-country-select 
+        id="countrySelectCustom"
+        name="country_custom"
+        language="es"
+        label="¿De cuál país eres?">
+      </dile-country-select>
+      <div class="result" id="resultCustom">Selected country: -</div>
+    </div>
+
+    <div class="demo-section">
+      <h2>With Default Value</h2>
+      <p>Pre-selected country (Spain - ES)</p>
+      <dile-country-select 
+        id="countrySelectDefault"
+        name="country_default"
+        language="es"
+        value="ES">
+      </dile-country-select>
+      <div class="result" id="resultDefault">Selected country: ES</div>
+    </div>
+
+    <div class="demo-section">
+      <h2>With Priority Countries</h2>
+      <p>Showing priority countries at the top (Spain, Mexico, Argentina)</p>
+      <dile-country-select 
+        id="countrySelectPriority"
+        name="country_priority"
+        language="es"
+        priority-countries="ES|MX|AR">
+      </dile-country-select>
+      <div class="result" id="resultPriority">Selected country: -</div>
+    </div>
+
+    <div class="demo-section">
+      <p>Showing error state with validation message</p>
+      <dile-country-select 
+        id="countrySelectError"
+        name="country_error"
+        language="en"
+        errored
+        message="Country selection is required">
+      </dile-country-select>
+      <div class="result" id="resultError">Selected country: -</div>
+    </div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+
+  <script>
+    // Spanish demo
+    const selectEs = document.querySelector('#countrySelectEs');
+    const resultEs = document.querySelector('#resultEs');
+    selectEs.addEventListener('country-changed', (e) => {
+      resultEs.textContent = `Selected country: ${e.detail.value}`;
+    });
+
+    // English demo
+    const selectEn = document.querySelector('#countrySelectEn');
+    const resultEn = document.querySelector('#resultEn');
+    selectEn.addEventListener('country-changed', (e) => {
+      resultEn.textContent = `Selected country: ${e.detail.value}`;
+    });
+
+    // Custom label demo
+    const selectCustom = document.querySelector('#countrySelectCustom');
+    const resultCustom = document.querySelector('#resultCustom');
+    selectCustom.addEventListener('country-changed', (e) => {
+      resultCustom.textContent = `Selected country: ${e.detail.value}`;
+    });
+
+    // Default value demo
+    const selectDefault = document.querySelector('#countrySelectDefault');
+    const resultDefault = document.querySelector('#resultDefault');
+    resultDefault.textContent = `Selected country: ${selectDefault.value}`;
+    selectDefault.addEventListener('country-changed', (e) => {
+      resultDefault.textContent = `Selected country: ${e.detail.value}`;
+    });
+
+    // Priority countries demo
+    const selectPriority = document.querySelector('#countrySelectPriority');
+    const resultPriority = document.querySelector('#resultPriority');
+    selectPriority.addEventListener('country-changed', (e) => {
+      resultPriority.textContent = `Selected country: ${e.detail.value}`;
+    });
+
+    // Error state demo
+    const selectError = document.querySelector('#countrySelectError');
+    const resultError = document.querySelector('#resultError');
+    selectError.addEventListener('country-changed', (e) => {
+      resultError.textContent = `Selected country: ${e.detail.value}`;
+    });
+  </script>
+</body>
+</html>

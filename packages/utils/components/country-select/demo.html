@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-country-select Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .demo-section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>dile-country-select Component Demo</h1>
+  
+  <div class="demo-section">
+    <h2>Spanish Version</h2>
+    <dile-country-select 
+      id="countrySelectEs"
+      name="country_es"
+      language="es"
+      label="Selecciona tu país">
+    </dile-country-select>
+    <div class="result" id="resultEs">Selected: -</div>
+  </div>
+
+  <div class="demo-section">
+    <h2>English Version</h2>
+    <dile-country-select 
+      id="countrySelectEn"
+      name="country_en"
+      language="en"
+      label="Choose your country">
+    </dile-country-select>
+    <div class="result" id="resultEn">Selected: -</div>
+  </div>
+
+  <div class="demo-section">
+    <h2>With Default Value</h2>
+    <dile-country-select 
+      id="countrySelectDefault"
+      name="country_default"
+      language="es"
+      value="ES">
+    </dile-country-select>
+    <div class="result" id="resultDefault">Selected: -</div>
+  </div>
+
+  <!-- Import the component -->
+  <script type="module">
+    import './country-select.js';
+
+    // Spanish demo
+    const selectEs = document.querySelector('#countrySelectEs');
+    const resultEs = document.querySelector('#resultEs');
+    selectEs.addEventListener('country-changed', (e) => {
+      resultEs.textContent = `Selected: ${e.detail.value}`;
+    });
+
+    // English demo
+    const selectEn = document.querySelector('#countrySelectEn');
+    const resultEn = document.querySelector('#resultEn');
+    selectEn.addEventListener('country-changed', (e) => {
+      resultEn.textContent = `Selected: ${e.detail.value}`;
+    });
+
+    // Default value demo
+    const selectDefault = document.querySelector('#countrySelectDefault');
+    const resultDefault = document.querySelector('#resultDefault');
+    resultDefault.textContent = `Selected: ${selectDefault.value}`;
+    selectDefault.addEventListener('country-changed', (e) => {
+      resultDefault.textContent = `Selected: ${e.detail.value}`;
+    });
+  </script>
+</body>
+</html>
