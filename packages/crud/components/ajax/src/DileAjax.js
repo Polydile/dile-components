@@ -8,6 +8,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       data: {  type: Object },
       method: { type: String },
       url: { type: String },
+      responseType: { type: String },
       statusSuccessCodes: { type: Array },
       sendDataAsFormData: { type: Boolean },
       getValidationErrors: { type: Object },
@@ -40,38 +41,51 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     if(this.sendDataAsFormData) {
       this._prepareFormData();
     }
+    const responseTypeConfig = this.responseType ? { responseType: this.responseType } : undefined;
     switch(this.method.toLowerCase().trim()) {
       case 'post':
-        request = this.axiosInstance.post(this.url, this.computedData);
+        request = this.axiosInstance.post(this.url, this.computedData, responseTypeConfig);
         break;
       case 'get':
         request = this.axiosInstance.get(this.url, {
-          params: this.data
+          params: this.data,
+          ...(this.responseType && { responseType: this.responseType }),
         });
         break;
       case 'put':
-        request = this.axiosInstance.put(this.url, this.computedData);
+        request = this.axiosInstance.put(this.url, this.computedData, responseTypeConfig);
         break;
       case 'delete':
-        request = this.axiosInstance.delete(this.url, this.computedData);
+        request = this.axiosInstance.delete(this.url, this.computedData, responseTypeConfig);
         break;
       case 'patch':
-        request = this.axiosInstance.patch(this.url, this.computedData);
+        request = this.axiosInstance.patch(this.url, this.computedData, responseTypeConfig);
         break
     }
     request.then((response) => {
       this.dispatchResponse(response)
       if(this.statusSuccessCodes.includes(response.status)) {
-        this.dispatchEvent(new CustomEvent('ajax-success', {
-          detail: response.data
-        }));
+        let detail;
+        if (this.responseType === 'blob') {
+          const disposition = response.headers['content-disposition'] || '';
+          const match = disposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+          const filename = match ? match[1].replace(/['"]/g, '') : 'download';
+          detail = {
+            blob: response.data,
+            filename,
+            contentType: response.headers['content-type'],
+          };
+        } else {
+          detail = response.data;
+        }
+        this.dispatchEvent(new CustomEvent('ajax-success', { detail }));
       } else {
         this.dispatchError(this.translations.http_unhandled_success, response.data);
       }
     })
-    .catch(err => {
-      this.describeError(err);
-    }) 
+    .catch(async err => {
+      await this.describeError(err);
+    })
     .finally(() => {
       this.formData = null;
       this.dispatchEvent(new CustomEvent('dile-ajax-request-end', {
@@ -81,10 +95,18 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     });
   }
 
-  describeError(err) {
+  async describeError(err) {
     if (err.response) {
       const res = err.response;
-      this.dispatchResponse(res); 
+      if (this.responseType === 'blob' && res.data instanceof Blob) {
+        try {
+          const text = await res.data.text();
+          res.data = JSON.parse(text);
+        } catch {
+          res.data = {};
+        }
+      }
+      this.dispatchResponse(res);
       
       const status = res.status;
       switch (status) {

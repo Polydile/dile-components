@@ -113,6 +113,52 @@
       })
     </script>
 
+    <h2>File download (blob)</h2>
+    <dile-ajax
+      id="ajaxblob"
+      method="get"
+      responseType="blob"
+    ></dile-ajax>
+    <p>
+      <input type="text" id="downloadUrl" value="https://timer.escuelait.com/api/countries" style="width: 400px">
+      <button id="downloadButton">Download file</button>
+    </p>
+    <p id="messageblob">Introduce una URL y pulsa el botón para descargar el fichero...</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const ajaxblob = document.getElementById('ajaxblob');
+        const messageBlob = document.getElementById('messageblob');
+
+        document.getElementById('downloadButton').addEventListener('click', function() {
+          const url = document.getElementById('downloadUrl').value.trim();
+          if (!url) {
+            messageBlob.textContent = 'Introduce una URL primero.';
+            return;
+          }
+          ajaxblob.url = url;
+          messageBlob.textContent = 'Descargando...';
+          ajaxblob.generateRequest();
+        });
+
+        ajaxblob.addEventListener('ajax-success', function(e) {
+          const { blob, filename, contentType } = e.detail;
+          console.log('Blob recibido:', { filename, contentType, size: blob.size });
+          const objectUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = objectUrl;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectUrl);
+          messageBlob.textContent = `Descargado: ${filename} — ${contentType} — ${blob.size} bytes`;
+        });
+
+        ajaxblob.addEventListener('ajax-error', function(e) {
+          console.error('Error Ajax:', e.detail);
+          messageBlob.textContent = `Error: ${e.detail.message}`;
+        });
+      });
+    </script>
+
     <footer><a href="./index.html">Back</a></footer>
   </div>
 </body>

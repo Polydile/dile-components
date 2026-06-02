@@ -53,6 +53,7 @@ Once the method is invoked, the response will be received in one of the two cust
 - **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax` component will send a formData object instead of a JSON object.
 - **getValidationErrors**: Object, a function that receives the full response data and returns the validation errors. See the explanation below on providing validation errors.
+- **responseType**: String, default empty. When set to `'blob'`, the response is treated as binary data instead of JSON. See the [File downloads (blob)](#file-downloads-blob) section below.
 
 ### Methods
 
@@ -67,7 +68,12 @@ The component dispatches custom events to notify the lifecycle of the HTTP reque
 
 - **dile-ajax-request-end**: Dispatched when the request finishes, regardless of success or error. This includes the finally stage of the Promise. Useful for hiding loading indicators or re-enabling controls.
 
-- **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event is the JSON returned by the server.
+- **ajax-success**: Dispatched when the server response has a successful HTTP status code. The detail of the event depends on the `responseType` property:
+  - **Default (JSON)**: the detail is the JSON returned by the server.
+  - **`responseType="blob"`**: the detail is an object with these properties:
+    - `blob`: the `Blob` object with the binary content of the file.
+    - `filename`: the filename extracted from the `Content-Disposition` response header. Falls back to `'download'` if the header is absent.
+    - `contentType`: the value of the `Content-Type` response header.
 - **ajax-error**: Dispatched when the response is received with an error HTTP status code. The detail of the event is an object with these properties:
 
     ```json
@@ -129,6 +135,68 @@ If the REST API does not send the `errors` property as expected, we can use the 
 ```
 
 As shown, we simply bind a function to the `getValidationErrors` property, which receives the complete JSON response from the server and returns the path to the validation errors array provided by the API.
+
+## File downloads (blob)
+
+Set `responseType="blob"` to download binary files (PDFs, images, spreadsheets, etc.) through the same `dile-ajax` component, without needing a separate component or a raw `<a>` tag.
+
+```html
+<dile-ajax
+  id="fileDownload"
+  method="get"
+  url="/api/reports/january.pdf"
+  responseType="blob"
+  @ajax-success="${this._handleBlob}"
+  @ajax-error="${this._handleError}"
+></dile-ajax>
+```
+
+When `responseType="blob"`, the `ajax-success` event detail contains `{ blob, filename, contentType }` instead of the usual JSON:
+
+```javascript
+_handleBlob(e) {
+  const { blob, filename, contentType } = e.detail;
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+```
+
+### Filename resolution
+
+The `filename` value is extracted from the `Content-Disposition` header that the server sends in the response:
+
+```
+Content-Disposition: attachment; filename="report-january.pdf"
+```
+
+If the server does not send this header, `filename` falls back to `'download'`. It is good practice to always include `Content-Disposition` in file download endpoints so that the browser saves the file with the correct name and extension.
+
+### Error handling with blob
+
+When `responseType="blob"` and the server returns an error status (4xx, 5xx), the error body also arrives as a `Blob`. The component automatically converts it back to JSON before dispatching `ajax-error`, so the `ajax-error` handler works exactly the same as in the JSON case:
+
+```javascript
+_handleError(e) {
+  console.error(e.detail.message); // human-readable message from the server
+}
+```
+
+### CORS requirement
+
+Downloading a blob from a cross-origin server requires proper CORS headers on the server, just like any other XHR/fetch request. This applies even to public resources such as images or PDFs: the browser allows `<img>` and `<a>` tags to load cross-origin resources without CORS, but `XMLHttpRequest` (used by Axios) always enforces CORS for cross-origin requests.
+
+Make sure the server returns:
+
+```
+Access-Control-Allow-Origin: https://your-app.com
+Access-Control-Allow-Headers: X-Requested-With
+```
+
+If the server does not return these headers, the request will fail with "No response received from the server". The solution is to configure CORS on the server or to proxy the request through your own backend.
 
 ## dile-ajax demos
 
