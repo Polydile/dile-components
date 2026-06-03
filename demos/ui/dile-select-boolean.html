@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-select-boolean component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/select/select-boolean.js";
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-select-boolean component</h1>
+
+    <h2>Simple usage (defaults: Yes / No)</h2>
+    <dile-select-boolean id="bs1" name="active" label="Active"></dile-select-boolean>
+    <p id="msg1"></p>
+    <script>
+      document.getElementById('bs1').addEventListener('element-changed', (e) => {
+        document.getElementById('msg1').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
+    </script>
+
+    <h2>Custom option labels</h2>
+    <dile-select-boolean
+      name="published"
+      label="Published"
+      trueOption="Published"
+      falseOption="Draft"
+    ></dile-select-boolean>
+
+    <h2>Set boolean value programmatically</h2>
+    <dile-select-boolean id="bs3" name="enabled" label="Enabled"></dile-select-boolean>
+    <p>
+      <button id="setTrue">Set true</button>
+      <button id="setFalse">Set false</button>
+    </p>
+    <script>
+      document.getElementById('setTrue').addEventListener('click', () => {
+        document.getElementById('bs3').value = true;
+      });
+      document.getElementById('setFalse').addEventListener('click', () => {
+        document.getElementById('bs3').value = false;
+      });
+    </script>
+
+    <h2>With error message</h2>
+    <dile-select-boolean
+      id="bs4"
+      name="confirm"
+      label="Confirm"
+      hideErrorOnInput
+      errored
+      message="This field is required"
+    ></dile-select-boolean>
+    <p>
+      <button id="toggleErrored">Toggle errored</button>
+    </p>
+    <script>
+      document.getElementById('toggleErrored').addEventListener('click', () => {
+        const el = document.getElementById('bs4');
+        el.errored = !el.errored;
+      });
+    </script>
+
+    <h2>Disabled</h2>
+    <dile-select-boolean name="status" label="Status" disabled></dile-select-boolean>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
