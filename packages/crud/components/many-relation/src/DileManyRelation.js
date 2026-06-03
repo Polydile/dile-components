@@ -123,6 +123,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       message: { type: String },
       errored: { type: Boolean },
       hideErrorOnInput: { type: Boolean },
+      addOnSelect: { type: Boolean },
 
       // Internal state
       _items: { type: Array, state: true },
@@ -143,6 +144,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this.itemTemplate = (item) => html`${item[this.displayProperty]}`;
     this.bodyIdProperty = null;
     this._loadingList = false;
+    this.addOnSelect = false;
   }
 
   updated(changedProperties) {
@@ -204,12 +206,14 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
           language="${this.language}"
           @element-changed="${this._onSelectChanged}"
         ></dile-ajax-select-crud>
-        <button
-          class="add-btn"
-          ?disabled="${!this._selectedId}"
-          title="${this.addRelationLabelComputed(this.addRelationLabel, this.translations)}"
-          @click="${this._addSelectedItem}"
-        ><dile-icon .icon="${addIcon}"></dile-icon></button>
+        ${!this.addOnSelect ? html`
+          <button
+            class="add-btn"
+            ?disabled="${!this._selectedId}"
+            title="${this.addRelationLabelComputed(this.addRelationLabel, this.translations)}"
+            @click="${this._addSelectedItem}"
+          ><dile-icon .icon="${addIcon}"></dile-icon></button>
+        ` : ''}
       </div>
 
       ${this._loadingList
@@ -238,6 +242,9 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   _onSelectChanged(e) {
     this._selectedId = e.detail.value || null;
+    if (this.addOnSelect && this._selectedId) {
+      this._addSelectedItem();
+    }
   }
 
   _addSelectedItem() {

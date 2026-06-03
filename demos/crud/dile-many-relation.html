@@ -53,6 +53,35 @@
                 emptyListMessage="No tags yet"
             ></dile-many-relation>
 
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #ddd;">
+
+            <h2>dile-many-relation component - Add on Select</h2>
+
+            <p>
+                Demo con comportamiento más ágil usando <code>addOnSelect</code>.
+                Con este modo, simplemente selecciona un tag del desplegable
+                y se añade automáticamente a la lista, sin necesidad de hacer clic en
+                un botón adicional. Usa el botón × para eliminar un tag.
+            </p>
+
+            <dile-many-relation
+                label="Seleccionar etiquetas (modo automático)"
+                endpointGet="https://timer.escuelait.com/api/tags"
+                endpointList="https://timer.escuelait.com/api/board-games/2/tags"
+                endpointAdd="https://timer.escuelait.com/api/board-games/2/tags"
+                endpointRemove="https://timer.escuelait.com/api/board-games/2/tags"
+                idProperty="id"
+                bodyIdProperty="tag_id"
+                displayProperty="name"
+                queryStringVariable="search"
+                resultDataProperty="data"
+                loadFromEndpoint
+                language="en"
+                selectDefaultPlaceholder="Select Tag..."
+                emptyListMessage="No tags yet"
+                addOnSelect
+            ></dile-many-relation>
+
             <footer><a href="./index.html">Back</a></footer>
         </div>
     </body>
