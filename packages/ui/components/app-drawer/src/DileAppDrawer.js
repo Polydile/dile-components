@@ -33,13 +33,15 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
     return css`
       :host {
         display: block;
+        overflow-x: hidden;
       }
 
       .modal {
         display: none;
         position: fixed;
-        width: 100vw;
+        width: 100%;
         height: 100vh;
+        left: 0;
         top: 0;
         left: 0;
         z-index: var(--dile-app-drawer-modal-z-index, var(--dile-app-drawer-z-index, 98));
@@ -61,8 +63,8 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
       }
 
       section {
-        transform: translateX(-100vw);
-        transition: transform 0.2s ease 0.3s;
+        transform: none;
+        transition: none;
       }
 
       :host([opened]) .modal {
@@ -88,10 +90,11 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
 
       :host([direction="left"]) .menu {
         top: var(--dile-app-drawer-closed-top, 0);
-        left: var(--dile-app-drawer-closed-left, -100vw);
+        left: var(--dile-app-drawer-closed-left, 0);
         height: var(--dile-app-drawer-content-height, 100vh);
         width: var(--dile-app-drawer-content-width, auto);
         box-shadow: var(--dile-app-drawer-box-shadow, 1px 0 8px #000);
+        transform: translateX(-100%);
       }
 
       :host([direction="top"][opened]) .menu {
@@ -99,7 +102,7 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
       }
 
       :host([direction="left"][opened]) .menu {
-        transform: translateX(100vw);
+        transform: translateX(0);
       }
     `;
   }
