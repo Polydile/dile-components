@@ -7,7 +7,7 @@ tags: 'Crud extras'
 
 The `dile-ajax-select-crud` component is a tool to select elements with ajax searches. 
 
-Is based on [dile-select-ajax](/components/dile-select-ajax/) component but configured to use [dile-ajax](/components/dile-select-ajax/) in replacement of the navigator fetch Javascript interface.
+Is based on [dile-select-ajax](/components/dile-select-ajax/) component but configured to use [dile-ajax](/crud/ajax/) in replacement of the navigator fetch Javascript interface. The `dile-ajax` service is built on top of [Axios](https://axios-http.com/), which provides a higher degree of control over requests and responses compared to native fetch.
 
 ## Installation
 
@@ -52,16 +52,7 @@ In addition, `dile-ajax-select-crud` introduces these additional properties:
 
 ### Custom Events
 
-- **element-changed**: This component extends [`dile-select-ajax`](/components/dile-select-ajax/), so `element-changed` custom event is fired when the value property of the component changes.
-
-The custom event detail has this properties:
-
-```json
-detail: {
-  name: this.name,
-  value: this.value
-}
-```
+Refer to the [dile-select-ajax documentation](/components/dile-select-ajax/#events) for information about custom events, as `dile-ajax-select-crud` inherits all events from that component.
 
 ### Adapting API Responses When Fetching a List
 
@@ -130,7 +121,9 @@ This will only work when the server response looks like this:
 [ { "id": 1, "name": "Foo" }, { "id": 2, "name": "Bar" } ]
 ```
 
-> This component documentation is a work in progress.
+## Configuring Axios
+
+Since `dile-ajax-select-crud` uses Axios internally through `dile-ajax`, you can configure the Axios instance to suit your project's needs. For detailed information on how to set up authentication tokens, custom headers, interceptors, and other advanced configurations, refer to the [Axios Configuration guide](/crud/axios-configuration/).
 
 ## dile-ajax-select-crud example
 

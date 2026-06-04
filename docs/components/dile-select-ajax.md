@@ -9,6 +9,14 @@ This component has the hability to search in a configurable JSON API resource to
 
 The component make automatic server calls using Ajax to the URL configured by the ```endpoint``` attribute.
 
+## Alternative: dile-ajax-select-crud
+
+If you need more advanced configuration options for your API requests, such as adding authentication tokens or custom headers, consider using [dile-ajax-select-crud](/crud/ajax-select-crud/) instead. This component is built on top of `dile-select-ajax` but uses axios in place of the native fetch API, providing fine-grained control over request configuration and is particularly useful when you need to:
+
+- Add authentication tokens or custom headers
+- Configure advanced request/response interceptors
+- Customize request behavior at a detailed level
+
 ## Installation
 
 To install dile-select-ajax component you have to install @dile/dile-select package.
