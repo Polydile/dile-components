@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { formStyles } from '../../../styles/form-styles.js';
+import { crudStyles } from '../../../styles/crud-styles.js';
 import { DileLoading, loadingStyles } from '../../../lib/DileLoading.js';
 import '../../ajax/ajax.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
@@ -7,6 +8,7 @@ import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 export class DileCrudDetail extends DileLoading(LitElement) {
   static styles = [
     formStyles,
+    crudStyles,
     loadingStyles,
     css`
         :host {
@@ -42,11 +44,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
             padding: 0.25rem 0 0;
             font-size: 0.85rem;
         }
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            margin-top: 0;
-        }
         aside {
             padding: 1rem 0;
             min-width: 32px;
@@ -60,9 +57,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
         @media(min-width : 800px) {
             main {
                 --dile-icon-size: 64px;
-            }
-            h1 {
-                font-size: 1.8rem;
             }
         }
     `

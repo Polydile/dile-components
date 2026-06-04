@@ -9,10 +9,6 @@ export const formStyles = css`
   --dile-modal-close-icon-top: 1rem;
   --dile-modal-close-icon-color: #f66;
 }
-h1 {
-  font-size: 1.5rem;
-  margin-top: 0;
-}
 @media(min-width: 380px) {
   :host {
     --dile-modal-width: 85vw;

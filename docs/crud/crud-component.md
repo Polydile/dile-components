@@ -68,6 +68,9 @@ Additionally, there are specific custom properties for dile-crud, which are deta
 Custom property | Description | Default
 --filter-list-margin | Margin of the filter list container | 0 0.5rem
 --filter-list-gap | Gap between filter list items | 0.5rem
+--dile-crud-h1-font-size | Font size for h1 headings in CRUD forms | 1.5rem
+--dile-crud-h1-font-weight | Font weight for h1 headings in CRUD forms | bold
+--dile-crud-h1-margin | Margin for h1 headings in CRUD forms | 0 0 1rem 0
 
 
 ## Generating CRUD Components for Entities with the CLI

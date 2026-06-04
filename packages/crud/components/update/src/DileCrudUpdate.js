@@ -1,12 +1,14 @@
 import { LitElement, html, css } from 'lit';
 import '../../ajax-form/ajax-form.js'
 import { formStyles } from '../../../styles/form-styles.js';
+import { crudStyles } from '../../../styles/crud-styles.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudUpdate extends DileI18nMixin(LitElement) {
   static styles = [
     formStyles,
+    crudStyles,
     css`
             
         `

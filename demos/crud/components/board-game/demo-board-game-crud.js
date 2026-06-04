@@ -9,6 +9,7 @@ export class DemoBoardGamesCrud extends LitElement {
     css`
       :host {
         display: block;
+        --dile-crud-h1-font-weight: 300;
       }
     `
   ];
@@ -27,6 +28,7 @@ export class DemoBoardGamesCrud extends LitElement {
   render() {
     return html`
       <dile-crud
+        title="Board games"
         .config="${this.config}"
       ></dile-crud>
     `;

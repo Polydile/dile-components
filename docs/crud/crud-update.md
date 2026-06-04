@@ -65,6 +65,13 @@ Use the component.
 
 See the `dile-ajax-form` documentation to find the available custom CSS properties.
 
+Additionally, the following custom properties are available for styling the h1 heading:
+
+Custom property | Description | Default
+--dile-crud-h1-font-size | Font size for the h1 heading | 1.5rem
+--dile-crud-h1-font-weight | Font weight for the h1 heading | bold
+--dile-crud-h1-margin | Margin for the h1 heading | 0 0 1rem 0
+
 
 ## Configuration
 
