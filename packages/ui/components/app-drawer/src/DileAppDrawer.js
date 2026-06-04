@@ -85,6 +85,11 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         left: var(--dile-app-drawer-closed-left, 0);
         height: var(--dile-app-drawer-content-height, auto);
         width: var(--dile-app-drawer-content-width, 100vw);
+        box-shadow: none;
+      }
+
+      :host([direction="top"][opened]) .menu {
+        transform: translateY(100vh);
         box-shadow: var(--dile-app-drawer-box-shadow, 0 1px 8px #000);
       }
 
@@ -93,16 +98,13 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         left: var(--dile-app-drawer-closed-left, 0);
         height: var(--dile-app-drawer-content-height, 100vh);
         width: var(--dile-app-drawer-content-width, auto);
-        box-shadow: var(--dile-app-drawer-box-shadow, 1px 0 8px #000);
+        box-shadow: none;
         transform: translateX(-100%);
-      }
-
-      :host([direction="top"][opened]) .menu {
-        transform: translateY(100vh);
       }
 
       :host([direction="left"][opened]) .menu {
         transform: translateX(0);
+        box-shadow: var(--dile-app-drawer-box-shadow, 1px 0 8px #000);
       }
     `;
   }
