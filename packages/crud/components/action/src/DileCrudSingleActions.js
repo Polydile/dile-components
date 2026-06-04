@@ -56,7 +56,9 @@ export class DileCrudSingleActions extends DileCrudActions {
                 attrForSelected="name"
                 @dile-selected-changed="${this.onActionSelected}"
             >
-                ${this.actions.map(action => html`
+                ${this.actions
+                  .filter(action => !action.shouldAppear || action.shouldAppear(this.element))
+                  .map(action => html`
                     <dile-box-selector-item 
                         label="${action.label}"
                         name="${action.name}"
