@@ -29,19 +29,77 @@ Resources can define any number of actions in the configuration object. This is 
 
 The properties to define are:
 
-- **actions.list**: This is an array of actions. All actions are provided in an object containing a `label` property and a `name` property.
+- **actions.list**: This is an array of batch actions executed on multiple selected items. These actions use the `name` and `label` properties, and optionally the `destructive` flag.
+- **actions.single**: This is an array of individual actions executed on a single item. These actions support all properties including `shouldAppear` for conditional display based on the item's state.
+
+#### Action Object Properties
+
+**Common properties for both batch (list) and individual (single) actions:**
+
+```javascript
+{
+  // REQUIRED: The name of the action. Used as the identifier for the action form component.
+  // This name should match the 'action' attribute of the corresponding form component.
+  name: 'DeleteAction',
+
+  // REQUIRED: A human-readable label displayed to the user in the action selection interface.
+  // This text appears on buttons or selection items.
+  label: 'Delete board games',
+
+  // OPTIONAL: Boolean flag indicating whether this action is destructive (e.g., deletion, permanent changes).
+  // When set to true, the action may be highlighted differently in the UI to warn the user.
+  // Default: false
+  destructive: true,
+}
+```
+
+**Properties specific to individual actions (actions.single only):**
+
+```javascript
+{
+  // OPTIONAL: A function that determines whether the action should be displayed.
+  // ONLY USED IN actions.single - not applicable to batch actions (actions.list).
+  // The function receives the element data object as a parameter and must return a boolean.
+  // - If the function returns true (or is not defined), the action is displayed.
+  // - If the function returns false, the action is hidden from the UI.
+  // Example: shouldAppear: (element) => element.status === 'completed'
+  shouldAppear: (element) => true
+}
+```
+
+#### Example with both list and single actions
 
 ```javascript
 actions: {
   list: [
     {
-      label: 'Delete board games',
-      name: 'DeleteAction'
+      label: 'Delete resources',
+      name: 'DeleteAction',
       destructive: true,
     },
     {
-      label: 'Change Essential',
-      name: 'DemoChangeEssentialAction'
+      label: 'Create ZIP of invoices',
+      name: 'InvoiceCreateZipAction',
+    },
+  ],
+  single: [
+    {
+      label: 'Create credit note',
+      name: 'CreateCreditNoteFromInvoiceAction',
+    },
+    {
+      label: 'Convert to complete invoice (F3)',
+      name: 'CreateF3FromInvoiceAction',
+    },
+    {
+      label: 'Cancel invoice',
+      name: 'InvoiceCancellerAction',
+      destructive: true,
+    },
+    {
+      label: 'Create PDF',
+      name: 'InvoicePdfAction',
+      shouldAppear: (element) => element.status === 'completed'
     },
   ],
 },
@@ -169,9 +227,19 @@ customElements.define('demo-change-essential-action', DemoChangeEssentialAction)
 
 ## Individual Actions in the dile-crud-single Component
 
-The dile-crud-single components can also include actions that can be performed on individual items. To do this, we need to define an array of actions in the resource's configuration object.
+The `dile-crud-single` component can include actions that can be performed on individual items. Individual actions are configured similarly to list actions but have some specific characteristics.
 
-- **actions.single**: In this case, the array of actions is defined in `actions.single`, as seen in the following code:
+### Configuring Single Actions
+
+To enable single actions on a resource, define two properties in the resource's configuration object:
+
+- **actions.single**: An array of actions to be displayed for individual items. Each action object follows the properties defined in the [Action Object Properties](#action-object-properties) section. Single actions support all properties including the `shouldAppear` function, which is particularly useful for showing/hiding actions based on the item's state.
+
+- **templates.formSingleActions**: A template function that renders the appropriate form component for each selected action. This template receives two parameters:
+  - `actionName`: The name of the selected action (string).
+  - `element`: The data object of the item on which the action is being performed (object).
+
+### Single Actions Example
 
 ```javascript
 actions: {
@@ -184,25 +252,27 @@ actions: {
         name: "SetAsia",
         label: "Set Asia as continent"
       },
+      {
+        name: "PublishAction",
+        label: "Publish item",
+        shouldAppear: (element) => element.status === 'draft'
+      }
     ]
   },
-```
 
-- **templates.formSingleActions**: In this case, a template is defined to specify the different forms for each of the single actions.
-
-```javascript
 templates: {
     // Other templates
-    formSingleActions: (actionName, country) => html`
+    formSingleActions: (actionName, element) => html`
         <dile-pages attrForSelected="action" selected="${actionName}">
-            <demo-set-europe-as-continent-action action="SetEurope" .country=${country}></demo-set-europe-as-continent-action>
-            <demo-set-asia-as-continent-action action="SetAsia" .country=${country}></demo-set-asia-as-continent-action>
+            <demo-set-europe-as-continent-action action="SetEurope" .element=${element}></demo-set-europe-as-continent-action>
+            <demo-set-asia-as-continent-action action="SetAsia" .element=${element}></demo-set-asia-as-continent-action>
+            <demo-publish-action action="PublishAction" .element=${element}></demo-publish-action>
         </dile-pages>
     `,
   },
 ```
 
-> As shown in the code above, the `formSingleActions` template is defined through a function that receives the name of the action to be displayed and the data object of the item on which the action is to be performed. This data object can be used to customize the forms or add other functionalities to the action form components.
+> The `formSingleActions` template receives the name of the action and the element data object. The element object can be used to customize forms or add additional functionalities to the action form components.
 
 ### Example of Action Form on Single Components
 
