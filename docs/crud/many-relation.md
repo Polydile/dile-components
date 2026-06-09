@@ -82,8 +82,8 @@ Basic usage:
 
 ### Custom events
 
-- **many-relation-add-success**: Dispatched when a new relation has been successfully created via POST.
-- **many-relation-add-error**: Dispatched when the POST request to add a relation fails.
+- **many-relation-add-success**: Dispatched when a new relation has been successfully created via POST. The `detail` property contains the server response.
+- **many-relation-add-error**: Dispatched when the POST request to add a relation fails. The `detail` property contains the server response.
 - **many-relation-remove-success**: Dispatched when a relation has been successfully deleted via DELETE.
 - **many-relation-remove-error**: Dispatched when the DELETE request to remove a relation fails.
 - **many-relation-add-no-selection**: Dispatched when the user clicks the add button without having selected an item first. Use this to show a warning message prompting the user to select an item before adding.

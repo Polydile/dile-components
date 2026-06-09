@@ -257,7 +257,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this._ajaxadd.generateRequest();
   }
 
-  _onAddSuccess() {
+  _onAddSuccess(e) {
     this._selectedId = null;
     this._clearSelect();
     this._refreshList();
@@ -265,11 +265,11 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       this.message = '';
       this.errored = false;
     }
-    this._dispatch('many-relation-add-success');
+    this._dispatch('many-relation-add-success', e.detail);
   }
 
-  _onAddError() {
-    this._dispatch('many-relation-add-error');
+  _onAddError(e) {
+    this._dispatch('many-relation-add-error', e.detail);
   }
 
   _removeItem(item) {
@@ -312,8 +312,12 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     }
   }
 
-  _dispatch(eventName) {
-    this.dispatchEvent(new CustomEvent(eventName, { bubbles: true, composed: true }));
+  _dispatch(eventName, detail = null) {
+    this.dispatchEvent(new CustomEvent(eventName, { 
+      bubbles: true, 
+      composed: true,
+      detail
+     }));
   }
 
   addRelationLabelComputed(label, translations) {
