@@ -44,7 +44,9 @@ This component has two slots.
 
 - **title**: Card title, string (optional).
 
-## Shadow attributes
+## Styling Attributes
+
+### Shadow attributes
 
 By default the card has a light shadow (between `sm` and `md`). but you can set the shadow using some attributes.
 
@@ -68,6 +70,12 @@ dile-card {
 }
 ```
 
+### Grey style
+
+You can apply a grey theme to the card using the `grey` attribute. This will set a light grey background and adjust the text color accordingly.
+
+- **grey**: Applies a grey style with `--dile-card-grey-background-color: #f4f4f4;` and `--dile-card-grey-text-color: #303030;`
+
 ### CSS Custom Properties
 
 You can customize it using CSS Custom Properties.
@@ -90,6 +98,8 @@ Custom property | Description | Default
 --dile-card-footer-background-color | Footer background color | transparent
 --dile-card-footer-padding-top | Footer padding top | 0.75rem
 --dile-card-box-shadow | Box shadow | Defined by the shadow attributes
+--dile-card-grey-background-color | Grey background color (when grey attribute is used) | #f4f4f4
+--dile-card-grey-text-color | Grey text color (when grey attribute is used) | #303030
 
 ## dile-card demos
 
@@ -156,6 +166,54 @@ Custom property | Description | Default
   <span slot="footer" class="footer-styled">
     Footer content
   </span>
+</dile-card>
+```
+
+### Grey card
+
+```html:preview
+<style>
+  .grey-demo {
+    margin: 1.2rem;
+  }
+</style>
+<dile-card grey shadow-md title="Grey styled card">
+  This card has a grey background with the grey attribute
+  <div slot="footer">
+    <a href="#">Action link</a>
+  </div>
+</dile-card>
+```
+
+### Responsive card
+
+```html:preview
+<style>
+  .responsive-card {
+    --dile-card-box-shadow: 0 0 #0000;
+    --dile-card-border-radius: 1px;
+  }
+  @media (min-width: 400px) {
+    .responsive-card {
+      --dile-card-border-radius: 5px;
+      --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+  }
+  @media (min-width: 600px) {
+    .responsive-card {
+      --dile-card-border-radius: 10px;
+      --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+  }
+  @media (min-width: 800px) {
+    .responsive-card {
+      --dile-card-border-radius: 15px;
+      --dile-card-box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+  }
+</style>
+<dile-card class="responsive-card" title="Shadow responsive">
+  The shadow of this card has a responsive change.
 </dile-card>
 ```
 
