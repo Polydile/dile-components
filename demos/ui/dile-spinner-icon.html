@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-spinner-icon component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/spinner/spinner-icon.js";
+    import "@dile/iconlib/lucide-icons/loader-circle.js";
+  </script>
+  <style>
+    .styled-icon {
+      --dile-spinner-icon-animation-time: 0.8s;
+      --dile-icon-color: #f7971e;
+      --dile-icon-size: 32px;
+    }
+    
+    .styled-icon-blue {
+      --dile-spinner-icon-animation-time: 1.2s;
+      --dile-icon-color: #3a6;
+      --dile-icon-size: 28px;
+    }
+
+    .styled-icon-pink {
+      --dile-spinner-icon-animation-time: 0.6s;
+      --dile-icon-color: #e84878;
+      --dile-icon-size: 36px;
+    }
+
+    .demo-row {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      border-radius: 0.5rem;
+    }
+
+    .demo-row h3 {
+      margin: 0 0 1rem 0;
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-spinner-icon component</h1>
+
+    <h2>Default spinner icon</h2>
+    <dile-spinner-icon active></dile-spinner-icon>
+
+    <h2>Not active spinner icon</h2>
+    <dile-spinner-icon></dile-spinner-icon>
+
+    <h2>Styled spinners</h2>
+    <div class="demo-row">
+      <dile-spinner-icon class="styled-icon" active></dile-spinner-icon>
+      <dile-spinner-icon class="styled-icon-blue" active></dile-spinner-icon>
+      <dile-spinner-icon class="styled-icon-pink" active></dile-spinner-icon>
+    </div>
+
+    <h2>Interactive demo</h2>
+    <div style="text-align: center; padding: 2rem; background: #f9f9f9; border-radius: 0.5rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <button id="startBtn" style="padding: 0.5rem 1.5rem; margin: 0 0.5rem; background: #36a; color: white; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 1rem;">
+          Start spinner
+        </button>
+        <button id="stopBtn" style="padding: 0.5rem 1.5rem; margin: 0 0.5rem; background: #36a; color: white; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 1rem;">
+          Stop spinner
+        </button>
+      </div>
+      <dile-spinner-icon id="interactiveSpinner" style="--dile-spinner-icon-animation-time: 1s; --dile-icon-color: #36a; --dile-icon-size: 40px;"></dile-spinner-icon>
+    </div>
+
+    <script type="module">
+      import "@dile/ui/components/spinner/spinner-icon.js";
+      import "@dile/iconlib/lucide-icons/loader-circle.js";
+
+      const spinner = document.getElementById('interactiveSpinner');
+      const startBtn = document.getElementById('startBtn');
+      const stopBtn = document.getElementById('stopBtn');
+
+      startBtn.addEventListener('click', () => {
+        spinner.setAttribute('active', '');
+      });
+
+      stopBtn.addEventListener('click', () => {
+        spinner.removeAttribute('active');
+      });
+    </script>
+  </div>
+</body>
+
+</html>
