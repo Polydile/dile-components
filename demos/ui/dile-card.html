@@ -63,6 +63,21 @@
     
     <dile-card shadow-xl title="Welcome to this card">This card has title and main body</dile-card>
 
+    <h2>Grey Card</h2>
+    <dile-card shadow-lg title="I am a grey card" grey>This card has title and main body</dile-card>
+
+    <script>
+      //create a handler for click in the grey card
+      document.querySelector('dile-card[grey]').addEventListener('click', function (e) {
+        console.log('grey card click', e.target.name);
+        showAlert();
+      });
+      
+      function showAlert() {
+        alert('Card action');
+      }
+    </script>
+
     <h2>Card with title, footer and main content</h2>
     
     <dile-card shadow-md title="Welcome to this card">
