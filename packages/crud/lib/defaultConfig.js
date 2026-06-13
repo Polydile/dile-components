@@ -81,4 +81,5 @@ export const defaultConfig = {
   },
   onActionListSuccess(actionSuccessDetail) {},
   onActionSingleSuccess(actionSuccessDetail) {},
+  destructiveActionNames: ['DeleteAction'],
 }
