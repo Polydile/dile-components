@@ -80,7 +80,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     return html`
       <main class="elcontainer">
         ${this.detailTemplate}
-        ${this.config?.customization?.disableEdit === false && (!this.config?.actions?.list || this.config.actions.list.length === 0) ? '' : html`
+        ${this.config?.customization?.disableEdit && (!this.config?.actions?.list || this.config.actions.list.length === 0) ? '' : html`
           <div class="actions" @action-success=${this.actionSuccess}>
               ${!this.config?.customization?.disableEdit ? html`
                 <dile-button .icon="${editIcon}" @click=${this.edit}>
