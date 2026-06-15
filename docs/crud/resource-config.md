@@ -148,11 +148,17 @@ Here is a complete list of the configuration object properties that can be suppl
 | [`actions`](#actions) | Object | Define batch actions for lists and individual actions for single items |
 | [`maxBatchActionItems`](#maxBatchActionItems) | Number | Set the maximum number of items for batch actions |
 | [`customization`](#customization) | Object | Customize the behavior and visibility of UI elements |
+| [`templates`](#templates) | Object | Define template functions for rendering different parts of the CRUD interface |
+| [`labels`](#labels) | Object | Customize labels for buttons, titles, and other UI text |
+| [`formIds`](#formIds) | Object | Define HTML id attributes for form elements |
 | [`requestAdapter`](#requestAdapter) | Object | Adapt requests sent to API endpoints |
 | [`responseAdapter`](#responseAdapter) | Object | Adapt API responses to the CRUD system |
+| [`computeItemId`](#computeItemId) | Function | Determine the identifier value for each resource element |
 | [`isItemEditable`](#isItemEditable) | Function | Determine if a specific item can be edited |
 | [`isItemDeletable`](#isItemDeletable) | Function | Determine if a specific item can be deleted |
 | [`destructiveActionNames`](#destructiveActionNames) | Array | List of action names that are destructive and prevent component refresh |
+| [`onActionListSuccess`](#onActionListSuccess) | Function | Handle successful completion of batch actions in dile-crud |
+| [`onActionSingleSuccess`](#onActionSingleSuccess) | Function | Handle successful completion of actions in dile-crud-single |
 
 ---
 
@@ -204,6 +210,24 @@ Here is a complete list of the configuration object properties that can be suppl
 
 ---
 
+### Property `templates` {#templates}
+
+{% include "resource-config/templates.md" %}
+
+---
+
+### Property `labels` {#labels}
+
+{% include "resource-config/labels.md" %}
+
+---
+
+### Property `formIds` {#formIds}
+
+{% include "resource-config/formIds.md" %}
+
+---
+
 ### Property `requestAdapter` {#requestAdapter}
 
 {% include "resource-config/requestAdapter.md" %}
@@ -213,6 +237,12 @@ Here is a complete list of the configuration object properties that can be suppl
 ### Property `responseAdapter` {#responseAdapter}
 
 {% include "resource-config/responseAdapter.md" %}
+
+---
+
+### Property `computeItemId` {#computeItemId}
+
+{% include "resource-config/computeItemId.md" %}
 
 ---
 
@@ -230,23 +260,19 @@ Here is a complete list of the configuration object properties that can be suppl
 
 ### Property `destructiveActionNames` {#destructiveActionNames}
 
-This property defines which action names are considered destructive operations on a resource. Destructive actions are those that modify or delete resource data, such as deletion or archiving operations.
+{% include "resource-config/destructiveActionNames.md" %}
 
-When an action is listed in `destructiveActionNames`, the `dile-crud-single` component will skip the automatic refresh of the item detail view after the action completes. This prevents unnecessary API calls when the resource state has been fundamentally altered.
+---
 
-**Type:** `Array<String>`
+### Property `onActionListSuccess` {#onActionListSuccess}
 
-**Default Value:** `['DeleteAction']`
+{% include "resource-config/onActionListSuccess.md" %}
 
-**Example:**
+---
 
-```javascript
-const countryConfig = new CrudConfigBuilder('https://example.com/api/countries', {
-  destructiveActionNames: ['DeleteAction', 'ArchiveAction', 'ReviewAndDeleteAction'],
-});
-```
+### Property `onActionSingleSuccess` {#onActionSingleSuccess}
 
-In this example, any of these three actions will prevent the component from refreshing the item details after completion. The component assumes the resource no longer needs to be displayed in its current state.
+{% include "resource-config/onActionSingleSuccess.md" %}
 
 ---
 
