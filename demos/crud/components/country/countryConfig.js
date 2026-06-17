@@ -38,7 +38,7 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
       },
       {
         name: "Foo",
-        label: "Show message in console",
+        label: "Show console message",
         onClick: (element) => console.log('Foo Action:', element),
       }
     ]
