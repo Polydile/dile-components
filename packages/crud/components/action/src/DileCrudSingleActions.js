@@ -80,10 +80,8 @@ export class DileCrudSingleActions extends DileCrudActions {
     this.selection = e.detail.selected;
     this.computeDestructive();
     
-    // Find the selected action
     const selectedAction = this.actions.find(action => action.name === this.selection);
     
-    // If the action has an onClick handler, execute it. Otherwise, show the action form
     if (selectedAction && selectedAction.onClick) {
       selectedAction.onClick(this.element);
     } else {
