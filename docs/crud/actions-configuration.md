@@ -63,7 +63,16 @@ The properties to define are:
   // - If the function returns true (or is not defined), the action is displayed.
   // - If the function returns false, the action is hidden from the UI.
   // Example: shouldAppear: (element) => element.status === 'completed'
-  shouldAppear: (element) => true
+  shouldAppear: (element) => true,
+
+  // OPTIONAL: A callback function that will be executed when the action is selected.
+  // ONLY USED IN actions.single - not applicable to batch actions (actions.list).
+  // If provided, this function is executed instead of showing the action form component.
+  // The function receives the current element data object as a parameter.
+  // This is useful for direct actions that don't require a form dialog (e.g., quick state changes).
+  // If onClick is not provided, the standard form-based action interface will be displayed.
+  // Example: onClick: (element) => { /* perform action directly */ }
+  onClick: (element) => {}
 }
 ```
 
@@ -253,6 +262,15 @@ actions: {
         label: "Set Asia as continent"
       },
       {
+        name: "QuickPublish",
+        label: "Quick publish item",
+        onClick: (element) => {
+          // Perform direct action without showing a form
+          console.log('Publishing:', element.name);
+          // Call API, update state, etc.
+        }
+      },
+      {
         name: "PublishAction",
         label: "Publish item",
         shouldAppear: (element) => element.status === 'draft'
@@ -303,6 +321,51 @@ class DemoSetEuropeAsContinentAction extends DileForm(LitElement) {
 }
 customElements.define('demo-set-europe-as-continent-action', DemoSetEuropeAsContinentAction);
 ```
+
+### Direct Actions with onClick (without form)
+
+For simple actions that don't require a form dialog, you can use the `onClick` property instead of defining a form component. When an action has an `onClick` callback, the action form interface is bypassed and the callback function is executed directly.
+
+```javascript
+import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
+
+const countryConfig = new CrudConfigBuilder('https://example.com/api/countries', {
+  actions: {
+    single: [
+      {
+        name: "MarkAsEssential",
+        label: "Mark as essential",
+        onClick: (element) => {
+          // Perform the action directly without showing a form
+          fetch(`https://example.com/api/countries/${element.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ essential: true })
+          });
+        }
+      },
+      {
+        name: "DeleteAction",
+        label: "Delete country",
+        destructive: true
+        // No onClick defined, so it will show the form component
+      }
+    ]
+  },
+  templates: {
+    formSingleActions: (actionName, element) => html`
+        <dile-pages attrForSelected="action" selected="${actionName}">
+            <demo-delete-action action="DeleteAction" .element=${element}></demo-delete-action>
+        </dile-pages>
+    `,
+  },
+});
+```
+
+**Note:** When using `onClick`:
+- The `formSingleActions` template should not include a page component for that action, since no form will be displayed.
+- The `onClick` function receives the current element data as a parameter, allowing you to perform actions based on the item's state or properties.
+- This approach is ideal for actions that directly modify the item without requiring user input.
 
 ## Action Handlers in the Configuration
 

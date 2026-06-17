@@ -36,6 +36,11 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
         name: "SetAsia",
         label: "Set Asia as continent"
       },
+      {
+        name: "Foo",
+        label: "Show message in console",
+        onClick: (element) => console.log('Foo Action:', element),
+      }
     ]
   },
   labels: {
