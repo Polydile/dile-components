@@ -79,7 +79,8 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
     return {
       showCloseButton: { type: Boolean },
       title: { type: String },
-      isError: { type: Boolean}
+      isError: { type: Boolean},
+      icon: { type: Object},
     };
   }
 
@@ -88,7 +89,7 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
       <div id="box">
         <section>
           <div class="content">
-            <span class="info">${this.showIcon(this.isError)}</span>
+            <span class="info">${this.showIcon(this.isError, this.icon)}</span>
             <main>
               ${this.title
                   ? html`<div class="title">${this.title}</div>`
@@ -112,7 +113,10 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
     this.slideHide(elem);
   }
 
-  showIcon(isError) {
-    return isError ? html`${warningIcon}` : html`${infoIcon}`
+  showIcon(isError, icon = null) {
+    if(icon)
+      return icon;
+    else 
+      return isError ? html`${warningIcon}` : html`${infoIcon}`;
   }
 }

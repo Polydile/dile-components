@@ -32,6 +32,7 @@ Use the component.
 - **title**: String. Configure a title for the info box.
 - **showCloseButton**: Boolean. When true the box will display a close icon.
 - **isError**: Boolean. When true the box icon will be a warning icon.
+- **icon**: Object. Custom icon to display instead of the default info or warning icon.
 
 ### CSS Custom Properties
 

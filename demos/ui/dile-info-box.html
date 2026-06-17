@@ -71,6 +71,22 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis quae at sequi! Earum tenetur dolorum, eaque deserunt nam cumque aut repellendus aliquid dolorem, numquam quo impedit praesentium explicabo quis. Sequi?
     </dile-info-box>
 
+    <h2>Styled box warning</h2>
+
+    <dile-info-box id="customicon" title="Scheduler">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis quae at sequi! Earum tenetur dolorum, eaque deserunt nam cumque aut repellendus aliquid dolorem, numquam quo impedit praesentium explicabo quis. Sequi?
+    </dile-info-box>
+
+    <script type="module">
+      import { calendarIcon } from '@dile/icons';
+      document.addEventListener('DOMContentLoaded', () => {
+        let customIconBox = document.getElementById('customicon');
+        console.log('customIconBox', customIconBox);
+        customIconBox.icon = calendarIcon;
+      });
+      
+    </script>
+
     <footer><a href="../index.html">Back</a></footer>
   </div>
 </body>
