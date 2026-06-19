@@ -62,8 +62,8 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 justify-content: flex-end;
             }
             .insertButtonContainer dile-button-icon {
-                --dile-button-padding-y: var(--dile-crud-insert-button-padding-y, 0.4rem);
-                --dile-button-padding-x: var(--dile-crud-insert-button-padding-x, 0.5rem);
+                --dile-button-padding-y: var(--dile-crud-insert-button-padding-y, 0.5rem);
+                --dile-button-padding-x: var(--dile-crud-insert-button-padding-x, 0.8rem);
                 --dile-button-font-size: var(--dile-crud-insert-button-font-size, 1rem);
             }
             @media(min-width: 400px) {
