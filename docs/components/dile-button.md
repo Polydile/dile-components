@@ -43,21 +43,24 @@ Custom property | Description | Default
 --dile-button-padding-x | Horizontal padding | 0.8rem
 --dile-button-border-radius | Button border radius | 2rem
 --dile-button-border-width | Button border width | 3px
---dile-button-border-color | Button border color | #07193b
+--dile-primary-dark-color | Button border color | #12354d
 --dile-primary-color | Background color | #7BB93D
 --dile-on-primary-color | Text color | #fff
 --dile-button-font-size | Font size | 1rem
 --dile-button-font-weight | Font weight | bold
+--dile-button-text-transform | Text transform | none
+--dile-button-letter-spacing | Text letter spacing | 0
+--dile-button-box-shadow | Box shadow | none
 --dile-button-hover-background-color | Hover background color | --dile-primary-light-color or #f3f3ae
+--dile-primary-light-color | Hover background color fallback | #f3f3ae
 --dile-button-hover-text-color | Hover text color | --dile-on-primary-light-color or #303030
+--dile-on-primary-light-color | Hover text color fallback | #303030
 --dile-button-hover-border-color | Hover border color | --dile-primary-color or #666666
 --dile-button-ring-color | Ring color on focus state | #12c9e9
 --dile-button-ring-offset-width | Ring width on focus state | 3px
---dile-button-disabled-background-color | Disabled background color | #b1ecf7
+--dile-button-disabled-background-color | Disabled background color | #ccc
 --dile-button-disabled-border-color | Disabled border color | #bbb
 --dile-button-disabled-text-color | Disabled text color | #999
---dile-button-letter-spacing | Text letter spacing | 0
---dile-button-box-shadow | Box shadow | none
 
 ## dile-button demos
 

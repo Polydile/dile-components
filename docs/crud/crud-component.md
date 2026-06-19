@@ -72,6 +72,9 @@ Custom property | Description | Default
 --dile-crud-h1-font-size | Font size for h1 headings in CRUD forms | 1.5rem
 --dile-crud-h1-font-weight | Font weight for h1 headings in CRUD forms | bold
 --dile-crud-h1-margin | Margin for h1 headings in CRUD forms | 0 0 1rem 0
+--dile-crud-insert-button-padding-y | Vertical padding for the insert button | 0.4rem
+--dile-crud-insert-button-padding-x | Horizontal padding for the insert button | 0.5rem
+--dile-crud-insert-button-font-size | Font size for the insert button | 1rem
 
 
 ## Generating CRUD Components for Entities with the CLI
