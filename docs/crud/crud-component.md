@@ -66,6 +66,7 @@ It is possible to customize the appearance of CRUD components using Custom CSS P
 Additionally, there are specific custom properties for dile-crud, which are detailed in the following table:
 
 Custom property | Description | Default
+--- | --- | ---
 --filter-list-margin | Margin of the filter list container | 0 0.5rem
 --filter-list-gap | Gap between filter list items | 0.5rem
 --dile-crud-h1-font-size | Font size for h1 headings in CRUD forms | 1.5rem
