@@ -66,6 +66,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 --dile-button-padding-x: var(--dile-crud-insert-button-padding-x, 0.8rem);
                 --dile-button-font-size: var(--dile-crud-insert-button-font-size, 1rem);
                 --dile-icon-size: var(--dile-crud-insert-icon-size, 24px);
+                --dile-button-icon-separation: var(--dile-crud-insert-icon-separation, 0.3rem);
             }
             @media(min-width: 400px) {
                 .simplecard {
