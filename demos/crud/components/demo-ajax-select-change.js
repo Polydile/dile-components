@@ -34,8 +34,8 @@ export class DemoAjaxChange extends LitElement {
           method="patch"
           dataFieldName="essential"
         >
-          <dile-select name="continent" slot="select" label="Continent">
-            <select slot="select">
+          <dile-select name="continent" slot="input" label="Continent">
+            <select slot="input">
               <option value="">Select...</option>
               <option value="Europe">Europe</option>
               <option value="South America">South America</option>
@@ -57,8 +57,8 @@ export class DemoAjaxChange extends LitElement {
           method="patch"
           dataFieldName="status"
         >
-          <dile-select name="status" slot="select" label="Status">
-            <select slot="select">
+          <dile-select name="status" slot="input" label="Status">
+            <select slot="input">
               <option value="">Select...</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>

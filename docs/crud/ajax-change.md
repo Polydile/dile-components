@@ -29,8 +29,8 @@ import '@dile/crud/components/ajax-change/ajax-change.js';
   method="patch"
   dataFieldName="status"
 >
-  <dile-select name="status" slot="select" label="Status">
-    <select slot="select">
+  <dile-select name="status" slot="input" label="Status">
+    <select slot="input">
       <option value="">Select...</option>
       <option value="active">Active</option>
       <option value="inactive">Inactive</option>
@@ -94,7 +94,7 @@ The `dile-ajax-change` component is highly flexible and can wrap **any element**
    - A JavaScript property getter/setter in a custom element
    - Any accessible property that can be read synchronously
 
-3. **Slot Placement**: The wrapped element must be placed in the named slot `"select"` of the wrapper.
+3. **Slot Placement**: The wrapped element must be placed in the named slot `"input"` of the wrapper.
 
 ### Event Detection
 
@@ -110,8 +110,8 @@ The wrapper uses the `slotchange` event to dynamically detect when components ar
   method="patch"
   dataFieldName="status"
 >
-  <dile-select name="status" slot="select" label="Status">
-    <select slot="select">
+  <dile-select name="status" slot="input" label="Status">
+    <select slot="input">
       <option value="">Select...</option>
       <option value="active">Active</option>
       <option value="inactive">Inactive</option>
@@ -128,7 +128,7 @@ The wrapper uses the `slotchange` event to dynamically detect when components ar
   method="patch"
   dataFieldName="category"
 >
-  <select slot="select">
+  <select slot="input">
     <option value="">Select...</option>
     <option value="cat1">Category 1</option>
     <option value="cat2">Category 2</option>
@@ -144,7 +144,7 @@ The wrapper uses the `slotchange` event to dynamically detect when components ar
   method="patch"
   dataFieldName="theme_color"
 >
-  <fct-color-picker slot="select"></fct-color-picker>
+  <fct-color-picker slot="input"></fct-color-picker>
 </dile-ajax-change>
 ```
 

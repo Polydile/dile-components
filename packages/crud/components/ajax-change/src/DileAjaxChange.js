@@ -40,14 +40,14 @@ export class DileAjaxChange extends LitElement {
         @ajax-success="${this.doSuccessAjax}"
         @ajax-error="${this.doErrorAjax}"
       ></dile-ajax>
-      <slot name="select"></slot>
+      <slot name="input"></slot>
     `;
   }
 
   firstUpdated() {
-    const slot = this.shadowRoot.querySelector('slot[name="select"]');
+    const slot = this.shadowRoot.querySelector('slot[name="input"]');
     if (!slot) {
-      throw new Error('slot with name="select" not found');
+      throw new Error('slot with name="input" not found');
     }
     
     this.slotElement = slot;
