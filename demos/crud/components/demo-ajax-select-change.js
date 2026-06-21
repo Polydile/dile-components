@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/select/select.js';
-import '@dile/crud/components/ajax-select-change/ajax-select-change.js'
+import '@dile/crud/components/ajax-change/ajax-change.js'
 
-export class DemoAjaxSelectChange extends LitElement {
+export class DemoAjaxChange extends LitElement {
   static styles = [
     css`
       :host {
@@ -29,7 +29,7 @@ export class DemoAjaxSelectChange extends LitElement {
         <h2>Select a continent:</h2>
         <p>Change the value and it will send it to the API via AJAX (PATCH request)</p>
         
-        <dile-select-ajax-change 
+        <dile-ajax-change 
           endpoint="https://timer.escuelait.com/api/board-games/1"
           method="patch"
           dataFieldName="essential"
@@ -45,14 +45,14 @@ export class DemoAjaxSelectChange extends LitElement {
               <option value="Oceania">Oceania</option>
             </select>
           </dile-select>
-        </dile-select-ajax-change>
+        </dile-ajax-change>
       </div>
 
       <div class="demo-section">
         <h2>Select a status:</h2>
         <p>Another example with different data field name</p>
         
-        <dile-select-ajax-change 
+        <dile-ajax-change 
           endpoint="https://timer.escuelait.com/api/board-games/1"
           method="patch"
           dataFieldName="status"
@@ -66,9 +66,9 @@ export class DemoAjaxSelectChange extends LitElement {
               <option value="archived">Archived</option>
             </select>
           </dile-select>
-        </dile-select-ajax-change>
+        </dile-ajax-change>
       </div>
     `;
   }
 }
-customElements.define('demo-ajax-select-change', DemoAjaxSelectChange);
+customElements.define('demo-ajax-change', DemoAjaxChange);

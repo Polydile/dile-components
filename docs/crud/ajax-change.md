@@ -18,7 +18,7 @@ npm i @dile/crud
 Import the `dile-ajax-change` component.
 
 ```javascript
-import '@dile/crud/components/ajax-select-change/ajax-select-change.js';
+import '@dile/crud/components/ajax-change/ajax-change.js';
 ```
 
 ### Basic Usage with dile-select
@@ -54,10 +54,10 @@ import '@dile/crud/components/ajax-select-change/ajax-select-change.js';
 
 ### Custom Events
 
-This component re-dispatches the following events from the internal `dile-ajax` component:
+This component dispatches the following custom events:
 
-- **ajax-success**: Fired when the AJAX request succeeds. Includes response data in `e.detail`.
-- **ajax-error**: Fired when the AJAX request fails. Includes error data in `e.detail`.
+- **ajax-change-success**: Fired when the AJAX request succeeds. Includes response data in `e.detail`. This event is dispatched by the wrapper after the internal `dile-ajax` component fires its `ajax-success` event.
+- **ajax-change-error**: Fired when the AJAX request fails. Includes error data in `e.detail`. This event is dispatched by the wrapper after the internal `dile-ajax` component fires its `ajax-error` event.
 
 Both events are dispatched with `bubbles: true` and `composed: true`, allowing them to propagate through the shadow DOM boundary.
 
@@ -65,10 +65,10 @@ Example of listening to events:
 
 ```javascript
 const wrapper = document.querySelector('dile-ajax-change');
-wrapper.addEventListener('ajax-success', (e) => {
+wrapper.addEventListener('ajax-change-success', (e) => {
   console.log('Request succeeded:', e.detail);
 });
-wrapper.addEventListener('ajax-error', (e) => {
+wrapper.addEventListener('ajax-change-error', (e) => {
   console.log('Request failed:', e.detail);
 });
 ```
@@ -156,7 +156,7 @@ For this to work, `fct-color-picker` must:
 
 ```html:preview
 <script type="module">
-  import '@dile/crud/components/ajax-select-change/ajax-select-change.js';
+  import '@dile/crud/components/ajax-change/ajax-change.js';
   import '@dile/ui/components/select/select.js';
 </script>
 <dile-ajax-change 

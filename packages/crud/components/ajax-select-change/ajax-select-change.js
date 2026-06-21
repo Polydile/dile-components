@@ -1,2 +1,2 @@
 import { DileSelectAjaxChange } from "./src/DileSelectAjaxChange.js";
-customElements.define('dile-select-ajax-change', DileSelectAjaxChange);
+customElements.define('dile-ajax-select-change', DileSelectAjaxChange);

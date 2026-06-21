@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import '../../ajax/ajax.js';
 import { RequestApiAdapter } from '../../../lib/RequestApiAdapter.js';
 
-export class DileSelectAjaxChange extends LitElement {
+export class DileAjaxChange extends LitElement {
   static styles = [
     css`
       :host {
@@ -27,7 +27,7 @@ export class DileSelectAjaxChange extends LitElement {
     this.requestApiAdapter = new RequestApiAdapter();
     this.method = 'patch';
     this.dataFieldName = 'value';
-    this.changeHandler = this.onSelectChange.bind(this);
+    this.changeHandler = this.onChange.bind(this);
     this.slotElement = null;
   }
 
@@ -80,7 +80,7 @@ export class DileSelectAjaxChange extends LitElement {
     }
   }
 
-  onSelectChange(e) {
+  onChange(e) {
     if (!this.loading) {
       this.loading = true;
       this.value = e.target.value;
@@ -94,7 +94,7 @@ export class DileSelectAjaxChange extends LitElement {
 
   doErrorAjax(e) {
     this.loading = false;
-    this.dispatchEvent(new CustomEvent('ajax-error', {
+    this.dispatchEvent(new CustomEvent('ajax-change-error', {
       detail: e.detail,
       bubbles: true,
       composed: true,
@@ -103,7 +103,7 @@ export class DileSelectAjaxChange extends LitElement {
 
   doSuccessAjax(e) {
     this.loading = false;
-    this.dispatchEvent(new CustomEvent('ajax-success', {
+    this.dispatchEvent(new CustomEvent('ajax-change-success', {
       detail: e.detail,
       bubbles: true,
       composed: true,
