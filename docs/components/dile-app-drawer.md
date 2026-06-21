@@ -66,7 +66,7 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-app-drawer-content-height | Height of the menu | `auto` (or `100vh` on "left" direction)
 --dile-app-drawer-content-width | Width of the menu | `100vw` (or `auto` on "left" direction)
---dile-primary-light-color | Background color of the menu layer | `#ddd`
+--dile-app-drawer-background-color | Background color of the menu layer | --dile-primary-light-color or `#ddd`
 --dile-app-drawer-z-index | z-index of the menu layer | `99`
 --dile-app-drawer-modal-z-index | z-index of the modal overlay | `98`
 --dile-app-drawer-closed-top | Drawer content top position in closed state (direction="top") | `-100vh` (ignored on "left" direction)
