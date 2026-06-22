@@ -37,13 +37,16 @@ Use the component
 </dile-graph>
 ```
 
+### Properties
+
 Set the graph values ​​with the following properties
 
 | Property          | Description          | Examples                                               |
 | ----------------- | -------------------- | ------------------------------------------------------ |
-| cartType          | Chart type           | 'line', 'bar'...                                       |
+| chartType         | Chart type           | 'line', 'bar', 'doughnut'...                                       |
 | labels            | Horizonal Labels     | ['Jan', 'Feb', 'Mar']                               |
 | datasets          | Data                 | [ { "label": "Users", "data": [1, 4, 8], "backgroundColor": "rgba(255, 99, 132, 0.2)", "borderColor": "rgba(255,99,132,1)", "borderWidth": 2 } ] |
+| options           | Chart.js options     | { responsive: true, plugins: { legend: { display: false } } }    |
 
 Consult the [Chart.js](https://www.chartjs.org/) documentation for more information about datasets.
 
@@ -94,4 +97,34 @@ It is possible to use some CSS custom properties to customize the component.
     charttype="line" labels='["A", "B", "C", "D", "E", "F"]'
     datasets='[{ "label": "Dataset 1", "data": [65, 59, 80, 81, 56, 55], "borderColor": "rgb(255, 99, 132)", "backgroundColor": "rgb(177, 199, 232)"},{ "label": "Dataset 2", "data": [28, 48, 40, 19, 86, 27], "borderColor": "rgb(33, 150, 232)", "backgroundColor": "rgb(55, 199, 200)"}]'>
 </dile-graph>
+```
+
+### Doughnut Chart with Custom Options
+
+```html:preview
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script type="module">
+    import '@dile/utils/components/graph/graph.js';
+    
+    const graph = document.querySelector('.doughnut-example');
+    graph.options = {
+      cutout: "75%",
+      plugins: {
+        legend: { display: true, position: "right" },
+        tooltip: { enabled: true }
+      }
+    };
+</script>
+<style>
+  .doughnut-example {
+      --dile-graph-width: 300px;
+      --dile-graph-border-radius: 12px;
+  }
+</style>
+<dile-graph 
+    class="doughnut-example"
+    charttype="doughnut"
+    labels='["Red", "Blue", "Yellow"]'
+    datasets='[{ "label": "Colors", "data": [300, 150, 50], "backgroundColor": ["rgba(255, 99, 132, 0.8)", "rgba(54, 162, 235, 0.8)", "rgba(255, 206, 86, 0.8)"] }]'
+></dile-graph>
 ```

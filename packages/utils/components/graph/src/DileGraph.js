@@ -27,12 +27,14 @@ export class DileGraph extends LitElement {
             chartType: { type: String },
             labels: { type: Array },
             datasets: { type: Array },
+            options: { type: Object },
         };
     }
 
     constructor() {
         super();
-        this.chartType = 'line'
+        this.chartType = 'line';
+        this.options = {};
     }
 
     render() {
@@ -47,7 +49,7 @@ export class DileGraph extends LitElement {
         return {
             type: this.chartType,
             data: this.data,
-            options: {}
+            options: this.options
         };
     }
 
