@@ -15,6 +15,7 @@ export class DileButton extends LitElement {
   constructor() {
     super();
     this.disabled = false;
+    this.type = "button";
     this._internals = this.attachInternals();
   }
 
@@ -51,8 +52,9 @@ export class DileButton extends LitElement {
         color: var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030));
         border-color:  var(--dile-button-hover-border-color, var(--dile-primary-color, #666666));
       }
-      button:focus {
-        outline: none;
+      button:focus-visible {
+        outline: 2px solid var(--dile-button-ring-color, #12c9e9);
+        outline-offset: 2px;
         box-shadow: 0 0 0 calc(0px + var(--dile-button-ring-offset-width, 3px)) var(--dile-button-ring-color, #12c9e9);
         border-color: var(--dile-button-ring-color, #12c9e9);
       }
@@ -84,7 +86,7 @@ export class DileButton extends LitElement {
       <button 
         @click=${this._onClick} 
         ?disabled=${this.disabled}
-        type=${this.type}
+        type=${this.type || "button"}
       ><slot></slot></button>
     `;
   }
