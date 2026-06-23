@@ -31,7 +31,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
           width: 100%;
           text-align: left;
         }
-        .card-title button:focus {
+        .card-title button:focus-visible {
           outline: 2px solid Highlight;
           outline-offset: 2px;
         }
