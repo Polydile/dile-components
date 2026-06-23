@@ -20,11 +20,11 @@ export class DileCard extends LitElement {
           background-color: var(--dile-card-grey-background-color, #f4f4f4);
           color: var(--dile-card-grey-text-color, #303030);
         }
-        h1, main, footer {
+        .card-title, main, footer {
           padding-right: var(--dile-card-padding-x, 1rem);
           padding-left: var(--dile-card-padding-x, 1rem);
         }
-        h1 {
+        .card-title {
           padding-top: var(--dile-card-padding-y, 1rem);
           font-size: var(--dile-card-title-font-size, 1.5rem);
           font-weight: var(--dile-card-title-font-weight, 300);
@@ -69,8 +69,14 @@ export class DileCard extends LitElement {
 
     static get properties() {
       return {
-        title: { type: String }
+        title: { type: String },
+        titleLevel: { type: Number }
       };
+    }
+
+    constructor() {
+      super();
+      this.titleLevel = 2; // sensible default to avoid forcing h1 in page context
     }
 
     render() {
@@ -84,9 +90,14 @@ export class DileCard extends LitElement {
     }
 
     get titleTemplate() {
-      return this.title 
-          ? html`<h1>${this.title}</h1>`
-          : ''
+      // Allow consumers to provide a custom title slot (e.g. an h2/h3) to control heading semantics
+      if (this.hasSlot('title')) {
+        return html`<div class="card-title"><slot name="title"></slot></div>`;
+      }
+
+      return this.title
+          ? html`<div class="card-title" role="heading" aria-level="${this.titleLevel}">${this.title}</div>`
+          : '';
     }
 
 
