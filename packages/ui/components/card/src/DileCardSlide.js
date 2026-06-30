@@ -16,12 +16,24 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
     return [
       ...super.styles,
       css`
-        h1 {
+        .card-title {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          cursor: pointer;
           padding-bottom: var(--dile-card-slide-title-padding-bottom, var(--dile-card-padding-y, 1rem));
+        }
+        .card-title button {
+          all: unset;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          text-align: left;
+        }
+        .card-title button:focus-visible {
+          outline: 2px solid Highlight;
+          outline-offset: 2px;
         }
         #content {
           height: 0;
@@ -35,7 +47,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
           transition: transform 0.5s ease;
           --dile-icon-color: var(--dile-card-slide-icon-color, var(--dile-primary-color, #303030));
         }
-        h1.opened dile-icon {
+        .opened dile-icon {
           transform: rotate(0deg);
         }
         main {
@@ -49,36 +61,48 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
     super();
     this.opened = false;
     this.icon = arrowDropDownIcon;
+    // unique id for aria-controls
+    this._contentId = `dile-card-content-${Math.random().toString(36).slice(2,9)}`;
   }
 
   firstUpdated() {
-    this.content = this.shadowRoot.getElementById('content');
+    // content element by generated id
+    this.content = this.shadowRoot.getElementById(this._contentId);
+    // ensure initial aria-hidden state
+    if (this.content) {
+      this.content.setAttribute('aria-hidden', String(!this.opened));
+    }
   }
 
   updated(changedProperties) {
     if (changedProperties.has('opened') && this.opened != undefined) {
       if (this.opened) {
         this.slideShow(this.content);
+        if (this.content) this.content.setAttribute('aria-hidden', 'false');
       } else {
         this.slideHide(this.content);
+        if (this.content) this.content.setAttribute('aria-hidden', 'true');
       }
     }
   }
 
   get titleTemplate() {
+    // Render a heading wrapper with a button inside so keyboard and semantics are correct.
     return this.title
       ? html`
-        <h1 @click="${this.toggle}" class="${this.opened ? 'opened' : ''}">
-          ${this.title}
-          <dile-icon .icon=${this.icon}></dile-icon>
-        </h1>`
+        <div class="card-title" role="heading" aria-level="${this.titleLevel}">
+          <button @click="${this.toggle}" class="${this.opened ? 'opened' : ''}" aria-expanded="${this.opened ? 'true' : 'false'}" aria-controls="${this._contentId}">
+            <span>${this.title}</span>
+            <dile-icon .icon=${this.icon}></dile-icon>
+          </button>
+        </div>`
       : ''
   }
 
   render() {
     return html`
       ${this.titleTemplate}
-      <div id="content">
+      <div id="${this._contentId}">
         <main>
           <slot></slot>
         </main>
