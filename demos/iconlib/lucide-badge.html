@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-lucide-badge demos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/iconlib/lucide-icons/circle-alert.js';
+    import '@dile/iconlib/lucide-icons/circle-check.js';
+    import '@dile/iconlib/lucide-icons/clock.js';
+    import '@dile/iconlib/lucide-icons/house.js';
+    import '@dile/iconlib/lucide-icons/hourglass.js';
+    import '@dile/iconlib/lucide-icons/info.js';
+    import '@dile/iconlib/lucide-icons/star.js';
+    import '@dile/iconlib/lucide-icons/trash-2.js';
+    import '@dile/iconlib/lucide-icons/user.js';
+    import '@dile/iconlib/dile-lucide-icon.js';
+    import '@dile/iconlib/dile-lucide-badge.js';
+  </script>
+  <style>
+    .demo-section {
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      background: var(--dile-neutral-color, #f4f4f4);
+      border-radius: 8px;
+    }
+
+    .demo-section h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: var(--dile-on-background-color, #303030);
+    }
+
+    .demo-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .demo-item label {
+      font-size: 0.75rem;
+      color: var(--dile-gray-dark-color, #555555);
+      font-weight: 600;
+    }
+
+    /* Custom styling examples */
+    .large-badge {
+      --dile-lucide-badge-font-size: 1rem;
+      --dile-icon-size: 28px;
+      --dile-lucide-badge-padding: 0.5rem 1rem;
+    }
+
+    .small-badge {
+      --dile-lucide-badge-font-size: 0.7rem;
+      --dile-icon-size: 16px;
+      --dile-lucide-badge-padding: 0.25rem 0.5rem;
+    }
+
+    .custom-color-badge {
+      --dile-lucide-badge-primary: #9650e0;
+      --dile-lucide-badge-on-primary: #ffffff;
+    }
+
+    .outlined-badge {
+      --dile-lucide-badge-border-width: 2px;
+      --dile-lucide-badge-border-color: var(--dile-on-primary-color, #303030);
+      --dile-lucide-badge-color: transparent;
+    }
+
+    .rounded-badge {
+      --dile-lucide-badge-border-radius: 8px;
+    }
+
+    .bold-badge {
+      --dile-lucide-badge-font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-lucide-badge</h1>
+
+    <div class="demo-section">
+      <h2>Basic Usage</h2>
+      <p>The badge displays an icon with text inside a pill-shaped container.</p>
+      <div class="demo-group">
+        <div class="demo-item">
+          <dile-lucide-badge icon="house">Home</dile-lucide-badge>
+          <label>Basic badge</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="hourglass">Waiting</dile-lucide-badge>
+          <label>Waiting state</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="star">Favorite</dile-lucide-badge>
+          <label>Favorite</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Variants</h2>
+      <p>Different style variants for different states or contexts.</p>
+      <div class="demo-group">
+        <div class="demo-item">
+          <dile-lucide-badge icon="info" variant="primary">Primary</dile-lucide-badge>
+          <label>Primary</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="circle-check" variant="success">Success</dile-lucide-badge>
+          <label>Success</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="circle-alert" variant="warning">Warning</dile-lucide-badge>
+          <label>Warning</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="circle-alert" variant="error">Error</dile-lucide-badge>
+          <label>Error</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="trash-2" variant="danger">Danger</dile-lucide-badge>
+          <label>Danger</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="info" variant="soft">Soft</dile-lucide-badge>
+          <label>Soft</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Size Variations</h2>
+      <p>Customize font size and icon size using CSS custom properties.</p>
+      <div class="demo-group">
+        <div class="demo-item">
+          <dile-lucide-badge icon="clock" class="small-badge">Small</dile-lucide-badge>
+          <label>Small</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="clock">Default</dile-lucide-badge>
+          <label>Default</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="clock" class="large-badge">Large</dile-lucide-badge>
+          <label>Large</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Custom Styling</h2>
+      <p>Examples of custom colors, borders, and shape customization.</p>
+      <div class="demo-group">
+        <div class="demo-item">
+          <dile-lucide-badge icon="star" class="custom-color-badge">Custom Color</dile-lucide-badge>
+          <label>Custom colors</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="user" class="outlined-badge" variant="primary">Outlined</dile-lucide-badge>
+          <label>Outlined style</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="home" class="rounded-badge">Rounded</dile-lucide-badge>
+          <label>Rounded corners</label>
+        </div>
+        <div class="demo-item">
+          <dile-lucide-badge icon="check-circle" class="bold-badge" variant="success">Bold Text</dile-lucide-badge>
+          <label>Bold text weight</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>CSS Custom Properties</h2>
+      <p>All CSS custom properties that can be customized:</p>
+      <ul>
+        <li><code>--dile-lucide-badge-color</code>: Background color (default: --dile-primary-color)</li>
+        <li><code>--dile-lucide-badge-on-color</code>: Text color (default: --dile-on-primary-color)</li>
+        <li><code>--dile-lucide-badge-font-size</code>: Text size (default: 0.8rem)</li>
+        <li><code>--dile-lucide-badge-font-weight</code>: Text weight (default: 500)</li>
+        <li><code>--dile-lucide-badge-gap</code>: Space between icon and text (default: 0.5rem)</li>
+        <li><code>--dile-lucide-badge-padding</code>: Inner spacing (default: 0.375rem 0.75rem)</li>
+        <li><code>--dile-lucide-badge-border-radius</code>: Border radius (default: 9999px for pill shape)</li>
+        <li><code>--dile-lucide-badge-border-width</code>: Border thickness (default: 0px)</li>
+        <li><code>--dile-lucide-badge-border-color</code>: Border color (default: transparent)</li>
+        <li><code>--dile-lucide-badge-transition-duration</code>: Animation duration (default: 0.3s)</li>
+        <li><code>--dile-lucide-badge-icon-size</code>: Icon size (default: 18px)</li>
+      </ul>
+      <p><strong>Variant-specific properties:</strong></p>
+      <ul>
+        <li><code>--dile-lucide-badge-primary</code> / <code>--dile-lucide-badge-on-primary</code></li>
+        <li><code>--dile-lucide-badge-secondary</code> / <code>--dile-lucide-badge-on-secondary</code></li>
+        <li><code>--dile-lucide-badge-success</code> / <code>--dile-lucide-badge-on-success</code></li>
+        <li><code>--dile-lucide-badge-warning</code> / <code>--dile-lucide-badge-on-warning</code></li>
+        <li><code>--dile-lucide-badge-soft</code> / <code>--dile-lucide-badge-on-soft</code></li>
+        <li><code>--dile-lucide-badge-error</code> / <code>--dile-lucide-badge-on-error</code></li>
+        <li><code>--dile-lucide-badge-danger</code> / <code>--dile-lucide-badge-on-danger</code></li>
+      </ul>
+    </div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
