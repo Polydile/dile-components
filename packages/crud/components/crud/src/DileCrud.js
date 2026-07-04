@@ -411,4 +411,14 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     refresh() {
         this.listElement.refresh();
     }
+
+    setCustomizationOption(optionName, value) {
+        this.config = {
+            ...this.config,
+            customization: {
+                ...this.config.customization,
+                [optionName]: value
+            }
+        }
+    }
 }

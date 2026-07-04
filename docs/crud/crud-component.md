@@ -49,6 +49,7 @@ Use the component.
 - **detachActionId(id)**: Removes the specified `id` from the list of IDs selected for batch actions.
 - **removeActionItems(idsArray)**: Removes the items with the specified IDs in `idsArray` from the CRUD system.
 - **refresh()**: Refreshes the data or content of the CRUD system, reloading the items from the server.
+- **setCustomizationOption(optionName, value)**: Dynamically sets a customization option in the CRUD configuration. Receives the option name (e.g., `hideCheckboxSelection`, `disableInsert`) and the value to set.
 
 ### Events
 
