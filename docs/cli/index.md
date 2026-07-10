@@ -26,6 +26,14 @@ npm i -g @dile/cli
 pnpm add -g @dile/cli
 ```
 
+### AI Skill
+
+If you use a coding agent that supports the [skills](https://github.com/vercel-labs/skills) CLI, you can install a Dile CLI skill so it can use the CLI directly instead of writing boilerplate by hand:
+
+```bash
+npx skills add Polydile/dile-cli
+```
+
 ## Configuration
 
 The CLI searches for configuration files using in the current directory (`process.cwd()`), in this order:
