@@ -13,7 +13,8 @@ const GENERAL_INFO_PAGES = [
   'docs/how-to-use.md',
   'docs/theming.md',
   'docs/colors.md',
-  'docs/contribute.md'
+  'docs/contribute.md',
+  'docs/ai-skill.md'
 ];
 const SECTIONS = [
   { 
