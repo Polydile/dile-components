@@ -33,13 +33,13 @@ export class DileButton extends LitElement {
         padding-left: var(--dile-button-padding-x, 0.8rem);
         border-radius: var(--dile-button-border-radius, 2rem);
         border-width:  var(--dile-button-border-width, 3px);
-        border-color:  var(--dile-primary-dark-color, #12354d);
-        background-color: var(--dile-primary-color, #7BB93D);
+        border-color:  var(--dile-button-border-color, var(--dile-primary-dark-color, #12354d));
+        background-color: var(--dile-button-background-color, var(--dile-primary-color, #7BB93D));
         transition-property: background-color, color, border-color;
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
         border-style: solid;
-        color: var(--dile-on-primary-color, #fff); 
+        color: var(--dile-button-text-color, var(--dile-on-primary-color, #fff)); 
         font-size: var(--dile-button-font-size, 1rem);
         font-weight: var(--dile-button-font-weight, bold);
         text-transform: var(--dile-button-text-transform, none);
@@ -48,9 +48,9 @@ export class DileButton extends LitElement {
         box-shadow: var(--dile-button-box-shadow, none);
       }
       button:hover {
-        background-color: var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae));
-        color: var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030));
-        border-color:  var(--dile-button-hover-border-color, var(--dile-primary-color, #666666));
+        background-color: var(--dile-button-hover-background-color, var(--dile-button-background-color, var(--dile-primary-light-color, #f3f3ae)));
+        color: var(--dile-button-hover-text-color, var(--dile-button-text-color, var(--dile-on-primary-light-color, #303030)));
+        border-color:  var(--dile-button-hover-border-color, var(--dile-button-border-color, var(--dile-primary-color, #666666)));
       }
       button:focus-visible {
         outline: 2px solid var(--dile-button-ring-color, #12c9e9);
@@ -61,9 +61,9 @@ export class DileButton extends LitElement {
 
       :host([disabled]) button {
         cursor: auto;
-        background-color: var(--dile-button-disabled-background-color, #ccc);
-        color: var(--dile-button-disabled-text-color, #999);
-        border-color: var(--dile-button-disabled-border-color, #bbb);
+        background-color: var(--dile-button-disabled-background-color, var(--dile-button-background-color, #ccc));
+        color: var(--dile-button-disabled-text-color, var(--dile-button-text-color, #999));
+        border-color: var(--dile-button-disabled-border-color, var(--dile-button-border-color, #bbb));
       }
       :host([disabled]) button:focus {
         outline: none;
