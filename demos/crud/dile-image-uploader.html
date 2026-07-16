@@ -18,9 +18,14 @@
     <h1>dile-image-uploader component</h1>
 
    
-    <dile-image-uploader 
+    <dile-image-uploader
       endpoint="http://localhost/api/board-games/1/upload-card"
       language="es"
+      maxFileSize="2000000"
+      minWidth="100"
+      maxWidth="4000"
+      minHeight="100"
+      maxHeight="4000"
     ></dile-image-uploader>
     
     <script>

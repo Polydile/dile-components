@@ -41,6 +41,15 @@ Use the component.
 - **saveLabel**: String, the label text for the save action button. If not provided, a translated text will be used based on the `language` property value.
 - **allowedExtensions**: Array, defines the permitted file extensions for the uploaded image. Defaults to `['jpeg', 'jpg', 'png']`.
 - **responseAdapter**: Object, optional. API adapter object. See the [responseAdapter page](/crud/response-adapter/)) page for more information.
+- **maxFileSize**: Number, optional. Maximum allowed file size in bytes. If the selected image exceeds it, the selection is rejected and an error message is shown.
+- **minWidth** / **maxWidth**: Number, optional. Minimum/maximum allowed image width in pixels.
+- **minHeight** / **maxHeight**: Number, optional. Minimum/maximum allowed image height in pixels.
+
+### Image validation and preview
+
+After selecting a file, the component decodes it in the browser to check that it's a real, non-empty, non-corrupted image before accepting it. If `maxFileSize`, `minWidth`, `maxWidth`, `minHeight` or `maxHeight` are set and the image doesn't comply, the selection is rejected and a translated error message is shown, the same way an invalid extension is reported.
+
+Once a valid image is accepted, a thumbnail and a summary (`width × height px · file size`) are shown below the drop zone, so the user can confirm the file is the expected one before submitting.
 
 ### Custom Events
 

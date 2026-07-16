@@ -52,6 +52,20 @@ export const translations = {
   select_file: "Select file",
   selected_file: "Selected file",
   extension_allowed: "Only this file extensions are allowed: ",
+  image_empty_file: "The selected file is empty",
+  image_invalid_file: "The selected file is not a valid image or it's corrupted",
+  image_file_too_large: (maxSizeLabel) => `The image exceeds the maximum allowed size (${maxSizeLabel})`,
+  image_width_error: (minWidth, maxWidth) => minWidth != null && maxWidth != null
+    ? `Image width must be between ${minWidth} and ${maxWidth}px`
+    : minWidth != null
+      ? `Image width must be at least ${minWidth}px`
+      : `Image width must be at most ${maxWidth}px`,
+  image_height_error: (minHeight, maxHeight) => minHeight != null && maxHeight != null
+    ? `Image height must be between ${minHeight} and ${maxHeight}px`
+    : minHeight != null
+      ? `Image height must be at least ${minHeight}px`
+      : `Image height must be at most ${maxHeight}px`,
+  image_dimensions_summary: (width, height, sizeLabel) => `${width} × ${height} px · ${sizeLabel}`,
   confirm_submit_title: "Confirm submission",
   confirm_submit_text: "Are you sure you want to submit this form?",
   add_relation_label: "Add",

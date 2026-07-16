@@ -20,9 +20,14 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
       saveLabel: { type: String },
       allowedExtensions: { type: Array },
       responseAdapter: { type: Object },
+      maxFileSize: { type: Number },
+      minWidth: { type: Number },
+      maxWidth: { type: Number },
+      minHeight: { type: Number },
+      maxHeight: { type: Number },
     };
   }
-  
+
   constructor() {
     super();
     this.responseAdapter = new ResponseApiAdapter();
@@ -41,11 +46,16 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
         @save-success=${this.imageSaveSuccess}
         .responseAdapter=${this.responseAdapter}
       >
-        <dile-image-uploader-form 
+        <dile-image-uploader-form
           id="form"
           label="${this.selectLabelComputed(this.selectImageLabel, this.translations)}"
           .allowedExtensions=${this.allowedExtensions}
           .translations=${this.translations}
+          .maxFileSize=${this.maxFileSize}
+          .minWidth=${this.minWidth}
+          .maxWidth=${this.maxWidth}
+          .minHeight=${this.minHeight}
+          .maxHeight=${this.maxHeight}
         ></dile-image-uploader-form>
       </dile-ajax-form>
     `;

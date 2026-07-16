@@ -3,6 +3,7 @@
   "version": "1.14.6",
   "description": "Components to create a generic crud system based on Web Components and Lit",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

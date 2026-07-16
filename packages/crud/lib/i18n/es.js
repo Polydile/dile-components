@@ -52,6 +52,20 @@ export const translations = {
   select_file: "Seleccionar archivo",
   selected_file: "Archivo seleccionado",
   extension_allowed: "Solo se permiten estas extensiones: ",
+  image_empty_file: "El archivo seleccionado está vacío",
+  image_invalid_file: "El archivo seleccionado no es una imagen válida o está corrupto",
+  image_file_too_large: (maxSizeLabel) => `La imagen supera el tamaño máximo permitido (${maxSizeLabel})`,
+  image_width_error: (minWidth, maxWidth) => minWidth != null && maxWidth != null
+    ? `El ancho de la imagen debe estar entre ${minWidth} y ${maxWidth}px`
+    : minWidth != null
+      ? `El ancho de la imagen debe ser de al menos ${minWidth}px`
+      : `El ancho de la imagen debe ser como máximo de ${maxWidth}px`,
+  image_height_error: (minHeight, maxHeight) => minHeight != null && maxHeight != null
+    ? `El alto de la imagen debe estar entre ${minHeight} y ${maxHeight}px`
+    : minHeight != null
+      ? `El alto de la imagen debe ser de al menos ${minHeight}px`
+      : `El alto de la imagen debe ser como máximo de ${maxHeight}px`,
+  image_dimensions_summary: (width, height, sizeLabel) => `${width} × ${height} px · ${sizeLabel}`,
   confirm_submit_title: "Confirmar envío",
   confirm_submit_text: "¿Estás seguro de que deseas enviar este formulario?",
   add_relation_label: "Añadir",
