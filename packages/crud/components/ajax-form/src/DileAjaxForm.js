@@ -73,6 +73,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         cancelIcon: { type: Object },
         disableClearAfterInsert: { type: Boolean },
         hideActions: { type: Boolean },
+        _loading: { state: true },
       };
     }
 
@@ -81,6 +82,7 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         this.responseAdapter = new ResponseApiAdapter();
         this.formIdentifier = 'form';
         this.operation = '';
+        this._loading = false;
     }
 
     updated(changedProperties) {
@@ -95,6 +97,15 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
         this.feedback = this.shadowRoot.getElementById('feedback');
         this.ajaxsave = this.shadowRoot.getElementById('ajaxsave');
         this.ajaxget = this.shadowRoot.getElementById('ajaxget');
+        
+        // Listen to ajax request start/end events for loading feedback
+        this.ajaxsave.addEventListener('dile-ajax-request-start', () => {
+            this._loading = true;
+        });
+        this.ajaxsave.addEventListener('dile-ajax-request-end', () => {
+            this._loading = false;
+        });
+        
         if(this.setDataOnInit) {
             this.initData();
         }
@@ -144,13 +155,13 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
             return html`
                 <div class="actions">
                     ${this.actionIcon 
-                        ? html`<a href="#" @click=${this.doActionHandler}><dile-icon .icon=${this.actionIcon} class="actionIcon"></dile-icon></a>`
-                        : html`<dile-button @click=${this.doActionHandler}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>`
+                        ? html`<a href="#" ?disabled=${this._loading} @click=${this.doActionHandler}><dile-icon .icon=${this.actionIcon} class="actionIcon" style="opacity: ${this._loading ? 0.6 : 1}"></dile-icon></a>`
+                        : html`<dile-button .loading=${this._loading} @click=${this.doActionHandler}>${this.actionLabelComputed(this.actionLabel, this.translations, this.operation)}</dile-button>`
                     }
                     ${this.showCancelButton ? 
                         this.cancelIcon 
-                            ? html`<a href="#" @click=${this.doCancel}><dile-icon @click=${this.doActionHandler} .icon=${this.cancelIcon} class="cancelIcon"></dile-icon></a>`
-                            : html`<dile-button class="cancel_button" @click=${this.doCancel}>${this.cancelLabelComputed(this.cancelLabel, this.translations)}</dile-button>`
+                            ? html`<a href="#" ?disabled=${this._loading} @click=${this.doCancel}><dile-icon .icon=${this.cancelIcon} class="cancelIcon" style="opacity: ${this._loading ? 0.6 : 1}"></dile-icon></a>`
+                            : html`<dile-button .loading=${this._loading} class="cancel_button" @click=${this.doCancel}>${this.cancelLabelComputed(this.cancelLabel, this.translations)}</dile-button>`
                         : ''
                     }
                 </div> 
