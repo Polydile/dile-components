@@ -1,4 +1,5 @@
 import { html, css, LitElement } from "lit";
+import '../../spinner/spinner-icon.js';
 
 export class DileButton extends LitElement {
 
@@ -7,6 +8,7 @@ export class DileButton extends LitElement {
   static get properties() {
     return {
       disabled: { type: Boolean },
+      loading: { type: Boolean, reflect: true },
       name: { type: String },
       type: { type: String },
     };
@@ -15,6 +17,7 @@ export class DileButton extends LitElement {
   constructor() {
     super();
     this.disabled = false;
+    this.loading = false;
     this.type = "button";
     this._internals = this.attachInternals();
   }
@@ -78,6 +81,35 @@ export class DileButton extends LitElement {
       :host([disabled]) {
         pointer-events: none;
       }
+
+      :host([loading]) button {
+        cursor: auto;
+        background-color: var(--dile-button-disabled-background-color, var(--dile-button-background-color, #ccc));
+        color: var(--dile-button-disabled-text-color, var(--dile-button-text-color, #999));
+        border-color: var(--dile-button-disabled-border-color, var(--dile-button-border-color, #bbb));
+      }
+      :host([loading]) button:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      :host([loading]) button:active {
+        outline: none;
+        border-color: #aaa;
+        box-shadow: none;
+      }
+      :host([loading]) {
+        pointer-events: none;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--dile-button-spinner-gap, 0.5rem);
+      }
+      dile-spinner-icon {
+        --dile-icon-size: var(--dile-button-spinner-size, calc(var(--dile-button-font-size, 1rem) * 0.8));
+        --dile-icon-color: var(--dile-on-primary-color, #fff);
+      }
     `;
   }
 
@@ -85,14 +117,17 @@ export class DileButton extends LitElement {
     return html`
       <button 
         @click=${this._onClick} 
-        ?disabled=${this.disabled}
+        ?disabled=${this.disabled || this.loading}
         type=${this.type || "button"}
-      ><slot></slot></button>
+      >
+        ${this.loading ? html`<dile-spinner-icon active></dile-spinner-icon>` : ''}
+        <slot></slot>
+      </button>
     `;
   }
 
   _onClick(e) {
-    if (this.disabled) {
+    if (this.disabled || this.loading) {
       e.preventDefault();
       e.stopPropagation();
       return;

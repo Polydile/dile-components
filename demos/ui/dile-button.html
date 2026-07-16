@@ -52,12 +52,38 @@
       <dile-button name="shadowbutton" id="shadowbutton" class="shadow">Button with shadow</dile-button>
     </p>
 
+    <h2>Loading button (static)</h2>
+    <p>
+      <dile-button name="loadingbutton" id="loadingbutton" loading>Loading...</dile-button>
+    </p>
+
+    <h2>Loading button (interactive demo)</h2>
+    <p>
+      <dile-button name="interactiveloading" id="interactiveloading">Click to toggle loading</dile-button>
+    </p>
+
     <script>
       document.querySelectorAll('dile-button').forEach(function(item) {
         item.addEventListener('click', function (e) {
           console.log('button click', e.target.name);
         });
       })
+      
+      // Interactive loading demo
+      const interactiveLoadingBtn = document.getElementById('interactiveloading');
+      interactiveLoadingBtn.addEventListener('click', function() {
+        this.loading = !this.loading;
+        if (this.loading) {
+          this.textContent = 'Loading...';
+          // Auto-reset after 2 seconds for demo
+          setTimeout(() => {
+            this.loading = false;
+            this.textContent = 'Click to toggle loading';
+          }, 2000);
+        } else {
+          this.textContent = 'Click to toggle loading';
+        }
+      });
     </script>
 
     <h2>Form with dile-button submit</h2>

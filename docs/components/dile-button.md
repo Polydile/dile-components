@@ -30,6 +30,7 @@ Use the component.
 ### Properties
 
 - **disabled**: Boolean, mark button as disabled.
+- **loading**: Boolean, shows a loading spinner and prevents interaction while loading.
 - **name**: The name of the button
 - **type**: Use this attribute to create a submit or reset buttom, ie: `type="submit"`
 
@@ -66,6 +67,8 @@ Custom property | Description | Default
 --dile-button-disabled-background-color | Disabled background color |  --dile-button-background-color or #ccc
 --dile-button-disabled-border-color | Disabled border color |  --dile-button-border-color or #bbb
 --dile-button-disabled-text-color | Disabled text color |  --dile-button-text-color or #999
+--dile-button-spinner-gap | Gap between spinner and text | 0.5rem
+--dile-button-spinner-size | Spinner icon size | 0.8 * --dile-button-font-size
 
 ## dile-button demos
 
@@ -100,4 +103,10 @@ Custom property | Description | Default
 
 ```html:preview
   <dile-button name="disabeldbutton" disabled id="disabeldbutton">Disabled button</dile-button>
+```
+
+### Loading button
+
+```html:preview
+  <dile-button name="loadingbutton" loading id="loadingbutton">Loading...</dile-button>
 ```
