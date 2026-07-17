@@ -111,6 +111,9 @@ Custom property | Description | Default
 ### Default
 
 ```html:preview
+<script type="module">
+import '@dile/ui/components/otp-input/otp-input.js';
+</script>
 <dile-otp-input
   name="code"
   label="Enter your authentication code"
