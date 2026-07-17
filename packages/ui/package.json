@@ -3,6 +3,7 @@
   "version": "2.26.0",
   "description": "UI Core components from dile-components.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
