@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import { repeat } from "lit/directives/repeat.js";
 
 export class DileToast extends LitElement {
   static get properties() {
@@ -7,6 +8,8 @@ export class DileToast extends LitElement {
       messages: { type: Array },
       /* Miliseconds the feedback message remains on the screen */
       duration: { type: Number },
+      /* If true, shows a close icon on each toast so the user can dismiss it manually */
+      showCloseIcon: { type: Boolean },
     };
   }
 
@@ -15,6 +18,8 @@ export class DileToast extends LitElement {
     this.messages = [];
     this.duration = 3000;
     this.cleanTimeout = false;
+    this.showCloseIcon = false;
+    this._messageId = 0;
   }
 
   static get styles() {
@@ -31,11 +36,15 @@ export class DileToast extends LitElement {
 
   render() {
     return html`
-      ${this.messages.map(
+      ${repeat(
+        this.messages,
+        (msg) => msg.id,
         (msg) => html`
           <dile-toast-item
             .msg="${msg}"
+            .showCloseIcon="${this.showCloseIcon}"
             duration="${this.duration}"
+            @dile-toast-item-closed="${(e) => this._closeMessage(e.detail.id)}"
           ></dile-toast-item>
         `
       )}
@@ -51,6 +60,7 @@ export class DileToast extends LitElement {
     this.messages = [
       ...this.messages,
       {
+        id: ++this._messageId,
         text,
         toastType,
         hidden: false,
@@ -59,6 +69,27 @@ export class DileToast extends LitElement {
     ];
     this._programMessageClean();
     this._programMessageHide();
+  }
+
+  /**
+   * Closes a specific message before its automatic duration elapses, triggered by the user
+   */
+  _closeMessage(id) {
+    const message = this.messages.find((item) => item.id === id);
+    if (!message || message.hidden) return;
+    this.messages = this.messages.map((item) =>
+      item.id === id ? { ...item, hidden: true } : item
+    );
+    setTimeout(() => {
+      this.messages = this.messages.filter((item) => item.id !== id);
+    }, 500);
+    this.dispatchEvent(
+      new CustomEvent("dile-toast-closed-by-user", {
+        bubbles: true,
+        composed: true,
+        detail: { message },
+      })
+    );
   }
 
   /**

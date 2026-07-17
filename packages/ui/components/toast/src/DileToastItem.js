@@ -1,9 +1,12 @@
 import { LitElement, html, css } from "lit";
+import { clearIcon } from "@dile/icons/index.js";
+import "../../icon/icon.js";
 
 export class DileToastItem extends LitElement {
   static get properties() {
     return {
       msg: { type: Object },
+      showCloseIcon: { type: Boolean },
     };
   }
 
@@ -15,6 +18,7 @@ export class DileToastItem extends LitElement {
       hidden: false,
       opening: true,
     };
+    this.showCloseIcon = false;
   }
 
   static get styles() {
@@ -26,6 +30,9 @@ export class DileToastItem extends LitElement {
         display: block;
       }
       div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         color: var(--dile-toast-text-color, #fff);
         padding: var(--dile-toast-padding, 10px 15px);
         margin-top: 10px;
@@ -39,6 +46,16 @@ export class DileToastItem extends LitElement {
         font-size: var(--dile-toast-font-size, 1em);
         font-weight: var(--dile-toast-font-weight, normal);
         border-radius: var(--dile-toast-border-radius, 0);
+      }
+      .text {
+        flex-grow: 1;
+      }
+      .closeicon {
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-left: 10px;
+        --dile-icon-color: var(--dile-toast-close-icon-color, var(--dile-toast-text-color, #fff));
+        --dile-icon-size: var(--dile-toast-close-icon-size, 16px);
       }
       .hidden {
         top: 20px;
@@ -68,9 +85,26 @@ export class DileToastItem extends LitElement {
           ? "opening"
           : ""} ${this.getClassType(this.msg.toastType)}"
       >
-        ${this.msg.text}
+        <span class="text">${this.msg.text}</span>
+        ${this.showCloseIcon
+          ? html`<dile-icon
+              .icon="${clearIcon}"
+              class="closeicon"
+              @click="${this.closeByUser}"
+            ></dile-icon>`
+          : ""}
       </div>
     `;
+  }
+
+  closeByUser() {
+    this.dispatchEvent(
+      new CustomEvent("dile-toast-item-closed", {
+        bubbles: true,
+        composed: true,
+        detail: { id: this.msg.id, msg: this.msg },
+      })
+    );
   }
 
   firstUpdated() {

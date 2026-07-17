@@ -31,6 +31,7 @@ Use the component:
 
 - **duration**: number of microseconds the toast will be visible on the page.
 - **messages**: Array of message objects. You will not use usually this property directly to create feedback messages, instead of that is preferable to use the open() method, to create the message object in the expected way for the component.
+- **showCloseIcon**: Boolean, default `false`. If `true`, each toast shows a close icon that lets the user dismiss it manually before its `duration` elapses.
 
 ## Methods
 
@@ -40,6 +41,10 @@ Use the component:
 let toastElement = document.getElementById('myToast');
 toastElement.open('This is a success toast!!', 'success');
 ```
+
+## Events
+
+- **dile-toast-closed-by-user**: fired when the user manually closes a toast using the close icon (only available when `showCloseIcon` is `true`). `event.detail.message` contains the closed message object (`id`, `text`, `toastType`).
 
 ## Style customization
 
@@ -57,6 +62,8 @@ Custom property | Description | Default
 --dile-toast-font-weight | Messages font weight | normal
 --dile-toast-font-size | Messages font size | 1em
 --dile-toast-border-radius | Border radius | 0
+--dile-toast-close-icon-color | Close icon color | value of --dile-toast-text-color (#fff)
+--dile-toast-close-icon-size | Close icon size | 16px
 
 ## dile-toast demos
 
@@ -150,4 +157,36 @@ class SecondComponent extends LitElement {
 customElements.define('second-component', SecondComponent);
 </script>
 <second-component></second-component>
+```
+
+### Closable toast
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class ClosableToastComponent extends LitElement {
+  static get styles() {
+    return css`
+      :host {
+        position: relative;
+        z-index: 1000;
+      }
+    `
+  }
+  render() {
+    return html`
+      <dile-toast id="myToast" duration="5000" showCloseIcon></dile-toast>
+      <button id="opensuccess">Show closable success toast</button>
+    `
+  }
+  firstUpdated() {
+    this.shadowRoot.getElementById('opensuccess').addEventListener('click', () => {
+      this.shadowRoot.getElementById('myToast').open('Click the X to dismiss me', 'success');
+    });
+  }
+}
+customElements.define('closable-toast-component', ClosableToastComponent);
+</script>
+<closable-toast-component></closable-toast-component>
 ```
