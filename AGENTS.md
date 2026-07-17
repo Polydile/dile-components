@@ -18,6 +18,8 @@ This repository is a monorepo for the Dile Components library. It contains multi
 
 The documentation site project is located in the `docs/` directory. This is the source for the Eleventy-based documentation website.
 
+Component doc pages (`docs/components/*.md`) contain `html:preview` code blocks that render live demos. These blocks share the same page/global scope (`window`), so a component's `<script type="module">import '@dile/ui/components/<name>/<name>.js';</script>` only needs to appear once per page — `customElements.define` registers the element on `window` and every later `html:preview` block on that page can use the tag without importing it again. Only import again if a later block introduces a *different* component not yet registered.
+
 ## Demos
 
 Interactive demos are stored in the `demos/` directory.
@@ -52,3 +54,14 @@ When implementing a new component, follow these conventions:
 - Prefer small, focused components that follow the conventions already used in this repository.
 - Keep demos and documentation in sync with the implementation.
 - When adding a new component, make sure it is easy to discover through its demo and its documentation page.
+
+## Component tests (Vitest + Playwright)
+
+There is no requirement to have tests for every component in the catalog. Instead, tests are added incrementally: whenever you create or update a UI/utils/crud component, add or update its component test as part of that change.
+
+- Tests run in a real Chromium browser via Vitest's browser mode (`@vitest/browser-playwright`), configured in `vitest.config.js` at the repo root. This is needed because these are Lit web components that rely on shadow DOM, slots, and custom element registration, which jsdom cannot fully emulate.
+- Co-locate the test file next to the component's public entry point, using the `.spec.js` suffix, e.g. `packages/ui/components/button/button.spec.js` tests `packages/ui/components/button/button.js`.
+- Import the component's registration file (e.g. `./button.js`), append markup to `document.body`, await `el.updateComplete`, then assert against `el.shadowRoot` and dispatched events. Clean up `document.body` in `afterEach`.
+- Focus tests on the component's public contract: rendered output, reactive properties/attributes, dispatched custom events, and slotted content — not implementation details.
+- Plain unit tests for framework-agnostic helper functions (e.g. `packages/crud/lib/image/*.test.js`, `packages/ui/lib/otp/*.test.js`) continue to use Node's built-in `node:test` runner and are unaffected by this setup.
+- Run component tests with `npm run test:components` (or `npm run test:components:watch` while iterating). See `packages/ui/components/button/button.spec.js` for a reference example.

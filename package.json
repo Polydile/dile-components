@@ -10,6 +10,8 @@
   "scripts": {
     "dev": "vite",
     "test": "node --test packages/crud/lib/image/*.test.js",
+    "test:components": "vitest run",
+    "test:components:watch": "vitest",
     "lerna": "lerna",
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js"
@@ -28,8 +30,12 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@vitest/browser": "^4.1.10",
+    "@vitest/browser-playwright": "^4.1.10",
     "lerna": "^9.0.5",
-    "vite": "^6.4.0"
+    "playwright": "^1.61.1",
+    "vite": "^6.4.0",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
     "@11ty/eleventy-plugin-vite": "^6.0.0",
