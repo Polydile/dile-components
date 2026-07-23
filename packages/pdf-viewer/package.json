@@ -1,6 +1,6 @@
 {
   "name": "@dile/pdf-viewer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Web Component for PDF viewing with zoom and navigation controls, powered by PDF.js",
   "keywords": [
     "pdf",
