@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-pdf-viewer component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/pdf-viewer/pdf-viewer.js";
+  </script>
+  <style>
+    .styled {
+      --dile-pdf-viewer-toolbar-background: #c7fad5;
+      --dile-pdf-viewer-toolbar-border-radius: 0.5rem;
+      --dile-pdf-viewer-border-color: #2c3e50;
+      --dile-pdf-viewer-text-color: #2c3e50;
+      --dile-pdf-viewer-button-color: #2c3e50;
+      --dile-pdf-viewer-canvas-background: #34495e;
+      --dile-pdf-viewer-icon-color: #0c57a2;
+    }
+    
+    dile-pdf-viewer {
+      display: block;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+
+    .demo-section {
+      margin: 2rem 0;
+    }
+
+    .info {
+      background: #e8f4f8;
+      border-left: 4px solid #3498db;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-pdf-viewer component</h1>
+    
+    <div class="demo-section">
+      <h2>Basic PDF Viewer</h2>
+      <p>PDF viewer with default styling and all controls enabled.</p>
+      <dile-pdf-viewer 
+        src="./crud-docs.pdf"
+        filename="crud-docs.pdf"
+        page="5"
+        >
+      </dile-pdf-viewer>
+    </div>
+
+    <div class="demo-section">
+      <h2>Styled PDF Viewer</h2>
+      <p>PDF viewer with custom styling using CSS custom properties.</p>
+      <dile-pdf-viewer 
+        class="styled"
+        src="./spinner-icon-docs.pdf"
+        filename="spinner-icon-docs.pdf">
+      </dile-pdf-viewer>
+    </div>
+
+  </div>
+</body>
+</html>

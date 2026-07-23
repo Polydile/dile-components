@@ -31,7 +31,8 @@ Custom property | Default | Color
 --dile-on-alert-color | #ffffff | [[color:#ffffff]]
 --dile-danger-color | #e31e1b | [[color:#e31e1b]]
 --dile-on-danger-color | #ffffff | [[color:#ffffff]]
-
+--dile-gray-very-light-color | #f5f5f5 | [[color:#f5f5f5]]
+--dile-on-gray-very-light-color | #303030 | [[color:#303030]]
 
 ## Color variations
 

@@ -1,0 +1,37 @@
+{
+  "name": "@dile/pdf-viewer",
+  "version": "0.0.0",
+  "description": "Web Component for PDF viewing with zoom and navigation controls, powered by PDF.js",
+  "keywords": [
+    "pdf",
+    "viewer",
+    "pdf-viewer",
+    "Lit",
+    "Web Component",
+    "pdf.js"
+  ],
+  "type": "module",
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://dile-components.com/",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "@dile/iconlib": "^1.2.1",
+    "lit": "^2.7.0 || ^3.0.0",
+    "pdfjs-dist": "^4.0.0"
+  },
+  "gitHead": "e1e87c2c63e49b4a2e5a9e42b36c14f7e52bfd03"
+}

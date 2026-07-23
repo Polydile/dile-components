@@ -18,6 +18,8 @@
   --dile-danger-color: #e34a1b;
   --dile-on-danger-color: #ffffff;
   --dile-link-color: #3399ff;
+  --dile-gray-very-light-color: #f5f5f5;
+  --dile-on-gray-very-light-color: #303030;
 
   /* Color variations */
   --dile-primary-light-color: #fafadf;
@@ -79,4 +81,7 @@
 
   --dile-gray-dark-color: #cccccc;
   --dile-on-gray-dark-color: #1e1e1e;
+
+  --dile-gray-very-light-color: #404040;
+  --dile-on-gray-very-light-color: #ffffff;
 }
