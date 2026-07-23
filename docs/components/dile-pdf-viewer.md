@@ -30,6 +30,14 @@ Use the component:
 ></dile-pdf-viewer>
 ```
 
+### Important: PDF Accessibility Requirements
+
+The `src` property accepts a URL to the PDF file. The PDF resource must be:
+- **Hosted on the same server** as your application, OR
+- **Served from a remote server with CORS enabled** to allow cross-origin access
+
+External PDFs without proper CORS headers (like many public PDF services) will fail to load due to browser security restrictions. For best results, store PDF files in your project's assets directory or configure your server to allow CORS requests.
+
 ### Properties
 
 - **src**: String, URL to the PDF file to display. Required for the viewer to load.
