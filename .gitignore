@@ -1,5 +1,7 @@
 node_modules
 .DS_Store
+.vitest-attachments
+packages/**/__screenshots__
 
 docs/_merged_data/
 docs/_merged_assets/
