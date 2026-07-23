@@ -24,7 +24,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
         display: flex;
         align-items: center;
         gap: 0.25rem;
-        padding: 0.5rem;
+        padding: var(--dile-pdf-viewer-toolbar-padding, 0);
         background: var(--dile-pdf-viewer-toolbar-background, var(--dile-gray-very-light-color, #f4f4f4));
         border: 1px solid var(--dile-pdf-viewer-border-color, #ddd);
         border-bottom: none;
@@ -108,7 +108,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
 
   firstUpdated() {
     this.loadDocument();
-    
+
     // Create announcer element for document load notifications
     this.announcer = document.createElement('div');
     this.announcer.setAttribute('role', 'status');
@@ -120,46 +120,46 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
     this.announcer.style.height = '1px';
     this.announcer.style.overflow = 'hidden';
     document.body.appendChild(this.announcer);
-    
+
     this.scrollHandler = () => {
       this.dispatchEvent(new CustomEvent('dile-pdf-viewer-scrolled', {
         bubbles: true,
         composed: true,
       }));
     };
-    
+
     this.keyHandler = (e) => this.handleKeyPress(e);
-    
+
     const canvasWrapper = this.shadowRoot.querySelector('.Canvas-wrapper');
     canvasWrapper.addEventListener('scroll', this.scrollHandler, { passive: true });
-    
+
     // Contextual keyboard listeners: only active when component has focus or mouse is over it
     this.addEventListener('mouseenter', () => { this.isComponentFocused = true; });
     this.addEventListener('mouseleave', () => { this.isComponentFocused = false; });
     this.addEventListener('focusin', () => { this.isComponentFocused = true; });
     this.addEventListener('focusout', () => { this.isComponentFocused = false; });
-    
+
     document.addEventListener('keydown', this.keyHandler);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    
+
     const canvasWrapper = this.shadowRoot?.querySelector('.Canvas-wrapper');
     if (canvasWrapper && this.scrollHandler) {
       canvasWrapper.removeEventListener('scroll', this.scrollHandler);
     }
-    
+
     if (this.keyHandler) {
       document.removeEventListener('keydown', this.keyHandler);
     }
-    
+
     // Remove focus/blur listeners
     this.removeEventListener('mouseenter', () => { this.isComponentFocused = true; });
     this.removeEventListener('mouseleave', () => { this.isComponentFocused = false; });
     this.removeEventListener('focusin', () => { this.isComponentFocused = true; });
     this.removeEventListener('focusout', () => { this.isComponentFocused = false; });
-    
+
     // Remove announcer element
     if (this.announcer && this.announcer.parentNode) {
       this.announcer.parentNode.removeChild(this.announcer);
@@ -171,7 +171,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
     if (!this.isComponentFocused) {
       return;
     }
-    
+
     // Left Arrow, Page Up -> Previous page
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
       this.previousPage();
@@ -199,12 +199,12 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
       this.numPages = this.pdfDocument.numPages;
       this.loading = false;
       await this.renderPage();
-      
+
       // Announce successful load
       if (this.announcer) {
         this.announcer.textContent = `PDF loaded. Document has ${this.numPages} pages.`;
       }
-      
+
       this.dispatchEvent(new CustomEvent('dile-pdf-viewer-opened', {
         bubbles: true,
         composed: true,
@@ -214,12 +214,12 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
       console.error('dile-pdf-viewer: fallo al cargar', this.src, error);
       this.loading = false;
       this.errorMessage = this.translations.error_loading;
-      
+
       // Announce error
       if (this.announcer) {
         this.announcer.textContent = `Error loading PDF: ${this.errorMessage}`;
       }
-      
+
       this.dispatchEvent(new CustomEvent('dile-pdf-viewer-error', {
         bubbles: true,
         composed: true,
