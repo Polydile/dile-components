@@ -288,10 +288,13 @@ describe('dile-pdf-viewer', () => {
   });
 
   it('renders toolbar labels in Spanish when language="es"', async () => {
+    mockSuccessfulLoad({ numPages: 5 });
     const el = await renderViewer('src="fake.pdf" language="es"');
 
     expect(prevButton(el).getAttribute('aria-label')).toBe('Página anterior');
     expect(downloadButton(el).getAttribute('aria-label')).toBe('Descargar');
+    expect(el.shadowRoot.querySelector('.Toolbar-pageInfo').textContent).toContain('Página 1 / 5');
+    expect(el.shadowRoot.querySelector('canvas').getAttribute('aria-label')).toBe('Página 1 / 5');
   });
 
   it('removes the accessible announcer element from the document when disconnected', async () => {

@@ -240,6 +240,12 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
     await pdfPage.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
   }
 
+  getPageInfoText() {
+    return (this.translations.page_info || '')
+      .replace('{page}', this.page)
+      .replace('{total}', this.numPages);
+  }
+
   render() {
     const keyboardShortcuts = `Keyboard shortcuts: Arrow Left or Page Up for previous page, Arrow Right or Page Down for next page`;
     return html`
@@ -247,7 +253,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
         <button @click="${this.previousPage}" ?disabled=${this.page <= 1} aria-label="${this.translations.previous_page}">
           <dile-lucide-icon-chevron-left></dile-lucide-icon-chevron-left>
         </button>
-        <span class="Toolbar-pageInfo" role="status" aria-live="polite">${this.numPages ? html`Page ${this.page} / ${this.numPages}` : ''}</span>
+        <span class="Toolbar-pageInfo" role="status" aria-live="polite">${this.numPages ? this.getPageInfoText() : ''}</span>
         <button @click="${this.nextPage}" ?disabled=${this.page >= this.numPages} aria-label="${this.translations.next_page}">
           <dile-lucide-icon-chevron-right></dile-lucide-icon-chevron-right>
         </button>
@@ -265,7 +271,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
       <div class="Canvas-wrapper">
         ${this.loading ? html`<p class="Notice" role="status" aria-live="polite" aria-atomic="true">${this.translations.loading}</p>` : ''}
         ${this.errorMessage ? html`<p class="Notice" role="status" aria-live="polite" aria-atomic="true">${this.errorMessage}</p>` : ''}
-        <canvas id="canvas" role="img" aria-label="Page ${this.page} of ${this.numPages}" ?hidden=${this.loading || !!this.errorMessage}></canvas>
+        <canvas id="canvas" role="img" aria-label="${this.getPageInfoText()}" ?hidden=${this.loading || !!this.errorMessage}></canvas>
       </div>
     `;
   }
