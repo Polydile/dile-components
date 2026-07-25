@@ -1,5 +1,13 @@
 export const DileSlideDown = (SuperClass) => {
   return class extends SuperClass {
+    constructor(...args) {
+      super(...args);
+      this._slideAnimating = false;
+      this._pendingSlideAction = null;
+      this._slideTransitionListener = null;
+      this._slideFallbackTimer = null;
+    }
+
     _getElementHeight(elem, targetHeight = "0px") {
       let height = 300;
       elem.style.opacity = 0;
@@ -12,29 +20,82 @@ export const DileSlideDown = (SuperClass) => {
       return height;
     }
 
-    slideShow(elem, targetHeight = "0px") {
-      if (elem) {
-        let height = this._getElementHeight(elem, targetHeight);
-        setTimeout(() => {
-          elem.style.height = height + "px";
-        }, 50);
-        setTimeout(() => {
-          elem.style.height = "auto";
-          elem.style.overflow = "visible";
-        }, 600);
+    _clearSlideWait(elem) {
+      if (this._slideTransitionListener) {
+        elem.removeEventListener('transitionend', this._slideTransitionListener);
+        this._slideTransitionListener = null;
+      }
+      if (this._slideFallbackTimer) {
+        clearTimeout(this._slideFallbackTimer);
+        this._slideFallbackTimer = null;
       }
     }
-    slideHide(elem, targetHeight = "0px") {
-      if (elem) {
-        let height = elem.offsetHeight;
-        elem.style.overflow = "hidden";
-        if (height) {
-          elem.style.height = height + "px";
+
+    _waitForSlideEnd(elem, fallbackDelay, onEnd) {
+      this._clearSlideWait(elem);
+      const finish = () => {
+        this._clearSlideWait(elem);
+        onEnd();
+      };
+      this._slideTransitionListener = (e) => {
+        if (e.target === elem && e.propertyName === 'height') {
+          finish();
         }
-        setTimeout(() => {
-          elem.style.height = targetHeight;
-        }, 50);
+      };
+      elem.addEventListener('transitionend', this._slideTransitionListener);
+      // Safety net in case the height never actually transitions (e.g. no visual change).
+      this._slideFallbackTimer = setTimeout(finish, fallbackDelay);
+    }
+
+    _onSlideAnimationEnd() {
+      this._slideAnimating = false;
+      if (this._pendingSlideAction) {
+        const { action, elem, targetHeight } = this._pendingSlideAction;
+        this._pendingSlideAction = null;
+        if (action === 'show') {
+          this.slideShow(elem, targetHeight);
+        } else {
+          this.slideHide(elem, targetHeight);
+        }
       }
+    }
+
+    slideShow(elem, targetHeight = "0px") {
+      if (!elem) return;
+      if (this._slideAnimating) {
+        this._pendingSlideAction = { action: 'show', elem, targetHeight };
+        return;
+      }
+      this._slideAnimating = true;
+      let height = this._getElementHeight(elem, targetHeight);
+      setTimeout(() => {
+        elem.style.height = height + "px";
+      }, 50);
+      this._waitForSlideEnd(elem, 650, () => {
+        elem.style.height = "auto";
+        elem.style.overflow = "visible";
+        this._onSlideAnimationEnd();
+      });
+    }
+
+    slideHide(elem, targetHeight = "0px") {
+      if (!elem) return;
+      if (this._slideAnimating) {
+        this._pendingSlideAction = { action: 'hide', elem, targetHeight };
+        return;
+      }
+      this._slideAnimating = true;
+      let height = elem.offsetHeight;
+      elem.style.overflow = "hidden";
+      if (height) {
+        elem.style.height = height + "px";
+      }
+      setTimeout(() => {
+        elem.style.height = targetHeight;
+      }, 50);
+      this._waitForSlideEnd(elem, 650, () => {
+        this._onSlideAnimationEnd();
+      });
     }
   };
 };
