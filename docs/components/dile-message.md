@@ -50,11 +50,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
 </script>
 ```
 
+### Showing the message inside a container
+
+By default `position` is `"bottom"`, which renders the message with `position: fixed`, anchored to the viewport, `top` and `right-bottom` behave the same way. This means the message will **not** appear inside the element that contains it, but fixed on top of the page, no matter where the `<dile-message>` tag is placed in the DOM.
+
+If you want the message to be displayed inline, as part of the normal page flow (for example, inside a card, a form, or any other container), set `position="relative"`:
+
+```html
+<div class="card">
+  <dile-message id="msgElement" position="relative"></dile-message>
+  <p>Some content inside the card...</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.getElementById('msgElement').openMessage('This message opens inside the card');
+});
+</script>
+```
+
 ## Properties
 
 - **opened**: If true the feedback box is in opened status.
 - **message**: Message to display. Remember that, if message='' or undefined, then the component will display the content comming from the slot.
-- **position**: Position of the message. Values accepted are "relative", "top", "bottom", "right-bottom".
+- **position**: Position of the message. Values accepted are "relative", "top", "bottom", "right-bottom". Default is "bottom". Note that "top", "bottom" and "right-bottom" render the message fixed to the viewport; use "relative" to show the message inline inside its containing element.
 - **hideCloseIcon**: If true the close icon will be hidden.
 
 ## Methods
@@ -97,7 +116,7 @@ class MyComponent extends LitElement {
   render() {
     return html`
       <dile-message id="message">
-        <h2>Fixed right bottom!!</h2>
+        <h2>Fixed on bottom!!</h2>
         <p>Hello, Polydile friends!!</p>
       </dile-message>
       <button id="open">Show default message</button>
