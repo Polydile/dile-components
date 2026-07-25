@@ -32,7 +32,9 @@ export class DileAccordion extends LitElement {
 
   render() {
     return html`
-      <slot></slot>
+      <div role="region" aria-label="Accordion">
+        <slot></slot>
+      </div>
     `;
   }
 

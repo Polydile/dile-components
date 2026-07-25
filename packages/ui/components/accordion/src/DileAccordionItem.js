@@ -41,7 +41,13 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         background: var(--dile-accordion-item-button-background, var(--dile-accordion-item-background, var(--dile-primary-color, black)));
         color: var(--dile-accordion-item-button-color, var(--dile-accordion-item-color, var(--dile-on-primary-color, white)));
         cursor: pointer;
+        text-align: left;
+      }
 
+      /* Visible focus indicator for keyboard users (WCAG 2.2) */
+      button:focus-visible {
+        outline: 3px solid var(--dile-accordion-item-button-focus-outline, #4A90E2);
+        outline-offset: 2px;
       }
 
       button.opened{
@@ -98,9 +104,17 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         padding: var(--dile-accordion-item-content-padding, .7rem);
       }
 
-      #content {
-        transition: height 0.3s ease-in;
+      /* Screen reader only content (WCAG 2.2) */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
         overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
       }
 
     `
@@ -116,13 +130,14 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
     this.opened = false;
     this.title = '';
     this.expandableContent = null;
+    this.itemId = `accordion-item-${Math.random().toString(36).substr(2, 9)}`;
 
     if(this.hasAttribute('dile-cloak')) this.removeAttribute('dile-cloak');
   };
 
   firstUpdated(){
-    this.expandableContent = this.shadowRoot.getElementById('content');
-
+    const contentId = `${this.itemId}-content`;
+    this.expandableContent = this.shadowRoot.getElementById(contentId);
   }
 
   updated(changed){
@@ -132,15 +147,23 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
   };
 
   render() {
+    const contentId = `${this.itemId}-content`;
+    const buttonId = `${this.itemId}-button`;
     return html`
-      <button @click=${this.toggle} class="${this.opened ? 'opened' : ''}">
+      <button 
+        id="${buttonId}"
+        @click=${this.toggle} 
+        class="${this.opened ? 'opened' : ''}"
+        aria-expanded="${this.opened}"
+        aria-controls="${contentId}"
+      >
         <div class="buttonContent">
           <span>${this.title}</span>
-          <span class="icon ${this.opened ? 'opened' : ''}">${arrowDropDownIcon}</span>
+          <span class="icon ${this.opened ? 'opened' : ''}" aria-hidden="true">${arrowDropDownIcon}</span>
         </div>
       </button>
 
-      <div class="contentContainer" id="content">
+      <div class="contentContainer" id="${contentId}" role="region" aria-labelledby="${buttonId}">
         <div  class="content">
           <slot name="accordion-item-content"></slot>
         </div>
@@ -161,7 +184,22 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
           composed: true
         })
       );
+      // Announce state change to screen readers
+      this.announceOpenState();
     }
+  }
+
+  announceOpenState() {
+    // Create a live region announcement for screen reader users
+    const announcement = `${this.title} section expanded`;
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('role', 'status');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'sr-only';
+    liveRegion.textContent = announcement;
+    this.appendChild(liveRegion);
+    setTimeout(() => liveRegion.remove(), 1000);
   }
 
   open() {
