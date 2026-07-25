@@ -3,6 +3,7 @@ export const DileSlideDown = (SuperClass) => {
     constructor(...args) {
       super(...args);
       this._slideAnimating = false;
+      this._currentSlideAction = null;
       this._pendingSlideAction = null;
       this._slideTransitionListener = null;
       this._slideFallbackTimer = null;
@@ -49,6 +50,7 @@ export const DileSlideDown = (SuperClass) => {
 
     _onSlideAnimationEnd() {
       this._slideAnimating = false;
+      this._currentSlideAction = null;
       if (this._pendingSlideAction) {
         const { action, elem, targetHeight } = this._pendingSlideAction;
         this._pendingSlideAction = null;
@@ -63,10 +65,13 @@ export const DileSlideDown = (SuperClass) => {
     slideShow(elem, targetHeight = "0px") {
       if (!elem) return;
       if (this._slideAnimating) {
-        this._pendingSlideAction = { action: 'show', elem, targetHeight };
+        if (this._currentSlideAction !== 'show') {
+          this._pendingSlideAction = { action: 'show', elem, targetHeight };
+        }
         return;
       }
       this._slideAnimating = true;
+      this._currentSlideAction = 'show';
       let height = this._getElementHeight(elem, targetHeight);
       setTimeout(() => {
         elem.style.height = height + "px";
@@ -81,10 +86,13 @@ export const DileSlideDown = (SuperClass) => {
     slideHide(elem, targetHeight = "0px") {
       if (!elem) return;
       if (this._slideAnimating) {
-        this._pendingSlideAction = { action: 'hide', elem, targetHeight };
+        if (this._currentSlideAction !== 'hide') {
+          this._pendingSlideAction = { action: 'hide', elem, targetHeight };
+        }
         return;
       }
       this._slideAnimating = true;
+      this._currentSlideAction = 'hide';
       let height = elem.offsetHeight;
       elem.style.overflow = "hidden";
       if (height) {

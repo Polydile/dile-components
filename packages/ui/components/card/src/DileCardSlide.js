@@ -35,7 +35,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
           outline: 2px solid Highlight;
           outline-offset: 2px;
         }
-        #content {
+        .content {
           height: 0;
           overflow: hidden;
           transition: height 0.5s ease-in;
@@ -102,7 +102,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
   render() {
     return html`
       ${this.titleTemplate}
-      <div id="${this._contentId}">
+      <div id="${this._contentId}" class="content">
         <main>
           <slot></slot>
         </main>
