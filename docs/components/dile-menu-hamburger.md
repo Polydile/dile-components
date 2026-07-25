@@ -37,8 +37,8 @@ Use the component.
 ## Properties
 
 - **opened**: Boolean property. Defines the state of the component between opened and closed. 
-- **direction**: Defines de animation and direction to open the menú. String property one of "top" or "left". Default is "top".
-- **hamburgerAlwaysVisible**: Boolean property. If true, makes the hamburger icon allways visible, by seting it's z-index property.
+- **direction**: Defines the animation and direction to open the menu. String property one of `"top"` or `"left"`. Default is `"top"`.
+- **hamburgerAlwaysVisible**: Boolean property. If true, makes the hamburger icon always visible by setting its z-index property.
 
 ## Methods
 
@@ -46,12 +46,12 @@ The component also provides a set of useful methods to controls the component st
 
 - **open()**: Opens the menu.
 - **close()**: Closes the menu.
-- **toggle()**: Changes the state, from open to close or close to open.
+- **toggle()**: Toggles the state between open and closed.
 
 ## Events
 
-- **dile-menu-hamburger-opened**: dispatched when the menu opens.
-- **dile-menu-hamburger-closed**: dispatched when the menu closes.
+- **dile-menu-hamburger-opened**: Dispatched when the menu opens.
+- **dile-menu-hamburger-closed**: Dispatched when the menu closes.
 
 ## Hide the menu before initialization
 
@@ -63,14 +63,28 @@ If you want to hide the menu before the component's initialization it is possibl
 }
 ```
 
-And then use the ```dile-cloak``` attribute in the menu layer to hide it. On the component`s initialization this attribute will be removed.
+And then use the `dile-cloak` attribute in the menu layer to hide it. On the component's initialization, this attribute will be removed.
+
+## Accessibility
+
+This component combines accessible patterns from both `dile-hamburger` and `dile-app-drawer` components:
+
+- **ARIA attributes**: The hamburger button includes semantic labels (`aria-label`, `aria-expanded`, `aria-controls`, `aria-haspopup="dialog"`) for assistive technologies.
+- **Keyboard navigation**:
+  - Press **Space** or **Enter** to toggle the menu
+  - Press **Escape** to close the menu
+  - Press **Tab** to navigate within the menu; focus cycles within the menu content
+  - When closed, the menu is removed from the keyboard tab order using the `inert` attribute
+- **Focus management**: When you open the menu, focus automatically moves into it. When you close it, focus returns to the hamburger button.
+- **Motion preferences**: The hamburger animation and drawer transitions respect the `prefers-reduced-motion` CSS media query.
+- **Screen reader support**: Users of assistive technologies receive clear information about the menu's state and how to interact with it.
 
 ## Customization
 
-You can customize the icons using this CSS Custom properties defined on this components:
+You can customize the appearance using CSS Custom properties defined in the composed components:
 
-- [@dile/dile-app-drawer](/components/dile-app-drawer/)
-- [@dile/dile-hamburger](/components/dile-hamburger/)
+- [dile-app-drawer](/components/dile-app-drawer/)
+- [dile-hamburger](/components/dile-hamburger/)
 
 Additionally, the dile-menu-hamburger component defines the following CSS Custom Properties:
 
@@ -80,9 +94,9 @@ Custom property | Description | Default
 
 
 
-## dile-app-drawer demos
+## dile-menu-hamburger demos
 
-> **Tip:** You can also use the top hamburger menu on this site to see this component in action.
+> **Tip:** You can also use the hamburger menu on this site to see this component in action.
 
 ## Menu open top
 
