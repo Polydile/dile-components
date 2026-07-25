@@ -27,6 +27,9 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
     this.direction = 'top';
     this.opened = false;
     this._documentClose = this._documentClose.bind(this);
+    this._triggerElement = null;
+    this._handleKeyDown = this._handleKeyDown.bind(this);
+    this._focusTrapActive = false;
   }
 
   static get styles() {
@@ -106,22 +109,113 @@ export class DileAppDrawer extends DileCloseOnEscPressed(LitElement) {
         transform: translateX(0);
         box-shadow: var(--dile-app-drawer-box-shadow, 1px 0 8px #000);
       }
+
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        .modal {
+          transition: none;
+        }
+
+        .menu {
+          transition: none;
+        }
+      }
     `;
   }
 
   render() {
     return html`
       ${this.modalTemplate}
-      <div class="menu" @click="${this._contentClick}">
-        <section>
+      <div 
+        class="menu" 
+        role="dialog"
+        aria-modal="${this.opened ? 'true' : 'false'}"
+        aria-label="Application menu"
+        aria-description="Press Escape to close. You can also click outside the menu."
+        ?inert="${!this.opened}"
+        tabindex="-1"
+        @click="${this._contentClick}"
+        @keydown="${this._handleKeyDown}">
+        <nav aria-label="Main navigation">
           <slot></slot>
-        </section>
+        </nav>
       </div>
     `;
   }
 
   get modalTemplate() {
-    return this.noModal ? '' : html`<div class="modal" @click=${this._documentClose}></div>`;
+    return this.noModal ? '' : html`<div 
+      class="modal" 
+      aria-hidden="true"
+      ?inert="${!this.opened}"
+      @click=${this._documentClose}>
+    </div>`;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('opened')) {
+      if (this.opened) {
+        this._openDrawer();
+      } else {
+        this._closeDrawer();
+      }
+    }
+  }
+
+  _openDrawer() {
+    this._triggerElement = document.activeElement;
+    this.shadowRoot.querySelector('.menu').focus();
+    this._focusTrapActive = true;
+    document.addEventListener('keydown', this._handleKeyDown);
+  }
+
+  _closeDrawer() {
+    this._focusTrapActive = false;
+    document.removeEventListener('keydown', this._handleKeyDown);
+    
+    if (this._triggerElement && typeof this._triggerElement.focus === 'function') {
+      setTimeout(() => {
+        this._triggerElement.focus();
+      }, 0);
+    }
+  }
+
+  _getFocusableElements() {
+    const focusableSelector = `
+      button:not([disabled]),
+      [href],
+      input:not([disabled]),
+      select:not([disabled]),
+      textarea:not([disabled]),
+      [tabindex]:not([tabindex="-1"]):not([disabled]),
+      [role="button"]:not([aria-disabled="true"])
+    `;
+    return Array.from(this.querySelectorAll(focusableSelector)).filter(el => {
+      return el.offsetParent !== null;
+    });
+  }
+
+  _handleKeyDown(e) {
+    if (!this._focusTrapActive || e.key !== 'Tab') return;
+    
+    const focusableElements = this._getFocusableElements();
+    if (focusableElements.length === 0) return;
+    
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    const activeElement = document.activeElement;
+    
+    const focusIsInsideDrawer = focusableElements.includes(activeElement);
+    if (!focusIsInsideDrawer) return;
+    
+    if (e.shiftKey && activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    }
+    else if (!e.shiftKey && activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
   }
 
   _documentClose() {

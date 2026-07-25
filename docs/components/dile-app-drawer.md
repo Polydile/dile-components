@@ -6,9 +6,9 @@ tags: menu
 
 # dile-app-drawer
 
-Web component to create a simple animated menu, useful as app global menu, with a look & feel similar to the material design navigation drawer component.
+Web component to create a simple animated drawer menu, useful as a global app menu with a look and feel similar to Material Design's navigation drawer component.
 
-> **Tip:** Check the [dile-menu-hamburger](/components/dile-menu-hamburger) component to implement an app drawer menu in an easier way.
+> **Tip:** Check the [dile-hamburger](/components/dile-hamburger) component to implement an app drawer menu more easily.
 
 ## Installation
 
@@ -37,13 +37,13 @@ Use the component.
 
 ## Properties
 
-This component has three properties:
+The component has the following properties:
 
 - **opened**: Boolean. When true, the drawer is open. Reflected as an attribute.
-- **direction**: String. Defines the animation/direction to open the menu; one of "top" or "left". Default: "top".
+- **direction**: String. Defines the animation direction when opening the menu; one of `"top"` or `"left"`. Default: `"top"`.
 - **noModal**: Boolean. When true, disables the modal overlay and keeps the drawer fixed when opened. Can be used as the `no-modal` attribute in HTML.
 
-Note: Pressing Escape closes the drawer (component extends `DileCloseOnEscPressed`).
+Note: Pressing Escape closes the drawer (the component extends `DileCloseOnEscPressed`).
 
 ## Methods
 
@@ -55,8 +55,21 @@ The component also provides a set of useful methods to control the component sta
 
 ## Events
 
--- **dile-app-drawer-closed**: Dispatched when the drawer is closed.
--- **dile-app-drawer-click-outside**: Dispatched when the drawer is closed because the user clicked outside the menu layer.
+- **dile-app-drawer-closed**: Dispatched when the drawer is closed.
+- **dile-app-drawer-click-outside**: Dispatched when the drawer is closed because the user clicked outside the menu layer.
+
+## Accessibility
+
+This component is designed with accessibility in mind and follows WCAG 2.1/2.2 guidelines:
+
+- **ARIA attributes**: The drawer includes proper semantic roles (`role="dialog"`), state management (`aria-modal`), and descriptive labels (`aria-label`, `aria-description`) for assistive technologies.
+- **Keyboard navigation**: 
+  - Press **Escape** to close the drawer
+  - Press **Tab** to navigate within the open drawer; focus cycles within the drawer content
+  - When the drawer is closed, its contents are removed from the keyboard tab order using the `inert` attribute, ensuring a logical focus sequence
+- **Focus management**: When you open the drawer, focus automatically moves into it. When you close it, focus is restored to the element that opened it.
+- **Motion preferences**: The drawer respects the `prefers-reduced-motion` CSS media query; animations are disabled for users who have enabled this preference.
+- **Screen reader support**: Users of assistive technologies receive clear information about how to interact with the drawer (e.g., "Press Escape to close. You can also click outside the menu.").
 
 ## CSS customization
 
@@ -98,7 +111,7 @@ Custom property | Description | Default
 </style>
 <dile-app-drawer id="menudemo">
   <div class="menu-content">
-    <h2>Menu <span>(Click outside to close)</span></h2>
+    <h2>Menu <span>(click outside to close)</span></h2>
     <p><a href="#">Link 1</a></p>
     <p><a href="#">Another link</a></p>
     <p><a href="#">More information</a></p>
