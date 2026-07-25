@@ -125,6 +125,19 @@ export class DileHamburger extends LitElement {
       .hamburger:focus-visible .hamburger-inner::after {
         background-color: var(--dile-hamburger-focus-color, var(--dile-primary-dark-color, #0a66ff));
       }
+
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        .hamburger {
+          transition: none;
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          transition: none;
+        }
+      }
     `;
   }
 

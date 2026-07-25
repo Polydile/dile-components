@@ -63,7 +63,15 @@ export class DileMenuHamburger extends LitElement {
 
   render() {
     return html`
-      <dile-hamburger @click="${this.toggle}" ?active="${this.opened}"></dile-hamburger>
+      <dile-hamburger 
+        @click="${this.toggle}" 
+        ?active="${this.opened}"
+        aria-label="Open main menu"
+        aria-expanded="${this.opened}"
+        aria-controls="drawer"
+        aria-haspopup="dialog"
+        role="button">
+      </dile-hamburger>
       <dile-app-drawer 
         id="drawer" 
         ?opened="${this.opened}" 
