@@ -16,7 +16,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             :host {
                 display: block;
                 padding: 0 0 1rem 0;
-                background-color: #fff;
+                background-color: var(--dile-background-color, #ffffff);
             }
             
             .prev-summary {
