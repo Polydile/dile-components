@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import './theme-mode-switch.js';
 import './theme-palette-bar.js';
+import './theme-components-preview.js';
 import { variableGroups, previewPairs, mainColorBlocks, variationColorBlocks, getVariableMeta, getDefaultValues } from './theme-variables.js';
 
 const colorBlocksByGroup = {
@@ -163,20 +164,6 @@ export class DileThemeBuilder extends LitElement {
       .preview dile-tabs {
         margin-bottom: 1rem;
       }
-      .components-preview {
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        padding: 1rem;
-        background-color: var(--dile-background-color);
-        color: var(--dile-on-background-color);
-      }
-      .components-row {
-        display: flex;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
     `;
   }
 
@@ -249,7 +236,7 @@ export class DileThemeBuilder extends LitElement {
                 ${this._renderVariationsPreview(values)}
               </div>
               <div name="components">
-                ${this._renderComponentsPreview(values)}
+                <dile-theme-components-preview .values="${values}"></dile-theme-components-preview>
               </div>
             </dile-pages>
           </section>
@@ -396,31 +383,6 @@ export class DileThemeBuilder extends LitElement {
         <strong>${pair.label}</strong>
         ${hideSample ? '' : html`<span>Sample text.</span>`}
         <span class="contrast">Contrast ${ratio.toFixed(2)}:1 (${describeContrast(ratio)})</span>
-      </div>
-    `;
-  }
-
-  _renderComponentsPreview(values) {
-    const styleVars = Object.entries(values)
-      .map(([name, value]) => `${name}: ${value}`)
-      .join('; ');
-    return html`
-      <div class="swatch-section">
-        <h3>Components preview</h3>
-        <div class="components-preview" style="${styleVars}">
-          <dile-nav>
-            <span slot="title">Sample nav</span>
-            <span slot="menu">
-              <dile-hamburger></dile-hamburger>
-            </span>
-            <span slot="actions"><dile-avatar initial="D"></dile-avatar></span>
-          </dile-nav>
-          <div class="components-row">
-            <dile-button>Click here</dile-button>
-            <dile-button disabled>Disabled</dile-button>
-            <dile-input label="Sample input" placeholder="Write something..."></dile-input>
-          </div>
-        </div>
       </div>
     `;
   }
