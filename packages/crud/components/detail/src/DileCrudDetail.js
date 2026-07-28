@@ -17,9 +17,9 @@ export class DileCrudDetail extends DileLoading(LitElement) {
         }
         .detail-data {
             background-color: var(--dile-crud-detail-data-background-color, #f5f5f5);
-            padding: 1rem;
-            border-top-left-radius: 0.6rem;
-            border-top-right-radius: 0.6rem;
+            padding: var(--dile-crud-detail-data-padding, 1rem);
+            border-top-left-radius: var(--dile-crud-detail-data-border-top-left-radius, 0.6rem);
+            border-top-right-radius: var(--dile-crud-detail-data-border-top-right-radius, 0.6rem);
 
         }
         .detail-data p {
@@ -29,8 +29,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            --dile-icon-color: #bbb;
-            --dile-icon-size: 32px;
         }
         section {
             padding: 1rem 0 0;
@@ -49,16 +47,6 @@ export class DileCrudDetail extends DileLoading(LitElement) {
             min-width: 32px;
         }
         
-        @media(min-width : 520px) {
-            main {
-                --dile-icon-size: 48px;
-            }
-        }
-        @media(min-width : 800px) {
-            main {
-                --dile-icon-size: 64px;
-            }
-        }
     `
   ];
 

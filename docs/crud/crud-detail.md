@@ -50,6 +50,17 @@ Use the component.
 - **crud-item-detail-loaded**: This event is dispatched when the item details have been successfully loaded from the API. The event detail includes the loaded data.
 - **crud-item-detail-load-error**: This event is dispatched when there is an error loading the item details from the API. The event detail includes the error encountered message and data of the server response.
 
+### CSS Custom Properties
+
+You can customize it using CSS Custom Properties.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-crud-detail-data-background-color | Background color of the detail data container | #f5f5f5
+--dile-crud-detail-data-padding | Padding of the detail data container | 1rem
+--dile-crud-detail-data-border-top-left-radius | Top left border radius | 0.6rem
+--dile-crud-detail-data-border-top-right-radius | Top right border radius | 0.6rem
+
 
 ## Generating detail components with the CLI
 

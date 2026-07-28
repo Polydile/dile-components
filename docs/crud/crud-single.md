@@ -59,6 +59,14 @@ Particularly useful events include:
 
 Refer to the documentation of other components to discover many more events available in `dile-crud-single`.
 
+### CSS Custom Properties
+
+You can customize it using CSS Custom Properties.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-primary-dark-color | Actions bar background color | #d7d353
+
 
 ## Generating Single Components with the CLI
 
