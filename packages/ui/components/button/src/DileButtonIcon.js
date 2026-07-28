@@ -19,6 +19,7 @@ export class DileButtonIcon extends DileButton {
           --dile-icon-color: var(--dile-button-icon-color, var(--dile-on-primary-color, #ffffff));
         }
         dile-icon {
+          --dile-icon-size: var(--dile-button-icon-size, calc(var(--dile-button-font-size, 1rem) * 1.125));
           margin-right: var(--dile-button-icon-separation, 0.3rem);
         }
         button:hover {

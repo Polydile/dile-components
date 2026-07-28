@@ -76,7 +76,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
         this.disableAutocomplete = false;
         this.name = '';
         this.type = 'text';
-        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];     
+        this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];
         this.internals = this.attachInternals();
     }
 
@@ -114,7 +114,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
               display: block;
               margin-bottom: var(--dile-input-label-margin-bottom, 4px);
               font-size: var(--dile-input-label-font-size, 1em);
-              color: var(--dile-input-label-color, #59e);
+              color: var(--dile-input-label-color, var(--dile-on-background-color, #59e));
               font-weight: var(--dile-input-label-font-weight, normal);
             }
             input {
@@ -132,7 +132,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
             }
             input:focus {
               outline: none;
-              border-color: var(--dile-input-focus-border-color, #6af)
+              border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
             }
             input::placeholder {
               color: var(--dile-input-placeholder-color, #ccc);
@@ -158,7 +158,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
           `
         ];
     }
-    
+
     render() {
         return html`
           <main>
@@ -180,8 +180,8 @@ export class DileInput extends DileEmmitChange(LitElement) {
                 @input="${this._input}"
                 @blur="${this.doBlur}"
                 @focus="${this.doFocus}"
-              /> 
-              ${this.labelRight 
+              />
+              ${this.labelRight
                 ? html`<span class="labelright">${this.labelRight}</span>`
                 : ''
               }
@@ -193,7 +193,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
 
     get messageTemplate() {
       return html`
-        ${this.message 
+        ${this.message
           ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
           : ''
         }
@@ -212,10 +212,10 @@ export class DileInput extends DileEmmitChange(LitElement) {
     _input(e) {
         this.value = e.target.value;
         if (this.hideErrorOnInput && this.errored) {
-          this.clearError();  
+          this.clearError();
         }
     }
-    
+
     clearError() {
       this.errored = false;
       this.message = '';
