@@ -140,6 +140,7 @@ This way you can set a global property if all elements need the same value. If y
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-accordion-item-max-width | Max width for the entire component | 100%
+--dile-accordion-item-margin-bottom | Bottom margin of the component | 1rem
 --dile-accordion-item-border-radius | Component border radius. Button and expandable content follow this rule if not set on them | none
 --dile-accordion-item-color | General color. Button text, button icon and expandable content follow this rule if not set on them | --dile-on-primary-color or white
 --dile-accordion-item-background | Component background. Button and expandable container follow this rule if not set on them | --dile-primary-color or transparent

@@ -17,6 +17,7 @@ export class DileAccordionItem extends DileSlideDown(LitElement) {
         width: 100%;
         max-width: var(--dile-accordion-item-max-width, 100%);
         border-radius: var(--dile-accordion-item-border-radius, none);
+        margin-bottom: var(--dile-accordion-item-margin-bottom, 1rem);
 
         /** Others */
         color: var(--dile-accordion-item-color, var(--dile-on-background-color, white));
