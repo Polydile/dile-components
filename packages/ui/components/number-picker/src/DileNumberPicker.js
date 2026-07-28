@@ -1,10 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../number-picker-element.js';
+import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
 
 export class DileNumberPicker extends DileEmmitChange(LitElement) {
   static styles = [
+      labelStyles,
       messageStyles,
       css`
       :host {
@@ -13,13 +15,6 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
       }
       * {
         box-sizing: border-box;
-      }
-      label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
       }
   `
   ];

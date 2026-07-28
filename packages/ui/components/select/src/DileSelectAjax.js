@@ -3,6 +3,7 @@ import '../../input/input-search.js';
 import '../../spinner/spinner-horizontal.js';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../select.js';
+import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
 
 
@@ -10,6 +11,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
 
   static get styles() {
     return [
+      labelStyles,
       messageStyles,
       css`
       * {
@@ -22,13 +24,6 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       }
       #result {
           margin-bottom: 0.5rem;
-      }
-      label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
       }
       .anchor {
         margin-top: 0.5rem;

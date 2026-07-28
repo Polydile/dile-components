@@ -3,7 +3,7 @@ import { DileEmmitChange } from '../../../mixins/form/index.js';
 import { DileOverlay } from '../../../mixins/overlay/index.js';
 import { DileCloseDocumentClick } from '../../../mixins/close-document-click/index.js';
 import { DileCloseOnEscPressed } from '../../../mixins/close-on-esc-pressed/index.js';
-import { messageStyles } from '../../input/index.js';
+import { labelStyles, messageStyles } from '../../input/index.js';
 import { normalizeHex, hexToHsv, hsvToHex } from '../../../lib/color/colorConversion.js';
 
 export class DileColorPicker extends DileOverlay(
@@ -133,6 +133,7 @@ export class DileColorPicker extends DileOverlay(
 
   static get styles() {
     return [
+      labelStyles,
       messageStyles,
       css`
         * {
@@ -141,13 +142,6 @@ export class DileColorPicker extends DileOverlay(
         :host {
           display: inline-block;
           margin-bottom: 10px;
-        }
-        label {
-          display: block;
-          margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-          font-size: var(--dile-input-label-font-size, 1em);
-          color: var(--dile-input-label-color, #59e);
-          font-weight: var(--dile-input-label-font-weight, normal);
         }
         #trigger {
           padding: 0;
@@ -167,7 +161,7 @@ export class DileColorPicker extends DileOverlay(
         #trigger:focus-visible {
           outline: none;
           border-width: var(--dile-color-picker-swatch-focus-border-width, 3px);
-          border-color: var(--dile-input-focus-border-color, #6af);
+          border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
         }
         #overlay {
           display: none;
@@ -198,7 +192,7 @@ export class DileColorPicker extends DileOverlay(
           cursor: crosshair;
         }
         #sv-square:focus-visible {
-          outline: 2px solid var(--dile-input-focus-border-color, #6af);
+          outline: 2px solid var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
           outline-offset: 2px;
         }
         .sv-thumb {
@@ -288,7 +282,7 @@ export class DileColorPicker extends DileOverlay(
         }
         .hex-input:focus {
           outline: none;
-          border-color: var(--dile-input-focus-border-color, #6af);
+          border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
         }
         .hex-input.errored {
           border-color: var(--dile-color-picker-error-border-color, #c00);

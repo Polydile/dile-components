@@ -1,22 +1,17 @@
 import { LitElement, html, css } from 'lit';
-import { messageStyles } from '../../input/index.js';
+import { labelStyles, messageStyles } from '../../input/index.js';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 
 export class DileTextarea extends DileEmmitChange(LitElement) {
 
   static get styles() {
     return [
-      messageStyles, 
+      labelStyles,
+      messageStyles,
       css`
       :host {
         display: block;
         margin-bottom: 10px;
-      }
-      label {
-        margin-bottom: var(--dile-textarea-label-margin-bottom, 4px);
-        color: var(--dile-textarea-label-color, #59e);
-        font-size: var(--dile-textarea-label-font-size, 1em);
-        font-weight: var(--dile-textarea-label-font-weight, normal);
       }
 
       textarea {
@@ -30,6 +25,12 @@ export class DileTextarea extends DileEmmitChange(LitElement) {
         width: 100%;
         box-sizing: border-box; 
         line-height: 1.5rem;
+      }
+
+      textarea:focus {
+        outline: var(--dile-input-focus-ring-width, 3px) solid var(--dile-input-focus-ring-color, rgba(102, 170, 255, 0.5));
+        outline-offset: calc(-1 * var(--dile-input-focus-ring-width, 3px));
+        border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
       }
 
       textarea::placeholder {

@@ -2,20 +2,15 @@ import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../radio.js';
 import '../../input/input-message.js';
+import { labelStyles } from '../../input/index.js';
 
 export class DileRadioGroup extends DileEmmitChange(LitElement) {
   static styles = [
+    labelStyles,
     css`
       :host {
         display: block;
         margin-bottom: 10px;
-      }
-      .label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
       }
       :host([disabled]) {
         --dile-radio-icon-color: var(--dile-radio-disabled-icon-color, #ccc);

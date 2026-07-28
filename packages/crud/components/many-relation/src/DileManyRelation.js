@@ -6,19 +6,14 @@ import '../../ajax-select-crud/ajax-select-crud.js';
 import '@dile/ui/components/icon/icon.js';
 import '@dile/ui/components/spinner/spinner.js';
 import '@dile/ui/components/input/input-message.js';
+import { labelStyles } from '@dile/ui/components/input/src/label-styles.js';
 
 export class DileManyRelation extends DileI18nMixin(LitElement) {
   static styles = [
+    labelStyles,
     css`
       :host {
         display: block;
-      }
-      label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
       }
       dile-ajax-select-crud{
           margin-bottom: 0;

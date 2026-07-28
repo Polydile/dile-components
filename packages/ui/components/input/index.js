@@ -5,5 +5,6 @@ export { DileInputMoney } from './src/DileInputMoney.js';
 export { DileInputNumberMask } from './src/DileInputNumberMask.js';
 export { DileInputPercentage } from './src/DileInputPercentage.js';
 export { DileInputSearch } from './src/DileInputSearch.js';
+export { labelStyles } from './src/label-styles.js';
 export { messageStyles } from './src/message-styles.js';
 export { Mask } from './src/Mask.js';

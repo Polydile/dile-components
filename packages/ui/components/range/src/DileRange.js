@@ -1,11 +1,14 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import '../../input/input-message.js';
+import { labelStyles } from '../../input/index.js';
 
 export class DileRange extends DileEmmitChange(LitElement) {
 
   static get styles() {
-    return css`
+    return [
+      labelStyles,
+      css`
       :host {
         display: block;
         margin-bottom: 10px;
@@ -13,14 +16,6 @@ export class DileRange extends DileEmmitChange(LitElement) {
 
       :host([errored]) {
         --dile-range-line-color: var(--dile-range-line-errored-color, #c00);
-      }
-
-      label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
       }
 
       /*********** Baseline, reset styles ***********/
@@ -87,7 +82,8 @@ export class DileRange extends DileEmmitChange(LitElement) {
       }
 
 
-    `;
+    `
+    ];
   }
 
   static get formAssociated() {

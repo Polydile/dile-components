@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
-import { messageStyles } from '../../input/index.js';
+import { labelStyles, messageStyles } from '../../input/index.js';
 import { sanitizeOtpValue } from '../../../lib/otp/sanitizeOtpValue.js';
 
 export class DileOtpInput extends DileEmmitChange(LitElement) {
@@ -106,6 +106,7 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
 
   static get styles() {
     return [
+      labelStyles,
       messageStyles,
       css`
         * {
@@ -117,13 +118,6 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
         }
         main {
           width: var(--dile-otp-input-section-width, auto);
-        }
-        label {
-          display: block;
-          margin-bottom: var(--dile-otp-input-label-margin-bottom, 4px);
-          font-size: var(--dile-otp-input-label-font-size, 1em);
-          color: var(--dile-otp-input-label-color, #59e);
-          font-weight: var(--dile-otp-input-label-font-weight, normal);
         }
         section.for-input {
           display: flex;
@@ -143,7 +137,7 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
         }
         input:focus {
           outline: none;
-          border-color: var(--dile-otp-input-focus-border-color, #6af);
+          border-color: var(--dile-otp-input-focus-border-color, var(--dile-link-color, #6af));
         }
         input:disabled {
           background-color: #f5f5f5;

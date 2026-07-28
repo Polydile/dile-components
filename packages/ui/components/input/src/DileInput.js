@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { labelStyles } from './label-styles.js';
 import { messageStyles } from './message-styles.js';
 
 export class DileInput extends DileEmmitChange(LitElement) {
@@ -95,6 +96,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
 
     static get styles() {
         return [
+          labelStyles,
           messageStyles,
           css`
             * {
@@ -110,13 +112,6 @@ export class DileInput extends DileEmmitChange(LitElement) {
             main {
               width: var(--dile-input-section-width, 100%);
             }
-            label {
-              display: block;
-              margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-              font-size: var(--dile-input-label-font-size, 1em);
-              color: var(--dile-input-label-color, var(--dile-on-background-color, #59e));
-              font-weight: var(--dile-input-label-font-weight, normal);
-            }
             input {
               box-sizing: border-box;
               border-radius: var(--dile-input-border-radius, 5px);
@@ -131,7 +126,8 @@ export class DileInput extends DileEmmitChange(LitElement) {
               flex-grow: 1;
             }
             input:focus {
-              outline: none;
+              outline: var(--dile-input-focus-ring-width, 3px) solid var(--dile-input-focus-ring-color, rgba(102, 170, 255, 0.5));
+              outline-offset: calc(-1 * var(--dile-input-focus-ring-width, 3px));
               border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
             }
             input::placeholder {
@@ -152,7 +148,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
             }
             .labelright {
               margin-left: var(--dile-input-label-right-margin-left, 10px);
-              color: var(--dile-input-label-color, #59e);
+              color: var(--dile-input-label-color, var(--dile-on-background-color, #59e));
               font-size: var(--dile-input-label-right-font-size, 1.2em);
             }
           `

@@ -1,11 +1,13 @@
 import { LitElement, html, css } from 'lit';
 import '../file-preview.js';
 import '../../button/button.js';
+import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 
 export class DileDropFile extends DileEmmitChange(LitElement) {
   static styles = [
+    labelStyles,
     messageStyles,
     css`
       * { box-sizing: border-box; }
@@ -41,13 +43,6 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
         display: none;
       }
 
-      label {
-        display: block;
-        margin-bottom: var(--dile-input-label-margin-bottom, 4px);
-        font-size: var(--dile-input-label-font-size, 1em);
-        color: var(--dile-input-label-color, #59e);
-        font-weight: var(--dile-input-label-font-weight, normal);
-      }
       main {
         width: var(--dile-input-section-width, 100%);
       }
