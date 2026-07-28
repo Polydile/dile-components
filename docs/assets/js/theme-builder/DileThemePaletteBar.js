@@ -66,11 +66,6 @@ export class DileThemePaletteBar extends LitElement {
       :host {
         display: block;
         position: relative;
-        margin-bottom: 1.5rem;
-        padding: 0.75rem 1rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 6px;
-        background-color: rgba(0, 0, 0, 0.02);
       }
       .bar {
         display: flex;
@@ -83,10 +78,16 @@ export class DileThemePaletteBar extends LitElement {
         align-items: center;
         gap: 0.5rem;
         cursor: pointer;
-        padding: 0.35rem 0.6rem;
-        border-radius: 5px;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        background-color: #fff;
+        padding: 0.4rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background-color: var(--dile-on-background-color, #fff);
+        color: var(--dile-background-color, #232323);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      .active-theme:hover {
+        border-color: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       }
       .theme-name {
         font-weight: bold;
@@ -138,14 +139,19 @@ export class DileThemePaletteBar extends LitElement {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 2rem;
-        height: 2rem;
+        width: 2.1rem;
+        height: 2.1rem;
         padding: 0;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 6px;
         background: #fff;
         cursor: pointer;
         color: #303030;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+      }
+      .icon-button:hover:not(:disabled) {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.25);
       }
       .icon-button.danger {
         color: #c0392b;
@@ -184,9 +190,10 @@ export class DileThemePaletteBar extends LitElement {
       }
       .dropdown {
         margin-top: 0.75rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 8px;
         background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         overflow: hidden;
       }
       .search-row {

@@ -29,6 +29,37 @@ export class DileThemeBuilder extends LitElement {
         --dile-nav-padding-x: 1rem;
         --dile-input-label-font-size: 0.875rem;
         --dile-input-label-margin-bottom: 2px;
+        --dile-tab-background-color: transparent;
+        --dile-tab-text-color: #767676;
+        --dile-tab-selected-background-color: transparent;
+        --dile-tab-selected-text-color: var(--dile-on-background-color, #232323);
+        --dile-tab-selected-line-color: var(--dile-primary-dark-color);
+        --dile-tab-selected-line-height: 3px;
+        --dile-tab-border-radius: 0;
+        --dile-tab-text-transform: none;
+        --dile-tab-font-weight: 600;
+        --dile-tab-padding: 0.6rem 1rem 0.5rem;
+      }
+      .control-panel {
+        margin-bottom: 2rem;
+        border: 1px solid var(--dile-gray-very-light-color, #f5f5f5);
+        border-radius: 10px;
+        background-color: var(--dile-background-color, #fff);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+      }
+      .control-row {
+        padding: 1rem 1.25rem;
+      }
+      .control-row + .control-row {
+        border-top: 1px solid var(--dile-very-light-color, #f5f5f5);
+      }
+      .control-row--split {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
       .toolbar {
         display: flex;
@@ -37,10 +68,7 @@ export class DileThemeBuilder extends LitElement {
         margin-bottom: 1.5rem;
       }
       .mode-selector {
-        margin-bottom: 1rem;
-      }
-      dile-theme-mode-switch {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
       }
       .layout {
         display: grid;
@@ -70,9 +98,11 @@ export class DileThemeBuilder extends LitElement {
         gap: 1rem;
       }
       .color-block {
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
         padding: 0.1rem 1rem 0;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
       }
       .color-block h4 {
         margin: 0 0 0.05rem;
@@ -91,8 +121,9 @@ export class DileThemeBuilder extends LitElement {
         flex-direction: column;
         gap: 0.35rem;
         padding: 1rem;
-        border-radius: 6px;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       }
       .contrast {
         font-size: 0.85em;
@@ -159,17 +190,21 @@ export class DileThemeBuilder extends LitElement {
 
   render() {
     return html`
-      <dile-theme-palette-bar
-        .currentTheme="${{ light: this._lightValues, dark: this._darkValues, darkEnabled: this._darkEnabled }}"
-        @dile-theme-palette-load="${this._onPaletteLoad}"
-      ></dile-theme-palette-bar>
-      <dile-theme-mode-switch
-        name="dark-theme-enabled"
-        ?checked="${this._darkEnabled}"
-        @element-changed="${this._onDarkToggle}"
-      ></dile-theme-mode-switch>
-      <div class="toolbar">
-        <dile-button @click="${this._download}">Download theme.css</dile-button>
+      <div class="control-panel">
+        <div class="control-row">
+          <dile-theme-palette-bar
+            .currentTheme="${{ light: this._lightValues, dark: this._darkValues, darkEnabled: this._darkEnabled }}"
+            @dile-theme-palette-load="${this._onPaletteLoad}"
+          ></dile-theme-palette-bar>
+        </div>
+        <div class="control-row control-row--split">
+          <dile-theme-mode-switch
+            name="dark-theme-enabled"
+            ?checked="${this._darkEnabled}"
+            @element-changed="${this._onDarkToggle}"
+          ></dile-theme-mode-switch>
+          <dile-button @click="${this._download}">Download theme.css</dile-button>
+        </div>
       </div>
       ${this._darkEnabled ? this._renderModeSwitcher() : this._renderThemeLayout(this._lightValues, 'light')}
     `;
