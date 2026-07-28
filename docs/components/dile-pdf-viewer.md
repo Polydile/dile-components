@@ -5,7 +5,9 @@ tags: utils, pdf
 
 # dile-pdf-viewer
 
-Web component for viewing PDF documents with zoom controls, page navigation, and download functionality. Built with PDF.js, it provides an accessible and responsive PDF viewing experience.
+Lightweight PDF viewer developed under the Web Components standard and compatible with all frontend stacks.
+
+Custom Element for viewing PDF documents with zoom controls, page navigation, and download functionality. Built with PDF.js, it provides an accessible and responsive PDF viewing experience.
 
 ## Installation
 
