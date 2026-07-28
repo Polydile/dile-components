@@ -1,8 +1,10 @@
 import { LitElement, html, css } from 'lit';
+import { contentCopyIcon } from '@dile/icons';
+import '@dile/ui/components/floating-feedback/floating-feedback.js';
 import './theme-mode-switch.js';
 import './theme-palette-bar.js';
 import './theme-components-preview.js';
-import { variableGroups, previewPairs, mainColorBlocks, variationColorBlocks, getVariableMeta, getDefaultValues } from './theme-variables.js';
+import { variableGroups, previewPairs, mainColorBlocks, variationColorBlocks, getVariableMeta, getDefaultValues, calculateVariations } from './theme-variables.js';
 
 const colorBlocksByGroup = {
   main: mainColorBlocks,
@@ -28,7 +30,7 @@ export class DileThemeBuilder extends LitElement {
         display: block;
         --dile-nav-column-gap: 1rem;
         --dile-nav-padding-x: 1rem;
-        --dile-input-label-font-size: 0.875rem;
+        --dile-input-label-font-size: 0.8rem;
         --dile-input-label-margin-bottom: 2px;
         --dile-tab-background-color: transparent;
         --dile-tab-text-color: #767676;
@@ -41,6 +43,7 @@ export class DileThemeBuilder extends LitElement {
         --dile-tab-font-weight: 600;
         --dile-tab-padding: 0.6rem 1rem 0.5rem;
       }
+      dile-color-picker {margin-bottom: 0.2rem;}
       .control-panel {
         margin-bottom: 2rem;
         border: 1px solid var(--dile-gray-very-light-color, #f5f5f5);
@@ -77,7 +80,7 @@ export class DileThemeBuilder extends LitElement {
         gap: 2rem;
         align-items: start;
       }
-      @media (max-width: 900px) {
+      @media (max-width: 750px) {
         .layout {
           grid-template-columns: 1fr;
         }
@@ -88,6 +91,16 @@ export class DileThemeBuilder extends LitElement {
       .group {
         margin-bottom: 1.5rem;
       }
+      .group-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .group-header h3 {
+        margin-bottom: 0;
+      }
       .fields {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -96,12 +109,12 @@ export class DileThemeBuilder extends LitElement {
       .color-blocks {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
       }
       .color-block {
         border: 1px solid rgba(0, 0, 0, 0.08);
         border-radius: 8px;
-        padding: 0.1rem 1rem 0;
+        padding: 0.2rem 0.5rem 0.2rem;
         background-color: #fff;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
       }
@@ -112,26 +125,51 @@ export class DileThemeBuilder extends LitElement {
       .color-block-fields {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem 1rem;
+        gap: 0.15rem 1rem;
       }
       .swatch-section {
         margin-bottom: 1.5rem;
       }
       .swatch {
+        position: relative;
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
-        padding: 1rem;
+        gap: 0.15rem;
+        padding: 0.35rem 0.65rem;
         border-radius: 8px;
         border: 1px solid rgba(0, 0, 0, 0.08);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .swatch.copyable {
+        cursor: pointer;
+        transition: box-shadow 0.15s ease;
+      }
+      .swatch.copyable:hover {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      }
+      .swatch.copyable:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+      }
+      .swatch-copy-icon {
+        position: absolute;
+        bottom: 0.3rem;
+        right: 0.3rem;
+        display: flex;
+        opacity: 0.55;
+      }
+      .swatch-copy-icon svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+        fill: currentColor;
       }
       .contrast {
         font-size: 0.85em;
         opacity: 0.85;
       }
       .variations .swatch {
-        padding: 0.5rem;
+        padding: 0.3rem;
         font-size: 0.85em;
       }
       .background-swatch {
@@ -223,7 +261,7 @@ export class DileThemeBuilder extends LitElement {
         </div>
         <div class="layout">
           <section class="editor">
-            ${variableGroups.map(group => this._renderGroup(group, values))}
+            ${variableGroups.map(group => this._renderGroup(group, values, mode))}
           </section>
           <section class="preview">
             <dile-tabs attrForSelected="name" selectorId="theme-builder-preview-${mode}" selected="palette">
@@ -245,11 +283,16 @@ export class DileThemeBuilder extends LitElement {
     `;
   }
 
-  _renderGroup(group, values) {
+  _renderGroup(group, values, mode) {
     const blocks = colorBlocksByGroup[group.id];
     return html`
       <div class="group">
-        <h3>${group.title}</h3>
+        <div class="group-header">
+          <h3>${group.title}</h3>
+          ${group.id === 'variations' ? html`
+            <dile-button style="margin-bottom: 0.5rem;" @click="${() => this._autoCalculateVariations(mode)}">Calculate automatically</dile-button>
+          ` : ''}
+        </div>
         ${blocks ? this._renderColorBlocks(blocks, values) : this._renderFields(group.variables, values)}
       </div>
     `;
@@ -329,19 +372,34 @@ export class DileThemeBuilder extends LitElement {
         label: 'Primary',
         baseBg: '--dile-primary-color',
         baseText: '--dile-on-primary-color',
-        pairs: [findPair('--dile-primary-light-color'), findPair('--dile-primary-dark-color')],
+        pairs: [
+          findPair('--dile-primary-light-color'),
+          findPair('--dile-primary-lighter-color'),
+          findPair('--dile-primary-dark-color'),
+          findPair('--dile-primary-darker-color'),
+        ],
       },
       {
         label: 'Secondary',
         baseBg: '--dile-secondary-color',
         baseText: '--dile-on-secondary-color',
-        pairs: [findPair('--dile-secondary-light-color'), findPair('--dile-secondary-dark-color')],
+        pairs: [
+          findPair('--dile-secondary-light-color'),
+          findPair('--dile-secondary-lighter-color'),
+          findPair('--dile-secondary-dark-color'),
+          findPair('--dile-secondary-darker-color'),
+        ],
       },
       {
         label: 'Terciary',
         baseBg: '--dile-terciary-color',
         baseText: '--dile-on-terciary-color',
-        pairs: [findPair('--dile-terciary-light-color'), findPair('--dile-terciary-dark-color')],
+        pairs: [
+          findPair('--dile-terciary-light-color'),
+          findPair('--dile-terciary-lighter-color'),
+          findPair('--dile-terciary-dark-color'),
+          findPair('--dile-terciary-darker-color'),
+        ],
       },
     ];
     const grayDarkPair = findPair('--dile-gray-dark-color');
@@ -379,12 +437,41 @@ export class DileThemeBuilder extends LitElement {
     const text = values[pair.text];
     const ratio = contrastRatio(bg, text);
     return html`
-      <div class="swatch ${compact ? 'compact' : ''}" style="background-color: ${bg}; color: ${text}">
+      <div
+        class="swatch copyable ${compact ? 'compact' : ''}"
+        style="background-color: ${bg}; color: ${text}"
+        role="button"
+        tabindex="0"
+        title="Click to copy ${bg}"
+        @click="${(e) => this._copySwatchColor(e.currentTarget, bg)}"
+        @keydown="${(e) => this._onSwatchKeydown(e, bg)}"
+      >
         <strong>${pair.label}</strong>
         ${hideSample ? '' : html`<span>Sample text.</span>`}
         <span class="contrast">Contrast ${ratio.toFixed(2)}:1 (${describeContrast(ratio)})</span>
+        <dile-floating-feedback class="swatch-copy-icon" feedback="Copied ${bg}">
+          ${contentCopyIcon}
+        </dile-floating-feedback>
       </div>
     `;
+  }
+
+  async _copySwatchColor(swatchElement, color) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(color);
+      }
+      swatchElement.querySelector('dile-floating-feedback')?.show();
+    } catch (error) {
+      console.error('Failed to copy color:', error);
+    }
+  }
+
+  _onSwatchKeydown(e, color) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this._copySwatchColor(e.currentTarget, color);
+    }
   }
 
   _onColorChange(e, mode) {
@@ -409,6 +496,17 @@ export class DileThemeBuilder extends LitElement {
       this._darkValues = getDefaultValues('dark');
     } else {
       this._lightValues = getDefaultValues('light');
+    }
+    this._persist();
+  }
+
+  _autoCalculateVariations(mode) {
+    const values = mode === 'dark' ? this._darkValues : this._lightValues;
+    const updates = calculateVariations(values, mode);
+    if (mode === 'dark') {
+      this._darkValues = { ...this._darkValues, ...updates };
+    } else {
+      this._lightValues = { ...this._lightValues, ...updates };
     }
     this._persist();
   }
