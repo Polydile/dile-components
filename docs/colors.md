@@ -9,6 +9,8 @@ On this page you will find the CSS Custom Properties used to create the color th
 
 You can overwrite any of these CSS Custom Properties in your own CSS style declarations to customize the theme of the components on your websites and applications.
 
+If you'd rather pick your colors visually and preview them live on real components, try the [Theme Builder](/theme-builder/) tool.
+
 ## Main colors
 
 These are the main color custom properties of the default theme for the Dile components.
@@ -27,10 +29,12 @@ Custom property | Default | Color
 --dile-on-neutral-color | #303030 | [[color:#303030]]
 --dile-alert-error-color | #cf3535 | [[color:#cf3535]]
 --dile-alert-success-color | #00900f | [[color:#00900f]]
+--dile-alert-warning-color | #d7b740 | [[color:#d7b740]]
 --dile-alert-neutral-color | #2889a7 | [[color:#2889a7]]
 --dile-on-alert-color | #ffffff | [[color:#ffffff]]
---dile-danger-color | #e31e1b | [[color:#e31e1b]]
+--dile-danger-color | #e34a1b | [[color:#e34a1b]]
 --dile-on-danger-color | #ffffff | [[color:#ffffff]]
+--dile-link-color | #3399ff | [[color:#3399ff]]
 --dile-gray-very-light-color | #f5f5f5 | [[color:#f5f5f5]]
 --dile-on-gray-very-light-color | #303030 | [[color:#303030]]
 
@@ -40,11 +44,11 @@ Sometimes we may use color variations on the components.
 
 Custom property | Default | Color
 ----------------|-------------|---------
---dile-primary-light-color | #fbfbe9 | [[color:#fbfbe9]]
+--dile-primary-light-color | #fafadf | [[color:#fafadf]]
 --dile-on-primary-light-color | #303030 | [[color:#303030]]
 --dile-primary-dark-color | #d7d353 | [[color:#d7d353]]
 --dile-on-primary-dark-color | #303030 | [[color:#303030]]
---dile-secondary-light-color | #d2f6ae | [[color:#beed8e]]
+--dile-secondary-light-color | #beed8e | [[color:#beed8e]]
 --dile-on-secondary-light-color | #303030 | [[color:#303030]]
 --dile-secondary-dark-color | #43842e | [[color:#43842e]]
 --dile-on-secondary-dark-color | #ffffff | [[color:#ffffff]]

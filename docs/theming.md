@@ -9,6 +9,11 @@ All components in the Dile Components catalog are designed to allow design custo
 
 Additionally, whenever possible, we strive to keep the CSS properties consistent, meaning that many components use the same variables for the same design attributes. This makes it easier to customize the theme globally, with these changes affecting most of the components.
 
+**Related pages:**
+
+- [Colors](/colors/): the full list of CSS Custom Properties used for the color theme.
+- [Theme Builder](/theme-builder/): pick your colors visually, preview them live, and download the resulting CSS.
+
 ## How to Create a Design Theme
 
 The most common way to create a design theme is by defining styles on the root element, which is typically done using the `:root` selector.
