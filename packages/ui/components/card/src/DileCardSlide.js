@@ -46,6 +46,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
           transform: rotate(-90deg);
           transition: transform 0.5s ease;
           --dile-icon-color: var(--dile-card-slide-icon-color, var(--dile-primary-color, #303030));
+          --dile-icon-size: var(--dile-card-slide-icon-size, 32px);
         }
         .opened dile-icon {
           transform: rotate(0deg);
