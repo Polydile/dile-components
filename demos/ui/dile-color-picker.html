@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-color-picker component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/color-picker/color-picker.js";
+  </script>
+  <style>
+    .styled {
+      --dile-input-label-color: #6d3d6c;
+      --dile-input-label-font-weight: bold;
+      --dile-color-picker-swatch-border-radius: 50%;
+      --dile-color-picker-swatch-size: 2.5em;
+      --dile-color-picker-panel-border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-color-picker component</h1>
+
+    <h2>Default</h2>
+    <p>
+      <dile-color-picker name="color" label="Favorite color" value="#3366ff"></dile-color-picker>
+    </p>
+
+    <h2>Focus on start</h2>
+    <p>
+      <dile-color-picker name="color" label="Focus!" value="#7bb93d" focusOnStart></dile-color-picker>
+    </p>
+
+    <h2>Read only</h2>
+    <p>
+      <dile-color-picker name="color" readonly value="#7bb93d" label="Read Only"></dile-color-picker>
+    </p>
+
+    <h2>Disabled</h2>
+    <p>
+      <dile-color-picker name="color" disabled value="#888888" label="Disabled"></dile-color-picker>
+    </p>
+
+    <h2>Errored with message</h2>
+    <p>
+      <dile-color-picker name="color" errored value="#ff0000" label="Favorite color" message="Please choose a different color"></dile-color-picker>
+    </p>
+
+    <h2>Inside a form</h2>
+    <form id="colorForm">
+      <p>
+        <dile-color-picker name="color" label="Brand color" value="#7bb93d"></dile-color-picker>
+      </p>
+      <button type="submit">Save</button>
+    </form>
+    <script>
+      document.getElementById('colorForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        alert('Submitted color: ' + data.get('color'));
+      });
+    </script>
+
+    <h2>Styled</h2>
+    <p>
+      <dile-color-picker class="styled" name="color" label="Styled" value="#c2185b"></dile-color-picker>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

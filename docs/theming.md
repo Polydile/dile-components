@@ -40,6 +40,8 @@ The most common theme adaptations are color-related. That’s why most of the sh
 You can view the complete set of the CSS Custom Properties to define the color theme in the `colors.css` file located in the UI package at:
 [@dile/ui/styles/colors.css](https://github.com/Polydile/dile-components/blob/master/packages/ui/styles/colors.css)
 
+If you'd rather pick your colors visually and preview them live, try the [Theme Builder](/theme-builder/) tool.
+
 ## Defining a Light and Dark Theme
 
 You can use the `dile-light-mode-switch` component to toggle the design theme between light and dark modes.
