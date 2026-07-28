@@ -55,11 +55,28 @@ Custom property | Description | Default
 --dile-slide-menu-color | Label text color | #303030
 --dile-slide-menu-font-weight | Label font weight | bold
 --dile-slide-menu-text-decoration | Label text decoration | none
---dile-slide-menu-control-margin | Margin to the controler label | 0 0 0 0.25rem
+--dile-slide-menu-control-margin | Margin to the controler label | 0 0 0.25rem 0
 --dile-slide-menu-closed-transform | Transformation to the icon on closed state | rotate(-90deg)
 --dile-slide-menu-opened-transform | Transformation to the icon on opened state | rotate(0deg)
 --dile-slide-menu-icon-margin | Icon Margin | 0 0.25rem 0 0
 --dile-slide-menu-icon-color | Icon color | --dile-primary-color or #303030
+
+## Accessibility
+
+This component is built with accessibility (WCAG 2.1 AA) as a core requirement:
+
+- **Keyboard Navigation**: Fully operable with keyboard. Use Tab to focus the control, then Enter or Space to toggle. When the menu is closed, focus cannot enter the content (inert state).
+- **Screen Reader Support**: 
+  - The control announces itself as a button with clear name and state
+  - `aria-expanded` attribute dynamically updates to communicate open/closed state
+  - `aria-controls` associates the control with the content it manages
+  - Decorative icon is hidden from assistive tech with `aria-hidden="true"`
+  - Content is hidden from screen readers when the menu is closed
+- **Visual Focus Indicator**: A clear 2px outline appears around the control when navigated with keyboard
+- **Motion Preferences**: Respects `prefers-reduced-motion` system setting; animations are disabled for users who prefer reduced motion
+- **Content Management**: When closed, the menu content becomes `inert`, preventing tab navigation and interaction inside
+
+No polyfills required for modern browsers (Chrome 102+, Firefox 112+, Safari 15.1+).
 
 ## dile-slide-menu demos
 

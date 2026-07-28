@@ -48,6 +48,15 @@ export class DileSlideMenu extends DileSlideDown(LitElement) {
         text-decoration: var(--dile-slide-menu-text-decoration, none);
         --dile-icon-color: var(--dile-primary-color, #303030);
         margin: var(--dile-slide-menu-control-margin, 0 0 0.25rem 0);
+        border-radius: 4px;
+        padding: 4px;
+        outline: none;
+      }
+
+      nav:focus-visible {
+        outline: 2px solid var(--dile-primary-color, #303030);
+        outline-offset: 2px;
+        background-color: rgba(var(--dile-primary-color, 48, 48, 48), 0.05);
       }
 
       nav dile-icon {
@@ -62,6 +71,16 @@ export class DileSlideMenu extends DileSlideDown(LitElement) {
 
       nav.opened dile-icon {
         transform: var(--dile-slide-menu-opened-transform, rotate(0deg));
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #content {
+          transition: none;
+          -webkit-transition: none;
+        }
+        dile-icon {
+          transition: none;
+        }
       }
     `;
   }
@@ -82,18 +101,34 @@ export class DileSlideMenu extends DileSlideDown(LitElement) {
 
   render() {
     return html`
-    <nav @click="${this.toggle}" class="${this.opened ? 'opened' : ''}">
-      <dile-icon .icon=${this.icon}></dile-icon>
-      <span>
+    <nav 
+      @click="${this.toggle}"
+      @keydown="${this.handleKeydown}"
+      tabindex="0"
+      role="button"
+      aria-expanded="${this.opened}"
+      aria-controls="slide-menu-content"
+      aria-label="${this.label}"
+      class="${this.opened ? 'opened' : ''}"
+    >
+      <dile-icon .icon=${this.icon} aria-hidden="true"></dile-icon>
+      <span aria-hidden="true">
         ${this.label}
       </span>
     </nav>
-    <div id="content">
+    <div id="content" id="slide-menu-content" aria-hidden="${!this.opened}" ?inert="${!this.opened}">
       <div class="container">
         <slot></slot>
       </div>
     </div> 
     `;
+  }
+
+  handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.toggle();
+    }
   }
   
   toggle() {
