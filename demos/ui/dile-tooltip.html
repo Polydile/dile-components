@@ -14,6 +14,12 @@
     .custom{
       --dile-tooltip-color:white;
     }
+    .containertooltip{
+      border: 1px solid #999;
+      background-color: #ddd;
+      padding: 1rem;
+      overflow: hidden;
+    }
   </style>
 
 </head>
@@ -55,6 +61,10 @@
     <p style="text-align:center;">
       <dile-tooltip arrow fadeIn position="right"> Hello! </dile-tooltip>
     </p>
+
+    <div class="containertooltip">
+      <dile-tooltip arrow fadeIn position="top"> Hello! </dile-tooltip>
+    </div>
     
     <footer><a href="../index.html">Back</a></footer>
   </div>

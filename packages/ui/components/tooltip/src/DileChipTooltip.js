@@ -53,12 +53,18 @@ export class DileChipTooltip  extends LitElement {
         label: { type: String },
         message: { type: String },
         position: { type: String },
+        icon: { type: Object },
+        arrow: { type: Boolean },
+        fadeIn: { type: Boolean },
     };
   }
 
   constructor() {
     super();
     this.position = "bottom";
+    this.icon = infoIcon;
+    this.arrow = false;
+    this.fadeIn = true;
   }
 
   render() {
@@ -67,15 +73,15 @@ export class DileChipTooltip  extends LitElement {
       <dile-tooltip 
           tooltip="${this.message}"
           position="${this.position}"
-          fadeIn
-          
+          ?arrow=${this.arrow}
+          ?fadeIn=${this.fadeIn}
       >
-        <span class="chip">
+        <span class="chip" role="button">
           ${this.label
             ? html`<span class="label">${this.label}</span>`
             : ''
           }
-          <dile-icon .icon=${infoIcon} class="info"></dile-icon>
+          <dile-icon .icon=${this.icon} class="info"></dile-icon>
         </span>
       </dile-tooltip>
     </div>
