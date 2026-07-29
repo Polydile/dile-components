@@ -72,6 +72,7 @@ Custom property | Description | Default
 --dile-tooltip-padding | The padding of the tooltip text | 5px
 --dile-tooltip-time-transition | The time of transition of the animation if fadeIn is true | 0.5s
 --dile-tooltip-font-size | The font size of the tooltip | 16px
+--dile-tooltip-font-weight | The font weight of the tooltip | normal
 --dile-tooltip-text-align | Text align for the tooltip | center
 --dile-tooltip-focus-outline-width | Focus indicator outline width | 2px
 --dile-tooltip-focus-outline-color | Focus indicator outline color | #12c9e9

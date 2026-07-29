@@ -21,6 +21,7 @@ export class DileTooltip extends LitElement {
         background-color: var(--dile-tooltip-background-color, var(--dile-primary-color, #e74c3c));
         color: var(--dile-tooltip-color, var(--dile-on-primary-color, #fff));
         font-size: var(--dile-tooltip-font-size, 16px);
+        font-weight: var(--dile-tooltip-font-weight, normal);
         text-align: var(--dile-tooltip-text-align, center);
         border-radius: var(--dile-tooltip-border-radius, 6px);;
         padding: var(--dile-tooltip-padding, 5px);
