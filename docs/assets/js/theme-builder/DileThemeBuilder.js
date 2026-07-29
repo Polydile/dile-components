@@ -363,8 +363,7 @@ export class DileThemeBuilder extends LitElement {
   }
 
   _renderVariationsPreview(values) {
-    const variationPairs = previewPairs.filter(pair => pair.group === 'variations');
-    const findPair = bg => variationPairs.find(pair => pair.bg === bg);
+    const findPair = bg => previewPairs.find(pair => pair.bg === bg);
     const backgroundPair = previewPairs.find(pair => pair.bg === '--dile-background-color');
 
     const sections = [
@@ -401,8 +400,16 @@ export class DileThemeBuilder extends LitElement {
           findPair('--dile-terciary-darker-color'),
         ],
       },
+      {
+        label: 'Neutral',
+        baseBg: '--dile-neutral-color',
+        baseText: '--dile-on-neutral-color',
+        pairs: [
+          findPair('--dile-gray-very-light-color'),
+          findPair('--dile-gray-dark-color'),
+        ],
+      },
     ];
-    const grayDarkPair = findPair('--dile-gray-dark-color');
 
     return html`
       <div class="swatch-section variations">
@@ -424,9 +431,6 @@ export class DileThemeBuilder extends LitElement {
               </div>
             </div>
           `)}
-          <div class="compact-grid">
-            ${this._renderColorSwatch(grayDarkPair, values, { hideSample: true })}
-          </div>
         </div>
       </div>
     `;

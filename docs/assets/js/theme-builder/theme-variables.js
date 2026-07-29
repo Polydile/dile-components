@@ -192,6 +192,78 @@ export const variationColorBlocks = [
   { label: 'Gray dark', variables: ['--dile-gray-dark-color', '--dile-on-gray-dark-color'] },
 ];
 
+// Order used when generating the downloadable theme.css file. This is
+// independent from variableGroups (which drives the editor's field layout):
+// here each color and all its light/dark variations are kept together.
+export const cssExportGroups = [
+  {
+    title: 'Background',
+    variables: ['--dile-background-color', '--dile-on-background-color', '--dile-link-color'],
+  },
+  {
+    title: 'Primary',
+    variables: [
+      '--dile-primary-color',
+      '--dile-on-primary-color',
+      '--dile-primary-light-color',
+      '--dile-primary-lighter-color',
+      '--dile-on-primary-light-color',
+      '--dile-primary-dark-color',
+      '--dile-primary-darker-color',
+      '--dile-on-primary-dark-color',
+    ],
+  },
+  {
+    title: 'Secondary',
+    variables: [
+      '--dile-secondary-color',
+      '--dile-on-secondary-color',
+      '--dile-secondary-light-color',
+      '--dile-secondary-lighter-color',
+      '--dile-on-secondary-light-color',
+      '--dile-secondary-dark-color',
+      '--dile-secondary-darker-color',
+      '--dile-on-secondary-dark-color',
+    ],
+  },
+  {
+    title: 'Terciary',
+    variables: [
+      '--dile-terciary-color',
+      '--dile-on-terciary-color',
+      '--dile-terciary-light-color',
+      '--dile-terciary-lighter-color',
+      '--dile-on-terciary-light-color',
+      '--dile-terciary-dark-color',
+      '--dile-terciary-darker-color',
+      '--dile-on-terciary-dark-color',
+    ],
+  },
+  {
+    title: 'Neutral and grays',
+    variables: [
+      '--dile-neutral-color',
+      '--dile-on-neutral-color',
+      '--dile-gray-very-light-color',
+      '--dile-on-gray-very-light-color',
+      '--dile-gray-dark-color',
+      '--dile-on-gray-dark-color',
+    ],
+  },
+  {
+    title: 'Alerts',
+    variables: [
+      '--dile-alert-error-color',
+      '--dile-alert-success-color',
+      '--dile-alert-warning-color',
+      '--dile-alert-neutral-color',
+      '--dile-on-alert-color',
+      '--dile-danger-color',
+      '--dile-on-danger-color',
+    ],
+  },
+];
+
 export function getVariableMeta(name) {
   for (const group of variableGroups) {
     const found = group.variables.find(variable => variable.name === name);
