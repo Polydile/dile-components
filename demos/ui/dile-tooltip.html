@@ -20,6 +20,13 @@
       padding: 1rem;
       overflow: hidden;
     }
+    .arrow-2 {
+      --dile-tooltip-background-color: #2ecc71;
+    } 
+
+    .arrow-3 {
+      --dile-primary-color: #fe6cf1;
+    } 
   </style>
 
 </head>
@@ -29,7 +36,7 @@
     
     <h2>Regular tooltip</h2>
     <p style="text-align:center;">
-      <dile-tooltip class="custom" >Hi, I have a nice tooltip</dile-tooltip>
+      <dile-tooltip class="custom">Hi, I have a nice tooltip</dile-tooltip>
     </p>
 
     <h2>Position tooltip</h2>
@@ -51,7 +58,16 @@
       <dile-tooltip arrow>This tooltip has an arrow</dile-tooltip>
     </p>
     <p style="text-align:center;">
-    <dile-tooltip arrow position="right">Right position and arrow</dile-tooltip>
+      <dile-tooltip arrow  class="arrow-2">This tooltip has an styled arrow</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+    <dile-tooltip arrow position="right" class="arrow-2">Right position and arrow</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+    <dile-tooltip arrow position="bottom" class="arrow-3">Bottom position and arrow</dile-tooltip>
+    </p>
+    <p style="text-align:center;">
+    <dile-tooltip arrow position="left" class="arrow-3">Left position and arrow</dile-tooltip>
     </p>
     
     <h2>Fadein tooltip</h2>

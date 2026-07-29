@@ -42,7 +42,7 @@ export class DileTooltip extends LitElement {
         transform: translateX(-50%);
         border-width: 5px;
         border-style: solid;
-        border-color: var(--dile-tooltip-background-color, #e74c3c) transparent transparent transparent;
+        border-color: var(--dile-tooltip-background-color, var(--dile-primary-color, #e74c3c)) transparent transparent transparent;
       }
 
       .arrow-left::after {
@@ -53,7 +53,7 @@ export class DileTooltip extends LitElement {
         transform: translateY(-50%);
         border-width: 5px;
         border-style: solid;
-        border-color: transparent transparent transparent var(--dile-tooltip-background-color, #e74c3c);
+        border-color: transparent transparent transparent var(--dile-tooltip-background-color, var(--dile-primary-color, #e74c3c));
       }
 
       .arrow-right::after {
@@ -64,7 +64,7 @@ export class DileTooltip extends LitElement {
         transform: translateY(-50%);
         border-width: 5px;
         border-style: solid;
-        border-color: transparent var(--dile-tooltip-background-color, #e74c3c) transparent transparent;
+        border-color: transparent var(--dile-tooltip-background-color, var(--dile-primary-color, #e74c3c)) transparent transparent;
       }
 
       .arrow-bottom::after {
