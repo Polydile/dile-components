@@ -17,7 +17,7 @@ It displays a message in an overlay when the user hovers over an element. You ca
 npm install @dile/ui
 ```
 
-> In this package you also will find [dile-chip-tooltip](/components/dile-chip-tooltip/) component.
+> In dile-components you'll also find the [dile-chip-tooltip](/components/dile-chip-tooltip/) component, which provides a configurable chip interface with an icon that includes a tooltip. It's a quick and convenient way to implement both the tooltip and trigger in a single component.
 
 ## Usage
 
