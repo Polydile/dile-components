@@ -339,7 +339,7 @@ export class DileThemeBuilder extends LitElement {
   _renderMainPreview(values) {
     const highlightedBgs = ['--dile-primary-color', '--dile-secondary-color', '--dile-terciary-color', '--dile-neutral-color'];
     const backgroundPair = previewPairs.find(pair => pair.bg === '--dile-background-color');
-    const otherPairs = previewPairs.filter(pair => pair.group === 'main' && pair.bg !== '--dile-background-color');
+    const otherPairs = previewPairs.filter(pair => pair.group === 'main' && pair.bg !== '--dile-background-color' && pair.bg !== '--dile-gray-very-light-color');
     const highlightedPairs = otherPairs.filter(pair => highlightedBgs.includes(pair.bg));
     const compactPairs = otherPairs.filter(pair => !highlightedBgs.includes(pair.bg));
     return html`
