@@ -11,30 +11,49 @@ export class DileSelect extends DileEmmitChange(LitElement) {
       :host {
         display: block;
         margin-bottom: 10px;
+        --dile-select-arrow-color: #303030;
       }
       * {
         box-sizing: border-box;
+      }
+      .select-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
       }
       ::slotted(select) {
         box-sizing: border-box;
         width: var(--dile-input-width, 100%);
         padding: var(--dile-input-padding,  7px 5px);
+        padding-right: 30px;
         line-height: var(--dile-input-line-height, 1.5em);
         font-size: var(--dile-select-font-size, 0.875em);
         border-radius: var(--dile-input-border-radius, 5px);
         border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
         background-color: var(--dile-input-background-color, #fff);
         color: var(--dile-input-color, #303030);
-        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23303030%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A");
-        background-position: right 10px center;
-        background-repeat: no-repeat;
-        background-size: auto 50%;
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
       }
-      ::slotted(select.dark) {
-        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23ffffff%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A");
+      .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .arrow-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+      .arrow-icon path {
+        fill: var(--dile-select-arrow-color);
       }
       :host(:focus-within) ::slotted(select) {
         outline: var(--dile-input-focus-ring-width, 3px) solid var(--dile-input-focus-ring-color, rgba(102, 170, 255, 0.5));
@@ -75,7 +94,14 @@ export class DileSelect extends DileEmmitChange(LitElement) {
           ? html`<label for="textField">${this.label}</label>`
           : ""
         }
-        <slot name="select"></slot>
+        <div class="select-wrapper">
+          <slot name="select"></slot>
+          <div class="arrow-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 448" enable-background="new 0 0 256 448">
+              <path d="M255.9 168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2 0-7.9 1.6-11.2 4.8S0 163.8 0 168c0 4.4 1.6 8.2 4.8 11.4l112 112c3.1 3.1 6.8 4.6 11.2 4.6 4.4 0 8.2-1.5 11.4-4.6l112-112c3-3.2 4.5-7 4.5-11.4z"></path>
+            </svg>
+          </div>
+        </div>
       </div>
       ${this.message 
         ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`

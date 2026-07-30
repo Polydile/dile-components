@@ -67,6 +67,7 @@ You can customize the selector using the CSS custom properties bellow.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-select-font-size | Select element font size | 0.875em
+--dile-select-arrow-color | Arrow icon color | #303030
 --dile-input-label-font-size | Font size for the label | 1em
 --dile-input-label-color | Color for the label text | #59e
 --dile-input-label-font-weight | Label text font weight | normal
@@ -86,13 +87,20 @@ Custom property | Description | Default
 --dile-input-message-color | Message text color | #888
 --dile-input-message-error-color | Message text color on errored state | #c00
 
-When ```--dile-input-background-color``` is configured to a dark color the component has the posibility to put a "dark" class in the ```<select>``` tag to create a drop icon with suficient contrast. You need to put this clas by yourself.
+When ```--dile-input-background-color``` is configured to a dark color you can customize the arrow icon color using the `--dile-select-arrow-color` CSS custom property to ensure proper contrast:
 
 ```html
-<dile-select label="Select one option" class="styled">
-  <select slot="select" class="dark">
+<style>
+  dile-select.dark-bg {
+    --dile-input-background-color: #2a2a2a;
+    --dile-input-color: #fff;
+    --dile-select-arrow-color: #fff;
+  }
+</style>
+<dile-select label="Select one option" class="dark-bg">
+  <select slot="select">
     <option value="1">Option 1</option>
-    <option value="2" disabled>Option 2</option>
+    <option value="2">Option 2</option>
     <option value="3">Option 3</option>
   </select>
 </dile-select>
@@ -167,6 +175,42 @@ customElements.define('my-component', MyComponent);
 
 ```html:preview
 <dile-select errored message="One message..." hideErrorOnInput>
+  <select slot="select">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+</dile-select>
+```
+
+### With dark background and custom arrow color
+
+```html:preview
+<style>
+  dile-select.dark-bg {
+    --dile-input-background-color: #2a2a2a;
+    --dile-input-color: #fff;
+    --dile-select-arrow-color: #fff;
+  }
+</style>
+<dile-select label="Dark select with white arrow" class="dark-bg">
+  <select slot="select">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+</dile-select>
+```
+
+### Custom arrow color
+
+```html:preview
+<style>
+  dile-select.custom-arrow {
+    --dile-select-arrow-color: #00cc00;
+  }
+</style>
+<dile-select label="Select with custom arrow color" class="custom-arrow">
   <select slot="select">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
