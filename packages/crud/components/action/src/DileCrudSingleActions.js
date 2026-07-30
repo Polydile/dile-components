@@ -18,6 +18,7 @@ export class DileCrudSingleActions extends DileCrudActions {
           --dile-card-border: none;
           margin-bottom: 1.5rem;
           --dile-card-background-color: var(--dile-secondary-light-color, #beed8e);
+          --dile-card-text-color: var(--dile-on-secondary-light-color, #303030);
       }
       .action-list {
           display: grid;

@@ -66,7 +66,16 @@ You can customize it using CSS Custom Properties.
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-primary-dark-color | Actions bar background color | #d7d353
+--dile-box-selector-item-text-align | Text alignment for box selector items | center
+--dile-box-selector-item-font-weight | Font weight for box selector items | bold
+--dile-card-border | Border style for action card | none
+--dile-card-background-color | Background color for action card | var(--dile-secondary-light-color, #beed8e)
+--dile-card-text-color | Text color for action card | var(--dile-on-secondary-light-color, #303030)
+--dile-box-selector-item-background-color | Background color for box selector items on hover | var(--dile-primary-light-color, #fbfbe9)
+--dile-box-selector-item-color | Text color for box selector items on hover | var(--dile-on-primary-light-color, #303030)
+--dile-box-selector-item-border | Border for box selector items on hover | 4px solid var(--dile-primary-color, #f3f3ae)
 
+The [`dile-crud-detail`](/crud/crud-detail/) component, used internally to display the details of the element, has additional CSS custom properties available for customization.
 
 ## Generating Single Components with the CLI
 
