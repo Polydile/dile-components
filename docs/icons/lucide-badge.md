@@ -63,7 +63,6 @@ Use the component with an `icon` attribute and text content:
 ## Attributes
 
 - **icon** (required): String with the name of the imported Lucide icon
-- **icon-label** (optional): Accessibility label for the icon. If not provided, the icon name is used. Used for screen readers to describe the icon's purpose.
 - **variant** (optional): Style variant. Available options: `primary`, `secondary`, `success`, `warning`, `error`, `danger`, `soft`. Defaults to primary styling.
 
 > To find the specific name of each icon, visit the [Lucide Icons documentation page](https://lucide.dev/icons/) and search for the icon you want to integrate.
@@ -237,30 +236,6 @@ Custom property | Description | Default
   <dile-lucide-badge icon="circle-check" class="rounded-corners" variant="success">Rounded</dile-lucide-badge>
   <dile-lucide-badge icon="circle-check" class="bold-text" variant="success">Bold</dile-lucide-badge>
 </div>
-```
-
-## Accessibility
-
-The badge component includes built-in accessibility features:
-
-- **Icon label**: The icon wrapper includes `role="img"` with an `aria-label` for screen readers
-- **Default behavior**: By default, the aria-label uses the icon name (e.g., "circle-check")
-- **Custom labels**: Use the `icon-label` attribute to provide a more descriptive accessibility label
-
-### Examples
-
-```html
-<!-- Default: icon name used as aria-label -->
-<dile-lucide-badge icon="circle-check" variant="success">Completed</dile-lucide-badge>
-<!-- Screen reader announces: "circle-check, Completed" -->
-
-<!-- Custom icon label for better accessibility -->
-<dile-lucide-badge icon="circle-check" icon-label="Task completed successfully" variant="success">Completed</dile-lucide-badge>
-<!-- Screen reader announces: "Task completed successfully, Completed" -->
-
-<!-- Status badges with descriptive labels -->
-<dile-lucide-badge icon="circle-alert" icon-label="Warning" variant="warning">Pending Review</dile-lucide-badge>
-<dile-lucide-badge icon="circle-alert" icon-label="Error" variant="error">Failed</dile-lucide-badge>
 ```
 
 ## Import Alternatives

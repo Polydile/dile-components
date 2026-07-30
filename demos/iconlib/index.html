@@ -28,7 +28,18 @@
     import '@dile/iconlib/fontawesome-icons/regular-angry.js';
     import '@dile/iconlib/fontawesome-icons/regular-home.js';
     import '@dile/iconlib/fontawesome-icons/mobile.js';
+    import '@dile/iconlib/fontawesome-icons/circle-check.js';
+    import '@dile/iconlib/fontawesome-icons/circle-exclamation.js';
     import '@dile/iconlib/dile-fontawesome-icon.js';
+    import '@dile/iconlib/dile-fontawesome-badge.js';
+
+
+    import '@dile/iconlib/material/home.js';
+    import '@dile/iconlib/material/star.js';
+    import '@dile/iconlib/material/favorite.js';
+    import '@dile/iconlib/material/search.js';
+    import '@dile/iconlib/dile-material-icon.js';
+    import '@dile/iconlib/dile-material-badge.js';
 
   </script>
   <style>
@@ -48,6 +59,10 @@
       --dile-icon-color: brown;
       --dile-icon-size: 18px;
    }
+   dile-material-icon {
+      --dile-icon-color: teal;
+      --dile-icon-size: 48px;
+   }
   </style>
 </head>
 <body>
@@ -58,8 +73,10 @@
     <ul>
       <li><a href="./lucide-badge.html">dile-lucide-badge</a></li>
       <li><a href="./fontawesome-icon.html">dile-fontawesome-icon</a></li>
+      <li><a href="./fontawesome-badge.html">dile-fontawesome-badge</a></li>
       <li><a href="./lucide-icon.html">dile-lucide-icon</a></li>
       <li><a href="./material-icon.html">dile-material-icon</a></li>
+      <li><a href="./material-badge.html">dile-material-badge</a></li>
     </ul>
 
     <hr>
@@ -112,6 +129,40 @@
       <dile-fontawesome-icon icon="google"></dile-fontawesome-icon>
       <dile-fontawesome-icon icon="regular-home"></dile-fontawesome-icon>
       <dile-fontawesome-icon icon="mobile"></dile-fontawesome-icon>
+    </p>
+
+    <h2>Badge</h2>
+    <p>
+      <dile-fontawesome-badge icon="circle-check" variant="success">Done</dile-fontawesome-badge>
+      <dile-fontawesome-badge icon="circle-exclamation" variant="danger">Failed</dile-fontawesome-badge>
+    </p>
+
+    <h1>Material Icon Library</h1>
+
+    <h2>Icon demos</h2>
+    <p>
+      <dile-material-icon-home></dile-material-icon-home>
+      <dile-material-icon-star></dile-material-icon-star>
+      <dile-material-icon-favorite></dile-material-icon-favorite>
+      <dile-material-icon-search></dile-material-icon-search>
+    </p>
+
+    <h2>Styled demos</h2>
+    <p>
+      <dile-material-icon-home class="styled"></dile-material-icon-home>
+      <dile-material-icon-favorite class="styled2"></dile-material-icon-favorite>
+    </p>
+
+    <h2>Icon by name</h2>
+    <p>
+      <dile-material-icon icon="star"></dile-material-icon>
+      <dile-material-icon icon="search"></dile-material-icon>
+    </p>
+
+    <h2>Badge</h2>
+    <p>
+      <dile-material-badge icon="star" variant="primary">Favorite</dile-material-badge>
+      <dile-material-badge icon="favorite" variant="danger">Loved</dile-material-badge>
     </p>
 
     <footer><a href="../index.html">Back</a></footer>

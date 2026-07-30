@@ -88,17 +88,17 @@ const BLOCK_SECTIONS = [
       {
         title: 'Lucide icons',
         suffix: '',
-        documents: ['docs/icons/lucide-icons.md', 'docs/icons/lucide-icon.md']
+        documents: ['docs/icons/lucide-icons.md', 'docs/icons/lucide-icon.md', 'docs/icons/lucide-badge.md']
       },
       {
         title: 'Font Awesone icons',
         suffix: '',
-        documents: ['docs/icons/fontawesome-icons.md', 'docs/icons/fontawesome-icon.md',]
+        documents: ['docs/icons/fontawesome-icons.md', 'docs/icons/fontawesome-icon.md', 'docs/icons/fontawesome-badge.md']
       },
       {
         title: 'Material icons',
         suffix: '',
-        documents: ['docs/icons/material-icons.md', 'docs/icons/material-icon.md']
+        documents: ['docs/icons/material-icons.md', 'docs/icons/material-icon.md', 'docs/icons/material-badge.md']
       },
       {
         title: 'Material icons (legacy)',
