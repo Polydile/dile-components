@@ -14,7 +14,8 @@
     "test:components:watch": "vitest",
     "lerna": "lerna",
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js"
+    "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js",
+    "generate:lucide-icons": "node icons-generators/generate-lucide-icon-components.js"
   },
   "repository": {
     "type": "git",
