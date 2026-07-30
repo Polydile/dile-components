@@ -60,6 +60,120 @@ Use the component.
 
 - **element-changed**: This event is dispatched when the value property changes. In the detail object the event emmits the name of the element an its value.
 
+## Accessibility
+
+The `dile-select` component is designed to be fully accessible and compliant with **WCAG 2.1 Level AA** standards.
+
+### Screen Reader Support
+
+The component automatically manages accessibility attributes to ensure screen readers announce all important information:
+
+- **Label Association**: When you provide a `label` attribute, it is automatically associated with the select element using proper `<label for>` binding
+- **Error Announcements**: Error messages are linked to the select via `aria-describedby`, allowing screen readers to announce them along with form validation status
+- **Invalid State**: When `errored` property is `true`, the select element receives `aria-invalid="true"` to communicate validation errors
+- **Status Updates**: Error messages use `role="status"` and `aria-live="polite"` to announce changes dynamically
+
+### Keyboard Navigation
+
+All functionality is fully accessible via keyboard:
+
+- **Tab/Shift+Tab**: Navigate to and away from the select element
+- **Space/Enter**: Open the native select dropdown menu
+- **Arrow Keys**: Navigate through available options
+- **Focus Visible**: A clear focus indicator is always visible when the select is focused
+
+### High Contrast Mode Support
+
+The component respects system high-contrast settings and forced-colors mode:
+
+- Focus outlines remain clearly visible and do not rely on color alone
+- The arrow icon adapts to high-contrast display settings
+- All interactive states are perceivable without color dependency
+
+### Best Practices for Accessible Usage
+
+#### 1. Always Provide a Label
+
+```html
+<dile-select label="Choose a country">
+  <select slot="select" name="country">
+    <option value="">Select an option</option>
+    <option value="es">Spain</option>
+    <option value="en">United Kingdom</option>
+  </select>
+</dile-select>
+```
+
+#### 2. Display Error Messages with Context
+
+When validating, combine the `errored` and `message` properties to provide clear feedback:
+
+```html
+<dile-select 
+  label="Select a category"
+  ?errored=${this.hasError}
+  message=${this.hasError ? "Please select a valid category" : ""}
+  hideErrorOnInput
+>
+  <select slot="select" name="category">
+    <option value="">Select...</option>
+    <option value="a">Category A</option>
+    <option value="b">Category B</option>
+  </select>
+</dile-select>
+```
+
+Error messages are automatically announced by screen readers and linked to the select via `aria-describedby`.
+
+#### 3. Disable States
+
+When disabling the select, the component properly communicates the disabled state:
+
+```html
+<dile-select 
+  label="Disabled option"
+  ?disabled=${true}
+>
+  <select slot="select">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+  </select>
+</dile-select>
+```
+
+The `aria-disabled` attribute is automatically managed and the disabled state is visually distinguishable.
+
+#### 4. Provide Help Text (Optional)
+
+For complex selections, provide context before the select:
+
+```html
+<div>
+  <p id="category-help">Choose the category that best describes your request. This helps us route it to the right team.</p>
+  <dile-select 
+    label="Request Category"
+    aria-describedby="category-help"
+  >
+    <select slot="select" name="category">
+      <option value="billing">Billing</option>
+      <option value="support">Support</option>
+      <option value="other">Other</option>
+    </select>
+  </dile-select>
+</div>
+```
+
+### Accessibility Verification Checklist
+
+- ✅ Label is always associated with the select element
+- ✅ Error messages are announced by screen readers
+- ✅ All functionality works with keyboard alone
+- ✅ Focus indicator is always visible
+- ✅ Component works in high-contrast/forced-colors mode
+- ✅ Disabled state is clearly communicated
+- ✅ The component works with NVDA, JAWS, and VoiceOver
+- ✅ WCAG 2.1 Level AA conformance for form controls
+
 ## CSS custom properties
 
 You can customize the selector using the CSS custom properties bellow.
@@ -218,3 +332,136 @@ customElements.define('my-component', MyComponent);
   </select>
 </dile-select>
 ```
+
+### Accessible Form with Validation
+
+This example demonstrates accessible form patterns with error handling and keyboard navigation:
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/select/select.js';
+
+class AccessibleFormDemo extends LitElement {
+  static get properties() {
+    return {
+      country: { type: String },
+      category: { type: String },
+      countryError: { type: Boolean },
+      categoryError: { type: Boolean },
+    };
+  }
+
+  constructor() {
+    super();
+    this.country = '';
+    this.category = '';
+    this.countryError = false;
+    this.categoryError = false;
+  }
+
+  render() {
+    return html`
+      <form @submit=${this.handleSubmit}>
+        <dile-select 
+          label="Select your country"
+          value=${this.country}
+          ?errored=${this.countryError}
+          message=${this.countryError ? 'Country is required' : ''}
+          hideErrorOnInput
+          @element-changed=${this.handleCountryChange}
+        >
+          <select slot="select" name="country">
+            <option value="">-- Choose a country --</option>
+            <option value="es">Spain</option>
+            <option value="fr">France</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+        </dile-select>
+
+        <dile-select 
+          label="Select a category"
+          value=${this.category}
+          ?errored=${this.categoryError}
+          message=${this.categoryError ? 'Category is required' : ''}
+          hideErrorOnInput
+          @element-changed=${this.handleCategoryChange}
+        >
+          <select slot="select" name="category">
+            <option value="">-- Choose a category --</option>
+            <option value="billing">Billing</option>
+            <option value="support">Support</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </dile-select>
+
+        <button type="submit">Submit</button>
+      </form>
+    `;
+  }
+
+  handleCountryChange(e) {
+    this.country = e.detail.value;
+    if (this.country) {
+      this.countryError = false;
+    }
+  }
+
+  handleCategoryChange(e) {
+    this.category = e.detail.value;
+    if (this.category) {
+      this.categoryError = false;
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    
+    this.countryError = !this.country;
+    this.categoryError = !this.category;
+
+    if (!this.countryError && !this.categoryError) {
+      alert(`Form submitted:\nCountry: ${this.country}\nCategory: ${this.category}`);
+    }
+  }
+
+  static get styles() {
+    return css`
+      :host {
+        display: block;
+        max-width: 400px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #6af;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      button:focus-visible {
+        outline: 3px solid #00f;
+        outline-offset: 2px;
+      }
+      button:hover {
+        background-color: #5ae;
+      }
+    `;
+  }
+}
+customElements.define('accessible-form-demo', AccessibleFormDemo);
+</script>
+<accessible-form-demo></accessible-form-demo>
+```
+
+This example showcases:
+- Proper label association for screen readers
+- Error message announcement when validation fails
+- Keyboard navigation support
+- Auto-clearing errors when user selects a value with `hideErrorOnInput`
+- Full WCAG 2.1 AA accessibility
