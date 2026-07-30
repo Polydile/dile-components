@@ -1,10 +1,14 @@
 ---
 layout: layout.html
-title: Icons
-tags: material
+title: Icons (Legacy)
+tags: material-legacy
 ---
 
-# icons
+# icons (Legacy)
+
+> **Legacy implementation.** This page documents the original `@dile/icons` package: a small, curated set of Material icons exposed as Lit templates. It's kept for backward compatibility with components that still depend on it (like [dile-chip-tooltip](/components/dile-chip-tooltip/)).
+>
+> For new projects, use the [full Material Icons Web Components implementation](/icons/material-icons/) instead, which covers the whole Material Icons library (2000+ icons) as framework-agnostic Custom Elements, following the same pattern as [Lucide Icons](/icons/lucide-icons/) and [FontAwesome Icons](/icons/fontawesome-icons/).
 
 This package contains some useful icons and a style declaration to customize the size and the icon color.
 

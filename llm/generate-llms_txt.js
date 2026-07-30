@@ -98,7 +98,12 @@ const BLOCK_SECTIONS = [
       {
         title: 'Material icons',
         suffix: '',
-        documents: ['docs/icons/material-icons.md',]
+        documents: ['docs/icons/material-icons.md', 'docs/icons/material-icon.md']
+      },
+      {
+        title: 'Material icons (legacy)',
+        suffix: '',
+        documents: ['docs/icons/material-icons-legacy.md',]
       }
     ]
   },

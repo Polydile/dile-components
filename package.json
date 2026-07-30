@@ -15,7 +15,8 @@
     "lerna": "lerna",
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js",
-    "generate:lucide-icons": "node icons-generators/generate-lucide-icon-components.js"
+    "generate:lucide-icons": "node icons-generators/generate-lucide-icon-components.js",
+    "generate:material-icons": "node icons-generators/generate-material-icon-components.js"
   },
   "repository": {
     "type": "git",

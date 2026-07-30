@@ -32,7 +32,7 @@ Use the component.
 - **message**: Tooltip message.
 - **position**: This property sets the orientation where the tooltiptext will be displayed, we have 4 values: top, left, right, bottom. By default is bottom. if you set a position that doesn't exist the position will be top.
 - **label**: Label for the chip.
-- **icon**: Icon object from [@dile/icons](/icons/material-icons/). By default is `infoIcon`.
+- **icon**: Icon object from [@dile/icons](/icons/material-icons-legacy/). By default is `infoIcon`.
 - **arrow**: Boolean property that adds an arrow design to the tooltip. By default is false.
 - **fadeIn**: Boolean property that adds a fade in animation to the tooltip. By default is true.
 

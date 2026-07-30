@@ -58,14 +58,20 @@ import '@dile/ui/components/accordion/accordion-item.js';
   <dile-accordion-item title="Material icons">
     <div slot="accordion-item-content">
       <p>
-        <a href="https://fonts.google.com/icons">Material Icons</a> is Google's open-source icon collection featuring over 2,500 minimalist, pixel-perfect symbols designed specifically for Material Design, available as SVGs, web fonts, and framework-specific packages for seamless integration across Android, iOS, web, and Flutter applications. 
+        <a href="https://fonts.google.com/icons">Material Icons</a> is Google's open-source icon collection featuring over 2,500 minimalist, pixel-perfect symbols designed specifically for Material Design, available as SVGs, web fonts, and framework-specific packages for seamless integration across Android, iOS, web, and Flutter applications.
       </p>
       <p>
-        Dile Components provides a <a href="./material-icons/">partial implementation of Material Icons</a> as native Web Components, featuring a curated selection of the most commonly used icons optimized for Material Design principles. This implementation leverages Lit templates to deliver customizable icons using CSS Custom Properties.
+        Here you will find an <a href="/icons/material-icons/">implementation of Material Icons as native Web Components</a>, covering the whole "filled" Material Icons style (2000+ icons) as framework-agnostic Custom Elements, following the same pattern as the Lucide and FontAwesome implementations above.
       </p>
       <div class="flex-items-center icons-on-background gap-3 mb-2">
-          <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-icons/">Material icons on web components implementation</a>
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-icons/">Material icons web components</a>
       </div>
+      <div class="flex-items-center icons-on-background gap-3 mb-2">
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-icon/">Generic Material icon</a>
+      </div>
+      <p>
+        Dile Components previously offered a <a href="/icons/material-icons-legacy/">partial implementation of Material Icons</a>, featuring a curated selection of icons built with Lit templates. This <strong>legacy</strong> implementation is kept for backward compatibility with existing components, but new projects should use the Web Components implementation above.
+      </p>
     </div>
   </dile-accordion-item>
 </dile-accordion>
