@@ -27,5 +27,6 @@
     "@lit-labs/router": "^0.1.4",
     "@reduxjs/toolkit": "^2.5.1",
     "lit": "^2.7.0 || ^3.0.0"
-  }
+  },
+  "gitHead": "8a8d595933229b12066f2dac5aa165b7a904a341"
 }
