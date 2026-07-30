@@ -11,7 +11,6 @@ export class DileSelect extends DileEmmitChange(LitElement) {
       :host {
         display: block;
         margin-bottom: 10px;
-        --dile-select-arrow-color: #303030;
       }
       * {
         box-sizing: border-box;
@@ -53,7 +52,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
         height: 100%;
       }
       .arrow-icon path {
-        fill: var(--dile-select-arrow-color);
+        fill: var(--dile-select-arrow-color, #303030);
       }
       :host(:focus-within) ::slotted(select) {
         outline: var(--dile-input-focus-ring-width, 3px) solid var(--dile-input-focus-ring-color, rgba(102, 170, 255, 0.5));
