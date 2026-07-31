@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-selector-overlay component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/selector/selector-overlay.js";
+    import "@dile/ui/components/selector/selector-item.js";
+    import "@dile/iconlib/lucide-icons/settings.js";
+  </script>
+  <style>
+    p {
+      margin: 10px;
+    }
+    .right {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-selector-overlay component</h1>
+
+    <h2>Icon only trigger (no label)</h2>
+    <dile-selector-overlay id="selector1" selected="1">
+      <dile-selector-item>One</dile-selector-item>
+      <dile-selector-item>Two</dile-selector-item>
+      <dile-selector-item>Three</dile-selector-item>
+      <dile-selector-item>Four</dile-selector-item>
+    </dile-selector-overlay>
+    <p id="msg1">1</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let selector1 = document.getElementById('selector1')
+        selector1.addEventListener('dile-selected-changed', function(e) {
+          document.getElementById('msg1').innerText = e.detail.selected
+        });
+      })
+    </script>
+
+    <h2>Fixed trigger label (default)</h2>
+    <dile-selector-overlay label="Menu" selected="posts" attrForSelected="name" id="selector2">
+      <dile-selector-item icon="star" name="users">Users</dile-selector-item>
+      <dile-selector-item icon="star" name="posts">Posts</dile-selector-item>
+      <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
+      <dile-selector-item icon="star" name="faq">FAQ</dile-selector-item>
+      <dile-selector-item icon="star" name="contact">Contact</dile-selector-item>
+    </dile-selector-overlay>
+
+    <h2>Trigger label follows the selection</h2>
+    <dile-selector-overlay dynamicLabel selected="posts" attrForSelected="name" id="selector2b">
+      <dile-selector-item icon="star" name="users">Users</dile-selector-item>
+      <dile-selector-item icon="star" name="posts">Posts</dile-selector-item>
+      <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
+      <dile-selector-item icon="star" name="faq">FAQ</dile-selector-item>
+      <dile-selector-item icon="star" name="contact">Contact</dile-selector-item>
+    </dile-selector-overlay>
+
+    <h2>Custom icon</h2>
+    <dile-selector-overlay icon="settings" id="selector5">
+      <dile-selector-item>One</dile-selector-item>
+      <dile-selector-item>Two</dile-selector-item>
+      <dile-selector-item>Three</dile-selector-item>
+    </dile-selector-overlay>
+
+    <h2>Overlay custom position (left / center)</h2>
+    <div class="right">
+      <dile-selector-overlay horizontalAlign="left" verticalAlign="center" id="selector3">
+        <dile-selector-item icon="arrow_forward">One</dile-selector-item>
+        <dile-selector-item icon="arrow_forward">Two</dile-selector-item>
+        <dile-selector-item icon="arrow_forward">Three</dile-selector-item>
+      </dile-selector-overlay>
+    </div>
+
+    <h2>Using hashSelection</h2>
+    <p>Connect the selector to the URL hash.</p>
+    <dile-selector-overlay hashSelection attrForSelected="name" id="selector4">
+      <dile-selector-item icon="arrow_forward" name="apple">Apple</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="lemon">Lemon</dile-selector-item>
+      <dile-selector-item icon="arrow_forward" name="orange">Orange</dile-selector-item>
+    </dile-selector-overlay>
+    <p>
+      <a href="#apple">Select Apple</a> |
+      <a href="#lemon">Select Lemon</a> |
+      <a href="#orange">Select Orange</a>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

@@ -1,2 +1,3 @@
 export { DileSelector } from './src/DileSelector.js';
 export { DileSelectorItem } from './src/DileSelectorItem.js';
+export { DileSelectorOverlay } from './src/DileSelectorOverlay.js';

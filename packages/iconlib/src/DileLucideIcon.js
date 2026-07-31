@@ -27,11 +27,8 @@ export class DileLucideIcon extends HTMLElement {
       this.icon = newValue;
       this.render();
     }
-    if (name === 'rounded' && newValue !== null) {
-      this.rounded = true;
-      this.render();
-    } else {
-      this.rounded = false;
+    if (name === 'rounded') {
+      this.rounded = newValue !== null;
       this.render();
     }
   }
