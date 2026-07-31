@@ -90,7 +90,21 @@ import '@dile/ui/components/selector/dile-selector-item.js';
 
 - **selected**: makes this option selected. This property also changes when the selected element is this item and reflects its value on the host tag.
 - **icon**: Use an icon, from one of these possible values: "navigate_next", "arrow_forward", "star", "label_important", "add"
+- **iconlibIcon**: Use any icon from the [dile-iconlib](/icons/dile-iconlib/) catalog instead of the fixed `icon` list above. See the example below for details on importing icons.
 - **href**: Optional url to create a link to that url in the selector item
+
+Set `iconlibIcon` to the compound `"family.name"` string `dile-iconlib` expects (e.g. `"material.star"`, `"lucide.house"`, `"fontawesome.microsoft"`), and import the specific icon module you use (e.g. `import '@dile/iconlib/material-icons/star.js';`). If the module for the requested icon hasn't been imported, no icon is shown and a warning is logged to the console explaining what to import; if `iconlibIcon` is left unset, no icon is shown either. This property is independent from `icon` above — use whichever fits, or neither.
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/material-icons/star.js';
+  import '@dile/iconlib/lucide-icons/house.js';
+</script>
+<dile-selector>
+  <dile-selector-item iconlibIcon="material.star" name="featured">Featured</dile-selector-item>
+  <dile-selector-item iconlibIcon="lucide.house" name="home">Home</dile-selector-item>
+</dile-selector>
+```
 
 ## CSS custom properties
 

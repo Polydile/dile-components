@@ -1,5 +1,6 @@
 import { html, css, LitElement } from "lit";
 import { DileSelectableItem } from "../../../mixins/selectable/index.js";
+import '@dile/iconlib/dile-iconlib.js';
 
 const icons = {
   "navigate_next": html`<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>`,
@@ -8,6 +9,9 @@ const icons = {
   "label_important": html`<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3.5 18.99l11 .01c.67 0 1.27-.33 1.63-.84L20.5 12l-4.37-6.16c-.36-.51-.96-.84-1.63-.84l-11 .01L8.34 12 3.5 18.99z"/></svg>`,
   "add": html`<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>`,
 }
+
+const ICONLIB_FOLDERS = { material: 'material-icons', lucide: 'lucide-icons', fontawesome: 'fontawesome-icons' };
+const warnedIcons = new Set();
 
 export class DileSelectorItem  extends DileSelectableItem(LitElement) {
 
@@ -48,6 +52,13 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
       .selected .icon svg {
         fill: var(--dile-selector-selected-icon-color, #fff);
       }
+      .icon dile-iconlib {
+        --dile-icon-color: var(--dile-selector-icon-color, var(--dile-selector-primary-color, #039be5));
+        --dile-icon-size: var(--dile-selector-icon-size, 20px);
+      }
+      .selected .icon dile-iconlib {
+        --dile-icon-color: var(--dile-selector-selected-icon-color, #fff);
+      }
       a {
         display: block;
         text-decoration: var(--dile-selector-text-decoration, none);
@@ -58,6 +69,7 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
   static get properties() {
     return {
       icon: { type: String },
+      iconlibIcon: { type: String },
       href: { type: String },
     };
   }
@@ -83,12 +95,36 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
           ? html`<div class="icon">${this.iconElement(this.icon)}</div>`
           : ''
         }
+        ${this.iconlibIcon
+          ? html`<div class="icon">${this.renderIconlibIcon(this.iconlibIcon)}</div>`
+          : ''
+        }
         <div class="line"><slot></slot></div>
       </article>
     `;
   }
   iconElement(icon) {
     return icons[icon];
+  }
+
+  renderIconlibIcon(icon) {
+    const dotIndex = icon.indexOf('.');
+    if (dotIndex === -1) {
+      return html`<dile-iconlib icon="${icon}"></dile-iconlib>`;
+    }
+    const family = icon.slice(0, dotIndex);
+    const name = icon.slice(dotIndex + 1);
+    const tagName = `dile-${family}-icon-${name}`;
+    if (customElements.get(tagName)) {
+      return html`<dile-iconlib icon="${icon}"></dile-iconlib>`;
+    }
+    if (!warnedIcons.has(icon)) {
+      warnedIcons.add(icon);
+      const folder = ICONLIB_FOLDERS[family] || family;
+      console.warn(`dile-selector-item: icon "${icon}" is not registered. Import "@dile/iconlib/${folder}/${name}.js" before using it.`);
+    }
+    customElements.whenDefined(tagName).then(() => this.requestUpdate());
+    return '';
   }
 
 }
