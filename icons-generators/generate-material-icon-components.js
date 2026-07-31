@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // Rutas de directorios
 const MATERIAL_ICONS_DIR = path.join(__dirname, '..', 'src-icons/material/src');
-const COMPONENTS_OUTPUT_DIR = path.join(__dirname, '..', 'packages', 'iconlib', 'material');
+const COMPONENTS_OUTPUT_DIR = path.join(__dirname, '..', 'packages', 'iconlib', 'material-icons');
 
 /**
  * Convierte el nombre de carpeta del icono a nombre de clase de componente

@@ -20,8 +20,8 @@ Using the tags above will render the following icons:
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/favorite.js';
-  import '@dile/iconlib/material/settings.js';
+  import '@dile/iconlib/material-icons/favorite.js';
+  import '@dile/iconlib/material-icons/settings.js';
   import '@dile/iconlib/dile-material-icon.js';
 </script>
 <dile-material-icon icon="favorite"></dile-material-icon>
@@ -40,8 +40,8 @@ Import the `dile-material-icon` component and the specific Material icons you pl
 
 ```javascript
 import '@dile/iconlib/dile-material-icon.js';
-import '@dile/iconlib/material/favorite.js';  // Import needed icons
-import '@dile/iconlib/material/settings.js';
+import '@dile/iconlib/material-icons/favorite.js';  // Import needed icons
+import '@dile/iconlib/material-icons/settings.js';
 ```
 
 Set the `icon` attribute to the icon name string:
@@ -72,8 +72,8 @@ This component inherits all styling options, CSS custom properties, and the `rou
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/home.js';
-  import '@dile/iconlib/material/star.js';
+  import '@dile/iconlib/material-icons/home.js';
+  import '@dile/iconlib/material-icons/star.js';
   import '@dile/iconlib/dile-material-icon.js';
 </script>
 <style>
@@ -96,8 +96,8 @@ This component inherits all styling options, CSS custom properties, and the `rou
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/favorite.js';
-  import '@dile/iconlib/material/settings.js';
+  import '@dile/iconlib/material-icons/favorite.js';
+  import '@dile/iconlib/material-icons/settings.js';
   import '@dile/iconlib/dile-material-icon.js';
 </script>
 <style>

@@ -21,7 +21,7 @@ Using the tags above will render the following icons:
 ```html:preview
 <script type="module">
   import '@dile/iconlib/lucide-icons/house.js';
-  import '@dile/iconlib/material/receipt.js';
+  import '@dile/iconlib/material-icons/receipt.js';
   import '@dile/iconlib/fontawesome-icons/microsoft.js';
   import '@dile/iconlib/dile-iconlib.js';
 </script>
@@ -43,7 +43,7 @@ Import the `dile-iconlib` component and the specific icon modules you plan to us
 ```javascript
 import '@dile/iconlib/dile-iconlib.js';
 import '@dile/iconlib/lucide-icons/house.js';       // Lucide icon
-import '@dile/iconlib/material/receipt.js';         // Material icon
+import '@dile/iconlib/material-icons/receipt.js';         // Material icon
 import '@dile/iconlib/fontawesome-icons/microsoft.js'; // FontAwesome icon
 ```
 
@@ -78,7 +78,7 @@ This component inherits all styling options and CSS custom properties from the u
 ```html:preview
 <script type="module">
   import '@dile/iconlib/lucide-icons/dribbble.js';
-  import '@dile/iconlib/material/star.js';
+  import '@dile/iconlib/material-icons/star.js';
   import '@dile/iconlib/fontawesome-icons/airbnb.js';
 </script>
 <style>
@@ -103,7 +103,7 @@ This component inherits all styling options and CSS custom properties from the u
 ```html:preview
 <script type="module">
   import '@dile/iconlib/lucide-icons/bird.js';
-  import '@dile/iconlib/material/favorite.js';
+  import '@dile/iconlib/material-icons/favorite.js';
 </script>
 <style>
   .regular {

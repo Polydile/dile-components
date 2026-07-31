@@ -35,7 +35,7 @@ npm install @dile/iconlib
 First, import the icon you want to use in your app or website:
 
 ```javascript
-import '@dile/iconlib/material/home.js';
+import '@dile/iconlib/material-icons/home.js';
 ```
 
 > In this case, the icon is "`home`". To find the specific name of each icon, visit the [Material Icons documentation page](https://fonts.google.com/icons) and search for the icon you want to integrate. Only the filled ("Material Icons") style is included; use the icon name as shown there, replacing spaces and underscores with dashes.
@@ -96,12 +96,12 @@ All icons accept the same attributes and CSS custom properties. Examples in acti
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/home.js';
-  import '@dile/iconlib/material/star.js';
-  import '@dile/iconlib/material/favorite.js';
-  import '@dile/iconlib/material/search.js';
-  import '@dile/iconlib/material/settings.js';
-  import '@dile/iconlib/material/notifications.js';
+  import '@dile/iconlib/material-icons/home.js';
+  import '@dile/iconlib/material-icons/star.js';
+  import '@dile/iconlib/material-icons/favorite.js';
+  import '@dile/iconlib/material-icons/search.js';
+  import '@dile/iconlib/material-icons/settings.js';
+  import '@dile/iconlib/material-icons/notifications.js';
 </script>
 <div style="display: flex; gap: 1rem;">
   <dile-material-icon-home></dile-material-icon-home>
@@ -185,7 +185,7 @@ All icons accept the same attributes and CSS custom properties. Examples in acti
 Import icons directly in JavaScript modules within your build tools or frameworks:
 
 ```javascript
-import '@dile/iconlib/material/home.js';
+import '@dile/iconlib/material-icons/home.js';
 ```
 
 ### Inline Script Import
@@ -193,7 +193,7 @@ Load icons dynamically using `<script type="module">` with inline imports:
 
 ```html
 <script type="module">
-  import '@dile/iconlib/material/home.js';
+  import '@dile/iconlib/material-icons/home.js';
 </script>
 ```
 
@@ -202,11 +202,11 @@ Use public CDNs (unpkg or jsDelivr) with inline imports:
 
 ```html
 <script type="module">
-  import 'https://unpkg.com/@dile/iconlib/material/home.js';
+  import 'https://unpkg.com/@dile/iconlib/material-icons/home.js';
 </script>
 <!-- or with jsDelivr -->
 <script type="module">
-  import 'https://cdn.jsdelivr.net/npm/@dile/iconlib/material@latest/home.js';
+  import 'https://cdn.jsdelivr.net/npm/@dile/iconlib/material-icons@latest/home.js';
 </script>
 ```
 
@@ -214,8 +214,8 @@ Use public CDNs (unpkg or jsDelivr) with inline imports:
 Load via `<script>` `src` attribute for cleaner HTML:
 
 ```html
-<script type="module" src="https://unpkg.com/@dile/iconlib/material/home.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@dile/iconlib/material@latest/home.js"></script>
+<script type="module" src="https://unpkg.com/@dile/iconlib/material-icons/home.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@dile/iconlib/material-icons@latest/home.js"></script>
 ```
 
 All methods register the Custom Element, making `<dile-material-icon-home></dile-material-icon-home>` available immediately after loading.

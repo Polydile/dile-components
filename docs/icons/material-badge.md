@@ -18,9 +18,9 @@ Using the tags above will render the following badges:
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/hourglass-empty.js';
-  import '@dile/iconlib/material/check-circle.js';
-  import '@dile/iconlib/material/error.js';
+  import '@dile/iconlib/material-icons/hourglass-empty.js';
+  import '@dile/iconlib/material-icons/check-circle.js';
+  import '@dile/iconlib/material-icons/error.js';
   import '@dile/iconlib/dile-material-icon.js';
   import '@dile/iconlib/dile-material-badge.js';
 </script>
@@ -49,8 +49,8 @@ Import the `dile-material-badge` component and the specific Material icons you n
 
 ```javascript
 import '@dile/iconlib/dile-material-badge.js';
-import '@dile/iconlib/material/hourglass-empty.js';  // Import needed icons
-import '@dile/iconlib/material/check-circle.js';
+import '@dile/iconlib/material-icons/hourglass-empty.js';  // Import needed icons
+import '@dile/iconlib/material-icons/check-circle.js';
 ```
 
 Use the component with an `icon` attribute and text content:
@@ -120,9 +120,9 @@ Custom property | Description | Default
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/home.js';
-  import '@dile/iconlib/material/star.js';
-  import '@dile/iconlib/material/person.js';
+  import '@dile/iconlib/material-icons/home.js';
+  import '@dile/iconlib/material-icons/star.js';
+  import '@dile/iconlib/material-icons/person.js';
   import '@dile/iconlib/dile-material-icon.js';
   import '@dile/iconlib/dile-material-badge.js';
 </script>
@@ -143,11 +143,11 @@ Custom property | Description | Default
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/info.js';
-  import '@dile/iconlib/material/check-circle.js';
-  import '@dile/iconlib/material/warning.js';
-  import '@dile/iconlib/material/error.js';
-  import '@dile/iconlib/material/delete.js';
+  import '@dile/iconlib/material-icons/info.js';
+  import '@dile/iconlib/material-icons/check-circle.js';
+  import '@dile/iconlib/material-icons/warning.js';
+  import '@dile/iconlib/material-icons/error.js';
+  import '@dile/iconlib/material-icons/delete.js';
   import '@dile/iconlib/dile-material-icon.js';
   import '@dile/iconlib/dile-material-badge.js';
 </script>
@@ -171,7 +171,7 @@ Custom property | Description | Default
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/schedule.js';
+  import '@dile/iconlib/material-icons/schedule.js';
   import '@dile/iconlib/dile-material-icon.js';
   import '@dile/iconlib/dile-material-badge.js';
 </script>
@@ -202,9 +202,9 @@ Custom property | Description | Default
 
 ```html:preview
 <script type="module">
-  import '@dile/iconlib/material/star.js';
-  import '@dile/iconlib/material/person.js';
-  import '@dile/iconlib/material/check-circle.js';
+  import '@dile/iconlib/material-icons/star.js';
+  import '@dile/iconlib/material-icons/person.js';
+  import '@dile/iconlib/material-icons/check-circle.js';
   import '@dile/iconlib/dile-material-icon.js';
   import '@dile/iconlib/dile-material-badge.js';
 </script>
