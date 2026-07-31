@@ -74,6 +74,8 @@ Custom property | Description | Default
 --dile-box-selector-item-background-color | Background color for box selector items on hover | var(--dile-primary-light-color, #fbfbe9)
 --dile-box-selector-item-color | Text color for box selector items on hover | var(--dile-on-primary-light-color, #303030)
 --dile-box-selector-item-border | Border for box selector items on hover | 4px solid var(--dile-primary-color, #f3f3ae)
+--dile-crud-action-color | Color for action buttons and icons | #888
+--dile-on-crud-action-color | Text/foreground color for action buttons | #fff
 
 The [`dile-crud-detail`](/crud/crud-detail/) component, used internally to display the details of the element, has additional CSS custom properties available for customization.
 

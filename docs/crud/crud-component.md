@@ -76,6 +76,8 @@ Custom property | Description | Default
 --dile-crud-insert-button-padding-y | Vertical padding for the insert button | 0.4rem
 --dile-crud-insert-button-padding-x | Horizontal padding for the insert button | 0.5rem
 --dile-crud-insert-button-font-size | Font size for the insert button | 1rem
+--dile-crud-action-color | Color for action buttons and icons | #888
+--dile-on-crud-action-color | Text/foreground color for action buttons | #fff
 
 
 ## Generating CRUD Components for Entities with the CLI
