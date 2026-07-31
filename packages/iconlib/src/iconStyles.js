@@ -1,5 +1,5 @@
-export const lucideIconStyles = new CSSStyleSheet();
-lucideIconStyles.replaceSync(`
+export const iconStyles = new CSSStyleSheet();
+iconStyles.replaceSync(`
   :host {
     display: inline-block;
     transition-duration: var(--dile-icon-transition-duration, 0.3s);

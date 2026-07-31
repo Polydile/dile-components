@@ -1,4 +1,4 @@
-import { lucideIconStyles as iconStyles } from "./lucideIconStyles.js";
+import { iconStyles } from "./iconStyles.js";
 
 export class DileBaseIcon extends HTMLElement {
   constructor() {
