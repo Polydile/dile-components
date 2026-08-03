@@ -17,7 +17,10 @@
     "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js",
     "generate:lucide-icons": "node icons-generators/generate-lucide-icon-components.js",
     "generate:material-icons": "node icons-generators/generate-material-icon-components.js",
-    "generate:fontawesome-brand-icons": "node icons-generators/generate-fontawesome-brand-icon-components.js"
+    "generate:fontawesome-brand-icons": "node icons-generators/generate-fontawesome-brand-icon-components.js",
+    "generate:fontawesome-icons": "node icons-generators/generate-fontawesome-icon-components.js",
+    "generate:fontawesome-regular-icons": "node icons-generators/generate-fontawesome-regular-icon-components.js",
+    "generate:icons": "npm run generate:lucide-icons && npm run generate:material-icons && npm run generate:fontawesome-icons && npm run generate:fontawesome-regular-icons && npm run generate:fontawesome-brand-icons"
   },
   "repository": {
     "type": "git",
