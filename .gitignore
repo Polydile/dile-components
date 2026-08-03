@@ -11,3 +11,4 @@ docs/_merged_includes/
 _site
 
 src-icons
+.env

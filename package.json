@@ -20,7 +20,12 @@
     "generate:fontawesome-brand-icons": "node icons-generators/generate-fontawesome-brand-icon-components.js",
     "generate:fontawesome-icons": "node icons-generators/generate-fontawesome-icon-components.js",
     "generate:fontawesome-regular-icons": "node icons-generators/generate-fontawesome-regular-icon-components.js",
-    "generate:icons": "npm run generate:lucide-icons && npm run generate:material-icons && npm run generate:fontawesome-icons && npm run generate:fontawesome-regular-icons && npm run generate:fontawesome-brand-icons"
+    "generate:icons": "npm run generate:lucide-icons && npm run generate:material-icons && npm run generate:fontawesome-icons && npm run generate:fontawesome-regular-icons && npm run generate:fontawesome-brand-icons",
+    "generate:icon-catalog": "node icons-catalog/generate-icon-catalog.js",
+    "apply:icon-keywords": "node icons-catalog/apply-keywords-dictionary.js",
+    "export:icon-catalog": "node icons-catalog/export-for-laravel.js",
+    "build:icon-catalog": "npm run generate:icon-catalog && npm run apply:icon-keywords && npm run export:icon-catalog",
+    "sync:icon-catalog": "node icons-catalog/sync-icons-to-laravel.js"
   },
   "repository": {
     "type": "git",
