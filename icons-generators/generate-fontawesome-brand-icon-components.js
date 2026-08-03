@@ -17,13 +17,13 @@ const COMPONENTS_OUTPUT_DIR = path.join(__dirname, '..', 'packages', 'iconlib', 
  */
 function svgFileNameToClassName(fileName) {
   const nameWithoutExtension = fileName.replace('.svg', '');
-  
+
   // Convertir a PascalCase
   const pascalCase = nameWithoutExtension
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join('');
-  
+
   return `DileIconlib${pascalCase}`;
 }
 
@@ -41,13 +41,13 @@ function svgFileNameToCustomElementName(fileName) {
  */
 function processSvgContent(svgFilePath) {
   const svgContent = fs.readFileSync(svgFilePath, 'utf8');
-  
+
   // Remover saltos de línea y espacios extra para tener una línea limpia
   const cleanedSvg = svgContent
     .replace(/\n/g, '')
     .replace(/\s+/g, ' ')
     .trim();
-  
+
   return cleanedSvg;
 }
 
@@ -72,53 +72,53 @@ customElements.define('${customElementName}', ${className});
  */
 function generateComponents() {
   console.log('🚀 Iniciando generación de componentes de iconos...\n');
-  
+
   // Verificar que existe el directorio de iconos de fontawesome
   if (!fs.existsSync(BRAND_ICONS_DIR)) {
     console.error(`❌ Error: No se encontró el directorio ${BRAND_ICONS_DIR}`);
     process.exit(1);
   }
-  
+
   // Crear directorio de salida si no existe
   if (!fs.existsSync(COMPONENTS_OUTPUT_DIR)) {
     fs.mkdirSync(COMPONENTS_OUTPUT_DIR, { recursive: true });
     console.log(`📁 Creado directorio: ${COMPONENTS_OUTPUT_DIR}`);
   }
-  
+
   // Leer todos los archivos SVG
   const files = fs.readdirSync(BRAND_ICONS_DIR);
   const svgFiles = files.filter(file => file.endsWith('.svg'));
-  
+
   console.log(`📋 Encontrados ${svgFiles.length} archivos SVG\n`);
-  
+
   let successCount = 0;
   let errorCount = 0;
-  
+
   svgFiles.forEach((svgFile, index) => {
     try {
       const svgFilePath = path.join(BRAND_ICONS_DIR, svgFile);
       const className = svgFileNameToClassName(svgFile);
       const customElementName = svgFileNameToCustomElementName(svgFile);
       const svgContent = processSvgContent(svgFilePath);
-      
+
       const componentCode = generateComponentCode(className, customElementName, svgContent);
-      
+
       // Generar nombre de archivo para el componente (mismo nombre que el SVG pero con .js)
       const componentFileName = svgFile.replace('.svg', '.js');
       const componentFilePath = path.join(COMPONENTS_OUTPUT_DIR, componentFileName);
-      
+
       // Escribir el archivo del componente
       fs.writeFileSync(componentFilePath, componentCode, 'utf8');
-      
+
       console.log(`✅ ${index + 1}/${svgFiles.length} - Generado: ${componentFileName}`);
       successCount++;
-      
+
     } catch (error) {
       console.error(`❌ Error procesando ${svgFile}:`, error.message);
       errorCount++;
     }
   });
-  
+
   console.log(`\n🎉 Generación completada!`);
   console.log(`✅ Componentes generados exitosamente: ${successCount}`);
   if (errorCount > 0) {
