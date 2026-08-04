@@ -189,7 +189,7 @@ Click any icon to see how to use it in your own project.
 
     render() {
       return html`
-        <dile-modal id="modal" showCloseIcon blocking>
+        <dile-modal id="modal" showCloseIcon>
           ${this.icon ? this.usageTemplate(this.icon) : ''}
         </dile-modal>
       `;
