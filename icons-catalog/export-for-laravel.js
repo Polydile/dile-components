@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { ALL_LIBRARIES } from './libraries.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,8 +40,21 @@ function exportForLaravel() {
 
   const enrichedCatalog = JSON.parse(fs.readFileSync(ENRICHED_CATALOG_FILE, 'utf8'));
 
+  // El scope se deduce de qué bibliotecas hay realmente en el catálogo enriquecido
+  // (no de --library), para que sea coherente aunque el filtro se haya aplicado
+  // en el paso de generación. Si están todas las bibliotecas conocidas, es un
+  // sync completo; si no, es parcial y el backend solo debe tocar esas bibliotecas.
+  const librariesInPayload = [...new Set(enrichedCatalog.map(icon => icon.library))].sort();
+  const isFullSync = ALL_LIBRARIES.length === librariesInPayload.length
+    && ALL_LIBRARIES.every(lib => librariesInPayload.includes(lib));
+
+  const scope = isFullSync
+    ? { mode: 'full' }
+    : { mode: 'partial', libraries: librariesInPayload };
+
   const exportPayload = {
     generatedAt: new Date().toISOString(),
+    scope,
     count: enrichedCatalog.length,
     icons: enrichedCatalog.map(toExportRecord)
   };
@@ -48,6 +62,7 @@ function exportForLaravel() {
   fs.writeFileSync(EXPORT_OUTPUT_FILE, JSON.stringify(exportPayload, null, 2), 'utf8');
 
   console.log(`📋 Iconos exportados: ${exportPayload.count}`);
+  console.log(`🎯 Scope: ${scope.mode}${scope.libraries ? ` (${scope.libraries.join(', ')})` : ''}`);
   console.log(`🕒 Generado: ${exportPayload.generatedAt}`);
   console.log(`\n🎉 Export para Laravel generado!`);
   console.log(`📁 Ubicación: ${EXPORT_OUTPUT_FILE}`);

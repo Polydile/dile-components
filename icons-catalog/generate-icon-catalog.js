@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { LIBRARY_FOLDERS, getLibraryFilter } from './libraries.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,13 +12,6 @@ const __dirname = path.dirname(__filename);
 const ICONLIB_DIR = path.join(__dirname, '..', 'packages', 'iconlib');
 const FONTAWESOME_BRANDS_SRC_DIR = path.join(__dirname, '..', 'src-icons', 'font-awesome', 'brands');
 const CATALOG_OUTPUT_FILE = path.join(__dirname, 'icon-catalog.json');
-
-// Carpetas de @dile/iconlib que contienen componentes de icono, y su librería asociada
-const LIBRARY_FOLDERS = [
-  { folder: 'lucide-icons', library: 'lucide' },
-  { folder: 'material-icons', library: 'material' },
-  { folder: 'fontawesome-icons', library: 'fontawesome' }
-];
 
 const TAG_REGEX = /customElements\.define\('([^']+)'/;
 const SVG_REGEX = /getSvgIcon\(\)\s*\{\s*return\s*`([^`]+)`/;
@@ -97,11 +91,19 @@ function buildLibraryEntries({ folder, library }, brandNames) {
 }
 
 function generateCatalog() {
-  console.log('🚀 Iniciando generación del catálogo de iconos...\n');
+  const libraryFilter = getLibraryFilter();
+  const foldersToProcess = libraryFilter
+    ? LIBRARY_FOLDERS.filter(({ library }) => libraryFilter.includes(library))
+    : LIBRARY_FOLDERS;
+
+  console.log('🚀 Iniciando generación del catálogo de iconos...');
+  console.log(libraryFilter
+    ? `🎯 Filtro de biblioteca: ${libraryFilter.join(', ')}\n`
+    : '🌐 Sin filtro: se procesan todas las bibliotecas\n');
 
   const brandNames = getFontawesomeBrandNames();
 
-  const entries = LIBRARY_FOLDERS.flatMap(libraryFolder => {
+  const entries = foldersToProcess.flatMap(libraryFolder => {
     const libraryEntries = buildLibraryEntries(libraryFolder, brandNames);
     console.log(`📋 ${libraryFolder.library}: ${libraryEntries.length} iconos`);
     return libraryEntries;

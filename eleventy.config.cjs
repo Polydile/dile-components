@@ -68,7 +68,7 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
 
 
-  const iconsTagsList = ["lucide", "fontawesome", "material"];
+  const iconsTagsList = ["lucide", "fontawesome", "material", "phosphor"];
 
   eleventyConfig.addGlobalData("iconsTagsList", iconsTagsList);
 

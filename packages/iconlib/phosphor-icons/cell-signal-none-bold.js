@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibCellSignalNoneBold extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M52,192v8a12,12,0,0,1-24,0v-8a12,12,0,0,1,24,0Z"/></svg>`;
+  }
+}
+
+customElements.define('dile-phosphor-icon-cell-signal-none-bold', DileIconlibCellSignalNoneBold);

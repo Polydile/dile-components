@@ -55,9 +55,12 @@ async function syncIcons() {
 
   const { host, syncKey } = getConfig();
   const payload = fs.readFileSync(EXPORT_FILE, 'utf8');
+  const { scope, count } = JSON.parse(payload);
   const url = `${host}${SYNC_PATH}`;
 
   console.log(`📡 Destino: ${url}`);
+  console.log(`🎯 Scope: ${scope.mode}${scope.libraries ? ` (${scope.libraries.join(', ')})` : ''}`);
+  console.log(`📋 Iconos en el payload: ${count}`);
   console.log(`📦 Tamaño del payload: ${(payload.length / 1024).toFixed(1)} KB\n`);
 
   let response;
