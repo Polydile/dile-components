@@ -23,6 +23,7 @@ const LIBRARY_DOCS_URL = {
   material: '/icons/material-icons/',
   fontawesome: '/icons/fontawesome-icons/',
   phosphor: '/icons/phosphor-icons/',
+  tabler: '/icons/tabler-icons/',
 };
 
 class DemoIconCatalogItem extends LitElement {
@@ -341,7 +342,7 @@ customElements.define('demo-icon-family-list', DemoIconFamilyList);
   Here we have native components based on the Web Components standard that let you use popular icon libraries in a convenient and developer-friendly way.
 </p>
 <p>
-  Through these components, you can easily integrate icon libraries like <a href="https://fonts.google.com/icons">Material icons</a>, <a href="https://lucide.dev/">Lucide Icons</a>, <a href="https://fontawesome.com/">FontAwesome</a> or <a href="https://phosphoricons.com/">Phosphor Icons</a> using simple HTML tags that wrap the SVGs. This allows you to style the icons (color, size, etc.) comfortably with CSS custom properties.
+  Through these components, you can easily integrate icon libraries like <a href="https://fonts.google.com/icons">Material icons</a>, <a href="https://lucide.dev/">Lucide Icons</a>, <a href="https://fontawesome.com/">FontAwesome</a>, <a href="https://phosphoricons.com/">Phosphor Icons</a> or <a href="https://tabler.io/icons">Tabler Icons</a> using simple HTML tags that wrap the SVGs. This allows you to style the icons (color, size, etc.) comfortably with CSS custom properties.
 </p>
 <blockquote>
   Check the <a href="/icons/icon-catalog/">Icon Catalog</a> to search and browse the full icon set from all libraries.
@@ -443,6 +444,29 @@ customElements.define('demo-icon-family-list', DemoIconFamilyList);
         <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
       </div>
       <demo-icon-family-list library="phosphor"></demo-icon-family-list>
+    </div>
+  </dile-accordion-item>
+  <dile-accordion-item title="Tabler icons">
+    <div slot="accordion-item-content">
+      <p>
+        <a href="https://tabler.io/icons">Tabler Icons</a> is a free and open-source icon set with over 5,800 pixel-perfect icons, each available in outline and filled variants, all designed on a consistent 24x24 grid.
+      </p>
+      <p>
+        Here you will find an <a href="/icons/tabler-icons/">implementation of Tabler Icons as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
+      </p>
+      <div class="flex-items-center icons-on-background gap-3 mb-2">
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-icons/">Tabler icons web components</a>
+      </div>
+      <div class="flex-items-center icons-on-background gap-3 mb-2">
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-icon/">Generic Tabler icon</a>
+      </div>
+      <div class="flex-items-center icons-on-background gap-3 mb-2">
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-badge/">Tabler badge</a>
+      </div>
+      <div class="flex-items-center icons-on-background gap-3 mb-2">
+        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
+      </div>
+      <demo-icon-family-list library="tabler"></demo-icon-family-list>
     </div>
   </dile-accordion-item>
 </dile-accordion>

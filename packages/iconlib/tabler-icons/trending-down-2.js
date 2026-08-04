@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibTrendingDown2 extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M3 6h5l7 10h6" /> <path d="M18 19l3 -3l-3 -3" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-trending-down-2', DileIconlibTrendingDown2);

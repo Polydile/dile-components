@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibCar4wd extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 5a2 2 0 0 1 2 -2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2a2 2 0 0 1 -2 -2l0 -2" /> <path d="M5 17a2 2 0 0 1 2 -2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2a2 2 0 0 1 -2 -2l0 -2" /> <path d="M15 5a2 2 0 0 1 2 -2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2a2 2 0 0 1 -2 -2l0 -2" /> <path d="M15 17a2 2 0 0 1 2 -2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2a2 2 0 0 1 -2 -2l0 -2" /> <path d="M9 18h6" /> <path d="M9 6h6" /> <path d="M12 6.5v-.5v12" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-car-4wd', DileIconlibCar4wd);

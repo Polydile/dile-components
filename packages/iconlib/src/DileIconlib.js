@@ -1,7 +1,7 @@
 import '../lucide-icons/dot.js';
 import { DileIconWrapperBase } from "./DileIconWrapperBase.js";
 
-const KNOWN_FAMILIES = ['lucide', 'material', 'fontawesome', 'phosphor'];
+const KNOWN_FAMILIES = ['lucide', 'material', 'fontawesome', 'phosphor', 'tabler'];
 
 export class DileIconlib extends DileIconWrapperBase {
   constructor() {

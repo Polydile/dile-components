@@ -6,7 +6,7 @@ tags: icons
 
 # Icon Catalog
 
-This is the full icon catalog — all icons from Lucide, Material, FontAwesome and Phosphor combined, searchable and paginated — using the [`dile-crud`](/crud/crud-component/) component, with its insert/edit/delete features turned off through configuration.
+This is the full icon catalog — all icons from Lucide, Material, FontAwesome, Phosphor and Tabler combined, searchable and paginated — using the [`dile-crud`](/crud/crud-component/) component, with its insert/edit/delete features turned off through configuration.
 
 Click any icon to see how to use it in your own project.
 
@@ -27,6 +27,7 @@ Click any icon to see how to use it in your own project.
     material: '/icons/material-icons/',
     fontawesome: '/icons/fontawesome-icons/',
     phosphor: '/icons/phosphor-icons/',
+    tabler: '/icons/tabler-icons/',
   };
 
   class DemoIconCatalogItem extends LitElement {
@@ -269,8 +270,8 @@ Click any icon to see how to use it in your own project.
       disableHelp: true,
     },
     pageSize: {
-      available: [24, 48],
-      initial: 24,
+      available: [12, 24, 48],
+      initial: 12,
     },
     responseAdapter: new IconResponseApiAdapter(),
     templates: {
@@ -292,6 +293,7 @@ Click any icon to see how to use it in your own project.
           { value: 'material', label: 'Material' },
           { value: 'fontawesome', label: 'FontAwesome' },
           { value: 'phosphor', label: 'Phosphor' },
+          { value: 'tabler', label: 'Tabler' },
         ],
       },
       {

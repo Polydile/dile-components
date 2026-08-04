@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibBrandDolbyDigital extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 6v12h-.89c-3.34 0 -6.047 -2.686 -6.047 -6s2.707 -6 6.046 -6h.891" /> <path d="M3.063 6v12h.891c3.34 0 6.046 -2.686 6.046 -6s-2.707 -6 -6.046 -6h-.89" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-brand-dolby-digital', DileIconlibBrandDolbyDigital);

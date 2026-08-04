@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibFilter2Search extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6h16" /> <path d="M6 12h8.5" /> <path d="M9 18h2" /> <path d="M15 18c0 .796 .316 1.559 .879 2.121c.563 .563 1.326 .879 2.121 .879c.796 0 1.559 -.316 2.121 -.879c.563 -.563 .879 -1.326 .879 -2.121c0 -.796 -.316 -1.559 -.879 -2.121c-.563 -.563 -1.326 -.879 -2.121 -.879c-.796 0 -1.559 .316 -2.121 .879c-.563 .563 -.879 1.326 -.879 2.121" /> <path d="M20.2 20.2l1.8 1.8" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-filter-2-search', DileIconlibFilter2Search);

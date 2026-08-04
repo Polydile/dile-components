@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibCliffJumping extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10.5 18l2.5 2l2 -2" /> <path d="M18 21l3 -3l-4 -2l-2 -5" /> <path d="M9 8l3 3l3 1l4 -2l3 -2" /> <path d="M3 21v-1l2 -3l.5 -2.5l1.5 -2.5l-1 -5l1 -3l-1 -1l-2 .5l-2 -.5" /> <path d="M13.007 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-cliff-jumping', DileIconlibCliffJumping);

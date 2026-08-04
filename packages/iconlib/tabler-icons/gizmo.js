@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibGizmo extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 19l-8 -5.5l-8 5.5" /> <path d="M12 4v9.5" /> <path d="M11 4a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M3 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M19 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>`;
+  }
+}
+
+customElements.define('dile-tabler-icon-gizmo', DileIconlibGizmo);

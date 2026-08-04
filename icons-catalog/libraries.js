@@ -3,7 +3,8 @@ export const LIBRARY_FOLDERS = [
   { folder: 'lucide-icons', library: 'lucide' },
   { folder: 'material-icons', library: 'material' },
   { folder: 'fontawesome-icons', library: 'fontawesome' },
-  { folder: 'phosphor-icons', library: 'phosphor' }
+  { folder: 'phosphor-icons', library: 'phosphor' },
+  { folder: 'tabler-icons', library: 'tabler' }
 ];
 
 export const ALL_LIBRARIES = LIBRARY_FOLDERS.map(({ library }) => library);
