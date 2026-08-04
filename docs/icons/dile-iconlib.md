@@ -62,7 +62,7 @@ This enables dynamic icon switching via data-bound strings — including switchi
 - **icon**: String combining the family and the icon name as `family.name`, e.g. `"lucide.house"`, `"material.receipt"`, `"fontawesome.microsoft"`. Supported families: `lucide`, `material`, `fontawesome`. If the family isn't recognized, a warning is logged to the console and nothing is rendered; if `icon` is omitted, a default icon (`lucide.dot`) is shown.
 - **rounded**: Boolean attribute for a button-like, circular background.
 
-> To find the specific name of each icon, check the [Lucide icons](../lucide-icons/), [Material icons](../material-icons/) or [FontAwesome icons](../fontawesome-icons/) web components pages.
+> To find the specific name of each icon, search the [Icon Catalog](../icon-catalog/), or check the [Lucide icons](../lucide-icons/), [Material icons](../material-icons/) or [FontAwesome icons](../fontawesome-icons/) web components pages.
 
 ## Styling and Features
 
