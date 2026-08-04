@@ -51,6 +51,11 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                     margin: 0.2rem 0.6rem 0.2rem 0;
                 }
             }
+            .elements-container {
+                display: grid;
+                grid-template-columns: var(--dile-crud-list-elements-container-template-columns, 1fr);
+                gap: var(--dile-crud-list-elements-container-gap, 0);
+            }
         `
     ];
 
@@ -201,21 +206,23 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
     get elementsTemplate() {
         return html`
-            ${this.elements.map(element => html`
-                <dile-crud-list-item 
-                    .item=${element}
-                    itemId="${this.computeItemId(element)}"
-                    .actionIds="${this.actionIds}"
-                    ?disableEdit=${!this.isItemEditable(element)}
-                    ?disableDelete=${!this.isItemDeletable(element)}
-                    ?disableRestore=${this.config?.customization?.disableRestore}
-                    ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
-                    @item-checkbox-changed=${this.onItemsCheckboxChanged}
-                    ?isDeleted=${element.deleted_at}
-                >
-                    ${this.config.templates.item(element)}
-                </dile-crud-list-item>
-            `)}
+            <div class="elements-container">
+                ${this.elements.map(element => html`
+                    <dile-crud-list-item 
+                        .item=${element}
+                        itemId="${this.computeItemId(element)}"
+                        .actionIds="${this.actionIds}"
+                        ?disableEdit=${!this.isItemEditable(element)}
+                        ?disableDelete=${!this.isItemDeletable(element)}
+                        ?disableRestore=${this.config?.customization?.disableRestore}
+                        ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
+                        @item-checkbox-changed=${this.onItemsCheckboxChanged}
+                        ?isDeleted=${element.deleted_at}
+                    >
+                        ${this.config.templates.item(element)}
+                    </dile-crud-list-item>
+                `)}
+            </div>
         `;
     }
 

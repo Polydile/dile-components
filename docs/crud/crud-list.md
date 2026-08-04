@@ -85,6 +85,8 @@ Custom property | Description | Default
 --dile-crud-list-filters-list-margin | Margin of the filters list inside dile-crud-list | 0
 --dile-crud-list-empty-padding | Padding of the empty list message | 3rem 1rem
 --dile-crud-list-empty-text-align | Text alignment of the empty list message | center
+--dile-crud-list-elements-container-template-columns | CSS grid template columns for the elements container | 1fr
+--dile-crud-list-elements-container-gap | Gap between elements in the container | 0
 --dile-icon-color | Icon color in pagination navigation buttons | var(--dile-on-secondary-color, #fff)
 --dile-icon-rounded-background-color | Background color of pagination navigation buttons | var(--dile-secondary-color, #2962FF)
 --dile-on-secondary-dark-color | Icon color on hover for pagination navigation buttons | #1942DF

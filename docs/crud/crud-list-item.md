@@ -119,8 +119,11 @@ The item component accepts the following CSS custom properties to customize its 
 
 | Custom Property | Default Value | Description |
 |---|---|---|
-| `--dile-crud-list-item-line-separator` | `1px solid #ddd` | Border style between items |
+| `--dile-crud-list-item-display` | `block` | Display property for the item container |
+| `--dile-crud-list-item-max-width` | `100%` | Maximum width for the item container |
+| `--dile-crud-list-item-width` | `100%` | Width for the item container |
 | `--dile-crud-list-item-padding` | `0.5rem 0.5rem` (mobile) / `0.5rem 1rem` (550px+) | Padding for list items |
+| `--dile-crud-list-item-line-separator` | `1px solid #ddd` | Border style between items |
 | `--dile-checkbox-unchecked-color` | `#888` | Color of unchecked checkboxes |
 | `--dile-icon-size` | `24px` | Size of action icons |
 | `--dile-icon-color` | `#33ad67` | Color of edit icon |

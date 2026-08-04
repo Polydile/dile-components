@@ -24,6 +24,7 @@ function toExportRecord(icon) {
     name: icon.name,
     tag: icon.tag,
     import: icon.import,
+    svg: icon.svg,
     keywords: icon.keywords
   };
 }

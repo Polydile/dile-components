@@ -20,6 +20,7 @@ const LIBRARY_FOLDERS = [
 ];
 
 const TAG_REGEX = /customElements\.define\('([^']+)'/;
+const SVG_REGEX = /getSvgIcon\(\)\s*\{\s*return\s*`([^`]+)`/;
 
 /**
  * Extrae el nombre del custom element definido en el componente generado
@@ -28,6 +29,17 @@ function extractTag(fileContent, filePath) {
   const match = fileContent.match(TAG_REGEX);
   if (!match) {
     throw new Error(`No se encontró customElements.define(...) en ${filePath}`);
+  }
+  return match[1];
+}
+
+/**
+ * Extrae el contenido SVG devuelto por getSvgIcon() en el componente generado
+ */
+function extractSvg(fileContent, filePath) {
+  const match = fileContent.match(SVG_REGEX);
+  if (!match) {
+    throw new Error(`No se encontró getSvgIcon() en ${filePath}`);
   }
   return match[1];
 }
@@ -69,6 +81,7 @@ function buildLibraryEntries({ folder, library }, brandNames) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const name = fileName.replace('.js', '');
     const tag = extractTag(fileContent, filePath);
+    const svg = extractSvg(fileContent, filePath);
 
     return {
       id: `${library}.${name}`,
@@ -77,6 +90,7 @@ function buildLibraryEntries({ folder, library }, brandNames) {
       name,
       tag,
       import: `@dile/iconlib/${folder}/${fileName}`,
+      svg,
       keywords: []
     };
   });

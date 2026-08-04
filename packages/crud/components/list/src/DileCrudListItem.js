@@ -7,9 +7,9 @@ export class DileCrudListItem extends LitElement {
   static styles = [
     css`
         :host {
-            display: block;
-            max-width: 100%;
-            width: 100%;
+            display: var(--dile-crud-list-item-display, block);
+            max-width: var(--dile-crud-list-item-max-width, 100%);
+            width: var(--dile-crud-list-item-width, 100%);
         }
         section {
             max-width: 100%;
