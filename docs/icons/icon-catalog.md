@@ -270,8 +270,8 @@ Click any icon to see how to use it in your own project.
       disableHelp: true,
     },
     pageSize: {
-      available: [12, 24, 48],
-      initial: 12,
+      available: [24, 48],
+      initial: 24,
     },
     responseAdapter: new IconResponseApiAdapter(),
     templates: {
