@@ -12,6 +12,7 @@ const LIBRARY_DOCS_URL = {
   fontawesome: '/icons/fontawesome-icons/',
   phosphor: '/icons/phosphor-icons/',
   tabler: '/icons/tabler-icons/',
+  remixicon: '/icons/remixicon-icons/',
 };
 
 class DemoIconCatalogItem extends LitElement {

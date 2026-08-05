@@ -1,0 +1,9 @@
+import { DileBaseIcon } from '../src/DileBaseIcon.js';
+
+export class DileIconlibArrowUpFill extends DileBaseIcon {
+  getSvgIcon() {
+    return `<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M13 12V20H11V12H4L12 4L20 12H13Z"/></svg>`;
+  }
+}
+
+customElements.define('dile-remixicon-icon-arrow-up-fill', DileIconlibArrowUpFill);

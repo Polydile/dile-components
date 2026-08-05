@@ -4,7 +4,8 @@ export const LIBRARY_FOLDERS = [
   { folder: 'material-icons', library: 'material' },
   { folder: 'fontawesome-icons', library: 'fontawesome' },
   { folder: 'phosphor-icons', library: 'phosphor' },
-  { folder: 'tabler-icons', library: 'tabler' }
+  { folder: 'tabler-icons', library: 'tabler' },
+  { folder: 'remixicon-icons', library: 'remixicon' }
 ];
 
 export const ALL_LIBRARIES = LIBRARY_FOLDERS.map(({ library }) => library);
