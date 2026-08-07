@@ -6,4 +6,6 @@ export class DileIconlibWheelchairBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wheelchair-bold', DileIconlibWheelchairBold);
+if (!customElements.get('dile-phosphor-icon-wheelchair-bold')) {
+  customElements.define('dile-phosphor-icon-wheelchair-bold', DileIconlibWheelchairBold);
+}

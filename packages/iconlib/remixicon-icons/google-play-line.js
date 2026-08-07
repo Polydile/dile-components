@@ -6,4 +6,6 @@ export class DileIconlibGooglePlayLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-google-play-line', DileIconlibGooglePlayLine);
+if (!customElements.get('dile-remixicon-icon-google-play-line')) {
+  customElements.define('dile-remixicon-icon-google-play-line', DileIconlibGooglePlayLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScreenLockLandscape extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screen-lock-landscape', DileIconlibScreenLockLandscape);
+if (!customElements.get('dile-material-icon-screen-lock-landscape')) {
+  customElements.define('dile-material-icon-screen-lock-landscape', DileIconlibScreenLockLandscape);
+}

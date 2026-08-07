@@ -6,4 +6,6 @@ export class DileIconlibBrandPocket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pocket', DileIconlibBrandPocket);
+if (!customElements.get('dile-tabler-icon-brand-pocket')) {
+  customElements.define('dile-tabler-icon-brand-pocket', DileIconlibBrandPocket);
+}

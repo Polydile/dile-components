@@ -6,4 +6,6 @@ export class DileIconlibPhoneCallLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-phone-call-light', DileIconlibPhoneCallLight);
+if (!customElements.get('dile-phosphor-icon-phone-call-light')) {
+  customElements.define('dile-phosphor-icon-phone-call-light', DileIconlibPhoneCallLight);
+}

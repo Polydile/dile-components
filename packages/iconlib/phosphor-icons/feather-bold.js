@@ -6,4 +6,6 @@ export class DileIconlibFeatherBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-feather-bold', DileIconlibFeatherBold);
+if (!customElements.get('dile-phosphor-icon-feather-bold')) {
+  customElements.define('dile-phosphor-icon-feather-bold', DileIconlibFeatherBold);
+}

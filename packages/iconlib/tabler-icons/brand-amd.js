@@ -6,4 +6,6 @@ export class DileIconlibBrandAmd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-amd', DileIconlibBrandAmd);
+if (!customElements.get('dile-tabler-icon-brand-amd')) {
+  customElements.define('dile-tabler-icon-brand-amd', DileIconlibBrandAmd);
+}

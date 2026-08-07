@@ -1,3 +1,5 @@
 import { DilePhosphorIcon } from "./src/DilePhosphorIcon.js";
 
-customElements.define('dile-phosphor-icon', DilePhosphorIcon);
+if (!customElements.get('dile-phosphor-icon')) {
+  customElements.define('dile-phosphor-icon', DilePhosphorIcon);
+}

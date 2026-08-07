@@ -6,4 +6,6 @@ export class DileIconlibZap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-zap', DileIconlibZap);
+if (!customElements.get('dile-lucide-icon-zap')) {
+  customElements.define('dile-lucide-icon-zap', DileIconlibZap);
+}

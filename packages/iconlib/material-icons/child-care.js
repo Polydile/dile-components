@@ -6,4 +6,6 @@ export class DileIconlibChildCare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-child-care', DileIconlibChildCare);
+if (!customElements.get('dile-material-icon-child-care')) {
+  customElements.define('dile-material-icon-child-care', DileIconlibChildCare);
+}

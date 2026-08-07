@@ -6,4 +6,6 @@ export class DileIconlibCarRental extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-car-rental', DileIconlibCarRental);
+if (!customElements.get('dile-material-icon-car-rental')) {
+  customElements.define('dile-material-icon-car-rental', DileIconlibCarRental);
+}

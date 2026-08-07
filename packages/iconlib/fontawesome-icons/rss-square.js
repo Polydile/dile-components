@@ -6,4 +6,6 @@ export class DileIconlibRssSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rss-square', DileIconlibRssSquare);
+if (!customElements.get('dile-fontawesome-icon-rss-square')) {
+  customElements.define('dile-fontawesome-icon-rss-square', DileIconlibRssSquare);
+}

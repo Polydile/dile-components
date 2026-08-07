@@ -6,4 +6,6 @@ export class DileIconlibEarthAsia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-earth-asia', DileIconlibEarthAsia);
+if (!customElements.get('dile-fontawesome-icon-earth-asia')) {
+  customElements.define('dile-fontawesome-icon-earth-asia', DileIconlibEarthAsia);
+}

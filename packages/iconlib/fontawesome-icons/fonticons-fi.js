@@ -6,4 +6,6 @@ export class DileIconlibFonticonsFi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fonticons-fi', DileIconlibFonticonsFi);
+if (!customElements.get('dile-fontawesome-icon-fonticons-fi')) {
+  customElements.define('dile-fontawesome-icon-fonticons-fi', DileIconlibFonticonsFi);
+}

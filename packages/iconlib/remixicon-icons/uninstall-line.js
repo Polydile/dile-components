@@ -6,4 +6,6 @@ export class DileIconlibUninstallLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-uninstall-line', DileIconlibUninstallLine);
+if (!customElements.get('dile-remixicon-icon-uninstall-line')) {
+  customElements.define('dile-remixicon-icon-uninstall-line', DileIconlibUninstallLine);
+}

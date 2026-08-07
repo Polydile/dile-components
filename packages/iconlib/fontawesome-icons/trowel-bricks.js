@@ -6,4 +6,6 @@ export class DileIconlibTrowelBricks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trowel-bricks', DileIconlibTrowelBricks);
+if (!customElements.get('dile-fontawesome-icon-trowel-bricks')) {
+  customElements.define('dile-fontawesome-icon-trowel-bricks', DileIconlibTrowelBricks);
+}

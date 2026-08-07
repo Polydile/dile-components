@@ -6,4 +6,6 @@ export class DileIconlibContractLeftLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-contract-left-line', DileIconlibContractLeftLine);
+if (!customElements.get('dile-remixicon-icon-contract-left-line')) {
+  customElements.define('dile-remixicon-icon-contract-left-line', DileIconlibContractLeftLine);
+}

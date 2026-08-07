@@ -6,4 +6,6 @@ export class DileIconlibArrowsTransferDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-transfer-down', DileIconlibArrowsTransferDown);
+if (!customElements.get('dile-tabler-icon-arrows-transfer-down')) {
+  customElements.define('dile-tabler-icon-arrows-transfer-down', DileIconlibArrowsTransferDown);
+}

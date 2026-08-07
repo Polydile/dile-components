@@ -6,4 +6,6 @@ export class DileIconlibBorderColor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-border-color', DileIconlibBorderColor);
+if (!customElements.get('dile-material-icon-border-color')) {
+  customElements.define('dile-material-icon-border-color', DileIconlibBorderColor);
+}

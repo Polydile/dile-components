@@ -6,4 +6,6 @@ export class DileIconlibJoystickLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-joystick-light', DileIconlibJoystickLight);
+if (!customElements.get('dile-phosphor-icon-joystick-light')) {
+  customElements.define('dile-phosphor-icon-joystick-light', DileIconlibJoystickLight);
+}

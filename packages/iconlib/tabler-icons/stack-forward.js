@@ -6,4 +6,6 @@ export class DileIconlibStackForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stack-forward', DileIconlibStackForward);
+if (!customElements.get('dile-tabler-icon-stack-forward')) {
+  customElements.define('dile-tabler-icon-stack-forward', DileIconlibStackForward);
+}

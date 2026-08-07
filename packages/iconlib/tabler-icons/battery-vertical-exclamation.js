@@ -6,4 +6,6 @@ export class DileIconlibBatteryVerticalExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-battery-vertical-exclamation', DileIconlibBatteryVerticalExclamation);
+if (!customElements.get('dile-tabler-icon-battery-vertical-exclamation')) {
+  customElements.define('dile-tabler-icon-battery-vertical-exclamation', DileIconlibBatteryVerticalExclamation);
+}

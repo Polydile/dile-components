@@ -6,4 +6,6 @@ export class DileIconlibAlignCenterVerticalSimpleThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-align-center-vertical-simple-thin', DileIconlibAlignCenterVerticalSimpleThin);
+if (!customElements.get('dile-phosphor-icon-align-center-vertical-simple-thin')) {
+  customElements.define('dile-phosphor-icon-align-center-vertical-simple-thin', DileIconlibAlignCenterVerticalSimpleThin);
+}

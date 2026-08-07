@@ -6,4 +6,6 @@ export class DileIconlibBrandAppleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-apple-filled', DileIconlibBrandAppleFilled);
+if (!customElements.get('dile-tabler-icon-brand-apple-filled')) {
+  customElements.define('dile-tabler-icon-brand-apple-filled', DileIconlibBrandAppleFilled);
+}

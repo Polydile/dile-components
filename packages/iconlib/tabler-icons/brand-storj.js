@@ -6,4 +6,6 @@ export class DileIconlibBrandStorj extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-storj', DileIconlibBrandStorj);
+if (!customElements.get('dile-tabler-icon-brand-storj')) {
+  customElements.define('dile-tabler-icon-brand-storj', DileIconlibBrandStorj);
+}

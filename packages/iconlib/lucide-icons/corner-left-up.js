@@ -6,4 +6,6 @@ export class DileIconlibCornerLeftUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-corner-left-up', DileIconlibCornerLeftUp);
+if (!customElements.get('dile-lucide-icon-corner-left-up')) {
+  customElements.define('dile-lucide-icon-corner-left-up', DileIconlibCornerLeftUp);
+}

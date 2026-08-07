@@ -6,4 +6,6 @@ export class DileIconlibRoad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-road', DileIconlibRoad);
+if (!customElements.get('dile-lucide-icon-road')) {
+  customElements.define('dile-lucide-icon-road', DileIconlibRoad);
+}

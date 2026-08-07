@@ -6,4 +6,6 @@ export class DileIconlibSwift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-swift', DileIconlibSwift);
+if (!customElements.get('dile-fontawesome-icon-swift')) {
+  customElements.define('dile-fontawesome-icon-swift', DileIconlibSwift);
+}

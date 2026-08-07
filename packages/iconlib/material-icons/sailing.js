@@ -6,4 +6,6 @@ export class DileIconlibSailing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sailing', DileIconlibSailing);
+if (!customElements.get('dile-material-icon-sailing')) {
+  customElements.define('dile-material-icon-sailing', DileIconlibSailing);
+}

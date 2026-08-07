@@ -6,4 +6,6 @@ export class DileIconlibSettingsSystemDaydream extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-system-daydream', DileIconlibSettingsSystemDaydream);
+if (!customElements.get('dile-material-icon-settings-system-daydream')) {
+  customElements.define('dile-material-icon-settings-system-daydream', DileIconlibSettingsSystemDaydream);
+}

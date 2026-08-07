@@ -6,4 +6,6 @@ export class DileIconlibCalendarShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-share', DileIconlibCalendarShare);
+if (!customElements.get('dile-tabler-icon-calendar-share')) {
+  customElements.define('dile-tabler-icon-calendar-share', DileIconlibCalendarShare);
+}

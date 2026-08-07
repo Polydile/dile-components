@@ -6,4 +6,6 @@ export class DileIconlibSquareToggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-toggle', DileIconlibSquareToggle);
+if (!customElements.get('dile-tabler-icon-square-toggle')) {
+  customElements.define('dile-tabler-icon-square-toggle', DileIconlibSquareToggle);
+}

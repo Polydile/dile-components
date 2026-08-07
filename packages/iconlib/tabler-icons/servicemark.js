@@ -6,4 +6,6 @@ export class DileIconlibServicemark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-servicemark', DileIconlibServicemark);
+if (!customElements.get('dile-tabler-icon-servicemark')) {
+  customElements.define('dile-tabler-icon-servicemark', DileIconlibServicemark);
+}

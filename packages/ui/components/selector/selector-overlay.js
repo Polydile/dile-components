@@ -1,3 +1,5 @@
 import { DileSelectorOverlay } from "./src/DileSelectorOverlay.js";
 
-window.customElements.define("dile-selector-overlay", DileSelectorOverlay);
+if (!customElements.get("dile-selector-overlay")) {
+  window.customElements.define("dile-selector-overlay", DileSelectorOverlay);
+}

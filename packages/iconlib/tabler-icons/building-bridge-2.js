@@ -6,4 +6,6 @@ export class DileIconlibBuildingBridge2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-bridge-2', DileIconlibBuildingBridge2);
+if (!customElements.get('dile-tabler-icon-building-bridge-2')) {
+  customElements.define('dile-tabler-icon-building-bridge-2', DileIconlibBuildingBridge2);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonRifle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-rifle', DileIconlibPersonRifle);
+if (!customElements.get('dile-fontawesome-icon-person-rifle')) {
+  customElements.define('dile-fontawesome-icon-person-rifle', DileIconlibPersonRifle);
+}

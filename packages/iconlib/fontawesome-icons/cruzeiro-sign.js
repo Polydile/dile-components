@@ -6,4 +6,6 @@ export class DileIconlibCruzeiroSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cruzeiro-sign', DileIconlibCruzeiroSign);
+if (!customElements.get('dile-fontawesome-icon-cruzeiro-sign')) {
+  customElements.define('dile-fontawesome-icon-cruzeiro-sign', DileIconlibCruzeiroSign);
+}

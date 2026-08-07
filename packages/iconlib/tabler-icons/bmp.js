@@ -6,4 +6,6 @@ export class DileIconlibBmp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bmp', DileIconlibBmp);
+if (!customElements.get('dile-tabler-icon-bmp')) {
+  customElements.define('dile-tabler-icon-bmp', DileIconlibBmp);
+}

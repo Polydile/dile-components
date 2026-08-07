@@ -6,4 +6,6 @@ export class DileIconlibFlutterLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flutter-line', DileIconlibFlutterLine);
+if (!customElements.get('dile-remixicon-icon-flutter-line')) {
+  customElements.define('dile-remixicon-icon-flutter-line', DileIconlibFlutterLine);
+}

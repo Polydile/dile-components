@@ -6,4 +6,6 @@ export class DileIconlibArchway extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-archway', DileIconlibArchway);
+if (!customElements.get('dile-fontawesome-icon-archway')) {
+  customElements.define('dile-fontawesome-icon-archway', DileIconlibArchway);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCompasses2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-compasses-2-line', DileIconlibCompasses2Line);
+if (!customElements.get('dile-remixicon-icon-compasses-2-line')) {
+  customElements.define('dile-remixicon-icon-compasses-2-line', DileIconlibCompasses2Line);
+}

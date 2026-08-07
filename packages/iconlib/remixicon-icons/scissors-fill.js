@@ -6,4 +6,6 @@ export class DileIconlibScissorsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-scissors-fill', DileIconlibScissorsFill);
+if (!customElements.get('dile-remixicon-icon-scissors-fill')) {
+  customElements.define('dile-remixicon-icon-scissors-fill', DileIconlibScissorsFill);
+}

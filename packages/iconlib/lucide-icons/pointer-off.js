@@ -6,4 +6,6 @@ export class DileIconlibPointerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pointer-off', DileIconlibPointerOff);
+if (!customElements.get('dile-lucide-icon-pointer-off')) {
+  customElements.define('dile-lucide-icon-pointer-off', DileIconlibPointerOff);
+}

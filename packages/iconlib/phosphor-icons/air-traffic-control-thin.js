@@ -6,4 +6,6 @@ export class DileIconlibAirTrafficControlThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-air-traffic-control-thin', DileIconlibAirTrafficControlThin);
+if (!customElements.get('dile-phosphor-icon-air-traffic-control-thin')) {
+  customElements.define('dile-phosphor-icon-air-traffic-control-thin', DileIconlibAirTrafficControlThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGizmo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gizmo', DileIconlibGizmo);
+if (!customElements.get('dile-tabler-icon-gizmo')) {
+  customElements.define('dile-tabler-icon-gizmo', DileIconlibGizmo);
+}

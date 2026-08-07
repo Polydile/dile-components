@@ -6,4 +6,6 @@ export class DileIconlibLayersSubtract extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layers-subtract', DileIconlibLayersSubtract);
+if (!customElements.get('dile-tabler-icon-layers-subtract')) {
+  customElements.define('dile-tabler-icon-layers-subtract', DileIconlibLayersSubtract);
+}

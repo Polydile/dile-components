@@ -6,4 +6,6 @@ export class DileIconlibCss3Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-css3-fill', DileIconlibCss3Fill);
+if (!customElements.get('dile-remixicon-icon-css3-fill')) {
+  customElements.define('dile-remixicon-icon-css3-fill', DileIconlibCss3Fill);
+}

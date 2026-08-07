@@ -6,4 +6,6 @@ export class DileIconlibMegaphone2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-megaphone-2-line', DileIconlibMegaphone2Line);
+if (!customElements.get('dile-remixicon-icon-megaphone-2-line')) {
+  customElements.define('dile-remixicon-icon-megaphone-2-line', DileIconlibMegaphone2Line);
+}

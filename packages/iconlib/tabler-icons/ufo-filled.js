@@ -6,4 +6,6 @@ export class DileIconlibUfoFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ufo-filled', DileIconlibUfoFilled);
+if (!customElements.get('dile-tabler-icon-ufo-filled')) {
+  customElements.define('dile-tabler-icon-ufo-filled', DileIconlibUfoFilled);
+}

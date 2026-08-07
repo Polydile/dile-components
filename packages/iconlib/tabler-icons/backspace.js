@@ -6,4 +6,6 @@ export class DileIconlibBackspace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-backspace', DileIconlibBackspace);
+if (!customElements.get('dile-tabler-icon-backspace')) {
+  customElements.define('dile-tabler-icon-backspace', DileIconlibBackspace);
+}

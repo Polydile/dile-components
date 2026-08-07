@@ -6,4 +6,6 @@ export class DileIconlibMoonCloudyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-moon-cloudy-line', DileIconlibMoonCloudyLine);
+if (!customElements.get('dile-remixicon-icon-moon-cloudy-line')) {
+  customElements.define('dile-remixicon-icon-moon-cloudy-line', DileIconlibMoonCloudyLine);
+}

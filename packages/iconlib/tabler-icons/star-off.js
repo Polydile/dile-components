@@ -6,4 +6,6 @@ export class DileIconlibStarOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-star-off', DileIconlibStarOff);
+if (!customElements.get('dile-tabler-icon-star-off')) {
+  customElements.define('dile-tabler-icon-star-off', DileIconlibStarOff);
+}

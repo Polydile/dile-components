@@ -6,4 +6,6 @@ export class DileIconlibPhonelinkSetup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phonelink-setup', DileIconlibPhonelinkSetup);
+if (!customElements.get('dile-material-icon-phonelink-setup')) {
+  customElements.define('dile-material-icon-phonelink-setup', DileIconlibPhonelinkSetup);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLayoutGrid2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-layout-grid-2-fill', DileIconlibLayoutGrid2Fill);
+if (!customElements.get('dile-remixicon-icon-layout-grid-2-fill')) {
+  customElements.define('dile-remixicon-icon-layout-grid-2-fill', DileIconlibLayoutGrid2Fill);
+}

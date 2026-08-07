@@ -6,4 +6,6 @@ export class DileIconlibSnapchatFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-snapchat-fill', DileIconlibSnapchatFill);
+if (!customElements.get('dile-remixicon-icon-snapchat-fill')) {
+  customElements.define('dile-remixicon-icon-snapchat-fill', DileIconlibSnapchatFill);
+}

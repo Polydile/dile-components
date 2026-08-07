@@ -6,4 +6,6 @@ export class DileIconlibRsvp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rsvp', DileIconlibRsvp);
+if (!customElements.get('dile-material-icon-rsvp')) {
+  customElements.define('dile-material-icon-rsvp', DileIconlibRsvp);
+}

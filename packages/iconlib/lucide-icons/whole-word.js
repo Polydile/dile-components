@@ -6,4 +6,6 @@ export class DileIconlibWholeWord extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-whole-word', DileIconlibWholeWord);
+if (!customElements.get('dile-lucide-icon-whole-word')) {
+  customElements.define('dile-lucide-icon-whole-word', DileIconlibWholeWord);
+}

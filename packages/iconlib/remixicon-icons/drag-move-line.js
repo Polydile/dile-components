@@ -6,4 +6,6 @@ export class DileIconlibDragMoveLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-drag-move-line', DileIconlibDragMoveLine);
+if (!customElements.get('dile-remixicon-icon-drag-move-line')) {
+  customElements.define('dile-remixicon-icon-drag-move-line', DileIconlibDragMoveLine);
+}

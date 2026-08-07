@@ -6,4 +6,6 @@ export class DileIconlibNetworkOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-network-off', DileIconlibNetworkOff);
+if (!customElements.get('dile-tabler-icon-network-off')) {
+  customElements.define('dile-tabler-icon-network-off', DileIconlibNetworkOff);
+}

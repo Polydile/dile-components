@@ -6,4 +6,6 @@ export class DileIconlibHandSwipeLeftDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-swipe-left-duotone', DileIconlibHandSwipeLeftDuotone);
+if (!customElements.get('dile-phosphor-icon-hand-swipe-left-duotone')) {
+  customElements.define('dile-phosphor-icon-hand-swipe-left-duotone', DileIconlibHandSwipeLeftDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonDrowning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-drowning', DileIconlibPersonDrowning);
+if (!customElements.get('dile-fontawesome-icon-person-drowning')) {
+  customElements.define('dile-fontawesome-icon-person-drowning', DileIconlibPersonDrowning);
+}

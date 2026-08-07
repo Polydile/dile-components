@@ -6,4 +6,6 @@ export class DileIconlibFlagBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flag-bitcoin', DileIconlibFlagBitcoin);
+if (!customElements.get('dile-tabler-icon-flag-bitcoin')) {
+  customElements.define('dile-tabler-icon-flag-bitcoin', DileIconlibFlagBitcoin);
+}

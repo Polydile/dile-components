@@ -6,4 +6,6 @@ export class DileIconlibParachuteBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-parachute-bold', DileIconlibParachuteBold);
+if (!customElements.get('dile-phosphor-icon-parachute-bold')) {
+  customElements.define('dile-phosphor-icon-parachute-bold', DileIconlibParachuteBold);
+}

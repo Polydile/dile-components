@@ -6,4 +6,6 @@ export class DileIconlibBrandNeteaseMusic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-netease-music', DileIconlibBrandNeteaseMusic);
+if (!customElements.get('dile-tabler-icon-brand-netease-music')) {
+  customElements.define('dile-tabler-icon-brand-netease-music', DileIconlibBrandNeteaseMusic);
+}

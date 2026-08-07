@@ -6,4 +6,6 @@ export class DileIconlibPanoramaLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-panorama-light', DileIconlibPanoramaLight);
+if (!customElements.get('dile-phosphor-icon-panorama-light')) {
+  customElements.define('dile-phosphor-icon-panorama-light', DileIconlibPanoramaLight);
+}

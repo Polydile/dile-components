@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftWordLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-word-logo', DileIconlibMicrosoftWordLogo);
+if (!customElements.get('dile-phosphor-icon-microsoft-word-logo')) {
+  customElements.define('dile-phosphor-icon-microsoft-word-logo', DileIconlibMicrosoftWordLogo);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFloppyDiskDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-floppy-disk-duotone', DileIconlibFloppyDiskDuotone);
+if (!customElements.get('dile-phosphor-icon-floppy-disk-duotone')) {
+  customElements.define('dile-phosphor-icon-floppy-disk-duotone', DileIconlibFloppyDiskDuotone);
+}

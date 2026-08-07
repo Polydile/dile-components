@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleBigQuery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-big-query', DileIconlibBrandGoogleBigQuery);
+if (!customElements.get('dile-tabler-icon-brand-google-big-query')) {
+  customElements.define('dile-tabler-icon-brand-google-big-query', DileIconlibBrandGoogleBigQuery);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHandCoinLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hand-coin-line', DileIconlibHandCoinLine);
+if (!customElements.get('dile-remixicon-icon-hand-coin-line')) {
+  customElements.define('dile-remixicon-icon-hand-coin-line', DileIconlibHandCoinLine);
+}

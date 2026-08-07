@@ -6,4 +6,6 @@ export class DileIconlibSeedlingOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-seedling-off', DileIconlibSeedlingOff);
+if (!customElements.get('dile-tabler-icon-seedling-off')) {
+  customElements.define('dile-tabler-icon-seedling-off', DileIconlibSeedlingOff);
+}

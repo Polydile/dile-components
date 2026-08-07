@@ -6,4 +6,6 @@ export class DileIconlibFirstdraft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-firstdraft', DileIconlibFirstdraft);
+if (!customElements.get('dile-fontawesome-icon-firstdraft')) {
+  customElements.define('dile-fontawesome-icon-firstdraft', DileIconlibFirstdraft);
+}

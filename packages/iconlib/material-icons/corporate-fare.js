@@ -6,4 +6,6 @@ export class DileIconlibCorporateFare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-corporate-fare', DileIconlibCorporateFare);
+if (!customElements.get('dile-material-icon-corporate-fare')) {
+  customElements.define('dile-material-icon-corporate-fare', DileIconlibCorporateFare);
+}

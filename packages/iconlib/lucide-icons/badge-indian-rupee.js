@@ -6,4 +6,6 @@ export class DileIconlibBadgeIndianRupee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-badge-indian-rupee', DileIconlibBadgeIndianRupee);
+if (!customElements.get('dile-lucide-icon-badge-indian-rupee')) {
+  customElements.define('dile-lucide-icon-badge-indian-rupee', DileIconlibBadgeIndianRupee);
+}

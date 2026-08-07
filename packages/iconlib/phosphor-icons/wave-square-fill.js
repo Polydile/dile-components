@@ -6,4 +6,6 @@ export class DileIconlibWaveSquareFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-square-fill', DileIconlibWaveSquareFill);
+if (!customElements.get('dile-phosphor-icon-wave-square-fill')) {
+  customElements.define('dile-phosphor-icon-wave-square-fill', DileIconlibWaveSquareFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBahtSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-baht-sign', DileIconlibBahtSign);
+if (!customElements.get('dile-fontawesome-icon-baht-sign')) {
+  customElements.define('dile-fontawesome-icon-baht-sign', DileIconlibBahtSign);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSalesforce extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-salesforce', DileIconlibSalesforce);
+if (!customElements.get('dile-fontawesome-icon-salesforce')) {
+  customElements.define('dile-fontawesome-icon-salesforce', DileIconlibSalesforce);
+}

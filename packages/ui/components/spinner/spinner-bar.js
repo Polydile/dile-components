@@ -1,3 +1,5 @@
 import { DileSpinnerBar } from "./src/DileSpinnerBar.js";
 
-window.customElements.define("dile-spinner-bar", DileSpinnerBar);
+if (!customElements.get("dile-spinner-bar")) {
+  window.customElements.define("dile-spinner-bar", DileSpinnerBar);
+}

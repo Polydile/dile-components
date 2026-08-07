@@ -6,4 +6,6 @@ export class DileIconlibSpeakerSimpleHighBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-speaker-simple-high-bold', DileIconlibSpeakerSimpleHighBold);
+if (!customElements.get('dile-phosphor-icon-speaker-simple-high-bold')) {
+  customElements.define('dile-phosphor-icon-speaker-simple-high-bold', DileIconlibSpeakerSimpleHighBold);
+}

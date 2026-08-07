@@ -6,4 +6,6 @@ export class DileIconlibBrandTesla extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tesla', DileIconlibBrandTesla);
+if (!customElements.get('dile-tabler-icon-brand-tesla')) {
+  customElements.define('dile-tabler-icon-brand-tesla', DileIconlibBrandTesla);
+}

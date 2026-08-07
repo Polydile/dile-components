@@ -6,4 +6,6 @@ export class DileIconlibMailOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mail-outline', DileIconlibMailOutline);
+if (!customElements.get('dile-material-icon-mail-outline')) {
+  customElements.define('dile-material-icon-mail-outline', DileIconlibMailOutline);
+}

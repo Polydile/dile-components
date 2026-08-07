@@ -6,4 +6,6 @@ export class DileIconlibDeleteOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-delete-outline', DileIconlibDeleteOutline);
+if (!customElements.get('dile-material-icon-delete-outline')) {
+  customElements.define('dile-material-icon-delete-outline', DileIconlibDeleteOutline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeadlightsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headlights-duotone', DileIconlibHeadlightsDuotone);
+if (!customElements.get('dile-phosphor-icon-headlights-duotone')) {
+  customElements.define('dile-phosphor-icon-headlights-duotone', DileIconlibHeadlightsDuotone);
+}

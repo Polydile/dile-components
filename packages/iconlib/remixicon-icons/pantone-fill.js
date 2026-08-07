@@ -6,4 +6,6 @@ export class DileIconlibPantoneFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pantone-fill', DileIconlibPantoneFill);
+if (!customElements.get('dile-remixicon-icon-pantone-fill')) {
+  customElements.define('dile-remixicon-icon-pantone-fill', DileIconlibPantoneFill);
+}

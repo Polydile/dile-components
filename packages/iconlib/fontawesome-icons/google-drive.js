@@ -6,4 +6,6 @@ export class DileIconlibGoogleDrive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-google-drive', DileIconlibGoogleDrive);
+if (!customElements.get('dile-fontawesome-icon-google-drive')) {
+  customElements.define('dile-fontawesome-icon-google-drive', DileIconlibGoogleDrive);
+}

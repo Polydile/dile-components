@@ -6,4 +6,6 @@ export class DileIconlibArrowsJoin2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-join-2', DileIconlibArrowsJoin2);
+if (!customElements.get('dile-tabler-icon-arrows-join-2')) {
+  customElements.define('dile-tabler-icon-arrows-join-2', DileIconlibArrowsJoin2);
+}

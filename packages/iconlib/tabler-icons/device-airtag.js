@@ -6,4 +6,6 @@ export class DileIconlibDeviceAirtag extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-airtag', DileIconlibDeviceAirtag);
+if (!customElements.get('dile-tabler-icon-device-airtag')) {
+  customElements.define('dile-tabler-icon-device-airtag', DileIconlibDeviceAirtag);
+}

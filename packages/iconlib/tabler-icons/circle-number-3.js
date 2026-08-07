@@ -6,4 +6,6 @@ export class DileIconlibCircleNumber3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-number-3', DileIconlibCircleNumber3);
+if (!customElements.get('dile-tabler-icon-circle-number-3')) {
+  customElements.define('dile-tabler-icon-circle-number-3', DileIconlibCircleNumber3);
+}

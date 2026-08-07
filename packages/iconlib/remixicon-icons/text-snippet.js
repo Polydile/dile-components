@@ -6,4 +6,6 @@ export class DileIconlibTextSnippet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-text-snippet', DileIconlibTextSnippet);
+if (!customElements.get('dile-remixicon-icon-text-snippet')) {
+  customElements.define('dile-remixicon-icon-text-snippet', DileIconlibTextSnippet);
+}

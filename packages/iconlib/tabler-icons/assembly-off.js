@@ -6,4 +6,6 @@ export class DileIconlibAssemblyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-assembly-off', DileIconlibAssemblyOff);
+if (!customElements.get('dile-tabler-icon-assembly-off')) {
+  customElements.define('dile-tabler-icon-assembly-off', DileIconlibAssemblyOff);
+}

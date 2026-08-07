@@ -6,4 +6,6 @@ export class DileIconlibVisaLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-visa-line', DileIconlibVisaLine);
+if (!customElements.get('dile-remixicon-icon-visa-line')) {
+  customElements.define('dile-remixicon-icon-visa-line', DileIconlibVisaLine);
+}

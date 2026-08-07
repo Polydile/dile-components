@@ -6,4 +6,6 @@ export class DileIconlibBarsStaggered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bars-staggered', DileIconlibBarsStaggered);
+if (!customElements.get('dile-fontawesome-icon-bars-staggered')) {
+  customElements.define('dile-fontawesome-icon-bars-staggered', DileIconlibBarsStaggered);
+}

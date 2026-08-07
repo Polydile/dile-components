@@ -1,2 +1,4 @@
 import { DileAjaxForm } from './src/DileAjaxForm.js';
-customElements.define('dile-ajax-form', DileAjaxForm);
+if (!customElements.get('dile-ajax-form')) {
+  customElements.define('dile-ajax-form', DileAjaxForm);
+}

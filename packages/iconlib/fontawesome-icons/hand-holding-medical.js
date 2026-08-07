@@ -6,4 +6,6 @@ export class DileIconlibHandHoldingMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hand-holding-medical', DileIconlibHandHoldingMedical);
+if (!customElements.get('dile-fontawesome-icon-hand-holding-medical')) {
+  customElements.define('dile-fontawesome-icon-hand-holding-medical', DileIconlibHandHoldingMedical);
+}

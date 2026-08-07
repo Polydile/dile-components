@@ -6,4 +6,6 @@ export class DileIconlibUnsplash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unsplash', DileIconlibUnsplash);
+if (!customElements.get('dile-fontawesome-icon-unsplash')) {
+  customElements.define('dile-fontawesome-icon-unsplash', DileIconlibUnsplash);
+}

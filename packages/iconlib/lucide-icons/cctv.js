@@ -6,4 +6,6 @@ export class DileIconlibCctv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-cctv', DileIconlibCctv);
+if (!customElements.get('dile-lucide-icon-cctv')) {
+  customElements.define('dile-lucide-icon-cctv', DileIconlibCctv);
+}

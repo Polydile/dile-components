@@ -6,4 +6,6 @@ export class DileIconlibTipJarPound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tip-jar-pound', DileIconlibTipJarPound);
+if (!customElements.get('dile-tabler-icon-tip-jar-pound')) {
+  customElements.define('dile-tabler-icon-tip-jar-pound', DileIconlibTipJarPound);
+}

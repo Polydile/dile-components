@@ -6,4 +6,6 @@ export class DileIconlibVinylRecordBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vinyl-record-bold', DileIconlibVinylRecordBold);
+if (!customElements.get('dile-phosphor-icon-vinyl-record-bold')) {
+  customElements.define('dile-phosphor-icon-vinyl-record-bold', DileIconlibVinylRecordBold);
+}

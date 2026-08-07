@@ -6,4 +6,6 @@ export class DileIconlibCurrencyGuarani extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-guarani', DileIconlibCurrencyGuarani);
+if (!customElements.get('dile-tabler-icon-currency-guarani')) {
+  customElements.define('dile-tabler-icon-currency-guarani', DileIconlibCurrencyGuarani);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUbuntuLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ubuntu-line', DileIconlibUbuntuLine);
+if (!customElements.get('dile-remixicon-icon-ubuntu-line')) {
+  customElements.define('dile-remixicon-icon-ubuntu-line', DileIconlibUbuntuLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBackpackDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-backpack-duotone', DileIconlibBackpackDuotone);
+if (!customElements.get('dile-phosphor-icon-backpack-duotone')) {
+  customElements.define('dile-phosphor-icon-backpack-duotone', DileIconlibBackpackDuotone);
+}

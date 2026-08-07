@@ -6,4 +6,6 @@ export class DileIconlibNetworkLocked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-network-locked', DileIconlibNetworkLocked);
+if (!customElements.get('dile-material-icon-network-locked')) {
+  customElements.define('dile-material-icon-network-locked', DileIconlibNetworkLocked);
+}

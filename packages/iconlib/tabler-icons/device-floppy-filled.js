@@ -6,4 +6,6 @@ export class DileIconlibDeviceFloppyFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-floppy-filled', DileIconlibDeviceFloppyFilled);
+if (!customElements.get('dile-tabler-icon-device-floppy-filled')) {
+  customElements.define('dile-tabler-icon-device-floppy-filled', DileIconlibDeviceFloppyFilled);
+}

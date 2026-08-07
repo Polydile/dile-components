@@ -6,4 +6,6 @@ export class DileIconlibCropLandscapeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-crop-landscape-filled', DileIconlibCropLandscapeFilled);
+if (!customElements.get('dile-tabler-icon-crop-landscape-filled')) {
+  customElements.define('dile-tabler-icon-crop-landscape-filled', DileIconlibCropLandscapeFilled);
+}

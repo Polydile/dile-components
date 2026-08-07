@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDinar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dinar', DileIconlibCurrencyDinar);
+if (!customElements.get('dile-tabler-icon-currency-dinar')) {
+  customElements.define('dile-tabler-icon-currency-dinar', DileIconlibCurrencyDinar);
+}

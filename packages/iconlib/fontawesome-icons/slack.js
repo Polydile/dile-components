@@ -6,4 +6,6 @@ export class DileIconlibSlack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-slack', DileIconlibSlack);
+if (!customElements.get('dile-fontawesome-icon-slack')) {
+  customElements.define('dile-fontawesome-icon-slack', DileIconlibSlack);
+}

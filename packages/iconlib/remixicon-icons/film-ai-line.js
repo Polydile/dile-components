@@ -6,4 +6,6 @@ export class DileIconlibFilmAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-film-ai-line', DileIconlibFilmAiLine);
+if (!customElements.get('dile-remixicon-icon-film-ai-line')) {
+  customElements.define('dile-remixicon-icon-film-ai-line', DileIconlibFilmAiLine);
+}

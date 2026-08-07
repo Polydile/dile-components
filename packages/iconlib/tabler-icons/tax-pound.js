@@ -6,4 +6,6 @@ export class DileIconlibTaxPound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tax-pound', DileIconlibTaxPound);
+if (!customElements.get('dile-tabler-icon-tax-pound')) {
+  customElements.define('dile-tabler-icon-tax-pound', DileIconlibTaxPound);
+}

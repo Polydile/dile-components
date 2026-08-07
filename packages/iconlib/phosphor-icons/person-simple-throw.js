@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleThrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-throw', DileIconlibPersonSimpleThrow);
+if (!customElements.get('dile-phosphor-icon-person-simple-throw')) {
+  customElements.define('dile-phosphor-icon-person-simple-throw', DileIconlibPersonSimpleThrow);
+}

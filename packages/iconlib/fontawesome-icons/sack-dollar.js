@@ -6,4 +6,6 @@ export class DileIconlibSackDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sack-dollar', DileIconlibSackDollar);
+if (!customElements.get('dile-fontawesome-icon-sack-dollar')) {
+  customElements.define('dile-fontawesome-icon-sack-dollar', DileIconlibSackDollar);
+}

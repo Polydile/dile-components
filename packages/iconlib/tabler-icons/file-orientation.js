@@ -6,4 +6,6 @@ export class DileIconlibFileOrientation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-orientation', DileIconlibFileOrientation);
+if (!customElements.get('dile-tabler-icon-file-orientation')) {
+  customElements.define('dile-tabler-icon-file-orientation', DileIconlibFileOrientation);
+}

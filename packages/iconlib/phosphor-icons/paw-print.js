@@ -6,4 +6,6 @@ export class DileIconlibPawPrint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paw-print', DileIconlibPawPrint);
+if (!customElements.get('dile-phosphor-icon-paw-print')) {
+  customElements.define('dile-phosphor-icon-paw-print', DileIconlibPawPrint);
+}

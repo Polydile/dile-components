@@ -6,4 +6,6 @@ export class DileIconlibCameraShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-share', DileIconlibCameraShare);
+if (!customElements.get('dile-tabler-icon-camera-share')) {
+  customElements.define('dile-tabler-icon-camera-share', DileIconlibCameraShare);
+}

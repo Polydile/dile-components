@@ -6,4 +6,6 @@ export class DileIconlibBuromobelexperte extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-buromobelexperte', DileIconlibBuromobelexperte);
+if (!customElements.get('dile-fontawesome-icon-buromobelexperte')) {
+  customElements.define('dile-fontawesome-icon-buromobelexperte', DileIconlibBuromobelexperte);
+}

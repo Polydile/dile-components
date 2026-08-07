@@ -6,4 +6,6 @@ export class DileIconlibDeviceSdCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-sd-card', DileIconlibDeviceSdCard);
+if (!customElements.get('dile-tabler-icon-device-sd-card')) {
+  customElements.define('dile-tabler-icon-device-sd-card', DileIconlibDeviceSdCard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStandardDefinitionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-standard-definition-fill', DileIconlibStandardDefinitionFill);
+if (!customElements.get('dile-phosphor-icon-standard-definition-fill')) {
+  customElements.define('dile-phosphor-icon-standard-definition-fill', DileIconlibStandardDefinitionFill);
+}

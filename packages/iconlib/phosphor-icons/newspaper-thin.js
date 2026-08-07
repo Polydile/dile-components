@@ -6,4 +6,6 @@ export class DileIconlibNewspaperThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-newspaper-thin', DileIconlibNewspaperThin);
+if (!customElements.get('dile-phosphor-icon-newspaper-thin')) {
+  customElements.define('dile-phosphor-icon-newspaper-thin', DileIconlibNewspaperThin);
+}

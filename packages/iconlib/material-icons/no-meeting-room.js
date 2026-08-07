@@ -6,4 +6,6 @@ export class DileIconlibNoMeetingRoom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-meeting-room', DileIconlibNoMeetingRoom);
+if (!customElements.get('dile-material-icon-no-meeting-room')) {
+  customElements.define('dile-material-icon-no-meeting-room', DileIconlibNoMeetingRoom);
+}

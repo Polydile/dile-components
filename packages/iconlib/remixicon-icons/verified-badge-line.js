@@ -6,4 +6,6 @@ export class DileIconlibVerifiedBadgeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-verified-badge-line', DileIconlibVerifiedBadgeLine);
+if (!customElements.get('dile-remixicon-icon-verified-badge-line')) {
+  customElements.define('dile-remixicon-icon-verified-badge-line', DileIconlibVerifiedBadgeLine);
+}

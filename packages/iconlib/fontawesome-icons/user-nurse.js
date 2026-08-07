@@ -6,4 +6,6 @@ export class DileIconlibUserNurse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-nurse', DileIconlibUserNurse);
+if (!customElements.get('dile-fontawesome-icon-user-nurse')) {
+  customElements.define('dile-fontawesome-icon-user-nurse', DileIconlibUserNurse);
+}

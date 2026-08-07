@@ -6,4 +6,6 @@ export class DileIconlibDirectionsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-directions-off', DileIconlibDirectionsOff);
+if (!customElements.get('dile-material-icon-directions-off')) {
+  customElements.define('dile-material-icon-directions-off', DileIconlibDirectionsOff);
+}

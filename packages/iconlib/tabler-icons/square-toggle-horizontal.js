@@ -6,4 +6,6 @@ export class DileIconlibSquareToggleHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-toggle-horizontal', DileIconlibSquareToggleHorizontal);
+if (!customElements.get('dile-tabler-icon-square-toggle-horizontal')) {
+  customElements.define('dile-tabler-icon-square-toggle-horizontal', DileIconlibSquareToggleHorizontal);
+}

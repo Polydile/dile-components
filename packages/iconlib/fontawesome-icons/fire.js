@@ -6,4 +6,6 @@ export class DileIconlibFire extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fire', DileIconlibFire);
+if (!customElements.get('dile-fontawesome-icon-fire')) {
+  customElements.define('dile-fontawesome-icon-fire', DileIconlibFire);
+}

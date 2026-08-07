@@ -6,4 +6,6 @@ export class DileIconlibCss3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-css3', DileIconlibCss3);
+if (!customElements.get('dile-fontawesome-icon-css3')) {
+  customElements.define('dile-fontawesome-icon-css3', DileIconlibCss3);
+}

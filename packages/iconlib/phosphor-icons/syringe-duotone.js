@@ -6,4 +6,6 @@ export class DileIconlibSyringeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-syringe-duotone', DileIconlibSyringeDuotone);
+if (!customElements.get('dile-phosphor-icon-syringe-duotone')) {
+  customElements.define('dile-phosphor-icon-syringe-duotone', DileIconlibSyringeDuotone);
+}

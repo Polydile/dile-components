@@ -6,4 +6,6 @@ export class DileIconlibFolderCloudLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-cloud-line', DileIconlibFolderCloudLine);
+if (!customElements.get('dile-remixicon-icon-folder-cloud-line')) {
+  customElements.define('dile-remixicon-icon-folder-cloud-line', DileIconlibFolderCloudLine);
+}

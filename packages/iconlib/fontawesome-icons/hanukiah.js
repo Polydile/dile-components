@@ -6,4 +6,6 @@ export class DileIconlibHanukiah extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hanukiah', DileIconlibHanukiah);
+if (!customElements.get('dile-fontawesome-icon-hanukiah')) {
+  customElements.define('dile-fontawesome-icon-hanukiah', DileIconlibHanukiah);
+}

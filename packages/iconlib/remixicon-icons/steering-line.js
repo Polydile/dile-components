@@ -6,4 +6,6 @@ export class DileIconlibSteeringLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-steering-line', DileIconlibSteeringLine);
+if (!customElements.get('dile-remixicon-icon-steering-line')) {
+  customElements.define('dile-remixicon-icon-steering-line', DileIconlibSteeringLine);
+}

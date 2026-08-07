@@ -6,4 +6,6 @@ export class DileIconlibDrumstick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-drumstick', DileIconlibDrumstick);
+if (!customElements.get('dile-lucide-icon-drumstick')) {
+  customElements.define('dile-lucide-icon-drumstick', DileIconlibDrumstick);
+}

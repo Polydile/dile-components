@@ -6,4 +6,6 @@ export class DileIconlibTempColdLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-temp-cold-line', DileIconlibTempColdLine);
+if (!customElements.get('dile-remixicon-icon-temp-cold-line')) {
+  customElements.define('dile-remixicon-icon-temp-cold-line', DileIconlibTempColdLine);
+}

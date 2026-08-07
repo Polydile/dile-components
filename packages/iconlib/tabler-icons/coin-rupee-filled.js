@@ -6,4 +6,6 @@ export class DileIconlibCoinRupeeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-rupee-filled', DileIconlibCoinRupeeFilled);
+if (!customElements.get('dile-tabler-icon-coin-rupee-filled')) {
+  customElements.define('dile-tabler-icon-coin-rupee-filled', DileIconlibCoinRupeeFilled);
+}

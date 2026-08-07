@@ -6,4 +6,6 @@ export class DileIconlibTruckPlane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-plane', DileIconlibTruckPlane);
+if (!customElements.get('dile-fontawesome-icon-truck-plane')) {
+  customElements.define('dile-fontawesome-icon-truck-plane', DileIconlibTruckPlane);
+}

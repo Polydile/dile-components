@@ -6,4 +6,6 @@ export class DileIconlibRulerHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ruler-horizontal', DileIconlibRulerHorizontal);
+if (!customElements.get('dile-fontawesome-icon-ruler-horizontal')) {
+  customElements.define('dile-fontawesome-icon-ruler-horizontal', DileIconlibRulerHorizontal);
+}

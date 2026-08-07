@@ -6,4 +6,6 @@ export class DileIconlibFolderMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-minus', DileIconlibFolderMinus);
+if (!customElements.get('dile-lucide-icon-folder-minus')) {
+  customElements.define('dile-lucide-icon-folder-minus', DileIconlibFolderMinus);
+}

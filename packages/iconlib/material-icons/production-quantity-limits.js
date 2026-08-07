@@ -6,4 +6,6 @@ export class DileIconlibProductionQuantityLimits extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-production-quantity-limits', DileIconlibProductionQuantityLimits);
+if (!customElements.get('dile-material-icon-production-quantity-limits')) {
+  customElements.define('dile-material-icon-production-quantity-limits', DileIconlibProductionQuantityLimits);
+}

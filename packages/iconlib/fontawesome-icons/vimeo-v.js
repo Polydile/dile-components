@@ -6,4 +6,6 @@ export class DileIconlibVimeoV extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vimeo-v', DileIconlibVimeoV);
+if (!customElements.get('dile-fontawesome-icon-vimeo-v')) {
+  customElements.define('dile-fontawesome-icon-vimeo-v', DileIconlibVimeoV);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNavigationSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-navigation-search', DileIconlibNavigationSearch);
+if (!customElements.get('dile-tabler-icon-navigation-search')) {
+  customElements.define('dile-tabler-icon-navigation-search', DileIconlibNavigationSearch);
+}

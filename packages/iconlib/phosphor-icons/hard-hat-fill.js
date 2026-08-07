@@ -6,4 +6,6 @@ export class DileIconlibHardHatFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hard-hat-fill', DileIconlibHardHatFill);
+if (!customElements.get('dile-phosphor-icon-hard-hat-fill')) {
+  customElements.define('dile-phosphor-icon-hard-hat-fill', DileIconlibHardHatFill);
+}

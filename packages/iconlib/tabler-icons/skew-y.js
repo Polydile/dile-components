@@ -6,4 +6,6 @@ export class DileIconlibSkewY extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-skew-y', DileIconlibSkewY);
+if (!customElements.get('dile-tabler-icon-skew-y')) {
+  customElements.define('dile-tabler-icon-skew-y', DileIconlibSkewY);
+}

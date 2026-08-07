@@ -6,4 +6,6 @@ export class DileIconlibPhoneForwarded extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phone-forwarded', DileIconlibPhoneForwarded);
+if (!customElements.get('dile-material-icon-phone-forwarded')) {
+  customElements.define('dile-material-icon-phone-forwarded', DileIconlibPhoneForwarded);
+}

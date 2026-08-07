@@ -6,4 +6,6 @@ export class DileIconlibPoundSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pound-sign', DileIconlibPoundSign);
+if (!customElements.get('dile-fontawesome-icon-pound-sign')) {
+  customElements.define('dile-fontawesome-icon-pound-sign', DileIconlibPoundSign);
+}

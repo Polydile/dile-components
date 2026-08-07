@@ -6,4 +6,6 @@ export class DileIconlibHiking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hiking', DileIconlibHiking);
+if (!customElements.get('dile-material-icon-hiking')) {
+  customElements.define('dile-material-icon-hiking', DileIconlibHiking);
+}

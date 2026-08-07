@@ -6,4 +6,6 @@ export class DileIconlibMarkEmailUnread extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mark-email-unread', DileIconlibMarkEmailUnread);
+if (!customElements.get('dile-material-icon-mark-email-unread')) {
+  customElements.define('dile-material-icon-mark-email-unread', DileIconlibMarkEmailUnread);
+}

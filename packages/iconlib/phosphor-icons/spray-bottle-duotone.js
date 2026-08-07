@@ -6,4 +6,6 @@ export class DileIconlibSprayBottleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spray-bottle-duotone', DileIconlibSprayBottleDuotone);
+if (!customElements.get('dile-phosphor-icon-spray-bottle-duotone')) {
+  customElements.define('dile-phosphor-icon-spray-bottle-duotone', DileIconlibSprayBottleDuotone);
+}

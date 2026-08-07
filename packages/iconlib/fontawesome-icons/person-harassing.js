@@ -6,4 +6,6 @@ export class DileIconlibPersonHarassing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-harassing', DileIconlibPersonHarassing);
+if (!customElements.get('dile-fontawesome-icon-person-harassing')) {
+  customElements.define('dile-fontawesome-icon-person-harassing', DileIconlibPersonHarassing);
+}

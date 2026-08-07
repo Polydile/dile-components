@@ -6,4 +6,6 @@ export class DileIconlibSettings5Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-settings-5-line', DileIconlibSettings5Line);
+if (!customElements.get('dile-remixicon-icon-settings-5-line')) {
+  customElements.define('dile-remixicon-icon-settings-5-line', DileIconlibSettings5Line);
+}

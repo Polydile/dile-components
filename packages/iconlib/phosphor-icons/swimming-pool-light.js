@@ -6,4 +6,6 @@ export class DileIconlibSwimmingPoolLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-swimming-pool-light', DileIconlibSwimmingPoolLight);
+if (!customElements.get('dile-phosphor-icon-swimming-pool-light')) {
+  customElements.define('dile-phosphor-icon-swimming-pool-light', DileIconlibSwimmingPoolLight);
+}

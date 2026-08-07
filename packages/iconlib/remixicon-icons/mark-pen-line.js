@@ -6,4 +6,6 @@ export class DileIconlibMarkPenLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mark-pen-line', DileIconlibMarkPenLine);
+if (!customElements.get('dile-remixicon-icon-mark-pen-line')) {
+  customElements.define('dile-remixicon-icon-mark-pen-line', DileIconlibMarkPenLine);
+}

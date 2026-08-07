@@ -6,4 +6,6 @@ export class DileIconlibMobileScreenShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mobile-screen-share', DileIconlibMobileScreenShare);
+if (!customElements.get('dile-material-icon-mobile-screen-share')) {
+  customElements.define('dile-material-icon-mobile-screen-share', DileIconlibMobileScreenShare);
+}

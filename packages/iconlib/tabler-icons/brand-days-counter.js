@@ -6,4 +6,6 @@ export class DileIconlibBrandDaysCounter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-days-counter', DileIconlibBrandDaysCounter);
+if (!customElements.get('dile-tabler-icon-brand-days-counter')) {
+  customElements.define('dile-tabler-icon-brand-days-counter', DileIconlibBrandDaysCounter);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSunOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sun-off', DileIconlibSunOff);
+if (!customElements.get('dile-tabler-icon-sun-off')) {
+  customElements.define('dile-tabler-icon-sun-off', DileIconlibSunOff);
+}

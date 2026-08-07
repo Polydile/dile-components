@@ -6,4 +6,6 @@ export class DileIconlibStreetview extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-streetview', DileIconlibStreetview);
+if (!customElements.get('dile-material-icon-streetview')) {
+  customElements.define('dile-material-icon-streetview', DileIconlibStreetview);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGlassGin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-glass-gin', DileIconlibGlassGin);
+if (!customElements.get('dile-tabler-icon-glass-gin')) {
+  customElements.define('dile-tabler-icon-glass-gin', DileIconlibGlassGin);
+}

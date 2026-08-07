@@ -6,4 +6,6 @@ export class DileIconlibTradeFederation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trade-federation', DileIconlibTradeFederation);
+if (!customElements.get('dile-fontawesome-icon-trade-federation')) {
+  customElements.define('dile-fontawesome-icon-trade-federation', DileIconlibTradeFederation);
+}

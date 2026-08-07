@@ -6,4 +6,6 @@ export class DileIconlibMiddleware extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-middleware', DileIconlibMiddleware);
+if (!customElements.get('dile-tabler-icon-middleware')) {
+  customElements.define('dile-tabler-icon-middleware', DileIconlibMiddleware);
+}

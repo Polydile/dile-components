@@ -6,4 +6,6 @@ export class DileIconlibAssuredWorkload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-assured-workload', DileIconlibAssuredWorkload);
+if (!customElements.get('dile-material-icon-assured-workload')) {
+  customElements.define('dile-material-icon-assured-workload', DileIconlibAssuredWorkload);
+}

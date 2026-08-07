@@ -6,4 +6,6 @@ export class DileIconlibFiberDvr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fiber-dvr', DileIconlibFiberDvr);
+if (!customElements.get('dile-material-icon-fiber-dvr')) {
+  customElements.define('dile-material-icon-fiber-dvr', DileIconlibFiberDvr);
+}

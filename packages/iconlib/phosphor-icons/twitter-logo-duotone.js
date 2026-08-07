@@ -6,4 +6,6 @@ export class DileIconlibTwitterLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-twitter-logo-duotone', DileIconlibTwitterLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-twitter-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-twitter-logo-duotone', DileIconlibTwitterLogoDuotone);
+}

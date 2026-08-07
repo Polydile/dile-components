@@ -6,4 +6,6 @@ export class DileIconlibNotEqualsBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-not-equals-bold', DileIconlibNotEqualsBold);
+if (!customElements.get('dile-phosphor-icon-not-equals-bold')) {
+  customElements.define('dile-phosphor-icon-not-equals-bold', DileIconlibNotEqualsBold);
+}

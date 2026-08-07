@@ -6,4 +6,6 @@ export class DileIconlibWebAwesome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-web-awesome', DileIconlibWebAwesome);
+if (!customElements.get('dile-fontawesome-icon-web-awesome')) {
+  customElements.define('dile-fontawesome-icon-web-awesome', DileIconlibWebAwesome);
+}

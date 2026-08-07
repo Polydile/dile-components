@@ -6,4 +6,6 @@ export class DileIconlibCalendarFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-filled', DileIconlibCalendarFilled);
+if (!customElements.get('dile-tabler-icon-calendar-filled')) {
+  customElements.define('dile-tabler-icon-calendar-filled', DileIconlibCalendarFilled);
+}

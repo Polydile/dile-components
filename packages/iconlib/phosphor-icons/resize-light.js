@@ -6,4 +6,6 @@ export class DileIconlibResizeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-resize-light', DileIconlibResizeLight);
+if (!customElements.get('dile-phosphor-icon-resize-light')) {
+  customElements.define('dile-phosphor-icon-resize-light', DileIconlibResizeLight);
+}

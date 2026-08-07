@@ -6,4 +6,6 @@ export class DileIconlibCollapseVerticalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-collapse-vertical-fill', DileIconlibCollapseVerticalFill);
+if (!customElements.get('dile-remixicon-icon-collapse-vertical-fill')) {
+  customElements.define('dile-remixicon-icon-collapse-vertical-fill', DileIconlibCollapseVerticalFill);
+}

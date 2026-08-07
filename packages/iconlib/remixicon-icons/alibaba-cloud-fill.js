@@ -6,4 +6,6 @@ export class DileIconlibAlibabaCloudFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-alibaba-cloud-fill', DileIconlibAlibabaCloudFill);
+if (!customElements.get('dile-remixicon-icon-alibaba-cloud-fill')) {
+  customElements.define('dile-remixicon-icon-alibaba-cloud-fill', DileIconlibAlibabaCloudFill);
+}

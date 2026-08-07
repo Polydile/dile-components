@@ -6,4 +6,6 @@ export class DileIconlibWheatOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wheat-off', DileIconlibWheatOff);
+if (!customElements.get('dile-tabler-icon-wheat-off')) {
+  customElements.define('dile-tabler-icon-wheat-off', DileIconlibWheatOff);
+}

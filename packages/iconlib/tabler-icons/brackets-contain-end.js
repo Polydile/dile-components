@@ -6,4 +6,6 @@ export class DileIconlibBracketsContainEnd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brackets-contain-end', DileIconlibBracketsContainEnd);
+if (!customElements.get('dile-tabler-icon-brackets-contain-end')) {
+  customElements.define('dile-tabler-icon-brackets-contain-end', DileIconlibBracketsContainEnd);
+}

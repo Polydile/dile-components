@@ -6,4 +6,6 @@ export class DileIconlibArrowDropDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-arrow-drop-down', DileIconlibArrowDropDown);
+if (!customElements.get('dile-material-icon-arrow-drop-down')) {
+  customElements.define('dile-material-icon-arrow-drop-down', DileIconlibArrowDropDown);
+}

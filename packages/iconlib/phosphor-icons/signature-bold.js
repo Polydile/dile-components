@@ -6,4 +6,6 @@ export class DileIconlibSignatureBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-signature-bold', DileIconlibSignatureBold);
+if (!customElements.get('dile-phosphor-icon-signature-bold')) {
+  customElements.define('dile-phosphor-icon-signature-bold', DileIconlibSignatureBold);
+}

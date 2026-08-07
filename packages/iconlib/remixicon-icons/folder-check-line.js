@@ -6,4 +6,6 @@ export class DileIconlibFolderCheckLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-check-line', DileIconlibFolderCheckLine);
+if (!customElements.get('dile-remixicon-icon-folder-check-line')) {
+  customElements.define('dile-remixicon-icon-folder-check-line', DileIconlibFolderCheckLine);
+}

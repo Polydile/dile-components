@@ -6,4 +6,6 @@ export class DileIconlibCriminalLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-criminal-line', DileIconlibCriminalLine);
+if (!customElements.get('dile-remixicon-icon-criminal-line')) {
+  customElements.define('dile-remixicon-icon-criminal-line', DileIconlibCriminalLine);
+}

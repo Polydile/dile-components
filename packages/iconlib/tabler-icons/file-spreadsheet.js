@@ -6,4 +6,6 @@ export class DileIconlibFileSpreadsheet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-spreadsheet', DileIconlibFileSpreadsheet);
+if (!customElements.get('dile-tabler-icon-file-spreadsheet')) {
+  customElements.define('dile-tabler-icon-file-spreadsheet', DileIconlibFileSpreadsheet);
+}

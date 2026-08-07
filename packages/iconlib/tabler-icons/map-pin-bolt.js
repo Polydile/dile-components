@@ -6,4 +6,6 @@ export class DileIconlibMapPinBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-pin-bolt', DileIconlibMapPinBolt);
+if (!customElements.get('dile-tabler-icon-map-pin-bolt')) {
+  customElements.define('dile-tabler-icon-map-pin-bolt', DileIconlibMapPinBolt);
+}

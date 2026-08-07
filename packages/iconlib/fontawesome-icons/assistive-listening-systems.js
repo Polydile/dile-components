@@ -6,4 +6,6 @@ export class DileIconlibAssistiveListeningSystems extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-assistive-listening-systems', DileIconlibAssistiveListeningSystems);
+if (!customElements.get('dile-fontawesome-icon-assistive-listening-systems')) {
+  customElements.define('dile-fontawesome-icon-assistive-listening-systems', DileIconlibAssistiveListeningSystems);
+}

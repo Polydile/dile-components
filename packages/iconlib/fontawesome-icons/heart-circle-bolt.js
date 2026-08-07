@@ -6,4 +6,6 @@ export class DileIconlibHeartCircleBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-heart-circle-bolt', DileIconlibHeartCircleBolt);
+if (!customElements.get('dile-fontawesome-icon-heart-circle-bolt')) {
+  customElements.define('dile-fontawesome-icon-heart-circle-bolt', DileIconlibHeartCircleBolt);
+}

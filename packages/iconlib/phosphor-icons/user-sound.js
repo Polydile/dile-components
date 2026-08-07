@@ -6,4 +6,6 @@ export class DileIconlibUserSound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-sound', DileIconlibUserSound);
+if (!customElements.get('dile-phosphor-icon-user-sound')) {
+  customElements.define('dile-phosphor-icon-user-sound', DileIconlibUserSound);
+}

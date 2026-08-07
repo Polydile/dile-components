@@ -6,4 +6,6 @@ export class DileIconlibHouseMedicalCircleExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-medical-circle-exclamation', DileIconlibHouseMedicalCircleExclamation);
+if (!customElements.get('dile-fontawesome-icon-house-medical-circle-exclamation')) {
+  customElements.define('dile-fontawesome-icon-house-medical-circle-exclamation', DileIconlibHouseMedicalCircleExclamation);
+}

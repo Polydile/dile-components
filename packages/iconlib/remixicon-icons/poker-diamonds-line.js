@@ -6,4 +6,6 @@ export class DileIconlibPokerDiamondsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-poker-diamonds-line', DileIconlibPokerDiamondsLine);
+if (!customElements.get('dile-remixicon-icon-poker-diamonds-line')) {
+  customElements.define('dile-remixicon-icon-poker-diamonds-line', DileIconlibPokerDiamondsLine);
+}

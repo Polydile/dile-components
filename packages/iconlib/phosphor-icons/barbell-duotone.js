@@ -6,4 +6,6 @@ export class DileIconlibBarbellDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-barbell-duotone', DileIconlibBarbellDuotone);
+if (!customElements.get('dile-phosphor-icon-barbell-duotone')) {
+  customElements.define('dile-phosphor-icon-barbell-duotone', DileIconlibBarbellDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandBaidu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-baidu', DileIconlibBrandBaidu);
+if (!customElements.get('dile-tabler-icon-brand-baidu')) {
+  customElements.define('dile-tabler-icon-brand-baidu', DileIconlibBrandBaidu);
+}

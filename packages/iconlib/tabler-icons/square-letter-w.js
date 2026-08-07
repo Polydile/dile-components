@@ -6,4 +6,6 @@ export class DileIconlibSquareLetterW extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-letter-w', DileIconlibSquareLetterW);
+if (!customElements.get('dile-tabler-icon-square-letter-w')) {
+  customElements.define('dile-tabler-icon-square-letter-w', DileIconlibSquareLetterW);
+}

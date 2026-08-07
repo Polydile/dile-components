@@ -6,4 +6,6 @@ export class DileIconlibHealing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-healing', DileIconlibHealing);
+if (!customElements.get('dile-material-icon-healing')) {
+  customElements.define('dile-material-icon-healing', DileIconlibHealing);
+}

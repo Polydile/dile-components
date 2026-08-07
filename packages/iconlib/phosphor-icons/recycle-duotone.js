@@ -6,4 +6,6 @@ export class DileIconlibRecycleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-recycle-duotone', DileIconlibRecycleDuotone);
+if (!customElements.get('dile-phosphor-icon-recycle-duotone')) {
+  customElements.define('dile-phosphor-icon-recycle-duotone', DileIconlibRecycleDuotone);
+}

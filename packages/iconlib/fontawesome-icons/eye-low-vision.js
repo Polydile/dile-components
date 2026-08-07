@@ -6,4 +6,6 @@ export class DileIconlibEyeLowVision extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-eye-low-vision', DileIconlibEyeLowVision);
+if (!customElements.get('dile-fontawesome-icon-eye-low-vision')) {
+  customElements.define('dile-fontawesome-icon-eye-low-vision', DileIconlibEyeLowVision);
+}

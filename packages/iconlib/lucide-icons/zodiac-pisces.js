@@ -6,4 +6,6 @@ export class DileIconlibZodiacPisces extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-zodiac-pisces', DileIconlibZodiacPisces);
+if (!customElements.get('dile-lucide-icon-zodiac-pisces')) {
+  customElements.define('dile-lucide-icon-zodiac-pisces', DileIconlibZodiacPisces);
+}

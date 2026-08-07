@@ -6,4 +6,6 @@ export class DileIconlibSum extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sum', DileIconlibSum);
+if (!customElements.get('dile-tabler-icon-sum')) {
+  customElements.define('dile-tabler-icon-sum', DileIconlibSum);
+}

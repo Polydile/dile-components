@@ -6,4 +6,6 @@ export class DileIconlibChess extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-chess', DileIconlibChess);
+if (!customElements.get('dile-fontawesome-icon-chess')) {
+  customElements.define('dile-fontawesome-icon-chess', DileIconlibChess);
+}

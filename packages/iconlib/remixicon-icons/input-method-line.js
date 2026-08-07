@@ -6,4 +6,6 @@ export class DileIconlibInputMethodLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-input-method-line', DileIconlibInputMethodLine);
+if (!customElements.get('dile-remixicon-icon-input-method-line')) {
+  customElements.define('dile-remixicon-icon-input-method-line', DileIconlibInputMethodLine);
+}

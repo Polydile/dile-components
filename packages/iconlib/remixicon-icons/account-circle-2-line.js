@@ -6,4 +6,6 @@ export class DileIconlibAccountCircle2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-account-circle-2-line', DileIconlibAccountCircle2Line);
+if (!customElements.get('dile-remixicon-icon-account-circle-2-line')) {
+  customElements.define('dile-remixicon-icon-account-circle-2-line', DileIconlibAccountCircle2Line);
+}

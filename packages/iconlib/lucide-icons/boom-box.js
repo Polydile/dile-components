@@ -6,4 +6,6 @@ export class DileIconlibBoomBox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-boom-box', DileIconlibBoomBox);
+if (!customElements.get('dile-lucide-icon-boom-box')) {
+  customElements.define('dile-lucide-icon-boom-box', DileIconlibBoomBox);
+}

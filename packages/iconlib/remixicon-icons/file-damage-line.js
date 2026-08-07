@@ -6,4 +6,6 @@ export class DileIconlibFileDamageLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-damage-line', DileIconlibFileDamageLine);
+if (!customElements.get('dile-remixicon-icon-file-damage-line')) {
+  customElements.define('dile-remixicon-icon-file-damage-line', DileIconlibFileDamageLine);
+}

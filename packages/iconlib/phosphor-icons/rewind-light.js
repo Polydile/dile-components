@@ -6,4 +6,6 @@ export class DileIconlibRewindLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rewind-light', DileIconlibRewindLight);
+if (!customElements.get('dile-phosphor-icon-rewind-light')) {
+  customElements.define('dile-phosphor-icon-rewind-light', DileIconlibRewindLight);
+}

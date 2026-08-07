@@ -6,4 +6,6 @@ export class DileIconlibDna extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dna', DileIconlibDna);
+if (!customElements.get('dile-phosphor-icon-dna')) {
+  customElements.define('dile-phosphor-icon-dna', DileIconlibDna);
+}

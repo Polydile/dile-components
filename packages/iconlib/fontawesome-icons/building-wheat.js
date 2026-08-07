@@ -6,4 +6,6 @@ export class DileIconlibBuildingWheat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-building-wheat', DileIconlibBuildingWheat);
+if (!customElements.get('dile-fontawesome-icon-building-wheat')) {
+  customElements.define('dile-fontawesome-icon-building-wheat', DileIconlibBuildingWheat);
+}

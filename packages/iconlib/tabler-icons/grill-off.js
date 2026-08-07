@@ -6,4 +6,6 @@ export class DileIconlibGrillOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grill-off', DileIconlibGrillOff);
+if (!customElements.get('dile-tabler-icon-grill-off')) {
+  customElements.define('dile-tabler-icon-grill-off', DileIconlibGrillOff);
+}

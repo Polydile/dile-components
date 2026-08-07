@@ -6,4 +6,6 @@ export class DileIconlibInfinity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-infinity', DileIconlibInfinity);
+if (!customElements.get('dile-phosphor-icon-infinity')) {
+  customElements.define('dile-phosphor-icon-infinity', DileIconlibInfinity);
+}

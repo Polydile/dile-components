@@ -6,4 +6,6 @@ export class DileIconlibChristmasTree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-christmas-tree', DileIconlibChristmasTree);
+if (!customElements.get('dile-tabler-icon-christmas-tree')) {
+  customElements.define('dile-tabler-icon-christmas-tree', DileIconlibChristmasTree);
+}

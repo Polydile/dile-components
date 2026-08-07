@@ -6,4 +6,6 @@ export class DileIconlibHandRock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hand-rock', DileIconlibHandRock);
+if (!customElements.get('dile-fontawesome-icon-hand-rock')) {
+  customElements.define('dile-fontawesome-icon-hand-rock', DileIconlibHandRock);
+}

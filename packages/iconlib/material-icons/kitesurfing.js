@@ -6,4 +6,6 @@ export class DileIconlibKitesurfing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-kitesurfing', DileIconlibKitesurfing);
+if (!customElements.get('dile-material-icon-kitesurfing')) {
+  customElements.define('dile-material-icon-kitesurfing', DileIconlibKitesurfing);
+}

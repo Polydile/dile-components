@@ -6,4 +6,6 @@ export class DileIconlibCloudWarning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cloud-warning', DileIconlibCloudWarning);
+if (!customElements.get('dile-phosphor-icon-cloud-warning')) {
+  customElements.define('dile-phosphor-icon-cloud-warning', DileIconlibCloudWarning);
+}

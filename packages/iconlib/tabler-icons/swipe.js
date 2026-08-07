@@ -6,4 +6,6 @@ export class DileIconlibSwipe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-swipe', DileIconlibSwipe);
+if (!customElements.get('dile-tabler-icon-swipe')) {
+  customElements.define('dile-tabler-icon-swipe', DileIconlibSwipe);
+}

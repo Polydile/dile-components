@@ -6,4 +6,6 @@ export class DileIconlibHanger2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hanger-2-filled', DileIconlibHanger2Filled);
+if (!customElements.get('dile-tabler-icon-hanger-2-filled')) {
+  customElements.define('dile-tabler-icon-hanger-2-filled', DileIconlibHanger2Filled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShuffleSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shuffle-simple-fill', DileIconlibShuffleSimpleFill);
+if (!customElements.get('dile-phosphor-icon-shuffle-simple-fill')) {
+  customElements.define('dile-phosphor-icon-shuffle-simple-fill', DileIconlibShuffleSimpleFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeartCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-cog', DileIconlibHeartCog);
+if (!customElements.get('dile-tabler-icon-heart-cog')) {
+  customElements.define('dile-tabler-icon-heart-cog', DileIconlibHeartCog);
+}

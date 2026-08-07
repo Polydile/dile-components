@@ -6,4 +6,6 @@ export class DileIconlibPhotoPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-pause', DileIconlibPhotoPause);
+if (!customElements.get('dile-tabler-icon-photo-pause')) {
+  customElements.define('dile-tabler-icon-photo-pause', DileIconlibPhotoPause);
+}

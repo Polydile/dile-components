@@ -6,4 +6,6 @@ export class DileIconlibFeatherOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-feather-off', DileIconlibFeatherOff);
+if (!customElements.get('dile-tabler-icon-feather-off')) {
+  customElements.define('dile-tabler-icon-feather-off', DileIconlibFeatherOff);
+}

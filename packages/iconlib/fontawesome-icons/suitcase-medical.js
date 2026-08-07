@@ -6,4 +6,6 @@ export class DileIconlibSuitcaseMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-suitcase-medical', DileIconlibSuitcaseMedical);
+if (!customElements.get('dile-fontawesome-icon-suitcase-medical')) {
+  customElements.define('dile-fontawesome-icon-suitcase-medical', DileIconlibSuitcaseMedical);
+}

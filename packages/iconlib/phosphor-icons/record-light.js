@@ -6,4 +6,6 @@ export class DileIconlibRecordLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-record-light', DileIconlibRecordLight);
+if (!customElements.get('dile-phosphor-icon-record-light')) {
+  customElements.define('dile-phosphor-icon-record-light', DileIconlibRecordLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCallMerge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-call-merge', DileIconlibCallMerge);
+if (!customElements.get('dile-material-icon-call-merge')) {
+  customElements.define('dile-material-icon-call-merge', DileIconlibCallMerge);
+}

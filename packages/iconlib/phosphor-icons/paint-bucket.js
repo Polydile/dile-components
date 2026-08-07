@@ -6,4 +6,6 @@ export class DileIconlibPaintBucket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-bucket', DileIconlibPaintBucket);
+if (!customElements.get('dile-phosphor-icon-paint-bucket')) {
+  customElements.define('dile-phosphor-icon-paint-bucket', DileIconlibPaintBucket);
+}

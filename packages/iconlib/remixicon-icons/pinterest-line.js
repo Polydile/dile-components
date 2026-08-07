@@ -6,4 +6,6 @@ export class DileIconlibPinterestLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pinterest-line', DileIconlibPinterestLine);
+if (!customElements.get('dile-remixicon-icon-pinterest-line')) {
+  customElements.define('dile-remixicon-icon-pinterest-line', DileIconlibPinterestLine);
+}

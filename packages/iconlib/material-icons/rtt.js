@@ -6,4 +6,6 @@ export class DileIconlibRtt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rtt', DileIconlibRtt);
+if (!customElements.get('dile-material-icon-rtt')) {
+  customElements.define('dile-material-icon-rtt', DileIconlibRtt);
+}

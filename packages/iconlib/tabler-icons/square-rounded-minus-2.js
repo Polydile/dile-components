@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedMinus2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-minus-2', DileIconlibSquareRoundedMinus2);
+if (!customElements.get('dile-tabler-icon-square-rounded-minus-2')) {
+  customElements.define('dile-tabler-icon-square-rounded-minus-2', DileIconlibSquareRoundedMinus2);
+}

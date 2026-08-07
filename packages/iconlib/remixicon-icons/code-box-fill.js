@@ -6,4 +6,6 @@ export class DileIconlibCodeBoxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-code-box-fill', DileIconlibCodeBoxFill);
+if (!customElements.get('dile-remixicon-icon-code-box-fill')) {
+  customElements.define('dile-remixicon-icon-code-box-fill', DileIconlibCodeBoxFill);
+}

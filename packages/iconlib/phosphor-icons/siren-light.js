@@ -6,4 +6,6 @@ export class DileIconlibSirenLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-siren-light', DileIconlibSirenLight);
+if (!customElements.get('dile-phosphor-icon-siren-light')) {
+  customElements.define('dile-phosphor-icon-siren-light', DileIconlibSirenLight);
+}

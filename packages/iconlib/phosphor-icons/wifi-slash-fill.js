@@ -6,4 +6,6 @@ export class DileIconlibWifiSlashFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wifi-slash-fill', DileIconlibWifiSlashFill);
+if (!customElements.get('dile-phosphor-icon-wifi-slash-fill')) {
+  customElements.define('dile-phosphor-icon-wifi-slash-fill', DileIconlibWifiSlashFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSubsetProperOf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-subset-proper-of', DileIconlibSubsetProperOf);
+if (!customElements.get('dile-phosphor-icon-subset-proper-of')) {
+  customElements.define('dile-phosphor-icon-subset-proper-of', DileIconlibSubsetProperOf);
+}

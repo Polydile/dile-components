@@ -6,4 +6,6 @@ export class DileIconlibSentimentNeutral extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sentiment-neutral', DileIconlibSentimentNeutral);
+if (!customElements.get('dile-material-icon-sentiment-neutral')) {
+  customElements.define('dile-material-icon-sentiment-neutral', DileIconlibSentimentNeutral);
+}

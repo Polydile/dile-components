@@ -6,4 +6,6 @@ export class DileIconlibBrandGooglePlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-play', DileIconlibBrandGooglePlay);
+if (!customElements.get('dile-tabler-icon-brand-google-play')) {
+  customElements.define('dile-tabler-icon-brand-google-play', DileIconlibBrandGooglePlay);
+}

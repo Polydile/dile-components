@@ -6,4 +6,6 @@ export class DileIconlibKeyboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-keyboard', DileIconlibKeyboard);
+if (!customElements.get('dile-fontawesome-icon-regular-keyboard')) {
+  customElements.define('dile-fontawesome-icon-regular-keyboard', DileIconlibKeyboard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMovie extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-movie', DileIconlibMovie);
+if (!customElements.get('dile-tabler-icon-movie')) {
+  customElements.define('dile-tabler-icon-movie', DileIconlibMovie);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGitCommitBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-commit-bold', DileIconlibGitCommitBold);
+if (!customElements.get('dile-phosphor-icon-git-commit-bold')) {
+  customElements.define('dile-phosphor-icon-git-commit-bold', DileIconlibGitCommitBold);
+}

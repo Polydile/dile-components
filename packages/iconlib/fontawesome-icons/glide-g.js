@@ -6,4 +6,6 @@ export class DileIconlibGlideG extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-glide-g', DileIconlibGlideG);
+if (!customElements.get('dile-fontawesome-icon-glide-g')) {
+  customElements.define('dile-fontawesome-icon-glide-g', DileIconlibGlideG);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCarrot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-carrot', DileIconlibCarrot);
+if (!customElements.get('dile-phosphor-icon-carrot')) {
+  customElements.define('dile-phosphor-icon-carrot', DileIconlibCarrot);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFormatClear extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-format-clear', DileIconlibFormatClear);
+if (!customElements.get('dile-remixicon-icon-format-clear')) {
+  customElements.define('dile-remixicon-icon-format-clear', DileIconlibFormatClear);
+}

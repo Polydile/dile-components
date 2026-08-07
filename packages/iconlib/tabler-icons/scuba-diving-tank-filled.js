@@ -6,4 +6,6 @@ export class DileIconlibScubaDivingTankFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scuba-diving-tank-filled', DileIconlibScubaDivingTankFilled);
+if (!customElements.get('dile-tabler-icon-scuba-diving-tank-filled')) {
+  customElements.define('dile-tabler-icon-scuba-diving-tank-filled', DileIconlibScubaDivingTankFilled);
+}

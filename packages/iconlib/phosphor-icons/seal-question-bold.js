@@ -6,4 +6,6 @@ export class DileIconlibSealQuestionBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seal-question-bold', DileIconlibSealQuestionBold);
+if (!customElements.get('dile-phosphor-icon-seal-question-bold')) {
+  customElements.define('dile-phosphor-icon-seal-question-bold', DileIconlibSealQuestionBold);
+}

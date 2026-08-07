@@ -6,4 +6,6 @@ export class DileIconlibEvCharger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ev-charger', DileIconlibEvCharger);
+if (!customElements.get('dile-lucide-icon-ev-charger')) {
+  customElements.define('dile-lucide-icon-ev-charger', DileIconlibEvCharger);
+}

@@ -6,4 +6,6 @@ export class DileIconlibParentheses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-parentheses', DileIconlibParentheses);
+if (!customElements.get('dile-tabler-icon-parentheses')) {
+  customElements.define('dile-tabler-icon-parentheses', DileIconlibParentheses);
+}

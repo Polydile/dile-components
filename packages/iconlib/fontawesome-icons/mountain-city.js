@@ -6,4 +6,6 @@ export class DileIconlibMountainCity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mountain-city', DileIconlibMountainCity);
+if (!customElements.get('dile-fontawesome-icon-mountain-city')) {
+  customElements.define('dile-fontawesome-icon-mountain-city', DileIconlibMountainCity);
+}

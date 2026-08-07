@@ -6,4 +6,6 @@ export class DileIconlibLandmarkAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-landmark-alt', DileIconlibLandmarkAlt);
+if (!customElements.get('dile-fontawesome-icon-landmark-alt')) {
+  customElements.define('dile-fontawesome-icon-landmark-alt', DileIconlibLandmarkAlt);
+}

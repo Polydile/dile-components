@@ -6,4 +6,6 @@ export class DileIconlibFastForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fast-forward', DileIconlibFastForward);
+if (!customElements.get('dile-fontawesome-icon-fast-forward')) {
+  customElements.define('dile-fontawesome-icon-fast-forward', DileIconlibFastForward);
+}

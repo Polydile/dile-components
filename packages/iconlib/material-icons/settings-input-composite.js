@@ -6,4 +6,6 @@ export class DileIconlibSettingsInputComposite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-input-composite', DileIconlibSettingsInputComposite);
+if (!customElements.get('dile-material-icon-settings-input-composite')) {
+  customElements.define('dile-material-icon-settings-input-composite', DileIconlibSettingsInputComposite);
+}

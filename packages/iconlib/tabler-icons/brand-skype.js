@@ -6,4 +6,6 @@ export class DileIconlibBrandSkype extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-skype', DileIconlibBrandSkype);
+if (!customElements.get('dile-tabler-icon-brand-skype')) {
+  customElements.define('dile-tabler-icon-brand-skype', DileIconlibBrandSkype);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCakeCandles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cake-candles', DileIconlibCakeCandles);
+if (!customElements.get('dile-fontawesome-icon-cake-candles')) {
+  customElements.define('dile-fontawesome-icon-cake-candles', DileIconlibCakeCandles);
+}

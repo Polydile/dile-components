@@ -6,4 +6,6 @@ export class DileIconlibDoorOpen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-door-open', DileIconlibDoorOpen);
+if (!customElements.get('dile-fontawesome-icon-door-open')) {
+  customElements.define('dile-fontawesome-icon-door-open', DileIconlibDoorOpen);
+}

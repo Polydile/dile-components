@@ -6,4 +6,6 @@ export class DileIconlibScribbleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scribble-bold', DileIconlibScribbleBold);
+if (!customElements.get('dile-phosphor-icon-scribble-bold')) {
+  customElements.define('dile-phosphor-icon-scribble-bold', DileIconlibScribbleBold);
+}

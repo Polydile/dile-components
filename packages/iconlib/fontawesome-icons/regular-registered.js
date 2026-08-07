@@ -6,4 +6,6 @@ export class DileIconlibRegistered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-registered', DileIconlibRegistered);
+if (!customElements.get('dile-fontawesome-icon-regular-registered')) {
+  customElements.define('dile-fontawesome-icon-regular-registered', DileIconlibRegistered);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDailymotion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dailymotion', DileIconlibDailymotion);
+if (!customElements.get('dile-fontawesome-icon-dailymotion')) {
+  customElements.define('dile-fontawesome-icon-dailymotion', DileIconlibDailymotion);
+}

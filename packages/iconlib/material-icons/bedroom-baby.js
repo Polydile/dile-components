@@ -6,4 +6,6 @@ export class DileIconlibBedroomBaby extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bedroom-baby', DileIconlibBedroomBaby);
+if (!customElements.get('dile-material-icon-bedroom-baby')) {
+  customElements.define('dile-material-icon-bedroom-baby', DileIconlibBedroomBaby);
+}

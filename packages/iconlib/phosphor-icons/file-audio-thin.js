@@ -6,4 +6,6 @@ export class DileIconlibFileAudioThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-audio-thin', DileIconlibFileAudioThin);
+if (!customElements.get('dile-phosphor-icon-file-audio-thin')) {
+  customElements.define('dile-phosphor-icon-file-audio-thin', DileIconlibFileAudioThin);
+}

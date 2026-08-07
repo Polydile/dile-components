@@ -6,4 +6,6 @@ export class DileIconlibMugSaucer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mug-saucer', DileIconlibMugSaucer);
+if (!customElements.get('dile-fontawesome-icon-mug-saucer')) {
+  customElements.define('dile-fontawesome-icon-mug-saucer', DileIconlibMugSaucer);
+}

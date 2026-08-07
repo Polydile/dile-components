@@ -6,4 +6,6 @@ export class DileIconlibBrandGumroad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-gumroad', DileIconlibBrandGumroad);
+if (!customElements.get('dile-tabler-icon-brand-gumroad')) {
+  customElements.define('dile-tabler-icon-brand-gumroad', DileIconlibBrandGumroad);
+}

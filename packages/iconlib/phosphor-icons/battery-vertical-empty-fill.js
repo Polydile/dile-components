@@ -6,4 +6,6 @@ export class DileIconlibBatteryVerticalEmptyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-battery-vertical-empty-fill', DileIconlibBatteryVerticalEmptyFill);
+if (!customElements.get('dile-phosphor-icon-battery-vertical-empty-fill')) {
+  customElements.define('dile-phosphor-icon-battery-vertical-empty-fill', DileIconlibBatteryVerticalEmptyFill);
+}

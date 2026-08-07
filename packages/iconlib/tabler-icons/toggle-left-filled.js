@@ -6,4 +6,6 @@ export class DileIconlibToggleLeftFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-toggle-left-filled', DileIconlibToggleLeftFilled);
+if (!customElements.get('dile-tabler-icon-toggle-left-filled')) {
+  customElements.define('dile-tabler-icon-toggle-left-filled', DileIconlibToggleLeftFilled);
+}

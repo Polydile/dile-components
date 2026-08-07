@@ -6,4 +6,6 @@ export class DileIconlibLassoOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lasso-off', DileIconlibLassoOff);
+if (!customElements.get('dile-tabler-icon-lasso-off')) {
+  customElements.define('dile-tabler-icon-lasso-off', DileIconlibLassoOff);
+}

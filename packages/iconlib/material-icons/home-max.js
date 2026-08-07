@@ -6,4 +6,6 @@ export class DileIconlibHomeMax extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-home-max', DileIconlibHomeMax);
+if (!customElements.get('dile-material-icon-home-max')) {
+  customElements.define('dile-material-icon-home-max', DileIconlibHomeMax);
+}

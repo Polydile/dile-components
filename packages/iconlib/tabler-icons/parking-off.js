@@ -6,4 +6,6 @@ export class DileIconlibParkingOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-parking-off', DileIconlibParkingOff);
+if (!customElements.get('dile-tabler-icon-parking-off')) {
+  customElements.define('dile-tabler-icon-parking-off', DileIconlibParkingOff);
+}

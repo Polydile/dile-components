@@ -6,4 +6,6 @@ export class DileIconlibLockThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lock-thin', DileIconlibLockThin);
+if (!customElements.get('dile-phosphor-icon-lock-thin')) {
+  customElements.define('dile-phosphor-icon-lock-thin', DileIconlibLockThin);
+}

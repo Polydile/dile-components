@@ -6,4 +6,6 @@ export class DileIconlibLayoutGridRemove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-grid-remove', DileIconlibLayoutGridRemove);
+if (!customElements.get('dile-tabler-icon-layout-grid-remove')) {
+  customElements.define('dile-tabler-icon-layout-grid-remove', DileIconlibLayoutGridRemove);
+}

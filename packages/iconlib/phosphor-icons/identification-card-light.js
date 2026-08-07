@@ -6,4 +6,6 @@ export class DileIconlibIdentificationCardLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-identification-card-light', DileIconlibIdentificationCardLight);
+if (!customElements.get('dile-phosphor-icon-identification-card-light')) {
+  customElements.define('dile-phosphor-icon-identification-card-light', DileIconlibIdentificationCardLight);
+}

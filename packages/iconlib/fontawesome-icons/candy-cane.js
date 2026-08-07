@@ -6,4 +6,6 @@ export class DileIconlibCandyCane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-candy-cane', DileIconlibCandyCane);
+if (!customElements.get('dile-fontawesome-icon-candy-cane')) {
+  customElements.define('dile-fontawesome-icon-candy-cane', DileIconlibCandyCane);
+}

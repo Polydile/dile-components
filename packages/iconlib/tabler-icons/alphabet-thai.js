@@ -6,4 +6,6 @@ export class DileIconlibAlphabetThai extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-thai', DileIconlibAlphabetThai);
+if (!customElements.get('dile-tabler-icon-alphabet-thai')) {
+  customElements.define('dile-tabler-icon-alphabet-thai', DileIconlibAlphabetThai);
+}

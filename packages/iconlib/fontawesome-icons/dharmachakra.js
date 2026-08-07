@@ -6,4 +6,6 @@ export class DileIconlibDharmachakra extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dharmachakra', DileIconlibDharmachakra);
+if (!customElements.get('dile-fontawesome-icon-dharmachakra')) {
+  customElements.define('dile-fontawesome-icon-dharmachakra', DileIconlibDharmachakra);
+}

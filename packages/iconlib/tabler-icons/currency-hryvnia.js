@@ -6,4 +6,6 @@ export class DileIconlibCurrencyHryvnia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-hryvnia', DileIconlibCurrencyHryvnia);
+if (!customElements.get('dile-tabler-icon-currency-hryvnia')) {
+  customElements.define('dile-tabler-icon-currency-hryvnia', DileIconlibCurrencyHryvnia);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDocker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-docker', DileIconlibDocker);
+if (!customElements.get('dile-fontawesome-icon-docker')) {
+  customElements.define('dile-fontawesome-icon-docker', DileIconlibDocker);
+}

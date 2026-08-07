@@ -6,4 +6,6 @@ export class DileIconlibWarningAmber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-warning-amber', DileIconlibWarningAmber);
+if (!customElements.get('dile-material-icon-warning-amber')) {
+  customElements.define('dile-material-icon-warning-amber', DileIconlibWarningAmber);
+}

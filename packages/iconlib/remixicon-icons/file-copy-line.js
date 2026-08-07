@@ -6,4 +6,6 @@ export class DileIconlibFileCopyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-copy-line', DileIconlibFileCopyLine);
+if (!customElements.get('dile-remixicon-icon-file-copy-line')) {
+  customElements.define('dile-remixicon-icon-file-copy-line', DileIconlibFileCopyLine);
+}

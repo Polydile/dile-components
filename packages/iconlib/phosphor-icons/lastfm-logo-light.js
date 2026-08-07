@@ -6,4 +6,6 @@ export class DileIconlibLastfmLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lastfm-logo-light', DileIconlibLastfmLogoLight);
+if (!customElements.get('dile-phosphor-icon-lastfm-logo-light')) {
+  customElements.define('dile-phosphor-icon-lastfm-logo-light', DileIconlibLastfmLogoLight);
+}

@@ -1,3 +1,5 @@
 import { DileNetwork } from './src/DileNetwork.js';
 
-customElements.define('dile-network', DileNetwork);
+if (!customElements.get('dile-network')) {
+  customElements.define('dile-network', DileNetwork);
+}

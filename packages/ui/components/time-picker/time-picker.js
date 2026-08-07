@@ -1,2 +1,4 @@
 import { DileTimePicker } from "./src/DileTimePicker.js";
-customElements.define('dile-time-picker', DileTimePicker);
+if (!customElements.get('dile-time-picker')) {
+  customElements.define('dile-time-picker', DileTimePicker);
+}

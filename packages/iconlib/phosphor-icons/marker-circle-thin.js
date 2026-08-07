@@ -6,4 +6,6 @@ export class DileIconlibMarkerCircleThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-marker-circle-thin', DileIconlibMarkerCircleThin);
+if (!customElements.get('dile-phosphor-icon-marker-circle-thin')) {
+  customElements.define('dile-phosphor-icon-marker-circle-thin', DileIconlibMarkerCircleThin);
+}

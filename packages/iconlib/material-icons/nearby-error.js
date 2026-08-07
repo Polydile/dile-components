@@ -6,4 +6,6 @@ export class DileIconlibNearbyError extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nearby-error', DileIconlibNearbyError);
+if (!customElements.get('dile-material-icon-nearby-error')) {
+  customElements.define('dile-material-icon-nearby-error', DileIconlibNearbyError);
+}

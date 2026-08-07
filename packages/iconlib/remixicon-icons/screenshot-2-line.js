@@ -6,4 +6,6 @@ export class DileIconlibScreenshot2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-screenshot-2-line', DileIconlibScreenshot2Line);
+if (!customElements.get('dile-remixicon-icon-screenshot-2-line')) {
+  customElements.define('dile-remixicon-icon-screenshot-2-line', DileIconlibScreenshot2Line);
+}

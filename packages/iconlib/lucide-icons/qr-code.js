@@ -6,4 +6,6 @@ export class DileIconlibQrCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-qr-code', DileIconlibQrCode);
+if (!customElements.get('dile-lucide-icon-qr-code')) {
+  customElements.define('dile-lucide-icon-qr-code', DileIconlibQrCode);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFullscreenExitLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-fullscreen-exit-line', DileIconlibFullscreenExitLine);
+if (!customElements.get('dile-remixicon-icon-fullscreen-exit-line')) {
+  customElements.define('dile-remixicon-icon-fullscreen-exit-line', DileIconlibFullscreenExitLine);
+}

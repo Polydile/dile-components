@@ -6,4 +6,6 @@ export class DileIconlibMemoriesFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-memories-fill', DileIconlibMemoriesFill);
+if (!customElements.get('dile-remixicon-icon-memories-fill')) {
+  customElements.define('dile-remixicon-icon-memories-fill', DileIconlibMemoriesFill);
+}

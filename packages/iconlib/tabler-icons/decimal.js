@@ -6,4 +6,6 @@ export class DileIconlibDecimal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-decimal', DileIconlibDecimal);
+if (!customElements.get('dile-tabler-icon-decimal')) {
+  customElements.define('dile-tabler-icon-decimal', DileIconlibDecimal);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDotsSix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dots-six', DileIconlibDotsSix);
+if (!customElements.get('dile-phosphor-icon-dots-six')) {
+  customElements.define('dile-phosphor-icon-dots-six', DileIconlibDotsSix);
+}

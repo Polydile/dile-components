@@ -6,4 +6,6 @@ export class DileIconlibSmartButton extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-smart-button', DileIconlibSmartButton);
+if (!customElements.get('dile-material-icon-smart-button')) {
+  customElements.define('dile-material-icon-smart-button', DileIconlibSmartButton);
+}

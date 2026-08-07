@@ -6,4 +6,6 @@ export class DileIconlibBrandPatreon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-patreon', DileIconlibBrandPatreon);
+if (!customElements.get('dile-tabler-icon-brand-patreon')) {
+  customElements.define('dile-tabler-icon-brand-patreon', DileIconlibBrandPatreon);
+}

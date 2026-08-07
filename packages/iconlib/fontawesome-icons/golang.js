@@ -6,4 +6,6 @@ export class DileIconlibGolang extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-golang', DileIconlibGolang);
+if (!customElements.get('dile-fontawesome-icon-golang')) {
+  customElements.define('dile-fontawesome-icon-golang', DileIconlibGolang);
+}

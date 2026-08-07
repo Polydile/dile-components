@@ -71,4 +71,6 @@ export class DemoAjaxChange extends LitElement {
     `;
   }
 }
-customElements.define('demo-ajax-change', DemoAjaxChange);
+if (!customElements.get('demo-ajax-change')) {
+  customElements.define('demo-ajax-change', DemoAjaxChange);
+}

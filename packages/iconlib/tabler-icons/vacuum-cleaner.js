@@ -6,4 +6,6 @@ export class DileIconlibVacuumCleaner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vacuum-cleaner', DileIconlibVacuumCleaner);
+if (!customElements.get('dile-tabler-icon-vacuum-cleaner')) {
+  customElements.define('dile-tabler-icon-vacuum-cleaner', DileIconlibVacuumCleaner);
+}

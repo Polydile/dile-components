@@ -6,4 +6,6 @@ export class DileIconlibPasswordThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-password-thin', DileIconlibPasswordThin);
+if (!customElements.get('dile-phosphor-icon-password-thin')) {
+  customElements.define('dile-phosphor-icon-password-thin', DileIconlibPasswordThin);
+}

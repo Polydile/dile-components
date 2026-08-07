@@ -6,4 +6,6 @@ export class DileIconlibSkypeLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-skype-logo-duotone', DileIconlibSkypeLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-skype-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-skype-logo-duotone', DileIconlibSkypeLogoDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareLetterK extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-letter-k', DileIconlibSquareLetterK);
+if (!customElements.get('dile-tabler-icon-square-letter-k')) {
+  customElements.define('dile-tabler-icon-square-letter-k', DileIconlibSquareLetterK);
+}

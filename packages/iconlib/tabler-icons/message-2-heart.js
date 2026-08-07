@@ -6,4 +6,6 @@ export class DileIconlibMessage2Heart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-2-heart', DileIconlibMessage2Heart);
+if (!customElements.get('dile-tabler-icon-message-2-heart')) {
+  customElements.define('dile-tabler-icon-message-2-heart', DileIconlibMessage2Heart);
+}

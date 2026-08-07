@@ -6,4 +6,6 @@ export class DileIconlibHockeyLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hockey-light', DileIconlibHockeyLight);
+if (!customElements.get('dile-phosphor-icon-hockey-light')) {
+  customElements.define('dile-phosphor-icon-hockey-light', DileIconlibHockeyLight);
+}

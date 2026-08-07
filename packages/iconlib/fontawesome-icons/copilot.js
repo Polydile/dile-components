@@ -6,4 +6,6 @@ export class DileIconlibCopilot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-copilot', DileIconlibCopilot);
+if (!customElements.get('dile-fontawesome-icon-copilot')) {
+  customElements.define('dile-fontawesome-icon-copilot', DileIconlibCopilot);
+}

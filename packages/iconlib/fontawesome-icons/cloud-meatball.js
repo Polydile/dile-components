@@ -6,4 +6,6 @@ export class DileIconlibCloudMeatball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-meatball', DileIconlibCloudMeatball);
+if (!customElements.get('dile-fontawesome-icon-cloud-meatball')) {
+  customElements.define('dile-fontawesome-icon-cloud-meatball', DileIconlibCloudMeatball);
+}

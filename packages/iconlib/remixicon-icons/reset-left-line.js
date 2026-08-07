@@ -6,4 +6,6 @@ export class DileIconlibResetLeftLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-reset-left-line', DileIconlibResetLeftLine);
+if (!customElements.get('dile-remixicon-icon-reset-left-line')) {
+  customElements.define('dile-remixicon-icon-reset-left-line', DileIconlibResetLeftLine);
+}

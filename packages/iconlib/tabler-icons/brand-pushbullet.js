@@ -6,4 +6,6 @@ export class DileIconlibBrandPushbullet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pushbullet', DileIconlibBrandPushbullet);
+if (!customElements.get('dile-tabler-icon-brand-pushbullet')) {
+  customElements.define('dile-tabler-icon-brand-pushbullet', DileIconlibBrandPushbullet);
+}

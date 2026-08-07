@@ -6,4 +6,6 @@ export class DileIconlibFingerprintSimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fingerprint-simple-duotone', DileIconlibFingerprintSimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-fingerprint-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-fingerprint-simple-duotone', DileIconlibFingerprintSimpleDuotone);
+}

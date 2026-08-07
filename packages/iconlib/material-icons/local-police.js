@@ -6,4 +6,6 @@ export class DileIconlibLocalPolice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-police', DileIconlibLocalPolice);
+if (!customElements.get('dile-material-icon-local-police')) {
+  customElements.define('dile-material-icon-local-police', DileIconlibLocalPolice);
+}

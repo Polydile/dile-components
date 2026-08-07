@@ -6,4 +6,6 @@ export class DileIconlibBoxTissue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-box-tissue', DileIconlibBoxTissue);
+if (!customElements.get('dile-fontawesome-icon-box-tissue')) {
+  customElements.define('dile-fontawesome-icon-box-tissue', DileIconlibBoxTissue);
+}

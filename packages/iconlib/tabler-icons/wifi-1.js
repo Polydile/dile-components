@@ -6,4 +6,6 @@ export class DileIconlibWifi1 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wifi-1', DileIconlibWifi1);
+if (!customElements.get('dile-tabler-icon-wifi-1')) {
+  customElements.define('dile-tabler-icon-wifi-1', DileIconlibWifi1);
+}

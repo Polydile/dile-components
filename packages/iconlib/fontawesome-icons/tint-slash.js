@@ -6,4 +6,6 @@ export class DileIconlibTintSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tint-slash', DileIconlibTintSlash);
+if (!customElements.get('dile-fontawesome-icon-tint-slash')) {
+  customElements.define('dile-fontawesome-icon-tint-slash', DileIconlibTintSlash);
+}

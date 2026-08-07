@@ -6,4 +6,6 @@ export class DileIconlibTwitchFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-twitch-fill', DileIconlibTwitchFill);
+if (!customElements.get('dile-remixicon-icon-twitch-fill')) {
+  customElements.define('dile-remixicon-icon-twitch-fill', DileIconlibTwitchFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVectorTriangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vector-triangle', DileIconlibVectorTriangle);
+if (!customElements.get('dile-tabler-icon-vector-triangle')) {
+  customElements.define('dile-tabler-icon-vector-triangle', DileIconlibVectorTriangle);
+}

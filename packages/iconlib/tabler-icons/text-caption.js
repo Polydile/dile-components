@@ -6,4 +6,6 @@ export class DileIconlibTextCaption extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-caption', DileIconlibTextCaption);
+if (!customElements.get('dile-tabler-icon-text-caption')) {
+  customElements.define('dile-tabler-icon-text-caption', DileIconlibTextCaption);
+}

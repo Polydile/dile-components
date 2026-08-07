@@ -6,4 +6,6 @@ export class DileIconlibSoap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-soap', DileIconlibSoap);
+if (!customElements.get('dile-fontawesome-icon-soap')) {
+  customElements.define('dile-fontawesome-icon-soap', DileIconlibSoap);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTemperatureThreeQuarters extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-temperature-three-quarters', DileIconlibTemperatureThreeQuarters);
+if (!customElements.get('dile-fontawesome-icon-temperature-three-quarters')) {
+  customElements.define('dile-fontawesome-icon-temperature-three-quarters', DileIconlibTemperatureThreeQuarters);
+}

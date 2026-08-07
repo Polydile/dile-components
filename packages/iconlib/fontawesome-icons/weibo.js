@@ -6,4 +6,6 @@ export class DileIconlibWeibo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-weibo', DileIconlibWeibo);
+if (!customElements.get('dile-fontawesome-icon-weibo')) {
+  customElements.define('dile-fontawesome-icon-weibo', DileIconlibWeibo);
+}

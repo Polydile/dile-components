@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-microsoft-line', DileIconlibMicrosoftLine);
+if (!customElements.get('dile-remixicon-icon-microsoft-line')) {
+  customElements.define('dile-remixicon-icon-microsoft-line', DileIconlibMicrosoftLine);
+}

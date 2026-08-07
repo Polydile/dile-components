@@ -6,4 +6,6 @@ export class DileIconlibMugFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mug-filled', DileIconlibMugFilled);
+if (!customElements.get('dile-tabler-icon-mug-filled')) {
+  customElements.define('dile-tabler-icon-mug-filled', DileIconlibMugFilled);
+}

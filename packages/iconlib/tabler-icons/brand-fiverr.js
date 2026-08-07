@@ -6,4 +6,6 @@ export class DileIconlibBrandFiverr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-fiverr', DileIconlibBrandFiverr);
+if (!customElements.get('dile-tabler-icon-brand-fiverr')) {
+  customElements.define('dile-tabler-icon-brand-fiverr', DileIconlibBrandFiverr);
+}

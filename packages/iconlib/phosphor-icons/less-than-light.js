@@ -6,4 +6,6 @@ export class DileIconlibLessThanLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-less-than-light', DileIconlibLessThanLight);
+if (!customElements.get('dile-phosphor-icon-less-than-light')) {
+  customElements.define('dile-phosphor-icon-less-than-light', DileIconlibLessThanLight);
+}

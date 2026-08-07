@@ -6,4 +6,6 @@ export class DileIconlibBuildingNgo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-building-ngo', DileIconlibBuildingNgo);
+if (!customElements.get('dile-fontawesome-icon-building-ngo')) {
+  customElements.define('dile-fontawesome-icon-building-ngo', DileIconlibBuildingNgo);
+}

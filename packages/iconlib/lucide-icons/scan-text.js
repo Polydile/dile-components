@@ -6,4 +6,6 @@ export class DileIconlibScanText extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-scan-text', DileIconlibScanText);
+if (!customElements.get('dile-lucide-icon-scan-text')) {
+  customElements.define('dile-lucide-icon-scan-text', DileIconlibScanText);
+}

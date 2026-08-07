@@ -6,4 +6,6 @@ export class DileIconlibRocketLaunch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rocket-launch', DileIconlibRocketLaunch);
+if (!customElements.get('dile-material-icon-rocket-launch')) {
+  customElements.define('dile-material-icon-rocket-launch', DileIconlibRocketLaunch);
+}

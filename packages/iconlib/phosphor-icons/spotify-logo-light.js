@@ -6,4 +6,6 @@ export class DileIconlibSpotifyLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spotify-logo-light', DileIconlibSpotifyLogoLight);
+if (!customElements.get('dile-phosphor-icon-spotify-logo-light')) {
+  customElements.define('dile-phosphor-icon-spotify-logo-light', DileIconlibSpotifyLogoLight);
+}

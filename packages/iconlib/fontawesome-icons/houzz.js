@@ -6,4 +6,6 @@ export class DileIconlibHouzz extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-houzz', DileIconlibHouzz);
+if (!customElements.get('dile-fontawesome-icon-houzz')) {
+  customElements.define('dile-fontawesome-icon-houzz', DileIconlibHouzz);
+}

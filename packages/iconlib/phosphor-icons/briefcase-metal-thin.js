@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseMetalThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-briefcase-metal-thin', DileIconlibBriefcaseMetalThin);
+if (!customElements.get('dile-phosphor-icon-briefcase-metal-thin')) {
+  customElements.define('dile-phosphor-icon-briefcase-metal-thin', DileIconlibBriefcaseMetalThin);
+}

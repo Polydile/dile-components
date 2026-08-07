@@ -6,4 +6,6 @@ export class DileIconlibHouseLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-lock', DileIconlibHouseLock);
+if (!customElements.get('dile-fontawesome-icon-house-lock')) {
+  customElements.define('dile-fontawesome-icon-house-lock', DileIconlibHouseLock);
+}

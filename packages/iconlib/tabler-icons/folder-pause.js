@@ -6,4 +6,6 @@ export class DileIconlibFolderPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folder-pause', DileIconlibFolderPause);
+if (!customElements.get('dile-tabler-icon-folder-pause')) {
+  customElements.define('dile-tabler-icon-folder-pause', DileIconlibFolderPause);
+}

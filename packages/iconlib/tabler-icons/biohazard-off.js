@@ -6,4 +6,6 @@ export class DileIconlibBiohazardOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-biohazard-off', DileIconlibBiohazardOff);
+if (!customElements.get('dile-tabler-icon-biohazard-off')) {
+  customElements.define('dile-tabler-icon-biohazard-off', DileIconlibBiohazardOff);
+}

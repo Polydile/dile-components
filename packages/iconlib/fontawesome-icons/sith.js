@@ -6,4 +6,6 @@ export class DileIconlibSith extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sith', DileIconlibSith);
+if (!customElements.get('dile-fontawesome-icon-sith')) {
+  customElements.define('dile-fontawesome-icon-sith', DileIconlibSith);
+}

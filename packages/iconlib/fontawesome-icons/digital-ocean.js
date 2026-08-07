@@ -6,4 +6,6 @@ export class DileIconlibDigitalOcean extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-digital-ocean', DileIconlibDigitalOcean);
+if (!customElements.get('dile-fontawesome-icon-digital-ocean')) {
+  customElements.define('dile-fontawesome-icon-digital-ocean', DileIconlibDigitalOcean);
+}

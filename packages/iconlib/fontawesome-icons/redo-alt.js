@@ -6,4 +6,6 @@ export class DileIconlibRedoAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-redo-alt', DileIconlibRedoAlt);
+if (!customElements.get('dile-fontawesome-icon-redo-alt')) {
+  customElements.define('dile-fontawesome-icon-redo-alt', DileIconlibRedoAlt);
+}

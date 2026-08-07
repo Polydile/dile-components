@@ -6,4 +6,6 @@ export class DileIconlibSquareVirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-virus', DileIconlibSquareVirus);
+if (!customElements.get('dile-fontawesome-icon-square-virus')) {
+  customElements.define('dile-fontawesome-icon-square-virus', DileIconlibSquareVirus);
+}

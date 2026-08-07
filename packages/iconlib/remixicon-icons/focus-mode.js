@@ -6,4 +6,6 @@ export class DileIconlibFocusMode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-focus-mode', DileIconlibFocusMode);
+if (!customElements.get('dile-remixicon-icon-focus-mode')) {
+  customElements.define('dile-remixicon-icon-focus-mode', DileIconlibFocusMode);
+}

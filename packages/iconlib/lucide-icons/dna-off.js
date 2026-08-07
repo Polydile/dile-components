@@ -6,4 +6,6 @@ export class DileIconlibDnaOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-dna-off', DileIconlibDnaOff);
+if (!customElements.get('dile-lucide-icon-dna-off')) {
+  customElements.define('dile-lucide-icon-dna-off', DileIconlibDnaOff);
+}

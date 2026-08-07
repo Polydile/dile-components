@@ -6,4 +6,6 @@ export class DileIconlibTentTree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tent-tree', DileIconlibTentTree);
+if (!customElements.get('dile-lucide-icon-tent-tree')) {
+  customElements.define('dile-lucide-icon-tent-tree', DileIconlibTentTree);
+}

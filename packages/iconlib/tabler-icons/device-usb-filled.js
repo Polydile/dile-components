@@ -6,4 +6,6 @@ export class DileIconlibDeviceUsbFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-usb-filled', DileIconlibDeviceUsbFilled);
+if (!customElements.get('dile-tabler-icon-device-usb-filled')) {
+  customElements.define('dile-tabler-icon-device-usb-filled', DileIconlibDeviceUsbFilled);
+}

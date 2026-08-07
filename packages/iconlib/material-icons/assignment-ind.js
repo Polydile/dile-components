@@ -6,4 +6,6 @@ export class DileIconlibAssignmentInd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-assignment-ind', DileIconlibAssignmentInd);
+if (!customElements.get('dile-material-icon-assignment-ind')) {
+  customElements.define('dile-material-icon-assignment-ind', DileIconlibAssignmentInd);
+}

@@ -6,4 +6,6 @@ export class DileIconlibApproximateEquals extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-approximate-equals', DileIconlibApproximateEquals);
+if (!customElements.get('dile-phosphor-icon-approximate-equals')) {
+  customElements.define('dile-phosphor-icon-approximate-equals', DileIconlibApproximateEquals);
+}

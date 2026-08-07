@@ -6,4 +6,6 @@ export class DileIconlibLineChartLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-line-chart-line', DileIconlibLineChartLine);
+if (!customElements.get('dile-remixicon-icon-line-chart-line')) {
+  customElements.define('dile-remixicon-icon-line-chart-line', DileIconlibLineChartLine);
+}

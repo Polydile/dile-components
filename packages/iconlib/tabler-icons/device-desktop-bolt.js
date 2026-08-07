@@ -6,4 +6,6 @@ export class DileIconlibDeviceDesktopBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-desktop-bolt', DileIconlibDeviceDesktopBolt);
+if (!customElements.get('dile-tabler-icon-device-desktop-bolt')) {
+  customElements.define('dile-tabler-icon-device-desktop-bolt', DileIconlibDeviceDesktopBolt);
+}

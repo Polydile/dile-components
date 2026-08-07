@@ -6,4 +6,6 @@ export class DileIconlibElderlyWoman extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-elderly-woman', DileIconlibElderlyWoman);
+if (!customElements.get('dile-material-icon-elderly-woman')) {
+  customElements.define('dile-material-icon-elderly-woman', DileIconlibElderlyWoman);
+}

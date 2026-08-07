@@ -6,4 +6,6 @@ export class DileIconlibPizzaLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pizza-light', DileIconlibPizzaLight);
+if (!customElements.get('dile-phosphor-icon-pizza-light')) {
+  customElements.define('dile-phosphor-icon-pizza-light', DileIconlibPizzaLight);
+}

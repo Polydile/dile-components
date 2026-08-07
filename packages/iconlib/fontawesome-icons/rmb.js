@@ -6,4 +6,6 @@ export class DileIconlibRmb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rmb', DileIconlibRmb);
+if (!customElements.get('dile-fontawesome-icon-rmb')) {
+  customElements.define('dile-fontawesome-icon-rmb', DileIconlibRmb);
+}

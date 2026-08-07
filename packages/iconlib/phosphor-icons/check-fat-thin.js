@@ -6,4 +6,6 @@ export class DileIconlibCheckFatThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-check-fat-thin', DileIconlibCheckFatThin);
+if (!customElements.get('dile-phosphor-icon-check-fat-thin')) {
+  customElements.define('dile-phosphor-icon-check-fat-thin', DileIconlibCheckFatThin);
+}

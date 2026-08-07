@@ -6,4 +6,6 @@ export class DileIconlibIdentificationBadgeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-identification-badge-duotone', DileIconlibIdentificationBadgeDuotone);
+if (!customElements.get('dile-phosphor-icon-identification-badge-duotone')) {
+  customElements.define('dile-phosphor-icon-identification-badge-duotone', DileIconlibIdentificationBadgeDuotone);
+}

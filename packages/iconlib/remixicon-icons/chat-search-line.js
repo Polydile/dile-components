@@ -6,4 +6,6 @@ export class DileIconlibChatSearchLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-search-line', DileIconlibChatSearchLine);
+if (!customElements.get('dile-remixicon-icon-chat-search-line')) {
+  customElements.define('dile-remixicon-icon-chat-search-line', DileIconlibChatSearchLine);
+}

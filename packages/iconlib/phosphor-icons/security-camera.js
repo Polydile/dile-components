@@ -6,4 +6,6 @@ export class DileIconlibSecurityCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-security-camera', DileIconlibSecurityCamera);
+if (!customElements.get('dile-phosphor-icon-security-camera')) {
+  customElements.define('dile-phosphor-icon-security-camera', DileIconlibSecurityCamera);
+}

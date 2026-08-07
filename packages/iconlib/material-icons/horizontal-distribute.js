@@ -6,4 +6,6 @@ export class DileIconlibHorizontalDistribute extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-horizontal-distribute', DileIconlibHorizontalDistribute);
+if (!customElements.get('dile-material-icon-horizontal-distribute')) {
+  customElements.define('dile-material-icon-horizontal-distribute', DileIconlibHorizontalDistribute);
+}

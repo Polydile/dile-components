@@ -6,4 +6,6 @@ export class DileIconlibNumber9 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-number-9', DileIconlibNumber9);
+if (!customElements.get('dile-tabler-icon-number-9')) {
+  customElements.define('dile-tabler-icon-number-9', DileIconlibNumber9);
+}

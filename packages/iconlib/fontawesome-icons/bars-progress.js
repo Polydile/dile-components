@@ -6,4 +6,6 @@ export class DileIconlibBarsProgress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bars-progress', DileIconlibBarsProgress);
+if (!customElements.get('dile-fontawesome-icon-bars-progress')) {
+  customElements.define('dile-fontawesome-icon-bars-progress', DileIconlibBarsProgress);
+}

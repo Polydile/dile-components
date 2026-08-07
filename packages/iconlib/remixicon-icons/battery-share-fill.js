@@ -6,4 +6,6 @@ export class DileIconlibBatteryShareFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-battery-share-fill', DileIconlibBatteryShareFill);
+if (!customElements.get('dile-remixicon-icon-battery-share-fill')) {
+  customElements.define('dile-remixicon-icon-battery-share-fill', DileIconlibBatteryShareFill);
+}

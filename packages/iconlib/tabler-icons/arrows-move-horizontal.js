@@ -6,4 +6,6 @@ export class DileIconlibArrowsMoveHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-move-horizontal', DileIconlibArrowsMoveHorizontal);
+if (!customElements.get('dile-tabler-icon-arrows-move-horizontal')) {
+  customElements.define('dile-tabler-icon-arrows-move-horizontal', DileIconlibArrowsMoveHorizontal);
+}

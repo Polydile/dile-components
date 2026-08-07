@@ -6,4 +6,6 @@ export class DileIconlibMagnet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-magnet', DileIconlibMagnet);
+if (!customElements.get('dile-fontawesome-icon-magnet')) {
+  customElements.define('dile-fontawesome-icon-magnet', DileIconlibMagnet);
+}

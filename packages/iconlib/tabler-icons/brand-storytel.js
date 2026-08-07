@@ -6,4 +6,6 @@ export class DileIconlibBrandStorytel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-storytel', DileIconlibBrandStorytel);
+if (!customElements.get('dile-tabler-icon-brand-storytel')) {
+  customElements.define('dile-tabler-icon-brand-storytel', DileIconlibBrandStorytel);
+}

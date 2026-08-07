@@ -6,4 +6,6 @@ export class DileIconlibFadersThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-faders-thin', DileIconlibFadersThin);
+if (!customElements.get('dile-phosphor-icon-faders-thin')) {
+  customElements.define('dile-phosphor-icon-faders-thin', DileIconlibFadersThin);
+}

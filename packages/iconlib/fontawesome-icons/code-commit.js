@@ -6,4 +6,6 @@ export class DileIconlibCodeCommit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-code-commit', DileIconlibCodeCommit);
+if (!customElements.get('dile-fontawesome-icon-code-commit')) {
+  customElements.define('dile-fontawesome-icon-code-commit', DileIconlibCodeCommit);
+}

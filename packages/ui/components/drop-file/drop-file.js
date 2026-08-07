@@ -1,3 +1,5 @@
 import { DileDropFile } from "./src/DileDropFile.js";
 
-customElements.define('dile-drop-file', DileDropFile);
+if (!customElements.get('dile-drop-file')) {
+  customElements.define('dile-drop-file', DileDropFile);
+}

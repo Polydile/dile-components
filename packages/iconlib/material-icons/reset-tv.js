@@ -6,4 +6,6 @@ export class DileIconlibResetTv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-reset-tv', DileIconlibResetTv);
+if (!customElements.get('dile-material-icon-reset-tv')) {
+  customElements.define('dile-material-icon-reset-tv', DileIconlibResetTv);
+}

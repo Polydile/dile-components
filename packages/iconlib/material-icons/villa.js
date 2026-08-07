@@ -6,4 +6,6 @@ export class DileIconlibVilla extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-villa', DileIconlibVilla);
+if (!customElements.get('dile-material-icon-villa')) {
+  customElements.define('dile-material-icon-villa', DileIconlibVilla);
+}

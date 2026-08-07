@@ -6,4 +6,6 @@ export class DileIconlibMoonFoggyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-moon-foggy-fill', DileIconlibMoonFoggyFill);
+if (!customElements.get('dile-remixicon-icon-moon-foggy-fill')) {
+  customElements.define('dile-remixicon-icon-moon-foggy-fill', DileIconlibMoonFoggyFill);
+}

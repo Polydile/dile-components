@@ -6,4 +6,6 @@ export class DileIconlibCaseSensitive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-case-sensitive', DileIconlibCaseSensitive);
+if (!customElements.get('dile-lucide-icon-case-sensitive')) {
+  customElements.define('dile-lucide-icon-case-sensitive', DileIconlibCaseSensitive);
+}

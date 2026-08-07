@@ -6,4 +6,6 @@ export class DileIconlibFilePptLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-ppt-line', DileIconlibFilePptLine);
+if (!customElements.get('dile-remixicon-icon-file-ppt-line')) {
+  customElements.define('dile-remixicon-icon-file-ppt-line', DileIconlibFilePptLine);
+}

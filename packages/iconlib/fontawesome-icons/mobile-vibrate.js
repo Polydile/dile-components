@@ -6,4 +6,6 @@ export class DileIconlibMobileVibrate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mobile-vibrate', DileIconlibMobileVibrate);
+if (!customElements.get('dile-fontawesome-icon-mobile-vibrate')) {
+  customElements.define('dile-fontawesome-icon-mobile-vibrate', DileIconlibMobileVibrate);
+}

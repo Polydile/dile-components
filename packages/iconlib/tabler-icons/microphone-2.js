@@ -6,4 +6,6 @@ export class DileIconlibMicrophone2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-microphone-2', DileIconlibMicrophone2);
+if (!customElements.get('dile-tabler-icon-microphone-2')) {
+  customElements.define('dile-tabler-icon-microphone-2', DileIconlibMicrophone2);
+}

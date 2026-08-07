@@ -6,4 +6,6 @@ export class DileIconlibDeafness extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deafness', DileIconlibDeafness);
+if (!customElements.get('dile-fontawesome-icon-deafness')) {
+  customElements.define('dile-fontawesome-icon-deafness', DileIconlibDeafness);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDrone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-drone', DileIconlibDrone);
+if (!customElements.get('dile-lucide-icon-drone')) {
+  customElements.define('dile-lucide-icon-drone', DileIconlibDrone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNetflixLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-netflix-line', DileIconlibNetflixLine);
+if (!customElements.get('dile-remixicon-icon-netflix-line')) {
+  customElements.define('dile-remixicon-icon-netflix-line', DileIconlibNetflixLine);
+}

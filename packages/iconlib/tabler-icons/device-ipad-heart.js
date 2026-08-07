@@ -6,4 +6,6 @@ export class DileIconlibDeviceIpadHeart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-ipad-heart', DileIconlibDeviceIpadHeart);
+if (!customElements.get('dile-tabler-icon-device-ipad-heart')) {
+  customElements.define('dile-tabler-icon-device-ipad-heart', DileIconlibDeviceIpadHeart);
+}

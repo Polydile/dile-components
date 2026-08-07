@@ -6,4 +6,6 @@ export class DileIconlibLaurelWreath3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-laurel-wreath-3', DileIconlibLaurelWreath3);
+if (!customElements.get('dile-tabler-icon-laurel-wreath-3')) {
+  customElements.define('dile-tabler-icon-laurel-wreath-3', DileIconlibLaurelWreath3);
+}

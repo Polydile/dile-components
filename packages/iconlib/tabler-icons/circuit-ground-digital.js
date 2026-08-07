@@ -6,4 +6,6 @@ export class DileIconlibCircuitGroundDigital extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-ground-digital', DileIconlibCircuitGroundDigital);
+if (!customElements.get('dile-tabler-icon-circuit-ground-digital')) {
+  customElements.define('dile-tabler-icon-circuit-ground-digital', DileIconlibCircuitGroundDigital);
+}

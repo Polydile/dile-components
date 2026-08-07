@@ -6,4 +6,6 @@ export class DileIconlibBrandFunimation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-funimation', DileIconlibBrandFunimation);
+if (!customElements.get('dile-tabler-icon-brand-funimation')) {
+  customElements.define('dile-tabler-icon-brand-funimation', DileIconlibBrandFunimation);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVim extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vim', DileIconlibVim);
+if (!customElements.get('dile-fontawesome-icon-vim')) {
+  customElements.define('dile-fontawesome-icon-vim', DileIconlibVim);
+}

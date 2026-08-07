@@ -6,4 +6,6 @@ export class DileIconlibCcJcb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-jcb', DileIconlibCcJcb);
+if (!customElements.get('dile-fontawesome-icon-cc-jcb')) {
+  customElements.define('dile-fontawesome-icon-cc-jcb', DileIconlibCcJcb);
+}

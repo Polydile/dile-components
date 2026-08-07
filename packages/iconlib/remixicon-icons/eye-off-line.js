@@ -6,4 +6,6 @@ export class DileIconlibEyeOffLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-eye-off-line', DileIconlibEyeOffLine);
+if (!customElements.get('dile-remixicon-icon-eye-off-line')) {
+  customElements.define('dile-remixicon-icon-eye-off-line', DileIconlibEyeOffLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRememberMe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-remember-me', DileIconlibRememberMe);
+if (!customElements.get('dile-material-icon-remember-me')) {
+  customElements.define('dile-material-icon-remember-me', DileIconlibRememberMe);
+}

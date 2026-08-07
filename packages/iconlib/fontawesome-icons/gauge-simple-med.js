@@ -6,4 +6,6 @@ export class DileIconlibGaugeSimpleMed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gauge-simple-med', DileIconlibGaugeSimpleMed);
+if (!customElements.get('dile-fontawesome-icon-gauge-simple-med')) {
+  customElements.define('dile-fontawesome-icon-gauge-simple-med', DileIconlibGaugeSimpleMed);
+}

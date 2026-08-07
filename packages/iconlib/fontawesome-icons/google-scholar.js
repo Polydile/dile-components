@@ -6,4 +6,6 @@ export class DileIconlibGoogleScholar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-google-scholar', DileIconlibGoogleScholar);
+if (!customElements.get('dile-fontawesome-icon-google-scholar')) {
+  customElements.define('dile-fontawesome-icon-google-scholar', DileIconlibGoogleScholar);
+}

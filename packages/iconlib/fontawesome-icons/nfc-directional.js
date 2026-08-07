@@ -6,4 +6,6 @@ export class DileIconlibNfcDirectional extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-nfc-directional', DileIconlibNfcDirectional);
+if (!customElements.get('dile-fontawesome-icon-nfc-directional')) {
+  customElements.define('dile-fontawesome-icon-nfc-directional', DileIconlibNfcDirectional);
+}

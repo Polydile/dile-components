@@ -6,4 +6,6 @@ export class DileIconlibBluetoothDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bluetooth-disabled', DileIconlibBluetoothDisabled);
+if (!customElements.get('dile-material-icon-bluetooth-disabled')) {
+  customElements.define('dile-material-icon-bluetooth-disabled', DileIconlibBluetoothDisabled);
+}

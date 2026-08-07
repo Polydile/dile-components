@@ -33,4 +33,6 @@ export class DemoCountryItem extends LitElement {
     }));
   }
 }
-customElements.define('demo-country-item', DemoCountryItem);
+if (!customElements.get('demo-country-item')) {
+  customElements.define('demo-country-item', DemoCountryItem);
+}

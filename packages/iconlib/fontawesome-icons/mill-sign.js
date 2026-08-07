@@ -6,4 +6,6 @@ export class DileIconlibMillSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mill-sign', DileIconlibMillSign);
+if (!customElements.get('dile-fontawesome-icon-mill-sign')) {
+  customElements.define('dile-fontawesome-icon-mill-sign', DileIconlibMillSign);
+}

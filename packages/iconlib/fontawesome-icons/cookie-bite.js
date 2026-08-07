@@ -6,4 +6,6 @@ export class DileIconlibCookieBite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cookie-bite', DileIconlibCookieBite);
+if (!customElements.get('dile-fontawesome-icon-cookie-bite')) {
+  customElements.define('dile-fontawesome-icon-cookie-bite', DileIconlibCookieBite);
+}

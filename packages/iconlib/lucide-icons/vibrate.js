@@ -6,4 +6,6 @@ export class DileIconlibVibrate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-vibrate', DileIconlibVibrate);
+if (!customElements.get('dile-lucide-icon-vibrate')) {
+  customElements.define('dile-lucide-icon-vibrate', DileIconlibVibrate);
+}

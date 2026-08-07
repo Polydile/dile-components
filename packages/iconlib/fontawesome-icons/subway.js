@@ -6,4 +6,6 @@ export class DileIconlibSubway extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-subway', DileIconlibSubway);
+if (!customElements.get('dile-fontawesome-icon-subway')) {
+  customElements.define('dile-fontawesome-icon-subway', DileIconlibSubway);
+}

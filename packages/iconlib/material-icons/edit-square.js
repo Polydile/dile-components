@@ -6,4 +6,6 @@ export class DileIconlibEditSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-edit-square', DileIconlibEditSquare);
+if (!customElements.get('dile-material-icon-edit-square')) {
+  customElements.define('dile-material-icon-edit-square', DileIconlibEditSquare);
+}

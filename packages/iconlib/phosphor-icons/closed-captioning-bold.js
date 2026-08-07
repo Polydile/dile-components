@@ -6,4 +6,6 @@ export class DileIconlibClosedCaptioningBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-closed-captioning-bold', DileIconlibClosedCaptioningBold);
+if (!customElements.get('dile-phosphor-icon-closed-captioning-bold')) {
+  customElements.define('dile-phosphor-icon-closed-captioning-bold', DileIconlibClosedCaptioningBold);
+}

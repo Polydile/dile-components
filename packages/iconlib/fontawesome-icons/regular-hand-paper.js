@@ -6,4 +6,6 @@ export class DileIconlibHandPaper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-hand-paper', DileIconlibHandPaper);
+if (!customElements.get('dile-fontawesome-icon-regular-hand-paper')) {
+  customElements.define('dile-fontawesome-icon-regular-hand-paper', DileIconlibHandPaper);
+}

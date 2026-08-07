@@ -6,4 +6,6 @@ export class DileIconlibAddReaction extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-add-reaction', DileIconlibAddReaction);
+if (!customElements.get('dile-material-icon-add-reaction')) {
+  customElements.define('dile-material-icon-add-reaction', DileIconlibAddReaction);
+}

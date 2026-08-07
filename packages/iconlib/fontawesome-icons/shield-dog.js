@@ -6,4 +6,6 @@ export class DileIconlibShieldDog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shield-dog', DileIconlibShieldDog);
+if (!customElements.get('dile-fontawesome-icon-shield-dog')) {
+  customElements.define('dile-fontawesome-icon-shield-dog', DileIconlibShieldDog);
+}

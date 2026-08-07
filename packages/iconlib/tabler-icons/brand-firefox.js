@@ -6,4 +6,6 @@ export class DileIconlibBrandFirefox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-firefox', DileIconlibBrandFirefox);
+if (!customElements.get('dile-tabler-icon-brand-firefox')) {
+  customElements.define('dile-tabler-icon-brand-firefox', DileIconlibBrandFirefox);
+}

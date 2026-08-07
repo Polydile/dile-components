@@ -6,4 +6,6 @@ export class DileIconlibYarnLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-yarn-light', DileIconlibYarnLight);
+if (!customElements.get('dile-phosphor-icon-yarn-light')) {
+  customElements.define('dile-phosphor-icon-yarn-light', DileIconlibYarnLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibYen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yen', DileIconlibYen);
+if (!customElements.get('dile-fontawesome-icon-yen')) {
+  customElements.define('dile-fontawesome-icon-yen', DileIconlibYen);
+}

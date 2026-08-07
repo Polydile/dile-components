@@ -6,4 +6,6 @@ export class DileIconlibFindReplace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-find-replace', DileIconlibFindReplace);
+if (!customElements.get('dile-material-icon-find-replace')) {
+  customElements.define('dile-material-icon-find-replace', DileIconlibFindReplace);
+}

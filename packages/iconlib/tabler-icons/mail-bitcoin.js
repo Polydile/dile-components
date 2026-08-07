@@ -6,4 +6,6 @@ export class DileIconlibMailBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-bitcoin', DileIconlibMailBitcoin);
+if (!customElements.get('dile-tabler-icon-mail-bitcoin')) {
+  customElements.define('dile-tabler-icon-mail-bitcoin', DileIconlibMailBitcoin);
+}

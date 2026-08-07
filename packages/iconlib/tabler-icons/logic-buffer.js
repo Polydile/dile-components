@@ -6,4 +6,6 @@ export class DileIconlibLogicBuffer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-logic-buffer', DileIconlibLogicBuffer);
+if (!customElements.get('dile-tabler-icon-logic-buffer')) {
+  customElements.define('dile-tabler-icon-logic-buffer', DileIconlibLogicBuffer);
+}

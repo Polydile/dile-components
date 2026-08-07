@@ -6,4 +6,6 @@ export class DileIconlibKeyboardDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-keyboard-duotone', DileIconlibKeyboardDuotone);
+if (!customElements.get('dile-phosphor-icon-keyboard-duotone')) {
+  customElements.define('dile-phosphor-icon-keyboard-duotone', DileIconlibKeyboardDuotone);
+}

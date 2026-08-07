@@ -6,4 +6,6 @@ export class DileIconlibBrowserOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-browser-off', DileIconlibBrowserOff);
+if (!customElements.get('dile-tabler-icon-browser-off')) {
+  customElements.define('dile-tabler-icon-browser-off', DileIconlibBrowserOff);
+}

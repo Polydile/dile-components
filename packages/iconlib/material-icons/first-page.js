@@ -6,4 +6,6 @@ export class DileIconlibFirstPage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-first-page', DileIconlibFirstPage);
+if (!customElements.get('dile-material-icon-first-page')) {
+  customElements.define('dile-material-icon-first-page', DileIconlibFirstPage);
+}

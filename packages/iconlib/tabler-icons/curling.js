@@ -6,4 +6,6 @@ export class DileIconlibCurling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-curling', DileIconlibCurling);
+if (!customElements.get('dile-tabler-icon-curling')) {
+  customElements.define('dile-tabler-icon-curling', DileIconlibCurling);
+}

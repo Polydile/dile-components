@@ -6,4 +6,6 @@ export class DileIconlibCommit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-commit', DileIconlibCommit);
+if (!customElements.get('dile-material-icon-commit')) {
+  customElements.define('dile-material-icon-commit', DileIconlibCommit);
+}

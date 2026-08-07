@@ -6,4 +6,6 @@ export class DileIconlibRectangleRoundedBottom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rectangle-rounded-bottom', DileIconlibRectangleRoundedBottom);
+if (!customElements.get('dile-tabler-icon-rectangle-rounded-bottom')) {
+  customElements.define('dile-tabler-icon-rectangle-rounded-bottom', DileIconlibRectangleRoundedBottom);
+}

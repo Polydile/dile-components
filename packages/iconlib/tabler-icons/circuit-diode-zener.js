@@ -6,4 +6,6 @@ export class DileIconlibCircuitDiodeZener extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-diode-zener', DileIconlibCircuitDiodeZener);
+if (!customElements.get('dile-tabler-icon-circuit-diode-zener')) {
+  customElements.define('dile-tabler-icon-circuit-diode-zener', DileIconlibCircuitDiodeZener);
+}

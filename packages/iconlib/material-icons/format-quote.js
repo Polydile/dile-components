@@ -6,4 +6,6 @@ export class DileIconlibFormatQuote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-quote', DileIconlibFormatQuote);
+if (!customElements.get('dile-material-icon-format-quote')) {
+  customElements.define('dile-material-icon-format-quote', DileIconlibFormatQuote);
+}

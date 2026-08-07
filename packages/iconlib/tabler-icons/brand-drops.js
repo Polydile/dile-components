@@ -6,4 +6,6 @@ export class DileIconlibBrandDrops extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-drops', DileIconlibBrandDrops);
+if (!customElements.get('dile-tabler-icon-brand-drops')) {
+  customElements.define('dile-tabler-icon-brand-drops', DileIconlibBrandDrops);
+}

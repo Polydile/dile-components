@@ -6,4 +6,6 @@ export class DileIconlibFormatListNumbered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-list-numbered', DileIconlibFormatListNumbered);
+if (!customElements.get('dile-material-icon-format-list-numbered')) {
+  customElements.define('dile-material-icon-format-list-numbered', DileIconlibFormatListNumbered);
+}

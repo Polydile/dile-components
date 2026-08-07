@@ -6,4 +6,6 @@ export class DileIconlibWaveSawTool extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wave-saw-tool', DileIconlibWaveSawTool);
+if (!customElements.get('dile-tabler-icon-wave-saw-tool')) {
+  customElements.define('dile-tabler-icon-wave-saw-tool', DileIconlibWaveSawTool);
+}

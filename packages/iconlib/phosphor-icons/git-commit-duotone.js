@@ -6,4 +6,6 @@ export class DileIconlibGitCommitDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-commit-duotone', DileIconlibGitCommitDuotone);
+if (!customElements.get('dile-phosphor-icon-git-commit-duotone')) {
+  customElements.define('dile-phosphor-icon-git-commit-duotone', DileIconlibGitCommitDuotone);
+}

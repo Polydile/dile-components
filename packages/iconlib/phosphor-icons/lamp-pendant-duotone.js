@@ -6,4 +6,6 @@ export class DileIconlibLampPendantDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lamp-pendant-duotone', DileIconlibLampPendantDuotone);
+if (!customElements.get('dile-phosphor-icon-lamp-pendant-duotone')) {
+  customElements.define('dile-phosphor-icon-lamp-pendant-duotone', DileIconlibLampPendantDuotone);
+}

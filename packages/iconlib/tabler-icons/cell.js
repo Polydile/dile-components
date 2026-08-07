@@ -6,4 +6,6 @@ export class DileIconlibCell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cell', DileIconlibCell);
+if (!customElements.get('dile-tabler-icon-cell')) {
+  customElements.define('dile-tabler-icon-cell', DileIconlibCell);
+}

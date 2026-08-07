@@ -6,4 +6,6 @@ export class DileIconlibTeaBagDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tea-bag-duotone', DileIconlibTeaBagDuotone);
+if (!customElements.get('dile-phosphor-icon-tea-bag-duotone')) {
+  customElements.define('dile-phosphor-icon-tea-bag-duotone', DileIconlibTeaBagDuotone);
+}

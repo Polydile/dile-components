@@ -6,4 +6,6 @@ export class DileIconlibWineBar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wine-bar', DileIconlibWineBar);
+if (!customElements.get('dile-material-icon-wine-bar')) {
+  customElements.define('dile-material-icon-wine-bar', DileIconlibWineBar);
+}

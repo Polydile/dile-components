@@ -6,4 +6,6 @@ export class DileIconlibChartPpf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-ppf', DileIconlibChartPpf);
+if (!customElements.get('dile-tabler-icon-chart-ppf')) {
+  customElements.define('dile-tabler-icon-chart-ppf', DileIconlibChartPpf);
+}

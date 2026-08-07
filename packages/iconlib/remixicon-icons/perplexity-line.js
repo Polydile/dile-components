@@ -6,4 +6,6 @@ export class DileIconlibPerplexityLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-perplexity-line', DileIconlibPerplexityLine);
+if (!customElements.get('dile-remixicon-icon-perplexity-line')) {
+  customElements.define('dile-remixicon-icon-perplexity-line', DileIconlibPerplexityLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCircleNotifications extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-circle-notifications', DileIconlibCircleNotifications);
+if (!customElements.get('dile-material-icon-circle-notifications')) {
+  customElements.define('dile-material-icon-circle-notifications', DileIconlibCircleNotifications);
+}

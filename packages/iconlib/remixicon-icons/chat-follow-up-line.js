@@ -6,4 +6,6 @@ export class DileIconlibChatFollowUpLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-follow-up-line', DileIconlibChatFollowUpLine);
+if (!customElements.get('dile-remixicon-icon-chat-follow-up-line')) {
+  customElements.define('dile-remixicon-icon-chat-follow-up-line', DileIconlibChatFollowUpLine);
+}

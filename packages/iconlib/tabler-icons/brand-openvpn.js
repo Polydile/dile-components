@@ -6,4 +6,6 @@ export class DileIconlibBrandOpenvpn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-openvpn', DileIconlibBrandOpenvpn);
+if (!customElements.get('dile-tabler-icon-brand-openvpn')) {
+  customElements.define('dile-tabler-icon-brand-openvpn', DileIconlibBrandOpenvpn);
+}

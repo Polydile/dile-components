@@ -6,4 +6,6 @@ export class DileIconlibSignalCellular3Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-signal-cellular-3-line', DileIconlibSignalCellular3Line);
+if (!customElements.get('dile-remixicon-icon-signal-cellular-3-line')) {
+  customElements.define('dile-remixicon-icon-signal-cellular-3-line', DileIconlibSignalCellular3Line);
+}

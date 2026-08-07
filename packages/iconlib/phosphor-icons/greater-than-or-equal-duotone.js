@@ -6,4 +6,6 @@ export class DileIconlibGreaterThanOrEqualDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-greater-than-or-equal-duotone', DileIconlibGreaterThanOrEqualDuotone);
+if (!customElements.get('dile-phosphor-icon-greater-than-or-equal-duotone')) {
+  customElements.define('dile-phosphor-icon-greater-than-or-equal-duotone', DileIconlibGreaterThanOrEqualDuotone);
+}

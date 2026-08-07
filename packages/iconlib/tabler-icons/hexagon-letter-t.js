@@ -6,4 +6,6 @@ export class DileIconlibHexagonLetterT extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-letter-t', DileIconlibHexagonLetterT);
+if (!customElements.get('dile-tabler-icon-hexagon-letter-t')) {
+  customElements.define('dile-tabler-icon-hexagon-letter-t', DileIconlibHexagonLetterT);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignalCellularAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-signal-cellular-alt', DileIconlibSignalCellularAlt);
+if (!customElements.get('dile-material-icon-signal-cellular-alt')) {
+  customElements.define('dile-material-icon-signal-cellular-alt', DileIconlibSignalCellularAlt);
+}

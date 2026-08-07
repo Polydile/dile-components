@@ -6,4 +6,6 @@ export class DileIconlibDrumstickBite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-drumstick-bite', DileIconlibDrumstickBite);
+if (!customElements.get('dile-fontawesome-icon-drumstick-bite')) {
+  customElements.define('dile-fontawesome-icon-drumstick-bite', DileIconlibDrumstickBite);
+}

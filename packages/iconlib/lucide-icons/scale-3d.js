@@ -6,4 +6,6 @@ export class DileIconlibScale3d extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-scale-3d', DileIconlibScale3d);
+if (!customElements.get('dile-lucide-icon-scale-3d')) {
+  customElements.define('dile-lucide-icon-scale-3d', DileIconlibScale3d);
+}

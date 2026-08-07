@@ -6,4 +6,6 @@ export class DileIconlibBattery2ChargeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-battery-2-charge-fill', DileIconlibBattery2ChargeFill);
+if (!customElements.get('dile-remixicon-icon-battery-2-charge-fill')) {
+  customElements.define('dile-remixicon-icon-battery-2-charge-fill', DileIconlibBattery2ChargeFill);
+}

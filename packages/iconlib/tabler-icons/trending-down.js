@@ -6,4 +6,6 @@ export class DileIconlibTrendingDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-trending-down', DileIconlibTrendingDown);
+if (!customElements.get('dile-tabler-icon-trending-down')) {
+  customElements.define('dile-tabler-icon-trending-down', DileIconlibTrendingDown);
+}

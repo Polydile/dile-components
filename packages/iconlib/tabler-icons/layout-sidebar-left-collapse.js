@@ -6,4 +6,6 @@ export class DileIconlibLayoutSidebarLeftCollapse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-sidebar-left-collapse', DileIconlibLayoutSidebarLeftCollapse);
+if (!customElements.get('dile-tabler-icon-layout-sidebar-left-collapse')) {
+  customElements.define('dile-tabler-icon-layout-sidebar-left-collapse', DileIconlibLayoutSidebarLeftCollapse);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGitPrDraftLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-git-pr-draft-line', DileIconlibGitPrDraftLine);
+if (!customElements.get('dile-remixicon-icon-git-pr-draft-line')) {
+  customElements.define('dile-remixicon-icon-git-pr-draft-line', DileIconlibGitPrDraftLine);
+}

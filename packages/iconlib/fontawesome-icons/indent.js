@@ -6,4 +6,6 @@ export class DileIconlibIndent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-indent', DileIconlibIndent);
+if (!customElements.get('dile-fontawesome-icon-indent')) {
+  customElements.define('dile-fontawesome-icon-indent', DileIconlibIndent);
+}

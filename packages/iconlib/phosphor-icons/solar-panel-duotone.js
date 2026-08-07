@@ -6,4 +6,6 @@ export class DileIconlibSolarPanelDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-solar-panel-duotone', DileIconlibSolarPanelDuotone);
+if (!customElements.get('dile-phosphor-icon-solar-panel-duotone')) {
+  customElements.define('dile-phosphor-icon-solar-panel-duotone', DileIconlibSolarPanelDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandOnlyfans extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-onlyfans', DileIconlibBrandOnlyfans);
+if (!customElements.get('dile-tabler-icon-brand-onlyfans')) {
+  customElements.define('dile-tabler-icon-brand-onlyfans', DileIconlibBrandOnlyfans);
+}

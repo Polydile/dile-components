@@ -6,4 +6,6 @@ export class DileIconlibQuotesBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-quotes-bold', DileIconlibQuotesBold);
+if (!customElements.get('dile-phosphor-icon-quotes-bold')) {
+  customElements.define('dile-phosphor-icon-quotes-bold', DileIconlibQuotesBold);
+}

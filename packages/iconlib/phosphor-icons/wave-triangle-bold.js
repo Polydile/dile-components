@@ -6,4 +6,6 @@ export class DileIconlibWaveTriangleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-triangle-bold', DileIconlibWaveTriangleBold);
+if (!customElements.get('dile-phosphor-icon-wave-triangle-bold')) {
+  customElements.define('dile-phosphor-icon-wave-triangle-bold', DileIconlibWaveTriangleBold);
+}

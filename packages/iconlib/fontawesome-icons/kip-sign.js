@@ -6,4 +6,6 @@ export class DileIconlibKipSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kip-sign', DileIconlibKipSign);
+if (!customElements.get('dile-fontawesome-icon-kip-sign')) {
+  customElements.define('dile-fontawesome-icon-kip-sign', DileIconlibKipSign);
+}

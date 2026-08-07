@@ -6,4 +6,6 @@ export class DileIconlibRedhat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-redhat', DileIconlibRedhat);
+if (!customElements.get('dile-fontawesome-icon-redhat')) {
+  customElements.define('dile-fontawesome-icon-redhat', DileIconlibRedhat);
+}

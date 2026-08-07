@@ -6,4 +6,6 @@ export class DileIconlibBinoculars extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-binoculars', DileIconlibBinoculars);
+if (!customElements.get('dile-lucide-icon-binoculars')) {
+  customElements.define('dile-lucide-icon-binoculars', DileIconlibBinoculars);
+}

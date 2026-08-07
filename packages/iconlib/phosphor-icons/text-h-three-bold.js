@@ -6,4 +6,6 @@ export class DileIconlibTextHThreeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-h-three-bold', DileIconlibTextHThreeBold);
+if (!customElements.get('dile-phosphor-icon-text-h-three-bold')) {
+  customElements.define('dile-phosphor-icon-text-h-three-bold', DileIconlibTextHThreeBold);
+}

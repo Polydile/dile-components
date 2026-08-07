@@ -6,4 +6,6 @@ export class DileIconlibMedal2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-medal-2', DileIconlibMedal2);
+if (!customElements.get('dile-tabler-icon-medal-2')) {
+  customElements.define('dile-tabler-icon-medal-2', DileIconlibMedal2);
+}

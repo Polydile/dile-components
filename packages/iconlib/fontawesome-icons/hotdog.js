@@ -6,4 +6,6 @@ export class DileIconlibHotdog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hotdog', DileIconlibHotdog);
+if (!customElements.get('dile-fontawesome-icon-hotdog')) {
+  customElements.define('dile-fontawesome-icon-hotdog', DileIconlibHotdog);
+}

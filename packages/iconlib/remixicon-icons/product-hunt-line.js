@@ -6,4 +6,6 @@ export class DileIconlibProductHuntLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-product-hunt-line', DileIconlibProductHuntLine);
+if (!customElements.get('dile-remixicon-icon-product-hunt-line')) {
+  customElements.define('dile-remixicon-icon-product-hunt-line', DileIconlibProductHuntLine);
+}

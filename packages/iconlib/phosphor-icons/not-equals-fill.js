@@ -6,4 +6,6 @@ export class DileIconlibNotEqualsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-not-equals-fill', DileIconlibNotEqualsFill);
+if (!customElements.get('dile-phosphor-icon-not-equals-fill')) {
+  customElements.define('dile-phosphor-icon-not-equals-fill', DileIconlibNotEqualsFill);
+}

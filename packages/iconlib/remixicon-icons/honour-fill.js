@@ -6,4 +6,6 @@ export class DileIconlibHonourFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-honour-fill', DileIconlibHonourFill);
+if (!customElements.get('dile-remixicon-icon-honour-fill')) {
+  customElements.define('dile-remixicon-icon-honour-fill', DileIconlibHonourFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandAmongUs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-among-us', DileIconlibBrandAmongUs);
+if (!customElements.get('dile-tabler-icon-brand-among-us')) {
+  customElements.define('dile-tabler-icon-brand-among-us', DileIconlibBrandAmongUs);
+}

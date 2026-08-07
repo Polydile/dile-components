@@ -6,4 +6,6 @@ export class DileIconlibDrinks2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-drinks-2-fill', DileIconlibDrinks2Fill);
+if (!customElements.get('dile-remixicon-icon-drinks-2-fill')) {
+  customElements.define('dile-remixicon-icon-drinks-2-fill', DileIconlibDrinks2Fill);
+}

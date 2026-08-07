@@ -6,4 +6,6 @@ export class DileIconlibBaguette extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-baguette', DileIconlibBaguette);
+if (!customElements.get('dile-tabler-icon-baguette')) {
+  customElements.define('dile-tabler-icon-baguette', DileIconlibBaguette);
+}

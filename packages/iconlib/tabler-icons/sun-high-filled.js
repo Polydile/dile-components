@@ -6,4 +6,6 @@ export class DileIconlibSunHighFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sun-high-filled', DileIconlibSunHighFilled);
+if (!customElements.get('dile-tabler-icon-sun-high-filled')) {
+  customElements.define('dile-tabler-icon-sun-high-filled', DileIconlibSunHighFilled);
+}

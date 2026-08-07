@@ -6,4 +6,6 @@ export class DileIconlibTune extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tune', DileIconlibTune);
+if (!customElements.get('dile-material-icon-tune')) {
+  customElements.define('dile-material-icon-tune', DileIconlibTune);
+}

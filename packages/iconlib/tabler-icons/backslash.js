@@ -6,4 +6,6 @@ export class DileIconlibBackslash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-backslash', DileIconlibBackslash);
+if (!customElements.get('dile-tabler-icon-backslash')) {
+  customElements.define('dile-tabler-icon-backslash', DileIconlibBackslash);
+}

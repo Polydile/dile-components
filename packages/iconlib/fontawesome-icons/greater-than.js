@@ -6,4 +6,6 @@ export class DileIconlibGreaterThan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-greater-than', DileIconlibGreaterThan);
+if (!customElements.get('dile-fontawesome-icon-greater-than')) {
+  customElements.define('dile-fontawesome-icon-greater-than', DileIconlibGreaterThan);
+}

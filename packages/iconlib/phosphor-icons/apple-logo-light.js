@@ -6,4 +6,6 @@ export class DileIconlibAppleLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-apple-logo-light', DileIconlibAppleLogoLight);
+if (!customElements.get('dile-phosphor-icon-apple-logo-light')) {
+  customElements.define('dile-phosphor-icon-apple-logo-light', DileIconlibAppleLogoLight);
+}

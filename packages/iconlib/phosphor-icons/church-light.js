@@ -6,4 +6,6 @@ export class DileIconlibChurchLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-church-light', DileIconlibChurchLight);
+if (!customElements.get('dile-phosphor-icon-church-light')) {
+  customElements.define('dile-phosphor-icon-church-light', DileIconlibChurchLight);
+}

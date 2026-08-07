@@ -6,4 +6,6 @@ export class DileIconlibPulseLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pulse-line', DileIconlibPulseLine);
+if (!customElements.get('dile-remixicon-icon-pulse-line')) {
+  customElements.define('dile-remixicon-icon-pulse-line', DileIconlibPulseLine);
+}

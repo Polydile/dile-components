@@ -6,4 +6,6 @@ export class DileIconlibTextGrammar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-grammar', DileIconlibTextGrammar);
+if (!customElements.get('dile-tabler-icon-text-grammar')) {
+  customElements.define('dile-tabler-icon-text-grammar', DileIconlibTextGrammar);
+}

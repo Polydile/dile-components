@@ -6,4 +6,6 @@ export class DileIconlibInnerShadowBottomFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-inner-shadow-bottom-filled', DileIconlibInnerShadowBottomFilled);
+if (!customElements.get('dile-tabler-icon-inner-shadow-bottom-filled')) {
+  customElements.define('dile-tabler-icon-inner-shadow-bottom-filled', DileIconlibInnerShadowBottomFilled);
+}

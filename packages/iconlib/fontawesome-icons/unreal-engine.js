@@ -6,4 +6,6 @@ export class DileIconlibUnrealEngine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unreal-engine', DileIconlibUnrealEngine);
+if (!customElements.get('dile-fontawesome-icon-unreal-engine')) {
+  customElements.define('dile-fontawesome-icon-unreal-engine', DileIconlibUnrealEngine);
+}

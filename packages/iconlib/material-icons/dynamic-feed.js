@@ -6,4 +6,6 @@ export class DileIconlibDynamicFeed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dynamic-feed', DileIconlibDynamicFeed);
+if (!customElements.get('dile-material-icon-dynamic-feed')) {
+  customElements.define('dile-material-icon-dynamic-feed', DileIconlibDynamicFeed);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZodiacAquarius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-aquarius', DileIconlibZodiacAquarius);
+if (!customElements.get('dile-tabler-icon-zodiac-aquarius')) {
+  customElements.define('dile-tabler-icon-zodiac-aquarius', DileIconlibZodiacAquarius);
+}

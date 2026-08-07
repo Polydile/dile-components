@@ -6,4 +6,6 @@ export class DileIconlibScaleOutlineOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scale-outline-off', DileIconlibScaleOutlineOff);
+if (!customElements.get('dile-tabler-icon-scale-outline-off')) {
+  customElements.define('dile-tabler-icon-scale-outline-off', DileIconlibScaleOutlineOff);
+}

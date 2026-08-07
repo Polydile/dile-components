@@ -6,4 +6,6 @@ export class DileIconlibCommentDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-comment-dollar', DileIconlibCommentDollar);
+if (!customElements.get('dile-fontawesome-icon-comment-dollar')) {
+  customElements.define('dile-fontawesome-icon-comment-dollar', DileIconlibCommentDollar);
+}

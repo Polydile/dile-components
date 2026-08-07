@@ -6,4 +6,6 @@ export class DileIconlibSmartphoneNfc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-smartphone-nfc', DileIconlibSmartphoneNfc);
+if (!customElements.get('dile-lucide-icon-smartphone-nfc')) {
+  customElements.define('dile-lucide-icon-smartphone-nfc', DileIconlibSmartphoneNfc);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPlayDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-play-duotone', DileIconlibPlayDuotone);
+if (!customElements.get('dile-phosphor-icon-play-duotone')) {
+  customElements.define('dile-phosphor-icon-play-duotone', DileIconlibPlayDuotone);
+}

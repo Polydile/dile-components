@@ -6,4 +6,6 @@ export class DileIconlibZoomInLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-zoom-in-line', DileIconlibZoomInLine);
+if (!customElements.get('dile-remixicon-icon-zoom-in-line')) {
+  customElements.define('dile-remixicon-icon-zoom-in-line', DileIconlibZoomInLine);
+}

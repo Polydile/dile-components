@@ -6,4 +6,6 @@ export class DileIconlibCopyrightLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-copyright-line', DileIconlibCopyrightLine);
+if (!customElements.get('dile-remixicon-icon-copyright-line')) {
+  customElements.define('dile-remixicon-icon-copyright-line', DileIconlibCopyrightLine);
+}

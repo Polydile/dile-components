@@ -6,4 +6,6 @@ export class DileIconlibCircleHalfVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-half-vertical', DileIconlibCircleHalfVertical);
+if (!customElements.get('dile-tabler-icon-circle-half-vertical')) {
+  customElements.define('dile-tabler-icon-circle-half-vertical', DileIconlibCircleHalfVertical);
+}

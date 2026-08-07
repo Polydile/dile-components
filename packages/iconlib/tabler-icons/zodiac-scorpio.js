@@ -6,4 +6,6 @@ export class DileIconlibZodiacScorpio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-scorpio', DileIconlibZodiacScorpio);
+if (!customElements.get('dile-tabler-icon-zodiac-scorpio')) {
+  customElements.define('dile-tabler-icon-zodiac-scorpio', DileIconlibZodiacScorpio);
+}

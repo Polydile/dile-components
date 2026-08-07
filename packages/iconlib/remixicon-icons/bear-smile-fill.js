@@ -6,4 +6,6 @@ export class DileIconlibBearSmileFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bear-smile-fill', DileIconlibBearSmileFill);
+if (!customElements.get('dile-remixicon-icon-bear-smile-fill')) {
+  customElements.define('dile-remixicon-icon-bear-smile-fill', DileIconlibBearSmileFill);
+}

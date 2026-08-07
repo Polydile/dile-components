@@ -6,4 +6,6 @@ export class DileIconlibBuildingEiffelTower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-eiffel-tower', DileIconlibBuildingEiffelTower);
+if (!customElements.get('dile-tabler-icon-building-eiffel-tower')) {
+  customElements.define('dile-tabler-icon-building-eiffel-tower', DileIconlibBuildingEiffelTower);
+}

@@ -6,4 +6,6 @@ export class DileIconlibElectricMeter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electric-meter', DileIconlibElectricMeter);
+if (!customElements.get('dile-material-icon-electric-meter')) {
+  customElements.define('dile-material-icon-electric-meter', DileIconlibElectricMeter);
+}

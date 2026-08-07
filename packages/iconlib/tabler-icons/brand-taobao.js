@@ -6,4 +6,6 @@ export class DileIconlibBrandTaobao extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-taobao', DileIconlibBrandTaobao);
+if (!customElements.get('dile-tabler-icon-brand-taobao')) {
+  customElements.define('dile-tabler-icon-brand-taobao', DileIconlibBrandTaobao);
+}

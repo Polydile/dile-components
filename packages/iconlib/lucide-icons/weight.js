@@ -6,4 +6,6 @@ export class DileIconlibWeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-weight', DileIconlibWeight);
+if (!customElements.get('dile-lucide-icon-weight')) {
+  customElements.define('dile-lucide-icon-weight', DileIconlibWeight);
+}

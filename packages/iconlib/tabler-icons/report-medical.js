@@ -6,4 +6,6 @@ export class DileIconlibReportMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-report-medical', DileIconlibReportMedical);
+if (!customElements.get('dile-tabler-icon-report-medical')) {
+  customElements.define('dile-tabler-icon-report-medical', DileIconlibReportMedical);
+}

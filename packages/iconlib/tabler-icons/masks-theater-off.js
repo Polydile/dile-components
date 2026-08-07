@@ -6,4 +6,6 @@ export class DileIconlibMasksTheaterOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-masks-theater-off', DileIconlibMasksTheaterOff);
+if (!customElements.get('dile-tabler-icon-masks-theater-off')) {
+  customElements.define('dile-tabler-icon-masks-theater-off', DileIconlibMasksTheaterOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSevereCold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-severe-cold', DileIconlibSevereCold);
+if (!customElements.get('dile-material-icon-severe-cold')) {
+  customElements.define('dile-material-icon-severe-cold', DileIconlibSevereCold);
+}

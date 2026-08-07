@@ -6,4 +6,6 @@ export class DileIconlibBallAmericanFootballOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ball-american-football-off', DileIconlibBallAmericanFootballOff);
+if (!customElements.get('dile-tabler-icon-ball-american-football-off')) {
+  customElements.define('dile-tabler-icon-ball-american-football-off', DileIconlibBallAmericanFootballOff);
+}

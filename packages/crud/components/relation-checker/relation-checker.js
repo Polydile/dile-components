@@ -1,3 +1,5 @@
 import { DileRelationChecker } from './src/DileRelationChecker.js';
 
-customElements.define('dile-relation-checker', DileRelationChecker);
+if (!customElements.get('dile-relation-checker')) {
+  customElements.define('dile-relation-checker', DileRelationChecker);
+}

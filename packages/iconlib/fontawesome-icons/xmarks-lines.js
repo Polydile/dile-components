@@ -6,4 +6,6 @@ export class DileIconlibXmarksLines extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-xmarks-lines', DileIconlibXmarksLines);
+if (!customElements.get('dile-fontawesome-icon-xmarks-lines')) {
+  customElements.define('dile-fontawesome-icon-xmarks-lines', DileIconlibXmarksLines);
+}

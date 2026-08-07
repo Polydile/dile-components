@@ -6,4 +6,6 @@ export class DileIconlibCurrencyJpyThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-jpy-thin', DileIconlibCurrencyJpyThin);
+if (!customElements.get('dile-phosphor-icon-currency-jpy-thin')) {
+  customElements.define('dile-phosphor-icon-currency-jpy-thin', DileIconlibCurrencyJpyThin);
+}

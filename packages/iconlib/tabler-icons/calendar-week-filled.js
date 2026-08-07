@@ -6,4 +6,6 @@ export class DileIconlibCalendarWeekFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-week-filled', DileIconlibCalendarWeekFilled);
+if (!customElements.get('dile-tabler-icon-calendar-week-filled')) {
+  customElements.define('dile-tabler-icon-calendar-week-filled', DileIconlibCalendarWeekFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClosedCaptionDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-closed-caption-disabled', DileIconlibClosedCaptionDisabled);
+if (!customElements.get('dile-material-icon-closed-caption-disabled')) {
+  customElements.define('dile-material-icon-closed-caption-disabled', DileIconlibClosedCaptionDisabled);
+}

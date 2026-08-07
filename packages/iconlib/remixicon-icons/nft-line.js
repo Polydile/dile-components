@@ -6,4 +6,6 @@ export class DileIconlibNftLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-nft-line', DileIconlibNftLine);
+if (!customElements.get('dile-remixicon-icon-nft-line')) {
+  customElements.define('dile-remixicon-icon-nft-line', DileIconlibNftLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibInstallDesktop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-install-desktop', DileIconlibInstallDesktop);
+if (!customElements.get('dile-material-icon-install-desktop')) {
+  customElements.define('dile-material-icon-install-desktop', DileIconlibInstallDesktop);
+}

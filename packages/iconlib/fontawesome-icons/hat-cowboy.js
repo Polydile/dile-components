@@ -6,4 +6,6 @@ export class DileIconlibHatCowboy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hat-cowboy', DileIconlibHatCowboy);
+if (!customElements.get('dile-fontawesome-icon-hat-cowboy')) {
+  customElements.define('dile-fontawesome-icon-hat-cowboy', DileIconlibHatCowboy);
+}

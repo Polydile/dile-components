@@ -6,4 +6,6 @@ export class DileIconlibXmpp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-xmpp', DileIconlibXmpp);
+if (!customElements.get('dile-fontawesome-icon-xmpp')) {
+  customElements.define('dile-fontawesome-icon-xmpp', DileIconlibXmpp);
+}

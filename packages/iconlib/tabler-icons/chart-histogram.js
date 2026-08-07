@@ -6,4 +6,6 @@ export class DileIconlibChartHistogram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-histogram', DileIconlibChartHistogram);
+if (!customElements.get('dile-tabler-icon-chart-histogram')) {
+  customElements.define('dile-tabler-icon-chart-histogram', DileIconlibChartHistogram);
+}

@@ -6,4 +6,6 @@ export class DileIconlibReorder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-reorder', DileIconlibReorder);
+if (!customElements.get('dile-tabler-icon-reorder')) {
+  customElements.define('dile-tabler-icon-reorder', DileIconlibReorder);
+}

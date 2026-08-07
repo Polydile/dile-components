@@ -6,4 +6,6 @@ export class DileIconlibAutoGraph extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-auto-graph', DileIconlibAutoGraph);
+if (!customElements.get('dile-material-icon-auto-graph')) {
+  customElements.define('dile-material-icon-auto-graph', DileIconlibAutoGraph);
+}

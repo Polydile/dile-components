@@ -6,4 +6,6 @@ export class DileIconlibWheatAwnCircleExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wheat-awn-circle-exclamation', DileIconlibWheatAwnCircleExclamation);
+if (!customElements.get('dile-fontawesome-icon-wheat-awn-circle-exclamation')) {
+  customElements.define('dile-fontawesome-icon-wheat-awn-circle-exclamation', DileIconlibWheatAwnCircleExclamation);
+}

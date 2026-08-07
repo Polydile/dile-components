@@ -6,4 +6,6 @@ export class DileIconlibBlind extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-blind', DileIconlibBlind);
+if (!customElements.get('dile-fontawesome-icon-blind')) {
+  customElements.define('dile-fontawesome-icon-blind', DileIconlibBlind);
+}

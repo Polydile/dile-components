@@ -6,4 +6,6 @@ export class DileIconlibCrosshairSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crosshair-simple-light', DileIconlibCrosshairSimpleLight);
+if (!customElements.get('dile-phosphor-icon-crosshair-simple-light')) {
+  customElements.define('dile-phosphor-icon-crosshair-simple-light', DileIconlibCrosshairSimpleLight);
+}

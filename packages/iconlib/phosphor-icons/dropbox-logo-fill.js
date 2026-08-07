@@ -6,4 +6,6 @@ export class DileIconlibDropboxLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dropbox-logo-fill', DileIconlibDropboxLogoFill);
+if (!customElements.get('dile-phosphor-icon-dropbox-logo-fill')) {
+  customElements.define('dile-phosphor-icon-dropbox-logo-fill', DileIconlibDropboxLogoFill);
+}

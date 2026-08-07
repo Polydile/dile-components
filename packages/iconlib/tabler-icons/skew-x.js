@@ -6,4 +6,6 @@ export class DileIconlibSkewX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-skew-x', DileIconlibSkewX);
+if (!customElements.get('dile-tabler-icon-skew-x')) {
+  customElements.define('dile-tabler-icon-skew-x', DileIconlibSkewX);
+}

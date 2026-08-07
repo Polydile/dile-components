@@ -6,4 +6,6 @@ export class DileIconlibKebabDining extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-kebab-dining', DileIconlibKebabDining);
+if (!customElements.get('dile-material-icon-kebab-dining')) {
+  customElements.define('dile-material-icon-kebab-dining', DileIconlibKebabDining);
+}

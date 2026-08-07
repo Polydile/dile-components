@@ -6,4 +6,6 @@ export class DileIconlibRouterFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-router-fill', DileIconlibRouterFill);
+if (!customElements.get('dile-remixicon-icon-router-fill')) {
+  customElements.define('dile-remixicon-icon-router-fill', DileIconlibRouterFill);
+}

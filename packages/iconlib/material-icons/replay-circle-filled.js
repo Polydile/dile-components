@@ -6,4 +6,6 @@ export class DileIconlibReplayCircleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-replay-circle-filled', DileIconlibReplayCircleFilled);
+if (!customElements.get('dile-material-icon-replay-circle-filled')) {
+  customElements.define('dile-material-icon-replay-circle-filled', DileIconlibReplayCircleFilled);
+}

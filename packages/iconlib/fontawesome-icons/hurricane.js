@@ -6,4 +6,6 @@ export class DileIconlibHurricane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hurricane', DileIconlibHurricane);
+if (!customElements.get('dile-fontawesome-icon-hurricane')) {
+  customElements.define('dile-fontawesome-icon-hurricane', DileIconlibHurricane);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLocationCrosshairs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-location-crosshairs', DileIconlibLocationCrosshairs);
+if (!customElements.get('dile-fontawesome-icon-location-crosshairs')) {
+  customElements.define('dile-fontawesome-icon-location-crosshairs', DileIconlibLocationCrosshairs);
+}

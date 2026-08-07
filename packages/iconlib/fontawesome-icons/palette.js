@@ -6,4 +6,6 @@ export class DileIconlibPalette extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-palette', DileIconlibPalette);
+if (!customElements.get('dile-fontawesome-icon-palette')) {
+  customElements.define('dile-fontawesome-icon-palette', DileIconlibPalette);
+}

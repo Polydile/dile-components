@@ -6,4 +6,6 @@ export class DileIconlibScribd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scribd', DileIconlibScribd);
+if (!customElements.get('dile-fontawesome-icon-scribd')) {
+  customElements.define('dile-fontawesome-icon-scribd', DileIconlibScribd);
+}

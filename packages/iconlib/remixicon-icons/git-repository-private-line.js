@@ -6,4 +6,6 @@ export class DileIconlibGitRepositoryPrivateLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-git-repository-private-line', DileIconlibGitRepositoryPrivateLine);
+if (!customElements.get('dile-remixicon-icon-git-repository-private-line')) {
+  customElements.define('dile-remixicon-icon-git-repository-private-line', DileIconlibGitRepositoryPrivateLine);
+}

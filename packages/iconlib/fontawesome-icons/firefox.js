@@ -6,4 +6,6 @@ export class DileIconlibFirefox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-firefox', DileIconlibFirefox);
+if (!customElements.get('dile-fontawesome-icon-firefox')) {
+  customElements.define('dile-fontawesome-icon-firefox', DileIconlibFirefox);
+}

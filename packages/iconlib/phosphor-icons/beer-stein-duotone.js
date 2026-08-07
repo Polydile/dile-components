@@ -6,4 +6,6 @@ export class DileIconlibBeerSteinDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-beer-stein-duotone', DileIconlibBeerSteinDuotone);
+if (!customElements.get('dile-phosphor-icon-beer-stein-duotone')) {
+  customElements.define('dile-phosphor-icon-beer-stein-duotone', DileIconlibBeerSteinDuotone);
+}

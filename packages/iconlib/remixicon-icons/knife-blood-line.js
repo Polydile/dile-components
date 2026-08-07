@@ -6,4 +6,6 @@ export class DileIconlibKnifeBloodLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-knife-blood-line', DileIconlibKnifeBloodLine);
+if (!customElements.get('dile-remixicon-icon-knife-blood-line')) {
+  customElements.define('dile-remixicon-icon-knife-blood-line', DileIconlibKnifeBloodLine);
+}

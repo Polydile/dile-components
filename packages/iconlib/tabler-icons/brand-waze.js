@@ -6,4 +6,6 @@ export class DileIconlibBrandWaze extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-waze', DileIconlibBrandWaze);
+if (!customElements.get('dile-tabler-icon-brand-waze')) {
+  customElements.define('dile-tabler-icon-brand-waze', DileIconlibBrandWaze);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPeopleArrows extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-arrows', DileIconlibPeopleArrows);
+if (!customElements.get('dile-fontawesome-icon-people-arrows')) {
+  customElements.define('dile-fontawesome-icon-people-arrows', DileIconlibPeopleArrows);
+}

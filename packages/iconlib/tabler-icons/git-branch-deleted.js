@@ -6,4 +6,6 @@ export class DileIconlibGitBranchDeleted extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-git-branch-deleted', DileIconlibGitBranchDeleted);
+if (!customElements.get('dile-tabler-icon-git-branch-deleted')) {
+  customElements.define('dile-tabler-icon-git-branch-deleted', DileIconlibGitBranchDeleted);
+}

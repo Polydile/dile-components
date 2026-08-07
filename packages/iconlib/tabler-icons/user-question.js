@@ -6,4 +6,6 @@ export class DileIconlibUserQuestion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-user-question', DileIconlibUserQuestion);
+if (!customElements.get('dile-tabler-icon-user-question')) {
+  customElements.define('dile-tabler-icon-user-question', DileIconlibUserQuestion);
+}

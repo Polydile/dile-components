@@ -6,4 +6,6 @@ export class DileIconlibBridgeWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bridge-water', DileIconlibBridgeWater);
+if (!customElements.get('dile-fontawesome-icon-bridge-water')) {
+  customElements.define('dile-fontawesome-icon-bridge-water', DileIconlibBridgeWater);
+}

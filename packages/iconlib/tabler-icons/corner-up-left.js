@@ -6,4 +6,6 @@ export class DileIconlibCornerUpLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-corner-up-left', DileIconlibCornerUpLeft);
+if (!customElements.get('dile-tabler-icon-corner-up-left')) {
+  customElements.define('dile-tabler-icon-corner-up-left', DileIconlibCornerUpLeft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibQrCodeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-qr-code-duotone', DileIconlibQrCodeDuotone);
+if (!customElements.get('dile-phosphor-icon-qr-code-duotone')) {
+  customElements.define('dile-phosphor-icon-qr-code-duotone', DileIconlibQrCodeDuotone);
+}

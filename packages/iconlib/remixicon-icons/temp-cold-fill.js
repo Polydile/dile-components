@@ -6,4 +6,6 @@ export class DileIconlibTempColdFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-temp-cold-fill', DileIconlibTempColdFill);
+if (!customElements.get('dile-remixicon-icon-temp-cold-fill')) {
+  customElements.define('dile-remixicon-icon-temp-cold-fill', DileIconlibTempColdFill);
+}

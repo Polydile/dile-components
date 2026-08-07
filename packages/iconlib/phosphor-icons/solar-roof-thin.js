@@ -6,4 +6,6 @@ export class DileIconlibSolarRoofThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-solar-roof-thin', DileIconlibSolarRoofThin);
+if (!customElements.get('dile-phosphor-icon-solar-roof-thin')) {
+  customElements.define('dile-phosphor-icon-solar-roof-thin', DileIconlibSolarRoofThin);
+}

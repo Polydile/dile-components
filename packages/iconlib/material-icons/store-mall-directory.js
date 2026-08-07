@@ -6,4 +6,6 @@ export class DileIconlibStoreMallDirectory extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-store-mall-directory', DileIconlibStoreMallDirectory);
+if (!customElements.get('dile-material-icon-store-mall-directory')) {
+  customElements.define('dile-material-icon-store-mall-directory', DileIconlibStoreMallDirectory);
+}

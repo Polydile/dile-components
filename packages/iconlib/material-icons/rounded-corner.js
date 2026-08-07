@@ -6,4 +6,6 @@ export class DileIconlibRoundedCorner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rounded-corner', DileIconlibRoundedCorner);
+if (!customElements.get('dile-material-icon-rounded-corner')) {
+  customElements.define('dile-material-icon-rounded-corner', DileIconlibRoundedCorner);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCircleFadingArrowUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-fading-arrow-up', DileIconlibCircleFadingArrowUp);
+if (!customElements.get('dile-lucide-icon-circle-fading-arrow-up')) {
+  customElements.define('dile-lucide-icon-circle-fading-arrow-up', DileIconlibCircleFadingArrowUp);
+}

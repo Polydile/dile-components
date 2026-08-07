@@ -6,4 +6,6 @@ export class DileIconlibHandsWash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-wash', DileIconlibHandsWash);
+if (!customElements.get('dile-fontawesome-icon-hands-wash')) {
+  customElements.define('dile-fontawesome-icon-hands-wash', DileIconlibHandsWash);
+}

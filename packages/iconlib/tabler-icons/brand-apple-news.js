@@ -6,4 +6,6 @@ export class DileIconlibBrandAppleNews extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-apple-news', DileIconlibBrandAppleNews);
+if (!customElements.get('dile-tabler-icon-brand-apple-news')) {
+  customElements.define('dile-tabler-icon-brand-apple-news', DileIconlibBrandAppleNews);
+}

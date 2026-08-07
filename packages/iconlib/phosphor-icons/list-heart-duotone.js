@@ -6,4 +6,6 @@ export class DileIconlibListHeartDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-list-heart-duotone', DileIconlibListHeartDuotone);
+if (!customElements.get('dile-phosphor-icon-list-heart-duotone')) {
+  customElements.define('dile-phosphor-icon-list-heart-duotone', DileIconlibListHeartDuotone);
+}

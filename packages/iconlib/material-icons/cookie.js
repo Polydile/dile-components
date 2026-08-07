@@ -6,4 +6,6 @@ export class DileIconlibCookie extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cookie', DileIconlibCookie);
+if (!customElements.get('dile-material-icon-cookie')) {
+  customElements.define('dile-material-icon-cookie', DileIconlibCookie);
+}

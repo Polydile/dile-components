@@ -6,4 +6,6 @@ export class DileIconlibPersonAddDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-person-add-disabled', DileIconlibPersonAddDisabled);
+if (!customElements.get('dile-material-icon-person-add-disabled')) {
+  customElements.define('dile-material-icon-person-add-disabled', DileIconlibPersonAddDisabled);
+}

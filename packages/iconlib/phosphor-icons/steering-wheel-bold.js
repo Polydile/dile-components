@@ -6,4 +6,6 @@ export class DileIconlibSteeringWheelBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-steering-wheel-bold', DileIconlibSteeringWheelBold);
+if (!customElements.get('dile-phosphor-icon-steering-wheel-bold')) {
+  customElements.define('dile-phosphor-icon-steering-wheel-bold', DileIconlibSteeringWheelBold);
+}

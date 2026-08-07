@@ -6,4 +6,6 @@ export class DileIconlibMoneyRupeeCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-money-rupee-circle-line', DileIconlibMoneyRupeeCircleLine);
+if (!customElements.get('dile-remixicon-icon-money-rupee-circle-line')) {
+  customElements.define('dile-remixicon-icon-money-rupee-circle-line', DileIconlibMoneyRupeeCircleLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibView360Number extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-view-360-number', DileIconlibView360Number);
+if (!customElements.get('dile-tabler-icon-view-360-number')) {
+  customElements.define('dile-tabler-icon-view-360-number', DileIconlibView360Number);
+}

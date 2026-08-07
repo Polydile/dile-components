@@ -1,2 +1,4 @@
 import { DileCrudListOptions } from "./src/DileCrudListOptions.js";
-customElements.define('dile-crud-list-options', DileCrudListOptions);
+if (!customElements.get('dile-crud-list-options')) {
+  customElements.define('dile-crud-list-options', DileCrudListOptions);
+}

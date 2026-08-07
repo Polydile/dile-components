@@ -6,4 +6,6 @@ export class DileIconlibGlassMartini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-glass-martini', DileIconlibGlassMartini);
+if (!customElements.get('dile-fontawesome-icon-glass-martini')) {
+  customElements.define('dile-fontawesome-icon-glass-martini', DileIconlibGlassMartini);
+}

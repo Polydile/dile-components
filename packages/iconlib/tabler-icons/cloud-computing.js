@@ -6,4 +6,6 @@ export class DileIconlibCloudComputing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-computing', DileIconlibCloudComputing);
+if (!customElements.get('dile-tabler-icon-cloud-computing')) {
+  customElements.define('dile-tabler-icon-cloud-computing', DileIconlibCloudComputing);
+}

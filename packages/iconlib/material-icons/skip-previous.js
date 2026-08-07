@@ -6,4 +6,6 @@ export class DileIconlibSkipPrevious extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-skip-previous', DileIconlibSkipPrevious);
+if (!customElements.get('dile-material-icon-skip-previous')) {
+  customElements.define('dile-material-icon-skip-previous', DileIconlibSkipPrevious);
+}

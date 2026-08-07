@@ -6,4 +6,6 @@ export class DileIconlibCurrencyHusd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-husd', DileIconlibCurrencyHusd);
+if (!customElements.get('dile-tabler-icon-currency-husd')) {
+  customElements.define('dile-tabler-icon-currency-husd', DileIconlibCurrencyHusd);
+}

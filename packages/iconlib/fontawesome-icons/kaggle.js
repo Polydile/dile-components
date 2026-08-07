@@ -6,4 +6,6 @@ export class DileIconlibKaggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kaggle', DileIconlibKaggle);
+if (!customElements.get('dile-fontawesome-icon-kaggle')) {
+  customElements.define('dile-fontawesome-icon-kaggle', DileIconlibKaggle);
+}

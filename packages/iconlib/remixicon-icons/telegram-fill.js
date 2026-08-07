@@ -6,4 +6,6 @@ export class DileIconlibTelegramFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-telegram-fill', DileIconlibTelegramFill);
+if (!customElements.get('dile-remixicon-icon-telegram-fill')) {
+  customElements.define('dile-remixicon-icon-telegram-fill', DileIconlibTelegramFill);
+}

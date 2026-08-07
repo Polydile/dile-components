@@ -6,4 +6,6 @@ export class DileIconlibArrowRightTail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-right-tail', DileIconlibArrowRightTail);
+if (!customElements.get('dile-tabler-icon-arrow-right-tail')) {
+  customElements.define('dile-tabler-icon-arrow-right-tail', DileIconlibArrowRightTail);
+}

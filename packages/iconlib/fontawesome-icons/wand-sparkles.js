@@ -6,4 +6,6 @@ export class DileIconlibWandSparkles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wand-sparkles', DileIconlibWandSparkles);
+if (!customElements.get('dile-fontawesome-icon-wand-sparkles')) {
+  customElements.define('dile-fontawesome-icon-wand-sparkles', DileIconlibWandSparkles);
+}

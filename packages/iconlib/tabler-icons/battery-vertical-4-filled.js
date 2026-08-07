@@ -6,4 +6,6 @@ export class DileIconlibBatteryVertical4Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-battery-vertical-4-filled', DileIconlibBatteryVertical4Filled);
+if (!customElements.get('dile-tabler-icon-battery-vertical-4-filled')) {
+  customElements.define('dile-tabler-icon-battery-vertical-4-filled', DileIconlibBatteryVertical4Filled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibThumbUpAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-thumb-up-alt', DileIconlibThumbUpAlt);
+if (!customElements.get('dile-material-icon-thumb-up-alt')) {
+  customElements.define('dile-material-icon-thumb-up-alt', DileIconlibThumbUpAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibServerSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-server-spark', DileIconlibServerSpark);
+if (!customElements.get('dile-tabler-icon-server-spark')) {
+  customElements.define('dile-tabler-icon-server-spark', DileIconlibServerSpark);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeviceFloppy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-floppy', DileIconlibDeviceFloppy);
+if (!customElements.get('dile-tabler-icon-device-floppy')) {
+  customElements.define('dile-tabler-icon-device-floppy', DileIconlibDeviceFloppy);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandSolidjs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-solidjs', DileIconlibBrandSolidjs);
+if (!customElements.get('dile-tabler-icon-brand-solidjs')) {
+  customElements.define('dile-tabler-icon-brand-solidjs', DileIconlibBrandSolidjs);
+}

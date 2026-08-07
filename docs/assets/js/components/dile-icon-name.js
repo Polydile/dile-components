@@ -41,4 +41,6 @@ export class DileIconName extends LitElement {
     return html`<dile-icon .icon="${iconNames[this.icon]}"></dile-icon>`;
   }
 }
-customElements.define('dile-icon-name', DileIconName);
+if (!customElements.get('dile-icon-name')) {
+  customElements.define('dile-icon-name', DileIconName);
+}

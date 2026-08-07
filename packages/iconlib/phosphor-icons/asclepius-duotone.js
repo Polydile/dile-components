@@ -6,4 +6,6 @@ export class DileIconlibAsclepiusDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-asclepius-duotone', DileIconlibAsclepiusDuotone);
+if (!customElements.get('dile-phosphor-icon-asclepius-duotone')) {
+  customElements.define('dile-phosphor-icon-asclepius-duotone', DileIconlibAsclepiusDuotone);
+}

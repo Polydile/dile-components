@@ -6,4 +6,6 @@ export class DileIconlibTaiwanDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-taiwan-dollar', DileIconlibTaiwanDollar);
+if (!customElements.get('dile-tabler-icon-taiwan-dollar')) {
+  customElements.define('dile-tabler-icon-taiwan-dollar', DileIconlibTaiwanDollar);
+}

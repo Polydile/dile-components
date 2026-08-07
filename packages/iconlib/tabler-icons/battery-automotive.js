@@ -6,4 +6,6 @@ export class DileIconlibBatteryAutomotive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-battery-automotive', DileIconlibBatteryAutomotive);
+if (!customElements.get('dile-tabler-icon-battery-automotive')) {
+  customElements.define('dile-tabler-icon-battery-automotive', DileIconlibBatteryAutomotive);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandOpera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-opera', DileIconlibBrandOpera);
+if (!customElements.get('dile-tabler-icon-brand-opera')) {
+  customElements.define('dile-tabler-icon-brand-opera', DileIconlibBrandOpera);
+}

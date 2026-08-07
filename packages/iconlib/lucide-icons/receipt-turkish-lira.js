@@ -6,4 +6,6 @@ export class DileIconlibReceiptTurkishLira extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-receipt-turkish-lira', DileIconlibReceiptTurkishLira);
+if (!customElements.get('dile-lucide-icon-receipt-turkish-lira')) {
+  customElements.define('dile-lucide-icon-receipt-turkish-lira', DileIconlibReceiptTurkishLira);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHomeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-home-off', DileIconlibHomeOff);
+if (!customElements.get('dile-tabler-icon-home-off')) {
+  customElements.define('dile-tabler-icon-home-off', DileIconlibHomeOff);
+}

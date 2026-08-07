@@ -6,4 +6,6 @@ export class DileIconlibUserRoundPen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-user-round-pen', DileIconlibUserRoundPen);
+if (!customElements.get('dile-lucide-icon-user-round-pen')) {
+  customElements.define('dile-lucide-icon-user-round-pen', DileIconlibUserRoundPen);
+}

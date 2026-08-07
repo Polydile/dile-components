@@ -6,4 +6,6 @@ export class DileIconlibSpeedometerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-speedometer-light', DileIconlibSpeedometerLight);
+if (!customElements.get('dile-phosphor-icon-speedometer-light')) {
+  customElements.define('dile-phosphor-icon-speedometer-light', DileIconlibSpeedometerLight);
+}

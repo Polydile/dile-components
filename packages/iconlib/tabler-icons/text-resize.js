@@ -6,4 +6,6 @@ export class DileIconlibTextResize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-resize', DileIconlibTextResize);
+if (!customElements.get('dile-tabler-icon-text-resize')) {
+  customElements.define('dile-tabler-icon-text-resize', DileIconlibTextResize);
+}

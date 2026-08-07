@@ -6,4 +6,6 @@ export class DileIconlibTwoWheeler extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-two-wheeler', DileIconlibTwoWheeler);
+if (!customElements.get('dile-material-icon-two-wheeler')) {
+  customElements.define('dile-material-icon-two-wheeler', DileIconlibTwoWheeler);
+}

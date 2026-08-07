@@ -6,4 +6,6 @@ export class DileIconlibDiceThree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dice-three', DileIconlibDiceThree);
+if (!customElements.get('dile-fontawesome-icon-dice-three')) {
+  customElements.define('dile-fontawesome-icon-dice-three', DileIconlibDiceThree);
+}

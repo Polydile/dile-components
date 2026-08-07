@@ -6,4 +6,6 @@ export class DileIconlibCannabisFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cannabis-filled', DileIconlibCannabisFilled);
+if (!customElements.get('dile-tabler-icon-cannabis-filled')) {
+  customElements.define('dile-tabler-icon-cannabis-filled', DileIconlibCannabisFilled);
+}

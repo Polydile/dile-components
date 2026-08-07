@@ -6,4 +6,6 @@ export class DileIconlibBatteryOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-battery-off', DileIconlibBatteryOff);
+if (!customElements.get('dile-tabler-icon-battery-off')) {
+  customElements.define('dile-tabler-icon-battery-off', DileIconlibBatteryOff);
+}

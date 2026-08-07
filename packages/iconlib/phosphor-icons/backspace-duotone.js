@@ -6,4 +6,6 @@ export class DileIconlibBackspaceDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-backspace-duotone', DileIconlibBackspaceDuotone);
+if (!customElements.get('dile-phosphor-icon-backspace-duotone')) {
+  customElements.define('dile-phosphor-icon-backspace-duotone', DileIconlibBackspaceDuotone);
+}

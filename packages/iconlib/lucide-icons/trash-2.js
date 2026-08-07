@@ -6,4 +6,6 @@ export class DileIconlibTrash2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-trash-2', DileIconlibTrash2);
+if (!customElements.get('dile-lucide-icon-trash-2')) {
+  customElements.define('dile-lucide-icon-trash-2', DileIconlibTrash2);
+}

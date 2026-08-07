@@ -6,4 +6,6 @@ export class DileIconlibGearFineDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gear-fine-duotone', DileIconlibGearFineDuotone);
+if (!customElements.get('dile-phosphor-icon-gear-fine-duotone')) {
+  customElements.define('dile-phosphor-icon-gear-fine-duotone', DileIconlibGearFineDuotone);
+}

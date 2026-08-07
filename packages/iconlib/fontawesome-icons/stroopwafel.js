@@ -6,4 +6,6 @@ export class DileIconlibStroopwafel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stroopwafel', DileIconlibStroopwafel);
+if (!customElements.get('dile-fontawesome-icon-stroopwafel')) {
+  customElements.define('dile-fontawesome-icon-stroopwafel', DileIconlibStroopwafel);
+}

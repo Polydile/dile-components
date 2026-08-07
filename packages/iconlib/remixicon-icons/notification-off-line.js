@@ -6,4 +6,6 @@ export class DileIconlibNotificationOffLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-notification-off-line', DileIconlibNotificationOffLine);
+if (!customElements.get('dile-remixicon-icon-notification-off-line')) {
+  customElements.define('dile-remixicon-icon-notification-off-line', DileIconlibNotificationOffLine);
+}

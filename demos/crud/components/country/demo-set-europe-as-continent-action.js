@@ -22,4 +22,6 @@ export class DemoSetEuropeAsContinentAction extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-set-europe-as-continent-action', DemoSetEuropeAsContinentAction);
+if (!customElements.get('demo-set-europe-as-continent-action')) {
+  customElements.define('demo-set-europe-as-continent-action', DemoSetEuropeAsContinentAction);
+}

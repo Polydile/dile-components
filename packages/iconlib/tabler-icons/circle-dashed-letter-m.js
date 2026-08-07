@@ -6,4 +6,6 @@ export class DileIconlibCircleDashedLetterM extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-dashed-letter-m', DileIconlibCircleDashedLetterM);
+if (!customElements.get('dile-tabler-icon-circle-dashed-letter-m')) {
+  customElements.define('dile-tabler-icon-circle-dashed-letter-m', DileIconlibCircleDashedLetterM);
+}

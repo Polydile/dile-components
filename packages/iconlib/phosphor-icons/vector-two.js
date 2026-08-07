@@ -6,4 +6,6 @@ export class DileIconlibVectorTwo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vector-two', DileIconlibVectorTwo);
+if (!customElements.get('dile-phosphor-icon-vector-two')) {
+  customElements.define('dile-phosphor-icon-vector-two', DileIconlibVectorTwo);
+}

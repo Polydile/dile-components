@@ -6,4 +6,6 @@ export class DileIconlibSdCardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sd-card-line', DileIconlibSdCardLine);
+if (!customElements.get('dile-remixicon-icon-sd-card-line')) {
+  customElements.define('dile-remixicon-icon-sd-card-line', DileIconlibSdCardLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMessengerLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-messenger-logo-thin', DileIconlibMessengerLogoThin);
+if (!customElements.get('dile-phosphor-icon-messenger-logo-thin')) {
+  customElements.define('dile-phosphor-icon-messenger-logo-thin', DileIconlibMessengerLogoThin);
+}

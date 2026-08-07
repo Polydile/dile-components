@@ -6,4 +6,6 @@ export class DileIconlibIceCreamCone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ice-cream-cone', DileIconlibIceCreamCone);
+if (!customElements.get('dile-lucide-icon-ice-cream-cone')) {
+  customElements.define('dile-lucide-icon-ice-cream-cone', DileIconlibIceCreamCone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZodiacCapricorn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-capricorn', DileIconlibZodiacCapricorn);
+if (!customElements.get('dile-tabler-icon-zodiac-capricorn')) {
+  customElements.define('dile-tabler-icon-zodiac-capricorn', DileIconlibZodiacCapricorn);
+}

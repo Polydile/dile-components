@@ -6,4 +6,6 @@ export class DileIconlibPlayCircleOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-play-circle-outline', DileIconlibPlayCircleOutline);
+if (!customElements.get('dile-material-icon-play-circle-outline')) {
+  customElements.define('dile-material-icon-play-circle-outline', DileIconlibPlayCircleOutline);
+}

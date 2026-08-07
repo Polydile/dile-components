@@ -6,4 +6,6 @@ export class DileIconlibGitRepositoryCommitsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-git-repository-commits-fill', DileIconlibGitRepositoryCommitsFill);
+if (!customElements.get('dile-remixicon-icon-git-repository-commits-fill')) {
+  customElements.define('dile-remixicon-icon-git-repository-commits-fill', DileIconlibGitRepositoryCommitsFill);
+}

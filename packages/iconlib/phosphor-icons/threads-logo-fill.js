@@ -6,4 +6,6 @@ export class DileIconlibThreadsLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-threads-logo-fill', DileIconlibThreadsLogoFill);
+if (!customElements.get('dile-phosphor-icon-threads-logo-fill')) {
+  customElements.define('dile-phosphor-icon-threads-logo-fill', DileIconlibThreadsLogoFill);
+}

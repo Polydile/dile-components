@@ -6,4 +6,6 @@ export class DileIconlibFileBarcode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-barcode', DileIconlibFileBarcode);
+if (!customElements.get('dile-tabler-icon-file-barcode')) {
+  customElements.define('dile-tabler-icon-file-barcode', DileIconlibFileBarcode);
+}

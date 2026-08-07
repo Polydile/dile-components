@@ -6,4 +6,6 @@ export class DileIconlibAlphabetGreek extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-greek', DileIconlibAlphabetGreek);
+if (!customElements.get('dile-tabler-icon-alphabet-greek')) {
+  customElements.define('dile-tabler-icon-alphabet-greek', DileIconlibAlphabetGreek);
+}

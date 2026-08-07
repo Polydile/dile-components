@@ -6,4 +6,6 @@ export class DileIconlibArrowBigRightLinesFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-big-right-lines-filled', DileIconlibArrowBigRightLinesFilled);
+if (!customElements.get('dile-tabler-icon-arrow-big-right-lines-filled')) {
+  customElements.define('dile-tabler-icon-arrow-big-right-lines-filled', DileIconlibArrowBigRightLinesFilled);
+}

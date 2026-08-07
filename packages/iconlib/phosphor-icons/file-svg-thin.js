@@ -6,4 +6,6 @@ export class DileIconlibFileSvgThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-svg-thin', DileIconlibFileSvgThin);
+if (!customElements.get('dile-phosphor-icon-file-svg-thin')) {
+  customElements.define('dile-phosphor-icon-file-svg-thin', DileIconlibFileSvgThin);
+}

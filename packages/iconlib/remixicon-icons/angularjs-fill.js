@@ -6,4 +6,6 @@ export class DileIconlibAngularjsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-angularjs-fill', DileIconlibAngularjsFill);
+if (!customElements.get('dile-remixicon-icon-angularjs-fill')) {
+  customElements.define('dile-remixicon-icon-angularjs-fill', DileIconlibAngularjsFill);
+}

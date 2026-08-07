@@ -6,4 +6,6 @@ export class DileIconlibFloatLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-float-left', DileIconlibFloatLeft);
+if (!customElements.get('dile-tabler-icon-float-left')) {
+  customElements.define('dile-tabler-icon-float-left', DileIconlibFloatLeft);
+}

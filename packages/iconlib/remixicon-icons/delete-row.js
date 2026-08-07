@@ -6,4 +6,6 @@ export class DileIconlibDeleteRow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-delete-row', DileIconlibDeleteRow);
+if (!customElements.get('dile-remixicon-icon-delete-row')) {
+  customElements.define('dile-remixicon-icon-delete-row', DileIconlibDeleteRow);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTestTubeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-test-tube-line', DileIconlibTestTubeLine);
+if (!customElements.get('dile-remixicon-icon-test-tube-line')) {
+  customElements.define('dile-remixicon-icon-test-tube-line', DileIconlibTestTubeLine);
+}

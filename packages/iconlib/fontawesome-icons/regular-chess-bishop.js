@@ -6,4 +6,6 @@ export class DileIconlibChessBishop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-chess-bishop', DileIconlibChessBishop);
+if (!customElements.get('dile-fontawesome-icon-regular-chess-bishop')) {
+  customElements.define('dile-fontawesome-icon-regular-chess-bishop', DileIconlibChessBishop);
+}

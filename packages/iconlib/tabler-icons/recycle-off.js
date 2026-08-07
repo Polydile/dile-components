@@ -6,4 +6,6 @@ export class DileIconlibRecycleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-recycle-off', DileIconlibRecycleOff);
+if (!customElements.get('dile-tabler-icon-recycle-off')) {
+  customElements.define('dile-tabler-icon-recycle-off', DileIconlibRecycleOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibReceipt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-receipt', DileIconlibReceipt);
+if (!customElements.get('dile-material-icon-receipt')) {
+  customElements.define('dile-material-icon-receipt', DileIconlibReceipt);
+}

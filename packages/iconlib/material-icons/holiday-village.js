@@ -6,4 +6,6 @@ export class DileIconlibHolidayVillage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-holiday-village', DileIconlibHolidayVillage);
+if (!customElements.get('dile-material-icon-holiday-village')) {
+  customElements.define('dile-material-icon-holiday-village', DileIconlibHolidayVillage);
+}

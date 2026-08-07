@@ -6,4 +6,6 @@ export class DileIconlibMessageAi3Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-message-ai-3-line', DileIconlibMessageAi3Line);
+if (!customElements.get('dile-remixicon-icon-message-ai-3-line')) {
+  customElements.define('dile-remixicon-icon-message-ai-3-line', DileIconlibMessageAi3Line);
+}

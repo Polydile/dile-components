@@ -6,4 +6,6 @@ export class DileIconlibCarTurbine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-turbine', DileIconlibCarTurbine);
+if (!customElements.get('dile-tabler-icon-car-turbine')) {
+  customElements.define('dile-tabler-icon-car-turbine', DileIconlibCarTurbine);
+}

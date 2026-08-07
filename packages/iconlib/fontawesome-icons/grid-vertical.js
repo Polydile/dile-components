@@ -6,4 +6,6 @@ export class DileIconlibGridVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grid-vertical', DileIconlibGridVertical);
+if (!customElements.get('dile-fontawesome-icon-grid-vertical')) {
+  customElements.define('dile-fontawesome-icon-grid-vertical', DileIconlibGridVertical);
+}

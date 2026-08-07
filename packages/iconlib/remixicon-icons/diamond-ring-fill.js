@@ -6,4 +6,6 @@ export class DileIconlibDiamondRingFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-diamond-ring-fill', DileIconlibDiamondRingFill);
+if (!customElements.get('dile-remixicon-icon-diamond-ring-fill')) {
+  customElements.define('dile-remixicon-icon-diamond-ring-fill', DileIconlibDiamondRingFill);
+}

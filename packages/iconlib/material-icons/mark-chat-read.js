@@ -6,4 +6,6 @@ export class DileIconlibMarkChatRead extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mark-chat-read', DileIconlibMarkChatRead);
+if (!customElements.get('dile-material-icon-mark-chat-read')) {
+  customElements.define('dile-material-icon-mark-chat-read', DileIconlibMarkChatRead);
+}

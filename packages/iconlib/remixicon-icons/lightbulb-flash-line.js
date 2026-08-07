@@ -6,4 +6,6 @@ export class DileIconlibLightbulbFlashLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lightbulb-flash-line', DileIconlibLightbulbFlashLine);
+if (!customElements.get('dile-remixicon-icon-lightbulb-flash-line')) {
+  customElements.define('dile-remixicon-icon-lightbulb-flash-line', DileIconlibLightbulbFlashLine);
+}

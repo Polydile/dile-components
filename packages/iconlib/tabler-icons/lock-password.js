@@ -6,4 +6,6 @@ export class DileIconlibLockPassword extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-password', DileIconlibLockPassword);
+if (!customElements.get('dile-tabler-icon-lock-password')) {
+  customElements.define('dile-tabler-icon-lock-password', DileIconlibLockPassword);
+}

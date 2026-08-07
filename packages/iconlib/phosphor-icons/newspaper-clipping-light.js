@@ -6,4 +6,6 @@ export class DileIconlibNewspaperClippingLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-newspaper-clipping-light', DileIconlibNewspaperClippingLight);
+if (!customElements.get('dile-phosphor-icon-newspaper-clipping-light')) {
+  customElements.define('dile-phosphor-icon-newspaper-clipping-light', DileIconlibNewspaperClippingLight);
+}

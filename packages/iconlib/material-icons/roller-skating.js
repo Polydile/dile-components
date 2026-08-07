@@ -6,4 +6,6 @@ export class DileIconlibRollerSkating extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-roller-skating', DileIconlibRollerSkating);
+if (!customElements.get('dile-material-icon-roller-skating')) {
+  customElements.define('dile-material-icon-roller-skating', DileIconlibRollerSkating);
+}

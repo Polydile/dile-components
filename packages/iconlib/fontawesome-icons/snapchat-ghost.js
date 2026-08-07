@@ -6,4 +6,6 @@ export class DileIconlibSnapchatGhost extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-snapchat-ghost', DileIconlibSnapchatGhost);
+if (!customElements.get('dile-fontawesome-icon-snapchat-ghost')) {
+  customElements.define('dile-fontawesome-icon-snapchat-ghost', DileIconlibSnapchatGhost);
+}

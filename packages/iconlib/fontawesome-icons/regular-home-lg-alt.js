@@ -6,4 +6,6 @@ export class DileIconlibHomeLgAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-home-lg-alt', DileIconlibHomeLgAlt);
+if (!customElements.get('dile-fontawesome-icon-regular-home-lg-alt')) {
+  customElements.define('dile-fontawesome-icon-regular-home-lg-alt', DileIconlibHomeLgAlt);
+}

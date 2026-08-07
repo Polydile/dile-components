@@ -6,4 +6,6 @@ export class DileIconlibLeaderboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-leaderboard', DileIconlibLeaderboard);
+if (!customElements.get('dile-material-icon-leaderboard')) {
+  customElements.define('dile-material-icon-leaderboard', DileIconlibLeaderboard);
+}

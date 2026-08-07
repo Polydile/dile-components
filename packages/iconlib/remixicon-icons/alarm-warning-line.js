@@ -6,4 +6,6 @@ export class DileIconlibAlarmWarningLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-alarm-warning-line', DileIconlibAlarmWarningLine);
+if (!customElements.get('dile-remixicon-icon-alarm-warning-line')) {
+  customElements.define('dile-remixicon-icon-alarm-warning-line', DileIconlibAlarmWarningLine);
+}

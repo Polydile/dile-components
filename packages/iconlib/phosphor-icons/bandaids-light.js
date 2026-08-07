@@ -6,4 +6,6 @@ export class DileIconlibBandaidsLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bandaids-light', DileIconlibBandaidsLight);
+if (!customElements.get('dile-phosphor-icon-bandaids-light')) {
+  customElements.define('dile-phosphor-icon-bandaids-light', DileIconlibBandaidsLight);
+}

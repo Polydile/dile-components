@@ -6,4 +6,6 @@ export class DileIconlibRollerShadesClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-roller-shades-closed', DileIconlibRollerShadesClosed);
+if (!customElements.get('dile-material-icon-roller-shades-closed')) {
+  customElements.define('dile-material-icon-roller-shades-closed', DileIconlibRollerShadesClosed);
+}

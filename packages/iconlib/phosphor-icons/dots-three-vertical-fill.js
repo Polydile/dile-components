@@ -6,4 +6,6 @@ export class DileIconlibDotsThreeVerticalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dots-three-vertical-fill', DileIconlibDotsThreeVerticalFill);
+if (!customElements.get('dile-phosphor-icon-dots-three-vertical-fill')) {
+  customElements.define('dile-phosphor-icon-dots-three-vertical-fill', DileIconlibDotsThreeVerticalFill);
+}

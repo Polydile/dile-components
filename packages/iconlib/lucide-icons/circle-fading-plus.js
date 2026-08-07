@@ -6,4 +6,6 @@ export class DileIconlibCircleFadingPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-fading-plus', DileIconlibCircleFadingPlus);
+if (!customElements.get('dile-lucide-icon-circle-fading-plus')) {
+  customElements.define('dile-lucide-icon-circle-fading-plus', DileIconlibCircleFadingPlus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEmpathizeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-empathize-off', DileIconlibEmpathizeOff);
+if (!customElements.get('dile-tabler-icon-empathize-off')) {
+  customElements.define('dile-tabler-icon-empathize-off', DileIconlibEmpathizeOff);
+}

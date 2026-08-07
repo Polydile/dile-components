@@ -6,4 +6,6 @@ export class DileIconlibCrop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-crop', DileIconlibCrop);
+if (!customElements.get('dile-lucide-icon-crop')) {
+  customElements.define('dile-lucide-icon-crop', DileIconlibCrop);
+}

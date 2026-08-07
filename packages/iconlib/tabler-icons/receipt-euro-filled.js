@@ -6,4 +6,6 @@ export class DileIconlibReceiptEuroFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-euro-filled', DileIconlibReceiptEuroFilled);
+if (!customElements.get('dile-tabler-icon-receipt-euro-filled')) {
+  customElements.define('dile-tabler-icon-receipt-euro-filled', DileIconlibReceiptEuroFilled);
+}

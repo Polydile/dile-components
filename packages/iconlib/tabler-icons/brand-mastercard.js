@@ -6,4 +6,6 @@ export class DileIconlibBrandMastercard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mastercard', DileIconlibBrandMastercard);
+if (!customElements.get('dile-tabler-icon-brand-mastercard')) {
+  customElements.define('dile-tabler-icon-brand-mastercard', DileIconlibBrandMastercard);
+}

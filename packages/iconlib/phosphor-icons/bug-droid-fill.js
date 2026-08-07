@@ -6,4 +6,6 @@ export class DileIconlibBugDroidFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bug-droid-fill', DileIconlibBugDroidFill);
+if (!customElements.get('dile-phosphor-icon-bug-droid-fill')) {
+  customElements.define('dile-phosphor-icon-bug-droid-fill', DileIconlibBugDroidFill);
+}

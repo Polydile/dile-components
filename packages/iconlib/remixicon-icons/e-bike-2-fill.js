@@ -6,4 +6,6 @@ export class DileIconlibEBike2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-e-bike-2-fill', DileIconlibEBike2Fill);
+if (!customElements.get('dile-remixicon-icon-e-bike-2-fill')) {
+  customElements.define('dile-remixicon-icon-e-bike-2-fill', DileIconlibEBike2Fill);
+}

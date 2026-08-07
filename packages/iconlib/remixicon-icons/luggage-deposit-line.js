@@ -6,4 +6,6 @@ export class DileIconlibLuggageDepositLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-luggage-deposit-line', DileIconlibLuggageDepositLine);
+if (!customElements.get('dile-remixicon-icon-luggage-deposit-line')) {
+  customElements.define('dile-remixicon-icon-luggage-deposit-line', DileIconlibLuggageDepositLine);
+}

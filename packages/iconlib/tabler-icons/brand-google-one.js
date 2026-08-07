@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleOne extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-one', DileIconlibBrandGoogleOne);
+if (!customElements.get('dile-tabler-icon-brand-google-one')) {
+  customElements.define('dile-tabler-icon-brand-google-one', DileIconlibBrandGoogleOne);
+}

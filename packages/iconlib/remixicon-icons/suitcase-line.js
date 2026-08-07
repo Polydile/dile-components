@@ -6,4 +6,6 @@ export class DileIconlibSuitcaseLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-suitcase-line', DileIconlibSuitcaseLine);
+if (!customElements.get('dile-remixicon-icon-suitcase-line')) {
+  customElements.define('dile-remixicon-icon-suitcase-line', DileIconlibSuitcaseLine);
+}

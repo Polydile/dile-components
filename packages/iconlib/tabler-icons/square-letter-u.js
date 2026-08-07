@@ -6,4 +6,6 @@ export class DileIconlibSquareLetterU extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-letter-u', DileIconlibSquareLetterU);
+if (!customElements.get('dile-tabler-icon-square-letter-u')) {
+  customElements.define('dile-tabler-icon-square-letter-u', DileIconlibSquareLetterU);
+}

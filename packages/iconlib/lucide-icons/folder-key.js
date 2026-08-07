@@ -6,4 +6,6 @@ export class DileIconlibFolderKey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-key', DileIconlibFolderKey);
+if (!customElements.get('dile-lucide-icon-folder-key')) {
+  customElements.define('dile-lucide-icon-folder-key', DileIconlibFolderKey);
+}

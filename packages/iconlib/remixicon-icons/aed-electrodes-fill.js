@@ -6,4 +6,6 @@ export class DileIconlibAedElectrodesFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-aed-electrodes-fill', DileIconlibAedElectrodesFill);
+if (!customElements.get('dile-remixicon-icon-aed-electrodes-fill')) {
+  customElements.define('dile-remixicon-icon-aed-electrodes-fill', DileIconlibAedElectrodesFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibServerCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-server-cog', DileIconlibServerCog);
+if (!customElements.get('dile-lucide-icon-server-cog')) {
+  customElements.define('dile-lucide-icon-server-cog', DileIconlibServerCog);
+}

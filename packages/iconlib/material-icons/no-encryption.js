@@ -6,4 +6,6 @@ export class DileIconlibNoEncryption extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-encryption', DileIconlibNoEncryption);
+if (!customElements.get('dile-material-icon-no-encryption')) {
+  customElements.define('dile-material-icon-no-encryption', DileIconlibNoEncryption);
+}

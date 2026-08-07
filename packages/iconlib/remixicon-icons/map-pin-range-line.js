@@ -6,4 +6,6 @@ export class DileIconlibMapPinRangeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-map-pin-range-line', DileIconlibMapPinRangeLine);
+if (!customElements.get('dile-remixicon-icon-map-pin-range-line')) {
+  customElements.define('dile-remixicon-icon-map-pin-range-line', DileIconlibMapPinRangeLine);
+}

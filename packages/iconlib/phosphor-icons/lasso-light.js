@@ -6,4 +6,6 @@ export class DileIconlibLassoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lasso-light', DileIconlibLassoLight);
+if (!customElements.get('dile-phosphor-icon-lasso-light')) {
+  customElements.define('dile-phosphor-icon-lasso-light', DileIconlibLassoLight);
+}

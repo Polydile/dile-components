@@ -6,4 +6,6 @@ export class DileIconlibSquareLetterboxd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-letterboxd', DileIconlibSquareLetterboxd);
+if (!customElements.get('dile-fontawesome-icon-square-letterboxd')) {
+  customElements.define('dile-fontawesome-icon-square-letterboxd', DileIconlibSquareLetterboxd);
+}

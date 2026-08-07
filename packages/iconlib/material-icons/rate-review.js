@@ -6,4 +6,6 @@ export class DileIconlibRateReview extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rate-review', DileIconlibRateReview);
+if (!customElements.get('dile-material-icon-rate-review')) {
+  customElements.define('dile-material-icon-rate-review', DileIconlibRateReview);
+}

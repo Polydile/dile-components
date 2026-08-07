@@ -6,4 +6,6 @@ export class DileIconlibBrandVivaldi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vivaldi', DileIconlibBrandVivaldi);
+if (!customElements.get('dile-tabler-icon-brand-vivaldi')) {
+  customElements.define('dile-tabler-icon-brand-vivaldi', DileIconlibBrandVivaldi);
+}

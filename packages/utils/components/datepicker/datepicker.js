@@ -1,4 +1,6 @@
 import './calendar.js';
 import { DileDatepicker } from "./src/DileDatepicker.js";
 
-window.customElements.define("dile-datepicker", DileDatepicker);
+if (!customElements.get("dile-datepicker")) {
+  window.customElements.define("dile-datepicker", DileDatepicker);
+}

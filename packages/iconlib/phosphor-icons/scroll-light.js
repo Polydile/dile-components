@@ -6,4 +6,6 @@ export class DileIconlibScrollLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scroll-light', DileIconlibScrollLight);
+if (!customElements.get('dile-phosphor-icon-scroll-light')) {
+  customElements.define('dile-phosphor-icon-scroll-light', DileIconlibScrollLight);
+}

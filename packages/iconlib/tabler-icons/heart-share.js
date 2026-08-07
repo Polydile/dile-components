@@ -6,4 +6,6 @@ export class DileIconlibHeartShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-share', DileIconlibHeartShare);
+if (!customElements.get('dile-tabler-icon-heart-share')) {
+  customElements.define('dile-tabler-icon-heart-share', DileIconlibHeartShare);
+}

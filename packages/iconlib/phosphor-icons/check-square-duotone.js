@@ -6,4 +6,6 @@ export class DileIconlibCheckSquareDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-check-square-duotone', DileIconlibCheckSquareDuotone);
+if (!customElements.get('dile-phosphor-icon-check-square-duotone')) {
+  customElements.define('dile-phosphor-icon-check-square-duotone', DileIconlibCheckSquareDuotone);
+}

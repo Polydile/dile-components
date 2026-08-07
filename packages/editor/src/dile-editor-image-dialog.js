@@ -74,4 +74,6 @@ export class DileEditorImageDialog extends DileI18nMixin(LitElement) {
     this.altInput.value = '';
   }
 }
-customElements.define('dile-editor-image-dialog', DileEditorImageDialog);
+if (!customElements.get('dile-editor-image-dialog')) {
+  customElements.define('dile-editor-image-dialog', DileEditorImageDialog);
+}

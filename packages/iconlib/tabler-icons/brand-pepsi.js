@@ -6,4 +6,6 @@ export class DileIconlibBrandPepsi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pepsi', DileIconlibBrandPepsi);
+if (!customElements.get('dile-tabler-icon-brand-pepsi')) {
+  customElements.define('dile-tabler-icon-brand-pepsi', DileIconlibBrandPepsi);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMastodonLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mastodon-line', DileIconlibMastodonLine);
+if (!customElements.get('dile-remixicon-icon-mastodon-line')) {
+  customElements.define('dile-remixicon-icon-mastodon-line', DileIconlibMastodonLine);
+}

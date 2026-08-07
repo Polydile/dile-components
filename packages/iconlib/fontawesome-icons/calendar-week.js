@@ -6,4 +6,6 @@ export class DileIconlibCalendarWeek extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-calendar-week', DileIconlibCalendarWeek);
+if (!customElements.get('dile-fontawesome-icon-calendar-week')) {
+  customElements.define('dile-fontawesome-icon-calendar-week', DileIconlibCalendarWeek);
+}

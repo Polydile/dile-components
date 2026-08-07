@@ -6,4 +6,6 @@ export class DileIconlibFileShredFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-shred-fill', DileIconlibFileShredFill);
+if (!customElements.get('dile-remixicon-icon-file-shred-fill')) {
+  customElements.define('dile-remixicon-icon-file-shred-fill', DileIconlibFileShredFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandTabnine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tabnine', DileIconlibBrandTabnine);
+if (!customElements.get('dile-tabler-icon-brand-tabnine')) {
+  customElements.define('dile-tabler-icon-brand-tabnine', DileIconlibBrandTabnine);
+}

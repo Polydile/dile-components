@@ -6,4 +6,6 @@ export class DileIconlibThermometerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-thermometer-fill', DileIconlibThermometerFill);
+if (!customElements.get('dile-remixicon-icon-thermometer-fill')) {
+  customElements.define('dile-remixicon-icon-thermometer-fill', DileIconlibThermometerFill);
+}

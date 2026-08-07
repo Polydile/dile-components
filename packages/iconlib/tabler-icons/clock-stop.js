@@ -6,4 +6,6 @@ export class DileIconlibClockStop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-stop', DileIconlibClockStop);
+if (!customElements.get('dile-tabler-icon-clock-stop')) {
+  customElements.define('dile-tabler-icon-clock-stop', DileIconlibClockStop);
+}

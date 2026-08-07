@@ -6,4 +6,6 @@ export class DileIconlibWindowClose extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-window-close', DileIconlibWindowClose);
+if (!customElements.get('dile-fontawesome-icon-regular-window-close')) {
+  customElements.define('dile-fontawesome-icon-regular-window-close', DileIconlibWindowClose);
+}

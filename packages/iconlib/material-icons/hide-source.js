@@ -6,4 +6,6 @@ export class DileIconlibHideSource extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hide-source', DileIconlibHideSource);
+if (!customElements.get('dile-material-icon-hide-source')) {
+  customElements.define('dile-material-icon-hide-source', DileIconlibHideSource);
+}

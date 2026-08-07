@@ -6,4 +6,6 @@ export class DileIconlibLockUnlockLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lock-unlock-line', DileIconlibLockUnlockLine);
+if (!customElements.get('dile-remixicon-icon-lock-unlock-line')) {
+  customElements.define('dile-remixicon-icon-lock-unlock-line', DileIconlibLockUnlockLine);
+}

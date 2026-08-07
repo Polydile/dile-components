@@ -6,4 +6,6 @@ export class DileIconlibDialpadFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dialpad-filled', DileIconlibDialpadFilled);
+if (!customElements.get('dile-tabler-icon-dialpad-filled')) {
+  customElements.define('dile-tabler-icon-dialpad-filled', DileIconlibDialpadFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAppleWhole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-apple-whole', DileIconlibAppleWhole);
+if (!customElements.get('dile-fontawesome-icon-apple-whole')) {
+  customElements.define('dile-fontawesome-icon-apple-whole', DileIconlibAppleWhole);
+}

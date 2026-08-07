@@ -6,4 +6,6 @@ export class DileIconlibOlympics extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-olympics', DileIconlibOlympics);
+if (!customElements.get('dile-tabler-icon-olympics')) {
+  customElements.define('dile-tabler-icon-olympics', DileIconlibOlympics);
+}

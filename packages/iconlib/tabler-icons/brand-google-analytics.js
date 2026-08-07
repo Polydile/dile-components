@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleAnalytics extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-analytics', DileIconlibBrandGoogleAnalytics);
+if (!customElements.get('dile-tabler-icon-brand-google-analytics')) {
+  customElements.define('dile-tabler-icon-brand-google-analytics', DileIconlibBrandGoogleAnalytics);
+}

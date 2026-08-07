@@ -6,4 +6,6 @@ export class DileIconlibSkullLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-skull-light', DileIconlibSkullLight);
+if (!customElements.get('dile-phosphor-icon-skull-light')) {
+  customElements.define('dile-phosphor-icon-skull-light', DileIconlibSkullLight);
+}

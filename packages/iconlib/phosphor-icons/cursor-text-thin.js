@@ -6,4 +6,6 @@ export class DileIconlibCursorTextThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cursor-text-thin', DileIconlibCursorTextThin);
+if (!customElements.get('dile-phosphor-icon-cursor-text-thin')) {
+  customElements.define('dile-phosphor-icon-cursor-text-thin', DileIconlibCursorTextThin);
+}

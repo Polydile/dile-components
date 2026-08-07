@@ -6,4 +6,6 @@ export class DileIconlibLoader2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-loader-2-line', DileIconlibLoader2Line);
+if (!customElements.get('dile-remixicon-icon-loader-2-line')) {
+  customElements.define('dile-remixicon-icon-loader-2-line', DileIconlibLoader2Line);
+}

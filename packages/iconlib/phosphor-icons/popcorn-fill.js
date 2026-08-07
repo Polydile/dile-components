@@ -6,4 +6,6 @@ export class DileIconlibPopcornFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-popcorn-fill', DileIconlibPopcornFill);
+if (!customElements.get('dile-phosphor-icon-popcorn-fill')) {
+  customElements.define('dile-phosphor-icon-popcorn-fill', DileIconlibPopcornFill);
+}

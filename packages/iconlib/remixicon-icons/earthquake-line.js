@@ -6,4 +6,6 @@ export class DileIconlibEarthquakeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-earthquake-line', DileIconlibEarthquakeLine);
+if (!customElements.get('dile-remixicon-icon-earthquake-line')) {
+  customElements.define('dile-remixicon-icon-earthquake-line', DileIconlibEarthquakeLine);
+}

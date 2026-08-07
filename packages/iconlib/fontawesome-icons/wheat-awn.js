@@ -6,4 +6,6 @@ export class DileIconlibWheatAwn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wheat-awn', DileIconlibWheatAwn);
+if (!customElements.get('dile-fontawesome-icon-wheat-awn')) {
+  customElements.define('dile-fontawesome-icon-wheat-awn', DileIconlibWheatAwn);
+}

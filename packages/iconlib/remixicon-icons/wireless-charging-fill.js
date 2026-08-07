@@ -6,4 +6,6 @@ export class DileIconlibWirelessChargingFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wireless-charging-fill', DileIconlibWirelessChargingFill);
+if (!customElements.get('dile-remixicon-icon-wireless-charging-fill')) {
+  customElements.define('dile-remixicon-icon-wireless-charging-fill', DileIconlibWirelessChargingFill);
+}

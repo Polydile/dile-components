@@ -6,4 +6,6 @@ export class DileIconlibBuildingMosque extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-mosque', DileIconlibBuildingMosque);
+if (!customElements.get('dile-tabler-icon-building-mosque')) {
+  customElements.define('dile-tabler-icon-building-mosque', DileIconlibBuildingMosque);
+}

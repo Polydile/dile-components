@@ -6,4 +6,6 @@ export class DileIconlibCaretUpFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-caret-up-filled', DileIconlibCaretUpFilled);
+if (!customElements.get('dile-tabler-icon-caret-up-filled')) {
+  customElements.define('dile-tabler-icon-caret-up-filled', DileIconlibCaretUpFilled);
+}

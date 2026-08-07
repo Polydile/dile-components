@@ -6,4 +6,6 @@ export class DileIconlibAlternateEmail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-alternate-email', DileIconlibAlternateEmail);
+if (!customElements.get('dile-material-icon-alternate-email')) {
+  customElements.define('dile-material-icon-alternate-email', DileIconlibAlternateEmail);
+}

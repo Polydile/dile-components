@@ -6,4 +6,6 @@ export class DileIconlibGenderNonbinaryThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gender-nonbinary-thin', DileIconlibGenderNonbinaryThin);
+if (!customElements.get('dile-phosphor-icon-gender-nonbinary-thin')) {
+  customElements.define('dile-phosphor-icon-gender-nonbinary-thin', DileIconlibGenderNonbinaryThin);
+}

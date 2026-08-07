@@ -6,4 +6,6 @@ export class DileIconlibQuestionMark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-question-mark', DileIconlibQuestionMark);
+if (!customElements.get('dile-tabler-icon-question-mark')) {
+  customElements.define('dile-tabler-icon-question-mark', DileIconlibQuestionMark);
+}

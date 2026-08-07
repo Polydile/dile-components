@@ -6,4 +6,6 @@ export class DileIconlibZodiacOphiuchus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-zodiac-ophiuchus', DileIconlibZodiacOphiuchus);
+if (!customElements.get('dile-lucide-icon-zodiac-ophiuchus')) {
+  customElements.define('dile-lucide-icon-zodiac-ophiuchus', DileIconlibZodiacOphiuchus);
+}

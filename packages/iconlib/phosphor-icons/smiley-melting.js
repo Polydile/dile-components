@@ -6,4 +6,6 @@ export class DileIconlibSmileyMelting extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-smiley-melting', DileIconlibSmileyMelting);
+if (!customElements.get('dile-phosphor-icon-smiley-melting')) {
+  customElements.define('dile-phosphor-icon-smiley-melting', DileIconlibSmileyMelting);
+}

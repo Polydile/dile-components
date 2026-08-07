@@ -6,4 +6,6 @@ export class DileIconlibStaffAesculapius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-staff-aesculapius', DileIconlibStaffAesculapius);
+if (!customElements.get('dile-fontawesome-icon-staff-aesculapius')) {
+  customElements.define('dile-fontawesome-icon-staff-aesculapius', DileIconlibStaffAesculapius);
+}

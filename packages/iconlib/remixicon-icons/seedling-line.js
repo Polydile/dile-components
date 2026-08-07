@@ -6,4 +6,6 @@ export class DileIconlibSeedlingLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-seedling-line', DileIconlibSeedlingLine);
+if (!customElements.get('dile-remixicon-icon-seedling-line')) {
+  customElements.define('dile-remixicon-icon-seedling-line', DileIconlibSeedlingLine);
+}

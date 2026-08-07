@@ -6,4 +6,6 @@ export class DileIconlibCurrencyBaht extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-baht', DileIconlibCurrencyBaht);
+if (!customElements.get('dile-tabler-icon-currency-baht')) {
+  customElements.define('dile-tabler-icon-currency-baht', DileIconlibCurrencyBaht);
+}

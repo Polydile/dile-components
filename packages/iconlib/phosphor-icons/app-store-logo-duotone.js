@@ -6,4 +6,6 @@ export class DileIconlibAppStoreLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-app-store-logo-duotone', DileIconlibAppStoreLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-app-store-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-app-store-logo-duotone', DileIconlibAppStoreLogoDuotone);
+}

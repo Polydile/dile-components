@@ -6,4 +6,6 @@ export class DileIconlibAgriculture extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-agriculture', DileIconlibAgriculture);
+if (!customElements.get('dile-material-icon-agriculture')) {
+  customElements.define('dile-material-icon-agriculture', DileIconlibAgriculture);
+}

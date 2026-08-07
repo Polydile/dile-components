@@ -6,4 +6,6 @@ export class DileIconlibDeviceRecoverFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-device-recover-fill', DileIconlibDeviceRecoverFill);
+if (!customElements.get('dile-remixicon-icon-device-recover-fill')) {
+  customElements.define('dile-remixicon-icon-device-recover-fill', DileIconlibDeviceRecoverFill);
+}

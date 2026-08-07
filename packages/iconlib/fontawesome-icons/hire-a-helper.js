@@ -6,4 +6,6 @@ export class DileIconlibHireAHelper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hire-a-helper', DileIconlibHireAHelper);
+if (!customElements.get('dile-fontawesome-icon-hire-a-helper')) {
+  customElements.define('dile-fontawesome-icon-hire-a-helper', DileIconlibHireAHelper);
+}

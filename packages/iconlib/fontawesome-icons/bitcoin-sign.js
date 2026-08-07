@@ -6,4 +6,6 @@ export class DileIconlibBitcoinSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bitcoin-sign', DileIconlibBitcoinSign);
+if (!customElements.get('dile-fontawesome-icon-bitcoin-sign')) {
+  customElements.define('dile-fontawesome-icon-bitcoin-sign', DileIconlibBitcoinSign);
+}

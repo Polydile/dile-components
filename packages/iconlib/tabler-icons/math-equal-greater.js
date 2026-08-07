@@ -6,4 +6,6 @@ export class DileIconlibMathEqualGreater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-equal-greater', DileIconlibMathEqualGreater);
+if (!customElements.get('dile-tabler-icon-math-equal-greater')) {
+  customElements.define('dile-tabler-icon-math-equal-greater', DileIconlibMathEqualGreater);
+}

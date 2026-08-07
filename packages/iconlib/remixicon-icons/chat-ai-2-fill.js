@@ -6,4 +6,6 @@ export class DileIconlibChatAi2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-ai-2-fill', DileIconlibChatAi2Fill);
+if (!customElements.get('dile-remixicon-icon-chat-ai-2-fill')) {
+  customElements.define('dile-remixicon-icon-chat-ai-2-fill', DileIconlibChatAi2Fill);
+}

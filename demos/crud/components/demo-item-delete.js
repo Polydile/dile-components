@@ -63,4 +63,6 @@ export class DemoItemDelete extends LitElement {
     this.list.refresh();
   }
 }
-customElements.define('demo-item-delete', DemoItemDelete);
+if (!customElements.get('demo-item-delete')) {
+  customElements.define('demo-item-delete', DemoItemDelete);
+}

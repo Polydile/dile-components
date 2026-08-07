@@ -6,4 +6,6 @@ export class DileIconlibCarouselHorizontalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-carousel-horizontal-filled', DileIconlibCarouselHorizontalFilled);
+if (!customElements.get('dile-tabler-icon-carousel-horizontal-filled')) {
+  customElements.define('dile-tabler-icon-carousel-horizontal-filled', DileIconlibCarouselHorizontalFilled);
+}

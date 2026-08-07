@@ -6,4 +6,6 @@ export class DileIconlibCurrencyBahraini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-bahraini', DileIconlibCurrencyBahraini);
+if (!customElements.get('dile-tabler-icon-currency-bahraini')) {
+  customElements.define('dile-tabler-icon-currency-bahraini', DileIconlibCurrencyBahraini);
+}

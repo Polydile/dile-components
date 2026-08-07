@@ -6,4 +6,6 @@ export class DileIconlibVestPatches extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vest-patches', DileIconlibVestPatches);
+if (!customElements.get('dile-fontawesome-icon-vest-patches')) {
+  customElements.define('dile-fontawesome-icon-vest-patches', DileIconlibVestPatches);
+}

@@ -6,4 +6,6 @@ export class DileIconlibContactlessPaymentThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-contactless-payment-thin', DileIconlibContactlessPaymentThin);
+if (!customElements.get('dile-phosphor-icon-contactless-payment-thin')) {
+  customElements.define('dile-phosphor-icon-contactless-payment-thin', DileIconlibContactlessPaymentThin);
+}

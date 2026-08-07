@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleTaiChiBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-tai-chi-bold', DileIconlibPersonSimpleTaiChiBold);
+if (!customElements.get('dile-phosphor-icon-person-simple-tai-chi-bold')) {
+  customElements.define('dile-phosphor-icon-person-simple-tai-chi-bold', DileIconlibPersonSimpleTaiChiBold);
+}

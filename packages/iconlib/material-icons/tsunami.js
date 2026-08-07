@@ -6,4 +6,6 @@ export class DileIconlibTsunami extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tsunami', DileIconlibTsunami);
+if (!customElements.get('dile-material-icon-tsunami')) {
+  customElements.define('dile-material-icon-tsunami', DileIconlibTsunami);
+}

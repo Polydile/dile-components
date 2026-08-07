@@ -6,4 +6,6 @@ export class DileIconlibFileTypePpt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-ppt', DileIconlibFileTypePpt);
+if (!customElements.get('dile-tabler-icon-file-type-ppt')) {
+  customElements.define('dile-tabler-icon-file-type-ppt', DileIconlibFileTypePpt);
+}

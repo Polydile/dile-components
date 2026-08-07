@@ -6,4 +6,6 @@ export class DileIconlibMusicExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-music-exclamation', DileIconlibMusicExclamation);
+if (!customElements.get('dile-tabler-icon-music-exclamation')) {
+  customElements.define('dile-tabler-icon-music-exclamation', DileIconlibMusicExclamation);
+}

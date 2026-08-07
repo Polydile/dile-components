@@ -6,4 +6,6 @@ export class DileIconlibRhythmFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rhythm-fill', DileIconlibRhythmFill);
+if (!customElements.get('dile-remixicon-icon-rhythm-fill')) {
+  customElements.define('dile-remixicon-icon-rhythm-fill', DileIconlibRhythmFill);
+}

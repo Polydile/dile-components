@@ -6,4 +6,6 @@ export class DileIconlibMemoryThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-memory-thin', DileIconlibMemoryThin);
+if (!customElements.get('dile-phosphor-icon-memory-thin')) {
+  customElements.define('dile-phosphor-icon-memory-thin', DileIconlibMemoryThin);
+}

@@ -1,3 +1,5 @@
 import { DileThemeModeSwitch } from './DileThemeModeSwitch.js';
 
-window.customElements.define('dile-theme-mode-switch', DileThemeModeSwitch);
+if (!customElements.get('dile-theme-mode-switch')) {
+  window.customElements.define('dile-theme-mode-switch', DileThemeModeSwitch);
+}

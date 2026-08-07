@@ -6,4 +6,6 @@ export class DileIconlibBrandElectronicArts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-electronic-arts', DileIconlibBrandElectronicArts);
+if (!customElements.get('dile-tabler-icon-brand-electronic-arts')) {
+  customElements.define('dile-tabler-icon-brand-electronic-arts', DileIconlibBrandElectronicArts);
+}

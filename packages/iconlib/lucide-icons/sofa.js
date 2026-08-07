@@ -6,4 +6,6 @@ export class DileIconlibSofa extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sofa', DileIconlibSofa);
+if (!customElements.get('dile-lucide-icon-sofa')) {
+  customElements.define('dile-lucide-icon-sofa', DileIconlibSofa);
+}

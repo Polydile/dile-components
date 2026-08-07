@@ -6,4 +6,6 @@ export class DileIconlibHomeRepairService extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-home-repair-service', DileIconlibHomeRepairService);
+if (!customElements.get('dile-material-icon-home-repair-service')) {
+  customElements.define('dile-material-icon-home-repair-service', DileIconlibHomeRepairService);
+}

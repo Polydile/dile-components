@@ -6,4 +6,6 @@ export class DileIconlibFirstAidKitDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-first-aid-kit-duotone', DileIconlibFirstAidKitDuotone);
+if (!customElements.get('dile-phosphor-icon-first-aid-kit-duotone')) {
+  customElements.define('dile-phosphor-icon-first-aid-kit-duotone', DileIconlibFirstAidKitDuotone);
+}

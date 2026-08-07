@@ -6,4 +6,6 @@ export class DileIconlibAmazonLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-amazon-logo-duotone', DileIconlibAmazonLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-amazon-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-amazon-logo-duotone', DileIconlibAmazonLogoDuotone);
+}

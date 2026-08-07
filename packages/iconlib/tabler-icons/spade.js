@@ -6,4 +6,6 @@ export class DileIconlibSpade extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spade', DileIconlibSpade);
+if (!customElements.get('dile-tabler-icon-spade')) {
+  customElements.define('dile-tabler-icon-spade', DileIconlibSpade);
+}

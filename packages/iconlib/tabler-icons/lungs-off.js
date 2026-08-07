@@ -6,4 +6,6 @@ export class DileIconlibLungsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lungs-off', DileIconlibLungsOff);
+if (!customElements.get('dile-tabler-icon-lungs-off')) {
+  customElements.define('dile-tabler-icon-lungs-off', DileIconlibLungsOff);
+}

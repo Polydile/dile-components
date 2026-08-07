@@ -6,4 +6,6 @@ export class DileIconlibSagittarius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sagittarius', DileIconlibSagittarius);
+if (!customElements.get('dile-fontawesome-icon-sagittarius')) {
+  customElements.define('dile-fontawesome-icon-sagittarius', DileIconlibSagittarius);
+}

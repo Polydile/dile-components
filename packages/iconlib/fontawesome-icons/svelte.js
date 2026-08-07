@@ -6,4 +6,6 @@ export class DileIconlibSvelte extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-svelte', DileIconlibSvelte);
+if (!customElements.get('dile-fontawesome-icon-svelte')) {
+  customElements.define('dile-fontawesome-icon-svelte', DileIconlibSvelte);
+}

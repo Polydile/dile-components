@@ -6,4 +6,6 @@ export class DileIconlibCropBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crop-bold', DileIconlibCropBold);
+if (!customElements.get('dile-phosphor-icon-crop-bold')) {
+  customElements.define('dile-phosphor-icon-crop-bold', DileIconlibCropBold);
+}

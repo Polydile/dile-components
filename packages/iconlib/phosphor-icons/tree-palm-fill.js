@@ -6,4 +6,6 @@ export class DileIconlibTreePalmFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tree-palm-fill', DileIconlibTreePalmFill);
+if (!customElements.get('dile-phosphor-icon-tree-palm-fill')) {
+  customElements.define('dile-phosphor-icon-tree-palm-fill', DileIconlibTreePalmFill);
+}

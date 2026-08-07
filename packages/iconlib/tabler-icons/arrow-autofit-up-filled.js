@@ -6,4 +6,6 @@ export class DileIconlibArrowAutofitUpFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-autofit-up-filled', DileIconlibArrowAutofitUpFilled);
+if (!customElements.get('dile-tabler-icon-arrow-autofit-up-filled')) {
+  customElements.define('dile-tabler-icon-arrow-autofit-up-filled', DileIconlibArrowAutofitUpFilled);
+}

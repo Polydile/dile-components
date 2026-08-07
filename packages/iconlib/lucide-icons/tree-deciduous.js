@@ -6,4 +6,6 @@ export class DileIconlibTreeDeciduous extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tree-deciduous', DileIconlibTreeDeciduous);
+if (!customElements.get('dile-lucide-icon-tree-deciduous')) {
+  customElements.define('dile-lucide-icon-tree-deciduous', DileIconlibTreeDeciduous);
+}

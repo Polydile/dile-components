@@ -6,4 +6,6 @@ export class DileIconlibWashDryF extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-dry-f', DileIconlibWashDryF);
+if (!customElements.get('dile-tabler-icon-wash-dry-f')) {
+  customElements.define('dile-tabler-icon-wash-dry-f', DileIconlibWashDryF);
+}

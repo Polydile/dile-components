@@ -6,4 +6,6 @@ export class DileIconlibSkating extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skating', DileIconlibSkating);
+if (!customElements.get('dile-fontawesome-icon-skating')) {
+  customElements.define('dile-fontawesome-icon-skating', DileIconlibSkating);
+}

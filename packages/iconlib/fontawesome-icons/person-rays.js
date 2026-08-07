@@ -6,4 +6,6 @@ export class DileIconlibPersonRays extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-rays', DileIconlibPersonRays);
+if (!customElements.get('dile-fontawesome-icon-person-rays')) {
+  customElements.define('dile-fontawesome-icon-person-rays', DileIconlibPersonRays);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWheatAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wheat-alt', DileIconlibWheatAlt);
+if (!customElements.get('dile-fontawesome-icon-wheat-alt')) {
+  customElements.define('dile-fontawesome-icon-wheat-alt', DileIconlibWheatAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVihara extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vihara', DileIconlibVihara);
+if (!customElements.get('dile-fontawesome-icon-vihara')) {
+  customElements.define('dile-fontawesome-icon-vihara', DileIconlibVihara);
+}

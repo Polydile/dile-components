@@ -6,4 +6,6 @@ export class DileIconlibLetterSpacing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-spacing', DileIconlibLetterSpacing);
+if (!customElements.get('dile-tabler-icon-letter-spacing')) {
+  customElements.define('dile-tabler-icon-letter-spacing', DileIconlibLetterSpacing);
+}

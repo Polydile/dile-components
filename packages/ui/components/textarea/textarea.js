@@ -1,3 +1,5 @@
 import { DileTextarea } from './src/DileTextarea.js';
 
-window.customElements.define('dile-textarea', DileTextarea);
+if (!customElements.get('dile-textarea')) {
+  window.customElements.define('dile-textarea', DileTextarea);
+}

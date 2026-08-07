@@ -6,4 +6,6 @@ export class DileIconlibFolderSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-search', DileIconlibFolderSearch);
+if (!customElements.get('dile-lucide-icon-folder-search')) {
+  customElements.define('dile-lucide-icon-folder-search', DileIconlibFolderSearch);
+}

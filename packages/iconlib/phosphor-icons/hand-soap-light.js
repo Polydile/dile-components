@@ -6,4 +6,6 @@ export class DileIconlibHandSoapLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-soap-light', DileIconlibHandSoapLight);
+if (!customElements.get('dile-phosphor-icon-hand-soap-light')) {
+  customElements.define('dile-phosphor-icon-hand-soap-light', DileIconlibHandSoapLight);
+}

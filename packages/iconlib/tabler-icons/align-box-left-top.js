@@ -6,4 +6,6 @@ export class DileIconlibAlignBoxLeftTop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-align-box-left-top', DileIconlibAlignBoxLeftTop);
+if (!customElements.get('dile-tabler-icon-align-box-left-top')) {
+  customElements.define('dile-tabler-icon-align-box-left-top', DileIconlibAlignBoxLeftTop);
+}

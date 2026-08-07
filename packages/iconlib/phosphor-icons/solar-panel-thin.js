@@ -6,4 +6,6 @@ export class DileIconlibSolarPanelThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-solar-panel-thin', DileIconlibSolarPanelThin);
+if (!customElements.get('dile-phosphor-icon-solar-panel-thin')) {
+  customElements.define('dile-phosphor-icon-solar-panel-thin', DileIconlibSolarPanelThin);
+}

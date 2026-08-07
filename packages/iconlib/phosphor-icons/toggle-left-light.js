@@ -6,4 +6,6 @@ export class DileIconlibToggleLeftLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toggle-left-light', DileIconlibToggleLeftLight);
+if (!customElements.get('dile-phosphor-icon-toggle-left-light')) {
+  customElements.define('dile-phosphor-icon-toggle-left-light', DileIconlibToggleLeftLight);
+}

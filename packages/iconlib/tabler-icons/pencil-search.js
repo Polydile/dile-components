@@ -6,4 +6,6 @@ export class DileIconlibPencilSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-search', DileIconlibPencilSearch);
+if (!customElements.get('dile-tabler-icon-pencil-search')) {
+  customElements.define('dile-tabler-icon-pencil-search', DileIconlibPencilSearch);
+}

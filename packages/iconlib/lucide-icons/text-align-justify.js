@@ -6,4 +6,6 @@ export class DileIconlibTextAlignJustify extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-align-justify', DileIconlibTextAlignJustify);
+if (!customElements.get('dile-lucide-icon-text-align-justify')) {
+  customElements.define('dile-lucide-icon-text-align-justify', DileIconlibTextAlignJustify);
+}

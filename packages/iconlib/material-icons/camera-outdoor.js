@@ -6,4 +6,6 @@ export class DileIconlibCameraOutdoor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-camera-outdoor', DileIconlibCameraOutdoor);
+if (!customElements.get('dile-material-icon-camera-outdoor')) {
+  customElements.define('dile-material-icon-camera-outdoor', DileIconlibCameraOutdoor);
+}

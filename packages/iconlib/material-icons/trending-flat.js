@@ -6,4 +6,6 @@ export class DileIconlibTrendingFlat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-trending-flat', DileIconlibTrendingFlat);
+if (!customElements.get('dile-material-icon-trending-flat')) {
+  customElements.define('dile-material-icon-trending-flat', DileIconlibTrendingFlat);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowRightFromFile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-right-from-file', DileIconlibArrowRightFromFile);
+if (!customElements.get('dile-fontawesome-icon-arrow-right-from-file')) {
+  customElements.define('dile-fontawesome-icon-arrow-right-from-file', DileIconlibArrowRightFromFile);
+}

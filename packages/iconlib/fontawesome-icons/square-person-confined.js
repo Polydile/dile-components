@@ -6,4 +6,6 @@ export class DileIconlibSquarePersonConfined extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-person-confined', DileIconlibSquarePersonConfined);
+if (!customElements.get('dile-fontawesome-icon-square-person-confined')) {
+  customElements.define('dile-fontawesome-icon-square-person-confined', DileIconlibSquarePersonConfined);
+}

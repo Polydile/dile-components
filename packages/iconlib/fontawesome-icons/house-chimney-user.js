@@ -6,4 +6,6 @@ export class DileIconlibHouseChimneyUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-chimney-user', DileIconlibHouseChimneyUser);
+if (!customElements.get('dile-fontawesome-icon-house-chimney-user')) {
+  customElements.define('dile-fontawesome-icon-house-chimney-user', DileIconlibHouseChimneyUser);
+}

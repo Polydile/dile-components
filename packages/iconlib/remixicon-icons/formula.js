@@ -6,4 +6,6 @@ export class DileIconlibFormula extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-formula', DileIconlibFormula);
+if (!customElements.get('dile-remixicon-icon-formula')) {
+  customElements.define('dile-remixicon-icon-formula', DileIconlibFormula);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCrystalBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-crystal-ball', DileIconlibCrystalBall);
+if (!customElements.get('dile-tabler-icon-crystal-ball')) {
+  customElements.define('dile-tabler-icon-crystal-ball', DileIconlibCrystalBall);
+}

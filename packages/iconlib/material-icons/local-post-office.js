@@ -6,4 +6,6 @@ export class DileIconlibLocalPostOffice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-post-office', DileIconlibLocalPostOffice);
+if (!customElements.get('dile-material-icon-local-post-office')) {
+  customElements.define('dile-material-icon-local-post-office', DileIconlibLocalPostOffice);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPlaystationLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-playstation-line', DileIconlibPlaystationLine);
+if (!customElements.get('dile-remixicon-icon-playstation-line')) {
+  customElements.define('dile-remixicon-icon-playstation-line', DileIconlibPlaystationLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandStrava extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-strava', DileIconlibBrandStrava);
+if (!customElements.get('dile-tabler-icon-brand-strava')) {
+  customElements.define('dile-tabler-icon-brand-strava', DileIconlibBrandStrava);
+}

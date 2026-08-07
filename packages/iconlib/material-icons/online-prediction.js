@@ -6,4 +6,6 @@ export class DileIconlibOnlinePrediction extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-online-prediction', DileIconlibOnlinePrediction);
+if (!customElements.get('dile-material-icon-online-prediction')) {
+  customElements.define('dile-material-icon-online-prediction', DileIconlibOnlinePrediction);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSurveyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-survey-line', DileIconlibSurveyLine);
+if (!customElements.get('dile-remixicon-icon-survey-line')) {
+  customElements.define('dile-remixicon-icon-survey-line', DileIconlibSurveyLine);
+}

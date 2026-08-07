@@ -6,4 +6,6 @@ export class DileIconlibFlowerLotusDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flower-lotus-duotone', DileIconlibFlowerLotusDuotone);
+if (!customElements.get('dile-phosphor-icon-flower-lotus-duotone')) {
+  customElements.define('dile-phosphor-icon-flower-lotus-duotone', DileIconlibFlowerLotusDuotone);
+}

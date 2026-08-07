@@ -6,4 +6,6 @@ export class DileIconlibLinuxLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-linux-logo-duotone', DileIconlibLinuxLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-linux-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-linux-logo-duotone', DileIconlibLinuxLogoDuotone);
+}

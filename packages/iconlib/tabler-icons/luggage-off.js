@@ -6,4 +6,6 @@ export class DileIconlibLuggageOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-luggage-off', DileIconlibLuggageOff);
+if (!customElements.get('dile-tabler-icon-luggage-off')) {
+  customElements.define('dile-tabler-icon-luggage-off', DileIconlibLuggageOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWashTumbleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-tumble-off', DileIconlibWashTumbleOff);
+if (!customElements.get('dile-tabler-icon-wash-tumble-off')) {
+  customElements.define('dile-tabler-icon-wash-tumble-off', DileIconlibWashTumbleOff);
+}

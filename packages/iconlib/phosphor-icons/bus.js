@@ -6,4 +6,6 @@ export class DileIconlibBus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bus', DileIconlibBus);
+if (!customElements.get('dile-phosphor-icon-bus')) {
+  customElements.define('dile-phosphor-icon-bus', DileIconlibBus);
+}

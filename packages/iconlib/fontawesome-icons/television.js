@@ -6,4 +6,6 @@ export class DileIconlibTelevision extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-television', DileIconlibTelevision);
+if (!customElements.get('dile-fontawesome-icon-television')) {
+  customElements.define('dile-fontawesome-icon-television', DileIconlibTelevision);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRectangleList extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-rectangle-list', DileIconlibRectangleList);
+if (!customElements.get('dile-fontawesome-icon-regular-rectangle-list')) {
+  customElements.define('dile-fontawesome-icon-regular-rectangle-list', DileIconlibRectangleList);
+}

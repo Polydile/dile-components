@@ -6,4 +6,6 @@ export class DileIconlibOctopusDeploy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-octopus-deploy', DileIconlibOctopusDeploy);
+if (!customElements.get('dile-fontawesome-icon-octopus-deploy')) {
+  customElements.define('dile-fontawesome-icon-octopus-deploy', DileIconlibOctopusDeploy);
+}

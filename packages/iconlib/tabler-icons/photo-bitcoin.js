@@ -6,4 +6,6 @@ export class DileIconlibPhotoBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-bitcoin', DileIconlibPhotoBitcoin);
+if (!customElements.get('dile-tabler-icon-photo-bitcoin')) {
+  customElements.define('dile-tabler-icon-photo-bitcoin', DileIconlibPhotoBitcoin);
+}

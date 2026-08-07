@@ -6,4 +6,6 @@ export class DileIconlibSkype extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skype', DileIconlibSkype);
+if (!customElements.get('dile-fontawesome-icon-skype')) {
+  customElements.define('dile-fontawesome-icon-skype', DileIconlibSkype);
+}

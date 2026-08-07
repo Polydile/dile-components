@@ -6,4 +6,6 @@ export class DileIconlibDropdownList extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dropdown-list', DileIconlibDropdownList);
+if (!customElements.get('dile-remixicon-icon-dropdown-list')) {
+  customElements.define('dile-remixicon-icon-dropdown-list', DileIconlibDropdownList);
+}

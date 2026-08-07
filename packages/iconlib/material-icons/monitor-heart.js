@@ -6,4 +6,6 @@ export class DileIconlibMonitorHeart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-monitor-heart', DileIconlibMonitorHeart);
+if (!customElements.get('dile-material-icon-monitor-heart')) {
+  customElements.define('dile-material-icon-monitor-heart', DileIconlibMonitorHeart);
+}

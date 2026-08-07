@@ -6,4 +6,6 @@ export class DileIconlibPentagonFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pentagon-fill', DileIconlibPentagonFill);
+if (!customElements.get('dile-remixicon-icon-pentagon-fill')) {
+  customElements.define('dile-remixicon-icon-pentagon-fill', DileIconlibPentagonFill);
+}

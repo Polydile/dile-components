@@ -6,4 +6,6 @@ export class DileIconlibSquareNfi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-nfi', DileIconlibSquareNfi);
+if (!customElements.get('dile-fontawesome-icon-square-nfi')) {
+  customElements.define('dile-fontawesome-icon-square-nfi', DileIconlibSquareNfi);
+}

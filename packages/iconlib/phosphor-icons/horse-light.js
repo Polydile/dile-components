@@ -6,4 +6,6 @@ export class DileIconlibHorseLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-horse-light', DileIconlibHorseLight);
+if (!customElements.get('dile-phosphor-icon-horse-light')) {
+  customElements.define('dile-phosphor-icon-horse-light', DileIconlibHorseLight);
+}

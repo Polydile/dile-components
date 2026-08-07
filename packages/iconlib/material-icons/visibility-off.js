@@ -6,4 +6,6 @@ export class DileIconlibVisibilityOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-visibility-off', DileIconlibVisibilityOff);
+if (!customElements.get('dile-material-icon-visibility-off')) {
+  customElements.define('dile-material-icon-visibility-off', DileIconlibVisibilityOff);
+}

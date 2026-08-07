@@ -6,4 +6,6 @@ export class DileIconlibBankCardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bank-card-line', DileIconlibBankCardLine);
+if (!customElements.get('dile-remixicon-icon-bank-card-line')) {
+  customElements.define('dile-remixicon-icon-bank-card-line', DileIconlibBankCardLine);
+}

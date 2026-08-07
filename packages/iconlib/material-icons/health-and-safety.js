@@ -6,4 +6,6 @@ export class DileIconlibHealthAndSafety extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-health-and-safety', DileIconlibHealthAndSafety);
+if (!customElements.get('dile-material-icon-health-and-safety')) {
+  customElements.define('dile-material-icon-health-and-safety', DileIconlibHealthAndSafety);
+}

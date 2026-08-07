@@ -6,4 +6,6 @@ export class DileIconlibDeleteLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-delete-left', DileIconlibDeleteLeft);
+if (!customElements.get('dile-fontawesome-icon-delete-left')) {
+  customElements.define('dile-fontawesome-icon-delete-left', DileIconlibDeleteLeft);
+}

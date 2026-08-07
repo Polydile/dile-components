@@ -6,4 +6,6 @@ export class DileIconlibBluetoothConnected extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bluetooth-connected', DileIconlibBluetoothConnected);
+if (!customElements.get('dile-tabler-icon-bluetooth-connected')) {
+  customElements.define('dile-tabler-icon-bluetooth-connected', DileIconlibBluetoothConnected);
+}

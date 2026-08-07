@@ -6,4 +6,6 @@ export class DileIconlibPostgresql extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-postgresql', DileIconlibPostgresql);
+if (!customElements.get('dile-fontawesome-icon-postgresql')) {
+  customElements.define('dile-fontawesome-icon-postgresql', DileIconlibPostgresql);
+}

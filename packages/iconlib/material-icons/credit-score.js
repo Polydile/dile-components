@@ -6,4 +6,6 @@ export class DileIconlibCreditScore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-credit-score', DileIconlibCreditScore);
+if (!customElements.get('dile-material-icon-credit-score')) {
+  customElements.define('dile-material-icon-credit-score', DileIconlibCreditScore);
+}

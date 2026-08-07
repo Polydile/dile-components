@@ -6,4 +6,6 @@ export class DileIconlibChartAreaFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-area-filled', DileIconlibChartAreaFilled);
+if (!customElements.get('dile-tabler-icon-chart-area-filled')) {
+  customElements.define('dile-tabler-icon-chart-area-filled', DileIconlibChartAreaFilled);
+}

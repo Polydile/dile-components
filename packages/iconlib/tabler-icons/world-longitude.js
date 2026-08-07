@@ -6,4 +6,6 @@ export class DileIconlibWorldLongitude extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-longitude', DileIconlibWorldLongitude);
+if (!customElements.get('dile-tabler-icon-world-longitude')) {
+  customElements.define('dile-tabler-icon-world-longitude', DileIconlibWorldLongitude);
+}

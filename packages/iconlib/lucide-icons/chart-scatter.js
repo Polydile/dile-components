@@ -6,4 +6,6 @@ export class DileIconlibChartScatter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chart-scatter', DileIconlibChartScatter);
+if (!customElements.get('dile-lucide-icon-chart-scatter')) {
+  customElements.define('dile-lucide-icon-chart-scatter', DileIconlibChartScatter);
+}

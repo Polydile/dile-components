@@ -6,4 +6,6 @@ export class DileIconlibNumberCircleNineLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-circle-nine-light', DileIconlibNumberCircleNineLight);
+if (!customElements.get('dile-phosphor-icon-number-circle-nine-light')) {
+  customElements.define('dile-phosphor-icon-number-circle-nine-light', DileIconlibNumberCircleNineLight);
+}

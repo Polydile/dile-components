@@ -6,4 +6,6 @@ export class DileIconlibFilter2Minus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-2-minus', DileIconlibFilter2Minus);
+if (!customElements.get('dile-tabler-icon-filter-2-minus')) {
+  customElements.define('dile-tabler-icon-filter-2-minus', DileIconlibFilter2Minus);
+}

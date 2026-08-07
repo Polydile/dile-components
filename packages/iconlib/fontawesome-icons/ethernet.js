@@ -6,4 +6,6 @@ export class DileIconlibEthernet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ethernet', DileIconlibEthernet);
+if (!customElements.get('dile-fontawesome-icon-ethernet')) {
+  customElements.define('dile-fontawesome-icon-ethernet', DileIconlibEthernet);
+}

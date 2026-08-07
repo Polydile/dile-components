@@ -6,4 +6,6 @@ export class DileIconlibSwitchAccessShortcut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-switch-access-shortcut', DileIconlibSwitchAccessShortcut);
+if (!customElements.get('dile-material-icon-switch-access-shortcut')) {
+  customElements.define('dile-material-icon-switch-access-shortcut', DileIconlibSwitchAccessShortcut);
+}

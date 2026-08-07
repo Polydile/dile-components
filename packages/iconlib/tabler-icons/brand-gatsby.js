@@ -6,4 +6,6 @@ export class DileIconlibBrandGatsby extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-gatsby', DileIconlibBrandGatsby);
+if (!customElements.get('dile-tabler-icon-brand-gatsby')) {
+  customElements.define('dile-tabler-icon-brand-gatsby', DileIconlibBrandGatsby);
+}

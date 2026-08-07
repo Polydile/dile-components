@@ -6,4 +6,6 @@ export class DileIconlibFileTypeSvg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-svg', DileIconlibFileTypeSvg);
+if (!customElements.get('dile-tabler-icon-file-type-svg')) {
+  customElements.define('dile-tabler-icon-file-type-svg', DileIconlibFileTypeSvg);
+}

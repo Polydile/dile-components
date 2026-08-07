@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftExcelLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-excel-logo-thin', DileIconlibMicrosoftExcelLogoThin);
+if (!customElements.get('dile-phosphor-icon-microsoft-excel-logo-thin')) {
+  customElements.define('dile-phosphor-icon-microsoft-excel-logo-thin', DileIconlibMicrosoftExcelLogoThin);
+}

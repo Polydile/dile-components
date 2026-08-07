@@ -6,4 +6,6 @@ export class DileIconlibAlphabetLatin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-latin', DileIconlibAlphabetLatin);
+if (!customElements.get('dile-tabler-icon-alphabet-latin')) {
+  customElements.define('dile-tabler-icon-alphabet-latin', DileIconlibAlphabetLatin);
+}

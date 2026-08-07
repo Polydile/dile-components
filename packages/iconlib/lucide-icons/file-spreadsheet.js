@@ -6,4 +6,6 @@ export class DileIconlibFileSpreadsheet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-spreadsheet', DileIconlibFileSpreadsheet);
+if (!customElements.get('dile-lucide-icon-file-spreadsheet')) {
+  customElements.define('dile-lucide-icon-file-spreadsheet', DileIconlibFileSpreadsheet);
+}

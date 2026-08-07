@@ -6,4 +6,6 @@ export class DileIconlibBuildingArch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-arch', DileIconlibBuildingArch);
+if (!customElements.get('dile-tabler-icon-building-arch')) {
+  customElements.define('dile-tabler-icon-building-arch', DileIconlibBuildingArch);
+}

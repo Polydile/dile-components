@@ -6,4 +6,6 @@ export class DileIconlibProhibitBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-prohibit-bold', DileIconlibProhibitBold);
+if (!customElements.get('dile-phosphor-icon-prohibit-bold')) {
+  customElements.define('dile-phosphor-icon-prohibit-bold', DileIconlibProhibitBold);
+}

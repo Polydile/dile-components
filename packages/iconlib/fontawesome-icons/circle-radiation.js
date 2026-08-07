@@ -6,4 +6,6 @@ export class DileIconlibCircleRadiation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-radiation', DileIconlibCircleRadiation);
+if (!customElements.get('dile-fontawesome-icon-circle-radiation')) {
+  customElements.define('dile-fontawesome-icon-circle-radiation', DileIconlibCircleRadiation);
+}

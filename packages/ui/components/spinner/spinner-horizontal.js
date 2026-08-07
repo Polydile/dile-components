@@ -1,3 +1,5 @@
 import { DileSpinnerHorizontal } from "./src/DileSpinnerHorizontal.js";
 
-window.customElements.define("dile-spinner-horizontal", DileSpinnerHorizontal);
+if (!customElements.get("dile-spinner-horizontal")) {
+  window.customElements.define("dile-spinner-horizontal", DileSpinnerHorizontal);
+}

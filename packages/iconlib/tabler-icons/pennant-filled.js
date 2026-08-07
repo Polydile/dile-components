@@ -6,4 +6,6 @@ export class DileIconlibPennantFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pennant-filled', DileIconlibPennantFilled);
+if (!customElements.get('dile-tabler-icon-pennant-filled')) {
+  customElements.define('dile-tabler-icon-pennant-filled', DileIconlibPennantFilled);
+}

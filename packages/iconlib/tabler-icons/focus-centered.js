@@ -6,4 +6,6 @@ export class DileIconlibFocusCentered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-focus-centered', DileIconlibFocusCentered);
+if (!customElements.get('dile-tabler-icon-focus-centered')) {
+  customElements.define('dile-tabler-icon-focus-centered', DileIconlibFocusCentered);
+}

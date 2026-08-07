@@ -6,4 +6,6 @@ export class DileIconlibEdgesensorLow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-edgesensor-low', DileIconlibEdgesensorLow);
+if (!customElements.get('dile-material-icon-edgesensor-low')) {
+  customElements.define('dile-material-icon-edgesensor-low', DileIconlibEdgesensorLow);
+}

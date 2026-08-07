@@ -6,4 +6,6 @@ export class DileIconlibRecycle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-recycle', DileIconlibRecycle);
+if (!customElements.get('dile-fontawesome-icon-recycle')) {
+  customElements.define('dile-fontawesome-icon-recycle', DileIconlibRecycle);
+}

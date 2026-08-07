@@ -6,4 +6,6 @@ export class DileIconlibDatabaseBackup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-database-backup', DileIconlibDatabaseBackup);
+if (!customElements.get('dile-lucide-icon-database-backup')) {
+  customElements.define('dile-lucide-icon-database-backup', DileIconlibDatabaseBackup);
+}

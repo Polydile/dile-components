@@ -1,3 +1,5 @@
 import { DileInputNumberMask } from './src/DileInputNumberMask.js';
 
-window.customElements.define('dile-input-number-mask', DileInputNumberMask);
+if (!customElements.get('dile-input-number-mask')) {
+  window.customElements.define('dile-input-number-mask', DileInputNumberMask);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWechatPayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wechat-pay-fill', DileIconlibWechatPayFill);
+if (!customElements.get('dile-remixicon-icon-wechat-pay-fill')) {
+  customElements.define('dile-remixicon-icon-wechat-pay-fill', DileIconlibWechatPayFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCroissant extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-croissant', DileIconlibCroissant);
+if (!customElements.get('dile-lucide-icon-croissant')) {
+  customElements.define('dile-lucide-icon-croissant', DileIconlibCroissant);
+}

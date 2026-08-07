@@ -6,4 +6,6 @@ export class DileIconlibPintGlassFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pint-glass-fill', DileIconlibPintGlassFill);
+if (!customElements.get('dile-phosphor-icon-pint-glass-fill')) {
+  customElements.define('dile-phosphor-icon-pint-glass-fill', DileIconlibPintGlassFill);
+}

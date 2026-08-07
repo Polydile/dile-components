@@ -6,4 +6,6 @@ export class DileIconlibSettingsVoice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-voice', DileIconlibSettingsVoice);
+if (!customElements.get('dile-material-icon-settings-voice')) {
+  customElements.define('dile-material-icon-settings-voice', DileIconlibSettingsVoice);
+}

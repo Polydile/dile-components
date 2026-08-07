@@ -6,4 +6,6 @@ export class DileIconlibLocationPin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-location-pin', DileIconlibLocationPin);
+if (!customElements.get('dile-material-icon-location-pin')) {
+  customElements.define('dile-material-icon-location-pin', DileIconlibLocationPin);
+}

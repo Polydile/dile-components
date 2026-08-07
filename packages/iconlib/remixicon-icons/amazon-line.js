@@ -6,4 +6,6 @@ export class DileIconlibAmazonLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-amazon-line', DileIconlibAmazonLine);
+if (!customElements.get('dile-remixicon-icon-amazon-line')) {
+  customElements.define('dile-remixicon-icon-amazon-line', DileIconlibAmazonLine);
+}

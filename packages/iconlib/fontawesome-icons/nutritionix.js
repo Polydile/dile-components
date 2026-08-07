@@ -6,4 +6,6 @@ export class DileIconlibNutritionix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-nutritionix', DileIconlibNutritionix);
+if (!customElements.get('dile-fontawesome-icon-nutritionix')) {
+  customElements.define('dile-fontawesome-icon-nutritionix', DileIconlibNutritionix);
+}

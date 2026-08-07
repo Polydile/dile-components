@@ -6,4 +6,6 @@ export class DileIconlibBrandVite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vite', DileIconlibBrandVite);
+if (!customElements.get('dile-tabler-icon-brand-vite')) {
+  customElements.define('dile-tabler-icon-brand-vite', DileIconlibBrandVite);
+}

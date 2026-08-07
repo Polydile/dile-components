@@ -6,4 +6,6 @@ export class DileIconlibRectangleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rectangle-bold', DileIconlibRectangleBold);
+if (!customElements.get('dile-phosphor-icon-rectangle-bold')) {
+  customElements.define('dile-phosphor-icon-rectangle-bold', DileIconlibRectangleBold);
+}

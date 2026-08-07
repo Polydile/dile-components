@@ -6,4 +6,6 @@ export class DileIconlibPanoramaPhotosphere extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-panorama-photosphere', DileIconlibPanoramaPhotosphere);
+if (!customElements.get('dile-material-icon-panorama-photosphere')) {
+  customElements.define('dile-material-icon-panorama-photosphere', DileIconlibPanoramaPhotosphere);
+}

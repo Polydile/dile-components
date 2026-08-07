@@ -6,4 +6,6 @@ export class DileIconlibTextRecognition extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-recognition', DileIconlibTextRecognition);
+if (!customElements.get('dile-tabler-icon-text-recognition')) {
+  customElements.define('dile-tabler-icon-text-recognition', DileIconlibTextRecognition);
+}

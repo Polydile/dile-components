@@ -6,4 +6,6 @@ export class DileIconlibTreeStructure extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tree-structure', DileIconlibTreeStructure);
+if (!customElements.get('dile-phosphor-icon-tree-structure')) {
+  customElements.define('dile-phosphor-icon-tree-structure', DileIconlibTreeStructure);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRuler2Off extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ruler-2-off', DileIconlibRuler2Off);
+if (!customElements.get('dile-tabler-icon-ruler-2-off')) {
+  customElements.define('dile-tabler-icon-ruler-2-off', DileIconlibRuler2Off);
+}

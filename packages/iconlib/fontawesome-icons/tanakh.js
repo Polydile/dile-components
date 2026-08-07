@@ -6,4 +6,6 @@ export class DileIconlibTanakh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tanakh', DileIconlibTanakh);
+if (!customElements.get('dile-fontawesome-icon-tanakh')) {
+  customElements.define('dile-fontawesome-icon-tanakh', DileIconlibTanakh);
+}

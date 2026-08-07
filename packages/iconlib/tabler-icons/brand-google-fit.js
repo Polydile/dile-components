@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleFit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-fit', DileIconlibBrandGoogleFit);
+if (!customElements.get('dile-tabler-icon-brand-google-fit')) {
+  customElements.define('dile-tabler-icon-brand-google-fit', DileIconlibBrandGoogleFit);
+}

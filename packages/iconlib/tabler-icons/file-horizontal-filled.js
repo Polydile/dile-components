@@ -6,4 +6,6 @@ export class DileIconlibFileHorizontalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-horizontal-filled', DileIconlibFileHorizontalFilled);
+if (!customElements.get('dile-tabler-icon-file-horizontal-filled')) {
+  customElements.define('dile-tabler-icon-file-horizontal-filled', DileIconlibFileHorizontalFilled);
+}

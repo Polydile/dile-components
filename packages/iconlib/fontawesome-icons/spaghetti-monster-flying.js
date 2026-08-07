@@ -6,4 +6,6 @@ export class DileIconlibSpaghettiMonsterFlying extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spaghetti-monster-flying', DileIconlibSpaghettiMonsterFlying);
+if (!customElements.get('dile-fontawesome-icon-spaghetti-monster-flying')) {
+  customElements.define('dile-fontawesome-icon-spaghetti-monster-flying', DileIconlibSpaghettiMonsterFlying);
+}

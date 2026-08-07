@@ -6,4 +6,6 @@ export class DileIconlibStumbleuponCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stumbleupon-circle', DileIconlibStumbleuponCircle);
+if (!customElements.get('dile-fontawesome-icon-stumbleupon-circle')) {
+  customElements.define('dile-fontawesome-icon-stumbleupon-circle', DileIconlibStumbleuponCircle);
+}

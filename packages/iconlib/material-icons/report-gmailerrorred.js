@@ -6,4 +6,6 @@ export class DileIconlibReportGmailerrorred extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-report-gmailerrorred', DileIconlibReportGmailerrorred);
+if (!customElements.get('dile-material-icon-report-gmailerrorred')) {
+  customElements.define('dile-material-icon-report-gmailerrorred', DileIconlibReportGmailerrorred);
+}

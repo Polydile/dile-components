@@ -6,4 +6,6 @@ export class DileIconlibMoneyCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-money-check', DileIconlibMoneyCheck);
+if (!customElements.get('dile-fontawesome-icon-money-check')) {
+  customElements.define('dile-fontawesome-icon-money-check', DileIconlibMoneyCheck);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVoicemailBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-voicemail-bold', DileIconlibVoicemailBold);
+if (!customElements.get('dile-phosphor-icon-voicemail-bold')) {
+  customElements.define('dile-phosphor-icon-voicemail-bold', DileIconlibVoicemailBold);
+}

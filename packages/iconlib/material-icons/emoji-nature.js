@@ -6,4 +6,6 @@ export class DileIconlibEmojiNature extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emoji-nature', DileIconlibEmojiNature);
+if (!customElements.get('dile-material-icon-emoji-nature')) {
+  customElements.define('dile-material-icon-emoji-nature', DileIconlibEmojiNature);
+}

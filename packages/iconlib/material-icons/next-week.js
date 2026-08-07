@@ -6,4 +6,6 @@ export class DileIconlibNextWeek extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-next-week', DileIconlibNextWeek);
+if (!customElements.get('dile-material-icon-next-week')) {
+  customElements.define('dile-material-icon-next-week', DileIconlibNextWeek);
+}

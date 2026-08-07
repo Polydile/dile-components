@@ -6,4 +6,6 @@ export class DileIconlibPanoramaWideAngleSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-panorama-wide-angle-select', DileIconlibPanoramaWideAngleSelect);
+if (!customElements.get('dile-material-icon-panorama-wide-angle-select')) {
+  customElements.define('dile-material-icon-panorama-wide-angle-select', DileIconlibPanoramaWideAngleSelect);
+}

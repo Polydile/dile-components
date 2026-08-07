@@ -6,4 +6,6 @@ export class DileIconlibCylinderOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cylinder-off', DileIconlibCylinderOff);
+if (!customElements.get('dile-tabler-icon-cylinder-off')) {
+  customElements.define('dile-tabler-icon-cylinder-off', DileIconlibCylinderOff);
+}

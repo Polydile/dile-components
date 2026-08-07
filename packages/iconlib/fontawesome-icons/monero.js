@@ -6,4 +6,6 @@ export class DileIconlibMonero extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-monero', DileIconlibMonero);
+if (!customElements.get('dile-fontawesome-icon-monero')) {
+  customElements.define('dile-fontawesome-icon-monero', DileIconlibMonero);
+}

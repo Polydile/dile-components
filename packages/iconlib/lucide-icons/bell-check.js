@@ -6,4 +6,6 @@ export class DileIconlibBellCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bell-check', DileIconlibBellCheck);
+if (!customElements.get('dile-lucide-icon-bell-check')) {
+  customElements.define('dile-lucide-icon-bell-check', DileIconlibBellCheck);
+}

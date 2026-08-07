@@ -6,4 +6,6 @@ export class DileIconlibEggCrackedFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-egg-cracked-filled', DileIconlibEggCrackedFilled);
+if (!customElements.get('dile-tabler-icon-egg-cracked-filled')) {
+  customElements.define('dile-tabler-icon-egg-cracked-filled', DileIconlibEggCrackedFilled);
+}

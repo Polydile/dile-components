@@ -6,4 +6,6 @@ export class DileIconlibComet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-comet', DileIconlibComet);
+if (!customElements.get('dile-tabler-icon-comet')) {
+  customElements.define('dile-tabler-icon-comet', DileIconlibComet);
+}

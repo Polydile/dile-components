@@ -6,4 +6,6 @@ export class DileIconlibDeviceSim2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-sim-2', DileIconlibDeviceSim2);
+if (!customElements.get('dile-tabler-icon-device-sim-2')) {
+  customElements.define('dile-tabler-icon-device-sim-2', DileIconlibDeviceSim2);
+}

@@ -6,4 +6,6 @@ export class DileIconlibP2pLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-p2p-line', DileIconlibP2pLine);
+if (!customElements.get('dile-remixicon-icon-p2p-line')) {
+  customElements.define('dile-remixicon-icon-p2p-line', DileIconlibP2pLine);
+}

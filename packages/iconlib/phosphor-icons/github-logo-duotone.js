@@ -6,4 +6,6 @@ export class DileIconlibGithubLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-github-logo-duotone', DileIconlibGithubLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-github-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-github-logo-duotone', DileIconlibGithubLogoDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandLaravel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-laravel', DileIconlibBrandLaravel);
+if (!customElements.get('dile-tabler-icon-brand-laravel')) {
+  customElements.define('dile-tabler-icon-brand-laravel', DileIconlibBrandLaravel);
+}

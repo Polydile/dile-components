@@ -6,4 +6,6 @@ export class DileIconlibTrademarkFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-trademark-fill', DileIconlibTrademarkFill);
+if (!customElements.get('dile-remixicon-icon-trademark-fill')) {
+  customElements.define('dile-remixicon-icon-trademark-fill', DileIconlibTrademarkFill);
+}

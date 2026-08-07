@@ -6,4 +6,6 @@ export class DileIconlibCheckboxMultipleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-checkbox-multiple-fill', DileIconlibCheckboxMultipleFill);
+if (!customElements.get('dile-remixicon-icon-checkbox-multiple-fill')) {
+  customElements.define('dile-remixicon-icon-checkbox-multiple-fill', DileIconlibCheckboxMultipleFill);
+}

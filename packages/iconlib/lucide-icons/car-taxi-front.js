@@ -6,4 +6,6 @@ export class DileIconlibCarTaxiFront extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-car-taxi-front', DileIconlibCarTaxiFront);
+if (!customElements.get('dile-lucide-icon-car-taxi-front')) {
+  customElements.define('dile-lucide-icon-car-taxi-front', DileIconlibCarTaxiFront);
+}

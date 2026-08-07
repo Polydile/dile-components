@@ -6,4 +6,6 @@ export class DileIconlibMathSin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-sin', DileIconlibMathSin);
+if (!customElements.get('dile-tabler-icon-math-sin')) {
+  customElements.define('dile-tabler-icon-math-sin', DileIconlibMathSin);
+}

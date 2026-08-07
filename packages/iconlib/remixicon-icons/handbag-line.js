@@ -6,4 +6,6 @@ export class DileIconlibHandbagLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-handbag-line', DileIconlibHandbagLine);
+if (!customElements.get('dile-remixicon-icon-handbag-line')) {
+  customElements.define('dile-remixicon-icon-handbag-line', DileIconlibHandbagLine);
+}

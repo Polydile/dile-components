@@ -6,4 +6,6 @@ export class DileIconlibBridgeLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bridge-lock', DileIconlibBridgeLock);
+if (!customElements.get('dile-fontawesome-icon-bridge-lock')) {
+  customElements.define('dile-fontawesome-icon-bridge-lock', DileIconlibBridgeLock);
+}

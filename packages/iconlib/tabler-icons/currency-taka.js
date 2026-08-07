@@ -6,4 +6,6 @@ export class DileIconlibCurrencyTaka extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-taka', DileIconlibCurrencyTaka);
+if (!customElements.get('dile-tabler-icon-currency-taka')) {
+  customElements.define('dile-tabler-icon-currency-taka', DileIconlibCurrencyTaka);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPepperHot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pepper-hot', DileIconlibPepperHot);
+if (!customElements.get('dile-fontawesome-icon-pepper-hot')) {
+  customElements.define('dile-fontawesome-icon-pepper-hot', DileIconlibPepperHot);
+}

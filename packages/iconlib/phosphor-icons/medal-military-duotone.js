@@ -6,4 +6,6 @@ export class DileIconlibMedalMilitaryDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-medal-military-duotone', DileIconlibMedalMilitaryDuotone);
+if (!customElements.get('dile-phosphor-icon-medal-military-duotone')) {
+  customElements.define('dile-phosphor-icon-medal-military-duotone', DileIconlibMedalMilitaryDuotone);
+}

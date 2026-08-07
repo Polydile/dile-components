@@ -6,4 +6,6 @@ export class DileIconlibDizzy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dizzy', DileIconlibDizzy);
+if (!customElements.get('dile-fontawesome-icon-dizzy')) {
+  customElements.define('dile-fontawesome-icon-dizzy', DileIconlibDizzy);
+}

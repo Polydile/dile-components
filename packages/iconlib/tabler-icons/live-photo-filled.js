@@ -6,4 +6,6 @@ export class DileIconlibLivePhotoFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-live-photo-filled', DileIconlibLivePhotoFilled);
+if (!customElements.get('dile-tabler-icon-live-photo-filled')) {
+  customElements.define('dile-tabler-icon-live-photo-filled', DileIconlibLivePhotoFilled);
+}

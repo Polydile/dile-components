@@ -6,4 +6,6 @@ export class DileIconlibSquareParking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-parking', DileIconlibSquareParking);
+if (!customElements.get('dile-fontawesome-icon-square-parking')) {
+  customElements.define('dile-fontawesome-icon-square-parking', DileIconlibSquareParking);
+}

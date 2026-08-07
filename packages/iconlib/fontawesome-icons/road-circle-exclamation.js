@@ -6,4 +6,6 @@ export class DileIconlibRoadCircleExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-circle-exclamation', DileIconlibRoadCircleExclamation);
+if (!customElements.get('dile-fontawesome-icon-road-circle-exclamation')) {
+  customElements.define('dile-fontawesome-icon-road-circle-exclamation', DileIconlibRoadCircleExclamation);
+}

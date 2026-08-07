@@ -6,4 +6,6 @@ export class DileIconlibRedditAlien extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-reddit-alien', DileIconlibRedditAlien);
+if (!customElements.get('dile-fontawesome-icon-reddit-alien')) {
+  customElements.define('dile-fontawesome-icon-reddit-alien', DileIconlibRedditAlien);
+}

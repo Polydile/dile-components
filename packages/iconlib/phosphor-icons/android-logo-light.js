@@ -6,4 +6,6 @@ export class DileIconlibAndroidLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-android-logo-light', DileIconlibAndroidLogoLight);
+if (!customElements.get('dile-phosphor-icon-android-logo-light')) {
+  customElements.define('dile-phosphor-icon-android-logo-light', DileIconlibAndroidLogoLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyNano extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-nano', DileIconlibCurrencyNano);
+if (!customElements.get('dile-tabler-icon-currency-nano')) {
+  customElements.define('dile-tabler-icon-currency-nano', DileIconlibCurrencyNano);
+}

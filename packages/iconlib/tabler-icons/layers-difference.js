@@ -6,4 +6,6 @@ export class DileIconlibLayersDifference extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layers-difference', DileIconlibLayersDifference);
+if (!customElements.get('dile-tabler-icon-layers-difference')) {
+  customElements.define('dile-tabler-icon-layers-difference', DileIconlibLayersDifference);
+}

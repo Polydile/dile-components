@@ -6,4 +6,6 @@ export class DileIconlibMars extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mars', DileIconlibMars);
+if (!customElements.get('dile-lucide-icon-mars')) {
+  customElements.define('dile-lucide-icon-mars', DileIconlibMars);
+}

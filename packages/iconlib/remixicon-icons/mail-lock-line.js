@@ -6,4 +6,6 @@ export class DileIconlibMailLockLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mail-lock-line', DileIconlibMailLockLine);
+if (!customElements.get('dile-remixicon-icon-mail-lock-line')) {
+  customElements.define('dile-remixicon-icon-mail-lock-line', DileIconlibMailLockLine);
+}

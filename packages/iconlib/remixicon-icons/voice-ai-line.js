@@ -6,4 +6,6 @@ export class DileIconlibVoiceAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-voice-ai-line', DileIconlibVoiceAiLine);
+if (!customElements.get('dile-remixicon-icon-voice-ai-line')) {
+  customElements.define('dile-remixicon-icon-voice-ai-line', DileIconlibVoiceAiLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUsbOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-usb-off', DileIconlibUsbOff);
+if (!customElements.get('dile-material-icon-usb-off')) {
+  customElements.define('dile-material-icon-usb-off', DileIconlibUsbOff);
+}

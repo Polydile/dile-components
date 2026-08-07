@@ -6,4 +6,6 @@ export class DileIconlibGasPump extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gas-pump', DileIconlibGasPump);
+if (!customElements.get('dile-phosphor-icon-gas-pump')) {
+  customElements.define('dile-phosphor-icon-gas-pump', DileIconlibGasPump);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTennisBallLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tennis-ball-light', DileIconlibTennisBallLight);
+if (!customElements.get('dile-phosphor-icon-tennis-ball-light')) {
+  customElements.define('dile-phosphor-icon-tennis-ball-light', DileIconlibTennisBallLight);
+}

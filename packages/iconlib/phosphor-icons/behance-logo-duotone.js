@@ -6,4 +6,6 @@ export class DileIconlibBehanceLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-behance-logo-duotone', DileIconlibBehanceLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-behance-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-behance-logo-duotone', DileIconlibBehanceLogoDuotone);
+}

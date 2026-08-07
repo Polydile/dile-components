@@ -6,4 +6,6 @@ export class DileIconlibInfoHexagonFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-info-hexagon-filled', DileIconlibInfoHexagonFilled);
+if (!customElements.get('dile-tabler-icon-info-hexagon-filled')) {
+  customElements.define('dile-tabler-icon-info-hexagon-filled', DileIconlibInfoHexagonFilled);
+}

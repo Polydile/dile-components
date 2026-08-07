@@ -6,4 +6,6 @@ export class DileIconlibConciergeBell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-concierge-bell', DileIconlibConciergeBell);
+if (!customElements.get('dile-fontawesome-icon-concierge-bell')) {
+  customElements.define('dile-fontawesome-icon-concierge-bell', DileIconlibConciergeBell);
+}

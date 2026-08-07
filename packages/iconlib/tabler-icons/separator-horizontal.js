@@ -6,4 +6,6 @@ export class DileIconlibSeparatorHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-separator-horizontal', DileIconlibSeparatorHorizontal);
+if (!customElements.get('dile-tabler-icon-separator-horizontal')) {
+  customElements.define('dile-tabler-icon-separator-horizontal', DileIconlibSeparatorHorizontal);
+}

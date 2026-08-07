@@ -6,4 +6,6 @@ export class DileIconlibVaadin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vaadin', DileIconlibVaadin);
+if (!customElements.get('dile-fontawesome-icon-vaadin')) {
+  customElements.define('dile-fontawesome-icon-vaadin', DileIconlibVaadin);
+}

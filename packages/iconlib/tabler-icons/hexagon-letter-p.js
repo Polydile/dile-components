@@ -6,4 +6,6 @@ export class DileIconlibHexagonLetterP extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-letter-p', DileIconlibHexagonLetterP);
+if (!customElements.get('dile-tabler-icon-hexagon-letter-p')) {
+  customElements.define('dile-tabler-icon-hexagon-letter-p', DileIconlibHexagonLetterP);
+}

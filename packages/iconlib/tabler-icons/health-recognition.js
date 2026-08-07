@@ -6,4 +6,6 @@ export class DileIconlibHealthRecognition extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-health-recognition', DileIconlibHealthRecognition);
+if (!customElements.get('dile-tabler-icon-health-recognition')) {
+  customElements.define('dile-tabler-icon-health-recognition', DileIconlibHealthRecognition);
+}

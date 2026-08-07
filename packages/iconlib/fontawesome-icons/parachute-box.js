@@ -6,4 +6,6 @@ export class DileIconlibParachuteBox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-parachute-box', DileIconlibParachuteBox);
+if (!customElements.get('dile-fontawesome-icon-parachute-box')) {
+  customElements.define('dile-fontawesome-icon-parachute-box', DileIconlibParachuteBox);
+}

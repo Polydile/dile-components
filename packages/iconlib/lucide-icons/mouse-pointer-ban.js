@@ -6,4 +6,6 @@ export class DileIconlibMousePointerBan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mouse-pointer-ban', DileIconlibMousePointerBan);
+if (!customElements.get('dile-lucide-icon-mouse-pointer-ban')) {
+  customElements.define('dile-lucide-icon-mouse-pointer-ban', DileIconlibMousePointerBan);
+}

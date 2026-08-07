@@ -6,4 +6,6 @@ export class DileIconlibTimeline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-timeline', DileIconlibTimeline);
+if (!customElements.get('dile-tabler-icon-timeline')) {
+  customElements.define('dile-tabler-icon-timeline', DileIconlibTimeline);
+}

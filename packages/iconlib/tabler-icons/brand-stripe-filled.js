@@ -6,4 +6,6 @@ export class DileIconlibBrandStripeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-stripe-filled', DileIconlibBrandStripeFilled);
+if (!customElements.get('dile-tabler-icon-brand-stripe-filled')) {
+  customElements.define('dile-tabler-icon-brand-stripe-filled', DileIconlibBrandStripeFilled);
+}

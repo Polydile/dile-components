@@ -6,4 +6,6 @@ export class DileIconlibEyedropper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-eyedropper', DileIconlibEyedropper);
+if (!customElements.get('dile-phosphor-icon-eyedropper')) {
+  customElements.define('dile-phosphor-icon-eyedropper', DileIconlibEyedropper);
+}

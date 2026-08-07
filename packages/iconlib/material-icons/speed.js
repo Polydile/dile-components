@@ -6,4 +6,6 @@ export class DileIconlibSpeed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-speed', DileIconlibSpeed);
+if (!customElements.get('dile-material-icon-speed')) {
+  customElements.define('dile-material-icon-speed', DileIconlibSpeed);
+}

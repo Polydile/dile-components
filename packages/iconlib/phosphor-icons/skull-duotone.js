@@ -6,4 +6,6 @@ export class DileIconlibSkullDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-skull-duotone', DileIconlibSkullDuotone);
+if (!customElements.get('dile-phosphor-icon-skull-duotone')) {
+  customElements.define('dile-phosphor-icon-skull-duotone', DileIconlibSkullDuotone);
+}

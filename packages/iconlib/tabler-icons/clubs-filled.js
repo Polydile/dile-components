@@ -6,4 +6,6 @@ export class DileIconlibClubsFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clubs-filled', DileIconlibClubsFilled);
+if (!customElements.get('dile-tabler-icon-clubs-filled')) {
+  customElements.define('dile-tabler-icon-clubs-filled', DileIconlibClubsFilled);
+}

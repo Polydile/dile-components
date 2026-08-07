@@ -6,4 +6,6 @@ export class DileIconlibFileWaveform extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-waveform', DileIconlibFileWaveform);
+if (!customElements.get('dile-fontawesome-icon-file-waveform')) {
+  customElements.define('dile-fontawesome-icon-file-waveform', DileIconlibFileWaveform);
+}

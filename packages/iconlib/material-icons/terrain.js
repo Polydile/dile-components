@@ -6,4 +6,6 @@ export class DileIconlibTerrain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-terrain', DileIconlibTerrain);
+if (!customElements.get('dile-material-icon-terrain')) {
+  customElements.define('dile-material-icon-terrain', DileIconlibTerrain);
+}

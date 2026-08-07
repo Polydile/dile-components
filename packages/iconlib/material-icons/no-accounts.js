@@ -6,4 +6,6 @@ export class DileIconlibNoAccounts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-accounts', DileIconlibNoAccounts);
+if (!customElements.get('dile-material-icon-no-accounts')) {
+  customElements.define('dile-material-icon-no-accounts', DileIconlibNoAccounts);
+}

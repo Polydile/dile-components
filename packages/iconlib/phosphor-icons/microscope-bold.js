@@ -6,4 +6,6 @@ export class DileIconlibMicroscopeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microscope-bold', DileIconlibMicroscopeBold);
+if (!customElements.get('dile-phosphor-icon-microscope-bold')) {
+  customElements.define('dile-phosphor-icon-microscope-bold', DileIconlibMicroscopeBold);
+}

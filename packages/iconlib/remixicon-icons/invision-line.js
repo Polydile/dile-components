@@ -6,4 +6,6 @@ export class DileIconlibInvisionLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-invision-line', DileIconlibInvisionLine);
+if (!customElements.get('dile-remixicon-icon-invision-line')) {
+  customElements.define('dile-remixicon-icon-invision-line', DileIconlibInvisionLine);
+}

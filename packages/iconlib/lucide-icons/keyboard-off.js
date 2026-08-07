@@ -6,4 +6,6 @@ export class DileIconlibKeyboardOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-keyboard-off', DileIconlibKeyboardOff);
+if (!customElements.get('dile-lucide-icon-keyboard-off')) {
+  customElements.define('dile-lucide-icon-keyboard-off', DileIconlibKeyboardOff);
+}

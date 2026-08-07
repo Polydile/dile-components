@@ -6,4 +6,6 @@ export class DileIconlibMosqueThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mosque-thin', DileIconlibMosqueThin);
+if (!customElements.get('dile-phosphor-icon-mosque-thin')) {
+  customElements.define('dile-phosphor-icon-mosque-thin', DileIconlibMosqueThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFileDollarFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-dollar-filled', DileIconlibFileDollarFilled);
+if (!customElements.get('dile-tabler-icon-file-dollar-filled')) {
+  customElements.define('dile-tabler-icon-file-dollar-filled', DileIconlibFileDollarFilled);
+}

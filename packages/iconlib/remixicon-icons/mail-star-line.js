@@ -6,4 +6,6 @@ export class DileIconlibMailStarLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mail-star-line', DileIconlibMailStarLine);
+if (!customElements.get('dile-remixicon-icon-mail-star-line')) {
+  customElements.define('dile-remixicon-icon-mail-star-line', DileIconlibMailStarLine);
+}

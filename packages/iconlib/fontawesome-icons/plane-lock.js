@@ -6,4 +6,6 @@ export class DileIconlibPlaneLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plane-lock', DileIconlibPlaneLock);
+if (!customElements.get('dile-fontawesome-icon-plane-lock')) {
+  customElements.define('dile-fontawesome-icon-plane-lock', DileIconlibPlaneLock);
+}

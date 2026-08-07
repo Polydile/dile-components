@@ -1,4 +1,6 @@
 import './star.js';
 import { DileRating } from "./src/DileRating.js";
 
-window.customElements.define("dile-rating", DileRating);
+if (!customElements.get("dile-rating")) {
+  window.customElements.define("dile-rating", DileRating);
+}

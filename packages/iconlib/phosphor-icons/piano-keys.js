@@ -6,4 +6,6 @@ export class DileIconlibPianoKeys extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-piano-keys', DileIconlibPianoKeys);
+if (!customElements.get('dile-phosphor-icon-piano-keys')) {
+  customElements.define('dile-phosphor-icon-piano-keys', DileIconlibPianoKeys);
+}

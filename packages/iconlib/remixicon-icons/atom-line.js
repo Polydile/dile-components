@@ -6,4 +6,6 @@ export class DileIconlibAtomLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-atom-line', DileIconlibAtomLine);
+if (!customElements.get('dile-remixicon-icon-atom-line')) {
+  customElements.define('dile-remixicon-icon-atom-line', DileIconlibAtomLine);
+}

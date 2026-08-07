@@ -6,4 +6,6 @@ export class DileIconlibDribbbleLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dribbble-logo-fill', DileIconlibDribbbleLogoFill);
+if (!customElements.get('dile-phosphor-icon-dribbble-logo-fill')) {
+  customElements.define('dile-phosphor-icon-dribbble-logo-fill', DileIconlibDribbbleLogoFill);
+}

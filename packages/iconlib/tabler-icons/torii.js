@@ -6,4 +6,6 @@ export class DileIconlibTorii extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-torii', DileIconlibTorii);
+if (!customElements.get('dile-tabler-icon-torii')) {
+  customElements.define('dile-tabler-icon-torii', DileIconlibTorii);
+}

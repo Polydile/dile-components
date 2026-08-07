@@ -6,4 +6,6 @@ export class DileIconlibJugDetergent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-jug-detergent', DileIconlibJugDetergent);
+if (!customElements.get('dile-fontawesome-icon-jug-detergent')) {
+  customElements.define('dile-fontawesome-icon-jug-detergent', DileIconlibJugDetergent);
+}

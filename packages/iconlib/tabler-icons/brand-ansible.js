@@ -6,4 +6,6 @@ export class DileIconlibBrandAnsible extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-ansible', DileIconlibBrandAnsible);
+if (!customElements.get('dile-tabler-icon-brand-ansible')) {
+  customElements.define('dile-tabler-icon-brand-ansible', DileIconlibBrandAnsible);
+}

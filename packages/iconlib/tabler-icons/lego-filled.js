@@ -6,4 +6,6 @@ export class DileIconlibLegoFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lego-filled', DileIconlibLegoFilled);
+if (!customElements.get('dile-tabler-icon-lego-filled')) {
+  customElements.define('dile-tabler-icon-lego-filled', DileIconlibLegoFilled);
+}

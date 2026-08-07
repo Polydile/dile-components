@@ -6,4 +6,6 @@ export class DileIconlibRegexOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-regex-off', DileIconlibRegexOff);
+if (!customElements.get('dile-tabler-icon-regex-off')) {
+  customElements.define('dile-tabler-icon-regex-off', DileIconlibRegexOff);
+}

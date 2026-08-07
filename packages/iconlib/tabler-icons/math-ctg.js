@@ -6,4 +6,6 @@ export class DileIconlibMathCtg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-ctg', DileIconlibMathCtg);
+if (!customElements.get('dile-tabler-icon-math-ctg')) {
+  customElements.define('dile-tabler-icon-math-ctg', DileIconlibMathCtg);
+}

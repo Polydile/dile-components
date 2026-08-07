@@ -6,4 +6,6 @@ export class DileIconlibFileHistoryFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-history-fill', DileIconlibFileHistoryFill);
+if (!customElements.get('dile-remixicon-icon-file-history-fill')) {
+  customElements.define('dile-remixicon-icon-file-history-fill', DileIconlibFileHistoryFill);
+}

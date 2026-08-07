@@ -6,4 +6,6 @@ export class DileIconlibAirTrafficControl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-air-traffic-control', DileIconlibAirTrafficControl);
+if (!customElements.get('dile-tabler-icon-air-traffic-control')) {
+  customElements.define('dile-tabler-icon-air-traffic-control', DileIconlibAirTrafficControl);
+}

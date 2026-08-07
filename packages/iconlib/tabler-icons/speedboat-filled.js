@@ -6,4 +6,6 @@ export class DileIconlibSpeedboatFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-speedboat-filled', DileIconlibSpeedboatFilled);
+if (!customElements.get('dile-tabler-icon-speedboat-filled')) {
+  customElements.define('dile-tabler-icon-speedboat-filled', DileIconlibSpeedboatFilled);
+}

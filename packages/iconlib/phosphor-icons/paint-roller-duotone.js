@@ -6,4 +6,6 @@ export class DileIconlibPaintRollerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-roller-duotone', DileIconlibPaintRollerDuotone);
+if (!customElements.get('dile-phosphor-icon-paint-roller-duotone')) {
+  customElements.define('dile-phosphor-icon-paint-roller-duotone', DileIconlibPaintRollerDuotone);
+}

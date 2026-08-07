@@ -6,4 +6,6 @@ export class DileIconlibBrandCoreos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-coreos', DileIconlibBrandCoreos);
+if (!customElements.get('dile-tabler-icon-brand-coreos')) {
+  customElements.define('dile-tabler-icon-brand-coreos', DileIconlibBrandCoreos);
+}

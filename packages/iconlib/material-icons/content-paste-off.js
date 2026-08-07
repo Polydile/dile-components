@@ -6,4 +6,6 @@ export class DileIconlibContentPasteOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-content-paste-off', DileIconlibContentPasteOff);
+if (!customElements.get('dile-material-icon-content-paste-off')) {
+  customElements.define('dile-material-icon-content-paste-off', DileIconlibContentPasteOff);
+}

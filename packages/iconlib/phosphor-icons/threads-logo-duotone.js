@@ -6,4 +6,6 @@ export class DileIconlibThreadsLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-threads-logo-duotone', DileIconlibThreadsLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-threads-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-threads-logo-duotone', DileIconlibThreadsLogoDuotone);
+}

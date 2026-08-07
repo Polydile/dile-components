@@ -6,4 +6,6 @@ export class DileIconlibCircleLetterUFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-letter-u-filled', DileIconlibCircleLetterUFilled);
+if (!customElements.get('dile-tabler-icon-circle-letter-u-filled')) {
+  customElements.define('dile-tabler-icon-circle-letter-u-filled', DileIconlibCircleLetterUFilled);
+}

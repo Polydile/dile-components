@@ -6,4 +6,6 @@ export class DileIconlibScissorsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scissors-off', DileIconlibScissorsOff);
+if (!customElements.get('dile-tabler-icon-scissors-off')) {
+  customElements.define('dile-tabler-icon-scissors-off', DileIconlibScissorsOff);
+}

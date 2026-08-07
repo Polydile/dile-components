@@ -6,4 +6,6 @@ export class DileIconlibCubeUnfolded extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cube-unfolded', DileIconlibCubeUnfolded);
+if (!customElements.get('dile-tabler-icon-cube-unfolded')) {
+  customElements.define('dile-tabler-icon-cube-unfolded', DileIconlibCubeUnfolded);
+}

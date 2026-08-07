@@ -6,4 +6,6 @@ export class DileIconlibHospital extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hospital', DileIconlibHospital);
+if (!customElements.get('dile-tabler-icon-hospital')) {
+  customElements.define('dile-tabler-icon-hospital', DileIconlibHospital);
+}

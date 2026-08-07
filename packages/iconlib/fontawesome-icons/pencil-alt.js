@@ -6,4 +6,6 @@ export class DileIconlibPencilAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pencil-alt', DileIconlibPencilAlt);
+if (!customElements.get('dile-fontawesome-icon-pencil-alt')) {
+  customElements.define('dile-fontawesome-icon-pencil-alt', DileIconlibPencilAlt);
+}

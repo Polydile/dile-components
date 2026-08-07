@@ -6,4 +6,6 @@ export class DileIconlibYinYang extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yin-yang', DileIconlibYinYang);
+if (!customElements.get('dile-fontawesome-icon-yin-yang')) {
+  customElements.define('dile-fontawesome-icon-yin-yang', DileIconlibYinYang);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPaperclipFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paperclip-fill', DileIconlibPaperclipFill);
+if (!customElements.get('dile-phosphor-icon-paperclip-fill')) {
+  customElements.define('dile-phosphor-icon-paperclip-fill', DileIconlibPaperclipFill);
+}

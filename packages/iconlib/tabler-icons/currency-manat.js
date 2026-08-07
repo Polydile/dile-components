@@ -6,4 +6,6 @@ export class DileIconlibCurrencyManat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-manat', DileIconlibCurrencyManat);
+if (!customElements.get('dile-tabler-icon-currency-manat')) {
+  customElements.define('dile-tabler-icon-currency-manat', DileIconlibCurrencyManat);
+}

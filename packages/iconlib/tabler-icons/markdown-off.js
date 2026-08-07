@@ -6,4 +6,6 @@ export class DileIconlibMarkdownOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-markdown-off', DileIconlibMarkdownOff);
+if (!customElements.get('dile-tabler-icon-markdown-off')) {
+  customElements.define('dile-tabler-icon-markdown-off', DileIconlibMarkdownOff);
+}

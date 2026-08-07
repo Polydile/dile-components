@@ -6,4 +6,6 @@ export class DileIconlibTreeEvergreen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tree-evergreen', DileIconlibTreeEvergreen);
+if (!customElements.get('dile-phosphor-icon-tree-evergreen')) {
+  customElements.define('dile-phosphor-icon-tree-evergreen', DileIconlibTreeEvergreen);
+}

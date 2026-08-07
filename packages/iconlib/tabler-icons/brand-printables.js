@@ -6,4 +6,6 @@ export class DileIconlibBrandPrintables extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-printables', DileIconlibBrandPrintables);
+if (!customElements.get('dile-tabler-icon-brand-printables')) {
+  customElements.define('dile-tabler-icon-brand-printables', DileIconlibBrandPrintables);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFilePenLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-pen-line', DileIconlibFilePenLine);
+if (!customElements.get('dile-lucide-icon-file-pen-line')) {
+  customElements.define('dile-lucide-icon-file-pen-line', DileIconlibFilePenLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSplitHorizontalThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-split-horizontal-thin', DileIconlibSplitHorizontalThin);
+if (!customElements.get('dile-phosphor-icon-split-horizontal-thin')) {
+  customElements.define('dile-phosphor-icon-split-horizontal-thin', DileIconlibSplitHorizontalThin);
+}

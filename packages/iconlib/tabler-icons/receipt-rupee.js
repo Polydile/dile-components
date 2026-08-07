@@ -6,4 +6,6 @@ export class DileIconlibReceiptRupee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-rupee', DileIconlibReceiptRupee);
+if (!customElements.get('dile-tabler-icon-receipt-rupee')) {
+  customElements.define('dile-tabler-icon-receipt-rupee', DileIconlibReceiptRupee);
+}

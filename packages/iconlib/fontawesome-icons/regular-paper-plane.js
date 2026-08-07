@@ -6,4 +6,6 @@ export class DileIconlibPaperPlane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-paper-plane', DileIconlibPaperPlane);
+if (!customElements.get('dile-fontawesome-icon-regular-paper-plane')) {
+  customElements.define('dile-fontawesome-icon-regular-paper-plane', DileIconlibPaperPlane);
+}

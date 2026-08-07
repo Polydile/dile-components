@@ -6,4 +6,6 @@ export class DileIconlibBlackTie extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-black-tie', DileIconlibBlackTie);
+if (!customElements.get('dile-fontawesome-icon-black-tie')) {
+  customElements.define('dile-fontawesome-icon-black-tie', DileIconlibBlackTie);
+}

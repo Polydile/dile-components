@@ -6,4 +6,6 @@ export class DileIconlibUtilityPole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-utility-pole', DileIconlibUtilityPole);
+if (!customElements.get('dile-lucide-icon-utility-pole')) {
+  customElements.define('dile-lucide-icon-utility-pole', DileIconlibUtilityPole);
+}

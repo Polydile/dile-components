@@ -6,4 +6,6 @@ export class DileIconlibNotificationsPaused extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-notifications-paused', DileIconlibNotificationsPaused);
+if (!customElements.get('dile-material-icon-notifications-paused')) {
+  customElements.define('dile-material-icon-notifications-paused', DileIconlibNotificationsPaused);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWebhookOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-webhook-off', DileIconlibWebhookOff);
+if (!customElements.get('dile-tabler-icon-webhook-off')) {
+  customElements.define('dile-tabler-icon-webhook-off', DileIconlibWebhookOff);
+}

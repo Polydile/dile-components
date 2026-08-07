@@ -6,4 +6,6 @@ export class DileIconlibLegendToggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-legend-toggle', DileIconlibLegendToggle);
+if (!customElements.get('dile-material-icon-legend-toggle')) {
+  customElements.define('dile-material-icon-legend-toggle', DileIconlibLegendToggle);
+}

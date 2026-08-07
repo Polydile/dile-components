@@ -6,4 +6,6 @@ export class DileIconlibPlayBasketball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-play-basketball', DileIconlibPlayBasketball);
+if (!customElements.get('dile-tabler-icon-play-basketball')) {
+  customElements.define('dile-tabler-icon-play-basketball', DileIconlibPlayBasketball);
+}

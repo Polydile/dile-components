@@ -6,4 +6,6 @@ export class DileIconlibDebian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-debian', DileIconlibDebian);
+if (!customElements.get('dile-fontawesome-icon-debian')) {
+  customElements.define('dile-fontawesome-icon-debian', DileIconlibDebian);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBuildingWindTurbine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-wind-turbine', DileIconlibBuildingWindTurbine);
+if (!customElements.get('dile-tabler-icon-building-wind-turbine')) {
+  customElements.define('dile-tabler-icon-building-wind-turbine', DileIconlibBuildingWindTurbine);
+}

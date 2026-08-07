@@ -6,4 +6,6 @@ export class DileIconlibCurrencyPoundOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-pound-off', DileIconlibCurrencyPoundOff);
+if (!customElements.get('dile-tabler-icon-currency-pound-off')) {
+  customElements.define('dile-tabler-icon-currency-pound-off', DileIconlibCurrencyPoundOff);
+}

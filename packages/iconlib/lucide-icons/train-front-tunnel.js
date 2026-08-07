@@ -6,4 +6,6 @@ export class DileIconlibTrainFrontTunnel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-train-front-tunnel', DileIconlibTrainFrontTunnel);
+if (!customElements.get('dile-lucide-icon-train-front-tunnel')) {
+  customElements.define('dile-lucide-icon-train-front-tunnel', DileIconlibTrainFrontTunnel);
+}

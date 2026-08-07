@@ -6,4 +6,6 @@ export class DileIconlibPanoramaHorizontalOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-panorama-horizontal-off', DileIconlibPanoramaHorizontalOff);
+if (!customElements.get('dile-tabler-icon-panorama-horizontal-off')) {
+  customElements.define('dile-tabler-icon-panorama-horizontal-off', DileIconlibPanoramaHorizontalOff);
+}

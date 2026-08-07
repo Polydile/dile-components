@@ -1,3 +1,5 @@
 import { DileButton } from "./src/DileButton.js";
 
-window.customElements.define("dile-button", DileButton);
+if (!customElements.get("dile-button")) {
+  window.customElements.define("dile-button", DileButton);
+}

@@ -6,4 +6,6 @@ export class DileIconlibConfettiFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-confetti-filled', DileIconlibConfettiFilled);
+if (!customElements.get('dile-tabler-icon-confetti-filled')) {
+  customElements.define('dile-tabler-icon-confetti-filled', DileIconlibConfettiFilled);
+}

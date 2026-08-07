@@ -6,4 +6,6 @@ export class DileIconlibBrandTopbuzz extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-topbuzz', DileIconlibBrandTopbuzz);
+if (!customElements.get('dile-tabler-icon-brand-topbuzz')) {
+  customElements.define('dile-tabler-icon-brand-topbuzz', DileIconlibBrandTopbuzz);
+}

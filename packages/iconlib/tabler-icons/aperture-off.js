@@ -6,4 +6,6 @@ export class DileIconlibApertureOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-aperture-off', DileIconlibApertureOff);
+if (!customElements.get('dile-tabler-icon-aperture-off')) {
+  customElements.define('dile-tabler-icon-aperture-off', DileIconlibApertureOff);
+}

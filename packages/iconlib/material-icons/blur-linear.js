@@ -6,4 +6,6 @@ export class DileIconlibBlurLinear extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-blur-linear', DileIconlibBlurLinear);
+if (!customElements.get('dile-material-icon-blur-linear')) {
+  customElements.define('dile-material-icon-blur-linear', DileIconlibBlurLinear);
+}

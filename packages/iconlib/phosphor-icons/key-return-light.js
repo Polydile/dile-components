@@ -6,4 +6,6 @@ export class DileIconlibKeyReturnLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-key-return-light', DileIconlibKeyReturnLight);
+if (!customElements.get('dile-phosphor-icon-key-return-light')) {
+  customElements.define('dile-phosphor-icon-key-return-light', DileIconlibKeyReturnLight);
+}

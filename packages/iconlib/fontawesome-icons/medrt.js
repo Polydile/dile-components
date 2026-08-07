@@ -6,4 +6,6 @@ export class DileIconlibMedrt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-medrt', DileIconlibMedrt);
+if (!customElements.get('dile-fontawesome-icon-medrt')) {
+  customElements.define('dile-fontawesome-icon-medrt', DileIconlibMedrt);
+}

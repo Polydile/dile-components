@@ -6,4 +6,6 @@ export class DileIconlibWand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wand', DileIconlibWand);
+if (!customElements.get('dile-tabler-icon-wand')) {
+  customElements.define('dile-tabler-icon-wand', DileIconlibWand);
+}

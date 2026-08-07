@@ -6,4 +6,6 @@ export class DileIconlibClipboardClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-clipboard-clock', DileIconlibClipboardClock);
+if (!customElements.get('dile-lucide-icon-clipboard-clock')) {
+  customElements.define('dile-lucide-icon-clipboard-clock', DileIconlibClipboardClock);
+}

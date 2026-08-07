@@ -6,4 +6,6 @@ export class DileIconlibEmotionHappyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-emotion-happy-line', DileIconlibEmotionHappyLine);
+if (!customElements.get('dile-remixicon-icon-emotion-happy-line')) {
+  customElements.define('dile-remixicon-icon-emotion-happy-line', DileIconlibEmotionHappyLine);
+}

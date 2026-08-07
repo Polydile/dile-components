@@ -6,4 +6,6 @@ export class DileIconlibActivityHeartbeat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-activity-heartbeat', DileIconlibActivityHeartbeat);
+if (!customElements.get('dile-tabler-icon-activity-heartbeat')) {
+  customElements.define('dile-tabler-icon-activity-heartbeat', DileIconlibActivityHeartbeat);
+}

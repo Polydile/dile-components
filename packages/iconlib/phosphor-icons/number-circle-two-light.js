@@ -6,4 +6,6 @@ export class DileIconlibNumberCircleTwoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-circle-two-light', DileIconlibNumberCircleTwoLight);
+if (!customElements.get('dile-phosphor-icon-number-circle-two-light')) {
+  customElements.define('dile-phosphor-icon-number-circle-two-light', DileIconlibNumberCircleTwoLight);
+}

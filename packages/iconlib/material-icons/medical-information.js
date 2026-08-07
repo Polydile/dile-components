@@ -6,4 +6,6 @@ export class DileIconlibMedicalInformation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-medical-information', DileIconlibMedicalInformation);
+if (!customElements.get('dile-material-icon-medical-information')) {
+  customElements.define('dile-material-icon-medical-information', DileIconlibMedicalInformation);
+}

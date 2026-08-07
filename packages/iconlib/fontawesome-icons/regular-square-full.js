@@ -6,4 +6,6 @@ export class DileIconlibSquareFull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-square-full', DileIconlibSquareFull);
+if (!customElements.get('dile-fontawesome-icon-regular-square-full')) {
+  customElements.define('dile-fontawesome-icon-regular-square-full', DileIconlibSquareFull);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZoomOutArea extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-out-area', DileIconlibZoomOutArea);
+if (!customElements.get('dile-tabler-icon-zoom-out-area')) {
+  customElements.define('dile-tabler-icon-zoom-out-area', DileIconlibZoomOutArea);
+}

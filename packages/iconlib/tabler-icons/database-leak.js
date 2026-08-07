@@ -6,4 +6,6 @@ export class DileIconlibDatabaseLeak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-database-leak', DileIconlibDatabaseLeak);
+if (!customElements.get('dile-tabler-icon-database-leak')) {
+  customElements.define('dile-tabler-icon-database-leak', DileIconlibDatabaseLeak);
+}

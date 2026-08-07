@@ -6,4 +6,6 @@ export class DileIconlibBracketsRoundThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brackets-round-thin', DileIconlibBracketsRoundThin);
+if (!customElements.get('dile-phosphor-icon-brackets-round-thin')) {
+  customElements.define('dile-phosphor-icon-brackets-round-thin', DileIconlibBracketsRoundThin);
+}

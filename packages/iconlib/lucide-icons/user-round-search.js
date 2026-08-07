@@ -6,4 +6,6 @@ export class DileIconlibUserRoundSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-user-round-search', DileIconlibUserRoundSearch);
+if (!customElements.get('dile-lucide-icon-user-round-search')) {
+  customElements.define('dile-lucide-icon-user-round-search', DileIconlibUserRoundSearch);
+}

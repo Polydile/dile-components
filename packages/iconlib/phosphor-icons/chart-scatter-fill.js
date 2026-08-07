@@ -6,4 +6,6 @@ export class DileIconlibChartScatterFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-scatter-fill', DileIconlibChartScatterFill);
+if (!customElements.get('dile-phosphor-icon-chart-scatter-fill')) {
+  customElements.define('dile-phosphor-icon-chart-scatter-fill', DileIconlibChartScatterFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMeetup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-meetup', DileIconlibMeetup);
+if (!customElements.get('dile-fontawesome-icon-meetup')) {
+  customElements.define('dile-fontawesome-icon-meetup', DileIconlibMeetup);
+}

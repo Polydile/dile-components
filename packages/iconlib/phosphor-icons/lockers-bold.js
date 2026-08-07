@@ -6,4 +6,6 @@ export class DileIconlibLockersBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lockers-bold', DileIconlibLockersBold);
+if (!customElements.get('dile-phosphor-icon-lockers-bold')) {
+  customElements.define('dile-phosphor-icon-lockers-bold', DileIconlibLockersBold);
+}

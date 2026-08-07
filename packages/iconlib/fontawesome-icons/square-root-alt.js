@@ -6,4 +6,6 @@ export class DileIconlibSquareRootAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-root-alt', DileIconlibSquareRootAlt);
+if (!customElements.get('dile-fontawesome-icon-square-root-alt')) {
+  customElements.define('dile-fontawesome-icon-square-root-alt', DileIconlibSquareRootAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBugPlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bug-play', DileIconlibBugPlay);
+if (!customElements.get('dile-lucide-icon-bug-play')) {
+  customElements.define('dile-lucide-icon-bug-play', DileIconlibBugPlay);
+}

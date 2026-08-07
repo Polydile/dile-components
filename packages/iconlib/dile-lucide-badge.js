@@ -1,3 +1,5 @@
 import { DileLucideBadge } from "./src/DileLucideBadge.js";
 
-customElements.define('dile-lucide-badge', DileLucideBadge);
+if (!customElements.get('dile-lucide-badge')) {
+  customElements.define('dile-lucide-badge', DileLucideBadge);
+}

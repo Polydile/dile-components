@@ -6,4 +6,6 @@ export class DileIconlibStorm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-storm', DileIconlibStorm);
+if (!customElements.get('dile-material-icon-storm')) {
+  customElements.define('dile-material-icon-storm', DileIconlibStorm);
+}

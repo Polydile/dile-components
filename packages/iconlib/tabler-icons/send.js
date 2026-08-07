@@ -6,4 +6,6 @@ export class DileIconlibSend extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-send', DileIconlibSend);
+if (!customElements.get('dile-tabler-icon-send')) {
+  customElements.define('dile-tabler-icon-send', DileIconlibSend);
+}

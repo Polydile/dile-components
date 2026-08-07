@@ -6,4 +6,6 @@ export class DileIconlibTouchpad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-touchpad', DileIconlibTouchpad);
+if (!customElements.get('dile-lucide-icon-touchpad')) {
+  customElements.define('dile-lucide-icon-touchpad', DileIconlibTouchpad);
+}

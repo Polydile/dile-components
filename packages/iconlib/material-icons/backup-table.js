@@ -6,4 +6,6 @@ export class DileIconlibBackupTable extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-backup-table', DileIconlibBackupTable);
+if (!customElements.get('dile-material-icon-backup-table')) {
+  customElements.define('dile-material-icon-backup-table', DileIconlibBackupTable);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChromeReaderMode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-chrome-reader-mode', DileIconlibChromeReaderMode);
+if (!customElements.get('dile-material-icon-chrome-reader-mode')) {
+  customElements.define('dile-material-icon-chrome-reader-mode', DileIconlibChromeReaderMode);
+}

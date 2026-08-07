@@ -6,4 +6,6 @@ export class DileIconlibLungsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lungs-fill', DileIconlibLungsFill);
+if (!customElements.get('dile-remixicon-icon-lungs-fill')) {
+  customElements.define('dile-remixicon-icon-lungs-fill', DileIconlibLungsFill);
+}

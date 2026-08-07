@@ -6,4 +6,6 @@ export class DileIconlibMoonLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-moon-light', DileIconlibMoonLight);
+if (!customElements.get('dile-phosphor-icon-moon-light')) {
+  customElements.define('dile-phosphor-icon-moon-light', DileIconlibMoonLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFileTypeJs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-js', DileIconlibFileTypeJs);
+if (!customElements.get('dile-tabler-icon-file-type-js')) {
+  customElements.define('dile-tabler-icon-file-type-js', DileIconlibFileTypeJs);
+}

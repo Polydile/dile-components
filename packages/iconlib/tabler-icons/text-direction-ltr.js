@@ -6,4 +6,6 @@ export class DileIconlibTextDirectionLtr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-direction-ltr', DileIconlibTextDirectionLtr);
+if (!customElements.get('dile-tabler-icon-text-direction-ltr')) {
+  customElements.define('dile-tabler-icon-text-direction-ltr', DileIconlibTextDirectionLtr);
+}

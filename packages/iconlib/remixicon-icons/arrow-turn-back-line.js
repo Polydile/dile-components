@@ -6,4 +6,6 @@ export class DileIconlibArrowTurnBackLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-arrow-turn-back-line', DileIconlibArrowTurnBackLine);
+if (!customElements.get('dile-remixicon-icon-arrow-turn-back-line')) {
+  customElements.define('dile-remixicon-icon-arrow-turn-back-line', DileIconlibArrowTurnBackLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTired extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-tired', DileIconlibTired);
+if (!customElements.get('dile-fontawesome-icon-regular-tired')) {
+  customElements.define('dile-fontawesome-icon-regular-tired', DileIconlibTired);
+}

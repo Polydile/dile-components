@@ -6,4 +6,6 @@ export class DileIconlibLensConvex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lens-convex', DileIconlibLensConvex);
+if (!customElements.get('dile-lucide-icon-lens-convex')) {
+  customElements.define('dile-lucide-icon-lens-convex', DileIconlibLensConvex);
+}

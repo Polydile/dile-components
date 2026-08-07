@@ -6,4 +6,6 @@ export class DileIconlibFileShredLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-shred-line', DileIconlibFileShredLine);
+if (!customElements.get('dile-remixicon-icon-file-shred-line')) {
+  customElements.define('dile-remixicon-icon-file-shred-line', DileIconlibFileShredLine);
+}

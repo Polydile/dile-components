@@ -6,4 +6,6 @@ export class DileIconlibClapperboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-clapperboard', DileIconlibClapperboard);
+if (!customElements.get('dile-fontawesome-icon-clapperboard')) {
+  customElements.define('dile-fontawesome-icon-clapperboard', DileIconlibClapperboard);
+}

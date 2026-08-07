@@ -6,4 +6,6 @@ export class DileIconlibAiAgent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ai-agent', DileIconlibAiAgent);
+if (!customElements.get('dile-tabler-icon-ai-agent')) {
+  customElements.define('dile-tabler-icon-ai-agent', DileIconlibAiAgent);
+}

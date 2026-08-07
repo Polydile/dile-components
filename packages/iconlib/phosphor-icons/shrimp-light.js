@@ -6,4 +6,6 @@ export class DileIconlibShrimpLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shrimp-light', DileIconlibShrimpLight);
+if (!customElements.get('dile-phosphor-icon-shrimp-light')) {
+  customElements.define('dile-phosphor-icon-shrimp-light', DileIconlibShrimpLight);
+}

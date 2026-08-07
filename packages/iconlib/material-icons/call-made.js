@@ -6,4 +6,6 @@ export class DileIconlibCallMade extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-call-made', DileIconlibCallMade);
+if (!customElements.get('dile-material-icon-call-made')) {
+  customElements.define('dile-material-icon-call-made', DileIconlibCallMade);
+}

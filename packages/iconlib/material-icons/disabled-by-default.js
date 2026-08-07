@@ -6,4 +6,6 @@ export class DileIconlibDisabledByDefault extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-disabled-by-default', DileIconlibDisabledByDefault);
+if (!customElements.get('dile-material-icon-disabled-by-default')) {
+  customElements.define('dile-material-icon-disabled-by-default', DileIconlibDisabledByDefault);
+}

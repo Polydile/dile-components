@@ -6,4 +6,6 @@ export class DileIconlibFileTypePdf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-pdf', DileIconlibFileTypePdf);
+if (!customElements.get('dile-tabler-icon-file-type-pdf')) {
+  customElements.define('dile-tabler-icon-file-type-pdf', DileIconlibFileTypePdf);
+}

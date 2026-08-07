@@ -6,4 +6,6 @@ export class DileIconlibEnergySavingsLeaf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-energy-savings-leaf', DileIconlibEnergySavingsLeaf);
+if (!customElements.get('dile-material-icon-energy-savings-leaf')) {
+  customElements.define('dile-material-icon-energy-savings-leaf', DileIconlibEnergySavingsLeaf);
+}

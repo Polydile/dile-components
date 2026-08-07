@@ -6,4 +6,6 @@ export class DileIconlibBrushOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brush-off', DileIconlibBrushOff);
+if (!customElements.get('dile-tabler-icon-brush-off')) {
+  customElements.define('dile-tabler-icon-brush-off', DileIconlibBrushOff);
+}

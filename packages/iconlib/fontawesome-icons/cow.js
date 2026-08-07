@@ -6,4 +6,6 @@ export class DileIconlibCow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cow', DileIconlibCow);
+if (!customElements.get('dile-fontawesome-icon-cow')) {
+  customElements.define('dile-fontawesome-icon-cow', DileIconlibCow);
+}

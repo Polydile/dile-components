@@ -6,4 +6,6 @@ export class DileIconlibNumbersLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-numbers-line', DileIconlibNumbersLine);
+if (!customElements.get('dile-remixicon-icon-numbers-line')) {
+  customElements.define('dile-remixicon-icon-numbers-line', DileIconlibNumbersLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibExposurePlus2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-exposure-plus-2', DileIconlibExposurePlus2);
+if (!customElements.get('dile-material-icon-exposure-plus-2')) {
+  customElements.define('dile-material-icon-exposure-plus-2', DileIconlibExposurePlus2);
+}

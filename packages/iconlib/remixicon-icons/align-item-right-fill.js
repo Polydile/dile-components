@@ -6,4 +6,6 @@ export class DileIconlibAlignItemRightFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-align-item-right-fill', DileIconlibAlignItemRightFill);
+if (!customElements.get('dile-remixicon-icon-align-item-right-fill')) {
+  customElements.define('dile-remixicon-icon-align-item-right-fill', DileIconlibAlignItemRightFill);
+}

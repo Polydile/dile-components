@@ -6,4 +6,6 @@ export class DileIconlibGooglePhotosLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-photos-logo-duotone', DileIconlibGooglePhotosLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-google-photos-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-google-photos-logo-duotone', DileIconlibGooglePhotosLogoDuotone);
+}

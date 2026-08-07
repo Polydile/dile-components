@@ -6,4 +6,6 @@ export class DileIconlibIncompleteCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-incomplete-circle', DileIconlibIncompleteCircle);
+if (!customElements.get('dile-material-icon-incomplete-circle')) {
+  customElements.define('dile-material-icon-incomplete-circle', DileIconlibIncompleteCircle);
+}

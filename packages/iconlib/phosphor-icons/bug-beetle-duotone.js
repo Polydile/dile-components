@@ -6,4 +6,6 @@ export class DileIconlibBugBeetleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bug-beetle-duotone', DileIconlibBugBeetleDuotone);
+if (!customElements.get('dile-phosphor-icon-bug-beetle-duotone')) {
+  customElements.define('dile-phosphor-icon-bug-beetle-duotone', DileIconlibBugBeetleDuotone);
+}

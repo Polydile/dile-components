@@ -6,4 +6,6 @@ export class DileIconlibYarn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-yarn', DileIconlibYarn);
+if (!customElements.get('dile-tabler-icon-yarn')) {
+  customElements.define('dile-tabler-icon-yarn', DileIconlibYarn);
+}

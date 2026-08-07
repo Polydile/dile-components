@@ -6,4 +6,6 @@ export class DileIconlibBlackberry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-blackberry', DileIconlibBlackberry);
+if (!customElements.get('dile-fontawesome-icon-blackberry')) {
+  customElements.define('dile-fontawesome-icon-blackberry', DileIconlibBlackberry);
+}

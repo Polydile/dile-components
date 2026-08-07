@@ -6,4 +6,6 @@ export class DileIconlibRemoveRedEye extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-remove-red-eye', DileIconlibRemoveRedEye);
+if (!customElements.get('dile-material-icon-remove-red-eye')) {
+  customElements.define('dile-material-icon-remove-red-eye', DileIconlibRemoveRedEye);
+}

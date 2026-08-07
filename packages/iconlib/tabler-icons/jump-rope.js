@@ -6,4 +6,6 @@ export class DileIconlibJumpRope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-jump-rope', DileIconlibJumpRope);
+if (!customElements.get('dile-tabler-icon-jump-rope')) {
+  customElements.define('dile-tabler-icon-jump-rope', DileIconlibJumpRope);
+}

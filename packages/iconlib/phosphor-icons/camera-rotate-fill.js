@@ -6,4 +6,6 @@ export class DileIconlibCameraRotateFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-camera-rotate-fill', DileIconlibCameraRotateFill);
+if (!customElements.get('dile-phosphor-icon-camera-rotate-fill')) {
+  customElements.define('dile-phosphor-icon-camera-rotate-fill', DileIconlibCameraRotateFill);
+}

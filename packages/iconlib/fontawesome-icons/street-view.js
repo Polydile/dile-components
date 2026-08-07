@@ -6,4 +6,6 @@ export class DileIconlibStreetView extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-street-view', DileIconlibStreetView);
+if (!customElements.get('dile-fontawesome-icon-street-view')) {
+  customElements.define('dile-fontawesome-icon-street-view', DileIconlibStreetView);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandCucumber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cucumber', DileIconlibBrandCucumber);
+if (!customElements.get('dile-tabler-icon-brand-cucumber')) {
+  customElements.define('dile-tabler-icon-brand-cucumber', DileIconlibBrandCucumber);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDisease extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-disease', DileIconlibDisease);
+if (!customElements.get('dile-fontawesome-icon-disease')) {
+  customElements.define('dile-fontawesome-icon-disease', DileIconlibDisease);
+}

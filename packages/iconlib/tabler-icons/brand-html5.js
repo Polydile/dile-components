@@ -6,4 +6,6 @@ export class DileIconlibBrandHtml5 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-html5', DileIconlibBrandHtml5);
+if (!customElements.get('dile-tabler-icon-brand-html5')) {
+  customElements.define('dile-tabler-icon-brand-html5', DileIconlibBrandHtml5);
+}

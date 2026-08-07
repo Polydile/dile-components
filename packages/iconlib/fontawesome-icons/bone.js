@@ -6,4 +6,6 @@ export class DileIconlibBone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bone', DileIconlibBone);
+if (!customElements.get('dile-fontawesome-icon-bone')) {
+  customElements.define('dile-fontawesome-icon-bone', DileIconlibBone);
+}

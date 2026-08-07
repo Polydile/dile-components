@@ -6,4 +6,6 @@ export class DileIconlibNotificationBadgeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-notification-badge-fill', DileIconlibNotificationBadgeFill);
+if (!customElements.get('dile-remixicon-icon-notification-badge-fill')) {
+  customElements.define('dile-remixicon-icon-notification-badge-fill', DileIconlibNotificationBadgeFill);
+}

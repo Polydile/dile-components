@@ -6,4 +6,6 @@ export class DileIconlibMapPinPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-map-pin-plus', DileIconlibMapPinPlus);
+if (!customElements.get('dile-phosphor-icon-map-pin-plus')) {
+  customElements.define('dile-phosphor-icon-map-pin-plus', DileIconlibMapPinPlus);
+}

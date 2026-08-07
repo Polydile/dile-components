@@ -6,4 +6,6 @@ export class DileIconlibGovernmentLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-government-line', DileIconlibGovernmentLine);
+if (!customElements.get('dile-remixicon-icon-government-line')) {
+  customElements.define('dile-remixicon-icon-government-line', DileIconlibGovernmentLine);
+}

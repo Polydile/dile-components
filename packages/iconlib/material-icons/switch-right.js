@@ -6,4 +6,6 @@ export class DileIconlibSwitchRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-switch-right', DileIconlibSwitchRight);
+if (!customElements.get('dile-material-icon-switch-right')) {
+  customElements.define('dile-material-icon-switch-right', DileIconlibSwitchRight);
+}

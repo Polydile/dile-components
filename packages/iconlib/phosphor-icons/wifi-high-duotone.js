@@ -6,4 +6,6 @@ export class DileIconlibWifiHighDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wifi-high-duotone', DileIconlibWifiHighDuotone);
+if (!customElements.get('dile-phosphor-icon-wifi-high-duotone')) {
+  customElements.define('dile-phosphor-icon-wifi-high-duotone', DileIconlibWifiHighDuotone);
+}

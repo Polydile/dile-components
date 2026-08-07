@@ -6,4 +6,6 @@ export class DileIconlibEqualApproximately extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-equal-approximately', DileIconlibEqualApproximately);
+if (!customElements.get('dile-lucide-icon-equal-approximately')) {
+  customElements.define('dile-lucide-icon-equal-approximately', DileIconlibEqualApproximately);
+}

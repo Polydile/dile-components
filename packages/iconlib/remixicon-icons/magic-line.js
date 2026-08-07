@@ -6,4 +6,6 @@ export class DileIconlibMagicLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-magic-line', DileIconlibMagicLine);
+if (!customElements.get('dile-remixicon-icon-magic-line')) {
+  customElements.define('dile-remixicon-icon-magic-line', DileIconlibMagicLine);
+}

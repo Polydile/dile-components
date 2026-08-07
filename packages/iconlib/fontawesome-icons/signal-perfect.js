@@ -6,4 +6,6 @@ export class DileIconlibSignalPerfect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-signal-perfect', DileIconlibSignalPerfect);
+if (!customElements.get('dile-fontawesome-icon-signal-perfect')) {
+  customElements.define('dile-fontawesome-icon-signal-perfect', DileIconlibSignalPerfect);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSterlingSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sterling-sign', DileIconlibSterlingSign);
+if (!customElements.get('dile-fontawesome-icon-sterling-sign')) {
+  customElements.define('dile-fontawesome-icon-sterling-sign', DileIconlibSterlingSign);
+}

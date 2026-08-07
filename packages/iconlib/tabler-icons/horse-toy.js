@@ -6,4 +6,6 @@ export class DileIconlibHorseToy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-horse-toy', DileIconlibHorseToy);
+if (!customElements.get('dile-tabler-icon-horse-toy')) {
+  customElements.define('dile-tabler-icon-horse-toy', DileIconlibHorseToy);
+}

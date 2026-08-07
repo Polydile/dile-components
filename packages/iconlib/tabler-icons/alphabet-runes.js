@@ -6,4 +6,6 @@ export class DileIconlibAlphabetRunes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-runes', DileIconlibAlphabetRunes);
+if (!customElements.get('dile-tabler-icon-alphabet-runes')) {
+  customElements.define('dile-tabler-icon-alphabet-runes', DileIconlibAlphabetRunes);
+}

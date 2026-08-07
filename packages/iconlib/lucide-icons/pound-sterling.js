@@ -6,4 +6,6 @@ export class DileIconlibPoundSterling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pound-sterling', DileIconlibPoundSterling);
+if (!customElements.get('dile-lucide-icon-pound-sterling')) {
+  customElements.define('dile-lucide-icon-pound-sterling', DileIconlibPoundSterling);
+}

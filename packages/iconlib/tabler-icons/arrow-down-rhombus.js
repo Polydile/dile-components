@@ -6,4 +6,6 @@ export class DileIconlibArrowDownRhombus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-down-rhombus', DileIconlibArrowDownRhombus);
+if (!customElements.get('dile-tabler-icon-arrow-down-rhombus')) {
+  customElements.define('dile-tabler-icon-arrow-down-rhombus', DileIconlibArrowDownRhombus);
+}

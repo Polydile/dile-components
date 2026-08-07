@@ -6,4 +6,6 @@ export class DileIconlibMeeple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-meeple', DileIconlibMeeple);
+if (!customElements.get('dile-tabler-icon-meeple')) {
+  customElements.define('dile-tabler-icon-meeple', DileIconlibMeeple);
+}

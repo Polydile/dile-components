@@ -6,4 +6,6 @@ export class DileIconlibLetterF extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-f', DileIconlibLetterF);
+if (!customElements.get('dile-tabler-icon-letter-f')) {
+  customElements.define('dile-tabler-icon-letter-f', DileIconlibLetterF);
+}

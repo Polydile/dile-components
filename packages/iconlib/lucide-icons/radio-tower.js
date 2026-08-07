@@ -6,4 +6,6 @@ export class DileIconlibRadioTower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-radio-tower', DileIconlibRadioTower);
+if (!customElements.get('dile-lucide-icon-radio-tower')) {
+  customElements.define('dile-lucide-icon-radio-tower', DileIconlibRadioTower);
+}

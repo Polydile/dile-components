@@ -6,4 +6,6 @@ export class DileIconlibReservedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-reserved-line', DileIconlibReservedLine);
+if (!customElements.get('dile-tabler-icon-reserved-line')) {
+  customElements.define('dile-tabler-icon-reserved-line', DileIconlibReservedLine);
+}

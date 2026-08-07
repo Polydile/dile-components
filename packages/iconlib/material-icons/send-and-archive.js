@@ -6,4 +6,6 @@ export class DileIconlibSendAndArchive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-send-and-archive', DileIconlibSendAndArchive);
+if (!customElements.get('dile-material-icon-send-and-archive')) {
+  customElements.define('dile-material-icon-send-and-archive', DileIconlibSendAndArchive);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStarHalfStroke extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-star-half-stroke', DileIconlibStarHalfStroke);
+if (!customElements.get('dile-fontawesome-icon-star-half-stroke')) {
+  customElements.define('dile-fontawesome-icon-star-half-stroke', DileIconlibStarHalfStroke);
+}

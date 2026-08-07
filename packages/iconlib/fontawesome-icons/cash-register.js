@@ -6,4 +6,6 @@ export class DileIconlibCashRegister extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cash-register', DileIconlibCashRegister);
+if (!customElements.get('dile-fontawesome-icon-cash-register')) {
+  customElements.define('dile-fontawesome-icon-cash-register', DileIconlibCashRegister);
+}

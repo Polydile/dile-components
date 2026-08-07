@@ -6,4 +6,6 @@ export class DileIconlibPassportFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-passport-fill', DileIconlibPassportFill);
+if (!customElements.get('dile-remixicon-icon-passport-fill')) {
+  customElements.define('dile-remixicon-icon-passport-fill', DileIconlibPassportFill);
+}

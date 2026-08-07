@@ -6,4 +6,6 @@ export class DileIconlibVanLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-van-light', DileIconlibVanLight);
+if (!customElements.get('dile-phosphor-icon-van-light')) {
+  customElements.define('dile-phosphor-icon-van-light', DileIconlibVanLight);
+}

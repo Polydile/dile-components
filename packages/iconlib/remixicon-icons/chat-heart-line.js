@@ -6,4 +6,6 @@ export class DileIconlibChatHeartLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-heart-line', DileIconlibChatHeartLine);
+if (!customElements.get('dile-remixicon-icon-chat-heart-line')) {
+  customElements.define('dile-remixicon-icon-chat-heart-line', DileIconlibChatHeartLine);
+}

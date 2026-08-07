@@ -6,4 +6,6 @@ export class DileIconlibTrademarkLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trademark-light', DileIconlibTrademarkLight);
+if (!customElements.get('dile-phosphor-icon-trademark-light')) {
+  customElements.define('dile-phosphor-icon-trademark-light', DileIconlibTrademarkLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMaxcdn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-maxcdn', DileIconlibMaxcdn);
+if (!customElements.get('dile-fontawesome-icon-maxcdn')) {
+  customElements.define('dile-fontawesome-icon-maxcdn', DileIconlibMaxcdn);
+}

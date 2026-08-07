@@ -6,4 +6,6 @@ export class DileIconlibSignalWifi4BarLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-signal-wifi-4-bar-lock', DileIconlibSignalWifi4BarLock);
+if (!customElements.get('dile-material-icon-signal-wifi-4-bar-lock')) {
+  customElements.define('dile-material-icon-signal-wifi-4-bar-lock', DileIconlibSignalWifi4BarLock);
+}

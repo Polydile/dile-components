@@ -6,4 +6,6 @@ export class DileIconlibEarlybirds extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-earlybirds', DileIconlibEarlybirds);
+if (!customElements.get('dile-fontawesome-icon-earlybirds')) {
+  customElements.define('dile-fontawesome-icon-earlybirds', DileIconlibEarlybirds);
+}

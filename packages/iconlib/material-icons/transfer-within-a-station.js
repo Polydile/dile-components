@@ -6,4 +6,6 @@ export class DileIconlibTransferWithinAStation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-transfer-within-a-station', DileIconlibTransferWithinAStation);
+if (!customElements.get('dile-material-icon-transfer-within-a-station')) {
+  customElements.define('dile-material-icon-transfer-within-a-station', DileIconlibTransferWithinAStation);
+}

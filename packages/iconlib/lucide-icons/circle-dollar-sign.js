@@ -6,4 +6,6 @@ export class DileIconlibCircleDollarSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-dollar-sign', DileIconlibCircleDollarSign);
+if (!customElements.get('dile-lucide-icon-circle-dollar-sign')) {
+  customElements.define('dile-lucide-icon-circle-dollar-sign', DileIconlibCircleDollarSign);
+}

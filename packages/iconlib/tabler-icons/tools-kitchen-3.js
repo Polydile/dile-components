@@ -6,4 +6,6 @@ export class DileIconlibToolsKitchen3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tools-kitchen-3', DileIconlibToolsKitchen3);
+if (!customElements.get('dile-tabler-icon-tools-kitchen-3')) {
+  customElements.define('dile-tabler-icon-tools-kitchen-3', DileIconlibToolsKitchen3);
+}

@@ -1,3 +1,5 @@
 import { DileBreadcrumbsItem } from "./src/DileBreadcrumbsItem.js";
 
-window.customElements.define("dile-breadcrumbs-item", DileBreadcrumbsItem);
+if (!customElements.get("dile-breadcrumbs-item")) {
+  window.customElements.define("dile-breadcrumbs-item", DileBreadcrumbsItem);
+}

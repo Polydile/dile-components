@@ -6,4 +6,6 @@ export class DileIconlibRobotOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-robot-off', DileIconlibRobotOff);
+if (!customElements.get('dile-tabler-icon-robot-off')) {
+  customElements.define('dile-tabler-icon-robot-off', DileIconlibRobotOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDragon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dragon', DileIconlibDragon);
+if (!customElements.get('dile-fontawesome-icon-dragon')) {
+  customElements.define('dile-fontawesome-icon-dragon', DileIconlibDragon);
+}

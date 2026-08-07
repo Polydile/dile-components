@@ -6,4 +6,6 @@ export class DileIconlibBrand4chan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-4chan', DileIconlibBrand4chan);
+if (!customElements.get('dile-tabler-icon-brand-4chan')) {
+  customElements.define('dile-tabler-icon-brand-4chan', DileIconlibBrand4chan);
+}

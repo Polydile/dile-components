@@ -6,4 +6,6 @@ export class DileIconlibPinwheelThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pinwheel-thin', DileIconlibPinwheelThin);
+if (!customElements.get('dile-phosphor-icon-pinwheel-thin')) {
+  customElements.define('dile-phosphor-icon-pinwheel-thin', DileIconlibPinwheelThin);
+}

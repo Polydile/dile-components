@@ -6,4 +6,6 @@ export class DileIconlibChatTeardropTextLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chat-teardrop-text-light', DileIconlibChatTeardropTextLight);
+if (!customElements.get('dile-phosphor-icon-chat-teardrop-text-light')) {
+  customElements.define('dile-phosphor-icon-chat-teardrop-text-light', DileIconlibChatTeardropTextLight);
+}

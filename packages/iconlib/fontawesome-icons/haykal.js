@@ -6,4 +6,6 @@ export class DileIconlibHaykal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-haykal', DileIconlibHaykal);
+if (!customElements.get('dile-fontawesome-icon-haykal')) {
+  customElements.define('dile-fontawesome-icon-haykal', DileIconlibHaykal);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPaperclipHorizontalLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paperclip-horizontal-light', DileIconlibPaperclipHorizontalLight);
+if (!customElements.get('dile-phosphor-icon-paperclip-horizontal-light')) {
+  customElements.define('dile-phosphor-icon-paperclip-horizontal-light', DileIconlibPaperclipHorizontalLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHotTub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hot-tub', DileIconlibHotTub);
+if (!customElements.get('dile-material-icon-hot-tub')) {
+  customElements.define('dile-material-icon-hot-tub', DileIconlibHotTub);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBungalow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bungalow', DileIconlibBungalow);
+if (!customElements.get('dile-material-icon-bungalow')) {
+  customElements.define('dile-material-icon-bungalow', DileIconlibBungalow);
+}

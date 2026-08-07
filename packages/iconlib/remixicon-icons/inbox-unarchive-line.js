@@ -6,4 +6,6 @@ export class DileIconlibInboxUnarchiveLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-inbox-unarchive-line', DileIconlibInboxUnarchiveLine);
+if (!customElements.get('dile-remixicon-icon-inbox-unarchive-line')) {
+  customElements.define('dile-remixicon-icon-inbox-unarchive-line', DileIconlibInboxUnarchiveLine);
+}

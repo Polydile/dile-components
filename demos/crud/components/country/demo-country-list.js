@@ -39,4 +39,6 @@ export class DemoCountryList extends LitElement {
   }
 
 }
-customElements.define('demo-country-list', DemoCountryList);
+if (!customElements.get('demo-country-list')) {
+  customElements.define('demo-country-list', DemoCountryList);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCameraSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-spark', DileIconlibCameraSpark);
+if (!customElements.get('dile-tabler-icon-camera-spark')) {
+  customElements.define('dile-tabler-icon-camera-spark', DileIconlibCameraSpark);
+}

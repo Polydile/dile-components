@@ -6,4 +6,6 @@ export class DileIconlibMovieFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-movie-fill', DileIconlibMovieFill);
+if (!customElements.get('dile-remixicon-icon-movie-fill')) {
+  customElements.define('dile-remixicon-icon-movie-fill', DileIconlibMovieFill);
+}

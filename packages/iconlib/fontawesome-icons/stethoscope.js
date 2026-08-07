@@ -6,4 +6,6 @@ export class DileIconlibStethoscope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stethoscope', DileIconlibStethoscope);
+if (!customElements.get('dile-fontawesome-icon-stethoscope')) {
+  customElements.define('dile-fontawesome-icon-stethoscope', DileIconlibStethoscope);
+}

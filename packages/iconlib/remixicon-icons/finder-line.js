@@ -6,4 +6,6 @@ export class DileIconlibFinderLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-finder-line', DileIconlibFinderLine);
+if (!customElements.get('dile-remixicon-icon-finder-line')) {
+  customElements.define('dile-remixicon-icon-finder-line', DileIconlibFinderLine);
+}

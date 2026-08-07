@@ -6,4 +6,6 @@ export class DileIconlibZeppelinOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zeppelin-off', DileIconlibZeppelinOff);
+if (!customElements.get('dile-tabler-icon-zeppelin-off')) {
+  customElements.define('dile-tabler-icon-zeppelin-off', DileIconlibZeppelinOff);
+}

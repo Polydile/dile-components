@@ -6,4 +6,6 @@ export class DileIconlibRestoreFromTrash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-restore-from-trash', DileIconlibRestoreFromTrash);
+if (!customElements.get('dile-material-icon-restore-from-trash')) {
+  customElements.define('dile-material-icon-restore-from-trash', DileIconlibRestoreFromTrash);
+}

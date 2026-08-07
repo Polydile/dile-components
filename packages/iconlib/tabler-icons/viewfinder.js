@@ -6,4 +6,6 @@ export class DileIconlibViewfinder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-viewfinder', DileIconlibViewfinder);
+if (!customElements.get('dile-tabler-icon-viewfinder')) {
+  customElements.define('dile-tabler-icon-viewfinder', DileIconlibViewfinder);
+}

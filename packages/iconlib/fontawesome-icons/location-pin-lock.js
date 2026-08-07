@@ -6,4 +6,6 @@ export class DileIconlibLocationPinLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-location-pin-lock', DileIconlibLocationPinLock);
+if (!customElements.get('dile-fontawesome-icon-location-pin-lock')) {
+  customElements.define('dile-fontawesome-icon-location-pin-lock', DileIconlibLocationPinLock);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-squircle', DileIconlibSquircle);
+if (!customElements.get('dile-lucide-icon-squircle')) {
+  customElements.define('dile-lucide-icon-squircle', DileIconlibSquircle);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeartPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-pause', DileIconlibHeartPause);
+if (!customElements.get('dile-tabler-icon-heart-pause')) {
+  customElements.define('dile-tabler-icon-heart-pause', DileIconlibHeartPause);
+}

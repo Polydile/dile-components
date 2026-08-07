@@ -6,4 +6,6 @@ export class DileIconlibHelpSquareFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-help-square-filled', DileIconlibHelpSquareFilled);
+if (!customElements.get('dile-tabler-icon-help-square-filled')) {
+  customElements.define('dile-tabler-icon-help-square-filled', DileIconlibHelpSquareFilled);
+}

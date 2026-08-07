@@ -6,4 +6,6 @@ export class DileIconlibItchIo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-itch-io', DileIconlibItchIo);
+if (!customElements.get('dile-fontawesome-icon-itch-io')) {
+  customElements.define('dile-fontawesome-icon-itch-io', DileIconlibItchIo);
+}

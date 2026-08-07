@@ -6,4 +6,6 @@ export class DileIconlibKarate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-karate', DileIconlibKarate);
+if (!customElements.get('dile-tabler-icon-karate')) {
+  customElements.define('dile-tabler-icon-karate', DileIconlibKarate);
+}

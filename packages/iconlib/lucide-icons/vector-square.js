@@ -6,4 +6,6 @@ export class DileIconlibVectorSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-vector-square', DileIconlibVectorSquare);
+if (!customElements.get('dile-lucide-icon-vector-square')) {
+  customElements.define('dile-lucide-icon-vector-square', DileIconlibVectorSquare);
+}

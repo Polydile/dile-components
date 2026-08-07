@@ -6,4 +6,6 @@ export class DileIconlibMopedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-moped-fill', DileIconlibMopedFill);
+if (!customElements.get('dile-phosphor-icon-moped-fill')) {
+  customElements.define('dile-phosphor-icon-moped-fill', DileIconlibMopedFill);
+}

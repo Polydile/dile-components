@@ -6,4 +6,6 @@ export class DileIconlibPeaceDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-peace-duotone', DileIconlibPeaceDuotone);
+if (!customElements.get('dile-phosphor-icon-peace-duotone')) {
+  customElements.define('dile-phosphor-icon-peace-duotone', DileIconlibPeaceDuotone);
+}

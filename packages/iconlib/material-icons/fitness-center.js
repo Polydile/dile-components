@@ -6,4 +6,6 @@ export class DileIconlibFitnessCenter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fitness-center', DileIconlibFitnessCenter);
+if (!customElements.get('dile-material-icon-fitness-center')) {
+  customElements.define('dile-material-icon-fitness-center', DileIconlibFitnessCenter);
+}

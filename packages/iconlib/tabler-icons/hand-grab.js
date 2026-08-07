@@ -6,4 +6,6 @@ export class DileIconlibHandGrab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hand-grab', DileIconlibHandGrab);
+if (!customElements.get('dile-tabler-icon-hand-grab')) {
+  customElements.define('dile-tabler-icon-hand-grab', DileIconlibHandGrab);
+}

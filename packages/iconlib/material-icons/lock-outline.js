@@ -6,4 +6,6 @@ export class DileIconlibLockOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-lock-outline', DileIconlibLockOutline);
+if (!customElements.get('dile-material-icon-lock-outline')) {
+  customElements.define('dile-material-icon-lock-outline', DileIconlibLockOutline);
+}

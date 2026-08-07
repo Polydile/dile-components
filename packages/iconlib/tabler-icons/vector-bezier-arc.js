@@ -6,4 +6,6 @@ export class DileIconlibVectorBezierArc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vector-bezier-arc', DileIconlibVectorBezierArc);
+if (!customElements.get('dile-tabler-icon-vector-bezier-arc')) {
+  customElements.define('dile-tabler-icon-vector-bezier-arc', DileIconlibVectorBezierArc);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBinaryTree2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-binary-tree-2-filled', DileIconlibBinaryTree2Filled);
+if (!customElements.get('dile-tabler-icon-binary-tree-2-filled')) {
+  customElements.define('dile-tabler-icon-binary-tree-2-filled', DileIconlibBinaryTree2Filled);
+}

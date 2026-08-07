@@ -6,4 +6,6 @@ export class DileIconlibCalculatorFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-calculator-fill', DileIconlibCalculatorFill);
+if (!customElements.get('dile-remixicon-icon-calculator-fill')) {
+  customElements.define('dile-remixicon-icon-calculator-fill', DileIconlibCalculatorFill);
+}

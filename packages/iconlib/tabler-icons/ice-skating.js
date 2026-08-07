@@ -6,4 +6,6 @@ export class DileIconlibIceSkating extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ice-skating', DileIconlibIceSkating);
+if (!customElements.get('dile-tabler-icon-ice-skating')) {
+  customElements.define('dile-tabler-icon-ice-skating', DileIconlibIceSkating);
+}

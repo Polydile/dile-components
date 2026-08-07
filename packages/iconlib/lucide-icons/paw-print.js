@@ -6,4 +6,6 @@ export class DileIconlibPawPrint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-paw-print', DileIconlibPawPrint);
+if (!customElements.get('dile-lucide-icon-paw-print')) {
+  customElements.define('dile-lucide-icon-paw-print', DileIconlibPawPrint);
+}

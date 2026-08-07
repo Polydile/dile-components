@@ -6,4 +6,6 @@ export class DileIconlibStopCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stop-circle', DileIconlibStopCircle);
+if (!customElements.get('dile-material-icon-stop-circle')) {
+  customElements.define('dile-material-icon-stop-circle', DileIconlibStopCircle);
+}

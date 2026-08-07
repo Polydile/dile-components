@@ -6,4 +6,6 @@ export class DileIconlibPrescriptionBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-prescription-bold', DileIconlibPrescriptionBold);
+if (!customElements.get('dile-phosphor-icon-prescription-bold')) {
+  customElements.define('dile-phosphor-icon-prescription-bold', DileIconlibPrescriptionBold);
+}

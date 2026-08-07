@@ -6,4 +6,6 @@ export class DileIconlibExitToApp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-exit-to-app', DileIconlibExitToApp);
+if (!customElements.get('dile-material-icon-exit-to-app')) {
+  customElements.define('dile-material-icon-exit-to-app', DileIconlibExitToApp);
+}

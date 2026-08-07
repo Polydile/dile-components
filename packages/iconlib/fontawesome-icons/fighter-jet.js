@@ -6,4 +6,6 @@ export class DileIconlibFighterJet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fighter-jet', DileIconlibFighterJet);
+if (!customElements.get('dile-fontawesome-icon-fighter-jet')) {
+  customElements.define('dile-fontawesome-icon-fighter-jet', DileIconlibFighterJet);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMapPinSimpleAreaDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-map-pin-simple-area-duotone', DileIconlibMapPinSimpleAreaDuotone);
+if (!customElements.get('dile-phosphor-icon-map-pin-simple-area-duotone')) {
+  customElements.define('dile-phosphor-icon-map-pin-simple-area-duotone', DileIconlibMapPinSimpleAreaDuotone);
+}

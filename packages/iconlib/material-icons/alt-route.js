@@ -6,4 +6,6 @@ export class DileIconlibAltRoute extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-alt-route', DileIconlibAltRoute);
+if (!customElements.get('dile-material-icon-alt-route')) {
+  customElements.define('dile-material-icon-alt-route', DileIconlibAltRoute);
+}

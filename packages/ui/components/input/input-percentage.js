@@ -1,3 +1,5 @@
 import { DileInputPercentage } from './src/DileInputPercentage.js';
 
-window.customElements.define('dile-input-percentage', DileInputPercentage);
+if (!customElements.get('dile-input-percentage')) {
+  window.customElements.define('dile-input-percentage', DileInputPercentage);
+}

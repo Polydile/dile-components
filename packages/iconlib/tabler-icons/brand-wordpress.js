@@ -6,4 +6,6 @@ export class DileIconlibBrandWordpress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-wordpress', DileIconlibBrandWordpress);
+if (!customElements.get('dile-tabler-icon-brand-wordpress')) {
+  customElements.define('dile-tabler-icon-brand-wordpress', DileIconlibBrandWordpress);
+}

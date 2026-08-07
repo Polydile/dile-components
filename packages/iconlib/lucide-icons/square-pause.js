@@ -6,4 +6,6 @@ export class DileIconlibSquarePause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-pause', DileIconlibSquarePause);
+if (!customElements.get('dile-lucide-icon-square-pause')) {
+  customElements.define('dile-lucide-icon-square-pause', DileIconlibSquarePause);
+}

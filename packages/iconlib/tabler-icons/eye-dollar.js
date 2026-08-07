@@ -6,4 +6,6 @@ export class DileIconlibEyeDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eye-dollar', DileIconlibEyeDollar);
+if (!customElements.get('dile-tabler-icon-eye-dollar')) {
+  customElements.define('dile-tabler-icon-eye-dollar', DileIconlibEyeDollar);
+}

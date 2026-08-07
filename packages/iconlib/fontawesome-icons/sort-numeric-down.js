@@ -6,4 +6,6 @@ export class DileIconlibSortNumericDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sort-numeric-down', DileIconlibSortNumericDown);
+if (!customElements.get('dile-fontawesome-icon-sort-numeric-down')) {
+  customElements.define('dile-fontawesome-icon-sort-numeric-down', DileIconlibSortNumericDown);
+}

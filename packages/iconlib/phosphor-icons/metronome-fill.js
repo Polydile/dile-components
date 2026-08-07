@@ -6,4 +6,6 @@ export class DileIconlibMetronomeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-metronome-fill', DileIconlibMetronomeFill);
+if (!customElements.get('dile-phosphor-icon-metronome-fill')) {
+  customElements.define('dile-phosphor-icon-metronome-fill', DileIconlibMetronomeFill);
+}

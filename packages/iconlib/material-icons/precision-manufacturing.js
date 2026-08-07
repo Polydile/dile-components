@@ -6,4 +6,6 @@ export class DileIconlibPrecisionManufacturing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-precision-manufacturing', DileIconlibPrecisionManufacturing);
+if (!customElements.get('dile-material-icon-precision-manufacturing')) {
+  customElements.define('dile-material-icon-precision-manufacturing', DileIconlibPrecisionManufacturing);
+}

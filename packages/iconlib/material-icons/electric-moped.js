@@ -6,4 +6,6 @@ export class DileIconlibElectricMoped extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electric-moped', DileIconlibElectricMoped);
+if (!customElements.get('dile-material-icon-electric-moped')) {
+  customElements.define('dile-material-icon-electric-moped', DileIconlibElectricMoped);
+}

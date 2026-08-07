@@ -6,4 +6,6 @@ export class DileIconlibBaseballCapLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-baseball-cap-light', DileIconlibBaseballCapLight);
+if (!customElements.get('dile-phosphor-icon-baseball-cap-light')) {
+  customElements.define('dile-phosphor-icon-baseball-cap-light', DileIconlibBaseballCapLight);
+}

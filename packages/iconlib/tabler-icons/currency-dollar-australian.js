@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarAustralian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-australian', DileIconlibCurrencyDollarAustralian);
+if (!customElements.get('dile-tabler-icon-currency-dollar-australian')) {
+  customElements.define('dile-tabler-icon-currency-dollar-australian', DileIconlibCurrencyDollarAustralian);
+}

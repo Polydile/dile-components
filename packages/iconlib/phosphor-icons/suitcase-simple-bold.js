@@ -6,4 +6,6 @@ export class DileIconlibSuitcaseSimpleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-suitcase-simple-bold', DileIconlibSuitcaseSimpleBold);
+if (!customElements.get('dile-phosphor-icon-suitcase-simple-bold')) {
+  customElements.define('dile-phosphor-icon-suitcase-simple-bold', DileIconlibSuitcaseSimpleBold);
+}

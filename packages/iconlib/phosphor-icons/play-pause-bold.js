@@ -6,4 +6,6 @@ export class DileIconlibPlayPauseBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-play-pause-bold', DileIconlibPlayPauseBold);
+if (!customElements.get('dile-phosphor-icon-play-pause-bold')) {
+  customElements.define('dile-phosphor-icon-play-pause-bold', DileIconlibPlayPauseBold);
+}

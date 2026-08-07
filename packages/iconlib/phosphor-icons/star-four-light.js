@@ -6,4 +6,6 @@ export class DileIconlibStarFourLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-four-light', DileIconlibStarFourLight);
+if (!customElements.get('dile-phosphor-icon-star-four-light')) {
+  customElements.define('dile-phosphor-icon-star-four-light', DileIconlibStarFourLight);
+}

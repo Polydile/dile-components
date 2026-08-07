@@ -6,4 +6,6 @@ export class DileIconlibPeopleCarryBox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-carry-box', DileIconlibPeopleCarryBox);
+if (!customElements.get('dile-fontawesome-icon-people-carry-box')) {
+  customElements.define('dile-fontawesome-icon-people-carry-box', DileIconlibPeopleCarryBox);
+}

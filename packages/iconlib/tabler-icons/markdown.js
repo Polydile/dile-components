@@ -6,4 +6,6 @@ export class DileIconlibMarkdown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-markdown', DileIconlibMarkdown);
+if (!customElements.get('dile-tabler-icon-markdown')) {
+  customElements.define('dile-tabler-icon-markdown', DileIconlibMarkdown);
+}

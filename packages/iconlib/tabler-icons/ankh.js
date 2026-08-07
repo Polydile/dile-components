@@ -6,4 +6,6 @@ export class DileIconlibAnkh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ankh', DileIconlibAnkh);
+if (!customElements.get('dile-tabler-icon-ankh')) {
+  customElements.define('dile-tabler-icon-ankh', DileIconlibAnkh);
+}

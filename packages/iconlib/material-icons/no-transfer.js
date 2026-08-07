@@ -6,4 +6,6 @@ export class DileIconlibNoTransfer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-transfer', DileIconlibNoTransfer);
+if (!customElements.get('dile-material-icon-no-transfer')) {
+  customElements.define('dile-material-icon-no-transfer', DileIconlibNoTransfer);
+}

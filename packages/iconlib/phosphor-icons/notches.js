@@ -6,4 +6,6 @@ export class DileIconlibNotches extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-notches', DileIconlibNotches);
+if (!customElements.get('dile-phosphor-icon-notches')) {
+  customElements.define('dile-phosphor-icon-notches', DileIconlibNotches);
+}

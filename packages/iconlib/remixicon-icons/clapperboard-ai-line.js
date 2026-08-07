@@ -6,4 +6,6 @@ export class DileIconlibClapperboardAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-clapperboard-ai-line', DileIconlibClapperboardAiLine);
+if (!customElements.get('dile-remixicon-icon-clapperboard-ai-line')) {
+  customElements.define('dile-remixicon-icon-clapperboard-ai-line', DileIconlibClapperboardAiLine);
+}

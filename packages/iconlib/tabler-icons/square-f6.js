@@ -6,4 +6,6 @@ export class DileIconlibSquareF6 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-f6', DileIconlibSquareF6);
+if (!customElements.get('dile-tabler-icon-square-f6')) {
+  customElements.define('dile-tabler-icon-square-f6', DileIconlibSquareF6);
+}

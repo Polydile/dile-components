@@ -6,4 +6,6 @@ export class DileIconlibPowerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-power-off', DileIconlibPowerOff);
+if (!customElements.get('dile-material-icon-power-off')) {
+  customElements.define('dile-material-icon-power-off', DileIconlibPowerOff);
+}

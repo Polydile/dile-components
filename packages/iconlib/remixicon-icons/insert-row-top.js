@@ -6,4 +6,6 @@ export class DileIconlibInsertRowTop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-insert-row-top', DileIconlibInsertRowTop);
+if (!customElements.get('dile-remixicon-icon-insert-row-top')) {
+  customElements.define('dile-remixicon-icon-insert-row-top', DileIconlibInsertRowTop);
+}

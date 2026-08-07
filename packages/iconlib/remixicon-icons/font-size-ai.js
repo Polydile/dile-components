@@ -6,4 +6,6 @@ export class DileIconlibFontSizeAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-font-size-ai', DileIconlibFontSizeAi);
+if (!customElements.get('dile-remixicon-icon-font-size-ai')) {
+  customElements.define('dile-remixicon-icon-font-size-ai', DileIconlibFontSizeAi);
+}

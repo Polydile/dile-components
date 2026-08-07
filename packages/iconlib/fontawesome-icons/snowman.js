@@ -6,4 +6,6 @@ export class DileIconlibSnowman extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-snowman', DileIconlibSnowman);
+if (!customElements.get('dile-fontawesome-icon-snowman')) {
+  customElements.define('dile-fontawesome-icon-snowman', DileIconlibSnowman);
+}

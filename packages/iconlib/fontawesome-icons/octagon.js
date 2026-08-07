@@ -6,4 +6,6 @@ export class DileIconlibOctagon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-octagon', DileIconlibOctagon);
+if (!customElements.get('dile-fontawesome-icon-octagon')) {
+  customElements.define('dile-fontawesome-icon-octagon', DileIconlibOctagon);
+}

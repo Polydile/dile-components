@@ -6,4 +6,6 @@ export class DileIconlibConnectdevelop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-connectdevelop', DileIconlibConnectdevelop);
+if (!customElements.get('dile-fontawesome-icon-connectdevelop')) {
+  customElements.define('dile-fontawesome-icon-connectdevelop', DileIconlibConnectdevelop);
+}

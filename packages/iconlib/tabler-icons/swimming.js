@@ -6,4 +6,6 @@ export class DileIconlibSwimming extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-swimming', DileIconlibSwimming);
+if (!customElements.get('dile-tabler-icon-swimming')) {
+  customElements.define('dile-tabler-icon-swimming', DileIconlibSwimming);
+}

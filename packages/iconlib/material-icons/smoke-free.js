@@ -6,4 +6,6 @@ export class DileIconlibSmokeFree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-smoke-free', DileIconlibSmokeFree);
+if (!customElements.get('dile-material-icon-smoke-free')) {
+  customElements.define('dile-material-icon-smoke-free', DileIconlibSmokeFree);
+}

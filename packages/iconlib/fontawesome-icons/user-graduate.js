@@ -6,4 +6,6 @@ export class DileIconlibUserGraduate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-graduate', DileIconlibUserGraduate);
+if (!customElements.get('dile-fontawesome-icon-user-graduate')) {
+  customElements.define('dile-fontawesome-icon-user-graduate', DileIconlibUserGraduate);
+}

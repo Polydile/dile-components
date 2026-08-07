@@ -6,4 +6,6 @@ export class DileIconlibBrandRedhat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-redhat', DileIconlibBrandRedhat);
+if (!customElements.get('dile-tabler-icon-brand-redhat')) {
+  customElements.define('dile-tabler-icon-brand-redhat', DileIconlibBrandRedhat);
+}

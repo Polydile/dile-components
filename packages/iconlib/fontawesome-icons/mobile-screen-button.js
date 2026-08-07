@@ -6,4 +6,6 @@ export class DileIconlibMobileScreenButton extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mobile-screen-button', DileIconlibMobileScreenButton);
+if (!customElements.get('dile-fontawesome-icon-mobile-screen-button')) {
+  customElements.define('dile-fontawesome-icon-mobile-screen-button', DileIconlibMobileScreenButton);
+}

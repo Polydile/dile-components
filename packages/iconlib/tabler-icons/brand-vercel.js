@@ -6,4 +6,6 @@ export class DileIconlibBrandVercel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vercel', DileIconlibBrandVercel);
+if (!customElements.get('dile-tabler-icon-brand-vercel')) {
+  customElements.define('dile-tabler-icon-brand-vercel', DileIconlibBrandVercel);
+}

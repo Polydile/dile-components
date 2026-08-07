@@ -6,4 +6,6 @@ export class DileIconlibAirplaneTaxiingBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-airplane-taxiing-bold', DileIconlibAirplaneTaxiingBold);
+if (!customElements.get('dile-phosphor-icon-airplane-taxiing-bold')) {
+  customElements.define('dile-phosphor-icon-airplane-taxiing-bold', DileIconlibAirplaneTaxiingBold);
+}

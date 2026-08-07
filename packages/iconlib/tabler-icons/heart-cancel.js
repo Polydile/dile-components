@@ -6,4 +6,6 @@ export class DileIconlibHeartCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-cancel', DileIconlibHeartCancel);
+if (!customElements.get('dile-tabler-icon-heart-cancel')) {
+  customElements.define('dile-tabler-icon-heart-cancel', DileIconlibHeartCancel);
+}

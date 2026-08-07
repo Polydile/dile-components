@@ -6,4 +6,6 @@ export class DileIconlibReportSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-report-search', DileIconlibReportSearch);
+if (!customElements.get('dile-tabler-icon-report-search')) {
+  customElements.define('dile-tabler-icon-report-search', DileIconlibReportSearch);
+}

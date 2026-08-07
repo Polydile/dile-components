@@ -6,4 +6,6 @@ export class DileIconlibUndoAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-undo-alt', DileIconlibUndoAlt);
+if (!customElements.get('dile-fontawesome-icon-undo-alt')) {
+  customElements.define('dile-fontawesome-icon-undo-alt', DileIconlibUndoAlt);
+}

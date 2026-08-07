@@ -6,4 +6,6 @@ export class DileIconlibBrandAppleArcade extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-apple-arcade', DileIconlibBrandAppleArcade);
+if (!customElements.get('dile-tabler-icon-brand-apple-arcade')) {
+  customElements.define('dile-tabler-icon-brand-apple-arcade', DileIconlibBrandAppleArcade);
+}

@@ -1,2 +1,4 @@
 import { DileBoxSelector } from './src/DileBoxSelector.js'
-customElements.define("dile-box-selector", DileBoxSelector);
+if (!customElements.get("dile-box-selector")) {
+  customElements.define("dile-box-selector", DileBoxSelector);
+}

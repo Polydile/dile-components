@@ -6,4 +6,6 @@ export class DileIconlibBackground extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-background', DileIconlibBackground);
+if (!customElements.get('dile-tabler-icon-background')) {
+  customElements.define('dile-tabler-icon-background', DileIconlibBackground);
+}

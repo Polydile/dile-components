@@ -6,4 +6,6 @@ export class DileIconlibGuaraniSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-guarani-sign', DileIconlibGuaraniSign);
+if (!customElements.get('dile-fontawesome-icon-guarani-sign')) {
+  customElements.define('dile-fontawesome-icon-guarani-sign', DileIconlibGuaraniSign);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextInitial extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-initial', DileIconlibTextInitial);
+if (!customElements.get('dile-lucide-icon-text-initial')) {
+  customElements.define('dile-lucide-icon-text-initial', DileIconlibTextInitial);
+}

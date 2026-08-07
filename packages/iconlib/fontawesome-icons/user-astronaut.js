@@ -6,4 +6,6 @@ export class DileIconlibUserAstronaut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-astronaut', DileIconlibUserAstronaut);
+if (!customElements.get('dile-fontawesome-icon-user-astronaut')) {
+  customElements.define('dile-fontawesome-icon-user-astronaut', DileIconlibUserAstronaut);
+}

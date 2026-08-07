@@ -1,2 +1,4 @@
 import { DileCrudItemDelete } from "./src/DileCrudItemDelete.js";
-customElements.define('dile-crud-item-delete', DileCrudItemDelete);
+if (!customElements.get('dile-crud-item-delete')) {
+  customElements.define('dile-crud-item-delete', DileCrudItemDelete);
+}

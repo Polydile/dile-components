@@ -6,4 +6,6 @@ export class DileIconlibZodiacGemini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-zodiac-gemini', DileIconlibZodiacGemini);
+if (!customElements.get('dile-lucide-icon-zodiac-gemini')) {
+  customElements.define('dile-lucide-icon-zodiac-gemini', DileIconlibZodiacGemini);
+}

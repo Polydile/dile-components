@@ -6,4 +6,6 @@ export class DileIconlibRotate90DegreesCcw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rotate-90-degrees-ccw', DileIconlibRotate90DegreesCcw);
+if (!customElements.get('dile-material-icon-rotate-90-degrees-ccw')) {
+  customElements.define('dile-material-icon-rotate-90-degrees-ccw', DileIconlibRotate90DegreesCcw);
+}

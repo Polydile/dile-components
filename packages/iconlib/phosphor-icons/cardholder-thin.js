@@ -6,4 +6,6 @@ export class DileIconlibCardholderThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cardholder-thin', DileIconlibCardholderThin);
+if (!customElements.get('dile-phosphor-icon-cardholder-thin')) {
+  customElements.define('dile-phosphor-icon-cardholder-thin', DileIconlibCardholderThin);
+}

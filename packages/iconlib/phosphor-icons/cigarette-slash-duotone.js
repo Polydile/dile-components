@@ -6,4 +6,6 @@ export class DileIconlibCigaretteSlashDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cigarette-slash-duotone', DileIconlibCigaretteSlashDuotone);
+if (!customElements.get('dile-phosphor-icon-cigarette-slash-duotone')) {
+  customElements.define('dile-phosphor-icon-cigarette-slash-duotone', DileIconlibCigaretteSlashDuotone);
+}

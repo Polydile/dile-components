@@ -6,4 +6,6 @@ export class DileIconlibSubtitlesAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-subtitles-ai', DileIconlibSubtitlesAi);
+if (!customElements.get('dile-tabler-icon-subtitles-ai')) {
+  customElements.define('dile-tabler-icon-subtitles-ai', DileIconlibSubtitlesAi);
+}

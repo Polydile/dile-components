@@ -6,4 +6,6 @@ export class DileIconlib3dRotation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-3d-rotation', DileIconlib3dRotation);
+if (!customElements.get('dile-material-icon-3d-rotation')) {
+  customElements.define('dile-material-icon-3d-rotation', DileIconlib3dRotation);
+}

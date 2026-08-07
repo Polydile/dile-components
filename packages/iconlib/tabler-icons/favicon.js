@@ -6,4 +6,6 @@ export class DileIconlibFavicon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-favicon', DileIconlibFavicon);
+if (!customElements.get('dile-tabler-icon-favicon')) {
+  customElements.define('dile-tabler-icon-favicon', DileIconlibFavicon);
+}

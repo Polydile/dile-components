@@ -6,4 +6,6 @@ export class DileIconlibElectricBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electric-bolt', DileIconlibElectricBolt);
+if (!customElements.get('dile-material-icon-electric-bolt')) {
+  customElements.define('dile-material-icon-electric-bolt', DileIconlibElectricBolt);
+}

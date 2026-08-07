@@ -6,4 +6,6 @@ export class DileIconlibGridHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grid-horizontal', DileIconlibGridHorizontal);
+if (!customElements.get('dile-fontawesome-icon-grid-horizontal')) {
+  customElements.define('dile-fontawesome-icon-grid-horizontal', DileIconlibGridHorizontal);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNotListedLocation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-not-listed-location', DileIconlibNotListedLocation);
+if (!customElements.get('dile-material-icon-not-listed-location')) {
+  customElements.define('dile-material-icon-not-listed-location', DileIconlibNotListedLocation);
+}

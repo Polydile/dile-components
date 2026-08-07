@@ -6,4 +6,6 @@ export class DileIconlibBrandAlipay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-alipay', DileIconlibBrandAlipay);
+if (!customElements.get('dile-tabler-icon-brand-alipay')) {
+  customElements.define('dile-tabler-icon-brand-alipay', DileIconlibBrandAlipay);
+}

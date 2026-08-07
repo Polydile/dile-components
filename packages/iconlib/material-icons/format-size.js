@@ -6,4 +6,6 @@ export class DileIconlibFormatSize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-size', DileIconlibFormatSize);
+if (!customElements.get('dile-material-icon-format-size')) {
+  customElements.define('dile-material-icon-format-size', DileIconlibFormatSize);
+}

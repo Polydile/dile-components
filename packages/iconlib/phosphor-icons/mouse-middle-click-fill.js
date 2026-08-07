@@ -6,4 +6,6 @@ export class DileIconlibMouseMiddleClickFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mouse-middle-click-fill', DileIconlibMouseMiddleClickFill);
+if (!customElements.get('dile-phosphor-icon-mouse-middle-click-fill')) {
+  customElements.define('dile-phosphor-icon-mouse-middle-click-fill', DileIconlibMouseMiddleClickFill);
+}

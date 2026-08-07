@@ -6,4 +6,6 @@ export class DileIconlibSwitchVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-switch-vertical', DileIconlibSwitchVertical);
+if (!customElements.get('dile-tabler-icon-switch-vertical')) {
+  customElements.define('dile-tabler-icon-switch-vertical', DileIconlibSwitchVertical);
+}

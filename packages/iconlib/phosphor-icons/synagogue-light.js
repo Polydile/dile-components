@@ -6,4 +6,6 @@ export class DileIconlibSynagogueLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-synagogue-light', DileIconlibSynagogueLight);
+if (!customElements.get('dile-phosphor-icon-synagogue-light')) {
+  customElements.define('dile-phosphor-icon-synagogue-light', DileIconlibSynagogueLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonBiking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-biking', DileIconlibPersonBiking);
+if (!customElements.get('dile-fontawesome-icon-person-biking')) {
+  customElements.define('dile-fontawesome-icon-person-biking', DileIconlibPersonBiking);
+}

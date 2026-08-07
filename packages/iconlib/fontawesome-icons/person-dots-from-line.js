@@ -6,4 +6,6 @@ export class DileIconlibPersonDotsFromLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-dots-from-line', DileIconlibPersonDotsFromLine);
+if (!customElements.get('dile-fontawesome-icon-person-dots-from-line')) {
+  customElements.define('dile-fontawesome-icon-person-dots-from-line', DileIconlibPersonDotsFromLine);
+}

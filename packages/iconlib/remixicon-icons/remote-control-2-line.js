@@ -6,4 +6,6 @@ export class DileIconlibRemoteControl2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-remote-control-2-line', DileIconlibRemoteControl2Line);
+if (!customElements.get('dile-remixicon-icon-remote-control-2-line')) {
+  customElements.define('dile-remixicon-icon-remote-control-2-line', DileIconlibRemoteControl2Line);
+}

@@ -1,2 +1,4 @@
 import { DileFloatingMenu } from './src/DileFloatingMenu.js';
-customElements.define('dile-floating-menu', DileFloatingMenu);
+if (!customElements.get('dile-floating-menu')) {
+  customElements.define('dile-floating-menu', DileFloatingMenu);
+}

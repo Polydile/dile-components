@@ -6,4 +6,6 @@ export class DileIconlibWaveTriangleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-triangle-duotone', DileIconlibWaveTriangleDuotone);
+if (!customElements.get('dile-phosphor-icon-wave-triangle-duotone')) {
+  customElements.define('dile-phosphor-icon-wave-triangle-duotone', DileIconlibWaveTriangleDuotone);
+}

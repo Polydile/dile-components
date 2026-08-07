@@ -6,4 +6,6 @@ export class DileIconlibAppsAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-apps-ai-fill', DileIconlibAppsAiFill);
+if (!customElements.get('dile-remixicon-icon-apps-ai-fill')) {
+  customElements.define('dile-remixicon-icon-apps-ai-fill', DileIconlibAppsAiFill);
+}

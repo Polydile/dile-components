@@ -1,3 +1,5 @@
 import { DileLightModeSwitch } from "./src/DileLightModeSwitch.js";
 
-window.customElements.define("dile-light-mode-switch", DileLightModeSwitch);
+if (!customElements.get("dile-light-mode-switch")) {
+  window.customElements.define("dile-light-mode-switch", DileLightModeSwitch);
+}

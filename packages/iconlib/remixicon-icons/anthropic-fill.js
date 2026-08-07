@@ -6,4 +6,6 @@ export class DileIconlibAnthropicFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-anthropic-fill', DileIconlibAnthropicFill);
+if (!customElements.get('dile-remixicon-icon-anthropic-fill')) {
+  customElements.define('dile-remixicon-icon-anthropic-fill', DileIconlibAnthropicFill);
+}

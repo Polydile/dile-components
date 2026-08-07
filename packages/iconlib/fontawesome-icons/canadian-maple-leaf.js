@@ -6,4 +6,6 @@ export class DileIconlibCanadianMapleLeaf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-canadian-maple-leaf', DileIconlibCanadianMapleLeaf);
+if (!customElements.get('dile-fontawesome-icon-canadian-maple-leaf')) {
+  customElements.define('dile-fontawesome-icon-canadian-maple-leaf', DileIconlibCanadianMapleLeaf);
+}

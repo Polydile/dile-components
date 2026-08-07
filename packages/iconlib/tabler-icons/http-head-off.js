@@ -6,4 +6,6 @@ export class DileIconlibHttpHeadOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-head-off', DileIconlibHttpHeadOff);
+if (!customElements.get('dile-tabler-icon-http-head-off')) {
+  customElements.define('dile-tabler-icon-http-head-off', DileIconlibHttpHeadOff);
+}

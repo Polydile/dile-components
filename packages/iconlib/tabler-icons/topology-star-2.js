@@ -6,4 +6,6 @@ export class DileIconlibTopologyStar2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-topology-star-2', DileIconlibTopologyStar2);
+if (!customElements.get('dile-tabler-icon-topology-star-2')) {
+  customElements.define('dile-tabler-icon-topology-star-2', DileIconlibTopologyStar2);
+}

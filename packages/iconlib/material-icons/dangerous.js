@@ -6,4 +6,6 @@ export class DileIconlibDangerous extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dangerous', DileIconlibDangerous);
+if (!customElements.get('dile-material-icon-dangerous')) {
+  customElements.define('dile-material-icon-dangerous', DileIconlibDangerous);
+}

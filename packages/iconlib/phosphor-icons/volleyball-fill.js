@@ -6,4 +6,6 @@ export class DileIconlibVolleyballFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-volleyball-fill', DileIconlibVolleyballFill);
+if (!customElements.get('dile-phosphor-icon-volleyball-fill')) {
+  customElements.define('dile-phosphor-icon-volleyball-fill', DileIconlibVolleyballFill);
+}

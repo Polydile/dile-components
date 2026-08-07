@@ -6,4 +6,6 @@ export class DileIconlibFriendicaFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-friendica-fill', DileIconlibFriendicaFill);
+if (!customElements.get('dile-remixicon-icon-friendica-fill')) {
+  customElements.define('dile-remixicon-icon-friendica-fill', DileIconlibFriendicaFill);
+}

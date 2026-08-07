@@ -6,4 +6,6 @@ export class DileIconlibRecentActors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-recent-actors', DileIconlibRecentActors);
+if (!customElements.get('dile-material-icon-recent-actors')) {
+  customElements.define('dile-material-icon-recent-actors', DileIconlibRecentActors);
+}

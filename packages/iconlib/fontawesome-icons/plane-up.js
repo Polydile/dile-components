@@ -6,4 +6,6 @@ export class DileIconlibPlaneUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plane-up', DileIconlibPlaneUp);
+if (!customElements.get('dile-fontawesome-icon-plane-up')) {
+  customElements.define('dile-fontawesome-icon-plane-up', DileIconlibPlaneUp);
+}

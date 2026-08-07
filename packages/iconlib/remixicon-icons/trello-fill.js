@@ -6,4 +6,6 @@ export class DileIconlibTrelloFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-trello-fill', DileIconlibTrelloFill);
+if (!customElements.get('dile-remixicon-icon-trello-fill')) {
+  customElements.define('dile-remixicon-icon-trello-fill', DileIconlibTrelloFill);
+}

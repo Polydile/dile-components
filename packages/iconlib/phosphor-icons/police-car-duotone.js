@@ -6,4 +6,6 @@ export class DileIconlibPoliceCarDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-police-car-duotone', DileIconlibPoliceCarDuotone);
+if (!customElements.get('dile-phosphor-icon-police-car-duotone')) {
+  customElements.define('dile-phosphor-icon-police-car-duotone', DileIconlibPoliceCarDuotone);
+}

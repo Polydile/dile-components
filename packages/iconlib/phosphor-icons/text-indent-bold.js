@@ -6,4 +6,6 @@ export class DileIconlibTextIndentBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-indent-bold', DileIconlibTextIndentBold);
+if (!customElements.get('dile-phosphor-icon-text-indent-bold')) {
+  customElements.define('dile-phosphor-icon-text-indent-bold', DileIconlibTextIndentBold);
+}

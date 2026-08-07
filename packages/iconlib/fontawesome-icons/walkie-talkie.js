@@ -6,4 +6,6 @@ export class DileIconlibWalkieTalkie extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-walkie-talkie', DileIconlibWalkieTalkie);
+if (!customElements.get('dile-fontawesome-icon-walkie-talkie')) {
+  customElements.define('dile-fontawesome-icon-walkie-talkie', DileIconlibWalkieTalkie);
+}

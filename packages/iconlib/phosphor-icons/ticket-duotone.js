@@ -6,4 +6,6 @@ export class DileIconlibTicketDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ticket-duotone', DileIconlibTicketDuotone);
+if (!customElements.get('dile-phosphor-icon-ticket-duotone')) {
+  customElements.define('dile-phosphor-icon-ticket-duotone', DileIconlibTicketDuotone);
+}

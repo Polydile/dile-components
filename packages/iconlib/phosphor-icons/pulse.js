@@ -6,4 +6,6 @@ export class DileIconlibPulse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pulse', DileIconlibPulse);
+if (!customElements.get('dile-phosphor-icon-pulse')) {
+  customElements.define('dile-phosphor-icon-pulse', DileIconlibPulse);
+}

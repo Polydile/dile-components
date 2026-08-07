@@ -6,4 +6,6 @@ export class DileIconlibHeartMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-heart-minus', DileIconlibHeartMinus);
+if (!customElements.get('dile-lucide-icon-heart-minus')) {
+  customElements.define('dile-lucide-icon-heart-minus', DileIconlibHeartMinus);
+}

@@ -1,2 +1,4 @@
 import { DileCrudSortForm } from "./src/DileCrudSortForm.js";
-customElements.define('dile-crud-sort-form', DileCrudSortForm);
+if (!customElements.get('dile-crud-sort-form')) {
+  customElements.define('dile-crud-sort-form', DileCrudSortForm);
+}

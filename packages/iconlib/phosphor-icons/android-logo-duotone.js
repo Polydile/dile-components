@@ -6,4 +6,6 @@ export class DileIconlibAndroidLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-android-logo-duotone', DileIconlibAndroidLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-android-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-android-logo-duotone', DileIconlibAndroidLogoDuotone);
+}

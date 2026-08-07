@@ -6,4 +6,6 @@ export class DileIconlibDeblur extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-deblur', DileIconlibDeblur);
+if (!customElements.get('dile-material-icon-deblur')) {
+  customElements.define('dile-material-icon-deblur', DileIconlibDeblur);
+}

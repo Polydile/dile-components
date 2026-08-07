@@ -6,4 +6,6 @@ export class DileIconlibPlaneCircleXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plane-circle-xmark', DileIconlibPlaneCircleXmark);
+if (!customElements.get('dile-fontawesome-icon-plane-circle-xmark')) {
+  customElements.define('dile-fontawesome-icon-plane-circle-xmark', DileIconlibPlaneCircleXmark);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignRightFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sign-right-filled', DileIconlibSignRightFilled);
+if (!customElements.get('dile-tabler-icon-sign-right-filled')) {
+  customElements.define('dile-tabler-icon-sign-right-filled', DileIconlibSignRightFilled);
+}

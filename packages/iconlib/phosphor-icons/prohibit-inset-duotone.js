@@ -6,4 +6,6 @@ export class DileIconlibProhibitInsetDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-prohibit-inset-duotone', DileIconlibProhibitInsetDuotone);
+if (!customElements.get('dile-phosphor-icon-prohibit-inset-duotone')) {
+  customElements.define('dile-phosphor-icon-prohibit-inset-duotone', DileIconlibProhibitInsetDuotone);
+}

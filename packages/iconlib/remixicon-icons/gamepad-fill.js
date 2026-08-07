@@ -6,4 +6,6 @@ export class DileIconlibGamepadFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-gamepad-fill', DileIconlibGamepadFill);
+if (!customElements.get('dile-remixicon-icon-gamepad-fill')) {
+  customElements.define('dile-remixicon-icon-gamepad-fill', DileIconlibGamepadFill);
+}

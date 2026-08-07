@@ -6,4 +6,6 @@ export class DileIconlibAmbulance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ambulance', DileIconlibAmbulance);
+if (!customElements.get('dile-fontawesome-icon-ambulance')) {
+  customElements.define('dile-fontawesome-icon-ambulance', DileIconlibAmbulance);
+}

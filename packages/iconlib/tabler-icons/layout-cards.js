@@ -6,4 +6,6 @@ export class DileIconlibLayoutCards extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-cards', DileIconlibLayoutCards);
+if (!customElements.get('dile-tabler-icon-layout-cards')) {
+  customElements.define('dile-tabler-icon-layout-cards', DileIconlibLayoutCards);
+}

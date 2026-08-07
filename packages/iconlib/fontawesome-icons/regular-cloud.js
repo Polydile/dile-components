@@ -6,4 +6,6 @@ export class DileIconlibCloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-cloud', DileIconlibCloud);
+if (!customElements.get('dile-fontawesome-icon-regular-cloud')) {
+  customElements.define('dile-fontawesome-icon-regular-cloud', DileIconlibCloud);
+}

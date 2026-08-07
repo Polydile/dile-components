@@ -6,4 +6,6 @@ export class DileIconlibClock3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-clock-3', DileIconlibClock3);
+if (!customElements.get('dile-lucide-icon-clock-3')) {
+  customElements.define('dile-lucide-icon-clock-3', DileIconlibClock3);
+}

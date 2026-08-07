@@ -6,4 +6,6 @@ export class DileIconlibBorderCornerPill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-border-corner-pill', DileIconlibBorderCornerPill);
+if (!customElements.get('dile-tabler-icon-border-corner-pill')) {
+  customElements.define('dile-tabler-icon-border-corner-pill', DileIconlibBorderCornerPill);
+}

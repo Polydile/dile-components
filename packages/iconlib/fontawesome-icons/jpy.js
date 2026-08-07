@@ -6,4 +6,6 @@ export class DileIconlibJpy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-jpy', DileIconlibJpy);
+if (!customElements.get('dile-fontawesome-icon-jpy')) {
+  customElements.define('dile-fontawesome-icon-jpy', DileIconlibJpy);
+}

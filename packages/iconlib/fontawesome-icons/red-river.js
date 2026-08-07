@@ -6,4 +6,6 @@ export class DileIconlibRedRiver extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-red-river', DileIconlibRedRiver);
+if (!customElements.get('dile-fontawesome-icon-red-river')) {
+  customElements.define('dile-fontawesome-icon-red-river', DileIconlibRedRiver);
+}

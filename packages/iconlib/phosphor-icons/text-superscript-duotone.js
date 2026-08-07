@@ -6,4 +6,6 @@ export class DileIconlibTextSuperscriptDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-superscript-duotone', DileIconlibTextSuperscriptDuotone);
+if (!customElements.get('dile-phosphor-icon-text-superscript-duotone')) {
+  customElements.define('dile-phosphor-icon-text-superscript-duotone', DileIconlibTextSuperscriptDuotone);
+}

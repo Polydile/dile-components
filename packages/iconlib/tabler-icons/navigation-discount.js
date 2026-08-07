@@ -6,4 +6,6 @@ export class DileIconlibNavigationDiscount extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-navigation-discount', DileIconlibNavigationDiscount);
+if (!customElements.get('dile-tabler-icon-navigation-discount')) {
+  customElements.define('dile-tabler-icon-navigation-discount', DileIconlibNavigationDiscount);
+}

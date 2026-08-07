@@ -6,4 +6,6 @@ export class DileIconlibBringToFront extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bring-to-front', DileIconlibBringToFront);
+if (!customElements.get('dile-lucide-icon-bring-to-front')) {
+  customElements.define('dile-lucide-icon-bring-to-front', DileIconlibBringToFront);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAvocado extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-avocado', DileIconlibAvocado);
+if (!customElements.get('dile-phosphor-icon-avocado')) {
+  customElements.define('dile-phosphor-icon-avocado', DileIconlibAvocado);
+}

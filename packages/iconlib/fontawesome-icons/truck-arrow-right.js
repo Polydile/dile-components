@@ -6,4 +6,6 @@ export class DileIconlibTruckArrowRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-arrow-right', DileIconlibTruckArrowRight);
+if (!customElements.get('dile-fontawesome-icon-truck-arrow-right')) {
+  customElements.define('dile-fontawesome-icon-truck-arrow-right', DileIconlibTruckArrowRight);
+}

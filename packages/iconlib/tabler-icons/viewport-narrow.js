@@ -6,4 +6,6 @@ export class DileIconlibViewportNarrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-viewport-narrow', DileIconlibViewportNarrow);
+if (!customElements.get('dile-tabler-icon-viewport-narrow')) {
+  customElements.define('dile-tabler-icon-viewport-narrow', DileIconlibViewportNarrow);
+}

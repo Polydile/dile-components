@@ -6,4 +6,6 @@ export class DileIconlibHourglassDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hourglass-disabled', DileIconlibHourglassDisabled);
+if (!customElements.get('dile-material-icon-hourglass-disabled')) {
+  customElements.define('dile-material-icon-hourglass-disabled', DileIconlibHourglassDisabled);
+}

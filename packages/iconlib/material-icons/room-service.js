@@ -6,4 +6,6 @@ export class DileIconlibRoomService extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-room-service', DileIconlibRoomService);
+if (!customElements.get('dile-material-icon-room-service')) {
+  customElements.define('dile-material-icon-room-service', DileIconlibRoomService);
+}

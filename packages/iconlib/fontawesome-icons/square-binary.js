@@ -6,4 +6,6 @@ export class DileIconlibSquareBinary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-binary', DileIconlibSquareBinary);
+if (!customElements.get('dile-fontawesome-icon-square-binary')) {
+  customElements.define('dile-fontawesome-icon-square-binary', DileIconlibSquareBinary);
+}

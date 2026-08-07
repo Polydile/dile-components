@@ -6,4 +6,6 @@ export class DileIconlibBrandPaypalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-paypal-filled', DileIconlibBrandPaypalFilled);
+if (!customElements.get('dile-tabler-icon-brand-paypal-filled')) {
+  customElements.define('dile-tabler-icon-brand-paypal-filled', DileIconlibBrandPaypalFilled);
+}

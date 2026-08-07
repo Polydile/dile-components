@@ -6,4 +6,6 @@ export class DileIconlibStackOverflowLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stack-overflow-line', DileIconlibStackOverflowLine);
+if (!customElements.get('dile-remixicon-icon-stack-overflow-line')) {
+  customElements.define('dile-remixicon-icon-stack-overflow-line', DileIconlibStackOverflowLine);
+}

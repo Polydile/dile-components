@@ -6,4 +6,6 @@ export class DileIconlibGridPatternFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grid-pattern-filled', DileIconlibGridPatternFilled);
+if (!customElements.get('dile-tabler-icon-grid-pattern-filled')) {
+  customElements.define('dile-tabler-icon-grid-pattern-filled', DileIconlibGridPatternFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPassExpiredFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pass-expired-fill', DileIconlibPassExpiredFill);
+if (!customElements.get('dile-remixicon-icon-pass-expired-fill')) {
+  customElements.define('dile-remixicon-icon-pass-expired-fill', DileIconlibPassExpiredFill);
+}

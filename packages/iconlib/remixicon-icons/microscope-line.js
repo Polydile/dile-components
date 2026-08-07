@@ -6,4 +6,6 @@ export class DileIconlibMicroscopeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-microscope-line', DileIconlibMicroscopeLine);
+if (!customElements.get('dile-remixicon-icon-microscope-line')) {
+  customElements.define('dile-remixicon-icon-microscope-line', DileIconlibMicroscopeLine);
+}

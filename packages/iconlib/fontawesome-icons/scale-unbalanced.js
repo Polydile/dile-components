@@ -6,4 +6,6 @@ export class DileIconlibScaleUnbalanced extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scale-unbalanced', DileIconlibScaleUnbalanced);
+if (!customElements.get('dile-fontawesome-icon-scale-unbalanced')) {
+  customElements.define('dile-fontawesome-icon-scale-unbalanced', DileIconlibScaleUnbalanced);
+}

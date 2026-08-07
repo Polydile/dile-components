@@ -6,4 +6,6 @@ export class DileIconlibWatch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-watch', DileIconlibWatch);
+if (!customElements.get('dile-lucide-icon-watch')) {
+  customElements.define('dile-lucide-icon-watch', DileIconlibWatch);
+}

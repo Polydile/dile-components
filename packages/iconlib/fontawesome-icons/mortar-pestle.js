@@ -6,4 +6,6 @@ export class DileIconlibMortarPestle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mortar-pestle', DileIconlibMortarPestle);
+if (!customElements.get('dile-fontawesome-icon-mortar-pestle')) {
+  customElements.define('dile-fontawesome-icon-mortar-pestle', DileIconlibMortarPestle);
+}

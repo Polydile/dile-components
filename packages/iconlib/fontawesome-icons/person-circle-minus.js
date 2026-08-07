@@ -6,4 +6,6 @@ export class DileIconlibPersonCircleMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-circle-minus', DileIconlibPersonCircleMinus);
+if (!customElements.get('dile-fontawesome-icon-person-circle-minus')) {
+  customElements.define('dile-fontawesome-icon-person-circle-minus', DileIconlibPersonCircleMinus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonCane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-cane', DileIconlibPersonCane);
+if (!customElements.get('dile-fontawesome-icon-person-cane')) {
+  customElements.define('dile-fontawesome-icon-person-cane', DileIconlibPersonCane);
+}

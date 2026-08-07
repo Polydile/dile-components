@@ -6,4 +6,6 @@ export class DileIconlibLogoutBoxRLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-logout-box-r-line', DileIconlibLogoutBoxRLine);
+if (!customElements.get('dile-remixicon-icon-logout-box-r-line')) {
+  customElements.define('dile-remixicon-icon-logout-box-r-line', DileIconlibLogoutBoxRLine);
+}

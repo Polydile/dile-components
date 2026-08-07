@@ -6,4 +6,6 @@ export class DileIconlibFilePowerpoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-file-powerpoint', DileIconlibFilePowerpoint);
+if (!customElements.get('dile-fontawesome-icon-regular-file-powerpoint')) {
+  customElements.define('dile-fontawesome-icon-regular-file-powerpoint', DileIconlibFilePowerpoint);
+}

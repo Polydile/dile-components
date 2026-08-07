@@ -6,4 +6,6 @@ export class DileIconlibMacroFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-macro-filled', DileIconlibMacroFilled);
+if (!customElements.get('dile-tabler-icon-macro-filled')) {
+  customElements.define('dile-tabler-icon-macro-filled', DileIconlibMacroFilled);
+}

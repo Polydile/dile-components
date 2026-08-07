@@ -6,4 +6,6 @@ export class DileIconlibCpanel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cpanel', DileIconlibCpanel);
+if (!customElements.get('dile-fontawesome-icon-cpanel')) {
+  customElements.define('dile-fontawesome-icon-cpanel', DileIconlibCpanel);
+}

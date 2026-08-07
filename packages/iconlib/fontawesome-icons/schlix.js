@@ -6,4 +6,6 @@ export class DileIconlibSchlix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-schlix', DileIconlibSchlix);
+if (!customElements.get('dile-fontawesome-icon-schlix')) {
+  customElements.define('dile-fontawesome-icon-schlix', DileIconlibSchlix);
+}

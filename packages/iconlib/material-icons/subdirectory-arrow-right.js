@@ -6,4 +6,6 @@ export class DileIconlibSubdirectoryArrowRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-subdirectory-arrow-right', DileIconlibSubdirectoryArrowRight);
+if (!customElements.get('dile-material-icon-subdirectory-arrow-right')) {
+  customElements.define('dile-material-icon-subdirectory-arrow-right', DileIconlibSubdirectoryArrowRight);
+}

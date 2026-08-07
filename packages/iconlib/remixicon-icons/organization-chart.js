@@ -6,4 +6,6 @@ export class DileIconlibOrganizationChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-organization-chart', DileIconlibOrganizationChart);
+if (!customElements.get('dile-remixicon-icon-organization-chart')) {
+  customElements.define('dile-remixicon-icon-organization-chart', DileIconlibOrganizationChart);
+}

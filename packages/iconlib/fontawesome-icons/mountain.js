@@ -6,4 +6,6 @@ export class DileIconlibMountain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mountain', DileIconlibMountain);
+if (!customElements.get('dile-fontawesome-icon-mountain')) {
+  customElements.define('dile-fontawesome-icon-mountain', DileIconlibMountain);
+}

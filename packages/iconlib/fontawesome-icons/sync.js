@@ -6,4 +6,6 @@ export class DileIconlibSync extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sync', DileIconlibSync);
+if (!customElements.get('dile-fontawesome-icon-sync')) {
+  customElements.define('dile-fontawesome-icon-sync', DileIconlibSync);
+}

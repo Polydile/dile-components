@@ -6,4 +6,6 @@ export class DileIconlibBucketOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bucket-off', DileIconlibBucketOff);
+if (!customElements.get('dile-tabler-icon-bucket-off')) {
+  customElements.define('dile-tabler-icon-bucket-off', DileIconlibBucketOff);
+}

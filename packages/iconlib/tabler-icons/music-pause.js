@@ -6,4 +6,6 @@ export class DileIconlibMusicPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-music-pause', DileIconlibMusicPause);
+if (!customElements.get('dile-tabler-icon-music-pause')) {
+  customElements.define('dile-tabler-icon-music-pause', DileIconlibMusicPause);
+}

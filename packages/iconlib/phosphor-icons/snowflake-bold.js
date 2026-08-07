@@ -6,4 +6,6 @@ export class DileIconlibSnowflakeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-snowflake-bold', DileIconlibSnowflakeBold);
+if (!customElements.get('dile-phosphor-icon-snowflake-bold')) {
+  customElements.define('dile-phosphor-icon-snowflake-bold', DileIconlibSnowflakeBold);
+}

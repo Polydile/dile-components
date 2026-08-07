@@ -6,4 +6,6 @@ export class DileIconlibCarProfileLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-car-profile-light', DileIconlibCarProfileLight);
+if (!customElements.get('dile-phosphor-icon-car-profile-light')) {
+  customElements.define('dile-phosphor-icon-car-profile-light', DileIconlibCarProfileLight);
+}

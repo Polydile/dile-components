@@ -6,4 +6,6 @@ export class DileIconlibSheqel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sheqel', DileIconlibSheqel);
+if (!customElements.get('dile-fontawesome-icon-sheqel')) {
+  customElements.define('dile-fontawesome-icon-sheqel', DileIconlibSheqel);
+}

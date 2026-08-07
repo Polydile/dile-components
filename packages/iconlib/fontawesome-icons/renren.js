@@ -6,4 +6,6 @@ export class DileIconlibRenren extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-renren', DileIconlibRenren);
+if (!customElements.get('dile-fontawesome-icon-renren')) {
+  customElements.define('dile-fontawesome-icon-renren', DileIconlibRenren);
+}

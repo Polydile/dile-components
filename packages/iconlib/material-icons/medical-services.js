@@ -6,4 +6,6 @@ export class DileIconlibMedicalServices extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-medical-services', DileIconlibMedicalServices);
+if (!customElements.get('dile-material-icon-medical-services')) {
+  customElements.define('dile-material-icon-medical-services', DileIconlibMedicalServices);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextCursorInput extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-cursor-input', DileIconlibTextCursorInput);
+if (!customElements.get('dile-lucide-icon-text-cursor-input')) {
+  customElements.define('dile-lucide-icon-text-cursor-input', DileIconlibTextCursorInput);
+}

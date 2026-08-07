@@ -6,4 +6,6 @@ export class DileIconlibControlPoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-control-point', DileIconlibControlPoint);
+if (!customElements.get('dile-material-icon-control-point')) {
+  customElements.define('dile-material-icon-control-point', DileIconlibControlPoint);
+}

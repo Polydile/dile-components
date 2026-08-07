@@ -6,4 +6,6 @@ export class DileIconlibTravestiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-travesti-fill', DileIconlibTravestiFill);
+if (!customElements.get('dile-remixicon-icon-travesti-fill')) {
+  customElements.define('dile-remixicon-icon-travesti-fill', DileIconlibTravestiFill);
+}

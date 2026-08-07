@@ -6,4 +6,6 @@ export class DileIconlibSuperscript2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-superscript-2', DileIconlibSuperscript2);
+if (!customElements.get('dile-remixicon-icon-superscript-2')) {
+  customElements.define('dile-remixicon-icon-superscript-2', DileIconlibSuperscript2);
+}

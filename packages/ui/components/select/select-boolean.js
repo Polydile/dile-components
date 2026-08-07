@@ -1,3 +1,5 @@
 import { DileSelectBoolean } from "./src/DileSelectBoolean.js";
 
-window.customElements.define("dile-select-boolean", DileSelectBoolean);
+if (!customElements.get("dile-select-boolean")) {
+  window.customElements.define("dile-select-boolean", DileSelectBoolean);
+}

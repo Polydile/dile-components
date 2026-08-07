@@ -6,4 +6,6 @@ export class DileIconlibToggleOn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-toggle-on', DileIconlibToggleOn);
+if (!customElements.get('dile-fontawesome-icon-toggle-on')) {
+  customElements.define('dile-fontawesome-icon-toggle-on', DileIconlibToggleOn);
+}

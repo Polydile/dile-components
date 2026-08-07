@@ -6,4 +6,6 @@ export class DileIconlibTram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tram', DileIconlibTram);
+if (!customElements.get('dile-material-icon-tram')) {
+  customElements.define('dile-material-icon-tram', DileIconlibTram);
+}

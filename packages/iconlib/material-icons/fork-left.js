@@ -6,4 +6,6 @@ export class DileIconlibForkLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fork-left', DileIconlibForkLeft);
+if (!customElements.get('dile-material-icon-fork-left')) {
+  customElements.define('dile-material-icon-fork-left', DileIconlibForkLeft);
+}

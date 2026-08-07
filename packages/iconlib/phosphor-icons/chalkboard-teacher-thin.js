@@ -6,4 +6,6 @@ export class DileIconlibChalkboardTeacherThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chalkboard-teacher-thin', DileIconlibChalkboardTeacherThin);
+if (!customElements.get('dile-phosphor-icon-chalkboard-teacher-thin')) {
+  customElements.define('dile-phosphor-icon-chalkboard-teacher-thin', DileIconlibChalkboardTeacherThin);
+}

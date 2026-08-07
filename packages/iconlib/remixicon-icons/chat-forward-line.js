@@ -6,4 +6,6 @@ export class DileIconlibChatForwardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-forward-line', DileIconlibChatForwardLine);
+if (!customElements.get('dile-remixicon-icon-chat-forward-line')) {
+  customElements.define('dile-remixicon-icon-chat-forward-line', DileIconlibChatForwardLine);
+}

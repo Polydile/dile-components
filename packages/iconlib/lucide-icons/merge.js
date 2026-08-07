@@ -6,4 +6,6 @@ export class DileIconlibMerge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-merge', DileIconlibMerge);
+if (!customElements.get('dile-lucide-icon-merge')) {
+  customElements.define('dile-lucide-icon-merge', DileIconlibMerge);
+}

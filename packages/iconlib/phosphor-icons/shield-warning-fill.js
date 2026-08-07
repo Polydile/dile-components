@@ -6,4 +6,6 @@ export class DileIconlibShieldWarningFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shield-warning-fill', DileIconlibShieldWarningFill);
+if (!customElements.get('dile-phosphor-icon-shield-warning-fill')) {
+  customElements.define('dile-phosphor-icon-shield-warning-fill', DileIconlibShieldWarningFill);
+}

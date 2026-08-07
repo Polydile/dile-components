@@ -6,4 +6,6 @@ export class DileIconlibAvTimer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-av-timer', DileIconlibAvTimer);
+if (!customElements.get('dile-material-icon-av-timer')) {
+  customElements.define('dile-material-icon-av-timer', DileIconlibAvTimer);
+}

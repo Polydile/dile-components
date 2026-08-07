@@ -6,4 +6,6 @@ export class DileIconlibSyringeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-syringe-fill', DileIconlibSyringeFill);
+if (!customElements.get('dile-remixicon-icon-syringe-fill')) {
+  customElements.define('dile-remixicon-icon-syringe-fill', DileIconlibSyringeFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPlugCharging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-plug-charging', DileIconlibPlugCharging);
+if (!customElements.get('dile-phosphor-icon-plug-charging')) {
+  customElements.define('dile-phosphor-icon-plug-charging', DileIconlibPlugCharging);
+}

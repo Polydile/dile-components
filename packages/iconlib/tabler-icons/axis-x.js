@@ -6,4 +6,6 @@ export class DileIconlibAxisX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-axis-x', DileIconlibAxisX);
+if (!customElements.get('dile-tabler-icon-axis-x')) {
+  customElements.define('dile-tabler-icon-axis-x', DileIconlibAxisX);
+}

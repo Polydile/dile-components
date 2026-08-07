@@ -6,4 +6,6 @@ export class DileIconlibAmazon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-amazon', DileIconlibAmazon);
+if (!customElements.get('dile-fontawesome-icon-amazon')) {
+  customElements.define('dile-fontawesome-icon-amazon', DileIconlibAmazon);
+}

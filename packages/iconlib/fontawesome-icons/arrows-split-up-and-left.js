@@ -6,4 +6,6 @@ export class DileIconlibArrowsSplitUpAndLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-split-up-and-left', DileIconlibArrowsSplitUpAndLeft);
+if (!customElements.get('dile-fontawesome-icon-arrows-split-up-and-left')) {
+  customElements.define('dile-fontawesome-icon-arrows-split-up-and-left', DileIconlibArrowsSplitUpAndLeft);
+}

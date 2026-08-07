@@ -6,4 +6,6 @@ export class DileIconlibBracketsSquareBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brackets-square-bold', DileIconlibBracketsSquareBold);
+if (!customElements.get('dile-phosphor-icon-brackets-square-bold')) {
+  customElements.define('dile-phosphor-icon-brackets-square-bold', DileIconlibBracketsSquareBold);
+}

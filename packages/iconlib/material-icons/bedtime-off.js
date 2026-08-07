@@ -6,4 +6,6 @@ export class DileIconlibBedtimeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bedtime-off', DileIconlibBedtimeOff);
+if (!customElements.get('dile-material-icon-bedtime-off')) {
+  customElements.define('dile-material-icon-bedtime-off', DileIconlibBedtimeOff);
+}

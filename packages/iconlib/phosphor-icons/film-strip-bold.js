@@ -6,4 +6,6 @@ export class DileIconlibFilmStripBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-film-strip-bold', DileIconlibFilmStripBold);
+if (!customElements.get('dile-phosphor-icon-film-strip-bold')) {
+  customElements.define('dile-phosphor-icon-film-strip-bold', DileIconlibFilmStripBold);
+}

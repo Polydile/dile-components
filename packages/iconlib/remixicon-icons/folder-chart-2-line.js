@@ -6,4 +6,6 @@ export class DileIconlibFolderChart2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-chart-2-line', DileIconlibFolderChart2Line);
+if (!customElements.get('dile-remixicon-icon-folder-chart-2-line')) {
+  customElements.define('dile-remixicon-icon-folder-chart-2-line', DileIconlibFolderChart2Line);
+}

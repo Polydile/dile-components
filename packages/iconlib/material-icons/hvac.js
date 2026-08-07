@@ -6,4 +6,6 @@ export class DileIconlibHvac extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hvac', DileIconlibHvac);
+if (!customElements.get('dile-material-icon-hvac')) {
+  customElements.define('dile-material-icon-hvac', DileIconlibHvac);
+}

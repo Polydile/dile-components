@@ -6,4 +6,6 @@ export class DileIconlibPaintBrushHouseholdThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-brush-household-thin', DileIconlibPaintBrushHouseholdThin);
+if (!customElements.get('dile-phosphor-icon-paint-brush-household-thin')) {
+  customElements.define('dile-phosphor-icon-paint-brush-household-thin', DileIconlibPaintBrushHouseholdThin);
+}

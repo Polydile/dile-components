@@ -6,4 +6,6 @@ export class DileIconlibWizardsOfTheCoast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wizards-of-the-coast', DileIconlibWizardsOfTheCoast);
+if (!customElements.get('dile-fontawesome-icon-wizards-of-the-coast')) {
+  customElements.define('dile-fontawesome-icon-wizards-of-the-coast', DileIconlibWizardsOfTheCoast);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRollercoaster extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rollercoaster', DileIconlibRollercoaster);
+if (!customElements.get('dile-tabler-icon-rollercoaster')) {
+  customElements.define('dile-tabler-icon-rollercoaster', DileIconlibRollercoaster);
+}

@@ -6,4 +6,6 @@ export class DileIconlibXmarkCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-xmark-circle', DileIconlibXmarkCircle);
+if (!customElements.get('dile-fontawesome-icon-regular-xmark-circle')) {
+  customElements.define('dile-fontawesome-icon-regular-xmark-circle', DileIconlibXmarkCircle);
+}

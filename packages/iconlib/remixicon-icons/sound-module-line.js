@@ -6,4 +6,6 @@ export class DileIconlibSoundModuleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sound-module-line', DileIconlibSoundModuleLine);
+if (!customElements.get('dile-remixicon-icon-sound-module-line')) {
+  customElements.define('dile-remixicon-icon-sound-module-line', DileIconlibSoundModuleLine);
+}

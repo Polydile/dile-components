@@ -6,4 +6,6 @@ export class DileIconlibMapTrifold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-map-trifold', DileIconlibMapTrifold);
+if (!customElements.get('dile-phosphor-icon-map-trifold')) {
+  customElements.define('dile-phosphor-icon-map-trifold', DileIconlibMapTrifold);
+}

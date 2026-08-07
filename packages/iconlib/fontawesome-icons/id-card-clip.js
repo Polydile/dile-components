@@ -6,4 +6,6 @@ export class DileIconlibIdCardClip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-id-card-clip', DileIconlibIdCardClip);
+if (!customElements.get('dile-fontawesome-icon-id-card-clip')) {
+  customElements.define('dile-fontawesome-icon-id-card-clip', DileIconlibIdCardClip);
+}

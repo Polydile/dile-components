@@ -6,4 +6,6 @@ export class DileIconlibFlorinSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-florin-sign', DileIconlibFlorinSign);
+if (!customElements.get('dile-fontawesome-icon-florin-sign')) {
+  customElements.define('dile-fontawesome-icon-florin-sign', DileIconlibFlorinSign);
+}

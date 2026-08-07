@@ -6,4 +6,6 @@ export class DileIconlibBrandBinance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-binance', DileIconlibBrandBinance);
+if (!customElements.get('dile-tabler-icon-brand-binance')) {
+  customElements.define('dile-tabler-icon-brand-binance', DileIconlibBrandBinance);
+}

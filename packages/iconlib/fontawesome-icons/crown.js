@@ -6,4 +6,6 @@ export class DileIconlibCrown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-crown', DileIconlibCrown);
+if (!customElements.get('dile-fontawesome-icon-crown')) {
+  customElements.define('dile-fontawesome-icon-crown', DileIconlibCrown);
+}

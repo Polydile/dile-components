@@ -6,4 +6,6 @@ export class DileIconlibFileBracesCorner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-braces-corner', DileIconlibFileBracesCorner);
+if (!customElements.get('dile-lucide-icon-file-braces-corner')) {
+  customElements.define('dile-lucide-icon-file-braces-corner', DileIconlibFileBracesCorner);
+}

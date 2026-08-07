@@ -6,4 +6,6 @@ export class DileIconlibPencilRuler extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pencil-ruler', DileIconlibPencilRuler);
+if (!customElements.get('dile-lucide-icon-pencil-ruler')) {
+  customElements.define('dile-lucide-icon-pencil-ruler', DileIconlibPencilRuler);
+}

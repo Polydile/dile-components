@@ -6,4 +6,6 @@ export class DileIconlibBrandCSharp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-c-sharp', DileIconlibBrandCSharp);
+if (!customElements.get('dile-tabler-icon-brand-c-sharp')) {
+  customElements.define('dile-tabler-icon-brand-c-sharp', DileIconlibBrandCSharp);
+}

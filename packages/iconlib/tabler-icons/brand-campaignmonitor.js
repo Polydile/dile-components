@@ -6,4 +6,6 @@ export class DileIconlibBrandCampaignmonitor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-campaignmonitor', DileIconlibBrandCampaignmonitor);
+if (!customElements.get('dile-tabler-icon-brand-campaignmonitor')) {
+  customElements.define('dile-tabler-icon-brand-campaignmonitor', DileIconlibBrandCampaignmonitor);
+}

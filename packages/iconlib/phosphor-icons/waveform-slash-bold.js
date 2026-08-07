@@ -6,4 +6,6 @@ export class DileIconlibWaveformSlashBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waveform-slash-bold', DileIconlibWaveformSlashBold);
+if (!customElements.get('dile-phosphor-icon-waveform-slash-bold')) {
+  customElements.define('dile-phosphor-icon-waveform-slash-bold', DileIconlibWaveformSlashBold);
+}

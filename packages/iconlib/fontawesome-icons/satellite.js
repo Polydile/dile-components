@@ -6,4 +6,6 @@ export class DileIconlibSatellite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-satellite', DileIconlibSatellite);
+if (!customElements.get('dile-fontawesome-icon-satellite')) {
+  customElements.define('dile-fontawesome-icon-satellite', DileIconlibSatellite);
+}

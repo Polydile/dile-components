@@ -6,4 +6,6 @@ export class DileIconlibStethoscopeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stethoscope-off', DileIconlibStethoscopeOff);
+if (!customElements.get('dile-tabler-icon-stethoscope-off')) {
+  customElements.define('dile-tabler-icon-stethoscope-off', DileIconlibStethoscopeOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCircuitPushbutton extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-pushbutton', DileIconlibCircuitPushbutton);
+if (!customElements.get('dile-tabler-icon-circuit-pushbutton')) {
+  customElements.define('dile-tabler-icon-circuit-pushbutton', DileIconlibCircuitPushbutton);
+}

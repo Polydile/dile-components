@@ -6,4 +6,6 @@ export class DileIconlibHighHeelDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-high-heel-duotone', DileIconlibHighHeelDuotone);
+if (!customElements.get('dile-phosphor-icon-high-heel-duotone')) {
+  customElements.define('dile-phosphor-icon-high-heel-duotone', DileIconlibHighHeelDuotone);
+}

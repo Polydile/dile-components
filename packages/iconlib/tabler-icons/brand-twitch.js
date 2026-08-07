@@ -6,4 +6,6 @@ export class DileIconlibBrandTwitch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-twitch', DileIconlibBrandTwitch);
+if (!customElements.get('dile-tabler-icon-brand-twitch')) {
+  customElements.define('dile-tabler-icon-brand-twitch', DileIconlibBrandTwitch);
+}

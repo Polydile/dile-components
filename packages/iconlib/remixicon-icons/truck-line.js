@@ -6,4 +6,6 @@ export class DileIconlibTruckLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-truck-line', DileIconlibTruckLine);
+if (!customElements.get('dile-remixicon-icon-truck-line')) {
+  customElements.define('dile-remixicon-icon-truck-line', DileIconlibTruckLine);
+}

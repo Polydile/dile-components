@@ -6,4 +6,6 @@ export class DileIconlibDiceTwoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dice-two-bold', DileIconlibDiceTwoBold);
+if (!customElements.get('dile-phosphor-icon-dice-two-bold')) {
+  customElements.define('dile-phosphor-icon-dice-two-bold', DileIconlibDiceTwoBold);
+}

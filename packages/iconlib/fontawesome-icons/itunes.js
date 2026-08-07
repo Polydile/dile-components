@@ -6,4 +6,6 @@ export class DileIconlibItunes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-itunes', DileIconlibItunes);
+if (!customElements.get('dile-fontawesome-icon-itunes')) {
+  customElements.define('dile-fontawesome-icon-itunes', DileIconlibItunes);
+}

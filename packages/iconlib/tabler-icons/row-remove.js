@@ -6,4 +6,6 @@ export class DileIconlibRowRemove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-row-remove', DileIconlibRowRemove);
+if (!customElements.get('dile-tabler-icon-row-remove')) {
+  customElements.define('dile-tabler-icon-row-remove', DileIconlibRowRemove);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTrendingDown3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-trending-down-3', DileIconlibTrendingDown3);
+if (!customElements.get('dile-tabler-icon-trending-down-3')) {
+  customElements.define('dile-tabler-icon-trending-down-3', DileIconlibTrendingDown3);
+}

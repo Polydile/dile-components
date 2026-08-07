@@ -6,4 +6,6 @@ export class DileIconlibRotateCcwClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rotate-ccw-clock', DileIconlibRotateCcwClock);
+if (!customElements.get('dile-lucide-icon-rotate-ccw-clock')) {
+  customElements.define('dile-lucide-icon-rotate-ccw-clock', DileIconlibRotateCcwClock);
+}

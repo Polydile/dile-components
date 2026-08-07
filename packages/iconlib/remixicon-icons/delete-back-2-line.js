@@ -6,4 +6,6 @@ export class DileIconlibDeleteBack2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-delete-back-2-line', DileIconlibDeleteBack2Line);
+if (!customElements.get('dile-remixicon-icon-delete-back-2-line')) {
+  customElements.define('dile-remixicon-icon-delete-back-2-line', DileIconlibDeleteBack2Line);
+}

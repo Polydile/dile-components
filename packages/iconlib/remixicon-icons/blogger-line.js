@@ -6,4 +6,6 @@ export class DileIconlibBloggerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-blogger-line', DileIconlibBloggerLine);
+if (!customElements.get('dile-remixicon-icon-blogger-line')) {
+  customElements.define('dile-remixicon-icon-blogger-line', DileIconlibBloggerLine);
+}

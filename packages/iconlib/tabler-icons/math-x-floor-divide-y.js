@@ -6,4 +6,6 @@ export class DileIconlibMathXFloorDivideY extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-x-floor-divide-y', DileIconlibMathXFloorDivideY);
+if (!customElements.get('dile-tabler-icon-math-x-floor-divide-y')) {
+  customElements.define('dile-tabler-icon-math-x-floor-divide-y', DileIconlibMathXFloorDivideY);
+}

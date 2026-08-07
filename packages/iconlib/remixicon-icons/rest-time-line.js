@@ -6,4 +6,6 @@ export class DileIconlibRestTimeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rest-time-line', DileIconlibRestTimeLine);
+if (!customElements.get('dile-remixicon-icon-rest-time-line')) {
+  customElements.define('dile-remixicon-icon-rest-time-line', DileIconlibRestTimeLine);
+}

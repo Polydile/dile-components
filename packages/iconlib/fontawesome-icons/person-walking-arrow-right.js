@@ -6,4 +6,6 @@ export class DileIconlibPersonWalkingArrowRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-walking-arrow-right', DileIconlibPersonWalkingArrowRight);
+if (!customElements.get('dile-fontawesome-icon-person-walking-arrow-right')) {
+  customElements.define('dile-fontawesome-icon-person-walking-arrow-right', DileIconlibPersonWalkingArrowRight);
+}

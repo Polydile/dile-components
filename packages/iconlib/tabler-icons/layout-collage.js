@@ -6,4 +6,6 @@ export class DileIconlibLayoutCollage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-collage', DileIconlibLayoutCollage);
+if (!customElements.get('dile-tabler-icon-layout-collage')) {
+  customElements.define('dile-tabler-icon-layout-collage', DileIconlibLayoutCollage);
+}

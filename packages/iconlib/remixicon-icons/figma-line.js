@@ -6,4 +6,6 @@ export class DileIconlibFigmaLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-figma-line', DileIconlibFigmaLine);
+if (!customElements.get('dile-remixicon-icon-figma-line')) {
+  customElements.define('dile-remixicon-icon-figma-line', DileIconlibFigmaLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPray extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pray', DileIconlibPray);
+if (!customElements.get('dile-fontawesome-icon-pray')) {
+  customElements.define('dile-fontawesome-icon-pray', DileIconlibPray);
+}

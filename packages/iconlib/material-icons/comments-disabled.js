@@ -6,4 +6,6 @@ export class DileIconlibCommentsDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-comments-disabled', DileIconlibCommentsDisabled);
+if (!customElements.get('dile-material-icon-comments-disabled')) {
+  customElements.define('dile-material-icon-comments-disabled', DileIconlibCommentsDisabled);
+}

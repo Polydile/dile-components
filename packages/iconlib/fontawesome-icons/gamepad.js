@@ -6,4 +6,6 @@ export class DileIconlibGamepad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gamepad', DileIconlibGamepad);
+if (!customElements.get('dile-fontawesome-icon-gamepad')) {
+  customElements.define('dile-fontawesome-icon-gamepad', DileIconlibGamepad);
+}

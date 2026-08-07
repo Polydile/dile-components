@@ -6,4 +6,6 @@ export class DileIconlibAmbulanceBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ambulance-bold', DileIconlibAmbulanceBold);
+if (!customElements.get('dile-phosphor-icon-ambulance-bold')) {
+  customElements.define('dile-phosphor-icon-ambulance-bold', DileIconlibAmbulanceBold);
+}

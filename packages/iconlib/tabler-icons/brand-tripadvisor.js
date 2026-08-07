@@ -6,4 +6,6 @@ export class DileIconlibBrandTripadvisor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tripadvisor', DileIconlibBrandTripadvisor);
+if (!customElements.get('dile-tabler-icon-brand-tripadvisor')) {
+  customElements.define('dile-tabler-icon-brand-tripadvisor', DileIconlibBrandTripadvisor);
+}

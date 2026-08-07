@@ -6,4 +6,6 @@ export class DileIconlibLandscapeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-landscape-fill', DileIconlibLandscapeFill);
+if (!customElements.get('dile-remixicon-icon-landscape-fill')) {
+  customElements.define('dile-remixicon-icon-landscape-fill', DileIconlibLandscapeFill);
+}

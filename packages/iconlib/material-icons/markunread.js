@@ -6,4 +6,6 @@ export class DileIconlibMarkunread extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-markunread', DileIconlibMarkunread);
+if (!customElements.get('dile-material-icon-markunread')) {
+  customElements.define('dile-material-icon-markunread', DileIconlibMarkunread);
+}

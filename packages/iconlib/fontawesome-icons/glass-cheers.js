@@ -6,4 +6,6 @@ export class DileIconlibGlassCheers extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-glass-cheers', DileIconlibGlassCheers);
+if (!customElements.get('dile-fontawesome-icon-glass-cheers')) {
+  customElements.define('dile-fontawesome-icon-glass-cheers', DileIconlibGlassCheers);
+}

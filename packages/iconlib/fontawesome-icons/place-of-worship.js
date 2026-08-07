@@ -6,4 +6,6 @@ export class DileIconlibPlaceOfWorship extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-place-of-worship', DileIconlibPlaceOfWorship);
+if (!customElements.get('dile-fontawesome-icon-place-of-worship')) {
+  customElements.define('dile-fontawesome-icon-place-of-worship', DileIconlibPlaceOfWorship);
+}

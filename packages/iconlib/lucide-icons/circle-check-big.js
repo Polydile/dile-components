@@ -6,4 +6,6 @@ export class DileIconlibCircleCheckBig extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-check-big', DileIconlibCircleCheckBig);
+if (!customElements.get('dile-lucide-icon-circle-check-big')) {
+  customElements.define('dile-lucide-icon-circle-check-big', DileIconlibCircleCheckBig);
+}

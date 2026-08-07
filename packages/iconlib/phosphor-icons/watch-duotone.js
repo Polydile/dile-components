@@ -6,4 +6,6 @@ export class DileIconlibWatchDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-watch-duotone', DileIconlibWatchDuotone);
+if (!customElements.get('dile-phosphor-icon-watch-duotone')) {
+  customElements.define('dile-phosphor-icon-watch-duotone', DileIconlibWatchDuotone);
+}

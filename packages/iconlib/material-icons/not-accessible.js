@@ -6,4 +6,6 @@ export class DileIconlibNotAccessible extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-not-accessible', DileIconlibNotAccessible);
+if (!customElements.get('dile-material-icon-not-accessible')) {
+  customElements.define('dile-material-icon-not-accessible', DileIconlibNotAccessible);
+}

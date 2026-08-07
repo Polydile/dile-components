@@ -6,4 +6,6 @@ export class DileIconlibTelevisionBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-television-bold', DileIconlibTelevisionBold);
+if (!customElements.get('dile-phosphor-icon-television-bold')) {
+  customElements.define('dile-phosphor-icon-television-bold', DileIconlibTelevisionBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTwitterLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-twitter-logo-bold', DileIconlibTwitterLogoBold);
+if (!customElements.get('dile-phosphor-icon-twitter-logo-bold')) {
+  customElements.define('dile-phosphor-icon-twitter-logo-bold', DileIconlibTwitterLogoBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMouseScrollFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mouse-scroll-fill', DileIconlibMouseScrollFill);
+if (!customElements.get('dile-phosphor-icon-mouse-scroll-fill')) {
+  customElements.define('dile-phosphor-icon-mouse-scroll-fill', DileIconlibMouseScrollFill);
+}

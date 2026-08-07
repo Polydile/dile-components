@@ -6,4 +6,6 @@ export class DileIconlibCopyPlusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-copy-plus-filled', DileIconlibCopyPlusFilled);
+if (!customElements.get('dile-tabler-icon-copy-plus-filled')) {
+  customElements.define('dile-tabler-icon-copy-plus-filled', DileIconlibCopyPlusFilled);
+}

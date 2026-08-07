@@ -6,4 +6,6 @@ export class DileIconlibLayoutCardsFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-cards-filled', DileIconlibLayoutCardsFilled);
+if (!customElements.get('dile-tabler-icon-layout-cards-filled')) {
+  customElements.define('dile-tabler-icon-layout-cards-filled', DileIconlibLayoutCardsFilled);
+}

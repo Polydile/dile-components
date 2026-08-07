@@ -6,4 +6,6 @@ export class DileIconlibMinusCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-minus-circle', DileIconlibMinusCircle);
+if (!customElements.get('dile-phosphor-icon-minus-circle')) {
+  customElements.define('dile-phosphor-icon-minus-circle', DileIconlibMinusCircle);
+}

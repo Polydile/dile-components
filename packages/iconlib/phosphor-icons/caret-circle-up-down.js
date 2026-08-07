@@ -6,4 +6,6 @@ export class DileIconlibCaretCircleUpDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-caret-circle-up-down', DileIconlibCaretCircleUpDown);
+if (!customElements.get('dile-phosphor-icon-caret-circle-up-down')) {
+  customElements.define('dile-phosphor-icon-caret-circle-up-down', DileIconlibCaretCircleUpDown);
+}

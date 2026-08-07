@@ -6,4 +6,6 @@ export class DileIconlibSafe3Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-safe-3-fill', DileIconlibSafe3Fill);
+if (!customElements.get('dile-remixicon-icon-safe-3-fill')) {
+  customElements.define('dile-remixicon-icon-safe-3-fill', DileIconlibSafe3Fill);
+}

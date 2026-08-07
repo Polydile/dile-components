@@ -6,4 +6,6 @@ export class DileIconlibVercelLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-vercel-line', DileIconlibVercelLine);
+if (!customElements.get('dile-remixicon-icon-vercel-line')) {
+  customElements.define('dile-remixicon-icon-vercel-line', DileIconlibVercelLine);
+}

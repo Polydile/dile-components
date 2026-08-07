@@ -6,4 +6,6 @@ export class DileIconlibSpeakerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-speaker-fill', DileIconlibSpeakerFill);
+if (!customElements.get('dile-remixicon-icon-speaker-fill')) {
+  customElements.define('dile-remixicon-icon-speaker-fill', DileIconlibSpeakerFill);
+}

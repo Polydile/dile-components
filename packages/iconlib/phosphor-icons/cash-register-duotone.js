@@ -6,4 +6,6 @@ export class DileIconlibCashRegisterDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cash-register-duotone', DileIconlibCashRegisterDuotone);
+if (!customElements.get('dile-phosphor-icon-cash-register-duotone')) {
+  customElements.define('dile-phosphor-icon-cash-register-duotone', DileIconlibCashRegisterDuotone);
+}

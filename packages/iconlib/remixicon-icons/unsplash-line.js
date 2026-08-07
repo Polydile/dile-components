@@ -6,4 +6,6 @@ export class DileIconlibUnsplashLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-unsplash-line', DileIconlibUnsplashLine);
+if (!customElements.get('dile-remixicon-icon-unsplash-line')) {
+  customElements.define('dile-remixicon-icon-unsplash-line', DileIconlibUnsplashLine);
+}

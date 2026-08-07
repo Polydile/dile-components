@@ -6,4 +6,6 @@ export class DileIconlibSmileyStickerBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-smiley-sticker-bold', DileIconlibSmileyStickerBold);
+if (!customElements.get('dile-phosphor-icon-smiley-sticker-bold')) {
+  customElements.define('dile-phosphor-icon-smiley-sticker-bold', DileIconlibSmileyStickerBold);
+}

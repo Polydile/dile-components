@@ -6,4 +6,6 @@ export class DileIconlibBrush4Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-brush-4-fill', DileIconlibBrush4Fill);
+if (!customElements.get('dile-remixicon-icon-brush-4-fill')) {
+  customElements.define('dile-remixicon-icon-brush-4-fill', DileIconlibBrush4Fill);
+}

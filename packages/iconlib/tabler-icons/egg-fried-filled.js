@@ -6,4 +6,6 @@ export class DileIconlibEggFriedFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-egg-fried-filled', DileIconlibEggFriedFilled);
+if (!customElements.get('dile-tabler-icon-egg-fried-filled')) {
+  customElements.define('dile-tabler-icon-egg-fried-filled', DileIconlibEggFriedFilled);
+}

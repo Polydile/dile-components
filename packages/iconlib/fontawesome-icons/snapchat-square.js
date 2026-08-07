@@ -6,4 +6,6 @@ export class DileIconlibSnapchatSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-snapchat-square', DileIconlibSnapchatSquare);
+if (!customElements.get('dile-fontawesome-icon-snapchat-square')) {
+  customElements.define('dile-fontawesome-icon-snapchat-square', DileIconlibSnapchatSquare);
+}

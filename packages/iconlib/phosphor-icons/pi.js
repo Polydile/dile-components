@@ -6,4 +6,6 @@ export class DileIconlibPi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pi', DileIconlibPi);
+if (!customElements.get('dile-phosphor-icon-pi')) {
+  customElements.define('dile-phosphor-icon-pi', DileIconlibPi);
+}

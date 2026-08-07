@@ -6,4 +6,6 @@ export class DileIconlibClockAfternoonDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-afternoon-duotone', DileIconlibClockAfternoonDuotone);
+if (!customElements.get('dile-phosphor-icon-clock-afternoon-duotone')) {
+  customElements.define('dile-phosphor-icon-clock-afternoon-duotone', DileIconlibClockAfternoonDuotone);
+}

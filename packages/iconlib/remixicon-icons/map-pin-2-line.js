@@ -6,4 +6,6 @@ export class DileIconlibMapPin2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-map-pin-2-line', DileIconlibMapPin2Line);
+if (!customElements.get('dile-remixicon-icon-map-pin-2-line')) {
+  customElements.define('dile-remixicon-icon-map-pin-2-line', DileIconlibMapPin2Line);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTeethOpen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-teeth-open', DileIconlibTeethOpen);
+if (!customElements.get('dile-fontawesome-icon-teeth-open')) {
+  customElements.define('dile-fontawesome-icon-teeth-open', DileIconlibTeethOpen);
+}

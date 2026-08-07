@@ -6,4 +6,6 @@ export class DileIconlibMathFunction extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-function', DileIconlibMathFunction);
+if (!customElements.get('dile-tabler-icon-math-function')) {
+  customElements.define('dile-tabler-icon-math-function', DileIconlibMathFunction);
+}

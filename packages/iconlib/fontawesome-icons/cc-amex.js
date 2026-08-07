@@ -6,4 +6,6 @@ export class DileIconlibCcAmex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-amex', DileIconlibCcAmex);
+if (!customElements.get('dile-fontawesome-icon-cc-amex')) {
+  customElements.define('dile-fontawesome-icon-cc-amex', DileIconlibCcAmex);
+}

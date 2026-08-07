@@ -6,4 +6,6 @@ export class DileIconlibHandGrab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hand-grab', DileIconlibHandGrab);
+if (!customElements.get('dile-lucide-icon-hand-grab')) {
+  customElements.define('dile-lucide-icon-hand-grab', DileIconlibHandGrab);
+}

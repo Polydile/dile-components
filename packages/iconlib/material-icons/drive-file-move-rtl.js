@@ -6,4 +6,6 @@ export class DileIconlibDriveFileMoveRtl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drive-file-move-rtl', DileIconlibDriveFileMoveRtl);
+if (!customElements.get('dile-material-icon-drive-file-move-rtl')) {
+  customElements.define('dile-material-icon-drive-file-move-rtl', DileIconlibDriveFileMoveRtl);
+}

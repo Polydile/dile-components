@@ -6,4 +6,6 @@ export class DileIconlibTextColumnsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-columns-duotone', DileIconlibTextColumnsDuotone);
+if (!customElements.get('dile-phosphor-icon-text-columns-duotone')) {
+  customElements.define('dile-phosphor-icon-text-columns-duotone', DileIconlibTextColumnsDuotone);
+}

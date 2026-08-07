@@ -6,4 +6,6 @@ export class DileIconlibMarsStrokeV extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mars-stroke-v', DileIconlibMarsStrokeV);
+if (!customElements.get('dile-fontawesome-icon-mars-stroke-v')) {
+  customElements.define('dile-fontawesome-icon-mars-stroke-v', DileIconlibMarsStrokeV);
+}

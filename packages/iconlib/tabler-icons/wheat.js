@@ -6,4 +6,6 @@ export class DileIconlibWheat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wheat', DileIconlibWheat);
+if (!customElements.get('dile-tabler-icon-wheat')) {
+  customElements.define('dile-tabler-icon-wheat', DileIconlibWheat);
+}

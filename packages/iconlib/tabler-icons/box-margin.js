@@ -6,4 +6,6 @@ export class DileIconlibBoxMargin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-box-margin', DileIconlibBoxMargin);
+if (!customElements.get('dile-tabler-icon-box-margin')) {
+  customElements.define('dile-tabler-icon-box-margin', DileIconlibBoxMargin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClipboardTextLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clipboard-text-light', DileIconlibClipboardTextLight);
+if (!customElements.get('dile-phosphor-icon-clipboard-text-light')) {
+  customElements.define('dile-phosphor-icon-clipboard-text-light', DileIconlibClipboardTextLight);
+}

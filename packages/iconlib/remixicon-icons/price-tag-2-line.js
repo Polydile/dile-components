@@ -6,4 +6,6 @@ export class DileIconlibPriceTag2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-price-tag-2-line', DileIconlibPriceTag2Line);
+if (!customElements.get('dile-remixicon-icon-price-tag-2-line')) {
+  customElements.define('dile-remixicon-icon-price-tag-2-line', DileIconlibPriceTag2Line);
+}

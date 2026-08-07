@@ -6,4 +6,6 @@ export class DileIconlibSubtitlesBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-subtitles-bold', DileIconlibSubtitlesBold);
+if (!customElements.get('dile-phosphor-icon-subtitles-bold')) {
+  customElements.define('dile-phosphor-icon-subtitles-bold', DileIconlibSubtitlesBold);
+}

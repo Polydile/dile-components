@@ -6,4 +6,6 @@ export class DileIconlibTailwindCssFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tailwind-css-fill', DileIconlibTailwindCssFill);
+if (!customElements.get('dile-remixicon-icon-tailwind-css-fill')) {
+  customElements.define('dile-remixicon-icon-tailwind-css-fill', DileIconlibTailwindCssFill);
+}

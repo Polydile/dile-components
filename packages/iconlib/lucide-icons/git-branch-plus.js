@@ -6,4 +6,6 @@ export class DileIconlibGitBranchPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-git-branch-plus', DileIconlibGitBranchPlus);
+if (!customElements.get('dile-lucide-icon-git-branch-plus')) {
+  customElements.define('dile-lucide-icon-git-branch-plus', DileIconlibGitBranchPlus);
+}

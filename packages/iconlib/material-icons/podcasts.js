@@ -6,4 +6,6 @@ export class DileIconlibPodcasts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-podcasts', DileIconlibPodcasts);
+if (!customElements.get('dile-material-icon-podcasts')) {
+  customElements.define('dile-material-icon-podcasts', DileIconlibPodcasts);
+}

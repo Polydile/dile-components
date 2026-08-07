@@ -6,4 +6,6 @@ export class DileIconlibLineDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-line-dashed', DileIconlibLineDashed);
+if (!customElements.get('dile-tabler-icon-line-dashed')) {
+  customElements.define('dile-tabler-icon-line-dashed', DileIconlibLineDashed);
+}

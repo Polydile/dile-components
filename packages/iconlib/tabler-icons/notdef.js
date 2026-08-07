@@ -6,4 +6,6 @@ export class DileIconlibNotdef extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-notdef', DileIconlibNotdef);
+if (!customElements.get('dile-tabler-icon-notdef')) {
+  customElements.define('dile-tabler-icon-notdef', DileIconlibNotdef);
+}

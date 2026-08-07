@@ -6,4 +6,6 @@ export class DileIconlibGripLines extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grip-lines', DileIconlibGripLines);
+if (!customElements.get('dile-fontawesome-icon-grip-lines')) {
+  customElements.define('dile-fontawesome-icon-grip-lines', DileIconlibGripLines);
+}

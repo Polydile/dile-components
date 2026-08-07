@@ -6,4 +6,6 @@ export class DileIconlibSimplybuilt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-simplybuilt', DileIconlibSimplybuilt);
+if (!customElements.get('dile-fontawesome-icon-simplybuilt')) {
+  customElements.define('dile-fontawesome-icon-simplybuilt', DileIconlibSimplybuilt);
+}

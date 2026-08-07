@@ -6,4 +6,6 @@ export class DileIconlibFireFlameCurved extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fire-flame-curved', DileIconlibFireFlameCurved);
+if (!customElements.get('dile-fontawesome-icon-fire-flame-curved')) {
+  customElements.define('dile-fontawesome-icon-fire-flame-curved', DileIconlibFireFlameCurved);
+}

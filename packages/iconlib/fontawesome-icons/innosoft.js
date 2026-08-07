@@ -6,4 +6,6 @@ export class DileIconlibInnosoft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-innosoft', DileIconlibInnosoft);
+if (!customElements.get('dile-fontawesome-icon-innosoft')) {
+  customElements.define('dile-fontawesome-icon-innosoft', DileIconlibInnosoft);
+}

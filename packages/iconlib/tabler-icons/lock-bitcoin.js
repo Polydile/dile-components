@@ -6,4 +6,6 @@ export class DileIconlibLockBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-bitcoin', DileIconlibLockBitcoin);
+if (!customElements.get('dile-tabler-icon-lock-bitcoin')) {
+  customElements.define('dile-tabler-icon-lock-bitcoin', DileIconlibLockBitcoin);
+}

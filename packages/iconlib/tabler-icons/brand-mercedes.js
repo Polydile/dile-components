@@ -6,4 +6,6 @@ export class DileIconlibBrandMercedes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mercedes', DileIconlibBrandMercedes);
+if (!customElements.get('dile-tabler-icon-brand-mercedes')) {
+  customElements.define('dile-tabler-icon-brand-mercedes', DileIconlibBrandMercedes);
+}

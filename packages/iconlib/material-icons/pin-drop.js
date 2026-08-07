@@ -6,4 +6,6 @@ export class DileIconlibPinDrop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pin-drop', DileIconlibPinDrop);
+if (!customElements.get('dile-material-icon-pin-drop')) {
+  customElements.define('dile-material-icon-pin-drop', DileIconlibPinDrop);
+}

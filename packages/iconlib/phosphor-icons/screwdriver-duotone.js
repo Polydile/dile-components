@@ -6,4 +6,6 @@ export class DileIconlibScrewdriverDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-screwdriver-duotone', DileIconlibScrewdriverDuotone);
+if (!customElements.get('dile-phosphor-icon-screwdriver-duotone')) {
+  customElements.define('dile-phosphor-icon-screwdriver-duotone', DileIconlibScrewdriverDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartLineUpBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-line-up-bold', DileIconlibChartLineUpBold);
+if (!customElements.get('dile-phosphor-icon-chart-line-up-bold')) {
+  customElements.define('dile-phosphor-icon-chart-line-up-bold', DileIconlibChartLineUpBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPassPendingFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pass-pending-fill', DileIconlibPassPendingFill);
+if (!customElements.get('dile-remixicon-icon-pass-pending-fill')) {
+  customElements.define('dile-remixicon-icon-pass-pending-fill', DileIconlibPassPendingFill);
+}

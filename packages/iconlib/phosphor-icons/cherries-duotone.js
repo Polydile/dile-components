@@ -6,4 +6,6 @@ export class DileIconlibCherriesDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cherries-duotone', DileIconlibCherriesDuotone);
+if (!customElements.get('dile-phosphor-icon-cherries-duotone')) {
+  customElements.define('dile-phosphor-icon-cherries-duotone', DileIconlibCherriesDuotone);
+}

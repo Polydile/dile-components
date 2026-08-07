@@ -6,4 +6,6 @@ export class DileIconlibBookmarkOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bookmark-off', DileIconlibBookmarkOff);
+if (!customElements.get('dile-tabler-icon-bookmark-off')) {
+  customElements.define('dile-tabler-icon-bookmark-off', DileIconlibBookmarkOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPanoramaHorizontalSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-panorama-horizontal-select', DileIconlibPanoramaHorizontalSelect);
+if (!customElements.get('dile-material-icon-panorama-horizontal-select')) {
+  customElements.define('dile-material-icon-panorama-horizontal-select', DileIconlibPanoramaHorizontalSelect);
+}

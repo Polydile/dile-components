@@ -6,4 +6,6 @@ export class DileIconlibSelectionSlashBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-slash-bold', DileIconlibSelectionSlashBold);
+if (!customElements.get('dile-phosphor-icon-selection-slash-bold')) {
+  customElements.define('dile-phosphor-icon-selection-slash-bold', DileIconlibSelectionSlashBold);
+}

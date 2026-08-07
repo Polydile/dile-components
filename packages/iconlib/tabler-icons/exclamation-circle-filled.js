@@ -6,4 +6,6 @@ export class DileIconlibExclamationCircleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-exclamation-circle-filled', DileIconlibExclamationCircleFilled);
+if (!customElements.get('dile-tabler-icon-exclamation-circle-filled')) {
+  customElements.define('dile-tabler-icon-exclamation-circle-filled', DileIconlibExclamationCircleFilled);
+}

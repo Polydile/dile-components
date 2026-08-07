@@ -6,4 +6,6 @@ export class DileIconlibPushPin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-push-pin', DileIconlibPushPin);
+if (!customElements.get('dile-phosphor-icon-push-pin')) {
+  customElements.define('dile-phosphor-icon-push-pin', DileIconlibPushPin);
+}

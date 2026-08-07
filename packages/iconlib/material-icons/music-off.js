@@ -6,4 +6,6 @@ export class DileIconlibMusicOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-music-off', DileIconlibMusicOff);
+if (!customElements.get('dile-material-icon-music-off')) {
+  customElements.define('dile-material-icon-music-off', DileIconlibMusicOff);
+}

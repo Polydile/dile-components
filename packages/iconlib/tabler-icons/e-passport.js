@@ -6,4 +6,6 @@ export class DileIconlibEPassport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-e-passport', DileIconlibEPassport);
+if (!customElements.get('dile-tabler-icon-e-passport')) {
+  customElements.define('dile-tabler-icon-e-passport', DileIconlibEPassport);
+}

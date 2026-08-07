@@ -6,4 +6,6 @@ export class DileIconlibBanknoteArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-banknote-arrow-down', DileIconlibBanknoteArrowDown);
+if (!customElements.get('dile-lucide-icon-banknote-arrow-down')) {
+  customElements.define('dile-lucide-icon-banknote-arrow-down', DileIconlibBanknoteArrowDown);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPumpMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pump-medical', DileIconlibPumpMedical);
+if (!customElements.get('dile-fontawesome-icon-pump-medical')) {
+  customElements.define('dile-fontawesome-icon-pump-medical', DileIconlibPumpMedical);
+}

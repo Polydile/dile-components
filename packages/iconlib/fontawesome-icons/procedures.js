@@ -6,4 +6,6 @@ export class DileIconlibProcedures extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-procedures', DileIconlibProcedures);
+if (!customElements.get('dile-fontawesome-icon-procedures')) {
+  customElements.define('dile-fontawesome-icon-procedures', DileIconlibProcedures);
+}

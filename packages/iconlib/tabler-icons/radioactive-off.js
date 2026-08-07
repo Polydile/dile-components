@@ -6,4 +6,6 @@ export class DileIconlibRadioactiveOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-radioactive-off', DileIconlibRadioactiveOff);
+if (!customElements.get('dile-tabler-icon-radioactive-off')) {
+  customElements.define('dile-tabler-icon-radioactive-off', DileIconlibRadioactiveOff);
+}

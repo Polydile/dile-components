@@ -6,4 +6,6 @@ export class DileIconlibChargingPileLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-charging-pile-line', DileIconlibChargingPileLine);
+if (!customElements.get('dile-remixicon-icon-charging-pile-line')) {
+  customElements.define('dile-remixicon-icon-charging-pile-line', DileIconlibChargingPileLine);
+}

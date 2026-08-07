@@ -6,4 +6,6 @@ export class DileIconlibVolumeTimes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-volume-times', DileIconlibVolumeTimes);
+if (!customElements.get('dile-fontawesome-icon-volume-times')) {
+  customElements.define('dile-fontawesome-icon-volume-times', DileIconlibVolumeTimes);
+}

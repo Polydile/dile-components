@@ -6,4 +6,6 @@ export class DileIconlibForbidFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-forbid-filled', DileIconlibForbidFilled);
+if (!customElements.get('dile-tabler-icon-forbid-filled')) {
+  customElements.define('dile-tabler-icon-forbid-filled', DileIconlibForbidFilled);
+}

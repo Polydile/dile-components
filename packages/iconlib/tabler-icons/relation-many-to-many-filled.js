@@ -6,4 +6,6 @@ export class DileIconlibRelationManyToManyFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-relation-many-to-many-filled', DileIconlibRelationManyToManyFilled);
+if (!customElements.get('dile-tabler-icon-relation-many-to-many-filled')) {
+  customElements.define('dile-tabler-icon-relation-many-to-many-filled', DileIconlibRelationManyToManyFilled);
+}

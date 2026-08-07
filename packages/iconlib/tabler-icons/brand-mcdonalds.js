@@ -6,4 +6,6 @@ export class DileIconlibBrandMcdonalds extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mcdonalds', DileIconlibBrandMcdonalds);
+if (!customElements.get('dile-tabler-icon-brand-mcdonalds')) {
+  customElements.define('dile-tabler-icon-brand-mcdonalds', DileIconlibBrandMcdonalds);
+}

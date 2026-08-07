@@ -6,4 +6,6 @@ export class DileIconlibCelsiusLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-celsius-line', DileIconlibCelsiusLine);
+if (!customElements.get('dile-remixicon-icon-celsius-line')) {
+  customElements.define('dile-remixicon-icon-celsius-line', DileIconlibCelsiusLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMobileDownloadLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mobile-download-line', DileIconlibMobileDownloadLine);
+if (!customElements.get('dile-remixicon-icon-mobile-download-line')) {
+  customElements.define('dile-remixicon-icon-mobile-download-line', DileIconlibMobileDownloadLine);
+}

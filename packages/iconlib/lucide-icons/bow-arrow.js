@@ -6,4 +6,6 @@ export class DileIconlibBowArrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bow-arrow', DileIconlibBowArrow);
+if (!customElements.get('dile-lucide-icon-bow-arrow')) {
+  customElements.define('dile-lucide-icon-bow-arrow', DileIconlibBowArrow);
+}

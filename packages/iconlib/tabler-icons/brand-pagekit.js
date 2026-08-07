@@ -6,4 +6,6 @@ export class DileIconlibBrandPagekit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pagekit', DileIconlibBrandPagekit);
+if (!customElements.get('dile-tabler-icon-brand-pagekit')) {
+  customElements.define('dile-tabler-icon-brand-pagekit', DileIconlibBrandPagekit);
+}

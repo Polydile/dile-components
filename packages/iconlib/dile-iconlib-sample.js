@@ -6,4 +6,6 @@ class DileIconlibSample extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-iconlib-sample', DileIconlibSample);
+if (!customElements.get('dile-iconlib-sample')) {
+  customElements.define('dile-iconlib-sample', DileIconlibSample);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPercentBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-percent-bold', DileIconlibPercentBold);
+if (!customElements.get('dile-phosphor-icon-percent-bold')) {
+  customElements.define('dile-phosphor-icon-percent-bold', DileIconlibPercentBold);
+}

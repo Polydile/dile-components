@@ -6,4 +6,6 @@ export class DileIconlibBrandGithubCopilot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-github-copilot', DileIconlibBrandGithubCopilot);
+if (!customElements.get('dile-tabler-icon-brand-github-copilot')) {
+  customElements.define('dile-tabler-icon-brand-github-copilot', DileIconlibBrandGithubCopilot);
+}

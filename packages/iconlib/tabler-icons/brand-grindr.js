@@ -6,4 +6,6 @@ export class DileIconlibBrandGrindr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-grindr', DileIconlibBrandGrindr);
+if (!customElements.get('dile-tabler-icon-brand-grindr')) {
+  customElements.define('dile-tabler-icon-brand-grindr', DileIconlibBrandGrindr);
+}

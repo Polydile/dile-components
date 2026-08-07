@@ -6,4 +6,6 @@ export class DileIconlibReceiptPound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-pound', DileIconlibReceiptPound);
+if (!customElements.get('dile-tabler-icon-receipt-pound')) {
+  customElements.define('dile-tabler-icon-receipt-pound', DileIconlibReceiptPound);
+}

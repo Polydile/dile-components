@@ -6,4 +6,6 @@ export class DileIconlibDirectionSignFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-direction-sign-filled', DileIconlibDirectionSignFilled);
+if (!customElements.get('dile-tabler-icon-direction-sign-filled')) {
+  customElements.define('dile-tabler-icon-direction-sign-filled', DileIconlibDirectionSignFilled);
+}

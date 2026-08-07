@@ -6,4 +6,6 @@ export class DileIconlibWrenchDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wrench-duotone', DileIconlibWrenchDuotone);
+if (!customElements.get('dile-phosphor-icon-wrench-duotone')) {
+  customElements.define('dile-phosphor-icon-wrench-duotone', DileIconlibWrenchDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHockeyPuck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hockey-puck', DileIconlibHockeyPuck);
+if (!customElements.get('dile-fontawesome-icon-hockey-puck')) {
+  customElements.define('dile-fontawesome-icon-hockey-puck', DileIconlibHockeyPuck);
+}

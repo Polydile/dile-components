@@ -6,4 +6,6 @@ export class DileIconlibEvernoteFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-evernote-fill', DileIconlibEvernoteFill);
+if (!customElements.get('dile-remixicon-icon-evernote-fill')) {
+  customElements.define('dile-remixicon-icon-evernote-fill', DileIconlibEvernoteFill);
+}

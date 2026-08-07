@@ -6,4 +6,6 @@ export class DileIconlibPersonMilitaryPointing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-military-pointing', DileIconlibPersonMilitaryPointing);
+if (!customElements.get('dile-fontawesome-icon-person-military-pointing')) {
+  customElements.define('dile-fontawesome-icon-person-military-pointing', DileIconlibPersonMilitaryPointing);
+}

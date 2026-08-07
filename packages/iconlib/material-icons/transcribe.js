@@ -6,4 +6,6 @@ export class DileIconlibTranscribe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-transcribe', DileIconlibTranscribe);
+if (!customElements.get('dile-material-icon-transcribe')) {
+  customElements.define('dile-material-icon-transcribe', DileIconlibTranscribe);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAirTrafficControlDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-air-traffic-control-duotone', DileIconlibAirTrafficControlDuotone);
+if (!customElements.get('dile-phosphor-icon-air-traffic-control-duotone')) {
+  customElements.define('dile-phosphor-icon-air-traffic-control-duotone', DileIconlibAirTrafficControlDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLibraryPlusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-library-plus-filled', DileIconlibLibraryPlusFilled);
+if (!customElements.get('dile-tabler-icon-library-plus-filled')) {
+  customElements.define('dile-tabler-icon-library-plus-filled', DileIconlibLibraryPlusFilled);
+}

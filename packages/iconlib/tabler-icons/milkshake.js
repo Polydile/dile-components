@@ -6,4 +6,6 @@ export class DileIconlibMilkshake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-milkshake', DileIconlibMilkshake);
+if (!customElements.get('dile-tabler-icon-milkshake')) {
+  customElements.define('dile-tabler-icon-milkshake', DileIconlibMilkshake);
+}

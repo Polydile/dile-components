@@ -6,4 +6,6 @@ export class DileIconlibDeviceAudioTape extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-audio-tape', DileIconlibDeviceAudioTape);
+if (!customElements.get('dile-tabler-icon-device-audio-tape')) {
+  customElements.define('dile-tabler-icon-device-audio-tape', DileIconlibDeviceAudioTape);
+}

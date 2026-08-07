@@ -6,4 +6,6 @@ export class DileIconlibKiwiBird extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kiwi-bird', DileIconlibKiwiBird);
+if (!customElements.get('dile-fontawesome-icon-kiwi-bird')) {
+  customElements.define('dile-fontawesome-icon-kiwi-bird', DileIconlibKiwiBird);
+}

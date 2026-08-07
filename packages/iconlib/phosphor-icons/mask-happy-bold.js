@@ -6,4 +6,6 @@ export class DileIconlibMaskHappyBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mask-happy-bold', DileIconlibMaskHappyBold);
+if (!customElements.get('dile-phosphor-icon-mask-happy-bold')) {
+  customElements.define('dile-phosphor-icon-mask-happy-bold', DileIconlibMaskHappyBold);
+}

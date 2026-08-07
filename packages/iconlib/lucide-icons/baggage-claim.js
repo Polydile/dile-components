@@ -6,4 +6,6 @@ export class DileIconlibBaggageClaim extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-baggage-claim', DileIconlibBaggageClaim);
+if (!customElements.get('dile-lucide-icon-baggage-claim')) {
+  customElements.define('dile-lucide-icon-baggage-claim', DileIconlibBaggageClaim);
+}

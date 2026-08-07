@@ -6,4 +6,6 @@ export class DileIconlibDiamondTurnRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-diamond-turn-right', DileIconlibDiamondTurnRight);
+if (!customElements.get('dile-fontawesome-icon-diamond-turn-right')) {
+  customElements.define('dile-fontawesome-icon-diamond-turn-right', DileIconlibDiamondTurnRight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBellSimpleZLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bell-simple-z-light', DileIconlibBellSimpleZLight);
+if (!customElements.get('dile-phosphor-icon-bell-simple-z-light')) {
+  customElements.define('dile-phosphor-icon-bell-simple-z-light', DileIconlibBellSimpleZLight);
+}

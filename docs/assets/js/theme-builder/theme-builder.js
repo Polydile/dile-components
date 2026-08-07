@@ -1,3 +1,5 @@
 import { DileThemeBuilder } from './DileThemeBuilder.js';
 
-window.customElements.define('dile-theme-builder', DileThemeBuilder);
+if (!customElements.get('dile-theme-builder')) {
+  window.customElements.define('dile-theme-builder', DileThemeBuilder);
+}

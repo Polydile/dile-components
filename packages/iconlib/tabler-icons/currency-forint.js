@@ -6,4 +6,6 @@ export class DileIconlibCurrencyForint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-forint', DileIconlibCurrencyForint);
+if (!customElements.get('dile-tabler-icon-currency-forint')) {
+  customElements.define('dile-tabler-icon-currency-forint', DileIconlibCurrencyForint);
+}

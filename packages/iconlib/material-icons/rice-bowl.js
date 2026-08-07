@@ -6,4 +6,6 @@ export class DileIconlibRiceBowl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rice-bowl', DileIconlibRiceBowl);
+if (!customElements.get('dile-material-icon-rice-bowl')) {
+  customElements.define('dile-material-icon-rice-bowl', DileIconlibRiceBowl);
+}

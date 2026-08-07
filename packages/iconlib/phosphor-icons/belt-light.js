@@ -6,4 +6,6 @@ export class DileIconlibBeltLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-belt-light', DileIconlibBeltLight);
+if (!customElements.get('dile-phosphor-icon-belt-light')) {
+  customElements.define('dile-phosphor-icon-belt-light', DileIconlibBeltLight);
+}

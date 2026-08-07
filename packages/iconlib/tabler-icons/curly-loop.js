@@ -6,4 +6,6 @@ export class DileIconlibCurlyLoop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-curly-loop', DileIconlibCurlyLoop);
+if (!customElements.get('dile-tabler-icon-curly-loop')) {
+  customElements.define('dile-tabler-icon-curly-loop', DileIconlibCurlyLoop);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBezierCurve extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bezier-curve', DileIconlibBezierCurve);
+if (!customElements.get('dile-fontawesome-icon-bezier-curve')) {
+  customElements.define('dile-fontawesome-icon-bezier-curve', DileIconlibBezierCurve);
+}

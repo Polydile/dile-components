@@ -6,4 +6,6 @@ export class DileIconlibTelevisionSimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-television-simple-duotone', DileIconlibTelevisionSimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-television-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-television-simple-duotone', DileIconlibTelevisionSimpleDuotone);
+}

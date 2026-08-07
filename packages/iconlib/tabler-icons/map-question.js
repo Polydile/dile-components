@@ -6,4 +6,6 @@ export class DileIconlibMapQuestion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-question', DileIconlibMapQuestion);
+if (!customElements.get('dile-tabler-icon-map-question')) {
+  customElements.define('dile-tabler-icon-map-question', DileIconlibMapQuestion);
+}

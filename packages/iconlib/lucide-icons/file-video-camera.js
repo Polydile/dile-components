@@ -6,4 +6,6 @@ export class DileIconlibFileVideoCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-video-camera', DileIconlibFileVideoCamera);
+if (!customElements.get('dile-lucide-icon-file-video-camera')) {
+  customElements.define('dile-lucide-icon-file-video-camera', DileIconlibFileVideoCamera);
+}

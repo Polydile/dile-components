@@ -6,4 +6,6 @@ export class DileIconlibIceCreamDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ice-cream-duotone', DileIconlibIceCreamDuotone);
+if (!customElements.get('dile-phosphor-icon-ice-cream-duotone')) {
+  customElements.define('dile-phosphor-icon-ice-cream-duotone', DileIconlibIceCreamDuotone);
+}

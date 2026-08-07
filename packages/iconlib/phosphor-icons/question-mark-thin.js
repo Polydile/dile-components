@@ -6,4 +6,6 @@ export class DileIconlibQuestionMarkThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-question-mark-thin', DileIconlibQuestionMarkThin);
+if (!customElements.get('dile-phosphor-icon-question-mark-thin')) {
+  customElements.define('dile-phosphor-icon-question-mark-thin', DileIconlibQuestionMarkThin);
+}

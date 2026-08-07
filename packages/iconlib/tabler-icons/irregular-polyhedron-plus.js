@@ -6,4 +6,6 @@ export class DileIconlibIrregularPolyhedronPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-irregular-polyhedron-plus', DileIconlibIrregularPolyhedronPlus);
+if (!customElements.get('dile-tabler-icon-irregular-polyhedron-plus')) {
+  customElements.define('dile-tabler-icon-irregular-polyhedron-plus', DileIconlibIrregularPolyhedronPlus);
+}

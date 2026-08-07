@@ -6,4 +6,6 @@ export class DileIconlibInsertChartOutlined extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-insert-chart-outlined', DileIconlibInsertChartOutlined);
+if (!customElements.get('dile-material-icon-insert-chart-outlined')) {
+  customElements.define('dile-material-icon-insert-chart-outlined', DileIconlibInsertChartOutlined);
+}

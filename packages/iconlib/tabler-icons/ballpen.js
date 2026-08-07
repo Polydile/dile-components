@@ -6,4 +6,6 @@ export class DileIconlibBallpen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ballpen', DileIconlibBallpen);
+if (!customElements.get('dile-tabler-icon-ballpen')) {
+  customElements.define('dile-tabler-icon-ballpen', DileIconlibBallpen);
+}

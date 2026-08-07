@@ -6,4 +6,6 @@ export class DileIconlibGasCanDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gas-can-duotone', DileIconlibGasCanDuotone);
+if (!customElements.get('dile-phosphor-icon-gas-can-duotone')) {
+  customElements.define('dile-phosphor-icon-gas-can-duotone', DileIconlibGasCanDuotone);
+}

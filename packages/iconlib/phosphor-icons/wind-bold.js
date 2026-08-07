@@ -6,4 +6,6 @@ export class DileIconlibWindBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wind-bold', DileIconlibWindBold);
+if (!customElements.get('dile-phosphor-icon-wind-bold')) {
+  customElements.define('dile-phosphor-icon-wind-bold', DileIconlibWindBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHashnode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hashnode', DileIconlibHashnode);
+if (!customElements.get('dile-fontawesome-icon-hashnode')) {
+  customElements.define('dile-fontawesome-icon-hashnode', DileIconlibHashnode);
+}

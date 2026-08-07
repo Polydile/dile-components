@@ -6,4 +6,6 @@ export class DileIconlibPersonRunning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-running', DileIconlibPersonRunning);
+if (!customElements.get('dile-fontawesome-icon-person-running')) {
+  customElements.define('dile-fontawesome-icon-person-running', DileIconlibPersonRunning);
+}

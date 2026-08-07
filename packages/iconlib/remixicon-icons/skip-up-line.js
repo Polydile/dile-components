@@ -6,4 +6,6 @@ export class DileIconlibSkipUpLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-skip-up-line', DileIconlibSkipUpLine);
+if (!customElements.get('dile-remixicon-icon-skip-up-line')) {
+  customElements.define('dile-remixicon-icon-skip-up-line', DileIconlibSkipUpLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandYcombinator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-ycombinator', DileIconlibBrandYcombinator);
+if (!customElements.get('dile-tabler-icon-brand-ycombinator')) {
+  customElements.define('dile-tabler-icon-brand-ycombinator', DileIconlibBrandYcombinator);
+}

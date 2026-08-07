@@ -6,4 +6,6 @@ export class DileIconlibAlphabetPolish extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-polish', DileIconlibAlphabetPolish);
+if (!customElements.get('dile-tabler-icon-alphabet-polish')) {
+  customElements.define('dile-tabler-icon-alphabet-polish', DileIconlibAlphabetPolish);
+}

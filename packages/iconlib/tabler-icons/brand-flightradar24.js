@@ -6,4 +6,6 @@ export class DileIconlibBrandFlightradar24 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-flightradar24', DileIconlibBrandFlightradar24);
+if (!customElements.get('dile-tabler-icon-brand-flightradar24')) {
+  customElements.define('dile-tabler-icon-brand-flightradar24', DileIconlibBrandFlightradar24);
+}

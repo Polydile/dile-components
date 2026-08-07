@@ -6,4 +6,6 @@ export class DileIconlibHardOfHearing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hard-of-hearing', DileIconlibHardOfHearing);
+if (!customElements.get('dile-fontawesome-icon-hard-of-hearing')) {
+  customElements.define('dile-fontawesome-icon-hard-of-hearing', DileIconlibHardOfHearing);
+}

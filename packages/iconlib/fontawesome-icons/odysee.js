@@ -6,4 +6,6 @@ export class DileIconlibOdysee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-odysee', DileIconlibOdysee);
+if (!customElements.get('dile-fontawesome-icon-odysee')) {
+  customElements.define('dile-fontawesome-icon-odysee', DileIconlibOdysee);
+}

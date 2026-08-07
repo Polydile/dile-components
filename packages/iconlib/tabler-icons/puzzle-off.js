@@ -6,4 +6,6 @@ export class DileIconlibPuzzleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-puzzle-off', DileIconlibPuzzleOff);
+if (!customElements.get('dile-tabler-icon-puzzle-off')) {
+  customElements.define('dile-tabler-icon-puzzle-off', DileIconlibPuzzleOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCommentSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-comment-slash', DileIconlibCommentSlash);
+if (!customElements.get('dile-fontawesome-icon-comment-slash')) {
+  customElements.define('dile-fontawesome-icon-comment-slash', DileIconlibCommentSlash);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTakeawayLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-takeaway-line', DileIconlibTakeawayLine);
+if (!customElements.get('dile-remixicon-icon-takeaway-line')) {
+  customElements.define('dile-remixicon-icon-takeaway-line', DileIconlibTakeawayLine);
+}

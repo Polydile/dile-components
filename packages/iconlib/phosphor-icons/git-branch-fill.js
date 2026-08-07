@@ -6,4 +6,6 @@ export class DileIconlibGitBranchFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-branch-fill', DileIconlibGitBranchFill);
+if (!customElements.get('dile-phosphor-icon-git-branch-fill')) {
+  customElements.define('dile-phosphor-icon-git-branch-fill', DileIconlibGitBranchFill);
+}

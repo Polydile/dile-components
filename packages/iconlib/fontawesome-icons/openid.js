@@ -6,4 +6,6 @@ export class DileIconlibOpenid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-openid', DileIconlibOpenid);
+if (!customElements.get('dile-fontawesome-icon-openid')) {
+  customElements.define('dile-fontawesome-icon-openid', DileIconlibOpenid);
+}

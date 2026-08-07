@@ -6,4 +6,6 @@ export class DileIconlibChefHatDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chef-hat-duotone', DileIconlibChefHatDuotone);
+if (!customElements.get('dile-phosphor-icon-chef-hat-duotone')) {
+  customElements.define('dile-phosphor-icon-chef-hat-duotone', DileIconlibChefHatDuotone);
+}

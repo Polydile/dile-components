@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseBusiness extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-briefcase-business', DileIconlibBriefcaseBusiness);
+if (!customElements.get('dile-lucide-icon-briefcase-business')) {
+  customElements.define('dile-lucide-icon-briefcase-business', DileIconlibBriefcaseBusiness);
+}

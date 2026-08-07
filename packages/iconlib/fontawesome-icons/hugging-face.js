@@ -6,4 +6,6 @@ export class DileIconlibHuggingFace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hugging-face', DileIconlibHuggingFace);
+if (!customElements.get('dile-fontawesome-icon-hugging-face')) {
+  customElements.define('dile-fontawesome-icon-hugging-face', DileIconlibHuggingFace);
+}

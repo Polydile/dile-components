@@ -6,4 +6,6 @@ export class DileIconlibXrpl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-xrpl', DileIconlibXrpl);
+if (!customElements.get('dile-fontawesome-icon-xrpl')) {
+  customElements.define('dile-fontawesome-icon-xrpl', DileIconlibXrpl);
+}

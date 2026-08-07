@@ -6,4 +6,6 @@ export class DileIconlibTodoLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-todo-line', DileIconlibTodoLine);
+if (!customElements.get('dile-remixicon-icon-todo-line')) {
+  customElements.define('dile-remixicon-icon-todo-line', DileIconlibTodoLine);
+}

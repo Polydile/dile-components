@@ -6,4 +6,6 @@ export class DileIconlibRobot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-robot', DileIconlibRobot);
+if (!customElements.get('dile-fontawesome-icon-robot')) {
+  customElements.define('dile-fontawesome-icon-robot', DileIconlibRobot);
+}

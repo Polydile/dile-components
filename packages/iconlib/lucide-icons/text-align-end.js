@@ -6,4 +6,6 @@ export class DileIconlibTextAlignEnd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-align-end', DileIconlibTextAlignEnd);
+if (!customElements.get('dile-lucide-icon-text-align-end')) {
+  customElements.define('dile-lucide-icon-text-align-end', DileIconlibTextAlignEnd);
+}

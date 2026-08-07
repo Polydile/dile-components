@@ -6,4 +6,6 @@ export class DileIconlibVapingRooms extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-vaping-rooms', DileIconlibVapingRooms);
+if (!customElements.get('dile-material-icon-vaping-rooms')) {
+  customElements.define('dile-material-icon-vaping-rooms', DileIconlibVapingRooms);
+}

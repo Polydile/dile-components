@@ -6,4 +6,6 @@ export class DileIconlibMoneyWavyThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-money-wavy-thin', DileIconlibMoneyWavyThin);
+if (!customElements.get('dile-phosphor-icon-money-wavy-thin')) {
+  customElements.define('dile-phosphor-icon-money-wavy-thin', DileIconlibMoneyWavyThin);
+}

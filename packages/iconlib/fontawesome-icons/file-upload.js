@@ -6,4 +6,6 @@ export class DileIconlibFileUpload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-upload', DileIconlibFileUpload);
+if (!customElements.get('dile-fontawesome-icon-file-upload')) {
+  customElements.define('dile-fontawesome-icon-file-upload', DileIconlibFileUpload);
+}

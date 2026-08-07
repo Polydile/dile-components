@@ -6,4 +6,6 @@ export class DileIconlibSuitcaseRolling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-suitcase-rolling', DileIconlibSuitcaseRolling);
+if (!customElements.get('dile-fontawesome-icon-suitcase-rolling')) {
+  customElements.define('dile-fontawesome-icon-suitcase-rolling', DileIconlibSuitcaseRolling);
+}

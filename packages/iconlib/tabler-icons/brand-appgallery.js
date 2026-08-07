@@ -6,4 +6,6 @@ export class DileIconlibBrandAppgallery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-appgallery', DileIconlibBrandAppgallery);
+if (!customElements.get('dile-tabler-icon-brand-appgallery')) {
+  customElements.define('dile-tabler-icon-brand-appgallery', DileIconlibBrandAppgallery);
+}

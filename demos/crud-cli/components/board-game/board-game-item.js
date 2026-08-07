@@ -28,4 +28,6 @@ export class boardGameItem extends LitElement {
     `;
   }
 }
-customElements.define('board-game-item', boardGameItem);
+if (!customElements.get('board-game-item')) {
+  customElements.define('board-game-item', boardGameItem);
+}

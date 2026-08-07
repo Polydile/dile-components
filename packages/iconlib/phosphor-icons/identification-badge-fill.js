@@ -6,4 +6,6 @@ export class DileIconlibIdentificationBadgeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-identification-badge-fill', DileIconlibIdentificationBadgeFill);
+if (!customElements.get('dile-phosphor-icon-identification-badge-fill')) {
+  customElements.define('dile-phosphor-icon-identification-badge-fill', DileIconlibIdentificationBadgeFill);
+}

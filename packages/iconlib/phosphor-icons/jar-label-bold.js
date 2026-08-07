@@ -6,4 +6,6 @@ export class DileIconlibJarLabelBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-jar-label-bold', DileIconlibJarLabelBold);
+if (!customElements.get('dile-phosphor-icon-jar-label-bold')) {
+  customElements.define('dile-phosphor-icon-jar-label-bold', DileIconlibJarLabelBold);
+}

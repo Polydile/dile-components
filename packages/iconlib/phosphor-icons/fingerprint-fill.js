@@ -6,4 +6,6 @@ export class DileIconlibFingerprintFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fingerprint-fill', DileIconlibFingerprintFill);
+if (!customElements.get('dile-phosphor-icon-fingerprint-fill')) {
+  customElements.define('dile-phosphor-icon-fingerprint-fill', DileIconlibFingerprintFill);
+}

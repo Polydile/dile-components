@@ -6,4 +6,6 @@ export class DileIconlibLifeRing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-life-ring', DileIconlibLifeRing);
+if (!customElements.get('dile-fontawesome-icon-regular-life-ring')) {
+  customElements.define('dile-fontawesome-icon-regular-life-ring', DileIconlibLifeRing);
+}

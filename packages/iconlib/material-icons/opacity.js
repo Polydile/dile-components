@@ -6,4 +6,6 @@ export class DileIconlibOpacity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-opacity', DileIconlibOpacity);
+if (!customElements.get('dile-material-icon-opacity')) {
+  customElements.define('dile-material-icon-opacity', DileIconlibOpacity);
+}

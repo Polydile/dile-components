@@ -6,4 +6,6 @@ export class DileIconlibPlayerPlayFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-player-play-filled', DileIconlibPlayerPlayFilled);
+if (!customElements.get('dile-tabler-icon-player-play-filled')) {
+  customElements.define('dile-tabler-icon-player-play-filled', DileIconlibPlayerPlayFilled);
+}

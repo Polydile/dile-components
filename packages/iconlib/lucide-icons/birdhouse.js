@@ -6,4 +6,6 @@ export class DileIconlibBirdhouse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-birdhouse', DileIconlibBirdhouse);
+if (!customElements.get('dile-lucide-icon-birdhouse')) {
+  customElements.define('dile-lucide-icon-birdhouse', DileIconlibBirdhouse);
+}

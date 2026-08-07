@@ -6,4 +6,6 @@ export class DileIconlibChurchThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-church-thin', DileIconlibChurchThin);
+if (!customElements.get('dile-phosphor-icon-church-thin')) {
+  customElements.define('dile-phosphor-icon-church-thin', DileIconlibChurchThin);
+}

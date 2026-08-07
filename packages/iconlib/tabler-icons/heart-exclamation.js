@@ -6,4 +6,6 @@ export class DileIconlibHeartExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-exclamation', DileIconlibHeartExclamation);
+if (!customElements.get('dile-tabler-icon-heart-exclamation')) {
+  customElements.define('dile-tabler-icon-heart-exclamation', DileIconlibHeartExclamation);
+}

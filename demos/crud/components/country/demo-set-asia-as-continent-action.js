@@ -22,4 +22,6 @@ export class DemoSetAsiaAsContinentAction extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-set-asia-as-continent-action', DemoSetAsiaAsContinentAction);
+if (!customElements.get('demo-set-asia-as-continent-action')) {
+  customElements.define('demo-set-asia-as-continent-action', DemoSetAsiaAsContinentAction);
+}

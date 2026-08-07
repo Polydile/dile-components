@@ -6,4 +6,6 @@ export class DileIconlibRoadLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-lock', DileIconlibRoadLock);
+if (!customElements.get('dile-fontawesome-icon-road-lock')) {
+  customElements.define('dile-fontawesome-icon-road-lock', DileIconlibRoadLock);
+}

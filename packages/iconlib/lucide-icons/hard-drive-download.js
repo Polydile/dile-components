@@ -6,4 +6,6 @@ export class DileIconlibHardDriveDownload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hard-drive-download', DileIconlibHardDriveDownload);
+if (!customElements.get('dile-lucide-icon-hard-drive-download')) {
+  customElements.define('dile-lucide-icon-hard-drive-download', DileIconlibHardDriveDownload);
+}

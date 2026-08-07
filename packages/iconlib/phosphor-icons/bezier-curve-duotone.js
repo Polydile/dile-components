@@ -6,4 +6,6 @@ export class DileIconlibBezierCurveDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bezier-curve-duotone', DileIconlibBezierCurveDuotone);
+if (!customElements.get('dile-phosphor-icon-bezier-curve-duotone')) {
+  customElements.define('dile-phosphor-icon-bezier-curve-duotone', DileIconlibBezierCurveDuotone);
+}

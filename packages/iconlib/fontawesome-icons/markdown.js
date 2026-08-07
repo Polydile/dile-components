@@ -6,4 +6,6 @@ export class DileIconlibMarkdown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-markdown', DileIconlibMarkdown);
+if (!customElements.get('dile-fontawesome-icon-markdown')) {
+  customElements.define('dile-fontawesome-icon-markdown', DileIconlibMarkdown);
+}

@@ -6,4 +6,6 @@ export class DileIconlibProductHunt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-product-hunt', DileIconlibProductHunt);
+if (!customElements.get('dile-fontawesome-icon-product-hunt')) {
+  customElements.define('dile-fontawesome-icon-product-hunt', DileIconlibProductHunt);
+}

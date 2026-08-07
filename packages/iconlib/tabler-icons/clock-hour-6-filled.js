@@ -6,4 +6,6 @@ export class DileIconlibClockHour6Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-hour-6-filled', DileIconlibClockHour6Filled);
+if (!customElements.get('dile-tabler-icon-clock-hour-6-filled')) {
+  customElements.define('dile-tabler-icon-clock-hour-6-filled', DileIconlibClockHour6Filled);
+}

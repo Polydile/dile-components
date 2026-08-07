@@ -6,4 +6,6 @@ export class DileIconlibCleanHands extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-clean-hands', DileIconlibCleanHands);
+if (!customElements.get('dile-material-icon-clean-hands')) {
+  customElements.define('dile-material-icon-clean-hands', DileIconlibCleanHands);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWashingMachineLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-washing-machine-light', DileIconlibWashingMachineLight);
+if (!customElements.get('dile-phosphor-icon-washing-machine-light')) {
+  customElements.define('dile-phosphor-icon-washing-machine-light', DileIconlibWashingMachineLight);
+}

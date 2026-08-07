@@ -6,4 +6,6 @@ export class DileIconlibFilmSlateBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-film-slate-bold', DileIconlibFilmSlateBold);
+if (!customElements.get('dile-phosphor-icon-film-slate-bold')) {
+  customElements.define('dile-phosphor-icon-film-slate-bold', DileIconlibFilmSlateBold);
+}

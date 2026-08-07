@@ -6,4 +6,6 @@ export class DileIconlibCenterFocusWeak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-center-focus-weak', DileIconlibCenterFocusWeak);
+if (!customElements.get('dile-material-icon-center-focus-weak')) {
+  customElements.define('dile-material-icon-center-focus-weak', DileIconlibCenterFocusWeak);
+}

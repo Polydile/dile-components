@@ -6,4 +6,6 @@ export class DileIconlibSubtractSquareLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-subtract-square-light', DileIconlibSubtractSquareLight);
+if (!customElements.get('dile-phosphor-icon-subtract-square-light')) {
+  customElements.define('dile-phosphor-icon-subtract-square-light', DileIconlibSubtractSquareLight);
+}

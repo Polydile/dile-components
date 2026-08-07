@@ -6,4 +6,6 @@ export class DileIconlibPageSeparator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-page-separator', DileIconlibPageSeparator);
+if (!customElements.get('dile-remixicon-icon-page-separator')) {
+  customElements.define('dile-remixicon-icon-page-separator', DileIconlibPageSeparator);
+}

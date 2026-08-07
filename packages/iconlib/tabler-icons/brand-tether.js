@@ -6,4 +6,6 @@ export class DileIconlibBrandTether extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tether', DileIconlibBrandTether);
+if (!customElements.get('dile-tabler-icon-brand-tether')) {
+  customElements.define('dile-tabler-icon-brand-tether', DileIconlibBrandTether);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandCrunchbase extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-crunchbase', DileIconlibBrandCrunchbase);
+if (!customElements.get('dile-tabler-icon-brand-crunchbase')) {
+  customElements.define('dile-tabler-icon-brand-crunchbase', DileIconlibBrandCrunchbase);
+}

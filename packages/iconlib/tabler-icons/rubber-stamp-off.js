@@ -6,4 +6,6 @@ export class DileIconlibRubberStampOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rubber-stamp-off', DileIconlibRubberStampOff);
+if (!customElements.get('dile-tabler-icon-rubber-stamp-off')) {
+  customElements.define('dile-tabler-icon-rubber-stamp-off', DileIconlibRubberStampOff);
+}

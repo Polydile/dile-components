@@ -6,4 +6,6 @@ export class DileIconlibBugDroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bug-droid', DileIconlibBugDroid);
+if (!customElements.get('dile-phosphor-icon-bug-droid')) {
+  customElements.define('dile-phosphor-icon-bug-droid', DileIconlibBugDroid);
+}

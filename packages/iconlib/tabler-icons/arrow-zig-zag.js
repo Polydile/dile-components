@@ -6,4 +6,6 @@ export class DileIconlibArrowZigZag extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-zig-zag', DileIconlibArrowZigZag);
+if (!customElements.get('dile-tabler-icon-arrow-zig-zag')) {
+  customElements.define('dile-tabler-icon-arrow-zig-zag', DileIconlibArrowZigZag);
+}

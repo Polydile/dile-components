@@ -6,4 +6,6 @@ export class DileIconlibFlowerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flower-fill', DileIconlibFlowerFill);
+if (!customElements.get('dile-phosphor-icon-flower-fill')) {
+  customElements.define('dile-phosphor-icon-flower-fill', DileIconlibFlowerFill);
+}

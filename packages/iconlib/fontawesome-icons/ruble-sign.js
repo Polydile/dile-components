@@ -6,4 +6,6 @@ export class DileIconlibRubleSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ruble-sign', DileIconlibRubleSign);
+if (!customElements.get('dile-fontawesome-icon-ruble-sign')) {
+  customElements.define('dile-fontawesome-icon-ruble-sign', DileIconlibRubleSign);
+}

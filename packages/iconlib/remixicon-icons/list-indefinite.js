@@ -6,4 +6,6 @@ export class DileIconlibListIndefinite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-list-indefinite', DileIconlibListIndefinite);
+if (!customElements.get('dile-remixicon-icon-list-indefinite')) {
+  customElements.define('dile-remixicon-icon-list-indefinite', DileIconlibListIndefinite);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowsSort extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-sort', DileIconlibArrowsSort);
+if (!customElements.get('dile-tabler-icon-arrows-sort')) {
+  customElements.define('dile-tabler-icon-arrows-sort', DileIconlibArrowsSort);
+}

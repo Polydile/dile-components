@@ -6,4 +6,6 @@ export class DileIconlibMiscellaneousServices extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-miscellaneous-services', DileIconlibMiscellaneousServices);
+if (!customElements.get('dile-material-icon-miscellaneous-services')) {
+  customElements.define('dile-material-icon-miscellaneous-services', DileIconlibMiscellaneousServices);
+}

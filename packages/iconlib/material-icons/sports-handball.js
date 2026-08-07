@@ -6,4 +6,6 @@ export class DileIconlibSportsHandball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-handball', DileIconlibSportsHandball);
+if (!customElements.get('dile-material-icon-sports-handball')) {
+  customElements.define('dile-material-icon-sports-handball', DileIconlibSportsHandball);
+}

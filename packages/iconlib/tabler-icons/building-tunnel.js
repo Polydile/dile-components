@@ -6,4 +6,6 @@ export class DileIconlibBuildingTunnel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-tunnel', DileIconlibBuildingTunnel);
+if (!customElements.get('dile-tabler-icon-building-tunnel')) {
+  customElements.define('dile-tabler-icon-building-tunnel', DileIconlibBuildingTunnel);
+}

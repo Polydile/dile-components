@@ -1,3 +1,5 @@
 import { DileAccordion } from './src/DileAccordion.js';
 
-window.customElements.define('dile-accordion', DileAccordion);
+if (!customElements.get('dile-accordion')) {
+  window.customElements.define('dile-accordion', DileAccordion);
+}

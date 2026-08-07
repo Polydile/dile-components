@@ -6,4 +6,6 @@ export class DileIconlibMathPiDivide2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-pi-divide-2', DileIconlibMathPiDivide2);
+if (!customElements.get('dile-tabler-icon-math-pi-divide-2')) {
+  customElements.define('dile-tabler-icon-math-pi-divide-2', DileIconlibMathPiDivide2);
+}

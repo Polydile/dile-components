@@ -6,4 +6,6 @@ export class DileIconlibBookmarkLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bookmark-line', DileIconlibBookmarkLine);
+if (!customElements.get('dile-remixicon-icon-bookmark-line')) {
+  customElements.define('dile-remixicon-icon-bookmark-line', DileIconlibBookmarkLine);
+}

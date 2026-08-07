@@ -6,4 +6,6 @@ export class DileIconlibPlaystationFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-playstation-fill', DileIconlibPlaystationFill);
+if (!customElements.get('dile-remixicon-icon-playstation-fill')) {
+  customElements.define('dile-remixicon-icon-playstation-fill', DileIconlibPlaystationFill);
+}

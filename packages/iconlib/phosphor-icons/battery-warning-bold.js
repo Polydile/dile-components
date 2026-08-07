@@ -6,4 +6,6 @@ export class DileIconlibBatteryWarningBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-battery-warning-bold', DileIconlibBatteryWarningBold);
+if (!customElements.get('dile-phosphor-icon-battery-warning-bold')) {
+  customElements.define('dile-phosphor-icon-battery-warning-bold', DileIconlibBatteryWarningBold);
+}

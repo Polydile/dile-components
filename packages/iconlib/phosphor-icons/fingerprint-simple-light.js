@@ -6,4 +6,6 @@ export class DileIconlibFingerprintSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fingerprint-simple-light', DileIconlibFingerprintSimpleLight);
+if (!customElements.get('dile-phosphor-icon-fingerprint-simple-light')) {
+  customElements.define('dile-phosphor-icon-fingerprint-simple-light', DileIconlibFingerprintSimpleLight);
+}

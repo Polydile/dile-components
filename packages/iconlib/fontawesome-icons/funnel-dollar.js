@@ -6,4 +6,6 @@ export class DileIconlibFunnelDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-funnel-dollar', DileIconlibFunnelDollar);
+if (!customElements.get('dile-fontawesome-icon-funnel-dollar')) {
+  customElements.define('dile-fontawesome-icon-funnel-dollar', DileIconlibFunnelDollar);
+}

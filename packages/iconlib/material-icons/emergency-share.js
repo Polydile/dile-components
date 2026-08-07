@@ -6,4 +6,6 @@ export class DileIconlibEmergencyShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emergency-share', DileIconlibEmergencyShare);
+if (!customElements.get('dile-material-icon-emergency-share')) {
+  customElements.define('dile-material-icon-emergency-share', DileIconlibEmergencyShare);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareFoot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-square-foot', DileIconlibSquareFoot);
+if (!customElements.get('dile-material-icon-square-foot')) {
+  customElements.define('dile-material-icon-square-foot', DileIconlibSquareFoot);
+}

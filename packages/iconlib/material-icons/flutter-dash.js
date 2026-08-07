@@ -6,4 +6,6 @@ export class DileIconlibFlutterDash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flutter-dash', DileIconlibFlutterDash);
+if (!customElements.get('dile-material-icon-flutter-dash')) {
+  customElements.define('dile-material-icon-flutter-dash', DileIconlibFlutterDash);
+}

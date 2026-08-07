@@ -6,4 +6,6 @@ export class DileIconlibEllipsisV extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ellipsis-v', DileIconlibEllipsisV);
+if (!customElements.get('dile-fontawesome-icon-ellipsis-v')) {
+  customElements.define('dile-fontawesome-icon-ellipsis-v', DileIconlibEllipsisV);
+}

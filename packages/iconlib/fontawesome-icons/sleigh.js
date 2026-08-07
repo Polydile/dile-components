@@ -6,4 +6,6 @@ export class DileIconlibSleigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sleigh', DileIconlibSleigh);
+if (!customElements.get('dile-fontawesome-icon-sleigh')) {
+  customElements.define('dile-fontawesome-icon-sleigh', DileIconlibSleigh);
+}

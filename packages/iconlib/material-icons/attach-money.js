@@ -6,4 +6,6 @@ export class DileIconlibAttachMoney extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-attach-money', DileIconlibAttachMoney);
+if (!customElements.get('dile-material-icon-attach-money')) {
+  customElements.define('dile-material-icon-attach-money', DileIconlibAttachMoney);
+}

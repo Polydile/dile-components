@@ -6,4 +6,6 @@ export class DileIconlibOilBarrel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-oil-barrel', DileIconlibOilBarrel);
+if (!customElements.get('dile-material-icon-oil-barrel')) {
+  customElements.define('dile-material-icon-oil-barrel', DileIconlibOilBarrel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibYandexInternational extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yandex-international', DileIconlibYandexInternational);
+if (!customElements.get('dile-fontawesome-icon-yandex-international')) {
+  customElements.define('dile-fontawesome-icon-yandex-international', DileIconlibYandexInternational);
+}

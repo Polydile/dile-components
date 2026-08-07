@@ -6,4 +6,6 @@ export class DileIconlibGauge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gauge', DileIconlibGauge);
+if (!customElements.get('dile-tabler-icon-gauge')) {
+  customElements.define('dile-tabler-icon-gauge', DileIconlibGauge);
+}

@@ -6,4 +6,6 @@ export class DileIconlibColorPicker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-color-picker', DileIconlibColorPicker);
+if (!customElements.get('dile-tabler-icon-color-picker')) {
+  customElements.define('dile-tabler-icon-color-picker', DileIconlibColorPicker);
+}

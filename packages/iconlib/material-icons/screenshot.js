@@ -6,4 +6,6 @@ export class DileIconlibScreenshot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screenshot', DileIconlibScreenshot);
+if (!customElements.get('dile-material-icon-screenshot')) {
+  customElements.define('dile-material-icon-screenshot', DileIconlibScreenshot);
+}

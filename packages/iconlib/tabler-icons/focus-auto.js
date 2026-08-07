@@ -6,4 +6,6 @@ export class DileIconlibFocusAuto extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-focus-auto', DileIconlibFocusAuto);
+if (!customElements.get('dile-tabler-icon-focus-auto')) {
+  customElements.define('dile-tabler-icon-focus-auto', DileIconlibFocusAuto);
+}

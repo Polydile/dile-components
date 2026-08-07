@@ -6,4 +6,6 @@ export class DileIconlibFunnelX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-funnel-x', DileIconlibFunnelX);
+if (!customElements.get('dile-phosphor-icon-funnel-x')) {
+  customElements.define('dile-phosphor-icon-funnel-x', DileIconlibFunnelX);
+}

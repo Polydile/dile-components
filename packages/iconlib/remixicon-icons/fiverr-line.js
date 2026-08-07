@@ -6,4 +6,6 @@ export class DileIconlibFiverrLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-fiverr-line', DileIconlibFiverrLine);
+if (!customElements.get('dile-remixicon-icon-fiverr-line')) {
+  customElements.define('dile-remixicon-icon-fiverr-line', DileIconlibFiverrLine);
+}

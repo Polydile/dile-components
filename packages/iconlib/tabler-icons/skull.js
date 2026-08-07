@@ -6,4 +6,6 @@ export class DileIconlibSkull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-skull', DileIconlibSkull);
+if (!customElements.get('dile-tabler-icon-skull')) {
+  customElements.define('dile-tabler-icon-skull', DileIconlibSkull);
+}

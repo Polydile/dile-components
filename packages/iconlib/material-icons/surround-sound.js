@@ -6,4 +6,6 @@ export class DileIconlibSurroundSound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-surround-sound', DileIconlibSurroundSound);
+if (!customElements.get('dile-material-icon-surround-sound')) {
+  customElements.define('dile-material-icon-surround-sound', DileIconlibSurroundSound);
+}

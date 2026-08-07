@@ -6,4 +6,6 @@ export class DileIconlibRodAsclepius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rod-asclepius', DileIconlibRodAsclepius);
+if (!customElements.get('dile-fontawesome-icon-rod-asclepius')) {
+  customElements.define('dile-fontawesome-icon-rod-asclepius', DileIconlibRodAsclepius);
+}

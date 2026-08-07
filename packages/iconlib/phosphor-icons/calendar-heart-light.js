@@ -6,4 +6,6 @@ export class DileIconlibCalendarHeartLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-heart-light', DileIconlibCalendarHeartLight);
+if (!customElements.get('dile-phosphor-icon-calendar-heart-light')) {
+  customElements.define('dile-phosphor-icon-calendar-heart-light', DileIconlibCalendarHeartLight);
+}

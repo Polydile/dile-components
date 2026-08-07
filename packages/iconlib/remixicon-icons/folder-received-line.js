@@ -6,4 +6,6 @@ export class DileIconlibFolderReceivedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-received-line', DileIconlibFolderReceivedLine);
+if (!customElements.get('dile-remixicon-icon-folder-received-line')) {
+  customElements.define('dile-remixicon-icon-folder-received-line', DileIconlibFolderReceivedLine);
+}

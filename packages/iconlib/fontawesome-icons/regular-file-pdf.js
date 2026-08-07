@@ -6,4 +6,6 @@ export class DileIconlibFilePdf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-file-pdf', DileIconlibFilePdf);
+if (!customElements.get('dile-fontawesome-icon-regular-file-pdf')) {
+  customElements.define('dile-fontawesome-icon-regular-file-pdf', DileIconlibFilePdf);
+}

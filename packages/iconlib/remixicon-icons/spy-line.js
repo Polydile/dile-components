@@ -6,4 +6,6 @@ export class DileIconlibSpyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-spy-line', DileIconlibSpyLine);
+if (!customElements.get('dile-remixicon-icon-spy-line')) {
+  customElements.define('dile-remixicon-icon-spy-line', DileIconlibSpyLine);
+}

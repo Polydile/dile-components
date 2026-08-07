@@ -6,4 +6,6 @@ export class DileIconlibCatchingPokemon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-catching-pokemon', DileIconlibCatchingPokemon);
+if (!customElements.get('dile-material-icon-catching-pokemon')) {
+  customElements.define('dile-material-icon-catching-pokemon', DileIconlibCatchingPokemon);
+}

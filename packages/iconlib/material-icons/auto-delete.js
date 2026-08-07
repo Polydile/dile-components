@@ -6,4 +6,6 @@ export class DileIconlibAutoDelete extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-auto-delete', DileIconlibAutoDelete);
+if (!customElements.get('dile-material-icon-auto-delete')) {
+  customElements.define('dile-material-icon-auto-delete', DileIconlibAutoDelete);
+}

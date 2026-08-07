@@ -6,4 +6,6 @@ export class DileIconlibApplePodcastsLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-apple-podcasts-logo', DileIconlibApplePodcastsLogo);
+if (!customElements.get('dile-phosphor-icon-apple-podcasts-logo')) {
+  customElements.define('dile-phosphor-icon-apple-podcasts-logo', DileIconlibApplePodcastsLogo);
+}

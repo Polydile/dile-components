@@ -6,4 +6,6 @@ export class DileIconlibMouseOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mouse-off', DileIconlibMouseOff);
+if (!customElements.get('dile-tabler-icon-mouse-off')) {
+  customElements.define('dile-tabler-icon-mouse-off', DileIconlibMouseOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAccountCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-account-circle', DileIconlibAccountCircle);
+if (!customElements.get('dile-material-icon-account-circle')) {
+  customElements.define('dile-material-icon-account-circle', DileIconlibAccountCircle);
+}

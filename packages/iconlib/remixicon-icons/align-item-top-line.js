@@ -6,4 +6,6 @@ export class DileIconlibAlignItemTopLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-align-item-top-line', DileIconlibAlignItemTopLine);
+if (!customElements.get('dile-remixicon-icon-align-item-top-line')) {
+  customElements.define('dile-remixicon-icon-align-item-top-line', DileIconlibAlignItemTopLine);
+}

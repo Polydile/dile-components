@@ -6,4 +6,6 @@ export class DileIconlibSpaceShipLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-space-ship-line', DileIconlibSpaceShipLine);
+if (!customElements.get('dile-remixicon-icon-space-ship-line')) {
+  customElements.define('dile-remixicon-icon-space-ship-line', DileIconlibSpaceShipLine);
+}

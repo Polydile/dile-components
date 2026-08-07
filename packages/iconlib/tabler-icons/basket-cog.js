@@ -6,4 +6,6 @@ export class DileIconlibBasketCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-basket-cog', DileIconlibBasketCog);
+if (!customElements.get('dile-tabler-icon-basket-cog')) {
+  customElements.define('dile-tabler-icon-basket-cog', DileIconlibBasketCog);
+}

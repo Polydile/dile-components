@@ -6,4 +6,6 @@ export class DileIconlibPauseLargeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pause-large-line', DileIconlibPauseLargeLine);
+if (!customElements.get('dile-remixicon-icon-pause-large-line')) {
+  customElements.define('dile-remixicon-icon-pause-large-line', DileIconlibPauseLargeLine);
+}

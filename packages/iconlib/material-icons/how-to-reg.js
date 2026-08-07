@@ -6,4 +6,6 @@ export class DileIconlibHowToReg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-how-to-reg', DileIconlibHowToReg);
+if (!customElements.get('dile-material-icon-how-to-reg')) {
+  customElements.define('dile-material-icon-how-to-reg', DileIconlibHowToReg);
+}

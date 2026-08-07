@@ -6,4 +6,6 @@ export class DileIconlibSprayCan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spray-can', DileIconlibSprayCan);
+if (!customElements.get('dile-fontawesome-icon-spray-can')) {
+  customElements.define('dile-fontawesome-icon-spray-can', DileIconlibSprayCan);
+}

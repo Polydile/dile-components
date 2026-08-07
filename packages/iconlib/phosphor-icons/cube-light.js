@@ -6,4 +6,6 @@ export class DileIconlibCubeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cube-light', DileIconlibCubeLight);
+if (!customElements.get('dile-phosphor-icon-cube-light')) {
+  customElements.define('dile-phosphor-icon-cube-light', DileIconlibCubeLight);
+}

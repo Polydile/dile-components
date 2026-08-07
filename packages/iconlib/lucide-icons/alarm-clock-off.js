@@ -6,4 +6,6 @@ export class DileIconlibAlarmClockOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-alarm-clock-off', DileIconlibAlarmClockOff);
+if (!customElements.get('dile-lucide-icon-alarm-clock-off')) {
+  customElements.define('dile-lucide-icon-alarm-clock-off', DileIconlibAlarmClockOff);
+}

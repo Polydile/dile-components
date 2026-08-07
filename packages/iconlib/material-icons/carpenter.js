@@ -6,4 +6,6 @@ export class DileIconlibCarpenter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-carpenter', DileIconlibCarpenter);
+if (!customElements.get('dile-material-icon-carpenter')) {
+  customElements.define('dile-material-icon-carpenter', DileIconlibCarpenter);
+}

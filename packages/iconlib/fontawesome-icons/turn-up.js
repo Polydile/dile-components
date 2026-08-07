@@ -6,4 +6,6 @@ export class DileIconlibTurnUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-turn-up', DileIconlibTurnUp);
+if (!customElements.get('dile-fontawesome-icon-turn-up')) {
+  customElements.define('dile-fontawesome-icon-turn-up', DileIconlibTurnUp);
+}

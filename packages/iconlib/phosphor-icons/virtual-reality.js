@@ -6,4 +6,6 @@ export class DileIconlibVirtualReality extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-virtual-reality', DileIconlibVirtualReality);
+if (!customElements.get('dile-phosphor-icon-virtual-reality')) {
+  customElements.define('dile-phosphor-icon-virtual-reality', DileIconlibVirtualReality);
+}

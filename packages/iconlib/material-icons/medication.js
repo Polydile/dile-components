@@ -6,4 +6,6 @@ export class DileIconlibMedication extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-medication', DileIconlibMedication);
+if (!customElements.get('dile-material-icon-medication')) {
+  customElements.define('dile-material-icon-medication', DileIconlibMedication);
+}

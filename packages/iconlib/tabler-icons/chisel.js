@@ -6,4 +6,6 @@ export class DileIconlibChisel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chisel', DileIconlibChisel);
+if (!customElements.get('dile-tabler-icon-chisel')) {
+  customElements.define('dile-tabler-icon-chisel', DileIconlibChisel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-money-off', DileIconlibMoneyOff);
+if (!customElements.get('dile-material-icon-money-off')) {
+  customElements.define('dile-material-icon-money-off', DileIconlibMoneyOff);
+}

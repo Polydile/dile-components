@@ -6,4 +6,6 @@ export class DileIconlibCursorDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cursor-duotone', DileIconlibCursorDuotone);
+if (!customElements.get('dile-phosphor-icon-cursor-duotone')) {
+  customElements.define('dile-phosphor-icon-cursor-duotone', DileIconlibCursorDuotone);
+}

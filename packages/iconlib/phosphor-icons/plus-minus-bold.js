@@ -6,4 +6,6 @@ export class DileIconlibPlusMinusBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-plus-minus-bold', DileIconlibPlusMinusBold);
+if (!customElements.get('dile-phosphor-icon-plus-minus-bold')) {
+  customElements.define('dile-phosphor-icon-plus-minus-bold', DileIconlibPlusMinusBold);
+}

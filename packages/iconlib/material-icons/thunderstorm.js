@@ -6,4 +6,6 @@ export class DileIconlibThunderstorm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-thunderstorm', DileIconlibThunderstorm);
+if (!customElements.get('dile-material-icon-thunderstorm')) {
+  customElements.define('dile-material-icon-thunderstorm', DileIconlibThunderstorm);
+}

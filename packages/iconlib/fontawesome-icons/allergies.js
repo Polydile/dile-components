@@ -6,4 +6,6 @@ export class DileIconlibAllergies extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-allergies', DileIconlibAllergies);
+if (!customElements.get('dile-fontawesome-icon-allergies')) {
+  customElements.define('dile-fontawesome-icon-allergies', DileIconlibAllergies);
+}

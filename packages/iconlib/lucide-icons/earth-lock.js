@@ -6,4 +6,6 @@ export class DileIconlibEarthLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-earth-lock', DileIconlibEarthLock);
+if (!customElements.get('dile-lucide-icon-earth-lock')) {
+  customElements.define('dile-lucide-icon-earth-lock', DileIconlibEarthLock);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMailOpenLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mail-open-line', DileIconlibMailOpenLine);
+if (!customElements.get('dile-remixicon-icon-mail-open-line')) {
+  customElements.define('dile-remixicon-icon-mail-open-line', DileIconlibMailOpenLine);
+}

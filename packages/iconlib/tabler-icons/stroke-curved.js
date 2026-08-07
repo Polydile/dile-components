@@ -6,4 +6,6 @@ export class DileIconlibStrokeCurved extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stroke-curved', DileIconlibStrokeCurved);
+if (!customElements.get('dile-tabler-icon-stroke-curved')) {
+  customElements.define('dile-tabler-icon-stroke-curved', DileIconlibStrokeCurved);
+}

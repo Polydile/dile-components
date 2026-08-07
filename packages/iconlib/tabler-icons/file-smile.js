@@ -6,4 +6,6 @@ export class DileIconlibFileSmile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-smile', DileIconlibFileSmile);
+if (!customElements.get('dile-tabler-icon-file-smile')) {
+  customElements.define('dile-tabler-icon-file-smile', DileIconlibFileSmile);
+}

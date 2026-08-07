@@ -6,4 +6,6 @@ export class DileIconlibWheelchairOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wheelchair-off', DileIconlibWheelchairOff);
+if (!customElements.get('dile-tabler-icon-wheelchair-off')) {
+  customElements.define('dile-tabler-icon-wheelchair-off', DileIconlibWheelchairOff);
+}

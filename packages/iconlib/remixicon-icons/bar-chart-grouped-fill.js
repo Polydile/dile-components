@@ -6,4 +6,6 @@ export class DileIconlibBarChartGroupedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bar-chart-grouped-fill', DileIconlibBarChartGroupedFill);
+if (!customElements.get('dile-remixicon-icon-bar-chart-grouped-fill')) {
+  customElements.define('dile-remixicon-icon-bar-chart-grouped-fill', DileIconlibBarChartGroupedFill);
+}

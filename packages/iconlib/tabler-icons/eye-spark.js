@@ -6,4 +6,6 @@ export class DileIconlibEyeSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eye-spark', DileIconlibEyeSpark);
+if (!customElements.get('dile-tabler-icon-eye-spark')) {
+  customElements.define('dile-tabler-icon-eye-spark', DileIconlibEyeSpark);
+}

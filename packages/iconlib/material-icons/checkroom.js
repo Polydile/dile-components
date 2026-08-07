@@ -6,4 +6,6 @@ export class DileIconlibCheckroom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-checkroom', DileIconlibCheckroom);
+if (!customElements.get('dile-material-icon-checkroom')) {
+  customElements.define('dile-material-icon-checkroom', DileIconlibCheckroom);
+}

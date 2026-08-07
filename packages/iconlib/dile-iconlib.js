@@ -1,3 +1,5 @@
 import { DileIconlib } from "./src/DileIconlib.js";
 
-customElements.define('dile-iconlib', DileIconlib);
+if (!customElements.get('dile-iconlib')) {
+  customElements.define('dile-iconlib', DileIconlib);
+}

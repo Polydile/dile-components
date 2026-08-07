@@ -6,4 +6,6 @@ export class DileIconlibInsertInvitation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-insert-invitation', DileIconlibInsertInvitation);
+if (!customElements.get('dile-material-icon-insert-invitation')) {
+  customElements.define('dile-material-icon-insert-invitation', DileIconlibInsertInvitation);
+}

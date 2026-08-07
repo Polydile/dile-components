@@ -6,4 +6,6 @@ export class DileIconlibMessageChatbot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-chatbot', DileIconlibMessageChatbot);
+if (!customElements.get('dile-tabler-icon-message-chatbot')) {
+  customElements.define('dile-tabler-icon-message-chatbot', DileIconlibMessageChatbot);
+}

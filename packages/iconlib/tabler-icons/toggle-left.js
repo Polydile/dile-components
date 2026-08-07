@@ -6,4 +6,6 @@ export class DileIconlibToggleLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-toggle-left', DileIconlibToggleLeft);
+if (!customElements.get('dile-tabler-icon-toggle-left')) {
+  customElements.define('dile-tabler-icon-toggle-left', DileIconlibToggleLeft);
+}

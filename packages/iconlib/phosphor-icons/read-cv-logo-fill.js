@@ -6,4 +6,6 @@ export class DileIconlibReadCvLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-read-cv-logo-fill', DileIconlibReadCvLogoFill);
+if (!customElements.get('dile-phosphor-icon-read-cv-logo-fill')) {
+  customElements.define('dile-phosphor-icon-read-cv-logo-fill', DileIconlibReadCvLogoFill);
+}

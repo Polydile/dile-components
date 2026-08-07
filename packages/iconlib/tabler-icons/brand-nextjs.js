@@ -6,4 +6,6 @@ export class DileIconlibBrandNextjs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-nextjs', DileIconlibBrandNextjs);
+if (!customElements.get('dile-tabler-icon-brand-nextjs')) {
+  customElements.define('dile-tabler-icon-brand-nextjs', DileIconlibBrandNextjs);
+}

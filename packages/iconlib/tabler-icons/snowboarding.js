@@ -6,4 +6,6 @@ export class DileIconlibSnowboarding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-snowboarding', DileIconlibSnowboarding);
+if (!customElements.get('dile-tabler-icon-snowboarding')) {
+  customElements.define('dile-tabler-icon-snowboarding', DileIconlibSnowboarding);
+}

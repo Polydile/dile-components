@@ -6,4 +6,6 @@ export class DileIconlibVrCardboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vr-cardboard', DileIconlibVrCardboard);
+if (!customElements.get('dile-fontawesome-icon-vr-cardboard')) {
+  customElements.define('dile-fontawesome-icon-vr-cardboard', DileIconlibVrCardboard);
+}

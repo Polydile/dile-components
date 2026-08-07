@@ -6,4 +6,6 @@ export class DileIconlibStop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stop', DileIconlibStop);
+if (!customElements.get('dile-material-icon-stop')) {
+  customElements.define('dile-material-icon-stop', DileIconlibStop);
+}

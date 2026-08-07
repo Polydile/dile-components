@@ -6,4 +6,6 @@ export class DileIconlibBeenhere extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-beenhere', DileIconlibBeenhere);
+if (!customElements.get('dile-material-icon-beenhere')) {
+  customElements.define('dile-material-icon-beenhere', DileIconlibBeenhere);
+}

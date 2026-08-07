@@ -6,4 +6,6 @@ export class DileIconlibFastForwardFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fast-forward-fill', DileIconlibFastForwardFill);
+if (!customElements.get('dile-phosphor-icon-fast-forward-fill')) {
+  customElements.define('dile-phosphor-icon-fast-forward-fill', DileIconlibFastForwardFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShieldLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shield-line', DileIconlibShieldLine);
+if (!customElements.get('dile-remixicon-icon-shield-line')) {
+  customElements.define('dile-remixicon-icon-shield-line', DileIconlibShieldLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibQrCodeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-qr-code-bold', DileIconlibQrCodeBold);
+if (!customElements.get('dile-phosphor-icon-qr-code-bold')) {
+  customElements.define('dile-phosphor-icon-qr-code-bold', DileIconlibQrCodeBold);
+}

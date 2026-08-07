@@ -6,4 +6,6 @@ export class DileIconlibGasMeter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-gas-meter', DileIconlibGasMeter);
+if (!customElements.get('dile-material-icon-gas-meter')) {
+  customElements.define('dile-material-icon-gas-meter', DileIconlibGasMeter);
+}

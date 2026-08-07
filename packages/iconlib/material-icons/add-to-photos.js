@@ -6,4 +6,6 @@ export class DileIconlibAddToPhotos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-add-to-photos', DileIconlibAddToPhotos);
+if (!customElements.get('dile-material-icon-add-to-photos')) {
+  customElements.define('dile-material-icon-add-to-photos', DileIconlibAddToPhotos);
+}

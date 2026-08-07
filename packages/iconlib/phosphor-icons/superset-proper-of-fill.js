@@ -6,4 +6,6 @@ export class DileIconlibSupersetProperOfFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-superset-proper-of-fill', DileIconlibSupersetProperOfFill);
+if (!customElements.get('dile-phosphor-icon-superset-proper-of-fill')) {
+  customElements.define('dile-phosphor-icon-superset-proper-of-fill', DileIconlibSupersetProperOfFill);
+}

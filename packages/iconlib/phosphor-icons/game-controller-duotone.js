@@ -6,4 +6,6 @@ export class DileIconlibGameControllerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-game-controller-duotone', DileIconlibGameControllerDuotone);
+if (!customElements.get('dile-phosphor-icon-game-controller-duotone')) {
+  customElements.define('dile-phosphor-icon-game-controller-duotone', DileIconlibGameControllerDuotone);
+}

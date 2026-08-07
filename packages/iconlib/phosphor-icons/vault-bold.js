@@ -6,4 +6,6 @@ export class DileIconlibVaultBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vault-bold', DileIconlibVaultBold);
+if (!customElements.get('dile-phosphor-icon-vault-bold')) {
+  customElements.define('dile-phosphor-icon-vault-bold', DileIconlibVaultBold);
+}

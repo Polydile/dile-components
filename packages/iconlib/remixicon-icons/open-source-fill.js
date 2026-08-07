@@ -6,4 +6,6 @@ export class DileIconlibOpenSourceFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-open-source-fill', DileIconlibOpenSourceFill);
+if (!customElements.get('dile-remixicon-icon-open-source-fill')) {
+  customElements.define('dile-remixicon-icon-open-source-fill', DileIconlibOpenSourceFill);
+}

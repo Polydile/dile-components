@@ -30,4 +30,6 @@ export class BoardGameCrud extends LitElement {
     `;
   }
 }
-customElements.define('board-game-crud', BoardGameCrud);
+if (!customElements.get('board-game-crud')) {
+  customElements.define('board-game-crud', BoardGameCrud);
+}

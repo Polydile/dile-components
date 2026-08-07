@@ -6,4 +6,6 @@ export class DileIconlibBrandBulma extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bulma', DileIconlibBrandBulma);
+if (!customElements.get('dile-tabler-icon-brand-bulma')) {
+  customElements.define('dile-tabler-icon-brand-bulma', DileIconlibBrandBulma);
+}

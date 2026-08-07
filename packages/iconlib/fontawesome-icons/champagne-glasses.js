@@ -6,4 +6,6 @@ export class DileIconlibChampagneGlasses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-champagne-glasses', DileIconlibChampagneGlasses);
+if (!customElements.get('dile-fontawesome-icon-champagne-glasses')) {
+  customElements.define('dile-fontawesome-icon-champagne-glasses', DileIconlibChampagneGlasses);
+}

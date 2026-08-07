@@ -6,4 +6,6 @@ export class DileIconlibCardboards extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cardboards', DileIconlibCardboards);
+if (!customElements.get('dile-tabler-icon-cardboards')) {
+  customElements.define('dile-tabler-icon-cardboards', DileIconlibCardboards);
+}

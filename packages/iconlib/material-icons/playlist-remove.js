@@ -6,4 +6,6 @@ export class DileIconlibPlaylistRemove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-playlist-remove', DileIconlibPlaylistRemove);
+if (!customElements.get('dile-material-icon-playlist-remove')) {
+  customElements.define('dile-material-icon-playlist-remove', DileIconlibPlaylistRemove);
+}

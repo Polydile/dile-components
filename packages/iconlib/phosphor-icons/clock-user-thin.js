@@ -6,4 +6,6 @@ export class DileIconlibClockUserThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-user-thin', DileIconlibClockUserThin);
+if (!customElements.get('dile-phosphor-icon-clock-user-thin')) {
+  customElements.define('dile-phosphor-icon-clock-user-thin', DileIconlibClockUserThin);
+}

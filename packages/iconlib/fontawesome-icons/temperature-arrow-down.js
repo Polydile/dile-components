@@ -6,4 +6,6 @@ export class DileIconlibTemperatureArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-temperature-arrow-down', DileIconlibTemperatureArrowDown);
+if (!customElements.get('dile-fontawesome-icon-temperature-arrow-down')) {
+  customElements.define('dile-fontawesome-icon-temperature-arrow-down', DileIconlibTemperatureArrowDown);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGlobeHemisphereEastThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-globe-hemisphere-east-thin', DileIconlibGlobeHemisphereEastThin);
+if (!customElements.get('dile-phosphor-icon-globe-hemisphere-east-thin')) {
+  customElements.define('dile-phosphor-icon-globe-hemisphere-east-thin', DileIconlibGlobeHemisphereEastThin);
+}

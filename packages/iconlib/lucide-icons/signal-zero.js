@@ -6,4 +6,6 @@ export class DileIconlibSignalZero extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-signal-zero', DileIconlibSignalZero);
+if (!customElements.get('dile-lucide-icon-signal-zero')) {
+  customElements.define('dile-lucide-icon-signal-zero', DileIconlibSignalZero);
+}

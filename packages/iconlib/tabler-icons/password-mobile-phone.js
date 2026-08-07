@@ -6,4 +6,6 @@ export class DileIconlibPasswordMobilePhone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-password-mobile-phone', DileIconlibPasswordMobilePhone);
+if (!customElements.get('dile-tabler-icon-password-mobile-phone')) {
+  customElements.define('dile-tabler-icon-password-mobile-phone', DileIconlibPasswordMobilePhone);
+}

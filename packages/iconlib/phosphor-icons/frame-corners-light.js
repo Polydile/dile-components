@@ -6,4 +6,6 @@ export class DileIconlibFrameCornersLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-frame-corners-light', DileIconlibFrameCornersLight);
+if (!customElements.get('dile-phosphor-icon-frame-corners-light')) {
+  customElements.define('dile-phosphor-icon-frame-corners-light', DileIconlibFrameCornersLight);
+}

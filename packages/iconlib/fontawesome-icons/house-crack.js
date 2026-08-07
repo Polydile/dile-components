@@ -6,4 +6,6 @@ export class DileIconlibHouseCrack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-crack', DileIconlibHouseCrack);
+if (!customElements.get('dile-fontawesome-icon-house-crack')) {
+  customElements.define('dile-fontawesome-icon-house-crack', DileIconlibHouseCrack);
+}

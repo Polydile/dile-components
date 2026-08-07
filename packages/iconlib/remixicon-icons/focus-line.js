@@ -6,4 +6,6 @@ export class DileIconlibFocusLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-focus-line', DileIconlibFocusLine);
+if (!customElements.get('dile-remixicon-icon-focus-line')) {
+  customElements.define('dile-remixicon-icon-focus-line', DileIconlibFocusLine);
+}

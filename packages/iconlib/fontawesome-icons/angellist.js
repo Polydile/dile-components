@@ -6,4 +6,6 @@ export class DileIconlibAngellist extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-angellist', DileIconlibAngellist);
+if (!customElements.get('dile-fontawesome-icon-angellist')) {
+  customElements.define('dile-fontawesome-icon-angellist', DileIconlibAngellist);
+}

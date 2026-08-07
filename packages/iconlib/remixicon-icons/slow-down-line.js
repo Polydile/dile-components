@@ -6,4 +6,6 @@ export class DileIconlibSlowDownLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-slow-down-line', DileIconlibSlowDownLine);
+if (!customElements.get('dile-remixicon-icon-slow-down-line')) {
+  customElements.define('dile-remixicon-icon-slow-down-line', DileIconlibSlowDownLine);
+}

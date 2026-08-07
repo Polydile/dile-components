@@ -6,4 +6,6 @@ export class DileIconlibBrandYahoo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-yahoo', DileIconlibBrandYahoo);
+if (!customElements.get('dile-tabler-icon-brand-yahoo')) {
+  customElements.define('dile-tabler-icon-brand-yahoo', DileIconlibBrandYahoo);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLayersIntersect2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layers-intersect-2', DileIconlibLayersIntersect2);
+if (!customElements.get('dile-tabler-icon-layers-intersect-2')) {
+  customElements.define('dile-tabler-icon-layers-intersect-2', DileIconlibLayersIntersect2);
+}

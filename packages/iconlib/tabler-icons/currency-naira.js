@@ -6,4 +6,6 @@ export class DileIconlibCurrencyNaira extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-naira', DileIconlibCurrencyNaira);
+if (!customElements.get('dile-tabler-icon-currency-naira')) {
+  customElements.define('dile-tabler-icon-currency-naira', DileIconlibCurrencyNaira);
+}

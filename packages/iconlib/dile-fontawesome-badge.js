@@ -1,3 +1,5 @@
 import { DileFontawesomeBadge } from "./src/DileFontawesomeBadge.js";
 
-customElements.define('dile-fontawesome-badge', DileFontawesomeBadge);
+if (!customElements.get('dile-fontawesome-badge')) {
+  customElements.define('dile-fontawesome-badge', DileFontawesomeBadge);
+}

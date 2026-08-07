@@ -6,4 +6,6 @@ export class DileIconlibBedtime extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bedtime', DileIconlibBedtime);
+if (!customElements.get('dile-material-icon-bedtime')) {
+  customElements.define('dile-material-icon-bedtime', DileIconlibBedtime);
+}

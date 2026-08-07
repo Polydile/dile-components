@@ -6,4 +6,6 @@ export class DileIconlibNoCreditCardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-no-credit-card-line', DileIconlibNoCreditCardLine);
+if (!customElements.get('dile-remixicon-icon-no-credit-card-line')) {
+  customElements.define('dile-remixicon-icon-no-credit-card-line', DileIconlibNoCreditCardLine);
+}

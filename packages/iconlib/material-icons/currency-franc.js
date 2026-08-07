@@ -6,4 +6,6 @@ export class DileIconlibCurrencyFranc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-currency-franc', DileIconlibCurrencyFranc);
+if (!customElements.get('dile-material-icon-currency-franc')) {
+  customElements.define('dile-material-icon-currency-franc', DileIconlibCurrencyFranc);
+}

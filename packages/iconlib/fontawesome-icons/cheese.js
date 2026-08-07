@@ -6,4 +6,6 @@ export class DileIconlibCheese extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cheese', DileIconlibCheese);
+if (!customElements.get('dile-fontawesome-icon-cheese')) {
+  customElements.define('dile-fontawesome-icon-cheese', DileIconlibCheese);
+}

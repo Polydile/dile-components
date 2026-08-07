@@ -6,4 +6,6 @@ export class DileIconlibWindmill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-windmill', DileIconlibWindmill);
+if (!customElements.get('dile-tabler-icon-windmill')) {
+  customElements.define('dile-tabler-icon-windmill', DileIconlibWindmill);
+}

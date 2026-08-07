@@ -6,4 +6,6 @@ export class DileIconlibDashboardHorizontalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dashboard-horizontal-fill', DileIconlibDashboardHorizontalFill);
+if (!customElements.get('dile-remixicon-icon-dashboard-horizontal-fill')) {
+  customElements.define('dile-remixicon-icon-dashboard-horizontal-fill', DileIconlibDashboardHorizontalFill);
+}

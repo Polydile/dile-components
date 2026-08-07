@@ -6,4 +6,6 @@ export class DileIconlibHandBackFist extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-hand-back-fist', DileIconlibHandBackFist);
+if (!customElements.get('dile-fontawesome-icon-regular-hand-back-fist')) {
+  customElements.define('dile-fontawesome-icon-regular-hand-back-fist', DileIconlibHandBackFist);
+}

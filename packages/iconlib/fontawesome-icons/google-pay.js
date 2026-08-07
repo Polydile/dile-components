@@ -6,4 +6,6 @@ export class DileIconlibGooglePay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-google-pay', DileIconlibGooglePay);
+if (!customElements.get('dile-fontawesome-icon-google-pay')) {
+  customElements.define('dile-fontawesome-icon-google-pay', DileIconlibGooglePay);
+}

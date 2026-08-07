@@ -6,4 +6,6 @@ export class DileIconlibVerifiedUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-verified-user', DileIconlibVerifiedUser);
+if (!customElements.get('dile-material-icon-verified-user')) {
+  customElements.define('dile-material-icon-verified-user', DileIconlibVerifiedUser);
+}

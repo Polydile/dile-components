@@ -6,4 +6,6 @@ export class DileIconlibHandStop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hand-stop', DileIconlibHandStop);
+if (!customElements.get('dile-tabler-icon-hand-stop')) {
+  customElements.define('dile-tabler-icon-hand-stop', DileIconlibHandStop);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-briefcase-fill', DileIconlibBriefcaseFill);
+if (!customElements.get('dile-phosphor-icon-briefcase-fill')) {
+  customElements.define('dile-phosphor-icon-briefcase-fill', DileIconlibBriefcaseFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSteamLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-steam-logo-light', DileIconlibSteamLogoLight);
+if (!customElements.get('dile-phosphor-icon-steam-logo-light')) {
+  customElements.define('dile-phosphor-icon-steam-logo-light', DileIconlibSteamLogoLight);
+}

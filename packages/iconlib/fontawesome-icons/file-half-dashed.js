@@ -6,4 +6,6 @@ export class DileIconlibFileHalfDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-half-dashed', DileIconlibFileHalfDashed);
+if (!customElements.get('dile-fontawesome-icon-file-half-dashed')) {
+  customElements.define('dile-fontawesome-icon-file-half-dashed', DileIconlibFileHalfDashed);
+}

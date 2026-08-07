@@ -6,4 +6,6 @@ export class DileIconlibGrave2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grave-2', DileIconlibGrave2);
+if (!customElements.get('dile-tabler-icon-grave-2')) {
+  customElements.define('dile-tabler-icon-grave-2', DileIconlibGrave2);
+}

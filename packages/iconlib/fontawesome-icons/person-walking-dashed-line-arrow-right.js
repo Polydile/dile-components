@@ -6,4 +6,6 @@ export class DileIconlibPersonWalkingDashedLineArrowRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-walking-dashed-line-arrow-right', DileIconlibPersonWalkingDashedLineArrowRight);
+if (!customElements.get('dile-fontawesome-icon-person-walking-dashed-line-arrow-right')) {
+  customElements.define('dile-fontawesome-icon-person-walking-dashed-line-arrow-right', DileIconlibPersonWalkingDashedLineArrowRight);
+}

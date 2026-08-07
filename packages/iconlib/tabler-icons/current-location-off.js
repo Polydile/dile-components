@@ -6,4 +6,6 @@ export class DileIconlibCurrentLocationOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-current-location-off', DileIconlibCurrentLocationOff);
+if (!customElements.get('dile-tabler-icon-current-location-off')) {
+  customElements.define('dile-tabler-icon-current-location-off', DileIconlibCurrentLocationOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibToggleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-toggle-off', DileIconlibToggleOff);
+if (!customElements.get('dile-fontawesome-icon-toggle-off')) {
+  customElements.define('dile-fontawesome-icon-toggle-off', DileIconlibToggleOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMilitaryTech extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-military-tech', DileIconlibMilitaryTech);
+if (!customElements.get('dile-material-icon-military-tech')) {
+  customElements.define('dile-material-icon-military-tech', DileIconlibMilitaryTech);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPizzaDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pizza-duotone', DileIconlibPizzaDuotone);
+if (!customElements.get('dile-phosphor-icon-pizza-duotone')) {
+  customElements.define('dile-phosphor-icon-pizza-duotone', DileIconlibPizzaDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibThumbDownFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-thumb-down-fill', DileIconlibThumbDownFill);
+if (!customElements.get('dile-remixicon-icon-thumb-down-fill')) {
+  customElements.define('dile-remixicon-icon-thumb-down-fill', DileIconlibThumbDownFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLineVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-line-vertical', DileIconlibLineVertical);
+if (!customElements.get('dile-phosphor-icon-line-vertical')) {
+  customElements.define('dile-phosphor-icon-line-vertical', DileIconlibLineVertical);
+}

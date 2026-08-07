@@ -6,4 +6,6 @@ export class DileIconlibGitFork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-git-fork', DileIconlibGitFork);
+if (!customElements.get('dile-tabler-icon-git-fork')) {
+  customElements.define('dile-tabler-icon-git-fork', DileIconlibGitFork);
+}

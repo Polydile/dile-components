@@ -6,4 +6,6 @@ export class DileIconlibDeviceRemote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-remote', DileIconlibDeviceRemote);
+if (!customElements.get('dile-tabler-icon-device-remote')) {
+  customElements.define('dile-tabler-icon-device-remote', DileIconlibDeviceRemote);
+}

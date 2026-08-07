@@ -6,4 +6,6 @@ export class DileIconlibGitCherryPick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-git-cherry-pick', DileIconlibGitCherryPick);
+if (!customElements.get('dile-tabler-icon-git-cherry-pick')) {
+  customElements.define('dile-tabler-icon-git-cherry-pick', DileIconlibGitCherryPick);
+}

@@ -1,3 +1,5 @@
 import { DileLucideIcon } from "./src/DileLucideIcon.js";
 
-customElements.define('dile-lucide-icon', DileLucideIcon);
+if (!customElements.get('dile-lucide-icon')) {
+  customElements.define('dile-lucide-icon', DileLucideIcon);
+}

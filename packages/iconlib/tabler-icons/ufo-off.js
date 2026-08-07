@@ -6,4 +6,6 @@ export class DileIconlibUfoOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ufo-off', DileIconlibUfoOff);
+if (!customElements.get('dile-tabler-icon-ufo-off')) {
+  customElements.define('dile-tabler-icon-ufo-off', DileIconlibUfoOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibThunderstormsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-thunderstorms-line', DileIconlibThunderstormsLine);
+if (!customElements.get('dile-remixicon-icon-thunderstorms-line')) {
+  customElements.define('dile-remixicon-icon-thunderstorms-line', DileIconlibThunderstormsLine);
+}

@@ -31,4 +31,6 @@ export class DemoCountriesCrud extends LitElement {
     `;
   }
 }
-customElements.define('demo-countries-crud', DemoCountriesCrud);
+if (!customElements.get('demo-countries-crud')) {
+  customElements.define('demo-countries-crud', DemoCountriesCrud);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFilterCenterFocus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-filter-center-focus', DileIconlibFilterCenterFocus);
+if (!customElements.get('dile-material-icon-filter-center-focus')) {
+  customElements.define('dile-material-icon-filter-center-focus', DileIconlibFilterCenterFocus);
+}

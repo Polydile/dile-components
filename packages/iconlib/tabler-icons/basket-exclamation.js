@@ -6,4 +6,6 @@ export class DileIconlibBasketExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-basket-exclamation', DileIconlibBasketExclamation);
+if (!customElements.get('dile-tabler-icon-basket-exclamation')) {
+  customElements.define('dile-tabler-icon-basket-exclamation', DileIconlibBasketExclamation);
+}

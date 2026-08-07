@@ -6,4 +6,6 @@ export class DileIconlibHouseSiding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-house-siding', DileIconlibHouseSiding);
+if (!customElements.get('dile-material-icon-house-siding')) {
+  customElements.define('dile-material-icon-house-siding', DileIconlibHouseSiding);
+}

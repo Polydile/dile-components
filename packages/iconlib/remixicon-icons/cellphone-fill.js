@@ -6,4 +6,6 @@ export class DileIconlibCellphoneFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cellphone-fill', DileIconlibCellphoneFill);
+if (!customElements.get('dile-remixicon-icon-cellphone-fill')) {
+  customElements.define('dile-remixicon-icon-cellphone-fill', DileIconlibCellphoneFill);
+}

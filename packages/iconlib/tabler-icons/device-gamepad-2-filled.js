@@ -6,4 +6,6 @@ export class DileIconlibDeviceGamepad2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-gamepad-2-filled', DileIconlibDeviceGamepad2Filled);
+if (!customElements.get('dile-tabler-icon-device-gamepad-2-filled')) {
+  customElements.define('dile-tabler-icon-device-gamepad-2-filled', DileIconlibDeviceGamepad2Filled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeskLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-desk-light', DileIconlibDeskLight);
+if (!customElements.get('dile-phosphor-icon-desk-light')) {
+  customElements.define('dile-phosphor-icon-desk-light', DileIconlibDeskLight);
+}

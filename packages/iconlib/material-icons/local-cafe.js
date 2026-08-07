@@ -6,4 +6,6 @@ export class DileIconlibLocalCafe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-cafe', DileIconlibLocalCafe);
+if (!customElements.get('dile-material-icon-local-cafe')) {
+  customElements.define('dile-material-icon-local-cafe', DileIconlibLocalCafe);
+}

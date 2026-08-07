@@ -6,4 +6,6 @@ export class DileIconlibBrandOpenSourceFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-open-source-filled', DileIconlibBrandOpenSourceFilled);
+if (!customElements.get('dile-tabler-icon-brand-open-source-filled')) {
+  customElements.define('dile-tabler-icon-brand-open-source-filled', DileIconlibBrandOpenSourceFilled);
+}

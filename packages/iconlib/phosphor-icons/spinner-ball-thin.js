@@ -6,4 +6,6 @@ export class DileIconlibSpinnerBallThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spinner-ball-thin', DileIconlibSpinnerBallThin);
+if (!customElements.get('dile-phosphor-icon-spinner-ball-thin')) {
+  customElements.define('dile-phosphor-icon-spinner-ball-thin', DileIconlibSpinnerBallThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSunWind extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sun-wind', DileIconlibSunWind);
+if (!customElements.get('dile-tabler-icon-sun-wind')) {
+  customElements.define('dile-tabler-icon-sun-wind', DileIconlibSunWind);
+}

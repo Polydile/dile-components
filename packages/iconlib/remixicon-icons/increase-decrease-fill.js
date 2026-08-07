@@ -6,4 +6,6 @@ export class DileIconlibIncreaseDecreaseFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-increase-decrease-fill', DileIconlibIncreaseDecreaseFill);
+if (!customElements.get('dile-remixicon-icon-increase-decrease-fill')) {
+  customElements.define('dile-remixicon-icon-increase-decrease-fill', DileIconlibIncreaseDecreaseFill);
+}

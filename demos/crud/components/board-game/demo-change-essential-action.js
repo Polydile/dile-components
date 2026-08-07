@@ -34,4 +34,6 @@ export class DemoChangeEssentialAction extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-change-essential-action', DemoChangeEssentialAction);
+if (!customElements.get('demo-change-essential-action')) {
+  customElements.define('demo-change-essential-action', DemoChangeEssentialAction);
+}

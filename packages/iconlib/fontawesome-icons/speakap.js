@@ -6,4 +6,6 @@ export class DileIconlibSpeakap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-speakap', DileIconlibSpeakap);
+if (!customElements.get('dile-fontawesome-icon-speakap')) {
+  customElements.define('dile-fontawesome-icon-speakap', DileIconlibSpeakap);
+}

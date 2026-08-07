@@ -6,4 +6,6 @@ export class DileIconlibLinkedinLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-linkedin-logo-light', DileIconlibLinkedinLogoLight);
+if (!customElements.get('dile-phosphor-icon-linkedin-logo-light')) {
+  customElements.define('dile-phosphor-icon-linkedin-logo-light', DileIconlibLinkedinLogoLight);
+}

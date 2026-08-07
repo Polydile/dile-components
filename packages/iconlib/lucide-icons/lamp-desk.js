@@ -6,4 +6,6 @@ export class DileIconlibLampDesk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lamp-desk', DileIconlibLampDesk);
+if (!customElements.get('dile-lucide-icon-lamp-desk')) {
+  customElements.define('dile-lucide-icon-lamp-desk', DileIconlibLampDesk);
+}

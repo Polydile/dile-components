@@ -6,4 +6,6 @@ export class DileIconlibSensorFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sensor-fill', DileIconlibSensorFill);
+if (!customElements.get('dile-remixicon-icon-sensor-fill')) {
+  customElements.define('dile-remixicon-icon-sensor-fill', DileIconlibSensorFill);
+}

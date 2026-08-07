@@ -6,4 +6,6 @@ export class DileIconlibDryCleaning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dry-cleaning', DileIconlibDryCleaning);
+if (!customElements.get('dile-material-icon-dry-cleaning')) {
+  customElements.define('dile-material-icon-dry-cleaning', DileIconlibDryCleaning);
+}

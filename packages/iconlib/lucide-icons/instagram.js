@@ -6,4 +6,6 @@ export class DileIconlibInstagram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-instagram', DileIconlibInstagram);
+if (!customElements.get('dile-lucide-icon-instagram')) {
+  customElements.define('dile-lucide-icon-instagram', DileIconlibInstagram);
+}

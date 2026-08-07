@@ -6,4 +6,6 @@ export class DileIconlibCurrencySolana extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-solana', DileIconlibCurrencySolana);
+if (!customElements.get('dile-tabler-icon-currency-solana')) {
+  customElements.define('dile-tabler-icon-currency-solana', DileIconlibCurrencySolana);
+}

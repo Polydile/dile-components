@@ -6,4 +6,6 @@ export class DileIconlibSpeechToTextLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-speech-to-text-line', DileIconlibSpeechToTextLine);
+if (!customElements.get('dile-remixicon-icon-speech-to-text-line')) {
+  customElements.define('dile-remixicon-icon-speech-to-text-line', DileIconlibSpeechToTextLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSpacingHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spacing-horizontal', DileIconlibSpacingHorizontal);
+if (!customElements.get('dile-tabler-icon-spacing-horizontal')) {
+  customElements.define('dile-tabler-icon-spacing-horizontal', DileIconlibSpacingHorizontal);
+}

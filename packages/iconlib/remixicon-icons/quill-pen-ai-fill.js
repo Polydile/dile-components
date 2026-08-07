@@ -6,4 +6,6 @@ export class DileIconlibQuillPenAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-quill-pen-ai-fill', DileIconlibQuillPenAiFill);
+if (!customElements.get('dile-remixicon-icon-quill-pen-ai-fill')) {
+  customElements.define('dile-remixicon-icon-quill-pen-ai-fill', DileIconlibQuillPenAiFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibToothBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tooth-bold', DileIconlibToothBold);
+if (!customElements.get('dile-phosphor-icon-tooth-bold')) {
+  customElements.define('dile-phosphor-icon-tooth-bold', DileIconlibToothBold);
+}

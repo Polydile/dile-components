@@ -6,4 +6,6 @@ export class DileIconlibRatio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ratio', DileIconlibRatio);
+if (!customElements.get('dile-lucide-icon-ratio')) {
+  customElements.define('dile-lucide-icon-ratio', DileIconlibRatio);
+}

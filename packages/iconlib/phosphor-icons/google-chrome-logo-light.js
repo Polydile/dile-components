@@ -6,4 +6,6 @@ export class DileIconlibGoogleChromeLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-chrome-logo-light', DileIconlibGoogleChromeLogoLight);
+if (!customElements.get('dile-phosphor-icon-google-chrome-logo-light')) {
+  customElements.define('dile-phosphor-icon-google-chrome-logo-light', DileIconlibGoogleChromeLogoLight);
+}

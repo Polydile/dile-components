@@ -6,4 +6,6 @@ export class DileIconlibStaffSnake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-staff-snake', DileIconlibStaffSnake);
+if (!customElements.get('dile-fontawesome-icon-staff-snake')) {
+  customElements.define('dile-fontawesome-icon-staff-snake', DileIconlibStaffSnake);
+}

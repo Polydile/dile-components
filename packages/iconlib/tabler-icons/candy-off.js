@@ -6,4 +6,6 @@ export class DileIconlibCandyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-candy-off', DileIconlibCandyOff);
+if (!customElements.get('dile-tabler-icon-candy-off')) {
+  customElements.define('dile-tabler-icon-candy-off', DileIconlibCandyOff);
+}

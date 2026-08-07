@@ -6,4 +6,6 @@ export class DileIconlibHdrWeak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hdr-weak', DileIconlibHdrWeak);
+if (!customElements.get('dile-material-icon-hdr-weak')) {
+  customElements.define('dile-material-icon-hdr-weak', DileIconlibHdrWeak);
+}

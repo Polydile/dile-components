@@ -6,4 +6,6 @@ export class DileIconlibMailbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mailbox', DileIconlibMailbox);
+if (!customElements.get('dile-lucide-icon-mailbox')) {
+  customElements.define('dile-lucide-icon-mailbox', DileIconlibMailbox);
+}

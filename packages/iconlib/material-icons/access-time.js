@@ -6,4 +6,6 @@ export class DileIconlibAccessTime extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-access-time', DileIconlibAccessTime);
+if (!customElements.get('dile-material-icon-access-time')) {
+  customElements.define('dile-material-icon-access-time', DileIconlibAccessTime);
+}

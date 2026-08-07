@@ -6,4 +6,6 @@ export class DileIconlibSportBilliard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sport-billiard', DileIconlibSportBilliard);
+if (!customElements.get('dile-tabler-icon-sport-billiard')) {
+  customElements.define('dile-tabler-icon-sport-billiard', DileIconlibSportBilliard);
+}

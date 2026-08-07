@@ -6,4 +6,6 @@ export class DileIconlibStream extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stream', DileIconlibStream);
+if (!customElements.get('dile-fontawesome-icon-stream')) {
+  customElements.define('dile-fontawesome-icon-stream', DileIconlibStream);
+}

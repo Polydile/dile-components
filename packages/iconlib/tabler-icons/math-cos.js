@@ -6,4 +6,6 @@ export class DileIconlibMathCos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-cos', DileIconlibMathCos);
+if (!customElements.get('dile-tabler-icon-math-cos')) {
+  customElements.define('dile-tabler-icon-math-cos', DileIconlibMathCos);
+}

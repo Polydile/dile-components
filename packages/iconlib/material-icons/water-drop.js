@@ -6,4 +6,6 @@ export class DileIconlibWaterDrop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-water-drop', DileIconlibWaterDrop);
+if (!customElements.get('dile-material-icon-water-drop')) {
+  customElements.define('dile-material-icon-water-drop', DileIconlibWaterDrop);
+}

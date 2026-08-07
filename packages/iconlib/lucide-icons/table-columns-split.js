@@ -6,4 +6,6 @@ export class DileIconlibTableColumnsSplit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-table-columns-split', DileIconlibTableColumnsSplit);
+if (!customElements.get('dile-lucide-icon-table-columns-split')) {
+  customElements.define('dile-lucide-icon-table-columns-split', DileIconlibTableColumnsSplit);
+}

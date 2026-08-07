@@ -6,4 +6,6 @@ export class DileIconlibAstroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-astroid', DileIconlibAstroid);
+if (!customElements.get('dile-lucide-icon-astroid')) {
+  customElements.define('dile-lucide-icon-astroid', DileIconlibAstroid);
+}

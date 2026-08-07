@@ -6,4 +6,6 @@ export class DileIconlibCheckSquareOffsetBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-check-square-offset-bold', DileIconlibCheckSquareOffsetBold);
+if (!customElements.get('dile-phosphor-icon-check-square-offset-bold')) {
+  customElements.define('dile-phosphor-icon-check-square-offset-bold', DileIconlibCheckSquareOffsetBold);
+}

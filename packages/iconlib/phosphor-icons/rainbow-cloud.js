@@ -6,4 +6,6 @@ export class DileIconlibRainbowCloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rainbow-cloud', DileIconlibRainbowCloud);
+if (!customElements.get('dile-phosphor-icon-rainbow-cloud')) {
+  customElements.define('dile-phosphor-icon-rainbow-cloud', DileIconlibRainbowCloud);
+}

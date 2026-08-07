@@ -6,4 +6,6 @@ export class DileIconlibFirefoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-firefox-line', DileIconlibFirefoxLine);
+if (!customElements.get('dile-remixicon-icon-firefox-line')) {
+  customElements.define('dile-remixicon-icon-firefox-line', DileIconlibFirefoxLine);
+}

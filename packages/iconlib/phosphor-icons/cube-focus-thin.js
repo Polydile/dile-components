@@ -6,4 +6,6 @@ export class DileIconlibCubeFocusThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cube-focus-thin', DileIconlibCubeFocusThin);
+if (!customElements.get('dile-phosphor-icon-cube-focus-thin')) {
+  customElements.define('dile-phosphor-icon-cube-focus-thin', DileIconlibCubeFocusThin);
+}

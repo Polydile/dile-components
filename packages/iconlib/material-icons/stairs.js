@@ -6,4 +6,6 @@ export class DileIconlibStairs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stairs', DileIconlibStairs);
+if (!customElements.get('dile-material-icon-stairs')) {
+  customElements.define('dile-material-icon-stairs', DileIconlibStairs);
+}

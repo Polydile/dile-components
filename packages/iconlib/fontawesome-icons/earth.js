@@ -6,4 +6,6 @@ export class DileIconlibEarth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-earth', DileIconlibEarth);
+if (!customElements.get('dile-fontawesome-icon-earth')) {
+  customElements.define('dile-fontawesome-icon-earth', DileIconlibEarth);
+}

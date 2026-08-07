@@ -6,4 +6,6 @@ export class DileIconlibWysiwyg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wysiwyg', DileIconlibWysiwyg);
+if (!customElements.get('dile-material-icon-wysiwyg')) {
+  customElements.define('dile-material-icon-wysiwyg', DileIconlibWysiwyg);
+}

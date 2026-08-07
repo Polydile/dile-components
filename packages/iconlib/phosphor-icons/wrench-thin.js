@@ -6,4 +6,6 @@ export class DileIconlibWrenchThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wrench-thin', DileIconlibWrenchThin);
+if (!customElements.get('dile-phosphor-icon-wrench-thin')) {
+  customElements.define('dile-phosphor-icon-wrench-thin', DileIconlibWrenchThin);
+}

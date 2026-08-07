@@ -6,4 +6,6 @@ export class DileIconlibAddressCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-address-card', DileIconlibAddressCard);
+if (!customElements.get('dile-fontawesome-icon-address-card')) {
+  customElements.define('dile-fontawesome-icon-address-card', DileIconlibAddressCard);
+}

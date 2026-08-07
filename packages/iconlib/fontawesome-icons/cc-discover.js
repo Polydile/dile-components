@@ -6,4 +6,6 @@ export class DileIconlibCcDiscover extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-discover', DileIconlibCcDiscover);
+if (!customElements.get('dile-fontawesome-icon-cc-discover')) {
+  customElements.define('dile-fontawesome-icon-cc-discover', DileIconlibCcDiscover);
+}

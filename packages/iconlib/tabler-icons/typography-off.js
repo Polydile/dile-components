@@ -6,4 +6,6 @@ export class DileIconlibTypographyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-typography-off', DileIconlibTypographyOff);
+if (!customElements.get('dile-tabler-icon-typography-off')) {
+  customElements.define('dile-tabler-icon-typography-off', DileIconlibTypographyOff);
+}

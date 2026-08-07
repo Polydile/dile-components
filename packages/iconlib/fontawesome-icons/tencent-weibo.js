@@ -6,4 +6,6 @@ export class DileIconlibTencentWeibo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tencent-weibo', DileIconlibTencentWeibo);
+if (!customElements.get('dile-fontawesome-icon-tencent-weibo')) {
+  customElements.define('dile-fontawesome-icon-tencent-weibo', DileIconlibTencentWeibo);
+}

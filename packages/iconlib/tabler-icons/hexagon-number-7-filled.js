@@ -6,4 +6,6 @@ export class DileIconlibHexagonNumber7Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-number-7-filled', DileIconlibHexagonNumber7Filled);
+if (!customElements.get('dile-tabler-icon-hexagon-number-7-filled')) {
+  customElements.define('dile-tabler-icon-hexagon-number-7-filled', DileIconlibHexagonNumber7Filled);
+}

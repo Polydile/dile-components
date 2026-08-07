@@ -6,4 +6,6 @@ export class DileIconlibAffiliateFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-affiliate-filled', DileIconlibAffiliateFilled);
+if (!customElements.get('dile-tabler-icon-affiliate-filled')) {
+  customElements.define('dile-tabler-icon-affiliate-filled', DileIconlibAffiliateFilled);
+}

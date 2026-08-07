@@ -6,4 +6,6 @@ export class DileIconlibJarWheat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-jar-wheat', DileIconlibJarWheat);
+if (!customElements.get('dile-fontawesome-icon-jar-wheat')) {
+  customElements.define('dile-fontawesome-icon-jar-wheat', DileIconlibJarWheat);
+}

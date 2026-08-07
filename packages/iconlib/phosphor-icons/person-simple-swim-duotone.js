@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleSwimDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-swim-duotone', DileIconlibPersonSimpleSwimDuotone);
+if (!customElements.get('dile-phosphor-icon-person-simple-swim-duotone')) {
+  customElements.define('dile-phosphor-icon-person-simple-swim-duotone', DileIconlibPersonSimpleSwimDuotone);
+}

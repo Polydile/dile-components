@@ -6,4 +6,6 @@ export class DileIconlibTiktok extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tiktok', DileIconlibTiktok);
+if (!customElements.get('dile-fontawesome-icon-tiktok')) {
+  customElements.define('dile-fontawesome-icon-tiktok', DileIconlibTiktok);
+}

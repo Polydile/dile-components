@@ -6,4 +6,6 @@ export class DileIconlibCloudShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-share', DileIconlibCloudShare);
+if (!customElements.get('dile-tabler-icon-cloud-share')) {
+  customElements.define('dile-tabler-icon-cloud-share', DileIconlibCloudShare);
+}

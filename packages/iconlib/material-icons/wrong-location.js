@@ -6,4 +6,6 @@ export class DileIconlibWrongLocation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wrong-location', DileIconlibWrongLocation);
+if (!customElements.get('dile-material-icon-wrong-location')) {
+  customElements.define('dile-material-icon-wrong-location', DileIconlibWrongLocation);
+}

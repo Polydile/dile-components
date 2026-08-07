@@ -6,4 +6,6 @@ export class DileIconlibArrowForkTriple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-fork-triple', DileIconlibArrowForkTriple);
+if (!customElements.get('dile-tabler-icon-arrow-fork-triple')) {
+  customElements.define('dile-tabler-icon-arrow-fork-triple', DileIconlibArrowForkTriple);
+}

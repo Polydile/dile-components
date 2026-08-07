@@ -6,4 +6,6 @@ export class DileIconlibBracketsAngleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brackets-angle-fill', DileIconlibBracketsAngleFill);
+if (!customElements.get('dile-phosphor-icon-brackets-angle-fill')) {
+  customElements.define('dile-phosphor-icon-brackets-angle-fill', DileIconlibBracketsAngleFill);
+}

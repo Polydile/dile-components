@@ -6,4 +6,6 @@ export class DileIconlibSolana extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-solana', DileIconlibSolana);
+if (!customElements.get('dile-fontawesome-icon-solana')) {
+  customElements.define('dile-fontawesome-icon-solana', DileIconlibSolana);
+}

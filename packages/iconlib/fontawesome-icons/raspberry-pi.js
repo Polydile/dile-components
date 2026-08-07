@@ -6,4 +6,6 @@ export class DileIconlibRaspberryPi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-raspberry-pi', DileIconlibRaspberryPi);
+if (!customElements.get('dile-fontawesome-icon-raspberry-pi')) {
+  customElements.define('dile-fontawesome-icon-raspberry-pi', DileIconlibRaspberryPi);
+}

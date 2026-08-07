@@ -6,4 +6,6 @@ export class DileIconlibBrandMeetup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-meetup', DileIconlibBrandMeetup);
+if (!customElements.get('dile-tabler-icon-brand-meetup')) {
+  customElements.define('dile-tabler-icon-brand-meetup', DileIconlibBrandMeetup);
+}

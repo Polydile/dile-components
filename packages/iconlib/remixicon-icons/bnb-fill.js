@@ -6,4 +6,6 @@ export class DileIconlibBnbFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bnb-fill', DileIconlibBnbFill);
+if (!customElements.get('dile-remixicon-icon-bnb-fill')) {
+  customElements.define('dile-remixicon-icon-bnb-fill', DileIconlibBnbFill);
+}

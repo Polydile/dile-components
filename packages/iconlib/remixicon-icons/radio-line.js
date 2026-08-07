@@ -6,4 +6,6 @@ export class DileIconlibRadioLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-radio-line', DileIconlibRadioLine);
+if (!customElements.get('dile-remixicon-icon-radio-line')) {
+  customElements.define('dile-remixicon-icon-radio-line', DileIconlibRadioLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFolderSimpleLockDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-simple-lock-duotone', DileIconlibFolderSimpleLockDuotone);
+if (!customElements.get('dile-phosphor-icon-folder-simple-lock-duotone')) {
+  customElements.define('dile-phosphor-icon-folder-simple-lock-duotone', DileIconlibFolderSimpleLockDuotone);
+}

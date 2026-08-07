@@ -6,4 +6,6 @@ export class DileIconlibUserLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-lock', DileIconlibUserLock);
+if (!customElements.get('dile-fontawesome-icon-user-lock')) {
+  customElements.define('dile-fontawesome-icon-user-lock', DileIconlibUserLock);
+}

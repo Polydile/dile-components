@@ -6,4 +6,6 @@ export class DileIconlibObjectGroup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-object-group', DileIconlibObjectGroup);
+if (!customElements.get('dile-fontawesome-icon-object-group')) {
+  customElements.define('dile-fontawesome-icon-object-group', DileIconlibObjectGroup);
+}

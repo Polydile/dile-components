@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleMaps extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-maps', DileIconlibBrandGoogleMaps);
+if (!customElements.get('dile-tabler-icon-brand-google-maps')) {
+  customElements.define('dile-tabler-icon-brand-google-maps', DileIconlibBrandGoogleMaps);
+}

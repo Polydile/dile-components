@@ -6,4 +6,6 @@ export class DileIconlibAutorenew extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-autorenew', DileIconlibAutorenew);
+if (!customElements.get('dile-material-icon-autorenew')) {
+  customElements.define('dile-material-icon-autorenew', DileIconlibAutorenew);
+}

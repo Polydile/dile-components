@@ -6,4 +6,6 @@ export class DileIconlibIndentIncrease extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-indent-increase', DileIconlibIndentIncrease);
+if (!customElements.get('dile-remixicon-icon-indent-increase')) {
+  customElements.define('dile-remixicon-icon-indent-increase', DileIconlibIndentIncrease);
+}

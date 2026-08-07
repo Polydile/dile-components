@@ -6,4 +6,6 @@ export class DileIconlibBrandSurfshark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-surfshark', DileIconlibBrandSurfshark);
+if (!customElements.get('dile-tabler-icon-brand-surfshark')) {
+  customElements.define('dile-tabler-icon-brand-surfshark', DileIconlibBrandSurfshark);
+}

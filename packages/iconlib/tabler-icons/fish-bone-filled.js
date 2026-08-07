@@ -6,4 +6,6 @@ export class DileIconlibFishBoneFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fish-bone-filled', DileIconlibFishBoneFilled);
+if (!customElements.get('dile-tabler-icon-fish-bone-filled')) {
+  customElements.define('dile-tabler-icon-fish-bone-filled', DileIconlibFishBoneFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAngry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-angry', DileIconlibAngry);
+if (!customElements.get('dile-fontawesome-icon-angry')) {
+  customElements.define('dile-fontawesome-icon-angry', DileIconlibAngry);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartDotsFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-dots-filled', DileIconlibChartDotsFilled);
+if (!customElements.get('dile-tabler-icon-chart-dots-filled')) {
+  customElements.define('dile-tabler-icon-chart-dots-filled', DileIconlibChartDotsFilled);
+}

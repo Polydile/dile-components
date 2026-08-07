@@ -6,4 +6,6 @@ export class DileIconlibRadio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-radio', DileIconlibRadio);
+if (!customElements.get('dile-phosphor-icon-radio')) {
+  customElements.define('dile-phosphor-icon-radio', DileIconlibRadio);
+}

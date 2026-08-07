@@ -6,4 +6,6 @@ export class DileIconlibMoodTongueWink extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-tongue-wink', DileIconlibMoodTongueWink);
+if (!customElements.get('dile-tabler-icon-mood-tongue-wink')) {
+  customElements.define('dile-tabler-icon-mood-tongue-wink', DileIconlibMoodTongueWink);
+}

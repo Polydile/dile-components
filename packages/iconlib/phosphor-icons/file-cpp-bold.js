@@ -6,4 +6,6 @@ export class DileIconlibFileCppBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-cpp-bold', DileIconlibFileCppBold);
+if (!customElements.get('dile-phosphor-icon-file-cpp-bold')) {
+  customElements.define('dile-phosphor-icon-file-cpp-bold', DileIconlibFileCppBold);
+}

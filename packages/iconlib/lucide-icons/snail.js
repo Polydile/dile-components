@@ -6,4 +6,6 @@ export class DileIconlibSnail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-snail', DileIconlibSnail);
+if (!customElements.get('dile-lucide-icon-snail')) {
+  customElements.define('dile-lucide-icon-snail', DileIconlibSnail);
+}

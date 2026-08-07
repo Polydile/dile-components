@@ -6,4 +6,6 @@ export class DileIconlibReceiptPoundFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-pound-filled', DileIconlibReceiptPoundFilled);
+if (!customElements.get('dile-tabler-icon-receipt-pound-filled')) {
+  customElements.define('dile-tabler-icon-receipt-pound-filled', DileIconlibReceiptPoundFilled);
+}

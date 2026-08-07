@@ -6,4 +6,6 @@ export class DileIconlibAddCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-add-circle-line', DileIconlibAddCircleLine);
+if (!customElements.get('dile-remixicon-icon-add-circle-line')) {
+  customElements.define('dile-remixicon-icon-add-circle-line', DileIconlibAddCircleLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShortcut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-shortcut', DileIconlibShortcut);
+if (!customElements.get('dile-material-icon-shortcut')) {
+  customElements.define('dile-material-icon-shortcut', DileIconlibShortcut);
+}

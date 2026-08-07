@@ -1,3 +1,5 @@
 import { DileAjaxSelectCrud } from './src/DileAjaxSelectCrud.js';
 
-customElements.define('dile-ajax-select-crud', DileAjaxSelectCrud);
+if (!customElements.get('dile-ajax-select-crud')) {
+  customElements.define('dile-ajax-select-crud', DileAjaxSelectCrud);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextRotateUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-text-rotate-up', DileIconlibTextRotateUp);
+if (!customElements.get('dile-material-icon-text-rotate-up')) {
+  customElements.define('dile-material-icon-text-rotate-up', DileIconlibTextRotateUp);
+}

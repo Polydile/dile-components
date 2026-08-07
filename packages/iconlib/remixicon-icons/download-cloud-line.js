@@ -6,4 +6,6 @@ export class DileIconlibDownloadCloudLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-download-cloud-line', DileIconlibDownloadCloudLine);
+if (!customElements.get('dile-remixicon-icon-download-cloud-line')) {
+  customElements.define('dile-remixicon-icon-download-cloud-line', DileIconlibDownloadCloudLine);
+}

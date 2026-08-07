@@ -6,4 +6,6 @@ export class DileIconlibDartLang extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dart-lang', DileIconlibDartLang);
+if (!customElements.get('dile-fontawesome-icon-dart-lang')) {
+  customElements.define('dile-fontawesome-icon-dart-lang', DileIconlibDartLang);
+}

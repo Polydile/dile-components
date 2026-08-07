@@ -6,4 +6,6 @@ export class DileIconlibFlashOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flash-off', DileIconlibFlashOff);
+if (!customElements.get('dile-material-icon-flash-off')) {
+  customElements.define('dile-material-icon-flash-off', DileIconlibFlashOff);
+}

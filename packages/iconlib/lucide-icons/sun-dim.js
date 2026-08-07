@@ -6,4 +6,6 @@ export class DileIconlibSunDim extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sun-dim', DileIconlibSunDim);
+if (!customElements.get('dile-lucide-icon-sun-dim')) {
+  customElements.define('dile-lucide-icon-sun-dim', DileIconlibSunDim);
+}

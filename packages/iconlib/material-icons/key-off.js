@@ -6,4 +6,6 @@ export class DileIconlibKeyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-key-off', DileIconlibKeyOff);
+if (!customElements.get('dile-material-icon-key-off')) {
+  customElements.define('dile-material-icon-key-off', DileIconlibKeyOff);
+}

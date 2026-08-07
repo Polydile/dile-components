@@ -6,4 +6,6 @@ export class DileIconlibZoom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-zoom', DileIconlibZoom);
+if (!customElements.get('dile-fontawesome-icon-zoom')) {
+  customElements.define('dile-fontawesome-icon-zoom', DileIconlibZoom);
+}

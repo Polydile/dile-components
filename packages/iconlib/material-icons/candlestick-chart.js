@@ -6,4 +6,6 @@ export class DileIconlibCandlestickChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-candlestick-chart', DileIconlibCandlestickChart);
+if (!customElements.get('dile-material-icon-candlestick-chart')) {
+  customElements.define('dile-material-icon-candlestick-chart', DileIconlibCandlestickChart);
+}

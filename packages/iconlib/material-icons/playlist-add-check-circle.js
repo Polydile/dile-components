@@ -6,4 +6,6 @@ export class DileIconlibPlaylistAddCheckCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-playlist-add-check-circle', DileIconlibPlaylistAddCheckCircle);
+if (!customElements.get('dile-material-icon-playlist-add-check-circle')) {
+  customElements.define('dile-material-icon-playlist-add-check-circle', DileIconlibPlaylistAddCheckCircle);
+}

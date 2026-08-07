@@ -6,4 +6,6 @@ export class DileIconlibAppleAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-apple-alt', DileIconlibAppleAlt);
+if (!customElements.get('dile-fontawesome-icon-apple-alt')) {
+  customElements.define('dile-fontawesome-icon-apple-alt', DileIconlibAppleAlt);
+}

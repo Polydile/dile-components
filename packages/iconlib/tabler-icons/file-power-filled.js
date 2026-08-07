@@ -6,4 +6,6 @@ export class DileIconlibFilePowerFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-power-filled', DileIconlibFilePowerFilled);
+if (!customElements.get('dile-tabler-icon-file-power-filled')) {
+  customElements.define('dile-tabler-icon-file-power-filled', DileIconlibFilePowerFilled);
+}

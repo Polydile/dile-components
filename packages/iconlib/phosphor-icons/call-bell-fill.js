@@ -6,4 +6,6 @@ export class DileIconlibCallBellFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-call-bell-fill', DileIconlibCallBellFill);
+if (!customElements.get('dile-phosphor-icon-call-bell-fill')) {
+  customElements.define('dile-phosphor-icon-call-bell-fill', DileIconlibCallBellFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyNgnBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-ngn-bold', DileIconlibCurrencyNgnBold);
+if (!customElements.get('dile-phosphor-icon-currency-ngn-bold')) {
+  customElements.define('dile-phosphor-icon-currency-ngn-bold', DileIconlibCurrencyNgnBold);
+}

@@ -1,3 +1,5 @@
 import { DileInput } from './src/DileInput.js';
 
-window.customElements.define('dile-input', DileInput);
+if (!customElements.get('dile-input')) {
+  window.customElements.define('dile-input', DileInput);
+}

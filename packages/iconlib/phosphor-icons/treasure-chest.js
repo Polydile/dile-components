@@ -6,4 +6,6 @@ export class DileIconlibTreasureChest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-treasure-chest', DileIconlibTreasureChest);
+if (!customElements.get('dile-phosphor-icon-treasure-chest')) {
+  customElements.define('dile-phosphor-icon-treasure-chest', DileIconlibTreasureChest);
+}

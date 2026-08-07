@@ -6,4 +6,6 @@ export class DileIconlibSearchFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-search-filled', DileIconlibSearchFilled);
+if (!customElements.get('dile-tabler-icon-search-filled')) {
+  customElements.define('dile-tabler-icon-search-filled', DileIconlibSearchFilled);
+}

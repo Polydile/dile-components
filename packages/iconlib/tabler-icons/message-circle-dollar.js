@@ -6,4 +6,6 @@ export class DileIconlibMessageCircleDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-circle-dollar', DileIconlibMessageCircleDollar);
+if (!customElements.get('dile-tabler-icon-message-circle-dollar')) {
+  customElements.define('dile-tabler-icon-message-circle-dollar', DileIconlibMessageCircleDollar);
+}

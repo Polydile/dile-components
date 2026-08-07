@@ -6,4 +6,6 @@ export class DileIconlibCalculator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calculator', DileIconlibCalculator);
+if (!customElements.get('dile-phosphor-icon-calculator')) {
+  customElements.define('dile-phosphor-icon-calculator', DileIconlibCalculator);
+}

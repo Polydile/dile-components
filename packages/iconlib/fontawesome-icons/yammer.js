@@ -6,4 +6,6 @@ export class DileIconlibYammer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yammer', DileIconlibYammer);
+if (!customElements.get('dile-fontawesome-icon-yammer')) {
+  customElements.define('dile-fontawesome-icon-yammer', DileIconlibYammer);
+}

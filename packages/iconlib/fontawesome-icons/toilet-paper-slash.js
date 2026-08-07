@@ -6,4 +6,6 @@ export class DileIconlibToiletPaperSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-toilet-paper-slash', DileIconlibToiletPaperSlash);
+if (!customElements.get('dile-fontawesome-icon-toilet-paper-slash')) {
+  customElements.define('dile-fontawesome-icon-toilet-paper-slash', DileIconlibToiletPaperSlash);
+}

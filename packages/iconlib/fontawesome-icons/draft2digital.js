@@ -6,4 +6,6 @@ export class DileIconlibDraft2digital extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-draft2digital', DileIconlibDraft2digital);
+if (!customElements.get('dile-fontawesome-icon-draft2digital')) {
+  customElements.define('dile-fontawesome-icon-draft2digital', DileIconlibDraft2digital);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSystemSecurityUpdateGood extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-system-security-update-good', DileIconlibSystemSecurityUpdateGood);
+if (!customElements.get('dile-material-icon-system-security-update-good')) {
+  customElements.define('dile-material-icon-system-security-update-good', DileIconlibSystemSecurityUpdateGood);
+}

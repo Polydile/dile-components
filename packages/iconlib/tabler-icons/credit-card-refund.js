@@ -6,4 +6,6 @@ export class DileIconlibCreditCardRefund extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-credit-card-refund', DileIconlibCreditCardRefund);
+if (!customElements.get('dile-tabler-icon-credit-card-refund')) {
+  customElements.define('dile-tabler-icon-credit-card-refund', DileIconlibCreditCardRefund);
+}

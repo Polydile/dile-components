@@ -6,4 +6,6 @@ export class DileIconlibElectricCar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electric-car', DileIconlibElectricCar);
+if (!customElements.get('dile-material-icon-electric-car')) {
+  customElements.define('dile-material-icon-electric-car', DileIconlibElectricCar);
+}

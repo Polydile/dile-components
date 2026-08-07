@@ -6,4 +6,6 @@ export class DileIconlibUpworkFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-upwork-fill', DileIconlibUpworkFill);
+if (!customElements.get('dile-remixicon-icon-upwork-fill')) {
+  customElements.define('dile-remixicon-icon-upwork-fill', DileIconlibUpworkFill);
+}

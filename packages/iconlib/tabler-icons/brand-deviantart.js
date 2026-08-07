@@ -6,4 +6,6 @@ export class DileIconlibBrandDeviantart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-deviantart', DileIconlibBrandDeviantart);
+if (!customElements.get('dile-tabler-icon-brand-deviantart')) {
+  customElements.define('dile-tabler-icon-brand-deviantart', DileIconlibBrandDeviantart);
+}

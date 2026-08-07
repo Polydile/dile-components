@@ -6,4 +6,6 @@ export class DileIconlibKeyboardLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-keyboard-light', DileIconlibKeyboardLight);
+if (!customElements.get('dile-phosphor-icon-keyboard-light')) {
+  customElements.define('dile-phosphor-icon-keyboard-light', DileIconlibKeyboardLight);
+}

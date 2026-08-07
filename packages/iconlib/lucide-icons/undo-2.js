@@ -6,4 +6,6 @@ export class DileIconlibUndo2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-undo-2', DileIconlibUndo2);
+if (!customElements.get('dile-lucide-icon-undo-2')) {
+  customElements.define('dile-lucide-icon-undo-2', DileIconlibUndo2);
+}

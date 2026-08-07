@@ -6,4 +6,6 @@ export class DileIconlibRestaurantMenu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-restaurant-menu', DileIconlibRestaurantMenu);
+if (!customElements.get('dile-material-icon-restaurant-menu')) {
+  customElements.define('dile-material-icon-restaurant-menu', DileIconlibRestaurantMenu);
+}

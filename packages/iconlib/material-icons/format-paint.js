@@ -6,4 +6,6 @@ export class DileIconlibFormatPaint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-paint', DileIconlibFormatPaint);
+if (!customElements.get('dile-material-icon-format-paint')) {
+  customElements.define('dile-material-icon-format-paint', DileIconlibFormatPaint);
+}

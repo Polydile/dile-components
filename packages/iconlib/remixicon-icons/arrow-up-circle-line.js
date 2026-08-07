@@ -6,4 +6,6 @@ export class DileIconlibArrowUpCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-arrow-up-circle-line', DileIconlibArrowUpCircleLine);
+if (!customElements.get('dile-remixicon-icon-arrow-up-circle-line')) {
+  customElements.define('dile-remixicon-icon-arrow-up-circle-line', DileIconlibArrowUpCircleLine);
+}

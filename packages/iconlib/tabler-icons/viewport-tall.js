@@ -6,4 +6,6 @@ export class DileIconlibViewportTall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-viewport-tall', DileIconlibViewportTall);
+if (!customElements.get('dile-tabler-icon-viewport-tall')) {
+  customElements.define('dile-tabler-icon-viewport-tall', DileIconlibViewportTall);
+}

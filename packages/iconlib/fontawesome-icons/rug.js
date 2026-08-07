@@ -6,4 +6,6 @@ export class DileIconlibRug extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rug', DileIconlibRug);
+if (!customElements.get('dile-fontawesome-icon-rug')) {
+  customElements.define('dile-fontawesome-icon-rug', DileIconlibRug);
+}

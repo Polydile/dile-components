@@ -6,4 +6,6 @@ export class DileIconlibOpera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-opera', DileIconlibOpera);
+if (!customElements.get('dile-fontawesome-icon-opera')) {
+  customElements.define('dile-fontawesome-icon-opera', DileIconlibOpera);
+}

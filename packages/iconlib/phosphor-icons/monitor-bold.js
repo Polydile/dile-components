@@ -6,4 +6,6 @@ export class DileIconlibMonitorBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-monitor-bold', DileIconlibMonitorBold);
+if (!customElements.get('dile-phosphor-icon-monitor-bold')) {
+  customElements.define('dile-phosphor-icon-monitor-bold', DileIconlibMonitorBold);
+}

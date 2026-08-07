@@ -6,4 +6,6 @@ export class DileIconlibFedora extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fedora', DileIconlibFedora);
+if (!customElements.get('dile-fontawesome-icon-fedora')) {
+  customElements.define('dile-fontawesome-icon-fedora', DileIconlibFedora);
+}

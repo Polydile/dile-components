@@ -6,4 +6,6 @@ export class DileIconlibLariSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lari-sign', DileIconlibLariSign);
+if (!customElements.get('dile-fontawesome-icon-lari-sign')) {
+  customElements.define('dile-fontawesome-icon-lari-sign', DileIconlibLariSign);
+}

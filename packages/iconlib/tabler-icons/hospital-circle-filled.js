@@ -6,4 +6,6 @@ export class DileIconlibHospitalCircleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hospital-circle-filled', DileIconlibHospitalCircleFilled);
+if (!customElements.get('dile-tabler-icon-hospital-circle-filled')) {
+  customElements.define('dile-tabler-icon-hospital-circle-filled', DileIconlibHospitalCircleFilled);
+}

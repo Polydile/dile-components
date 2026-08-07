@@ -6,4 +6,6 @@ export class DileIconlibPassValidLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pass-valid-line', DileIconlibPassValidLine);
+if (!customElements.get('dile-remixicon-icon-pass-valid-line')) {
+  customElements.define('dile-remixicon-icon-pass-valid-line', DileIconlibPassValidLine);
+}

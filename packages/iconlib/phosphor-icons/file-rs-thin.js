@@ -6,4 +6,6 @@ export class DileIconlibFileRsThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-rs-thin', DileIconlibFileRsThin);
+if (!customElements.get('dile-phosphor-icon-file-rs-thin')) {
+  customElements.define('dile-phosphor-icon-file-rs-thin', DileIconlibFileRsThin);
+}

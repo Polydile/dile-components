@@ -6,4 +6,6 @@ export class DileIconlibAdfScanner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-adf-scanner', DileIconlibAdfScanner);
+if (!customElements.get('dile-material-icon-adf-scanner')) {
+  customElements.define('dile-material-icon-adf-scanner', DileIconlibAdfScanner);
+}

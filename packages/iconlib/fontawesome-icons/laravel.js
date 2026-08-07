@@ -6,4 +6,6 @@ export class DileIconlibLaravel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-laravel', DileIconlibLaravel);
+if (!customElements.get('dile-fontawesome-icon-laravel')) {
+  customElements.define('dile-fontawesome-icon-laravel', DileIconlibLaravel);
+}

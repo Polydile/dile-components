@@ -6,4 +6,6 @@ export class DileIconlibBatterySaverLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-battery-saver-line', DileIconlibBatterySaverLine);
+if (!customElements.get('dile-remixicon-icon-battery-saver-line')) {
+  customElements.define('dile-remixicon-icon-battery-saver-line', DileIconlibBatterySaverLine);
+}

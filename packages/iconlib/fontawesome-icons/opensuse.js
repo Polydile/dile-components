@@ -6,4 +6,6 @@ export class DileIconlibOpensuse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-opensuse', DileIconlibOpensuse);
+if (!customElements.get('dile-fontawesome-icon-opensuse')) {
+  customElements.define('dile-fontawesome-icon-opensuse', DileIconlibOpensuse);
+}

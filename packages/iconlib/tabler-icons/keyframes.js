@@ -6,4 +6,6 @@ export class DileIconlibKeyframes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-keyframes', DileIconlibKeyframes);
+if (!customElements.get('dile-tabler-icon-keyframes')) {
+  customElements.define('dile-tabler-icon-keyframes', DileIconlibKeyframes);
+}

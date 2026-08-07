@@ -6,4 +6,6 @@ export class DileIconlibSecurityUpdate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-security-update', DileIconlibSecurityUpdate);
+if (!customElements.get('dile-material-icon-security-update')) {
+  customElements.define('dile-material-icon-security-update', DileIconlibSecurityUpdate);
+}

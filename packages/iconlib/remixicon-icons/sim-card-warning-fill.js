@@ -6,4 +6,6 @@ export class DileIconlibSimCardWarningFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sim-card-warning-fill', DileIconlibSimCardWarningFill);
+if (!customElements.get('dile-remixicon-icon-sim-card-warning-fill')) {
+  customElements.define('dile-remixicon-icon-sim-card-warning-fill', DileIconlibSimCardWarningFill);
+}

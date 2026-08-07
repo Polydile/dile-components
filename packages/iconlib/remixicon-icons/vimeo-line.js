@@ -6,4 +6,6 @@ export class DileIconlibVimeoLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-vimeo-line', DileIconlibVimeoLine);
+if (!customElements.get('dile-remixicon-icon-vimeo-line')) {
+  customElements.define('dile-remixicon-icon-vimeo-line', DileIconlibVimeoLine);
+}

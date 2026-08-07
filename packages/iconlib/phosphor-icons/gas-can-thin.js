@@ -6,4 +6,6 @@ export class DileIconlibGasCanThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gas-can-thin', DileIconlibGasCanThin);
+if (!customElements.get('dile-phosphor-icon-gas-can-thin')) {
+  customElements.define('dile-phosphor-icon-gas-can-thin', DileIconlibGasCanThin);
+}

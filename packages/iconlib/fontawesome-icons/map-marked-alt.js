@@ -6,4 +6,6 @@ export class DileIconlibMapMarkedAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-map-marked-alt', DileIconlibMapMarkedAlt);
+if (!customElements.get('dile-fontawesome-icon-map-marked-alt')) {
+  customElements.define('dile-fontawesome-icon-map-marked-alt', DileIconlibMapMarkedAlt);
+}

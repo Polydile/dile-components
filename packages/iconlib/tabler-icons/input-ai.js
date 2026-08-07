@@ -6,4 +6,6 @@ export class DileIconlibInputAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-input-ai', DileIconlibInputAi);
+if (!customElements.get('dile-tabler-icon-input-ai')) {
+  customElements.define('dile-tabler-icon-input-ai', DileIconlibInputAi);
+}

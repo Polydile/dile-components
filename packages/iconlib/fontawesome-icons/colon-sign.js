@@ -6,4 +6,6 @@ export class DileIconlibColonSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-colon-sign', DileIconlibColonSign);
+if (!customElements.get('dile-fontawesome-icon-colon-sign')) {
+  customElements.define('dile-fontawesome-icon-colon-sign', DileIconlibColonSign);
+}

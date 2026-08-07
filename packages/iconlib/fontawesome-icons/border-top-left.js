@@ -6,4 +6,6 @@ export class DileIconlibBorderTopLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-border-top-left', DileIconlibBorderTopLeft);
+if (!customElements.get('dile-fontawesome-icon-border-top-left')) {
+  customElements.define('dile-fontawesome-icon-border-top-left', DileIconlibBorderTopLeft);
+}

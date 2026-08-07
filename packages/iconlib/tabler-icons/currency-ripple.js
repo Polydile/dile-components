@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRipple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-ripple', DileIconlibCurrencyRipple);
+if (!customElements.get('dile-tabler-icon-currency-ripple')) {
+  customElements.define('dile-tabler-icon-currency-ripple', DileIconlibCurrencyRipple);
+}

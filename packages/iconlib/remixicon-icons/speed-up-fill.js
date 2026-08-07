@@ -6,4 +6,6 @@ export class DileIconlibSpeedUpFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-speed-up-fill', DileIconlibSpeedUpFill);
+if (!customElements.get('dile-remixicon-icon-speed-up-fill')) {
+  customElements.define('dile-remixicon-icon-speed-up-fill', DileIconlibSpeedUpFill);
+}

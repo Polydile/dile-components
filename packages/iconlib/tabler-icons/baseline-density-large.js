@@ -6,4 +6,6 @@ export class DileIconlibBaselineDensityLarge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-baseline-density-large', DileIconlibBaselineDensityLarge);
+if (!customElements.get('dile-tabler-icon-baseline-density-large')) {
+  customElements.define('dile-tabler-icon-baseline-density-large', DileIconlibBaselineDensityLarge);
+}

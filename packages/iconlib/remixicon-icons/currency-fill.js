@@ -6,4 +6,6 @@ export class DileIconlibCurrencyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-currency-fill', DileIconlibCurrencyFill);
+if (!customElements.get('dile-remixicon-icon-currency-fill')) {
+  customElements.define('dile-remixicon-icon-currency-fill', DileIconlibCurrencyFill);
+}

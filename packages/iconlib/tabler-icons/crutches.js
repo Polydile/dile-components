@@ -6,4 +6,6 @@ export class DileIconlibCrutches extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-crutches', DileIconlibCrutches);
+if (!customElements.get('dile-tabler-icon-crutches')) {
+  customElements.define('dile-tabler-icon-crutches', DileIconlibCrutches);
+}

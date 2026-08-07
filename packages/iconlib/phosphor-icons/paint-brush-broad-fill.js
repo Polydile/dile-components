@@ -6,4 +6,6 @@ export class DileIconlibPaintBrushBroadFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-brush-broad-fill', DileIconlibPaintBrushBroadFill);
+if (!customElements.get('dile-phosphor-icon-paint-brush-broad-fill')) {
+  customElements.define('dile-phosphor-icon-paint-brush-broad-fill', DileIconlibPaintBrushBroadFill);
+}

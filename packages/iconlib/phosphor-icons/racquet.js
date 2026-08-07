@@ -6,4 +6,6 @@ export class DileIconlibRacquet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-racquet', DileIconlibRacquet);
+if (!customElements.get('dile-phosphor-icon-racquet')) {
+  customElements.define('dile-phosphor-icon-racquet', DileIconlibRacquet);
+}

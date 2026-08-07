@@ -6,4 +6,6 @@ export class DileIconlibEarbuds extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-earbuds', DileIconlibEarbuds);
+if (!customElements.get('dile-material-icon-earbuds')) {
+  customElements.define('dile-material-icon-earbuds', DileIconlibEarbuds);
+}

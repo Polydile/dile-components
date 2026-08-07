@@ -6,4 +6,6 @@ export class DileIconlibPrivateConnectivity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-private-connectivity', DileIconlibPrivateConnectivity);
+if (!customElements.get('dile-material-icon-private-connectivity')) {
+  customElements.define('dile-material-icon-private-connectivity', DileIconlibPrivateConnectivity);
+}

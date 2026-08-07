@@ -6,4 +6,6 @@ export class DileIconlibBrazilianRealSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-brazilian-real-sign', DileIconlibBrazilianRealSign);
+if (!customElements.get('dile-fontawesome-icon-brazilian-real-sign')) {
+  customElements.define('dile-fontawesome-icon-brazilian-real-sign', DileIconlibBrazilianRealSign);
+}

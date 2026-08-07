@@ -28,4 +28,6 @@ export class DemoCountryDetail extends LitElement {
     `;
   }
 }
-customElements.define('demo-country-detail', DemoCountryDetail);
+if (!customElements.get('demo-country-detail')) {
+  customElements.define('demo-country-detail', DemoCountryDetail);
+}

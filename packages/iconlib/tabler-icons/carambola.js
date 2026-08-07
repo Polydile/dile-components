@@ -6,4 +6,6 @@ export class DileIconlibCarambola extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-carambola', DileIconlibCarambola);
+if (!customElements.get('dile-tabler-icon-carambola')) {
+  customElements.define('dile-tabler-icon-carambola', DileIconlibCarambola);
+}

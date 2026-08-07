@@ -6,4 +6,6 @@ export class DileIconlibHelmetUn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-helmet-un', DileIconlibHelmetUn);
+if (!customElements.get('dile-fontawesome-icon-helmet-un')) {
+  customElements.define('dile-fontawesome-icon-helmet-un', DileIconlibHelmetUn);
+}

@@ -6,4 +6,6 @@ export class DileIconlibParasol extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-parasol', DileIconlibParasol);
+if (!customElements.get('dile-lucide-icon-parasol')) {
+  customElements.define('dile-lucide-icon-parasol', DileIconlibParasol);
+}

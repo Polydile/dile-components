@@ -6,4 +6,6 @@ export class DileIconlibIndeterminateCircleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-indeterminate-circle-fill', DileIconlibIndeterminateCircleFill);
+if (!customElements.get('dile-remixicon-icon-indeterminate-circle-fill')) {
+  customElements.define('dile-remixicon-icon-indeterminate-circle-fill', DileIconlibIndeterminateCircleFill);
+}

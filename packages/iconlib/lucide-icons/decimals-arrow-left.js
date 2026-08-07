@@ -6,4 +6,6 @@ export class DileIconlibDecimalsArrowLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-decimals-arrow-left', DileIconlibDecimalsArrowLeft);
+if (!customElements.get('dile-lucide-icon-decimals-arrow-left')) {
+  customElements.define('dile-lucide-icon-decimals-arrow-left', DileIconlibDecimalsArrowLeft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDoorBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-door-back', DileIconlibDoorBack);
+if (!customElements.get('dile-material-icon-door-back')) {
+  customElements.define('dile-material-icon-door-back', DileIconlibDoorBack);
+}

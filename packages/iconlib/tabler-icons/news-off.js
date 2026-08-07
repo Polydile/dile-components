@@ -6,4 +6,6 @@ export class DileIconlibNewsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-news-off', DileIconlibNewsOff);
+if (!customElements.get('dile-tabler-icon-news-off')) {
+  customElements.define('dile-tabler-icon-news-off', DileIconlibNewsOff);
+}

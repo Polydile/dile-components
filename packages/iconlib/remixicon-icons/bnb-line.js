@@ -6,4 +6,6 @@ export class DileIconlibBnbLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bnb-line', DileIconlibBnbLine);
+if (!customElements.get('dile-remixicon-icon-bnb-line')) {
+  customElements.define('dile-remixicon-icon-bnb-line', DileIconlibBnbLine);
+}

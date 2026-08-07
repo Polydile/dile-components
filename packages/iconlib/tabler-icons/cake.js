@@ -6,4 +6,6 @@ export class DileIconlibCake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cake', DileIconlibCake);
+if (!customElements.get('dile-tabler-icon-cake')) {
+  customElements.define('dile-tabler-icon-cake', DileIconlibCake);
+}

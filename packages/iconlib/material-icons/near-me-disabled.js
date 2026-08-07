@@ -6,4 +6,6 @@ export class DileIconlibNearMeDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-near-me-disabled', DileIconlibNearMeDisabled);
+if (!customElements.get('dile-material-icon-near-me-disabled')) {
+  customElements.define('dile-material-icon-near-me-disabled', DileIconlibNearMeDisabled);
+}

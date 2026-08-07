@@ -6,4 +6,6 @@ export class DileIconlibPhoneFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-phone-filled', DileIconlibPhoneFilled);
+if (!customElements.get('dile-tabler-icon-phone-filled')) {
+  customElements.define('dile-tabler-icon-phone-filled', DileIconlibPhoneFilled);
+}

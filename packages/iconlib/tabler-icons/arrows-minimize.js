@@ -6,4 +6,6 @@ export class DileIconlibArrowsMinimize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-minimize', DileIconlibArrowsMinimize);
+if (!customElements.get('dile-tabler-icon-arrows-minimize')) {
+  customElements.define('dile-tabler-icon-arrows-minimize', DileIconlibArrowsMinimize);
+}

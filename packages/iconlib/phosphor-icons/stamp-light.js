@@ -6,4 +6,6 @@ export class DileIconlibStampLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stamp-light', DileIconlibStampLight);
+if (!customElements.get('dile-phosphor-icon-stamp-light')) {
+  customElements.define('dile-phosphor-icon-stamp-light', DileIconlibStampLight);
+}

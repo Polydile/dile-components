@@ -6,4 +6,6 @@ export class DileIconlibFileVectorFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-vector-filled', DileIconlibFileVectorFilled);
+if (!customElements.get('dile-tabler-icon-file-vector-filled')) {
+  customElements.define('dile-tabler-icon-file-vector-filled', DileIconlibFileVectorFilled);
+}

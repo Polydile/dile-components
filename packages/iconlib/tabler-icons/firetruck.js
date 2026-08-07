@@ -6,4 +6,6 @@ export class DileIconlibFiretruck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-firetruck', DileIconlibFiretruck);
+if (!customElements.get('dile-tabler-icon-firetruck')) {
+  customElements.define('dile-tabler-icon-firetruck', DileIconlibFiretruck);
+}

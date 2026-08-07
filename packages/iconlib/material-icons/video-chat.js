@@ -6,4 +6,6 @@ export class DileIconlibVideoChat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-video-chat', DileIconlibVideoChat);
+if (!customElements.get('dile-material-icon-video-chat')) {
+  customElements.define('dile-material-icon-video-chat', DileIconlibVideoChat);
+}

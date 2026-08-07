@@ -6,4 +6,6 @@ export class DileIconlibWavesVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-waves-vertical', DileIconlibWavesVertical);
+if (!customElements.get('dile-lucide-icon-waves-vertical')) {
+  customElements.define('dile-lucide-icon-waves-vertical', DileIconlibWavesVertical);
+}

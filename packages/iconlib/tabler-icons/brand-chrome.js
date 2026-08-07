@@ -6,4 +6,6 @@ export class DileIconlibBrandChrome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-chrome', DileIconlibBrandChrome);
+if (!customElements.get('dile-tabler-icon-brand-chrome')) {
+  customElements.define('dile-tabler-icon-brand-chrome', DileIconlibBrandChrome);
+}

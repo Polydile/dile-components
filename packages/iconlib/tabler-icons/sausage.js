@@ -6,4 +6,6 @@ export class DileIconlibSausage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sausage', DileIconlibSausage);
+if (!customElements.get('dile-tabler-icon-sausage')) {
+  customElements.define('dile-tabler-icon-sausage', DileIconlibSausage);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRepartition extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-repartition', DileIconlibRepartition);
+if (!customElements.get('dile-material-icon-repartition')) {
+  customElements.define('dile-material-icon-repartition', DileIconlibRepartition);
+}

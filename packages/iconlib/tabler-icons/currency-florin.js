@@ -6,4 +6,6 @@ export class DileIconlibCurrencyFlorin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-florin', DileIconlibCurrencyFlorin);
+if (!customElements.get('dile-tabler-icon-currency-florin')) {
+  customElements.define('dile-tabler-icon-currency-florin', DileIconlibCurrencyFlorin);
+}

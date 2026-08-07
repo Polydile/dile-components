@@ -6,4 +6,6 @@ export class DileIconlibJapaneseYen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-japanese-yen', DileIconlibJapaneseYen);
+if (!customElements.get('dile-lucide-icon-japanese-yen')) {
+  customElements.define('dile-lucide-icon-japanese-yen', DileIconlibJapaneseYen);
+}

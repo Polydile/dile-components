@@ -6,4 +6,6 @@ export class DileIconlibTopologyRing2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-topology-ring-2', DileIconlibTopologyRing2);
+if (!customElements.get('dile-tabler-icon-topology-ring-2')) {
+  customElements.define('dile-tabler-icon-topology-ring-2', DileIconlibTopologyRing2);
+}

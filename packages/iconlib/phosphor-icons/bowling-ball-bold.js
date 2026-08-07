@@ -6,4 +6,6 @@ export class DileIconlibBowlingBallBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bowling-ball-bold', DileIconlibBowlingBallBold);
+if (!customElements.get('dile-phosphor-icon-bowling-ball-bold')) {
+  customElements.define('dile-phosphor-icon-bowling-ball-bold', DileIconlibBowlingBallBold);
+}

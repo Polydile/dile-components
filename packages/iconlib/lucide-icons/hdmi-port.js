@@ -6,4 +6,6 @@ export class DileIconlibHdmiPort extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hdmi-port', DileIconlibHdmiPort);
+if (!customElements.get('dile-lucide-icon-hdmi-port')) {
+  customElements.define('dile-lucide-icon-hdmi-port', DileIconlibHdmiPort);
+}

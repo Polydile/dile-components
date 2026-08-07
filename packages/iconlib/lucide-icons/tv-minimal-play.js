@@ -6,4 +6,6 @@ export class DileIconlibTvMinimalPlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tv-minimal-play', DileIconlibTvMinimalPlay);
+if (!customElements.get('dile-lucide-icon-tv-minimal-play')) {
+  customElements.define('dile-lucide-icon-tv-minimal-play', DileIconlibTvMinimalPlay);
+}

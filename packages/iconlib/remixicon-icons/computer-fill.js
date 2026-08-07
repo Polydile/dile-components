@@ -6,4 +6,6 @@ export class DileIconlibComputerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-computer-fill', DileIconlibComputerFill);
+if (!customElements.get('dile-remixicon-icon-computer-fill')) {
+  customElements.define('dile-remixicon-icon-computer-fill', DileIconlibComputerFill);
+}

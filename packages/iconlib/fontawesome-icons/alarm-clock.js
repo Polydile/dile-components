@@ -6,4 +6,6 @@ export class DileIconlibAlarmClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-alarm-clock', DileIconlibAlarmClock);
+if (!customElements.get('dile-fontawesome-icon-alarm-clock')) {
+  customElements.define('dile-fontawesome-icon-alarm-clock', DileIconlibAlarmClock);
+}

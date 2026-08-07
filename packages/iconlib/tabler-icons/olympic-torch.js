@@ -6,4 +6,6 @@ export class DileIconlibOlympicTorch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-olympic-torch', DileIconlibOlympicTorch);
+if (!customElements.get('dile-tabler-icon-olympic-torch')) {
+  customElements.define('dile-tabler-icon-olympic-torch', DileIconlibOlympicTorch);
+}

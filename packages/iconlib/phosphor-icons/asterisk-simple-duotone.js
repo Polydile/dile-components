@@ -6,4 +6,6 @@ export class DileIconlibAsteriskSimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-asterisk-simple-duotone', DileIconlibAsteriskSimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-asterisk-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-asterisk-simple-duotone', DileIconlibAsteriskSimpleDuotone);
+}

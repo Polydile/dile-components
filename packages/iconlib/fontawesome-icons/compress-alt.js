@@ -6,4 +6,6 @@ export class DileIconlibCompressAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-compress-alt', DileIconlibCompressAlt);
+if (!customElements.get('dile-fontawesome-icon-compress-alt')) {
+  customElements.define('dile-fontawesome-icon-compress-alt', DileIconlibCompressAlt);
+}

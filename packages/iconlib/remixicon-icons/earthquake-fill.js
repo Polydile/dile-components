@@ -6,4 +6,6 @@ export class DileIconlibEarthquakeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-earthquake-fill', DileIconlibEarthquakeFill);
+if (!customElements.get('dile-remixicon-icon-earthquake-fill')) {
+  customElements.define('dile-remixicon-icon-earthquake-fill', DileIconlibEarthquakeFill);
+}

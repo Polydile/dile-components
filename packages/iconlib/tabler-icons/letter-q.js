@@ -6,4 +6,6 @@ export class DileIconlibLetterQ extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-q', DileIconlibLetterQ);
+if (!customElements.get('dile-tabler-icon-letter-q')) {
+  customElements.define('dile-tabler-icon-letter-q', DileIconlibLetterQ);
+}

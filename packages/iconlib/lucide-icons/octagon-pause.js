@@ -6,4 +6,6 @@ export class DileIconlibOctagonPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-octagon-pause', DileIconlibOctagonPause);
+if (!customElements.get('dile-lucide-icon-octagon-pause')) {
+  customElements.define('dile-lucide-icon-octagon-pause', DileIconlibOctagonPause);
+}

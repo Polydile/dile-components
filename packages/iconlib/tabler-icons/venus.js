@@ -6,4 +6,6 @@ export class DileIconlibVenus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-venus', DileIconlibVenus);
+if (!customElements.get('dile-tabler-icon-venus')) {
+  customElements.define('dile-tabler-icon-venus', DileIconlibVenus);
+}

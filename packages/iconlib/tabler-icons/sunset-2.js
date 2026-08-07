@@ -6,4 +6,6 @@ export class DileIconlibSunset2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sunset-2', DileIconlibSunset2);
+if (!customElements.get('dile-tabler-icon-sunset-2')) {
+  customElements.define('dile-tabler-icon-sunset-2', DileIconlibSunset2);
+}

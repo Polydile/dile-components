@@ -6,4 +6,6 @@ export class DileIconlibBrandJuejin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-juejin', DileIconlibBrandJuejin);
+if (!customElements.get('dile-tabler-icon-brand-juejin')) {
+  customElements.define('dile-tabler-icon-brand-juejin', DileIconlibBrandJuejin);
+}

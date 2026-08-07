@@ -6,4 +6,6 @@ export class DileIconlibCoinBitcoinFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-bitcoin-filled', DileIconlibCoinBitcoinFilled);
+if (!customElements.get('dile-tabler-icon-coin-bitcoin-filled')) {
+  customElements.define('dile-tabler-icon-coin-bitcoin-filled', DileIconlibCoinBitcoinFilled);
+}

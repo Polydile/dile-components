@@ -6,4 +6,6 @@ export class DileIconlibBrandSamsungpass extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-samsungpass', DileIconlibBrandSamsungpass);
+if (!customElements.get('dile-tabler-icon-brand-samsungpass')) {
+  customElements.define('dile-tabler-icon-brand-samsungpass', DileIconlibBrandSamsungpass);
+}

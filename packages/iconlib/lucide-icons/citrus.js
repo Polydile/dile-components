@@ -6,4 +6,6 @@ export class DileIconlibCitrus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-citrus', DileIconlibCitrus);
+if (!customElements.get('dile-lucide-icon-citrus')) {
+  customElements.define('dile-lucide-icon-citrus', DileIconlibCitrus);
+}

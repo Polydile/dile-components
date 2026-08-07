@@ -6,4 +6,6 @@ export class DileIconlibMoneybag extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-moneybag', DileIconlibMoneybag);
+if (!customElements.get('dile-tabler-icon-moneybag')) {
+  customElements.define('dile-tabler-icon-moneybag', DileIconlibMoneybag);
+}

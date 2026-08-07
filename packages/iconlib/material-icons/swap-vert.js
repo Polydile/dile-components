@@ -6,4 +6,6 @@ export class DileIconlibSwapVert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-swap-vert', DileIconlibSwapVert);
+if (!customElements.get('dile-material-icon-swap-vert')) {
+  customElements.define('dile-material-icon-swap-vert', DileIconlibSwapVert);
+}

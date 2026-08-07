@@ -6,4 +6,6 @@ export class DileIconlibWechatLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wechat-logo', DileIconlibWechatLogo);
+if (!customElements.get('dile-phosphor-icon-wechat-logo')) {
+  customElements.define('dile-phosphor-icon-wechat-logo', DileIconlibWechatLogo);
+}

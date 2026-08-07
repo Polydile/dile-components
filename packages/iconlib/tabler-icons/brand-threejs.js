@@ -6,4 +6,6 @@ export class DileIconlibBrandThreejs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-threejs', DileIconlibBrandThreejs);
+if (!customElements.get('dile-tabler-icon-brand-threejs')) {
+  customElements.define('dile-tabler-icon-brand-threejs', DileIconlibBrandThreejs);
+}

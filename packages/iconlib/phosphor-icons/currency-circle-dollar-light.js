@@ -6,4 +6,6 @@ export class DileIconlibCurrencyCircleDollarLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-circle-dollar-light', DileIconlibCurrencyCircleDollarLight);
+if (!customElements.get('dile-phosphor-icon-currency-circle-dollar-light')) {
+  customElements.define('dile-phosphor-icon-currency-circle-dollar-light', DileIconlibCurrencyCircleDollarLight);
+}

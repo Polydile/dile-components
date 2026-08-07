@@ -6,4 +6,6 @@ export class DileIconlibBrandVscode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vscode', DileIconlibBrandVscode);
+if (!customElements.get('dile-tabler-icon-brand-vscode')) {
+  customElements.define('dile-tabler-icon-brand-vscode', DileIconlibBrandVscode);
+}

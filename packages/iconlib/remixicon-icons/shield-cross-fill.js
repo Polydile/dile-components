@@ -6,4 +6,6 @@ export class DileIconlibShieldCrossFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shield-cross-fill', DileIconlibShieldCrossFill);
+if (!customElements.get('dile-remixicon-icon-shield-cross-fill')) {
+  customElements.define('dile-remixicon-icon-shield-cross-fill', DileIconlibShieldCrossFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPepperOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pepper-off', DileIconlibPepperOff);
+if (!customElements.get('dile-tabler-icon-pepper-off')) {
+  customElements.define('dile-tabler-icon-pepper-off', DileIconlibPepperOff);
+}

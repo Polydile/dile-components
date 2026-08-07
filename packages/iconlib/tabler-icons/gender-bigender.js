@@ -6,4 +6,6 @@ export class DileIconlibGenderBigender extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gender-bigender', DileIconlibGenderBigender);
+if (!customElements.get('dile-tabler-icon-gender-bigender')) {
+  customElements.define('dile-tabler-icon-gender-bigender', DileIconlibGenderBigender);
+}

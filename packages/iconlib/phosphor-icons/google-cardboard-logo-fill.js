@@ -6,4 +6,6 @@ export class DileIconlibGoogleCardboardLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-cardboard-logo-fill', DileIconlibGoogleCardboardLogoFill);
+if (!customElements.get('dile-phosphor-icon-google-cardboard-logo-fill')) {
+  customElements.define('dile-phosphor-icon-google-cardboard-logo-fill', DileIconlibGoogleCardboardLogoFill);
+}

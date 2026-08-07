@@ -6,4 +6,6 @@ export class DileIconlibStrikethrough extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-strikethrough', DileIconlibStrikethrough);
+if (!customElements.get('dile-fontawesome-icon-strikethrough')) {
+  customElements.define('dile-fontawesome-icon-strikethrough', DileIconlibStrikethrough);
+}

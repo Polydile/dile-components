@@ -6,4 +6,6 @@ export class DileIconlibBeach extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-beach', DileIconlibBeach);
+if (!customElements.get('dile-tabler-icon-beach')) {
+  customElements.define('dile-tabler-icon-beach', DileIconlibBeach);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVocabulary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vocabulary', DileIconlibVocabulary);
+if (!customElements.get('dile-tabler-icon-vocabulary')) {
+  customElements.define('dile-tabler-icon-vocabulary', DileIconlibVocabulary);
+}

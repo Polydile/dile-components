@@ -6,4 +6,6 @@ export class DileIconlibBookDead extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-dead', DileIconlibBookDead);
+if (!customElements.get('dile-fontawesome-icon-book-dead')) {
+  customElements.define('dile-fontawesome-icon-book-dead', DileIconlibBookDead);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMessageCircleDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-circle-down', DileIconlibMessageCircleDown);
+if (!customElements.get('dile-tabler-icon-message-circle-down')) {
+  customElements.define('dile-tabler-icon-message-circle-down', DileIconlibMessageCircleDown);
+}

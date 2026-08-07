@@ -6,4 +6,6 @@ export class DileIconlibBluetoothXLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bluetooth-x-light', DileIconlibBluetoothXLight);
+if (!customElements.get('dile-phosphor-icon-bluetooth-x-light')) {
+  customElements.define('dile-phosphor-icon-bluetooth-x-light', DileIconlibBluetoothXLight);
+}

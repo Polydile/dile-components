@@ -6,4 +6,6 @@ export class DileIconlibFilterSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-spark', DileIconlibFilterSpark);
+if (!customElements.get('dile-tabler-icon-filter-spark')) {
+  customElements.define('dile-tabler-icon-filter-spark', DileIconlibFilterSpark);
+}

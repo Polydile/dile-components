@@ -6,4 +6,6 @@ export class DileIconlibCross extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-cross', DileIconlibCross);
+if (!customElements.get('dile-lucide-icon-cross')) {
+  customElements.define('dile-lucide-icon-cross', DileIconlibCross);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMemoryDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-memory-duotone', DileIconlibMemoryDuotone);
+if (!customElements.get('dile-phosphor-icon-memory-duotone')) {
+  customElements.define('dile-phosphor-icon-memory-duotone', DileIconlibMemoryDuotone);
+}

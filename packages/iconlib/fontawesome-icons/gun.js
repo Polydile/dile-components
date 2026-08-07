@@ -6,4 +6,6 @@ export class DileIconlibGun extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gun', DileIconlibGun);
+if (!customElements.get('dile-fontawesome-icon-gun')) {
+  customElements.define('dile-fontawesome-icon-gun', DileIconlibGun);
+}

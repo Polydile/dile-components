@@ -6,4 +6,6 @@ export class DileIconlibFileTypeTsx extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-tsx', DileIconlibFileTypeTsx);
+if (!customElements.get('dile-tabler-icon-file-type-tsx')) {
+  customElements.define('dile-tabler-icon-file-type-tsx', DileIconlibFileTypeTsx);
+}

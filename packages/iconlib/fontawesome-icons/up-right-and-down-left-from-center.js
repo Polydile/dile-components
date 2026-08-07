@@ -6,4 +6,6 @@ export class DileIconlibUpRightAndDownLeftFromCenter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-up-right-and-down-left-from-center', DileIconlibUpRightAndDownLeftFromCenter);
+if (!customElements.get('dile-fontawesome-icon-up-right-and-down-left-from-center')) {
+  customElements.define('dile-fontawesome-icon-up-right-and-down-left-from-center', DileIconlibUpRightAndDownLeftFromCenter);
+}

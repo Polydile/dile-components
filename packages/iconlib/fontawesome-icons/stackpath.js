@@ -6,4 +6,6 @@ export class DileIconlibStackpath extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stackpath', DileIconlibStackpath);
+if (!customElements.get('dile-fontawesome-icon-stackpath')) {
+  customElements.define('dile-fontawesome-icon-stackpath', DileIconlibStackpath);
+}

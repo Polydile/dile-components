@@ -6,4 +6,6 @@ export class DileIconlibCurrencyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-off', DileIconlibCurrencyOff);
+if (!customElements.get('dile-tabler-icon-currency-off')) {
+  customElements.define('dile-tabler-icon-currency-off', DileIconlibCurrencyOff);
+}

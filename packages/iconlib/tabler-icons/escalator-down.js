@@ -6,4 +6,6 @@ export class DileIconlibEscalatorDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-escalator-down', DileIconlibEscalatorDown);
+if (!customElements.get('dile-tabler-icon-escalator-down')) {
+  customElements.define('dile-tabler-icon-escalator-down', DileIconlibEscalatorDown);
+}

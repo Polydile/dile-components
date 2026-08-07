@@ -6,4 +6,6 @@ export class DileIconlibSquarePinterest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-pinterest', DileIconlibSquarePinterest);
+if (!customElements.get('dile-fontawesome-icon-square-pinterest')) {
+  customElements.define('dile-fontawesome-icon-square-pinterest', DileIconlibSquarePinterest);
+}

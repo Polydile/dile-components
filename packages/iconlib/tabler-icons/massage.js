@@ -6,4 +6,6 @@ export class DileIconlibMassage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-massage', DileIconlibMassage);
+if (!customElements.get('dile-tabler-icon-massage')) {
+  customElements.define('dile-tabler-icon-massage', DileIconlibMassage);
+}

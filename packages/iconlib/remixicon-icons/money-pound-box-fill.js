@@ -6,4 +6,6 @@ export class DileIconlibMoneyPoundBoxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-money-pound-box-fill', DileIconlibMoneyPoundBoxFill);
+if (!customElements.get('dile-remixicon-icon-money-pound-box-fill')) {
+  customElements.define('dile-remixicon-icon-money-pound-box-fill', DileIconlibMoneyPoundBoxFill);
+}

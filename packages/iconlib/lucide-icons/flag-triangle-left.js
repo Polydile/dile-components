@@ -6,4 +6,6 @@ export class DileIconlibFlagTriangleLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flag-triangle-left', DileIconlibFlagTriangleLeft);
+if (!customElements.get('dile-lucide-icon-flag-triangle-left')) {
+  customElements.define('dile-lucide-icon-flag-triangle-left', DileIconlibFlagTriangleLeft);
+}

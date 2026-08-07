@@ -6,4 +6,6 @@ export class DileIconlibMaskSadDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mask-sad-duotone', DileIconlibMaskSadDuotone);
+if (!customElements.get('dile-phosphor-icon-mask-sad-duotone')) {
+  customElements.define('dile-phosphor-icon-mask-sad-duotone', DileIconlibMaskSadDuotone);
+}

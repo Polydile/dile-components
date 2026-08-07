@@ -6,4 +6,6 @@ export class DileIconlibCsv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-csv', DileIconlibCsv);
+if (!customElements.get('dile-tabler-icon-csv')) {
+  customElements.define('dile-tabler-icon-csv', DileIconlibCsv);
+}

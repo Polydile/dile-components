@@ -6,4 +6,6 @@ export class DileIconlibRfidLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rfid-line', DileIconlibRfidLine);
+if (!customElements.get('dile-remixicon-icon-rfid-line')) {
+  customElements.define('dile-remixicon-icon-rfid-line', DileIconlibRfidLine);
+}

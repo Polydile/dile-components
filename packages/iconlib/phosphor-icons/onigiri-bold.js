@@ -6,4 +6,6 @@ export class DileIconlibOnigiriBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-onigiri-bold', DileIconlibOnigiriBold);
+if (!customElements.get('dile-phosphor-icon-onigiri-bold')) {
+  customElements.define('dile-phosphor-icon-onigiri-bold', DileIconlibOnigiriBold);
+}

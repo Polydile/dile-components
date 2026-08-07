@@ -6,4 +6,6 @@ export class DileIconlibChinaRailwayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-china-railway-fill', DileIconlibChinaRailwayFill);
+if (!customElements.get('dile-remixicon-icon-china-railway-fill')) {
+  customElements.define('dile-remixicon-icon-china-railway-fill', DileIconlibChinaRailwayFill);
+}

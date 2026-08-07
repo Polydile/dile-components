@@ -6,4 +6,6 @@ export class DileIconlibRosetteNumber4 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rosette-number-4', DileIconlibRosetteNumber4);
+if (!customElements.get('dile-tabler-icon-rosette-number-4')) {
+  customElements.define('dile-tabler-icon-rosette-number-4', DileIconlibRosetteNumber4);
+}

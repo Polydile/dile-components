@@ -6,4 +6,6 @@ export class DileIconlibOrangeSliceThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-orange-slice-thin', DileIconlibOrangeSliceThin);
+if (!customElements.get('dile-phosphor-icon-orange-slice-thin')) {
+  customElements.define('dile-phosphor-icon-orange-slice-thin', DileIconlibOrangeSliceThin);
+}

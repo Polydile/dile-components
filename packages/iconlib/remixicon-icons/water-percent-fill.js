@@ -6,4 +6,6 @@ export class DileIconlibWaterPercentFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-water-percent-fill', DileIconlibWaterPercentFill);
+if (!customElements.get('dile-remixicon-icon-water-percent-fill')) {
+  customElements.define('dile-remixicon-icon-water-percent-fill', DileIconlibWaterPercentFill);
+}

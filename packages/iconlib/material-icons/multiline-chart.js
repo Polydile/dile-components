@@ -6,4 +6,6 @@ export class DileIconlibMultilineChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-multiline-chart', DileIconlibMultilineChart);
+if (!customElements.get('dile-material-icon-multiline-chart')) {
+  customElements.define('dile-material-icon-multiline-chart', DileIconlibMultilineChart);
+}

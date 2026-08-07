@@ -6,4 +6,6 @@ export class DileIconlibPersonPraying extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-praying', DileIconlibPersonPraying);
+if (!customElements.get('dile-fontawesome-icon-person-praying')) {
+  customElements.define('dile-fontawesome-icon-person-praying', DileIconlibPersonPraying);
+}

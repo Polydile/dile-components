@@ -6,4 +6,6 @@ export class DileIconlibHammerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hammer-off', DileIconlibHammerOff);
+if (!customElements.get('dile-tabler-icon-hammer-off')) {
+  customElements.define('dile-tabler-icon-hammer-off', DileIconlibHammerOff);
+}

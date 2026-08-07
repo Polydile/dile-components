@@ -6,4 +6,6 @@ export class DileIconlibCertificateLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-certificate-light', DileIconlibCertificateLight);
+if (!customElements.get('dile-phosphor-icon-certificate-light')) {
+  customElements.define('dile-phosphor-icon-certificate-light', DileIconlibCertificateLight);
+}

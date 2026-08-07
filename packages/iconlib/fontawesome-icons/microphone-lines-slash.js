@@ -6,4 +6,6 @@ export class DileIconlibMicrophoneLinesSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-microphone-lines-slash', DileIconlibMicrophoneLinesSlash);
+if (!customElements.get('dile-fontawesome-icon-microphone-lines-slash')) {
+  customElements.define('dile-fontawesome-icon-microphone-lines-slash', DileIconlibMicrophoneLinesSlash);
+}

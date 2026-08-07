@@ -6,4 +6,6 @@ export class DileIconlibTruckRampBox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-ramp-box', DileIconlibTruckRampBox);
+if (!customElements.get('dile-fontawesome-icon-truck-ramp-box')) {
+  customElements.define('dile-fontawesome-icon-truck-ramp-box', DileIconlibTruckRampBox);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLoyalty extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-loyalty', DileIconlibLoyalty);
+if (!customElements.get('dile-material-icon-loyalty')) {
+  customElements.define('dile-material-icon-loyalty', DileIconlibLoyalty);
+}

@@ -6,4 +6,6 @@ export class DileIconlibOpenAiLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-open-ai-logo-fill', DileIconlibOpenAiLogoFill);
+if (!customElements.get('dile-phosphor-icon-open-ai-logo-fill')) {
+  customElements.define('dile-phosphor-icon-open-ai-logo-fill', DileIconlibOpenAiLogoFill);
+}

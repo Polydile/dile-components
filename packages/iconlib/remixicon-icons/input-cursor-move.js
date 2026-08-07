@@ -6,4 +6,6 @@ export class DileIconlibInputCursorMove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-input-cursor-move', DileIconlibInputCursorMove);
+if (!customElements.get('dile-remixicon-icon-input-cursor-move')) {
+  customElements.define('dile-remixicon-icon-input-cursor-move', DileIconlibInputCursorMove);
+}

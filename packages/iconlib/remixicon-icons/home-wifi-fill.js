@@ -6,4 +6,6 @@ export class DileIconlibHomeWifiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-home-wifi-fill', DileIconlibHomeWifiFill);
+if (!customElements.get('dile-remixicon-icon-home-wifi-fill')) {
+  customElements.define('dile-remixicon-icon-home-wifi-fill', DileIconlibHomeWifiFill);
+}

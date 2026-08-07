@@ -6,4 +6,6 @@ export class DileIconlibUvIndex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-uv-index', DileIconlibUvIndex);
+if (!customElements.get('dile-tabler-icon-uv-index')) {
+  customElements.define('dile-tabler-icon-uv-index', DileIconlibUvIndex);
+}

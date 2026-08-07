@@ -6,4 +6,6 @@ export class DileIconlibKeyReturnBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-key-return-bold', DileIconlibKeyReturnBold);
+if (!customElements.get('dile-phosphor-icon-key-return-bold')) {
+  customElements.define('dile-phosphor-icon-key-return-bold', DileIconlibKeyReturnBold);
+}

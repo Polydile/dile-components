@@ -6,4 +6,6 @@ export class DileIconlibParallelogram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-parallelogram', DileIconlibParallelogram);
+if (!customElements.get('dile-phosphor-icon-parallelogram')) {
+  customElements.define('dile-phosphor-icon-parallelogram', DileIconlibParallelogram);
+}

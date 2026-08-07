@@ -6,4 +6,6 @@ export class DileIconlibFontDownload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-font-download', DileIconlibFontDownload);
+if (!customElements.get('dile-material-icon-font-download')) {
+  customElements.define('dile-material-icon-font-download', DileIconlibFontDownload);
+}

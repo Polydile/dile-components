@@ -6,4 +6,6 @@ export class DileIconlibPhotoSizeSelectLarge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-photo-size-select-large', DileIconlibPhotoSizeSelectLarge);
+if (!customElements.get('dile-material-icon-photo-size-select-large')) {
+  customElements.define('dile-material-icon-photo-size-select-large', DileIconlibPhotoSizeSelectLarge);
+}

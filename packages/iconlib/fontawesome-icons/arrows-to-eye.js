@@ -6,4 +6,6 @@ export class DileIconlibArrowsToEye extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-to-eye', DileIconlibArrowsToEye);
+if (!customElements.get('dile-fontawesome-icon-arrows-to-eye')) {
+  customElements.define('dile-fontawesome-icon-arrows-to-eye', DileIconlibArrowsToEye);
+}

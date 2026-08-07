@@ -6,4 +6,6 @@ export class DileIconlibDesktopDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-desktop-duotone', DileIconlibDesktopDuotone);
+if (!customElements.get('dile-phosphor-icon-desktop-duotone')) {
+  customElements.define('dile-phosphor-icon-desktop-duotone', DileIconlibDesktopDuotone);
+}

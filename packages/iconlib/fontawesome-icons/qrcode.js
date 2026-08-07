@@ -6,4 +6,6 @@ export class DileIconlibQrcode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-qrcode', DileIconlibQrcode);
+if (!customElements.get('dile-fontawesome-icon-qrcode')) {
+  customElements.define('dile-fontawesome-icon-qrcode', DileIconlibQrcode);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMathMin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-min', DileIconlibMathMin);
+if (!customElements.get('dile-tabler-icon-math-min')) {
+  customElements.define('dile-tabler-icon-math-min', DileIconlibMathMin);
+}

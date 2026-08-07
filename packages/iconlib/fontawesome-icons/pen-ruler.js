@@ -6,4 +6,6 @@ export class DileIconlibPenRuler extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pen-ruler', DileIconlibPenRuler);
+if (!customElements.get('dile-fontawesome-icon-pen-ruler')) {
+  customElements.define('dile-fontawesome-icon-pen-ruler', DileIconlibPenRuler);
+}

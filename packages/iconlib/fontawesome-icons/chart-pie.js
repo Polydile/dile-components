@@ -6,4 +6,6 @@ export class DileIconlibChartPie extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-chart-pie', DileIconlibChartPie);
+if (!customElements.get('dile-fontawesome-icon-chart-pie')) {
+  customElements.define('dile-fontawesome-icon-chart-pie', DileIconlibChartPie);
+}

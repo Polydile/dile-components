@@ -6,4 +6,6 @@ export class DileIconlibExpeditedssl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-expeditedssl', DileIconlibExpeditedssl);
+if (!customElements.get('dile-fontawesome-icon-expeditedssl')) {
+  customElements.define('dile-fontawesome-icon-expeditedssl', DileIconlibExpeditedssl);
+}

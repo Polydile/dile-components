@@ -1,3 +1,5 @@
 import { DilePhosphorBadge } from "./src/DilePhosphorBadge.js";
 
-customElements.define('dile-phosphor-badge', DilePhosphorBadge);
+if (!customElements.get('dile-phosphor-badge')) {
+  customElements.define('dile-phosphor-badge', DilePhosphorBadge);
+}

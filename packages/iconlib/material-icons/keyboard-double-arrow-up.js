@@ -6,4 +6,6 @@ export class DileIconlibKeyboardDoubleArrowUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-keyboard-double-arrow-up', DileIconlibKeyboardDoubleArrowUp);
+if (!customElements.get('dile-material-icon-keyboard-double-arrow-up')) {
+  customElements.define('dile-material-icon-keyboard-double-arrow-up', DileIconlibKeyboardDoubleArrowUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFinnTheHumanThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-finn-the-human-thin', DileIconlibFinnTheHumanThin);
+if (!customElements.get('dile-phosphor-icon-finn-the-human-thin')) {
+  customElements.define('dile-phosphor-icon-finn-the-human-thin', DileIconlibFinnTheHumanThin);
+}

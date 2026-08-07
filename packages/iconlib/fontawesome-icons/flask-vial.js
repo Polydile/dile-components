@@ -6,4 +6,6 @@ export class DileIconlibFlaskVial extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-flask-vial', DileIconlibFlaskVial);
+if (!customElements.get('dile-fontawesome-icon-flask-vial')) {
+  customElements.define('dile-fontawesome-icon-flask-vial', DileIconlibFlaskVial);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoodSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-spark', DileIconlibMoodSpark);
+if (!customElements.get('dile-tabler-icon-mood-spark')) {
+  customElements.define('dile-tabler-icon-mood-spark', DileIconlibMoodSpark);
+}

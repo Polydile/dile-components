@@ -6,4 +6,6 @@ export class DileIconlibEarOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ear-off', DileIconlibEarOff);
+if (!customElements.get('dile-lucide-icon-ear-off')) {
+  customElements.define('dile-lucide-icon-ear-off', DileIconlibEarOff);
+}

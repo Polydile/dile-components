@@ -6,4 +6,6 @@ export class DileIconlibCircleGauge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-gauge', DileIconlibCircleGauge);
+if (!customElements.get('dile-lucide-icon-circle-gauge')) {
+  customElements.define('dile-lucide-icon-circle-gauge', DileIconlibCircleGauge);
+}

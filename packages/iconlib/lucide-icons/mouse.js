@@ -6,4 +6,6 @@ export class DileIconlibMouse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mouse', DileIconlibMouse);
+if (!customElements.get('dile-lucide-icon-mouse')) {
+  customElements.define('dile-lucide-icon-mouse', DileIconlibMouse);
+}

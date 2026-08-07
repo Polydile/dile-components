@@ -6,4 +6,6 @@ export class DileIconlibLockKeyhole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lock-keyhole', DileIconlibLockKeyhole);
+if (!customElements.get('dile-lucide-icon-lock-keyhole')) {
+  customElements.define('dile-lucide-icon-lock-keyhole', DileIconlibLockKeyhole);
+}

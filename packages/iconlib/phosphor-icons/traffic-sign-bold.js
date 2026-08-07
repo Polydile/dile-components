@@ -6,4 +6,6 @@ export class DileIconlibTrafficSignBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-traffic-sign-bold', DileIconlibTrafficSignBold);
+if (!customElements.get('dile-phosphor-icon-traffic-sign-bold')) {
+  customElements.define('dile-phosphor-icon-traffic-sign-bold', DileIconlibTrafficSignBold);
+}

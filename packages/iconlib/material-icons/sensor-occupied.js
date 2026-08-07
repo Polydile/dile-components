@@ -6,4 +6,6 @@ export class DileIconlibSensorOccupied extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sensor-occupied', DileIconlibSensorOccupied);
+if (!customElements.get('dile-material-icon-sensor-occupied')) {
+  customElements.define('dile-material-icon-sensor-occupied', DileIconlibSensorOccupied);
+}

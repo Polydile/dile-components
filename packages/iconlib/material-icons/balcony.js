@@ -6,4 +6,6 @@ export class DileIconlibBalcony extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-balcony', DileIconlibBalcony);
+if (!customElements.get('dile-material-icon-balcony')) {
+  customElements.define('dile-material-icon-balcony', DileIconlibBalcony);
+}

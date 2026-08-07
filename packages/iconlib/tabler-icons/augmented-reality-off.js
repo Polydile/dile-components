@@ -6,4 +6,6 @@ export class DileIconlibAugmentedRealityOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-augmented-reality-off', DileIconlibAugmentedRealityOff);
+if (!customElements.get('dile-tabler-icon-augmented-reality-off')) {
+  customElements.define('dile-tabler-icon-augmented-reality-off', DileIconlibAugmentedRealityOff);
+}

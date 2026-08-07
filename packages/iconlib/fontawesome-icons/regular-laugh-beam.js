@@ -6,4 +6,6 @@ export class DileIconlibLaughBeam extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-laugh-beam', DileIconlibLaughBeam);
+if (!customElements.get('dile-fontawesome-icon-regular-laugh-beam')) {
+  customElements.define('dile-fontawesome-icon-regular-laugh-beam', DileIconlibLaughBeam);
+}

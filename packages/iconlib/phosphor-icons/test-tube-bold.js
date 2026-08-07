@@ -6,4 +6,6 @@ export class DileIconlibTestTubeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-test-tube-bold', DileIconlibTestTubeBold);
+if (!customElements.get('dile-phosphor-icon-test-tube-bold')) {
+  customElements.define('dile-phosphor-icon-test-tube-bold', DileIconlibTestTubeBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandWindowsFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-windows-filled', DileIconlibBrandWindowsFilled);
+if (!customElements.get('dile-tabler-icon-brand-windows-filled')) {
+  customElements.define('dile-tabler-icon-brand-windows-filled', DileIconlibBrandWindowsFilled);
+}

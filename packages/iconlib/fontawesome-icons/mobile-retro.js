@@ -6,4 +6,6 @@ export class DileIconlibMobileRetro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mobile-retro', DileIconlibMobileRetro);
+if (!customElements.get('dile-fontawesome-icon-mobile-retro')) {
+  customElements.define('dile-fontawesome-icon-mobile-retro', DileIconlibMobileRetro);
+}

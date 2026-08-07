@@ -6,4 +6,6 @@ export class DileIconlibHandHoldingWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hand-holding-water', DileIconlibHandHoldingWater);
+if (!customElements.get('dile-fontawesome-icon-hand-holding-water')) {
+  customElements.define('dile-fontawesome-icon-hand-holding-water', DileIconlibHandHoldingWater);
+}

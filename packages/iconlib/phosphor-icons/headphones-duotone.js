@@ -6,4 +6,6 @@ export class DileIconlibHeadphonesDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headphones-duotone', DileIconlibHeadphonesDuotone);
+if (!customElements.get('dile-phosphor-icon-headphones-duotone')) {
+  customElements.define('dile-phosphor-icon-headphones-duotone', DileIconlibHeadphonesDuotone);
+}

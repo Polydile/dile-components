@@ -6,4 +6,6 @@ export class DileIconlibVectorThreeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vector-three-light', DileIconlibVectorThreeLight);
+if (!customElements.get('dile-phosphor-icon-vector-three-light')) {
+  customElements.define('dile-phosphor-icon-vector-three-light', DileIconlibVectorThreeLight);
+}

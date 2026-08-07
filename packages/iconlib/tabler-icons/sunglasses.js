@@ -6,4 +6,6 @@ export class DileIconlibSunglasses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sunglasses', DileIconlibSunglasses);
+if (!customElements.get('dile-tabler-icon-sunglasses')) {
+  customElements.define('dile-tabler-icon-sunglasses', DileIconlibSunglasses);
+}

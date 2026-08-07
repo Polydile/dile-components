@@ -6,4 +6,6 @@ export class DileIconlibFireHydrantAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fire-hydrant-alt', DileIconlibFireHydrantAlt);
+if (!customElements.get('dile-material-icon-fire-hydrant-alt')) {
+  customElements.define('dile-material-icon-fire-hydrant-alt', DileIconlibFireHydrantAlt);
+}

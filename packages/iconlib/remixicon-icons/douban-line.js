@@ -6,4 +6,6 @@ export class DileIconlibDoubanLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-douban-line', DileIconlibDoubanLine);
+if (!customElements.get('dile-remixicon-icon-douban-line')) {
+  customElements.define('dile-remixicon-icon-douban-line', DileIconlibDoubanLine);
+}

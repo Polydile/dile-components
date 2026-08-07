@@ -6,4 +6,6 @@ export class DileIconlibLineSquiggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-line-squiggle', DileIconlibLineSquiggle);
+if (!customElements.get('dile-lucide-icon-line-squiggle')) {
+  customElements.define('dile-lucide-icon-line-squiggle', DileIconlibLineSquiggle);
+}

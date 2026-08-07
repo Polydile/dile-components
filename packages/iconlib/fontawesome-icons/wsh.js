@@ -6,4 +6,6 @@ export class DileIconlibWsh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wsh', DileIconlibWsh);
+if (!customElements.get('dile-fontawesome-icon-wsh')) {
+  customElements.define('dile-fontawesome-icon-wsh', DileIconlibWsh);
+}

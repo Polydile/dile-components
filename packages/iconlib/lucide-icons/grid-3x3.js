@@ -6,4 +6,6 @@ export class DileIconlibGrid3x3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-grid-3x3', DileIconlibGrid3x3);
+if (!customElements.get('dile-lucide-icon-grid-3x3')) {
+  customElements.define('dile-lucide-icon-grid-3x3', DileIconlibGrid3x3);
+}

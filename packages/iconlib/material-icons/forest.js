@@ -6,4 +6,6 @@ export class DileIconlibForest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-forest', DileIconlibForest);
+if (!customElements.get('dile-material-icon-forest')) {
+  customElements.define('dile-material-icon-forest', DileIconlibForest);
+}

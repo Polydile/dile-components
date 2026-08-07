@@ -6,4 +6,6 @@ export class DileIconlibTicket2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ticket-2-line', DileIconlibTicket2Line);
+if (!customElements.get('dile-remixicon-icon-ticket-2-line')) {
+  customElements.define('dile-remixicon-icon-ticket-2-line', DileIconlibTicket2Line);
+}

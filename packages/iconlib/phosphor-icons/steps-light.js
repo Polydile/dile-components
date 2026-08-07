@@ -6,4 +6,6 @@ export class DileIconlibStepsLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-steps-light', DileIconlibStepsLight);
+if (!customElements.get('dile-phosphor-icon-steps-light')) {
+  customElements.define('dile-phosphor-icon-steps-light', DileIconlibStepsLight);
+}

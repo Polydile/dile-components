@@ -6,4 +6,6 @@ export class DileIconlibTicketLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ticket-light', DileIconlibTicketLight);
+if (!customElements.get('dile-phosphor-icon-ticket-light')) {
+  customElements.define('dile-phosphor-icon-ticket-light', DileIconlibTicketLight);
+}

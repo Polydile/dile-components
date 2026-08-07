@@ -6,4 +6,6 @@ export class DileIconlibRedPacketLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-red-packet-line', DileIconlibRedPacketLine);
+if (!customElements.get('dile-remixicon-icon-red-packet-line')) {
+  customElements.define('dile-remixicon-icon-red-packet-line', DileIconlibRedPacketLine);
+}

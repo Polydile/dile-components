@@ -6,4 +6,6 @@ export class DileIconlibMathOperationsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-math-operations-duotone', DileIconlibMathOperationsDuotone);
+if (!customElements.get('dile-phosphor-icon-math-operations-duotone')) {
+  customElements.define('dile-phosphor-icon-math-operations-duotone', DileIconlibMathOperationsDuotone);
+}

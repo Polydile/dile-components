@@ -6,4 +6,6 @@ export class DileIconlibTemperatureMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-minus', DileIconlibTemperatureMinus);
+if (!customElements.get('dile-tabler-icon-temperature-minus')) {
+  customElements.define('dile-tabler-icon-temperature-minus', DileIconlibTemperatureMinus);
+}

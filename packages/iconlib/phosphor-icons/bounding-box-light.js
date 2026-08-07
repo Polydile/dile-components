@@ -6,4 +6,6 @@ export class DileIconlibBoundingBoxLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bounding-box-light', DileIconlibBoundingBoxLight);
+if (!customElements.get('dile-phosphor-icon-bounding-box-light')) {
+  customElements.define('dile-phosphor-icon-bounding-box-light', DileIconlibBoundingBoxLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFreezeRowColumn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-freeze-row-column', DileIconlibFreezeRowColumn);
+if (!customElements.get('dile-tabler-icon-freeze-row-column')) {
+  customElements.define('dile-tabler-icon-freeze-row-column', DileIconlibFreezeRowColumn);
+}

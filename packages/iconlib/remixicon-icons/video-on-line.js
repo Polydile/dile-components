@@ -6,4 +6,6 @@ export class DileIconlibVideoOnLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-video-on-line', DileIconlibVideoOnLine);
+if (!customElements.get('dile-remixicon-icon-video-on-line')) {
+  customElements.define('dile-remixicon-icon-video-on-line', DileIconlibVideoOnLine);
+}

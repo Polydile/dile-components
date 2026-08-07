@@ -6,4 +6,6 @@ export class DileIconlibImagesearchRoller extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-imagesearch-roller', DileIconlibImagesearchRoller);
+if (!customElements.get('dile-material-icon-imagesearch-roller')) {
+  customElements.define('dile-material-icon-imagesearch-roller', DileIconlibImagesearchRoller);
+}

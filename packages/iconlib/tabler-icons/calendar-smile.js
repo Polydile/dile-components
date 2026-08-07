@@ -6,4 +6,6 @@ export class DileIconlibCalendarSmile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-smile', DileIconlibCalendarSmile);
+if (!customElements.get('dile-tabler-icon-calendar-smile')) {
+  customElements.define('dile-tabler-icon-calendar-smile', DileIconlibCalendarSmile);
+}

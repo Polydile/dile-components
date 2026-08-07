@@ -6,4 +6,6 @@ export class DileIconlibBrandGrammarly extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-grammarly', DileIconlibBrandGrammarly);
+if (!customElements.get('dile-tabler-icon-brand-grammarly')) {
+  customElements.define('dile-tabler-icon-brand-grammarly', DileIconlibBrandGrammarly);
+}

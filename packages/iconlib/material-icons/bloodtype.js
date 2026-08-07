@@ -6,4 +6,6 @@ export class DileIconlibBloodtype extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bloodtype', DileIconlibBloodtype);
+if (!customElements.get('dile-material-icon-bloodtype')) {
+  customElements.define('dile-material-icon-bloodtype', DileIconlibBloodtype);
+}

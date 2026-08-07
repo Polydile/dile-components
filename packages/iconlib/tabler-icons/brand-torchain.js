@@ -6,4 +6,6 @@ export class DileIconlibBrandTorchain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-torchain', DileIconlibBrandTorchain);
+if (!customElements.get('dile-tabler-icon-brand-torchain')) {
+  customElements.define('dile-tabler-icon-brand-torchain', DileIconlibBrandTorchain);
+}

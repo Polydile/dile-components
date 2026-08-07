@@ -6,4 +6,6 @@ export class DileIconlibBrandCakephp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cakephp', DileIconlibBrandCakephp);
+if (!customElements.get('dile-tabler-icon-brand-cakephp')) {
+  customElements.define('dile-tabler-icon-brand-cakephp', DileIconlibBrandCakephp);
+}

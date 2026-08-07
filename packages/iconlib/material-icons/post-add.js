@@ -6,4 +6,6 @@ export class DileIconlibPostAdd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-post-add', DileIconlibPostAdd);
+if (!customElements.get('dile-material-icon-post-add')) {
+  customElements.define('dile-material-icon-post-add', DileIconlibPostAdd);
+}

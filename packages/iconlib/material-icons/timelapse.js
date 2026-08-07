@@ -6,4 +6,6 @@ export class DileIconlibTimelapse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-timelapse', DileIconlibTimelapse);
+if (!customElements.get('dile-material-icon-timelapse')) {
+  customElements.define('dile-material-icon-timelapse', DileIconlibTimelapse);
+}

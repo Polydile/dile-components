@@ -6,4 +6,6 @@ export class DileIconlibIroning3Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ironing-3-filled', DileIconlibIroning3Filled);
+if (!customElements.get('dile-tabler-icon-ironing-3-filled')) {
+  customElements.define('dile-tabler-icon-ironing-3-filled', DileIconlibIroning3Filled);
+}

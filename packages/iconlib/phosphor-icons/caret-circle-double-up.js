@@ -6,4 +6,6 @@ export class DileIconlibCaretCircleDoubleUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-caret-circle-double-up', DileIconlibCaretCircleDoubleUp);
+if (!customElements.get('dile-phosphor-icon-caret-circle-double-up')) {
+  customElements.define('dile-phosphor-icon-caret-circle-double-up', DileIconlibCaretCircleDoubleUp);
+}

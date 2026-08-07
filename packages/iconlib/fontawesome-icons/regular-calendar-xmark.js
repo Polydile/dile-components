@@ -6,4 +6,6 @@ export class DileIconlibCalendarXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-calendar-xmark', DileIconlibCalendarXmark);
+if (!customElements.get('dile-fontawesome-icon-regular-calendar-xmark')) {
+  customElements.define('dile-fontawesome-icon-regular-calendar-xmark', DileIconlibCalendarXmark);
+}

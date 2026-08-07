@@ -6,4 +6,6 @@ export class DileIconlibCheeseThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cheese-thin', DileIconlibCheeseThin);
+if (!customElements.get('dile-phosphor-icon-cheese-thin')) {
+  customElements.define('dile-phosphor-icon-cheese-thin', DileIconlibCheeseThin);
+}

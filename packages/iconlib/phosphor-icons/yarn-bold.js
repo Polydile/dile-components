@@ -6,4 +6,6 @@ export class DileIconlibYarnBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-yarn-bold', DileIconlibYarnBold);
+if (!customElements.get('dile-phosphor-icon-yarn-bold')) {
+  customElements.define('dile-phosphor-icon-yarn-bold', DileIconlibYarnBold);
+}

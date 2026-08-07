@@ -6,4 +6,6 @@ export class DileIconlibStrikethrough2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-strikethrough-2', DileIconlibStrikethrough2);
+if (!customElements.get('dile-remixicon-icon-strikethrough-2')) {
+  customElements.define('dile-remixicon-icon-strikethrough-2', DileIconlibStrikethrough2);
+}

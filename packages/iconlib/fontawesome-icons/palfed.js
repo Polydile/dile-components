@@ -6,4 +6,6 @@ export class DileIconlibPalfed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-palfed', DileIconlibPalfed);
+if (!customElements.get('dile-fontawesome-icon-palfed')) {
+  customElements.define('dile-fontawesome-icon-palfed', DileIconlibPalfed);
+}

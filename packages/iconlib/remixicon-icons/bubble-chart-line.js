@@ -6,4 +6,6 @@ export class DileIconlibBubbleChartLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bubble-chart-line', DileIconlibBubbleChartLine);
+if (!customElements.get('dile-remixicon-icon-bubble-chart-line')) {
+  customElements.define('dile-remixicon-icon-bubble-chart-line', DileIconlibBubbleChartLine);
+}

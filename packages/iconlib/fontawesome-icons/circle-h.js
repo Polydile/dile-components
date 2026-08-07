@@ -6,4 +6,6 @@ export class DileIconlibCircleH extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-h', DileIconlibCircleH);
+if (!customElements.get('dile-fontawesome-icon-circle-h')) {
+  customElements.define('dile-fontawesome-icon-circle-h', DileIconlibCircleH);
+}

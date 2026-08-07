@@ -6,4 +6,6 @@ export class DileIconlibSlowMotionVideo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-slow-motion-video', DileIconlibSlowMotionVideo);
+if (!customElements.get('dile-material-icon-slow-motion-video')) {
+  customElements.define('dile-material-icon-slow-motion-video', DileIconlibSlowMotionVideo);
+}

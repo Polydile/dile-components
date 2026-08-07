@@ -6,4 +6,6 @@ export class DileIconlibFacebookMessenger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-facebook-messenger', DileIconlibFacebookMessenger);
+if (!customElements.get('dile-fontawesome-icon-facebook-messenger')) {
+  customElements.define('dile-fontawesome-icon-facebook-messenger', DileIconlibFacebookMessenger);
+}

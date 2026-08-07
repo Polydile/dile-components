@@ -6,4 +6,6 @@ export class DileIconlibFlameKindling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flame-kindling', DileIconlibFlameKindling);
+if (!customElements.get('dile-lucide-icon-flame-kindling')) {
+  customElements.define('dile-lucide-icon-flame-kindling', DileIconlibFlameKindling);
+}

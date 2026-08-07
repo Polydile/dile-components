@@ -6,4 +6,6 @@ export class DileIconlibHamburger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hamburger', DileIconlibHamburger);
+if (!customElements.get('dile-lucide-icon-hamburger')) {
+  customElements.define('dile-lucide-icon-hamburger', DileIconlibHamburger);
+}

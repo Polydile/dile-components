@@ -6,4 +6,6 @@ export class DileIconlibAlphabetCyrillic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-cyrillic', DileIconlibAlphabetCyrillic);
+if (!customElements.get('dile-tabler-icon-alphabet-cyrillic')) {
+  customElements.define('dile-tabler-icon-alphabet-cyrillic', DileIconlibAlphabetCyrillic);
+}

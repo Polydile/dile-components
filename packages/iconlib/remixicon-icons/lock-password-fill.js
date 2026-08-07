@@ -6,4 +6,6 @@ export class DileIconlibLockPasswordFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lock-password-fill', DileIconlibLockPasswordFill);
+if (!customElements.get('dile-remixicon-icon-lock-password-fill')) {
+  customElements.define('dile-remixicon-icon-lock-password-fill', DileIconlibLockPasswordFill);
+}

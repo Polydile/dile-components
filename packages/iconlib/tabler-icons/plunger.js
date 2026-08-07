@@ -6,4 +6,6 @@ export class DileIconlibPlunger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-plunger', DileIconlibPlunger);
+if (!customElements.get('dile-tabler-icon-plunger')) {
+  customElements.define('dile-tabler-icon-plunger', DileIconlibPlunger);
+}

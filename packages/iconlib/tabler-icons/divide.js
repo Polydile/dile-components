@@ -6,4 +6,6 @@ export class DileIconlibDivide extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-divide', DileIconlibDivide);
+if (!customElements.get('dile-tabler-icon-divide')) {
+  customElements.define('dile-tabler-icon-divide', DileIconlibDivide);
+}

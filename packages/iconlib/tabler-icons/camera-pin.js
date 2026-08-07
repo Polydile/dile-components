@@ -6,4 +6,6 @@ export class DileIconlibCameraPin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-pin', DileIconlibCameraPin);
+if (!customElements.get('dile-tabler-icon-camera-pin')) {
+  customElements.define('dile-tabler-icon-camera-pin', DileIconlibCameraPin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRubDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-rub-duotone', DileIconlibCurrencyRubDuotone);
+if (!customElements.get('dile-phosphor-icon-currency-rub-duotone')) {
+  customElements.define('dile-phosphor-icon-currency-rub-duotone', DileIconlibCurrencyRubDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCaptureOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-capture-off', DileIconlibCaptureOff);
+if (!customElements.get('dile-tabler-icon-capture-off')) {
+  customElements.define('dile-tabler-icon-capture-off', DileIconlibCaptureOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibReduceCapacity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-reduce-capacity', DileIconlibReduceCapacity);
+if (!customElements.get('dile-material-icon-reduce-capacity')) {
+  customElements.define('dile-material-icon-reduce-capacity', DileIconlibReduceCapacity);
+}

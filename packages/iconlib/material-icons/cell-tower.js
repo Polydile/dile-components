@@ -6,4 +6,6 @@ export class DileIconlibCellTower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cell-tower', DileIconlibCellTower);
+if (!customElements.get('dile-material-icon-cell-tower')) {
+  customElements.define('dile-material-icon-cell-tower', DileIconlibCellTower);
+}

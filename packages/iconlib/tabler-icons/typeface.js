@@ -6,4 +6,6 @@ export class DileIconlibTypeface extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-typeface', DileIconlibTypeface);
+if (!customElements.get('dile-tabler-icon-typeface')) {
+  customElements.define('dile-tabler-icon-typeface', DileIconlibTypeface);
+}

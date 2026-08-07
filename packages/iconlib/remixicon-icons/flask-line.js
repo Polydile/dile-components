@@ -6,4 +6,6 @@ export class DileIconlibFlaskLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flask-line', DileIconlibFlaskLine);
+if (!customElements.get('dile-remixicon-icon-flask-line')) {
+  customElements.define('dile-remixicon-icon-flask-line', DileIconlibFlaskLine);
+}

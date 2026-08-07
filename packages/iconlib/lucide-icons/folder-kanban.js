@@ -6,4 +6,6 @@ export class DileIconlibFolderKanban extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-kanban', DileIconlibFolderKanban);
+if (!customElements.get('dile-lucide-icon-folder-kanban')) {
+  customElements.define('dile-lucide-icon-folder-kanban', DileIconlibFolderKanban);
+}

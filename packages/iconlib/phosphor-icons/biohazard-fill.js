@@ -6,4 +6,6 @@ export class DileIconlibBiohazardFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-biohazard-fill', DileIconlibBiohazardFill);
+if (!customElements.get('dile-phosphor-icon-biohazard-fill')) {
+  customElements.define('dile-phosphor-icon-biohazard-fill', DileIconlibBiohazardFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTabletAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tablet-alt', DileIconlibTabletAlt);
+if (!customElements.get('dile-fontawesome-icon-tablet-alt')) {
+  customElements.define('dile-fontawesome-icon-tablet-alt', DileIconlibTabletAlt);
+}

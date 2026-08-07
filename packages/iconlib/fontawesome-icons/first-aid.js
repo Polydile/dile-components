@@ -6,4 +6,6 @@ export class DileIconlibFirstAid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-first-aid', DileIconlibFirstAid);
+if (!customElements.get('dile-fontawesome-icon-first-aid')) {
+  customElements.define('dile-fontawesome-icon-first-aid', DileIconlibFirstAid);
+}

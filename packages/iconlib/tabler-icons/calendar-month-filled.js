@@ -6,4 +6,6 @@ export class DileIconlibCalendarMonthFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-month-filled', DileIconlibCalendarMonthFilled);
+if (!customElements.get('dile-tabler-icon-calendar-month-filled')) {
+  customElements.define('dile-tabler-icon-calendar-month-filled', DileIconlibCalendarMonthFilled);
+}

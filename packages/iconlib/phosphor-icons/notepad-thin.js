@@ -6,4 +6,6 @@ export class DileIconlibNotepadThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-notepad-thin', DileIconlibNotepadThin);
+if (!customElements.get('dile-phosphor-icon-notepad-thin')) {
+  customElements.define('dile-phosphor-icon-notepad-thin', DileIconlibNotepadThin);
+}

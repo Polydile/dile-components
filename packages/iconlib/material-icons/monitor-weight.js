@@ -6,4 +6,6 @@ export class DileIconlibMonitorWeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-monitor-weight', DileIconlibMonitorWeight);
+if (!customElements.get('dile-material-icon-monitor-weight')) {
+  customElements.define('dile-material-icon-monitor-weight', DileIconlibMonitorWeight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareUpwork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-upwork', DileIconlibSquareUpwork);
+if (!customElements.get('dile-fontawesome-icon-square-upwork')) {
+  customElements.define('dile-fontawesome-icon-square-upwork', DileIconlibSquareUpwork);
+}

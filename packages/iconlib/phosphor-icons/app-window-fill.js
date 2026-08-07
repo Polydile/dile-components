@@ -6,4 +6,6 @@ export class DileIconlibAppWindowFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-app-window-fill', DileIconlibAppWindowFill);
+if (!customElements.get('dile-phosphor-icon-app-window-fill')) {
+  customElements.define('dile-phosphor-icon-app-window-fill', DileIconlibAppWindowFill);
+}

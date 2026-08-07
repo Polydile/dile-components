@@ -6,4 +6,6 @@ export class DileIconlibFileUploadOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-file-upload-off', DileIconlibFileUploadOff);
+if (!customElements.get('dile-material-icon-file-upload-off')) {
+  customElements.define('dile-material-icon-file-upload-off', DileIconlibFileUploadOff);
+}

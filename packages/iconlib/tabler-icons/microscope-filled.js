@@ -6,4 +6,6 @@ export class DileIconlibMicroscopeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-microscope-filled', DileIconlibMicroscopeFilled);
+if (!customElements.get('dile-tabler-icon-microscope-filled')) {
+  customElements.define('dile-tabler-icon-microscope-filled', DileIconlibMicroscopeFilled);
+}

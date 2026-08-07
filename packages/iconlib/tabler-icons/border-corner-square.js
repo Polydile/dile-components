@@ -6,4 +6,6 @@ export class DileIconlibBorderCornerSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-border-corner-square', DileIconlibBorderCornerSquare);
+if (!customElements.get('dile-tabler-icon-border-corner-square')) {
+  customElements.define('dile-tabler-icon-border-corner-square', DileIconlibBorderCornerSquare);
+}

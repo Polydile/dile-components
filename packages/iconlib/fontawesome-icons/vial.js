@@ -6,4 +6,6 @@ export class DileIconlibVial extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vial', DileIconlibVial);
+if (!customElements.get('dile-fontawesome-icon-vial')) {
+  customElements.define('dile-fontawesome-icon-vial', DileIconlibVial);
+}

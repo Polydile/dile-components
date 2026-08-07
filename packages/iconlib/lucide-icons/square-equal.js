@@ -6,4 +6,6 @@ export class DileIconlibSquareEqual extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-equal', DileIconlibSquareEqual);
+if (!customElements.get('dile-lucide-icon-square-equal')) {
+  customElements.define('dile-lucide-icon-square-equal', DileIconlibSquareEqual);
+}

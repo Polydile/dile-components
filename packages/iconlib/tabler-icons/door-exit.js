@@ -6,4 +6,6 @@ export class DileIconlibDoorExit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-door-exit', DileIconlibDoorExit);
+if (!customElements.get('dile-tabler-icon-door-exit')) {
+  customElements.define('dile-tabler-icon-door-exit', DileIconlibDoorExit);
+}

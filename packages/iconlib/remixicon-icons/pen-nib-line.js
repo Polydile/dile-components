@@ -6,4 +6,6 @@ export class DileIconlibPenNibLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pen-nib-line', DileIconlibPenNibLine);
+if (!customElements.get('dile-remixicon-icon-pen-nib-line')) {
+  customElements.define('dile-remixicon-icon-pen-nib-line', DileIconlibPenNibLine);
+}

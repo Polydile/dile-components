@@ -6,4 +6,6 @@ export class DileIconlibArrowsHorizontalLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrows-horizontal-light', DileIconlibArrowsHorizontalLight);
+if (!customElements.get('dile-phosphor-icon-arrows-horizontal-light')) {
+  customElements.define('dile-phosphor-icon-arrows-horizontal-light', DileIconlibArrowsHorizontalLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTableView extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-table-view', DileIconlibTableView);
+if (!customElements.get('dile-remixicon-icon-table-view')) {
+  customElements.define('dile-remixicon-icon-table-view', DileIconlibTableView);
+}

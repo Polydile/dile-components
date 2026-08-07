@@ -6,4 +6,6 @@ export class DileIconlibMilkOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-milk-off', DileIconlibMilkOff);
+if (!customElements.get('dile-lucide-icon-milk-off')) {
+  customElements.define('dile-lucide-icon-milk-off', DileIconlibMilkOff);
+}

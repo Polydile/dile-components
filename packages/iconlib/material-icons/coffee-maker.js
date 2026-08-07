@@ -6,4 +6,6 @@ export class DileIconlibCoffeeMaker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-coffee-maker', DileIconlibCoffeeMaker);
+if (!customElements.get('dile-material-icon-coffee-maker')) {
+  customElements.define('dile-material-icon-coffee-maker', DileIconlibCoffeeMaker);
+}

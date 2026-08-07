@@ -6,4 +6,6 @@ export class DileIconlibPolaroidLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-polaroid-line', DileIconlibPolaroidLine);
+if (!customElements.get('dile-remixicon-icon-polaroid-line')) {
+  customElements.define('dile-remixicon-icon-polaroid-line', DileIconlibPolaroidLine);
+}

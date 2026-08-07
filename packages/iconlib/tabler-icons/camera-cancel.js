@@ -6,4 +6,6 @@ export class DileIconlibCameraCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-cancel', DileIconlibCameraCancel);
+if (!customElements.get('dile-tabler-icon-camera-cancel')) {
+  customElements.define('dile-tabler-icon-camera-cancel', DileIconlibCameraCancel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWorldMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-minus', DileIconlibWorldMinus);
+if (!customElements.get('dile-tabler-icon-world-minus')) {
+  customElements.define('dile-tabler-icon-world-minus', DileIconlibWorldMinus);
+}

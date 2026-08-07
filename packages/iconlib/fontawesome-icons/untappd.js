@@ -6,4 +6,6 @@ export class DileIconlibUntappd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-untappd', DileIconlibUntappd);
+if (!customElements.get('dile-fontawesome-icon-untappd')) {
+  customElements.define('dile-fontawesome-icon-untappd', DileIconlibUntappd);
+}

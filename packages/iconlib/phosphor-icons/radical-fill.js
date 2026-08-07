@@ -6,4 +6,6 @@ export class DileIconlibRadicalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-radical-fill', DileIconlibRadicalFill);
+if (!customElements.get('dile-phosphor-icon-radical-fill')) {
+  customElements.define('dile-phosphor-icon-radical-fill', DileIconlibRadicalFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPlanetLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-planet-line', DileIconlibPlanetLine);
+if (!customElements.get('dile-remixicon-icon-planet-line')) {
+  customElements.define('dile-remixicon-icon-planet-line', DileIconlibPlanetLine);
+}

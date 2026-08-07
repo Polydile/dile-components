@@ -6,4 +6,6 @@ export class DileIconlibCoinVerticalLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-coin-vertical-light', DileIconlibCoinVerticalLight);
+if (!customElements.get('dile-phosphor-icon-coin-vertical-light')) {
+  customElements.define('dile-phosphor-icon-coin-vertical-light', DileIconlibCoinVerticalLight);
+}

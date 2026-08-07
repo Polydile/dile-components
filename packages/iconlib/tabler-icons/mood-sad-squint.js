@@ -6,4 +6,6 @@ export class DileIconlibMoodSadSquint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-sad-squint', DileIconlibMoodSadSquint);
+if (!customElements.get('dile-tabler-icon-mood-sad-squint')) {
+  customElements.define('dile-tabler-icon-mood-sad-squint', DileIconlibMoodSadSquint);
+}

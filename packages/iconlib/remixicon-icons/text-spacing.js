@@ -6,4 +6,6 @@ export class DileIconlibTextSpacing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-text-spacing', DileIconlibTextSpacing);
+if (!customElements.get('dile-remixicon-icon-text-spacing')) {
+  customElements.define('dile-remixicon-icon-text-spacing', DileIconlibTextSpacing);
+}

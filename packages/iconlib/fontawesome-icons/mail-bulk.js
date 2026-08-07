@@ -6,4 +6,6 @@ export class DileIconlibMailBulk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mail-bulk', DileIconlibMailBulk);
+if (!customElements.get('dile-fontawesome-icon-mail-bulk')) {
+  customElements.define('dile-fontawesome-icon-mail-bulk', DileIconlibMailBulk);
+}

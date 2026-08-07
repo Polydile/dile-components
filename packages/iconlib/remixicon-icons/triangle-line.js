@@ -6,4 +6,6 @@ export class DileIconlibTriangleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-triangle-line', DileIconlibTriangleLine);
+if (!customElements.get('dile-remixicon-icon-triangle-line')) {
+  customElements.define('dile-remixicon-icon-triangle-line', DileIconlibTriangleLine);
+}

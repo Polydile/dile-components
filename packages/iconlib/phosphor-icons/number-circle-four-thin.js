@@ -6,4 +6,6 @@ export class DileIconlibNumberCircleFourThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-circle-four-thin', DileIconlibNumberCircleFourThin);
+if (!customElements.get('dile-phosphor-icon-number-circle-four-thin')) {
+  customElements.define('dile-phosphor-icon-number-circle-four-thin', DileIconlibNumberCircleFourThin);
+}

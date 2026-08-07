@@ -6,4 +6,6 @@ export class DileIconlibMessageExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-exclamation', DileIconlibMessageExclamation);
+if (!customElements.get('dile-tabler-icon-message-exclamation')) {
+  customElements.define('dile-tabler-icon-message-exclamation', DileIconlibMessageExclamation);
+}

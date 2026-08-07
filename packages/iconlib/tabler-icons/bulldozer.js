@@ -6,4 +6,6 @@ export class DileIconlibBulldozer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bulldozer', DileIconlibBulldozer);
+if (!customElements.get('dile-tabler-icon-bulldozer')) {
+  customElements.define('dile-tabler-icon-bulldozer', DileIconlibBulldozer);
+}

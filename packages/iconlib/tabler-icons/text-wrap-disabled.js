@@ -6,4 +6,6 @@ export class DileIconlibTextWrapDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-wrap-disabled', DileIconlibTextWrapDisabled);
+if (!customElements.get('dile-tabler-icon-text-wrap-disabled')) {
+  customElements.define('dile-tabler-icon-text-wrap-disabled', DileIconlibTextWrapDisabled);
+}

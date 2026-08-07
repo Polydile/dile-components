@@ -6,4 +6,6 @@ export class DileIconlibWallet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wallet', DileIconlibWallet);
+if (!customElements.get('dile-tabler-icon-wallet')) {
+  customElements.define('dile-tabler-icon-wallet', DileIconlibWallet);
+}

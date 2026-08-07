@@ -6,4 +6,6 @@ export class DileIconlibBridgeCircleCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bridge-circle-check', DileIconlibBridgeCircleCheck);
+if (!customElements.get('dile-fontawesome-icon-bridge-circle-check')) {
+  customElements.define('dile-fontawesome-icon-bridge-circle-check', DileIconlibBridgeCircleCheck);
+}

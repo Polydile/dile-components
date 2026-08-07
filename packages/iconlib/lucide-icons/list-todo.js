@@ -6,4 +6,6 @@ export class DileIconlibListTodo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-list-todo', DileIconlibListTodo);
+if (!customElements.get('dile-lucide-icon-list-todo')) {
+  customElements.define('dile-lucide-icon-list-todo', DileIconlibListTodo);
+}

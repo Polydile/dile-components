@@ -6,4 +6,6 @@ export class DileIconlibAddLargeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-add-large-line', DileIconlibAddLargeLine);
+if (!customElements.get('dile-remixicon-icon-add-large-line')) {
+  customElements.define('dile-remixicon-icon-add-large-line', DileIconlibAddLargeLine);
+}

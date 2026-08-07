@@ -6,4 +6,6 @@ export class DileIconlibFormatBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-bold', DileIconlibFormatBold);
+if (!customElements.get('dile-material-icon-format-bold')) {
+  customElements.define('dile-material-icon-format-bold', DileIconlibFormatBold);
+}

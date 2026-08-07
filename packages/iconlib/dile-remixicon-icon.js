@@ -1,3 +1,5 @@
 import { DileRemixiconIcon } from "./src/DileRemixiconIcon.js";
 
-customElements.define('dile-remixicon-icon', DileRemixiconIcon);
+if (!customElements.get('dile-remixicon-icon')) {
+  customElements.define('dile-remixicon-icon', DileRemixiconIcon);
+}

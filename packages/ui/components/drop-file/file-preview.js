@@ -1,2 +1,4 @@
 import { DileFilePreview } from "./src/DileFilePreview.js";
-customElements.define('dile-file-preview', DileFilePreview);
+if (!customElements.get('dile-file-preview')) {
+  customElements.define('dile-file-preview', DileFilePreview);
+}

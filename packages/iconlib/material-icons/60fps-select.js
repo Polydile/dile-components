@@ -6,4 +6,6 @@ export class DileIconlib60fpsSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-60fps-select', DileIconlib60fpsSelect);
+if (!customElements.get('dile-material-icon-60fps-select')) {
+  customElements.define('dile-material-icon-60fps-select', DileIconlib60fpsSelect);
+}

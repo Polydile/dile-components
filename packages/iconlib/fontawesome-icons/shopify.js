@@ -6,4 +6,6 @@ export class DileIconlibShopify extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shopify', DileIconlibShopify);
+if (!customElements.get('dile-fontawesome-icon-shopify')) {
+  customElements.define('dile-fontawesome-icon-shopify', DileIconlibShopify);
+}

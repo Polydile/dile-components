@@ -6,4 +6,6 @@ export class DileIconlibFileExclamationPoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-exclamation-point', DileIconlibFileExclamationPoint);
+if (!customElements.get('dile-lucide-icon-file-exclamation-point')) {
+  customElements.define('dile-lucide-icon-file-exclamation-point', DileIconlibFileExclamationPoint);
+}

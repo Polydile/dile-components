@@ -6,4 +6,6 @@ export class DileIconlibThumbsUpDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-thumbs-up-duotone', DileIconlibThumbsUpDuotone);
+if (!customElements.get('dile-phosphor-icon-thumbs-up-duotone')) {
+  customElements.define('dile-phosphor-icon-thumbs-up-duotone', DileIconlibThumbsUpDuotone);
+}

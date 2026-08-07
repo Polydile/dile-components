@@ -6,4 +6,6 @@ export class DileIconlibWebhookLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-webhook-line', DileIconlibWebhookLine);
+if (!customElements.get('dile-remixicon-icon-webhook-line')) {
+  customElements.define('dile-remixicon-icon-webhook-line', DileIconlibWebhookLine);
+}

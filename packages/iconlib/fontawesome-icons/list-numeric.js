@@ -6,4 +6,6 @@ export class DileIconlibListNumeric extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-list-numeric', DileIconlibListNumeric);
+if (!customElements.get('dile-fontawesome-icon-list-numeric')) {
+  customElements.define('dile-fontawesome-icon-list-numeric', DileIconlibListNumeric);
+}

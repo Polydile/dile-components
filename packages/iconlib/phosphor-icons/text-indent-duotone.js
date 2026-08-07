@@ -6,4 +6,6 @@ export class DileIconlibTextIndentDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-indent-duotone', DileIconlibTextIndentDuotone);
+if (!customElements.get('dile-phosphor-icon-text-indent-duotone')) {
+  customElements.define('dile-phosphor-icon-text-indent-duotone', DileIconlibTextIndentDuotone);
+}

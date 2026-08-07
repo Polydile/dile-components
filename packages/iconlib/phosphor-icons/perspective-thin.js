@@ -6,4 +6,6 @@ export class DileIconlibPerspectiveThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-perspective-thin', DileIconlibPerspectiveThin);
+if (!customElements.get('dile-phosphor-icon-perspective-thin')) {
+  customElements.define('dile-phosphor-icon-perspective-thin', DileIconlibPerspectiveThin);
+}

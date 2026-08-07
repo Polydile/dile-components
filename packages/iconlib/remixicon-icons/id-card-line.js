@@ -6,4 +6,6 @@ export class DileIconlibIdCardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-id-card-line', DileIconlibIdCardLine);
+if (!customElements.get('dile-remixicon-icon-id-card-line')) {
+  customElements.define('dile-remixicon-icon-id-card-line', DileIconlibIdCardLine);
+}

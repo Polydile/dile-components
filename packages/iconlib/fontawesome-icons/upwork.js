@@ -6,4 +6,6 @@ export class DileIconlibUpwork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-upwork', DileIconlibUpwork);
+if (!customElements.get('dile-fontawesome-icon-upwork')) {
+  customElements.define('dile-fontawesome-icon-upwork', DileIconlibUpwork);
+}

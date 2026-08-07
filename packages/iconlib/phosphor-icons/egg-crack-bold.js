@@ -6,4 +6,6 @@ export class DileIconlibEggCrackBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-egg-crack-bold', DileIconlibEggCrackBold);
+if (!customElements.get('dile-phosphor-icon-egg-crack-bold')) {
+  customElements.define('dile-phosphor-icon-egg-crack-bold', DileIconlibEggCrackBold);
+}

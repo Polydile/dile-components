@@ -6,4 +6,6 @@ export class DileIconlibEvernote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-evernote', DileIconlibEvernote);
+if (!customElements.get('dile-fontawesome-icon-evernote')) {
+  customElements.define('dile-fontawesome-icon-evernote', DileIconlibEvernote);
+}

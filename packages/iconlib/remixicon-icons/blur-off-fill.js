@@ -6,4 +6,6 @@ export class DileIconlibBlurOffFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-blur-off-fill', DileIconlibBlurOffFill);
+if (!customElements.get('dile-remixicon-icon-blur-off-fill')) {
+  customElements.define('dile-remixicon-icon-blur-off-fill', DileIconlibBlurOffFill);
+}

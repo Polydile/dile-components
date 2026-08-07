@@ -6,4 +6,6 @@ export class DileIconlibBeanOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bean-off', DileIconlibBeanOff);
+if (!customElements.get('dile-lucide-icon-bean-off')) {
+  customElements.define('dile-lucide-icon-bean-off', DileIconlibBeanOff);
+}

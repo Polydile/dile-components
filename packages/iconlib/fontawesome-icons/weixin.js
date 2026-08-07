@@ -6,4 +6,6 @@ export class DileIconlibWeixin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-weixin', DileIconlibWeixin);
+if (!customElements.get('dile-fontawesome-icon-weixin')) {
+  customElements.define('dile-fontawesome-icon-weixin', DileIconlibWeixin);
+}

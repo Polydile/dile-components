@@ -6,4 +6,6 @@ export class DileIconlibPhishing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phishing', DileIconlibPhishing);
+if (!customElements.get('dile-material-icon-phishing')) {
+  customElements.define('dile-material-icon-phishing', DileIconlibPhishing);
+}

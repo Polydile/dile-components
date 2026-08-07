@@ -6,4 +6,6 @@ export class DileIconlibBrandNetflix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-netflix', DileIconlibBrandNetflix);
+if (!customElements.get('dile-tabler-icon-brand-netflix')) {
+  customElements.define('dile-tabler-icon-brand-netflix', DileIconlibBrandNetflix);
+}

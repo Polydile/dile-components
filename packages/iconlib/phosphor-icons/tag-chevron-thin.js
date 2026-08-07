@@ -6,4 +6,6 @@ export class DileIconlibTagChevronThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tag-chevron-thin', DileIconlibTagChevronThin);
+if (!customElements.get('dile-phosphor-icon-tag-chevron-thin')) {
+  customElements.define('dile-phosphor-icon-tag-chevron-thin', DileIconlibTagChevronThin);
+}

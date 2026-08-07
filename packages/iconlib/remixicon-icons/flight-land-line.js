@@ -6,4 +6,6 @@ export class DileIconlibFlightLandLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flight-land-line', DileIconlibFlightLandLine);
+if (!customElements.get('dile-remixicon-icon-flight-land-line')) {
+  customElements.define('dile-remixicon-icon-flight-land-line', DileIconlibFlightLandLine);
+}

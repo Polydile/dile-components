@@ -6,4 +6,6 @@ export class DileIconlibTypeOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-type-outline', DileIconlibTypeOutline);
+if (!customElements.get('dile-lucide-icon-type-outline')) {
+  customElements.define('dile-lucide-icon-type-outline', DileIconlibTypeOutline);
+}

@@ -1,3 +1,5 @@
 import { DileMenuOverlay } from './src/DileMenuOverlay.js';
 
-customElements.define("dile-menu-overlay", DileMenuOverlay);
+if (!customElements.get("dile-menu-overlay")) {
+  customElements.define("dile-menu-overlay", DileMenuOverlay);
+}

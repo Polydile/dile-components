@@ -6,4 +6,6 @@ export class DileIconlibStackMiddle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stack-middle', DileIconlibStackMiddle);
+if (!customElements.get('dile-tabler-icon-stack-middle')) {
+  customElements.define('dile-tabler-icon-stack-middle', DileIconlibStackMiddle);
+}

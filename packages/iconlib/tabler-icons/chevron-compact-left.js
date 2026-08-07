@@ -6,4 +6,6 @@ export class DileIconlibChevronCompactLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chevron-compact-left', DileIconlibChevronCompactLeft);
+if (!customElements.get('dile-tabler-icon-chevron-compact-left')) {
+  customElements.define('dile-tabler-icon-chevron-compact-left', DileIconlibChevronCompactLeft);
+}

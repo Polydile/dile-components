@@ -6,4 +6,6 @@ export class DileIconlibThermometerSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-thermometer-simple-light', DileIconlibThermometerSimpleLight);
+if (!customElements.get('dile-phosphor-icon-thermometer-simple-light')) {
+  customElements.define('dile-phosphor-icon-thermometer-simple-light', DileIconlibThermometerSimpleLight);
+}

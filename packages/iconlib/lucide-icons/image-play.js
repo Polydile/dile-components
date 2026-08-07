@@ -6,4 +6,6 @@ export class DileIconlibImagePlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-image-play', DileIconlibImagePlay);
+if (!customElements.get('dile-lucide-icon-image-play')) {
+  customElements.define('dile-lucide-icon-image-play', DileIconlibImagePlay);
+}

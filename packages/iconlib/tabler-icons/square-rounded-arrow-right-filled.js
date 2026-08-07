@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedArrowRightFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-arrow-right-filled', DileIconlibSquareRoundedArrowRightFilled);
+if (!customElements.get('dile-tabler-icon-square-rounded-arrow-right-filled')) {
+  customElements.define('dile-tabler-icon-square-rounded-arrow-right-filled', DileIconlibSquareRoundedArrowRightFilled);
+}

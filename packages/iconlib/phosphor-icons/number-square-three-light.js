@@ -6,4 +6,6 @@ export class DileIconlibNumberSquareThreeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-square-three-light', DileIconlibNumberSquareThreeLight);
+if (!customElements.get('dile-phosphor-icon-number-square-three-light')) {
+  customElements.define('dile-phosphor-icon-number-square-three-light', DileIconlibNumberSquareThreeLight);
+}

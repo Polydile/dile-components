@@ -6,4 +6,6 @@ export class DileIconlibBrightnessOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brightness-off', DileIconlibBrightnessOff);
+if (!customElements.get('dile-tabler-icon-brightness-off')) {
+  customElements.define('dile-tabler-icon-brightness-off', DileIconlibBrightnessOff);
+}

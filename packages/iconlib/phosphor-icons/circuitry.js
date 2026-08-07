@@ -6,4 +6,6 @@ export class DileIconlibCircuitry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-circuitry', DileIconlibCircuitry);
+if (!customElements.get('dile-phosphor-icon-circuitry')) {
+  customElements.define('dile-phosphor-icon-circuitry', DileIconlibCircuitry);
+}

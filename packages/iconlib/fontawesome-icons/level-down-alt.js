@@ -6,4 +6,6 @@ export class DileIconlibLevelDownAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-level-down-alt', DileIconlibLevelDownAlt);
+if (!customElements.get('dile-fontawesome-icon-level-down-alt')) {
+  customElements.define('dile-fontawesome-icon-level-down-alt', DileIconlibLevelDownAlt);
+}

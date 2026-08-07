@@ -6,4 +6,6 @@ export class DileIconlibBlackboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-blackboard', DileIconlibBlackboard);
+if (!customElements.get('dile-fontawesome-icon-blackboard')) {
+  customElements.define('dile-fontawesome-icon-blackboard', DileIconlibBlackboard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAirportShuttle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airport-shuttle', DileIconlibAirportShuttle);
+if (!customElements.get('dile-material-icon-airport-shuttle')) {
+  customElements.define('dile-material-icon-airport-shuttle', DileIconlibAirportShuttle);
+}

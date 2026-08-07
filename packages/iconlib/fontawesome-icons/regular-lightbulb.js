@@ -6,4 +6,6 @@ export class DileIconlibLightbulb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-lightbulb', DileIconlibLightbulb);
+if (!customElements.get('dile-fontawesome-icon-regular-lightbulb')) {
+  customElements.define('dile-fontawesome-icon-regular-lightbulb', DileIconlibLightbulb);
+}

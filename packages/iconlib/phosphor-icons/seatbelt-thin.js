@@ -6,4 +6,6 @@ export class DileIconlibSeatbeltThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seatbelt-thin', DileIconlibSeatbeltThin);
+if (!customElements.get('dile-phosphor-icon-seatbelt-thin')) {
+  customElements.define('dile-phosphor-icon-seatbelt-thin', DileIconlibSeatbeltThin);
+}

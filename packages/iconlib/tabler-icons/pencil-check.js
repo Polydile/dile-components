@@ -6,4 +6,6 @@ export class DileIconlibPencilCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-check', DileIconlibPencilCheck);
+if (!customElements.get('dile-tabler-icon-pencil-check')) {
+  customElements.define('dile-tabler-icon-pencil-check', DileIconlibPencilCheck);
+}

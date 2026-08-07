@@ -6,4 +6,6 @@ export class DileIconlibHonourLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-honour-line', DileIconlibHonourLine);
+if (!customElements.get('dile-remixicon-icon-honour-line')) {
+  customElements.define('dile-remixicon-icon-honour-line', DileIconlibHonourLine);
+}

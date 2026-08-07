@@ -6,4 +6,6 @@ export class DileIconlibFilter2Bolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-2-bolt', DileIconlibFilter2Bolt);
+if (!customElements.get('dile-tabler-icon-filter-2-bolt')) {
+  customElements.define('dile-tabler-icon-filter-2-bolt', DileIconlibFilter2Bolt);
+}

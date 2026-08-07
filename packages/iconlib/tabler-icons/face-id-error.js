@@ -6,4 +6,6 @@ export class DileIconlibFaceIdError extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-face-id-error', DileIconlibFaceIdError);
+if (!customElements.get('dile-tabler-icon-face-id-error')) {
+  customElements.define('dile-tabler-icon-face-id-error', DileIconlibFaceIdError);
+}

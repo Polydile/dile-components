@@ -6,4 +6,6 @@ export class DileIconlibBaseballCapDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-baseball-cap-duotone', DileIconlibBaseballCapDuotone);
+if (!customElements.get('dile-phosphor-icon-baseball-cap-duotone')) {
+  customElements.define('dile-phosphor-icon-baseball-cap-duotone', DileIconlibBaseballCapDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAutofpsSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-autofps-select', DileIconlibAutofpsSelect);
+if (!customElements.get('dile-material-icon-autofps-select')) {
+  customElements.define('dile-material-icon-autofps-select', DileIconlibAutofpsSelect);
+}

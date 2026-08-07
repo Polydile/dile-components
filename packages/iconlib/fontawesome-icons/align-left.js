@@ -6,4 +6,6 @@ export class DileIconlibAlignLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-align-left', DileIconlibAlignLeft);
+if (!customElements.get('dile-fontawesome-icon-align-left')) {
+  customElements.define('dile-fontawesome-icon-align-left', DileIconlibAlignLeft);
+}

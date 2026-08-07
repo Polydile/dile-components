@@ -6,4 +6,6 @@ export class DileIconlibBrandWeibo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-weibo', DileIconlibBrandWeibo);
+if (!customElements.get('dile-tabler-icon-brand-weibo')) {
+  customElements.define('dile-tabler-icon-brand-weibo', DileIconlibBrandWeibo);
+}

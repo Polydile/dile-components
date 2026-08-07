@@ -6,4 +6,6 @@ export class DileIconlibOpencart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-opencart', DileIconlibOpencart);
+if (!customElements.get('dile-fontawesome-icon-opencart')) {
+  customElements.define('dile-fontawesome-icon-opencart', DileIconlibOpencart);
+}

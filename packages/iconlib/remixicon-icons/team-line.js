@@ -6,4 +6,6 @@ export class DileIconlibTeamLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-team-line', DileIconlibTeamLine);
+if (!customElements.get('dile-remixicon-icon-team-line')) {
+  customElements.define('dile-remixicon-icon-team-line', DileIconlibTeamLine);
+}

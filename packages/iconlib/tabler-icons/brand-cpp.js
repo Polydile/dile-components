@@ -6,4 +6,6 @@ export class DileIconlibBrandCpp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cpp', DileIconlibBrandCpp);
+if (!customElements.get('dile-tabler-icon-brand-cpp')) {
+  customElements.define('dile-tabler-icon-brand-cpp', DileIconlibBrandCpp);
+}

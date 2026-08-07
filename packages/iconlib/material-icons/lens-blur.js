@@ -6,4 +6,6 @@ export class DileIconlibLensBlur extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-lens-blur', DileIconlibLensBlur);
+if (!customElements.get('dile-material-icon-lens-blur')) {
+  customElements.define('dile-material-icon-lens-blur', DileIconlibLensBlur);
+}

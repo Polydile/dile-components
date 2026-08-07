@@ -6,4 +6,6 @@ export class DileIconlibTumblr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tumblr', DileIconlibTumblr);
+if (!customElements.get('dile-fontawesome-icon-tumblr')) {
+  customElements.define('dile-fontawesome-icon-tumblr', DileIconlibTumblr);
+}

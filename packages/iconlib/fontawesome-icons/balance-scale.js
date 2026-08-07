@@ -6,4 +6,6 @@ export class DileIconlibBalanceScale extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-balance-scale', DileIconlibBalanceScale);
+if (!customElements.get('dile-fontawesome-icon-balance-scale')) {
+  customElements.define('dile-fontawesome-icon-balance-scale', DileIconlibBalanceScale);
+}

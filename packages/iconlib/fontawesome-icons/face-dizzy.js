@@ -6,4 +6,6 @@ export class DileIconlibFaceDizzy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-face-dizzy', DileIconlibFaceDizzy);
+if (!customElements.get('dile-fontawesome-icon-face-dizzy')) {
+  customElements.define('dile-fontawesome-icon-face-dizzy', DileIconlibFaceDizzy);
+}

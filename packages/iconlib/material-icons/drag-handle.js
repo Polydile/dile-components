@@ -6,4 +6,6 @@ export class DileIconlibDragHandle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drag-handle', DileIconlibDragHandle);
+if (!customElements.get('dile-material-icon-drag-handle')) {
+  customElements.define('dile-material-icon-drag-handle', DileIconlibDragHandle);
+}

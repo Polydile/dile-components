@@ -6,4 +6,6 @@ export class DileIconlibVoiceChat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-voice-chat', DileIconlibVoiceChat);
+if (!customElements.get('dile-material-icon-voice-chat')) {
+  customElements.define('dile-material-icon-voice-chat', DileIconlibVoiceChat);
+}

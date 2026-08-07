@@ -6,4 +6,6 @@ export class DileIconlibCircleChevronUpFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-chevron-up-filled', DileIconlibCircleChevronUpFilled);
+if (!customElements.get('dile-tabler-icon-circle-chevron-up-filled')) {
+  customElements.define('dile-tabler-icon-circle-chevron-up-filled', DileIconlibCircleChevronUpFilled);
+}

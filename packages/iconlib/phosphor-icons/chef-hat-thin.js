@@ -6,4 +6,6 @@ export class DileIconlibChefHatThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chef-hat-thin', DileIconlibChefHatThin);
+if (!customElements.get('dile-phosphor-icon-chef-hat-thin')) {
+  customElements.define('dile-phosphor-icon-chef-hat-thin', DileIconlibChefHatThin);
+}

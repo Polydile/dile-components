@@ -6,4 +6,6 @@ export class DileIconlibStethoscopeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stethoscope-light', DileIconlibStethoscopeLight);
+if (!customElements.get('dile-phosphor-icon-stethoscope-light')) {
+  customElements.define('dile-phosphor-icon-stethoscope-light', DileIconlibStethoscopeLight);
+}

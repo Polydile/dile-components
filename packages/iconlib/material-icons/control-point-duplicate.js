@@ -6,4 +6,6 @@ export class DileIconlibControlPointDuplicate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-control-point-duplicate', DileIconlibControlPointDuplicate);
+if (!customElements.get('dile-material-icon-control-point-duplicate')) {
+  customElements.define('dile-material-icon-control-point-duplicate', DileIconlibControlPointDuplicate);
+}

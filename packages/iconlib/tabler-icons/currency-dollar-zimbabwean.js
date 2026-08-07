@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarZimbabwean extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-zimbabwean', DileIconlibCurrencyDollarZimbabwean);
+if (!customElements.get('dile-tabler-icon-currency-dollar-zimbabwean')) {
+  customElements.define('dile-tabler-icon-currency-dollar-zimbabwean', DileIconlibCurrencyDollarZimbabwean);
+}

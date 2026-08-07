@@ -6,4 +6,6 @@ export class DileIconlibCoffee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-coffee', DileIconlibCoffee);
+if (!customElements.get('dile-lucide-icon-coffee')) {
+  customElements.define('dile-lucide-icon-coffee', DileIconlibCoffee);
+}

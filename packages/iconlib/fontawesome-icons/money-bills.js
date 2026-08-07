@@ -6,4 +6,6 @@ export class DileIconlibMoneyBills extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-money-bills', DileIconlibMoneyBills);
+if (!customElements.get('dile-fontawesome-icon-money-bills')) {
+  customElements.define('dile-fontawesome-icon-money-bills', DileIconlibMoneyBills);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFirewallFlame extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-firewall-flame', DileIconlibFirewallFlame);
+if (!customElements.get('dile-tabler-icon-firewall-flame')) {
+  customElements.define('dile-tabler-icon-firewall-flame', DileIconlibFirewallFlame);
+}

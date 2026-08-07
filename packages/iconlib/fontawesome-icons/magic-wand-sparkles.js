@@ -6,4 +6,6 @@ export class DileIconlibMagicWandSparkles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-magic-wand-sparkles', DileIconlibMagicWandSparkles);
+if (!customElements.get('dile-fontawesome-icon-magic-wand-sparkles')) {
+  customElements.define('dile-fontawesome-icon-magic-wand-sparkles', DileIconlibMagicWandSparkles);
+}

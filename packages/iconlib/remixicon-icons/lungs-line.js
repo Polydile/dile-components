@@ -6,4 +6,6 @@ export class DileIconlibLungsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lungs-line', DileIconlibLungsLine);
+if (!customElements.get('dile-remixicon-icon-lungs-line')) {
+  customElements.define('dile-remixicon-icon-lungs-line', DileIconlibLungsLine);
+}

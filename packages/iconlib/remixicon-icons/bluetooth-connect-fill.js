@@ -6,4 +6,6 @@ export class DileIconlibBluetoothConnectFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bluetooth-connect-fill', DileIconlibBluetoothConnectFill);
+if (!customElements.get('dile-remixicon-icon-bluetooth-connect-fill')) {
+  customElements.define('dile-remixicon-icon-bluetooth-connect-fill', DileIconlibBluetoothConnectFill);
+}

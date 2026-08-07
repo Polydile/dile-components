@@ -6,4 +6,6 @@ export class DileIconlibSportsRugby extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-rugby', DileIconlibSportsRugby);
+if (!customElements.get('dile-material-icon-sports-rugby')) {
+  customElements.define('dile-material-icon-sports-rugby', DileIconlibSportsRugby);
+}

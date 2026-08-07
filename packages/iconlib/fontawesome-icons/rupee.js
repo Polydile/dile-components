@@ -6,4 +6,6 @@ export class DileIconlibRupee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rupee', DileIconlibRupee);
+if (!customElements.get('dile-fontawesome-icon-rupee')) {
+  customElements.define('dile-fontawesome-icon-rupee', DileIconlibRupee);
+}

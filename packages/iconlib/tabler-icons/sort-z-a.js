@@ -6,4 +6,6 @@ export class DileIconlibSortZA extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sort-z-a', DileIconlibSortZA);
+if (!customElements.get('dile-tabler-icon-sort-z-a')) {
+  customElements.define('dile-tabler-icon-sort-z-a', DileIconlibSortZA);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSupervisedUserCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-supervised-user-circle', DileIconlibSupervisedUserCircle);
+if (!customElements.get('dile-material-icon-supervised-user-circle')) {
+  customElements.define('dile-material-icon-supervised-user-circle', DileIconlibSupervisedUserCircle);
+}

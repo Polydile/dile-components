@@ -6,4 +6,6 @@ export class DileIconlibDropFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-drop-fill', DileIconlibDropFill);
+if (!customElements.get('dile-remixicon-icon-drop-fill')) {
+  customElements.define('dile-remixicon-icon-drop-fill', DileIconlibDropFill);
+}

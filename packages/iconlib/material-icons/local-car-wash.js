@@ -6,4 +6,6 @@ export class DileIconlibLocalCarWash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-car-wash', DileIconlibLocalCarWash);
+if (!customElements.get('dile-material-icon-local-car-wash')) {
+  customElements.define('dile-material-icon-local-car-wash', DileIconlibLocalCarWash);
+}

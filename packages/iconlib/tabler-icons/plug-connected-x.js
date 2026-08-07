@@ -6,4 +6,6 @@ export class DileIconlibPlugConnectedX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-plug-connected-x', DileIconlibPlugConnectedX);
+if (!customElements.get('dile-tabler-icon-plug-connected-x')) {
+  customElements.define('dile-tabler-icon-plug-connected-x', DileIconlibPlugConnectedX);
+}

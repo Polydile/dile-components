@@ -6,4 +6,6 @@ export class DileIconlibGenderHermaphrodite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gender-hermaphrodite', DileIconlibGenderHermaphrodite);
+if (!customElements.get('dile-tabler-icon-gender-hermaphrodite')) {
+  customElements.define('dile-tabler-icon-gender-hermaphrodite', DileIconlibGenderHermaphrodite);
+}

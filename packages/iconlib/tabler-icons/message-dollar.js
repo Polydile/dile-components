@@ -6,4 +6,6 @@ export class DileIconlibMessageDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-dollar', DileIconlibMessageDollar);
+if (!customElements.get('dile-tabler-icon-message-dollar')) {
+  customElements.define('dile-tabler-icon-message-dollar', DileIconlibMessageDollar);
+}

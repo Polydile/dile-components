@@ -6,4 +6,6 @@ export class DileIconlibBroadcastOnPersonal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-broadcast-on-personal', DileIconlibBroadcastOnPersonal);
+if (!customElements.get('dile-material-icon-broadcast-on-personal')) {
+  customElements.define('dile-material-icon-broadcast-on-personal', DileIconlibBroadcastOnPersonal);
+}

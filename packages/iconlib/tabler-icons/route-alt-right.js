@@ -6,4 +6,6 @@ export class DileIconlibRouteAltRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-route-alt-right', DileIconlibRouteAltRight);
+if (!customElements.get('dile-tabler-icon-route-alt-right')) {
+  customElements.define('dile-tabler-icon-route-alt-right', DileIconlibRouteAltRight);
+}

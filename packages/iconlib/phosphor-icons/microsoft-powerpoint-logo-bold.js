@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftPowerpointLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-bold', DileIconlibMicrosoftPowerpointLogoBold);
+if (!customElements.get('dile-phosphor-icon-microsoft-powerpoint-logo-bold')) {
+  customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-bold', DileIconlibMicrosoftPowerpointLogoBold);
+}

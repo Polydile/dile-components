@@ -6,4 +6,6 @@ export class DileIconlibLeafLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-leaf-line', DileIconlibLeafLine);
+if (!customElements.get('dile-remixicon-icon-leaf-line')) {
+  customElements.define('dile-remixicon-icon-leaf-line', DileIconlibLeafLine);
+}

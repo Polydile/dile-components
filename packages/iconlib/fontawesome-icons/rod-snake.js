@@ -6,4 +6,6 @@ export class DileIconlibRodSnake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rod-snake', DileIconlibRodSnake);
+if (!customElements.get('dile-fontawesome-icon-rod-snake')) {
+  customElements.define('dile-fontawesome-icon-rod-snake', DileIconlibRodSnake);
+}

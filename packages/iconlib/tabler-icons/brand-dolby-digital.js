@@ -6,4 +6,6 @@ export class DileIconlibBrandDolbyDigital extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-dolby-digital', DileIconlibBrandDolbyDigital);
+if (!customElements.get('dile-tabler-icon-brand-dolby-digital')) {
+  customElements.define('dile-tabler-icon-brand-dolby-digital', DileIconlibBrandDolbyDigital);
+}

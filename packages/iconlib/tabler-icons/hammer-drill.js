@@ -6,4 +6,6 @@ export class DileIconlibHammerDrill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hammer-drill', DileIconlibHammerDrill);
+if (!customElements.get('dile-tabler-icon-hammer-drill')) {
+  customElements.define('dile-tabler-icon-hammer-drill', DileIconlibHammerDrill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSparklingLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sparkling-line', DileIconlibSparklingLine);
+if (!customElements.get('dile-remixicon-icon-sparkling-line')) {
+  customElements.define('dile-remixicon-icon-sparkling-line', DileIconlibSparklingLine);
+}

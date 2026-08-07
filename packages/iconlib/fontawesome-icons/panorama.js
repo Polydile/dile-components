@@ -6,4 +6,6 @@ export class DileIconlibPanorama extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-panorama', DileIconlibPanorama);
+if (!customElements.get('dile-fontawesome-icon-panorama')) {
+  customElements.define('dile-fontawesome-icon-panorama', DileIconlibPanorama);
+}

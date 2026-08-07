@@ -6,4 +6,6 @@ export class DileIconlibLicenseOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-license-off', DileIconlibLicenseOff);
+if (!customElements.get('dile-tabler-icon-license-off')) {
+  customElements.define('dile-tabler-icon-license-off', DileIconlibLicenseOff);
+}

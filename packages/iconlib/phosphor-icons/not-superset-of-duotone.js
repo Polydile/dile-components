@@ -6,4 +6,6 @@ export class DileIconlibNotSupersetOfDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-not-superset-of-duotone', DileIconlibNotSupersetOfDuotone);
+if (!customElements.get('dile-phosphor-icon-not-superset-of-duotone')) {
+  customElements.define('dile-phosphor-icon-not-superset-of-duotone', DileIconlibNotSupersetOfDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMarquee2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-marquee-2', DileIconlibMarquee2);
+if (!customElements.get('dile-tabler-icon-marquee-2')) {
+  customElements.define('dile-tabler-icon-marquee-2', DileIconlibMarquee2);
+}

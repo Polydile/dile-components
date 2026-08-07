@@ -6,4 +6,6 @@ export class DileIconlibAddRoad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-add-road', DileIconlibAddRoad);
+if (!customElements.get('dile-material-icon-add-road')) {
+  customElements.define('dile-material-icon-add-road', DileIconlibAddRoad);
+}

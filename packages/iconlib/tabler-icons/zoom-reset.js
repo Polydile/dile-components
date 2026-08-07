@@ -6,4 +6,6 @@ export class DileIconlibZoomReset extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-reset', DileIconlibZoomReset);
+if (!customElements.get('dile-tabler-icon-zoom-reset')) {
+  customElements.define('dile-tabler-icon-zoom-reset', DileIconlibZoomReset);
+}

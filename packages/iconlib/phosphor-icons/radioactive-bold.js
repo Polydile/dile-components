@@ -6,4 +6,6 @@ export class DileIconlibRadioactiveBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-radioactive-bold', DileIconlibRadioactiveBold);
+if (!customElements.get('dile-phosphor-icon-radioactive-bold')) {
+  customElements.define('dile-phosphor-icon-radioactive-bold', DileIconlibRadioactiveBold);
+}

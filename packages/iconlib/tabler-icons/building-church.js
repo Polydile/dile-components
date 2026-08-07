@@ -6,4 +6,6 @@ export class DileIconlibBuildingChurch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-church', DileIconlibBuildingChurch);
+if (!customElements.get('dile-tabler-icon-building-church')) {
+  customElements.define('dile-tabler-icon-building-church', DileIconlibBuildingChurch);
+}

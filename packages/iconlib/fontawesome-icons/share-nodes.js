@@ -6,4 +6,6 @@ export class DileIconlibShareNodes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-share-nodes', DileIconlibShareNodes);
+if (!customElements.get('dile-fontawesome-icon-share-nodes')) {
+  customElements.define('dile-fontawesome-icon-share-nodes', DileIconlibShareNodes);
+}

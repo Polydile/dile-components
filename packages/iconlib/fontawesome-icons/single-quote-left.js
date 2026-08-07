@@ -6,4 +6,6 @@ export class DileIconlibSingleQuoteLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-single-quote-left', DileIconlibSingleQuoteLeft);
+if (!customElements.get('dile-fontawesome-icon-single-quote-left')) {
+  customElements.define('dile-fontawesome-icon-single-quote-left', DileIconlibSingleQuoteLeft);
+}

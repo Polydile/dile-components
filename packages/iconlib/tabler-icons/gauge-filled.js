@@ -6,4 +6,6 @@ export class DileIconlibGaugeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gauge-filled', DileIconlibGaugeFilled);
+if (!customElements.get('dile-tabler-icon-gauge-filled')) {
+  customElements.define('dile-tabler-icon-gauge-filled', DileIconlibGaugeFilled);
+}

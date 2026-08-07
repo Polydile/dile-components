@@ -6,4 +6,6 @@ export class DileIconlibVenusMars extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-venus-mars', DileIconlibVenusMars);
+if (!customElements.get('dile-fontawesome-icon-venus-mars')) {
+  customElements.define('dile-fontawesome-icon-venus-mars', DileIconlibVenusMars);
+}

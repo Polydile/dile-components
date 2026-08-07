@@ -6,4 +6,6 @@ export class DileIconlibSignal4gPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-signal-4g-plus', DileIconlibSignal4gPlus);
+if (!customElements.get('dile-tabler-icon-signal-4g-plus')) {
+  customElements.define('dile-tabler-icon-signal-4g-plus', DileIconlibSignal4gPlus);
+}

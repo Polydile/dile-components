@@ -6,4 +6,6 @@ export class DileIconlibChartLineUpDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-line-up-duotone', DileIconlibChartLineUpDuotone);
+if (!customElements.get('dile-phosphor-icon-chart-line-up-duotone')) {
+  customElements.define('dile-phosphor-icon-chart-line-up-duotone', DileIconlibChartLineUpDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBongOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bong-off', DileIconlibBongOff);
+if (!customElements.get('dile-tabler-icon-bong-off')) {
+  customElements.define('dile-tabler-icon-bong-off', DileIconlibBongOff);
+}

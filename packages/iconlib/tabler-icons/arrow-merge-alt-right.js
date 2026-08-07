@@ -6,4 +6,6 @@ export class DileIconlibArrowMergeAltRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-merge-alt-right', DileIconlibArrowMergeAltRight);
+if (!customElements.get('dile-tabler-icon-arrow-merge-alt-right')) {
+  customElements.define('dile-tabler-icon-arrow-merge-alt-right', DileIconlibArrowMergeAltRight);
+}

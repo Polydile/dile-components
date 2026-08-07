@@ -6,4 +6,6 @@ export class DileIconlibClipboardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-clipboard-line', DileIconlibClipboardLine);
+if (!customElements.get('dile-remixicon-icon-clipboard-line')) {
+  customElements.define('dile-remixicon-icon-clipboard-line', DileIconlibClipboardLine);
+}

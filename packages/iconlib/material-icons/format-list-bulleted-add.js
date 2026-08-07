@@ -6,4 +6,6 @@ export class DileIconlibFormatListBulletedAdd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-list-bulleted-add', DileIconlibFormatListBulletedAdd);
+if (!customElements.get('dile-material-icon-format-list-bulleted-add')) {
+  customElements.define('dile-material-icon-format-list-bulleted-add', DileIconlibFormatListBulletedAdd);
+}

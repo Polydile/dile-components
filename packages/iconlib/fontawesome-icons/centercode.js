@@ -6,4 +6,6 @@ export class DileIconlibCentercode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-centercode', DileIconlibCentercode);
+if (!customElements.get('dile-fontawesome-icon-centercode')) {
+  customElements.define('dile-fontawesome-icon-centercode', DileIconlibCentercode);
+}

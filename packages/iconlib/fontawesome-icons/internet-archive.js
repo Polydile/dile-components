@@ -6,4 +6,6 @@ export class DileIconlibInternetArchive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-internet-archive', DileIconlibInternetArchive);
+if (!customElements.get('dile-fontawesome-icon-internet-archive')) {
+  customElements.define('dile-fontawesome-icon-internet-archive', DileIconlibInternetArchive);
+}

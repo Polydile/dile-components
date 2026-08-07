@@ -6,4 +6,6 @@ export class DileIconlibCurrencyKroneSwedish extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-krone-swedish', DileIconlibCurrencyKroneSwedish);
+if (!customElements.get('dile-tabler-icon-currency-krone-swedish')) {
+  customElements.define('dile-tabler-icon-currency-krone-swedish', DileIconlibCurrencyKroneSwedish);
+}

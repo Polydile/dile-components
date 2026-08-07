@@ -6,4 +6,6 @@ export class DileIconlibSkypeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-skype-fill', DileIconlibSkypeFill);
+if (!customElements.get('dile-remixicon-icon-skype-fill')) {
+  customElements.define('dile-remixicon-icon-skype-fill', DileIconlibSkypeFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSmileyStickerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-smiley-sticker-light', DileIconlibSmileyStickerLight);
+if (!customElements.get('dile-phosphor-icon-smiley-sticker-light')) {
+  customElements.define('dile-phosphor-icon-smiley-sticker-light', DileIconlibSmileyStickerLight);
+}

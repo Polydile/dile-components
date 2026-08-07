@@ -6,4 +6,6 @@ export class DileIconlibNightsStay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nights-stay', DileIconlibNightsStay);
+if (!customElements.get('dile-material-icon-nights-stay')) {
+  customElements.define('dile-material-icon-nights-stay', DileIconlibNightsStay);
+}

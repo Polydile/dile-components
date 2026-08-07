@@ -6,4 +6,6 @@ export class DileIconlibZoomOutMap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-zoom-out-map', DileIconlibZoomOutMap);
+if (!customElements.get('dile-material-icon-zoom-out-map')) {
+  customElements.define('dile-material-icon-zoom-out-map', DileIconlibZoomOutMap);
+}

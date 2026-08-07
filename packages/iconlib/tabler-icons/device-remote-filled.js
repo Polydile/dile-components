@@ -6,4 +6,6 @@ export class DileIconlibDeviceRemoteFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-remote-filled', DileIconlibDeviceRemoteFilled);
+if (!customElements.get('dile-tabler-icon-device-remote-filled')) {
+  customElements.define('dile-tabler-icon-device-remote-filled', DileIconlibDeviceRemoteFilled);
+}

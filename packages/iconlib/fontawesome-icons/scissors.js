@@ -6,4 +6,6 @@ export class DileIconlibScissors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scissors', DileIconlibScissors);
+if (!customElements.get('dile-fontawesome-icon-scissors')) {
+  customElements.define('dile-fontawesome-icon-scissors', DileIconlibScissors);
+}

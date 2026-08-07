@@ -6,4 +6,6 @@ export class DileIconlibBrandInertia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-inertia', DileIconlibBrandInertia);
+if (!customElements.get('dile-tabler-icon-brand-inertia')) {
+  customElements.define('dile-tabler-icon-brand-inertia', DileIconlibBrandInertia);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHandFistBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-fist-bold', DileIconlibHandFistBold);
+if (!customElements.get('dile-phosphor-icon-hand-fist-bold')) {
+  customElements.define('dile-phosphor-icon-hand-fist-bold', DileIconlibHandFistBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChildDress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-child-dress', DileIconlibChildDress);
+if (!customElements.get('dile-fontawesome-icon-child-dress')) {
+  customElements.define('dile-fontawesome-icon-child-dress', DileIconlibChildDress);
+}

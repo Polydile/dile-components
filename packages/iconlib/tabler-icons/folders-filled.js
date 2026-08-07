@@ -6,4 +6,6 @@ export class DileIconlibFoldersFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folders-filled', DileIconlibFoldersFilled);
+if (!customElements.get('dile-tabler-icon-folders-filled')) {
+  customElements.define('dile-tabler-icon-folders-filled', DileIconlibFoldersFilled);
+}

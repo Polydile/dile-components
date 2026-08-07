@@ -6,4 +6,6 @@ export class DileIconlibPiggyBankThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-piggy-bank-thin', DileIconlibPiggyBankThin);
+if (!customElements.get('dile-phosphor-icon-piggy-bank-thin')) {
+  customElements.define('dile-phosphor-icon-piggy-bank-thin', DileIconlibPiggyBankThin);
+}

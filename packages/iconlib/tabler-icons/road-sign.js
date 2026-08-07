@@ -6,4 +6,6 @@ export class DileIconlibRoadSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-road-sign', DileIconlibRoadSign);
+if (!customElements.get('dile-tabler-icon-road-sign')) {
+  customElements.define('dile-tabler-icon-road-sign', DileIconlibRoadSign);
+}

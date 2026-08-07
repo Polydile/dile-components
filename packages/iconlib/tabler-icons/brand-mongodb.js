@@ -6,4 +6,6 @@ export class DileIconlibBrandMongodb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mongodb', DileIconlibBrandMongodb);
+if (!customElements.get('dile-tabler-icon-brand-mongodb')) {
+  customElements.define('dile-tabler-icon-brand-mongodb', DileIconlibBrandMongodb);
+}

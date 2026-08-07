@@ -6,4 +6,6 @@ export class DileIconlibEvStation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ev-station', DileIconlibEvStation);
+if (!customElements.get('dile-material-icon-ev-station')) {
+  customElements.define('dile-material-icon-ev-station', DileIconlibEvStation);
+}

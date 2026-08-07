@@ -6,4 +6,6 @@ export class DileIconlibHeadCircuitDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-head-circuit-duotone', DileIconlibHeadCircuitDuotone);
+if (!customElements.get('dile-phosphor-icon-head-circuit-duotone')) {
+  customElements.define('dile-phosphor-icon-head-circuit-duotone', DileIconlibHeadCircuitDuotone);
+}

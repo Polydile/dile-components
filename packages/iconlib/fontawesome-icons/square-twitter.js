@@ -6,4 +6,6 @@ export class DileIconlibSquareTwitter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-twitter', DileIconlibSquareTwitter);
+if (!customElements.get('dile-fontawesome-icon-square-twitter')) {
+  customElements.define('dile-fontawesome-icon-square-twitter', DileIconlibSquareTwitter);
+}

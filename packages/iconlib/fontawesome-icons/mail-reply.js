@@ -6,4 +6,6 @@ export class DileIconlibMailReply extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mail-reply', DileIconlibMailReply);
+if (!customElements.get('dile-fontawesome-icon-mail-reply')) {
+  customElements.define('dile-fontawesome-icon-mail-reply', DileIconlibMailReply);
+}

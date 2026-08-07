@@ -6,4 +6,6 @@ export class DileIconlibWbAuto extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wb-auto', DileIconlibWbAuto);
+if (!customElements.get('dile-material-icon-wb-auto')) {
+  customElements.define('dile-material-icon-wb-auto', DileIconlibWbAuto);
+}

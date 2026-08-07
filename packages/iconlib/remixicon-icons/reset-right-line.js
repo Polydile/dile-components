@@ -6,4 +6,6 @@ export class DileIconlibResetRightLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-reset-right-line', DileIconlibResetRightLine);
+if (!customElements.get('dile-remixicon-icon-reset-right-line')) {
+  customElements.define('dile-remixicon-icon-reset-right-line', DileIconlibResetRightLine);
+}

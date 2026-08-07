@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleWalkLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-walk-light', DileIconlibPersonSimpleWalkLight);
+if (!customElements.get('dile-phosphor-icon-person-simple-walk-light')) {
+  customElements.define('dile-phosphor-icon-person-simple-walk-light', DileIconlibPersonSimpleWalkLight);
+}

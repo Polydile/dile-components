@@ -6,4 +6,6 @@ export class DileIconlibMathOperationsLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-math-operations-light', DileIconlibMathOperationsLight);
+if (!customElements.get('dile-phosphor-icon-math-operations-light')) {
+  customElements.define('dile-phosphor-icon-math-operations-light', DileIconlibMathOperationsLight);
+}

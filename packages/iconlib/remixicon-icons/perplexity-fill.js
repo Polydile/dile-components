@@ -6,4 +6,6 @@ export class DileIconlibPerplexityFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-perplexity-fill', DileIconlibPerplexityFill);
+if (!customElements.get('dile-remixicon-icon-perplexity-fill')) {
+  customElements.define('dile-remixicon-icon-perplexity-fill', DileIconlibPerplexityFill);
+}

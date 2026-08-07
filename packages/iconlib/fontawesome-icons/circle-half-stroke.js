@@ -6,4 +6,6 @@ export class DileIconlibCircleHalfStroke extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-half-stroke', DileIconlibCircleHalfStroke);
+if (!customElements.get('dile-fontawesome-icon-circle-half-stroke')) {
+  customElements.define('dile-fontawesome-icon-circle-half-stroke', DileIconlibCircleHalfStroke);
+}

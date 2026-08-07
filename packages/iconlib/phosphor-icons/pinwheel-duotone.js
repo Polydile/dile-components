@@ -6,4 +6,6 @@ export class DileIconlibPinwheelDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pinwheel-duotone', DileIconlibPinwheelDuotone);
+if (!customElements.get('dile-phosphor-icon-pinwheel-duotone')) {
+  customElements.define('dile-phosphor-icon-pinwheel-duotone', DileIconlibPinwheelDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandMetabrainz extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-metabrainz', DileIconlibBrandMetabrainz);
+if (!customElements.get('dile-tabler-icon-brand-metabrainz')) {
+  customElements.define('dile-tabler-icon-brand-metabrainz', DileIconlibBrandMetabrainz);
+}

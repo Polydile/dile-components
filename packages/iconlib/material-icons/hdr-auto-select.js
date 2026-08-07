@@ -6,4 +6,6 @@ export class DileIconlibHdrAutoSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hdr-auto-select', DileIconlibHdrAutoSelect);
+if (!customElements.get('dile-material-icon-hdr-auto-select')) {
+  customElements.define('dile-material-icon-hdr-auto-select', DileIconlibHdrAutoSelect);
+}

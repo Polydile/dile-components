@@ -6,4 +6,6 @@ export class DileIconlibGitPullRequestConflict extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-git-pull-request-conflict', DileIconlibGitPullRequestConflict);
+if (!customElements.get('dile-tabler-icon-git-pull-request-conflict')) {
+  customElements.define('dile-tabler-icon-git-pull-request-conflict', DileIconlibGitPullRequestConflict);
+}

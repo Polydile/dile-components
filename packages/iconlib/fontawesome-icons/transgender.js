@@ -6,4 +6,6 @@ export class DileIconlibTransgender extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-transgender', DileIconlibTransgender);
+if (!customElements.get('dile-fontawesome-icon-transgender')) {
+  customElements.define('dile-fontawesome-icon-transgender', DileIconlibTransgender);
+}

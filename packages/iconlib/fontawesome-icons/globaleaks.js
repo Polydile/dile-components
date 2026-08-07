@@ -6,4 +6,6 @@ export class DileIconlibGlobaleaks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-globaleaks', DileIconlibGlobaleaks);
+if (!customElements.get('dile-fontawesome-icon-globaleaks')) {
+  customElements.define('dile-fontawesome-icon-globaleaks', DileIconlibGlobaleaks);
+}

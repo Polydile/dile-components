@@ -6,4 +6,6 @@ export class DileIconlibServerless extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-serverless', DileIconlibServerless);
+if (!customElements.get('dile-tabler-icon-serverless')) {
+  customElements.define('dile-tabler-icon-serverless', DileIconlibServerless);
+}

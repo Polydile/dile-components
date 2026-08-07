@@ -6,4 +6,6 @@ export class DileIconlibBrandWalmart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-walmart', DileIconlibBrandWalmart);
+if (!customElements.get('dile-tabler-icon-brand-walmart')) {
+  customElements.define('dile-tabler-icon-brand-walmart', DileIconlibBrandWalmart);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPixelfedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pixelfed-line', DileIconlibPixelfedLine);
+if (!customElements.get('dile-remixicon-icon-pixelfed-line')) {
+  customElements.define('dile-remixicon-icon-pixelfed-line', DileIconlibPixelfedLine);
+}

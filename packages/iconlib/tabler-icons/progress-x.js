@@ -6,4 +6,6 @@ export class DileIconlibProgressX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-progress-x', DileIconlibProgressX);
+if (!customElements.get('dile-tabler-icon-progress-x')) {
+  customElements.define('dile-tabler-icon-progress-x', DileIconlibProgressX);
+}

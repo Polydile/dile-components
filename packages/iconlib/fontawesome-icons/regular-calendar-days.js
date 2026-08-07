@@ -6,4 +6,6 @@ export class DileIconlibCalendarDays extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-calendar-days', DileIconlibCalendarDays);
+if (!customElements.get('dile-fontawesome-icon-regular-calendar-days')) {
+  customElements.define('dile-fontawesome-icon-regular-calendar-days', DileIconlibCalendarDays);
+}

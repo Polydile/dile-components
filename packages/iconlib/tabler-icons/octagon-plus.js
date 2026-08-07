@@ -6,4 +6,6 @@ export class DileIconlibOctagonPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-octagon-plus', DileIconlibOctagonPlus);
+if (!customElements.get('dile-tabler-icon-octagon-plus')) {
+  customElements.define('dile-tabler-icon-octagon-plus', DileIconlibOctagonPlus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLocationDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-location-dollar', DileIconlibLocationDollar);
+if (!customElements.get('dile-tabler-icon-location-dollar')) {
+  customElements.define('dile-tabler-icon-location-dollar', DileIconlibLocationDollar);
+}

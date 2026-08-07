@@ -6,4 +6,6 @@ export class DileIconlibBusinessTime extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-business-time', DileIconlibBusinessTime);
+if (!customElements.get('dile-fontawesome-icon-business-time')) {
+  customElements.define('dile-fontawesome-icon-business-time', DileIconlibBusinessTime);
+}

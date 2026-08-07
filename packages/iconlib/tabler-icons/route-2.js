@@ -6,4 +6,6 @@ export class DileIconlibRoute2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-route-2', DileIconlibRoute2);
+if (!customElements.get('dile-tabler-icon-route-2')) {
+  customElements.define('dile-tabler-icon-route-2', DileIconlibRoute2);
+}

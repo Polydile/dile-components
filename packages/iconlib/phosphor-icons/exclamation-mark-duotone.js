@@ -6,4 +6,6 @@ export class DileIconlibExclamationMarkDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-exclamation-mark-duotone', DileIconlibExclamationMarkDuotone);
+if (!customElements.get('dile-phosphor-icon-exclamation-mark-duotone')) {
+  customElements.define('dile-phosphor-icon-exclamation-mark-duotone', DileIconlibExclamationMarkDuotone);
+}

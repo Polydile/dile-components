@@ -6,4 +6,6 @@ export class DileIconlibMoodWrrrFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-wrrr-filled', DileIconlibMoodWrrrFilled);
+if (!customElements.get('dile-tabler-icon-mood-wrrr-filled')) {
+  customElements.define('dile-tabler-icon-mood-wrrr-filled', DileIconlibMoodWrrrFilled);
+}

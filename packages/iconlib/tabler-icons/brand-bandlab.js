@@ -6,4 +6,6 @@ export class DileIconlibBrandBandlab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bandlab', DileIconlibBrandBandlab);
+if (!customElements.get('dile-tabler-icon-brand-bandlab')) {
+  customElements.define('dile-tabler-icon-brand-bandlab', DileIconlibBrandBandlab);
+}

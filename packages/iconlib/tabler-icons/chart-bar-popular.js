@@ -6,4 +6,6 @@ export class DileIconlibChartBarPopular extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-bar-popular', DileIconlibChartBarPopular);
+if (!customElements.get('dile-tabler-icon-chart-bar-popular')) {
+  customElements.define('dile-tabler-icon-chart-bar-popular', DileIconlibChartBarPopular);
+}

@@ -6,4 +6,6 @@ export class DileIconlibIceCream extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ice-cream', DileIconlibIceCream);
+if (!customElements.get('dile-tabler-icon-ice-cream')) {
+  customElements.define('dile-tabler-icon-ice-cream', DileIconlibIceCream);
+}

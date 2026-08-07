@@ -6,4 +6,6 @@ export class DileIconlibMoneyCnyBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-money-cny-box-line', DileIconlibMoneyCnyBoxLine);
+if (!customElements.get('dile-remixicon-icon-money-cny-box-line')) {
+  customElements.define('dile-remixicon-icon-money-cny-box-line', DileIconlibMoneyCnyBoxLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShirtFoldedDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shirt-folded-duotone', DileIconlibShirtFoldedDuotone);
+if (!customElements.get('dile-phosphor-icon-shirt-folded-duotone')) {
+  customElements.define('dile-phosphor-icon-shirt-folded-duotone', DileIconlibShirtFoldedDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-t-box-line', DileIconlibTBoxLine);
+if (!customElements.get('dile-remixicon-icon-t-box-line')) {
+  customElements.define('dile-remixicon-icon-t-box-line', DileIconlibTBoxLine);
+}

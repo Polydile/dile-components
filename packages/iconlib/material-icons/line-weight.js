@@ -6,4 +6,6 @@ export class DileIconlibLineWeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-line-weight', DileIconlibLineWeight);
+if (!customElements.get('dile-material-icon-line-weight')) {
+  customElements.define('dile-material-icon-line-weight', DileIconlibLineWeight);
+}

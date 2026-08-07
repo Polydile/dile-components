@@ -6,4 +6,6 @@ export class DileIconlibSms extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sms', DileIconlibSms);
+if (!customElements.get('dile-fontawesome-icon-sms')) {
+  customElements.define('dile-fontawesome-icon-sms', DileIconlibSms);
+}

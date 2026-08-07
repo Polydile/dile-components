@@ -6,4 +6,6 @@ export class DileIconlibFountainFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fountain-filled', DileIconlibFountainFilled);
+if (!customElements.get('dile-tabler-icon-fountain-filled')) {
+  customElements.define('dile-tabler-icon-fountain-filled', DileIconlibFountainFilled);
+}

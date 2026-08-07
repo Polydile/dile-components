@@ -6,4 +6,6 @@ export class DileIconlibTimelineEventExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-timeline-event-exclamation', DileIconlibTimelineEventExclamation);
+if (!customElements.get('dile-tabler-icon-timeline-event-exclamation')) {
+  customElements.define('dile-tabler-icon-timeline-event-exclamation', DileIconlibTimelineEventExclamation);
+}

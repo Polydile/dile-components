@@ -6,4 +6,6 @@ export class DileIconlibSurprise extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-surprise', DileIconlibSurprise);
+if (!customElements.get('dile-fontawesome-icon-regular-surprise')) {
+  customElements.define('dile-fontawesome-icon-regular-surprise', DileIconlibSurprise);
+}

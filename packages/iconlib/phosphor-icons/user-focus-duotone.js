@@ -6,4 +6,6 @@ export class DileIconlibUserFocusDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-focus-duotone', DileIconlibUserFocusDuotone);
+if (!customElements.get('dile-phosphor-icon-user-focus-duotone')) {
+  customElements.define('dile-phosphor-icon-user-focus-duotone', DileIconlibUserFocusDuotone);
+}

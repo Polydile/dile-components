@@ -6,4 +6,6 @@ export class DileIconlibGithubSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-github-square', DileIconlibGithubSquare);
+if (!customElements.get('dile-fontawesome-icon-github-square')) {
+  customElements.define('dile-fontawesome-icon-github-square', DileIconlibGithubSquare);
+}

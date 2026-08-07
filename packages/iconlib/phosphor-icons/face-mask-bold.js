@@ -6,4 +6,6 @@ export class DileIconlibFaceMaskBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-face-mask-bold', DileIconlibFaceMaskBold);
+if (!customElements.get('dile-phosphor-icon-face-mask-bold')) {
+  customElements.define('dile-phosphor-icon-face-mask-bold', DileIconlibFaceMaskBold);
+}

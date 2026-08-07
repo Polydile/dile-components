@@ -6,4 +6,6 @@ export class DileIconlibLaptopMinimalCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-laptop-minimal-check', DileIconlibLaptopMinimalCheck);
+if (!customElements.get('dile-lucide-icon-laptop-minimal-check')) {
+  customElements.define('dile-lucide-icon-laptop-minimal-check', DileIconlibLaptopMinimalCheck);
+}

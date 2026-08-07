@@ -6,4 +6,6 @@ export class DileIconlibHouseboat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-houseboat', DileIconlibHouseboat);
+if (!customElements.get('dile-material-icon-houseboat')) {
+  customElements.define('dile-material-icon-houseboat', DileIconlibHouseboat);
+}

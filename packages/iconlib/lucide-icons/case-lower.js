@@ -6,4 +6,6 @@ export class DileIconlibCaseLower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-case-lower', DileIconlibCaseLower);
+if (!customElements.get('dile-lucide-icon-case-lower')) {
+  customElements.define('dile-lucide-icon-case-lower', DileIconlibCaseLower);
+}

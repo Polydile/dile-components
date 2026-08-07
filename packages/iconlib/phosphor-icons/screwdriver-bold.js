@@ -6,4 +6,6 @@ export class DileIconlibScrewdriverBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-screwdriver-bold', DileIconlibScrewdriverBold);
+if (!customElements.get('dile-phosphor-icon-screwdriver-bold')) {
+  customElements.define('dile-phosphor-icon-screwdriver-bold', DileIconlibScrewdriverBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMissedVideoCall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-missed-video-call', DileIconlibMissedVideoCall);
+if (!customElements.get('dile-material-icon-missed-video-call')) {
+  customElements.define('dile-material-icon-missed-video-call', DileIconlibMissedVideoCall);
+}

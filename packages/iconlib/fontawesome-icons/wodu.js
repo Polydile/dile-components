@@ -6,4 +6,6 @@ export class DileIconlibWodu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wodu', DileIconlibWodu);
+if (!customElements.get('dile-fontawesome-icon-wodu')) {
+  customElements.define('dile-fontawesome-icon-wodu', DileIconlibWodu);
+}

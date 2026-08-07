@@ -6,4 +6,6 @@ export class DileIconlibBity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bity', DileIconlibBity);
+if (!customElements.get('dile-fontawesome-icon-bity')) {
+  customElements.define('dile-fontawesome-icon-bity', DileIconlibBity);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandGravatar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-gravatar', DileIconlibBrandGravatar);
+if (!customElements.get('dile-tabler-icon-brand-gravatar')) {
+  customElements.define('dile-tabler-icon-brand-gravatar', DileIconlibBrandGravatar);
+}

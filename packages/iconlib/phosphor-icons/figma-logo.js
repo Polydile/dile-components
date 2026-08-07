@@ -6,4 +6,6 @@ export class DileIconlibFigmaLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-figma-logo', DileIconlibFigmaLogo);
+if (!customElements.get('dile-phosphor-icon-figma-logo')) {
+  customElements.define('dile-phosphor-icon-figma-logo', DileIconlibFigmaLogo);
+}

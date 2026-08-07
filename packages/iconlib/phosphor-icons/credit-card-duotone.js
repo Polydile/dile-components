@@ -6,4 +6,6 @@ export class DileIconlibCreditCardDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-credit-card-duotone', DileIconlibCreditCardDuotone);
+if (!customElements.get('dile-phosphor-icon-credit-card-duotone')) {
+  customElements.define('dile-phosphor-icon-credit-card-duotone', DileIconlibCreditCardDuotone);
+}

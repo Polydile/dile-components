@@ -6,4 +6,6 @@ export class DileIconlibWhisk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-whisk', DileIconlibWhisk);
+if (!customElements.get('dile-tabler-icon-whisk')) {
+  customElements.define('dile-tabler-icon-whisk', DileIconlibWhisk);
+}

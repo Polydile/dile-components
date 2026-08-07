@@ -6,4 +6,6 @@ export class DileIconlibShrub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shrub', DileIconlibShrub);
+if (!customElements.get('dile-lucide-icon-shrub')) {
+  customElements.define('dile-lucide-icon-shrub', DileIconlibShrub);
+}

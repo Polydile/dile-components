@@ -6,4 +6,6 @@ export class DileIconlibIslandLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-island-light', DileIconlibIslandLight);
+if (!customElements.get('dile-phosphor-icon-island-light')) {
+  customElements.define('dile-phosphor-icon-island-light', DileIconlibIslandLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVerticalShadesClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-vertical-shades-closed', DileIconlibVerticalShadesClosed);
+if (!customElements.get('dile-material-icon-vertical-shades-closed')) {
+  customElements.define('dile-material-icon-vertical-shades-closed', DileIconlibVerticalShadesClosed);
+}

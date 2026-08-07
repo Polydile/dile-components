@@ -6,4 +6,6 @@ export class DileIconlibBabyChangingStation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-baby-changing-station', DileIconlibBabyChangingStation);
+if (!customElements.get('dile-material-icon-baby-changing-station')) {
+  customElements.define('dile-material-icon-baby-changing-station', DileIconlibBabyChangingStation);
+}

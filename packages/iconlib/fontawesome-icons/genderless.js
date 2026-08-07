@@ -6,4 +6,6 @@ export class DileIconlibGenderless extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-genderless', DileIconlibGenderless);
+if (!customElements.get('dile-fontawesome-icon-genderless')) {
+  customElements.define('dile-fontawesome-icon-genderless', DileIconlibGenderless);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPocketKnife extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pocket-knife', DileIconlibPocketKnife);
+if (!customElements.get('dile-lucide-icon-pocket-knife')) {
+  customElements.define('dile-lucide-icon-pocket-knife', DileIconlibPocketKnife);
+}

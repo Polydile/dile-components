@@ -6,4 +6,6 @@ export class DileIconlibRoadCircleXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-circle-xmark', DileIconlibRoadCircleXmark);
+if (!customElements.get('dile-fontawesome-icon-road-circle-xmark')) {
+  customElements.define('dile-fontawesome-icon-road-circle-xmark', DileIconlibRoadCircleXmark);
+}

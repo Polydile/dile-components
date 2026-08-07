@@ -6,4 +6,6 @@ export class DileIconlibFlight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flight', DileIconlibFlight);
+if (!customElements.get('dile-material-icon-flight')) {
+  customElements.define('dile-material-icon-flight', DileIconlibFlight);
+}

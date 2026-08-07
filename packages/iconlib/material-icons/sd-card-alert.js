@@ -6,4 +6,6 @@ export class DileIconlibSdCardAlert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sd-card-alert', DileIconlibSdCardAlert);
+if (!customElements.get('dile-material-icon-sd-card-alert')) {
+  customElements.define('dile-material-icon-sd-card-alert', DileIconlibSdCardAlert);
+}

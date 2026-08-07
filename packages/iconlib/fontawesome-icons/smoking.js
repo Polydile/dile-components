@@ -6,4 +6,6 @@ export class DileIconlibSmoking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-smoking', DileIconlibSmoking);
+if (!customElements.get('dile-fontawesome-icon-smoking')) {
+  customElements.define('dile-fontawesome-icon-smoking', DileIconlibSmoking);
+}

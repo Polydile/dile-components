@@ -6,4 +6,6 @@ export class DileIconlibMiniProgramFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mini-program-fill', DileIconlibMiniProgramFill);
+if (!customElements.get('dile-remixicon-icon-mini-program-fill')) {
+  customElements.define('dile-remixicon-icon-mini-program-fill', DileIconlibMiniProgramFill);
+}

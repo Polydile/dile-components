@@ -6,4 +6,6 @@ export class DileIconlibColorFilter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-color-filter', DileIconlibColorFilter);
+if (!customElements.get('dile-tabler-icon-color-filter')) {
+  customElements.define('dile-tabler-icon-color-filter', DileIconlibColorFilter);
+}

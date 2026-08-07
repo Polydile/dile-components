@@ -6,4 +6,6 @@ export class DileIconlibAssessment extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-assessment', DileIconlibAssessment);
+if (!customElements.get('dile-material-icon-assessment')) {
+  customElements.define('dile-material-icon-assessment', DileIconlibAssessment);
+}

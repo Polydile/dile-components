@@ -6,4 +6,6 @@ export class DileIconlibSquareDot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-dot', DileIconlibSquareDot);
+if (!customElements.get('dile-tabler-icon-square-dot')) {
+  customElements.define('dile-tabler-icon-square-dot', DileIconlibSquareDot);
+}

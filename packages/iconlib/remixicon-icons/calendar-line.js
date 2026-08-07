@@ -6,4 +6,6 @@ export class DileIconlibCalendarLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-calendar-line', DileIconlibCalendarLine);
+if (!customElements.get('dile-remixicon-icon-calendar-line')) {
+  customElements.define('dile-remixicon-icon-calendar-line', DileIconlibCalendarLine);
+}

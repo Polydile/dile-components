@@ -6,4 +6,6 @@ export class DileIconlibBleach extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bleach', DileIconlibBleach);
+if (!customElements.get('dile-tabler-icon-bleach')) {
+  customElements.define('dile-tabler-icon-bleach', DileIconlibBleach);
+}

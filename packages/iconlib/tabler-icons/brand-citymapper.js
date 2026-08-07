@@ -6,4 +6,6 @@ export class DileIconlibBrandCitymapper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-citymapper', DileIconlibBrandCitymapper);
+if (!customElements.get('dile-tabler-icon-brand-citymapper')) {
+  customElements.define('dile-tabler-icon-brand-citymapper', DileIconlibBrandCitymapper);
+}

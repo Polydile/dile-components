@@ -6,4 +6,6 @@ export class DileIconlibBrandSafari extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-safari', DileIconlibBrandSafari);
+if (!customElements.get('dile-tabler-icon-brand-safari')) {
+  customElements.define('dile-tabler-icon-brand-safari', DileIconlibBrandSafari);
+}

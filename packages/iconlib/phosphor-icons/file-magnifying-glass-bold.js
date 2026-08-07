@@ -6,4 +6,6 @@ export class DileIconlibFileMagnifyingGlassBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-magnifying-glass-bold', DileIconlibFileMagnifyingGlassBold);
+if (!customElements.get('dile-phosphor-icon-file-magnifying-glass-bold')) {
+  customElements.define('dile-phosphor-icon-file-magnifying-glass-bold', DileIconlibFileMagnifyingGlassBold);
+}

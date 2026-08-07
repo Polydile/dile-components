@@ -6,4 +6,6 @@ export class DileIconlibCursorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cursor-line', DileIconlibCursorLine);
+if (!customElements.get('dile-remixicon-icon-cursor-line')) {
+  customElements.define('dile-remixicon-icon-cursor-line', DileIconlibCursorLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTheRedYeti extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-the-red-yeti', DileIconlibTheRedYeti);
+if (!customElements.get('dile-fontawesome-icon-the-red-yeti')) {
+  customElements.define('dile-fontawesome-icon-the-red-yeti', DileIconlibTheRedYeti);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMonitorArrowUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-monitor-arrow-up', DileIconlibMonitorArrowUp);
+if (!customElements.get('dile-phosphor-icon-monitor-arrow-up')) {
+  customElements.define('dile-phosphor-icon-monitor-arrow-up', DileIconlibMonitorArrowUp);
+}

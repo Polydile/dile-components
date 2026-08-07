@@ -6,4 +6,6 @@ export class DileIconlibStarAndCrescent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-star-and-crescent', DileIconlibStarAndCrescent);
+if (!customElements.get('dile-fontawesome-icon-star-and-crescent')) {
+  customElements.define('dile-fontawesome-icon-star-and-crescent', DileIconlibStarAndCrescent);
+}

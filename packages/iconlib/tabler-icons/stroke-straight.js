@@ -6,4 +6,6 @@ export class DileIconlibStrokeStraight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stroke-straight', DileIconlibStrokeStraight);
+if (!customElements.get('dile-tabler-icon-stroke-straight')) {
+  customElements.define('dile-tabler-icon-stroke-straight', DileIconlibStrokeStraight);
+}

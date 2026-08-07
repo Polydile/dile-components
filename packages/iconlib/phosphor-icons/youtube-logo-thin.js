@@ -6,4 +6,6 @@ export class DileIconlibYoutubeLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-youtube-logo-thin', DileIconlibYoutubeLogoThin);
+if (!customElements.get('dile-phosphor-icon-youtube-logo-thin')) {
+  customElements.define('dile-phosphor-icon-youtube-logo-thin', DileIconlibYoutubeLogoThin);
+}

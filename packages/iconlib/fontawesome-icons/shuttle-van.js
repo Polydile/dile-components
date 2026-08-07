@@ -6,4 +6,6 @@ export class DileIconlibShuttleVan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shuttle-van', DileIconlibShuttleVan);
+if (!customElements.get('dile-fontawesome-icon-shuttle-van')) {
+  customElements.define('dile-fontawesome-icon-shuttle-van', DileIconlibShuttleVan);
+}

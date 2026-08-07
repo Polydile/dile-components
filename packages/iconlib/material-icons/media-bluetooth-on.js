@@ -6,4 +6,6 @@ export class DileIconlibMediaBluetoothOn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-media-bluetooth-on', DileIconlibMediaBluetoothOn);
+if (!customElements.get('dile-material-icon-media-bluetooth-on')) {
+  customElements.define('dile-material-icon-media-bluetooth-on', DileIconlibMediaBluetoothOn);
+}

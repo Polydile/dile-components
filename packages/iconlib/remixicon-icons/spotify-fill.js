@@ -6,4 +6,6 @@ export class DileIconlibSpotifyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-spotify-fill', DileIconlibSpotifyFill);
+if (!customElements.get('dile-remixicon-icon-spotify-fill')) {
+  customElements.define('dile-remixicon-icon-spotify-fill', DileIconlibSpotifyFill);
+}

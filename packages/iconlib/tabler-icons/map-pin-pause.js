@@ -6,4 +6,6 @@ export class DileIconlibMapPinPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-pin-pause', DileIconlibMapPinPause);
+if (!customElements.get('dile-tabler-icon-map-pin-pause')) {
+  customElements.define('dile-tabler-icon-map-pin-pause', DileIconlibMapPinPause);
+}

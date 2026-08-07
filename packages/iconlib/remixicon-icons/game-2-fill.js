@@ -6,4 +6,6 @@ export class DileIconlibGame2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-game-2-fill', DileIconlibGame2Fill);
+if (!customElements.get('dile-remixicon-icon-game-2-fill')) {
+  customElements.define('dile-remixicon-icon-game-2-fill', DileIconlibGame2Fill);
+}

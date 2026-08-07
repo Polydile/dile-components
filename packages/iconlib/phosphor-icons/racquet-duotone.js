@@ -6,4 +6,6 @@ export class DileIconlibRacquetDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-racquet-duotone', DileIconlibRacquetDuotone);
+if (!customElements.get('dile-phosphor-icon-racquet-duotone')) {
+  customElements.define('dile-phosphor-icon-racquet-duotone', DileIconlibRacquetDuotone);
+}

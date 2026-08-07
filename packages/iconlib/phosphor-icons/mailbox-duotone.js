@@ -6,4 +6,6 @@ export class DileIconlibMailboxDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mailbox-duotone', DileIconlibMailboxDuotone);
+if (!customElements.get('dile-phosphor-icon-mailbox-duotone')) {
+  customElements.define('dile-phosphor-icon-mailbox-duotone', DileIconlibMailboxDuotone);
+}

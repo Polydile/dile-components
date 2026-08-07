@@ -6,4 +6,6 @@ export class DileIconlibPieChartOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pie-chart-outline', DileIconlibPieChartOutline);
+if (!customElements.get('dile-material-icon-pie-chart-outline')) {
+  customElements.define('dile-material-icon-pie-chart-outline', DileIconlibPieChartOutline);
+}

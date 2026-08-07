@@ -6,4 +6,6 @@ export class DileIconlibModeNight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mode-night', DileIconlibModeNight);
+if (!customElements.get('dile-material-icon-mode-night')) {
+  customElements.define('dile-material-icon-mode-night', DileIconlibModeNight);
+}

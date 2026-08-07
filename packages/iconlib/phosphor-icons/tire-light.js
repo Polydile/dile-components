@@ -6,4 +6,6 @@ export class DileIconlibTireLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tire-light', DileIconlibTireLight);
+if (!customElements.get('dile-phosphor-icon-tire-light')) {
+  customElements.define('dile-phosphor-icon-tire-light', DileIconlibTireLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeart2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-heart-2-line', DileIconlibHeart2Line);
+if (!customElements.get('dile-remixicon-icon-heart-2-line')) {
+  customElements.define('dile-remixicon-icon-heart-2-line', DileIconlibHeart2Line);
+}

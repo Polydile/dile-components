@@ -6,4 +6,6 @@ export class DileIconlibContractLeftFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-contract-left-fill', DileIconlibContractLeftFill);
+if (!customElements.get('dile-remixicon-icon-contract-left-fill')) {
+  customElements.define('dile-remixicon-icon-contract-left-fill', DileIconlibContractLeftFill);
+}

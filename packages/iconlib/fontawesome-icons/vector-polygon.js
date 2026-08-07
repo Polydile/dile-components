@@ -6,4 +6,6 @@ export class DileIconlibVectorPolygon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vector-polygon', DileIconlibVectorPolygon);
+if (!customElements.get('dile-fontawesome-icon-vector-polygon')) {
+  customElements.define('dile-fontawesome-icon-vector-polygon', DileIconlibVectorPolygon);
+}

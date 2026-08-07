@@ -6,4 +6,6 @@ export class DileIconlibWineThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wine-thin', DileIconlibWineThin);
+if (!customElements.get('dile-phosphor-icon-wine-thin')) {
+  customElements.define('dile-phosphor-icon-wine-thin', DileIconlibWineThin);
+}

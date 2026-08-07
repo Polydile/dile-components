@@ -6,4 +6,6 @@ export class DileIconlibKaaba extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kaaba', DileIconlibKaaba);
+if (!customElements.get('dile-fontawesome-icon-kaaba')) {
+  customElements.define('dile-fontawesome-icon-kaaba', DileIconlibKaaba);
+}

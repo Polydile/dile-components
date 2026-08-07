@@ -6,4 +6,6 @@ export class DileIconlibRotateLockFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rotate-lock-fill', DileIconlibRotateLockFill);
+if (!customElements.get('dile-remixicon-icon-rotate-lock-fill')) {
+  customElements.define('dile-remixicon-icon-rotate-lock-fill', DileIconlibRotateLockFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBluetoothSearching extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bluetooth-searching', DileIconlibBluetoothSearching);
+if (!customElements.get('dile-lucide-icon-bluetooth-searching')) {
+  customElements.define('dile-lucide-icon-bluetooth-searching', DileIconlibBluetoothSearching);
+}

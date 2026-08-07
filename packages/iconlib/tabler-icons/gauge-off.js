@@ -6,4 +6,6 @@ export class DileIconlibGaugeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gauge-off', DileIconlibGaugeOff);
+if (!customElements.get('dile-tabler-icon-gauge-off')) {
+  customElements.define('dile-tabler-icon-gauge-off', DileIconlibGaugeOff);
+}

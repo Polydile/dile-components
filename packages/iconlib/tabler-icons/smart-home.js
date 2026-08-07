@@ -6,4 +6,6 @@ export class DileIconlibSmartHome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-smart-home', DileIconlibSmartHome);
+if (!customElements.get('dile-tabler-icon-smart-home')) {
+  customElements.define('dile-tabler-icon-smart-home', DileIconlibSmartHome);
+}

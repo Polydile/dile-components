@@ -6,4 +6,6 @@ export class DileIconlibScrollTorah extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scroll-torah', DileIconlibScrollTorah);
+if (!customElements.get('dile-fontawesome-icon-scroll-torah')) {
+  customElements.define('dile-fontawesome-icon-scroll-torah', DileIconlibScrollTorah);
+}

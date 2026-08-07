@@ -6,4 +6,6 @@ export class DileIconlibBrandSymfony extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-symfony', DileIconlibBrandSymfony);
+if (!customElements.get('dile-tabler-icon-brand-symfony')) {
+  customElements.define('dile-tabler-icon-brand-symfony', DileIconlibBrandSymfony);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHdrPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-hdr-plus', DileIconlibHdrPlus);
+if (!customElements.get('dile-material-icon-hdr-plus')) {
+  customElements.define('dile-material-icon-hdr-plus', DileIconlibHdrPlus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibKakaoTalkLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-kakao-talk-line', DileIconlibKakaoTalkLine);
+if (!customElements.get('dile-remixicon-icon-kakao-talk-line')) {
+  customElements.define('dile-remixicon-icon-kakao-talk-line', DileIconlibKakaoTalkLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFirebaseLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-firebase-line', DileIconlibFirebaseLine);
+if (!customElements.get('dile-remixicon-icon-firebase-line')) {
+  customElements.define('dile-remixicon-icon-firebase-line', DileIconlibFirebaseLine);
+}

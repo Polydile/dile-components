@@ -6,4 +6,6 @@ export class DileIconlibSpeedMiniLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-speed-mini-line', DileIconlibSpeedMiniLine);
+if (!customElements.get('dile-remixicon-icon-speed-mini-line')) {
+  customElements.define('dile-remixicon-icon-speed-mini-line', DileIconlibSpeedMiniLine);
+}

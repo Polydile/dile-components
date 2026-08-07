@@ -6,4 +6,6 @@ export class DileIconlibScrollToBottomLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-scroll-to-bottom-line', DileIconlibScrollToBottomLine);
+if (!customElements.get('dile-remixicon-icon-scroll-to-bottom-line')) {
+  customElements.define('dile-remixicon-icon-scroll-to-bottom-line', DileIconlibScrollToBottomLine);
+}

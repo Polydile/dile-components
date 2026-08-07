@@ -6,4 +6,6 @@ export class DileIconlibBrandGolang extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-golang', DileIconlibBrandGolang);
+if (!customElements.get('dile-tabler-icon-brand-golang')) {
+  customElements.define('dile-tabler-icon-brand-golang', DileIconlibBrandGolang);
+}

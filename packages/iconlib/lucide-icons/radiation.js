@@ -6,4 +6,6 @@ export class DileIconlibRadiation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-radiation', DileIconlibRadiation);
+if (!customElements.get('dile-lucide-icon-radiation')) {
+  customElements.define('dile-lucide-icon-radiation', DileIconlibRadiation);
+}

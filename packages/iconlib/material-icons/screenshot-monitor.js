@@ -6,4 +6,6 @@ export class DileIconlibScreenshotMonitor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screenshot-monitor', DileIconlibScreenshotMonitor);
+if (!customElements.get('dile-material-icon-screenshot-monitor')) {
+  customElements.define('dile-material-icon-screenshot-monitor', DileIconlibScreenshotMonitor);
+}

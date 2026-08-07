@@ -6,4 +6,6 @@ export class DileIconlibVignette extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vignette', DileIconlibVignette);
+if (!customElements.get('dile-phosphor-icon-vignette')) {
+  customElements.define('dile-phosphor-icon-vignette', DileIconlibVignette);
+}

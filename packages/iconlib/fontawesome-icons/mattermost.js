@@ -6,4 +6,6 @@ export class DileIconlibMattermost extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mattermost', DileIconlibMattermost);
+if (!customElements.get('dile-fontawesome-icon-mattermost')) {
+  customElements.define('dile-fontawesome-icon-mattermost', DileIconlibMattermost);
+}

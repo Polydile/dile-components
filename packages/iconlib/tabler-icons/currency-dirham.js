@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDirham extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dirham', DileIconlibCurrencyDirham);
+if (!customElements.get('dile-tabler-icon-currency-dirham')) {
+  customElements.define('dile-tabler-icon-currency-dirham', DileIconlibCurrencyDirham);
+}

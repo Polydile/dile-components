@@ -6,4 +6,6 @@ export class DileIconlibFiberManualRecord extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fiber-manual-record', DileIconlibFiberManualRecord);
+if (!customElements.get('dile-material-icon-fiber-manual-record')) {
+  customElements.define('dile-material-icon-fiber-manual-record', DileIconlibFiberManualRecord);
+}

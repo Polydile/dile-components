@@ -6,4 +6,6 @@ export class DileIconlibHighlighterLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-highlighter-light', DileIconlibHighlighterLight);
+if (!customElements.get('dile-phosphor-icon-highlighter-light')) {
+  customElements.define('dile-phosphor-icon-highlighter-light', DileIconlibHighlighterLight);
+}

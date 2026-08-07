@@ -6,4 +6,6 @@ export class DileIconlibFolderExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folder-exclamation', DileIconlibFolderExclamation);
+if (!customElements.get('dile-tabler-icon-folder-exclamation')) {
+  customElements.define('dile-tabler-icon-folder-exclamation', DileIconlibFolderExclamation);
+}

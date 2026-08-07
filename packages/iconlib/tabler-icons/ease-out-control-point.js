@@ -6,4 +6,6 @@ export class DileIconlibEaseOutControlPoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ease-out-control-point', DileIconlibEaseOutControlPoint);
+if (!customElements.get('dile-tabler-icon-ease-out-control-point')) {
+  customElements.define('dile-tabler-icon-ease-out-control-point', DileIconlibEaseOutControlPoint);
+}

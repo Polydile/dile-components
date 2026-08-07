@@ -6,4 +6,6 @@ export class DileIconlibCarOffRoad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-off-road', DileIconlibCarOffRoad);
+if (!customElements.get('dile-tabler-icon-car-off-road')) {
+  customElements.define('dile-tabler-icon-car-off-road', DileIconlibCarOffRoad);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDesktopAccessDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-desktop-access-disabled', DileIconlibDesktopAccessDisabled);
+if (!customElements.get('dile-material-icon-desktop-access-disabled')) {
+  customElements.define('dile-material-icon-desktop-access-disabled', DileIconlibDesktopAccessDisabled);
+}

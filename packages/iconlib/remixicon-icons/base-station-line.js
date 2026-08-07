@@ -6,4 +6,6 @@ export class DileIconlibBaseStationLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-base-station-line', DileIconlibBaseStationLine);
+if (!customElements.get('dile-remixicon-icon-base-station-line')) {
+  customElements.define('dile-remixicon-icon-base-station-line', DileIconlibBaseStationLine);
+}

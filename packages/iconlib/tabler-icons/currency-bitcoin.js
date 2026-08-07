@@ -6,4 +6,6 @@ export class DileIconlibCurrencyBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-bitcoin', DileIconlibCurrencyBitcoin);
+if (!customElements.get('dile-tabler-icon-currency-bitcoin')) {
+  customElements.define('dile-tabler-icon-currency-bitcoin', DileIconlibCurrencyBitcoin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandPinterest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pinterest', DileIconlibBrandPinterest);
+if (!customElements.get('dile-tabler-icon-brand-pinterest')) {
+  customElements.define('dile-tabler-icon-brand-pinterest', DileIconlibBrandPinterest);
+}

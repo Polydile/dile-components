@@ -6,4 +6,6 @@ export class DileIconlibMaximizeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-maximize-off', DileIconlibMaximizeOff);
+if (!customElements.get('dile-tabler-icon-maximize-off')) {
+  customElements.define('dile-tabler-icon-maximize-off', DileIconlibMaximizeOff);
+}

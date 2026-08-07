@@ -6,4 +6,6 @@ export class DileIconlibClockOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-off', DileIconlibClockOff);
+if (!customElements.get('dile-tabler-icon-clock-off')) {
+  customElements.define('dile-tabler-icon-clock-off', DileIconlibClockOff);
+}

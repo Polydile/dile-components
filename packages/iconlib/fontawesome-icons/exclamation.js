@@ -6,4 +6,6 @@ export class DileIconlibExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-exclamation', DileIconlibExclamation);
+if (!customElements.get('dile-fontawesome-icon-exclamation')) {
+  customElements.define('dile-fontawesome-icon-exclamation', DileIconlibExclamation);
+}

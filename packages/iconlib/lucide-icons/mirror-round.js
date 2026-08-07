@@ -6,4 +6,6 @@ export class DileIconlibMirrorRound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mirror-round', DileIconlibMirrorRound);
+if (!customElements.get('dile-lucide-icon-mirror-round')) {
+  customElements.define('dile-lucide-icon-mirror-round', DileIconlibMirrorRound);
+}

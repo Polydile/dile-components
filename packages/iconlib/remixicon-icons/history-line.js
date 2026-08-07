@@ -6,4 +6,6 @@ export class DileIconlibHistoryLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-history-line', DileIconlibHistoryLine);
+if (!customElements.get('dile-remixicon-icon-history-line')) {
+  customElements.define('dile-remixicon-icon-history-line', DileIconlibHistoryLine);
+}

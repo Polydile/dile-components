@@ -6,4 +6,6 @@ export class DileIconlibSubscript extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-subscript', DileIconlibSubscript);
+if (!customElements.get('dile-tabler-icon-subscript')) {
+  customElements.define('dile-tabler-icon-subscript', DileIconlibSubscript);
+}

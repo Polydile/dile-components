@@ -6,4 +6,6 @@ export class DileIconlibPhilippinePeso extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-philippine-peso', DileIconlibPhilippinePeso);
+if (!customElements.get('dile-lucide-icon-philippine-peso')) {
+  customElements.define('dile-lucide-icon-philippine-peso', DileIconlibPhilippinePeso);
+}

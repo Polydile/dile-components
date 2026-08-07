@@ -6,4 +6,6 @@ export class DileIconlibGitForkDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-fork-duotone', DileIconlibGitForkDuotone);
+if (!customElements.get('dile-phosphor-icon-git-fork-duotone')) {
+  customElements.define('dile-phosphor-icon-git-fork-duotone', DileIconlibGitForkDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBusAlert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bus-alert', DileIconlibBusAlert);
+if (!customElements.get('dile-material-icon-bus-alert')) {
+  customElements.define('dile-material-icon-bus-alert', DileIconlibBusAlert);
+}

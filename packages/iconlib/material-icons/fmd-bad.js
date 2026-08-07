@@ -6,4 +6,6 @@ export class DileIconlibFmdBad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fmd-bad', DileIconlibFmdBad);
+if (!customElements.get('dile-material-icon-fmd-bad')) {
+  customElements.define('dile-material-icon-fmd-bad', DileIconlibFmdBad);
+}

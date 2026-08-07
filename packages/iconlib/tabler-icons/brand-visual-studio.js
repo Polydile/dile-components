@@ -6,4 +6,6 @@ export class DileIconlibBrandVisualStudio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-visual-studio', DileIconlibBrandVisualStudio);
+if (!customElements.get('dile-tabler-icon-brand-visual-studio')) {
+  customElements.define('dile-tabler-icon-brand-visual-studio', DileIconlibBrandVisualStudio);
+}

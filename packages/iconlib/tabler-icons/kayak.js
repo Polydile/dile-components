@@ -6,4 +6,6 @@ export class DileIconlibKayak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-kayak', DileIconlibKayak);
+if (!customElements.get('dile-tabler-icon-kayak')) {
+  customElements.define('dile-tabler-icon-kayak', DileIconlibKayak);
+}

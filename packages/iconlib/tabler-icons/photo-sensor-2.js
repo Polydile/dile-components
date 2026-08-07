@@ -6,4 +6,6 @@ export class DileIconlibPhotoSensor2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-sensor-2', DileIconlibPhotoSensor2);
+if (!customElements.get('dile-tabler-icon-photo-sensor-2')) {
+  customElements.define('dile-tabler-icon-photo-sensor-2', DileIconlibPhotoSensor2);
+}

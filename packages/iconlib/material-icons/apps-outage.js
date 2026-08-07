@@ -6,4 +6,6 @@ export class DileIconlibAppsOutage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-apps-outage', DileIconlibAppsOutage);
+if (!customElements.get('dile-material-icon-apps-outage')) {
+  customElements.define('dile-material-icon-apps-outage', DileIconlibAppsOutage);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShieldLockFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shield-lock-filled', DileIconlibShieldLockFilled);
+if (!customElements.get('dile-tabler-icon-shield-lock-filled')) {
+  customElements.define('dile-tabler-icon-shield-lock-filled', DileIconlibShieldLockFilled);
+}

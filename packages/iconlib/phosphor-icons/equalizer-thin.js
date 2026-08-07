@@ -6,4 +6,6 @@ export class DileIconlibEqualizerThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-equalizer-thin', DileIconlibEqualizerThin);
+if (!customElements.get('dile-phosphor-icon-equalizer-thin')) {
+  customElements.define('dile-phosphor-icon-equalizer-thin', DileIconlibEqualizerThin);
+}

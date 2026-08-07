@@ -6,4 +6,6 @@ export class DileIconlibWolfPackBattalion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wolf-pack-battalion', DileIconlibWolfPackBattalion);
+if (!customElements.get('dile-fontawesome-icon-wolf-pack-battalion')) {
+  customElements.define('dile-fontawesome-icon-wolf-pack-battalion', DileIconlibWolfPackBattalion);
+}

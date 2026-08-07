@@ -6,4 +6,6 @@ export class DileIconlibDotOutlineLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dot-outline-light', DileIconlibDotOutlineLight);
+if (!customElements.get('dile-phosphor-icon-dot-outline-light')) {
+  customElements.define('dile-phosphor-icon-dot-outline-light', DileIconlibDotOutlineLight);
+}

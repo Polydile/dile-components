@@ -6,4 +6,6 @@ export class DileIconlibAccountPinCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-account-pin-circle-line', DileIconlibAccountPinCircleLine);
+if (!customElements.get('dile-remixicon-icon-account-pin-circle-line')) {
+  customElements.define('dile-remixicon-icon-account-pin-circle-line', DileIconlibAccountPinCircleLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSkullCrossbones extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skull-crossbones', DileIconlibSkullCrossbones);
+if (!customElements.get('dile-fontawesome-icon-skull-crossbones')) {
+  customElements.define('dile-fontawesome-icon-skull-crossbones', DileIconlibSkullCrossbones);
+}

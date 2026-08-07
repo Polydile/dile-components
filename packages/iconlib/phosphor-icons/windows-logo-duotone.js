@@ -6,4 +6,6 @@ export class DileIconlibWindowsLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-windows-logo-duotone', DileIconlibWindowsLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-windows-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-windows-logo-duotone', DileIconlibWindowsLogoDuotone);
+}

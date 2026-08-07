@@ -6,4 +6,6 @@ export class DileIconlibSquarePercentage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-percentage', DileIconlibSquarePercentage);
+if (!customElements.get('dile-tabler-icon-square-percentage')) {
+  customElements.define('dile-tabler-icon-square-percentage', DileIconlibSquarePercentage);
+}

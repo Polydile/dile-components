@@ -6,4 +6,6 @@ export class DileIconlibPolicy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-policy', DileIconlibPolicy);
+if (!customElements.get('dile-material-icon-policy')) {
+  customElements.define('dile-material-icon-policy', DileIconlibPolicy);
+}

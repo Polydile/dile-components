@@ -6,4 +6,6 @@ export class DileIconlibSpellcheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-spellcheck', DileIconlibSpellcheck);
+if (!customElements.get('dile-material-icon-spellcheck')) {
+  customElements.define('dile-material-icon-spellcheck', DileIconlibSpellcheck);
+}

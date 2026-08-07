@@ -6,4 +6,6 @@ export class DileIconlibCarBatteryDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-car-battery-duotone', DileIconlibCarBatteryDuotone);
+if (!customElements.get('dile-phosphor-icon-car-battery-duotone')) {
+  customElements.define('dile-phosphor-icon-car-battery-duotone', DileIconlibCarBatteryDuotone);
+}

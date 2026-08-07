@@ -6,4 +6,6 @@ export class DileIconlibFinnTheHumanDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-finn-the-human-duotone', DileIconlibFinnTheHumanDuotone);
+if (!customElements.get('dile-phosphor-icon-finn-the-human-duotone')) {
+  customElements.define('dile-phosphor-icon-finn-the-human-duotone', DileIconlibFinnTheHumanDuotone);
+}

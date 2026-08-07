@@ -6,4 +6,6 @@ export class DileIconlibMouseLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mouse-line', DileIconlibMouseLine);
+if (!customElements.get('dile-remixicon-icon-mouse-line')) {
+  customElements.define('dile-remixicon-icon-mouse-line', DileIconlibMouseLine);
+}

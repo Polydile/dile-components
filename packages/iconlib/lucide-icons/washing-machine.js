@@ -6,4 +6,6 @@ export class DileIconlibWashingMachine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-washing-machine', DileIconlibWashingMachine);
+if (!customElements.get('dile-lucide-icon-washing-machine')) {
+  customElements.define('dile-lucide-icon-washing-machine', DileIconlibWashingMachine);
+}

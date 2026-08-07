@@ -6,4 +6,6 @@ export class DileIconlibBrandBackbone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-backbone', DileIconlibBrandBackbone);
+if (!customElements.get('dile-tabler-icon-brand-backbone')) {
+  customElements.define('dile-tabler-icon-brand-backbone', DileIconlibBrandBackbone);
+}

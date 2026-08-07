@@ -6,4 +6,6 @@ export class DileIconlibRectangleAd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rectangle-ad', DileIconlibRectangleAd);
+if (!customElements.get('dile-fontawesome-icon-rectangle-ad')) {
+  customElements.define('dile-fontawesome-icon-rectangle-ad', DileIconlibRectangleAd);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUserListBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-list-bold', DileIconlibUserListBold);
+if (!customElements.get('dile-phosphor-icon-user-list-bold')) {
+  customElements.define('dile-phosphor-icon-user-list-bold', DileIconlibUserListBold);
+}

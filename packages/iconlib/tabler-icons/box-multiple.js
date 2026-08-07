@@ -6,4 +6,6 @@ export class DileIconlibBoxMultiple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-box-multiple', DileIconlibBoxMultiple);
+if (!customElements.get('dile-tabler-icon-box-multiple')) {
+  customElements.define('dile-tabler-icon-box-multiple', DileIconlibBoxMultiple);
+}

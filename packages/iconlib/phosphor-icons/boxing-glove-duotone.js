@@ -6,4 +6,6 @@ export class DileIconlibBoxingGloveDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-boxing-glove-duotone', DileIconlibBoxingGloveDuotone);
+if (!customElements.get('dile-phosphor-icon-boxing-glove-duotone')) {
+  customElements.define('dile-phosphor-icon-boxing-glove-duotone', DileIconlibBoxingGloveDuotone);
+}

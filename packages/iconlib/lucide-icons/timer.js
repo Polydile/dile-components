@@ -6,4 +6,6 @@ export class DileIconlibTimer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-timer', DileIconlibTimer);
+if (!customElements.get('dile-lucide-icon-timer')) {
+  customElements.define('dile-lucide-icon-timer', DileIconlibTimer);
+}

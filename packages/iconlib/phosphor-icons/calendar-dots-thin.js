@@ -6,4 +6,6 @@ export class DileIconlibCalendarDotsThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-dots-thin', DileIconlibCalendarDotsThin);
+if (!customElements.get('dile-phosphor-icon-calendar-dots-thin')) {
+  customElements.define('dile-phosphor-icon-calendar-dots-thin', DileIconlibCalendarDotsThin);
+}

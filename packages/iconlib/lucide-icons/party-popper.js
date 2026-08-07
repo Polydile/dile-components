@@ -6,4 +6,6 @@ export class DileIconlibPartyPopper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-party-popper', DileIconlibPartyPopper);
+if (!customElements.get('dile-lucide-icon-party-popper')) {
+  customElements.define('dile-lucide-icon-party-popper', DileIconlibPartyPopper);
+}

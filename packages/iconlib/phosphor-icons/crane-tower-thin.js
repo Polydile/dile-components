@@ -6,4 +6,6 @@ export class DileIconlibCraneTowerThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crane-tower-thin', DileIconlibCraneTowerThin);
+if (!customElements.get('dile-phosphor-icon-crane-tower-thin')) {
+  customElements.define('dile-phosphor-icon-crane-tower-thin', DileIconlibCraneTowerThin);
+}

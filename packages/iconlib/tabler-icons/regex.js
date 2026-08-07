@@ -6,4 +6,6 @@ export class DileIconlibRegex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-regex', DileIconlibRegex);
+if (!customElements.get('dile-tabler-icon-regex')) {
+  customElements.define('dile-tabler-icon-regex', DileIconlibRegex);
+}

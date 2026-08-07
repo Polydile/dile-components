@@ -6,4 +6,6 @@ export class DileIconlibCentosLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-centos-line', DileIconlibCentosLine);
+if (!customElements.get('dile-remixicon-icon-centos-line')) {
+  customElements.define('dile-remixicon-icon-centos-line', DileIconlibCentosLine);
+}

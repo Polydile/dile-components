@@ -6,4 +6,6 @@ export class DileIconlibUnsubscribe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-unsubscribe', DileIconlibUnsubscribe);
+if (!customElements.get('dile-material-icon-unsubscribe')) {
+  customElements.define('dile-material-icon-unsubscribe', DileIconlibUnsubscribe);
+}

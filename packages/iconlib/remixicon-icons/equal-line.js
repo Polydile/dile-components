@@ -6,4 +6,6 @@ export class DileIconlibEqualLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-equal-line', DileIconlibEqualLine);
+if (!customElements.get('dile-remixicon-icon-equal-line')) {
+  customElements.define('dile-remixicon-icon-equal-line', DileIconlibEqualLine);
+}

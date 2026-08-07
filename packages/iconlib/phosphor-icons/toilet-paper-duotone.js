@@ -6,4 +6,6 @@ export class DileIconlibToiletPaperDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toilet-paper-duotone', DileIconlibToiletPaperDuotone);
+if (!customElements.get('dile-phosphor-icon-toilet-paper-duotone')) {
+  customElements.define('dile-phosphor-icon-toilet-paper-duotone', DileIconlibToiletPaperDuotone);
+}

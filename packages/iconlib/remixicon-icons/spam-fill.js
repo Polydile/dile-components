@@ -6,4 +6,6 @@ export class DileIconlibSpamFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-spam-fill', DileIconlibSpamFill);
+if (!customElements.get('dile-remixicon-icon-spam-fill')) {
+  customElements.define('dile-remixicon-icon-spam-fill', DileIconlibSpamFill);
+}

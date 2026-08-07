@@ -6,4 +6,6 @@ export class DileIconlibRobloxCreatorStudio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-roblox-creator-studio', DileIconlibRobloxCreatorStudio);
+if (!customElements.get('dile-fontawesome-icon-roblox-creator-studio')) {
+  customElements.define('dile-fontawesome-icon-roblox-creator-studio', DileIconlibRobloxCreatorStudio);
+}

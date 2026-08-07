@@ -6,4 +6,6 @@ export class DileIconlibThermometerSnowflake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-thermometer-snowflake', DileIconlibThermometerSnowflake);
+if (!customElements.get('dile-lucide-icon-thermometer-snowflake')) {
+  customElements.define('dile-lucide-icon-thermometer-snowflake', DileIconlibThermometerSnowflake);
+}

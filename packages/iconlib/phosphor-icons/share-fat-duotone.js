@@ -6,4 +6,6 @@ export class DileIconlibShareFatDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-share-fat-duotone', DileIconlibShareFatDuotone);
+if (!customElements.get('dile-phosphor-icon-share-fat-duotone')) {
+  customElements.define('dile-phosphor-icon-share-fat-duotone', DileIconlibShareFatDuotone);
+}

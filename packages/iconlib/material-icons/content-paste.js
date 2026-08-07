@@ -6,4 +6,6 @@ export class DileIconlibContentPaste extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-content-paste', DileIconlibContentPaste);
+if (!customElements.get('dile-material-icon-content-paste')) {
+  customElements.define('dile-material-icon-content-paste', DileIconlibContentPaste);
+}

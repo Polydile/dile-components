@@ -1,2 +1,4 @@
 import { DileAjaxSwitch } from "./src/DileAjaxSwitch.js";
-customElements.define('dile-ajax-switch', DileAjaxSwitch);
+if (!customElements.get('dile-ajax-switch')) {
+  customElements.define('dile-ajax-switch', DileAjaxSwitch);
+}

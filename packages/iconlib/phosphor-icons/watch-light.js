@@ -6,4 +6,6 @@ export class DileIconlibWatchLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-watch-light', DileIconlibWatchLight);
+if (!customElements.get('dile-phosphor-icon-watch-light')) {
+  customElements.define('dile-phosphor-icon-watch-light', DileIconlibWatchLight);
+}

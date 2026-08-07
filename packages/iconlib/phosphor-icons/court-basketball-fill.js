@@ -6,4 +6,6 @@ export class DileIconlibCourtBasketballFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-court-basketball-fill', DileIconlibCourtBasketballFill);
+if (!customElements.get('dile-phosphor-icon-court-basketball-fill')) {
+  customElements.define('dile-phosphor-icon-court-basketball-fill', DileIconlibCourtBasketballFill);
+}

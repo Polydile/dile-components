@@ -6,4 +6,6 @@ export class DileIconlibWorkspacesOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-workspaces-outline', DileIconlibWorkspacesOutline);
+if (!customElements.get('dile-material-icon-workspaces-outline')) {
+  customElements.define('dile-material-icon-workspaces-outline', DileIconlibWorkspacesOutline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGhost2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ghost-2-filled', DileIconlibGhost2Filled);
+if (!customElements.get('dile-tabler-icon-ghost-2-filled')) {
+  customElements.define('dile-tabler-icon-ghost-2-filled', DileIconlibGhost2Filled);
+}

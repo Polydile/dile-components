@@ -6,4 +6,6 @@ export class DileIconlibOpenstreetmap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-openstreetmap', DileIconlibOpenstreetmap);
+if (!customElements.get('dile-fontawesome-icon-openstreetmap')) {
+  customElements.define('dile-fontawesome-icon-openstreetmap', DileIconlibOpenstreetmap);
+}

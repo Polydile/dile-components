@@ -6,4 +6,6 @@ export class DileIconlibPendingActions extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pending-actions', DileIconlibPendingActions);
+if (!customElements.get('dile-material-icon-pending-actions')) {
+  customElements.define('dile-material-icon-pending-actions', DileIconlibPendingActions);
+}

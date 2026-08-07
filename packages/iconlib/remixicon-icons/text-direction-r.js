@@ -6,4 +6,6 @@ export class DileIconlibTextDirectionR extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-text-direction-r', DileIconlibTextDirectionR);
+if (!customElements.get('dile-remixicon-icon-text-direction-r')) {
+  customElements.define('dile-remixicon-icon-text-direction-r', DileIconlibTextDirectionR);
+}

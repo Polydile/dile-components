@@ -6,4 +6,6 @@ export class DileIconlibHeadlightsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headlights-fill', DileIconlibHeadlightsFill);
+if (!customElements.get('dile-phosphor-icon-headlights-fill')) {
+  customElements.define('dile-phosphor-icon-headlights-fill', DileIconlibHeadlightsFill);
+}

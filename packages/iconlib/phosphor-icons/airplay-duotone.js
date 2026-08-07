@@ -6,4 +6,6 @@ export class DileIconlibAirplayDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-airplay-duotone', DileIconlibAirplayDuotone);
+if (!customElements.get('dile-phosphor-icon-airplay-duotone')) {
+  customElements.define('dile-phosphor-icon-airplay-duotone', DileIconlibAirplayDuotone);
+}

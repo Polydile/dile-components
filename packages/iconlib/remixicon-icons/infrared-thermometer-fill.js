@@ -6,4 +6,6 @@ export class DileIconlibInfraredThermometerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-infrared-thermometer-fill', DileIconlibInfraredThermometerFill);
+if (!customElements.get('dile-remixicon-icon-infrared-thermometer-fill')) {
+  customElements.define('dile-remixicon-icon-infrared-thermometer-fill', DileIconlibInfraredThermometerFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBackhoe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-backhoe', DileIconlibBackhoe);
+if (!customElements.get('dile-tabler-icon-backhoe')) {
+  customElements.define('dile-tabler-icon-backhoe', DileIconlibBackhoe);
+}

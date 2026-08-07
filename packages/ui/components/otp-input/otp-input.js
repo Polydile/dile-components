@@ -1,3 +1,5 @@
 import { DileOtpInput } from './src/DileOtpInput.js';
 
-window.customElements.define('dile-otp-input', DileOtpInput);
+if (!customElements.get('dile-otp-input')) {
+  window.customElements.define('dile-otp-input', DileOtpInput);
+}

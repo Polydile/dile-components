@@ -6,4 +6,6 @@ export class DileIconlibTengeSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tenge-sign', DileIconlibTengeSign);
+if (!customElements.get('dile-fontawesome-icon-tenge-sign')) {
+  customElements.define('dile-fontawesome-icon-tenge-sign', DileIconlibTengeSign);
+}

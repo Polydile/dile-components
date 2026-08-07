@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftPowerpointLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-thin', DileIconlibMicrosoftPowerpointLogoThin);
+if (!customElements.get('dile-phosphor-icon-microsoft-powerpoint-logo-thin')) {
+  customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-thin', DileIconlibMicrosoftPowerpointLogoThin);
+}

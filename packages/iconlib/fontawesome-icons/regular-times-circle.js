@@ -6,4 +6,6 @@ export class DileIconlibTimesCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-times-circle', DileIconlibTimesCircle);
+if (!customElements.get('dile-fontawesome-icon-regular-times-circle')) {
+  customElements.define('dile-fontawesome-icon-regular-times-circle', DileIconlibTimesCircle);
+}

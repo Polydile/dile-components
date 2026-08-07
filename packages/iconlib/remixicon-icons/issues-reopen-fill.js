@@ -6,4 +6,6 @@ export class DileIconlibIssuesReopenFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-issues-reopen-fill', DileIconlibIssuesReopenFill);
+if (!customElements.get('dile-remixicon-icon-issues-reopen-fill')) {
+  customElements.define('dile-remixicon-icon-issues-reopen-fill', DileIconlibIssuesReopenFill);
+}

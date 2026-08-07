@@ -6,4 +6,6 @@ export class DileIconlibAmericanSignLanguageInterpreting extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-american-sign-language-interpreting', DileIconlibAmericanSignLanguageInterpreting);
+if (!customElements.get('dile-fontawesome-icon-american-sign-language-interpreting')) {
+  customElements.define('dile-fontawesome-icon-american-sign-language-interpreting', DileIconlibAmericanSignLanguageInterpreting);
+}

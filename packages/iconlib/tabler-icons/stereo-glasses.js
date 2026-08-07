@@ -6,4 +6,6 @@ export class DileIconlibStereoGlasses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stereo-glasses', DileIconlibStereoGlasses);
+if (!customElements.get('dile-tabler-icon-stereo-glasses')) {
+  customElements.define('dile-tabler-icon-stereo-glasses', DileIconlibStereoGlasses);
+}

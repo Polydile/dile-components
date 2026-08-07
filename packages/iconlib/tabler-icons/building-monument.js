@@ -6,4 +6,6 @@ export class DileIconlibBuildingMonument extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-monument', DileIconlibBuildingMonument);
+if (!customElements.get('dile-tabler-icon-building-monument')) {
+  customElements.define('dile-tabler-icon-building-monument', DileIconlibBuildingMonument);
+}

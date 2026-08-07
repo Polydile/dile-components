@@ -6,4 +6,6 @@ export class DileIconlibWindPower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wind-power', DileIconlibWindPower);
+if (!customElements.get('dile-material-icon-wind-power')) {
+  customElements.define('dile-material-icon-wind-power', DileIconlibWindPower);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSettingsBackupRestore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-backup-restore', DileIconlibSettingsBackupRestore);
+if (!customElements.get('dile-material-icon-settings-backup-restore')) {
+  customElements.define('dile-material-icon-settings-backup-restore', DileIconlibSettingsBackupRestore);
+}

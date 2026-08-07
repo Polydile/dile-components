@@ -6,4 +6,6 @@ export class DileIconlibStopLargeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stop-large-line', DileIconlibStopLargeLine);
+if (!customElements.get('dile-remixicon-icon-stop-large-line')) {
+  customElements.define('dile-remixicon-icon-stop-large-line', DileIconlibStopLargeLine);
+}

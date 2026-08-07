@@ -6,4 +6,6 @@ export class DileIconlibTurntable extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-turntable', DileIconlibTurntable);
+if (!customElements.get('dile-lucide-icon-turntable')) {
+  customElements.define('dile-lucide-icon-turntable', DileIconlibTurntable);
+}

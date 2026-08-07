@@ -6,4 +6,6 @@ export class DileIconlibOrigami extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-origami', DileIconlibOrigami);
+if (!customElements.get('dile-lucide-icon-origami')) {
+  customElements.define('dile-lucide-icon-origami', DileIconlibOrigami);
+}

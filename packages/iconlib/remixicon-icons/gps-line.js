@@ -6,4 +6,6 @@ export class DileIconlibGpsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-gps-line', DileIconlibGpsLine);
+if (!customElements.get('dile-remixicon-icon-gps-line')) {
+  customElements.define('dile-remixicon-icon-gps-line', DileIconlibGpsLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSwapHoriz extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-swap-horiz', DileIconlibSwapHoriz);
+if (!customElements.get('dile-material-icon-swap-horiz')) {
+  customElements.define('dile-material-icon-swap-horiz', DileIconlibSwapHoriz);
+}

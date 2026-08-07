@@ -6,4 +6,6 @@ export class DileIconlibSensorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sensor-line', DileIconlibSensorLine);
+if (!customElements.get('dile-remixicon-icon-sensor-line')) {
+  customElements.define('dile-remixicon-icon-sensor-line', DileIconlibSensorLine);
+}

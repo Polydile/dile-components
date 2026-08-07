@@ -6,4 +6,6 @@ export class DileIconlibBookmarkAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bookmark-ai', DileIconlibBookmarkAi);
+if (!customElements.get('dile-tabler-icon-bookmark-ai')) {
+  customElements.define('dile-tabler-icon-bookmark-ai', DileIconlibBookmarkAi);
+}

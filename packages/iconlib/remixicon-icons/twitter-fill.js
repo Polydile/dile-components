@@ -6,4 +6,6 @@ export class DileIconlibTwitterFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-twitter-fill', DileIconlibTwitterFill);
+if (!customElements.get('dile-remixicon-icon-twitter-fill')) {
+  customElements.define('dile-remixicon-icon-twitter-fill', DileIconlibTwitterFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStopScreenShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stop-screen-share', DileIconlibStopScreenShare);
+if (!customElements.get('dile-material-icon-stop-screen-share')) {
+  customElements.define('dile-material-icon-stop-screen-share', DileIconlibStopScreenShare);
+}

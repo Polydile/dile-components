@@ -6,4 +6,6 @@ export class DileIconlibLetterCircleV extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-letter-circle-v', DileIconlibLetterCircleV);
+if (!customElements.get('dile-phosphor-icon-letter-circle-v')) {
+  customElements.define('dile-phosphor-icon-letter-circle-v', DileIconlibLetterCircleV);
+}

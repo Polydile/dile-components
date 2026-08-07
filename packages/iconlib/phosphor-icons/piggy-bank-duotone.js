@@ -6,4 +6,6 @@ export class DileIconlibPiggyBankDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-piggy-bank-duotone', DileIconlibPiggyBankDuotone);
+if (!customElements.get('dile-phosphor-icon-piggy-bank-duotone')) {
+  customElements.define('dile-phosphor-icon-piggy-bank-duotone', DileIconlibPiggyBankDuotone);
+}

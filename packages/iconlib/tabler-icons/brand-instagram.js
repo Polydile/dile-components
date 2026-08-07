@@ -6,4 +6,6 @@ export class DileIconlibBrandInstagram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-instagram', DileIconlibBrandInstagram);
+if (!customElements.get('dile-tabler-icon-brand-instagram')) {
+  customElements.define('dile-tabler-icon-brand-instagram', DileIconlibBrandInstagram);
+}

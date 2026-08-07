@@ -6,4 +6,6 @@ export class DileIconlibBrandMinecraft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-minecraft', DileIconlibBrandMinecraft);
+if (!customElements.get('dile-tabler-icon-brand-minecraft')) {
+  customElements.define('dile-tabler-icon-brand-minecraft', DileIconlibBrandMinecraft);
+}

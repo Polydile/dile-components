@@ -6,4 +6,6 @@ export class DileIconlibArrowsMaximize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-maximize', DileIconlibArrowsMaximize);
+if (!customElements.get('dile-tabler-icon-arrows-maximize')) {
+  customElements.define('dile-tabler-icon-arrows-maximize', DileIconlibArrowsMaximize);
+}

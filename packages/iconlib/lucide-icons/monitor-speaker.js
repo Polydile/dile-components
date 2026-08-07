@@ -6,4 +6,6 @@ export class DileIconlibMonitorSpeaker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-monitor-speaker', DileIconlibMonitorSpeaker);
+if (!customElements.get('dile-lucide-icon-monitor-speaker')) {
+  customElements.define('dile-lucide-icon-monitor-speaker', DileIconlibMonitorSpeaker);
+}

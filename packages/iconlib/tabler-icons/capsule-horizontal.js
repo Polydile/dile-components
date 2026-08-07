@@ -6,4 +6,6 @@ export class DileIconlibCapsuleHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-capsule-horizontal', DileIconlibCapsuleHorizontal);
+if (!customElements.get('dile-tabler-icon-capsule-horizontal')) {
+  customElements.define('dile-tabler-icon-capsule-horizontal', DileIconlibCapsuleHorizontal);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSkiing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skiing', DileIconlibSkiing);
+if (!customElements.get('dile-fontawesome-icon-skiing')) {
+  customElements.define('dile-fontawesome-icon-skiing', DileIconlibSkiing);
+}

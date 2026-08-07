@@ -6,4 +6,6 @@ export class DileIconlibSquareOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-off', DileIconlibSquareOff);
+if (!customElements.get('dile-lucide-icon-square-off')) {
+  customElements.define('dile-lucide-icon-square-off', DileIconlibSquareOff);
+}

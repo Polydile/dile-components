@@ -6,4 +6,6 @@ export class DileIconlibBrandNextcloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-nextcloud', DileIconlibBrandNextcloud);
+if (!customElements.get('dile-tabler-icon-brand-nextcloud')) {
+  customElements.define('dile-tabler-icon-brand-nextcloud', DileIconlibBrandNextcloud);
+}

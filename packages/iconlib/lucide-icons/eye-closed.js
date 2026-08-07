@@ -6,4 +6,6 @@ export class DileIconlibEyeClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-eye-closed', DileIconlibEyeClosed);
+if (!customElements.get('dile-lucide-icon-eye-closed')) {
+  customElements.define('dile-lucide-icon-eye-closed', DileIconlibEyeClosed);
+}

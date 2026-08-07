@@ -6,4 +6,6 @@ export class DileIconlibAlignVerticalTop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-align-vertical-top', DileIconlibAlignVerticalTop);
+if (!customElements.get('dile-material-icon-align-vertical-top')) {
+  customElements.define('dile-material-icon-align-vertical-top', DileIconlibAlignVerticalTop);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArtboard2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-artboard-2-line', DileIconlibArtboard2Line);
+if (!customElements.get('dile-remixicon-icon-artboard-2-line')) {
+  customElements.define('dile-remixicon-icon-artboard-2-line', DileIconlibArtboard2Line);
+}

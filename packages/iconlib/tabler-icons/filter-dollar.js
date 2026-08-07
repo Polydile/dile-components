@@ -6,4 +6,6 @@ export class DileIconlibFilterDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-dollar', DileIconlibFilterDollar);
+if (!customElements.get('dile-tabler-icon-filter-dollar')) {
+  customElements.define('dile-tabler-icon-filter-dollar', DileIconlibFilterDollar);
+}

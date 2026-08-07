@@ -6,4 +6,6 @@ export class DileIconlibCpuFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cpu-fill', DileIconlibCpuFill);
+if (!customElements.get('dile-phosphor-icon-cpu-fill')) {
+  customElements.define('dile-phosphor-icon-cpu-fill', DileIconlibCpuFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftPowerpointLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-light', DileIconlibMicrosoftPowerpointLogoLight);
+if (!customElements.get('dile-phosphor-icon-microsoft-powerpoint-logo-light')) {
+  customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-light', DileIconlibMicrosoftPowerpointLogoLight);
+}

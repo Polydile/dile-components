@@ -48,4 +48,6 @@ export class FctCountrySelect extends LitElement {
     this.value = e.detail.value;
   }
 }
-customElements.define('fct-country-select', FctCountrySelect);
+if (!customElements.get('fct-country-select')) {
+  customElements.define('fct-country-select', FctCountrySelect);
+}

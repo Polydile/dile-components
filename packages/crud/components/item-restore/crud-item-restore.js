@@ -1,2 +1,4 @@
 import { DileCrudItemRestore} from "./src/DileCrudItemRestore.js";
-customElements.define('dile-crud-item-restore', DileCrudItemRestore);
+if (!customElements.get('dile-crud-item-restore')) {
+  customElements.define('dile-crud-item-restore', DileCrudItemRestore);
+}

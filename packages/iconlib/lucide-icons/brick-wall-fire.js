@@ -6,4 +6,6 @@ export class DileIconlibBrickWallFire extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-brick-wall-fire', DileIconlibBrickWallFire);
+if (!customElements.get('dile-lucide-icon-brick-wall-fire')) {
+  customElements.define('dile-lucide-icon-brick-wall-fire', DileIconlibBrickWallFire);
+}

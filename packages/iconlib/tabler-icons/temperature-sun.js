@@ -6,4 +6,6 @@ export class DileIconlibTemperatureSun extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-sun', DileIconlibTemperatureSun);
+if (!customElements.get('dile-tabler-icon-temperature-sun')) {
+  customElements.define('dile-tabler-icon-temperature-sun', DileIconlibTemperatureSun);
+}

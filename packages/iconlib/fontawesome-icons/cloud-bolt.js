@@ -6,4 +6,6 @@ export class DileIconlibCloudBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-bolt', DileIconlibCloudBolt);
+if (!customElements.get('dile-fontawesome-icon-cloud-bolt')) {
+  customElements.define('dile-fontawesome-icon-cloud-bolt', DileIconlibCloudBolt);
+}

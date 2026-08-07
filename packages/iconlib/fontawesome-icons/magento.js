@@ -6,4 +6,6 @@ export class DileIconlibMagento extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-magento', DileIconlibMagento);
+if (!customElements.get('dile-fontawesome-icon-magento')) {
+  customElements.define('dile-fontawesome-icon-magento', DileIconlibMagento);
+}

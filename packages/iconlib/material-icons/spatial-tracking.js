@@ -6,4 +6,6 @@ export class DileIconlibSpatialTracking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-spatial-tracking', DileIconlibSpatialTracking);
+if (!customElements.get('dile-material-icon-spatial-tracking')) {
+  customElements.define('dile-material-icon-spatial-tracking', DileIconlibSpatialTracking);
+}

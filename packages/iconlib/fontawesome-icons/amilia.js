@@ -6,4 +6,6 @@ export class DileIconlibAmilia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-amilia', DileIconlibAmilia);
+if (!customElements.get('dile-fontawesome-icon-amilia')) {
+  customElements.define('dile-fontawesome-icon-amilia', DileIconlibAmilia);
+}

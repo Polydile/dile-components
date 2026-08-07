@@ -6,4 +6,6 @@ export class DileIconlibFileSvgBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-svg-bold', DileIconlibFileSvgBold);
+if (!customElements.get('dile-phosphor-icon-file-svg-bold')) {
+  customElements.define('dile-phosphor-icon-file-svg-bold', DileIconlibFileSvgBold);
+}

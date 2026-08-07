@@ -6,4 +6,6 @@ export class DileIconlibBrave extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-brave', DileIconlibBrave);
+if (!customElements.get('dile-fontawesome-icon-brave')) {
+  customElements.define('dile-fontawesome-icon-brave', DileIconlibBrave);
+}

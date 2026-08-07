@@ -6,4 +6,6 @@ export class DileIconlibBrandBumble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bumble', DileIconlibBrandBumble);
+if (!customElements.get('dile-tabler-icon-brand-bumble')) {
+  customElements.define('dile-tabler-icon-brand-bumble', DileIconlibBrandBumble);
+}

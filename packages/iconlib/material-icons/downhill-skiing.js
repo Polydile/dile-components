@@ -6,4 +6,6 @@ export class DileIconlibDownhillSkiing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-downhill-skiing', DileIconlibDownhillSkiing);
+if (!customElements.get('dile-material-icon-downhill-skiing')) {
+  customElements.define('dile-material-icon-downhill-skiing', DileIconlibDownhillSkiing);
+}

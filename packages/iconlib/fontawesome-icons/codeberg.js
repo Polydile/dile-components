@@ -6,4 +6,6 @@ export class DileIconlibCodeberg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-codeberg', DileIconlibCodeberg);
+if (!customElements.get('dile-fontawesome-icon-codeberg')) {
+  customElements.define('dile-fontawesome-icon-codeberg', DileIconlibCodeberg);
+}

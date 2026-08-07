@@ -6,4 +6,6 @@ export class DileIconlibBorderRadius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-border-radius', DileIconlibBorderRadius);
+if (!customElements.get('dile-tabler-icon-border-radius')) {
+  customElements.define('dile-tabler-icon-border-radius', DileIconlibBorderRadius);
+}

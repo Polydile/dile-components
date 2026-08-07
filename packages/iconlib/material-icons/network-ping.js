@@ -6,4 +6,6 @@ export class DileIconlibNetworkPing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-network-ping', DileIconlibNetworkPing);
+if (!customElements.get('dile-material-icon-network-ping')) {
+  customElements.define('dile-material-icon-network-ping', DileIconlibNetworkPing);
+}

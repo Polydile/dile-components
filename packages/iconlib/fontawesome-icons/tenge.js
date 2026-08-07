@@ -6,4 +6,6 @@ export class DileIconlibTenge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tenge', DileIconlibTenge);
+if (!customElements.get('dile-fontawesome-icon-tenge')) {
+  customElements.define('dile-fontawesome-icon-tenge', DileIconlibTenge);
+}

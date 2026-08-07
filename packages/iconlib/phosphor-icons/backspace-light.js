@@ -6,4 +6,6 @@ export class DileIconlibBackspaceLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-backspace-light', DileIconlibBackspaceLight);
+if (!customElements.get('dile-phosphor-icon-backspace-light')) {
+  customElements.define('dile-phosphor-icon-backspace-light', DileIconlibBackspaceLight);
+}

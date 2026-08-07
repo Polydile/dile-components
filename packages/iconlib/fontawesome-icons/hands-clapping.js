@@ -6,4 +6,6 @@ export class DileIconlibHandsClapping extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-clapping', DileIconlibHandsClapping);
+if (!customElements.get('dile-fontawesome-icon-hands-clapping')) {
+  customElements.define('dile-fontawesome-icon-hands-clapping', DileIconlibHandsClapping);
+}

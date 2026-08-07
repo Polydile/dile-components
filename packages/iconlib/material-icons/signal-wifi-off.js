@@ -6,4 +6,6 @@ export class DileIconlibSignalWifiOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-signal-wifi-off', DileIconlibSignalWifiOff);
+if (!customElements.get('dile-material-icon-signal-wifi-off')) {
+  customElements.define('dile-material-icon-signal-wifi-off', DileIconlibSignalWifiOff);
+}

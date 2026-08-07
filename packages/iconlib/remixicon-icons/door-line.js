@@ -6,4 +6,6 @@ export class DileIconlibDoorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-door-line', DileIconlibDoorLine);
+if (!customElements.get('dile-remixicon-icon-door-line')) {
+  customElements.define('dile-remixicon-icon-door-line', DileIconlibDoorLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScoreboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scoreboard', DileIconlibScoreboard);
+if (!customElements.get('dile-tabler-icon-scoreboard')) {
+  customElements.define('dile-tabler-icon-scoreboard', DileIconlibScoreboard);
+}

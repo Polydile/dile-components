@@ -6,4 +6,6 @@ export class DileIconlibClockAfternoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-afternoon', DileIconlibClockAfternoon);
+if (!customElements.get('dile-phosphor-icon-clock-afternoon')) {
+  customElements.define('dile-phosphor-icon-clock-afternoon', DileIconlibClockAfternoon);
+}

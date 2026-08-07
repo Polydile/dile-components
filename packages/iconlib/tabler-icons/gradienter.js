@@ -6,4 +6,6 @@ export class DileIconlibGradienter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gradienter', DileIconlibGradienter);
+if (!customElements.get('dile-tabler-icon-gradienter')) {
+  customElements.define('dile-tabler-icon-gradienter', DileIconlibGradienter);
+}

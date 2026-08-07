@@ -6,4 +6,6 @@ export class DileIconlibUssunnah extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ussunnah', DileIconlibUssunnah);
+if (!customElements.get('dile-fontawesome-icon-ussunnah')) {
+  customElements.define('dile-fontawesome-icon-ussunnah', DileIconlibUssunnah);
+}

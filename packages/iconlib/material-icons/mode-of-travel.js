@@ -6,4 +6,6 @@ export class DileIconlibModeOfTravel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mode-of-travel', DileIconlibModeOfTravel);
+if (!customElements.get('dile-material-icon-mode-of-travel')) {
+  customElements.define('dile-material-icon-mode-of-travel', DileIconlibModeOfTravel);
+}

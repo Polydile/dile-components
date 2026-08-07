@@ -6,4 +6,6 @@ export class DileIconlibStepForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-step-forward', DileIconlibStepForward);
+if (!customElements.get('dile-fontawesome-icon-step-forward')) {
+  customElements.define('dile-fontawesome-icon-step-forward', DileIconlibStepForward);
+}

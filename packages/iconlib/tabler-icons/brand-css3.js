@@ -6,4 +6,6 @@ export class DileIconlibBrandCss3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-css3', DileIconlibBrandCss3);
+if (!customElements.get('dile-tabler-icon-brand-css3')) {
+  customElements.define('dile-tabler-icon-brand-css3', DileIconlibBrandCss3);
+}

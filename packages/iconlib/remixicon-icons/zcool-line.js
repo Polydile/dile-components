@@ -6,4 +6,6 @@ export class DileIconlibZcoolLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-zcool-line', DileIconlibZcoolLine);
+if (!customElements.get('dile-remixicon-icon-zcool-line')) {
+  customElements.define('dile-remixicon-icon-zcool-line', DileIconlibZcoolLine);
+}

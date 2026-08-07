@@ -6,4 +6,6 @@ export class DileIconlibBahai extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bahai', DileIconlibBahai);
+if (!customElements.get('dile-fontawesome-icon-bahai')) {
+  customElements.define('dile-fontawesome-icon-bahai', DileIconlibBahai);
+}

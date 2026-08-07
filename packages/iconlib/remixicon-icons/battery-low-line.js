@@ -6,4 +6,6 @@ export class DileIconlibBatteryLowLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-battery-low-line', DileIconlibBatteryLowLine);
+if (!customElements.get('dile-remixicon-icon-battery-low-line')) {
+  customElements.define('dile-remixicon-icon-battery-low-line', DileIconlibBatteryLowLine);
+}

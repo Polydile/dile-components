@@ -6,4 +6,6 @@ export class DileIconlibArrowCapsule extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-capsule', DileIconlibArrowCapsule);
+if (!customElements.get('dile-tabler-icon-arrow-capsule')) {
+  customElements.define('dile-tabler-icon-arrow-capsule', DileIconlibArrowCapsule);
+}

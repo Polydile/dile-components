@@ -6,4 +6,6 @@ export class DileIconlibBlenderPhone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-blender-phone', DileIconlibBlenderPhone);
+if (!customElements.get('dile-fontawesome-icon-blender-phone')) {
+  customElements.define('dile-fontawesome-icon-blender-phone', DileIconlibBlenderPhone);
+}

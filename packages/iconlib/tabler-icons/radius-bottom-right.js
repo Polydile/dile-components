@@ -6,4 +6,6 @@ export class DileIconlibRadiusBottomRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-radius-bottom-right', DileIconlibRadiusBottomRight);
+if (!customElements.get('dile-tabler-icon-radius-bottom-right')) {
+  customElements.define('dile-tabler-icon-radius-bottom-right', DileIconlibRadiusBottomRight);
+}

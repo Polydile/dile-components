@@ -6,4 +6,6 @@ export class DileIconlibGitDiff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-diff', DileIconlibGitDiff);
+if (!customElements.get('dile-phosphor-icon-git-diff')) {
+  customElements.define('dile-phosphor-icon-git-diff', DileIconlibGitDiff);
+}

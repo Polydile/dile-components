@@ -6,4 +6,6 @@ export class DileIconlibGemini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gemini', DileIconlibGemini);
+if (!customElements.get('dile-fontawesome-icon-gemini')) {
+  customElements.define('dile-fontawesome-icon-gemini', DileIconlibGemini);
+}

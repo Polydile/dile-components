@@ -6,4 +6,6 @@ export class DileIconlibStackOverflowLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stack-overflow-logo-fill', DileIconlibStackOverflowLogoFill);
+if (!customElements.get('dile-phosphor-icon-stack-overflow-logo-fill')) {
+  customElements.define('dile-phosphor-icon-stack-overflow-logo-fill', DileIconlibStackOverflowLogoFill);
+}

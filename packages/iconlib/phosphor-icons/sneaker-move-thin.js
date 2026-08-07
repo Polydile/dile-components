@@ -6,4 +6,6 @@ export class DileIconlibSneakerMoveThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sneaker-move-thin', DileIconlibSneakerMoveThin);
+if (!customElements.get('dile-phosphor-icon-sneaker-move-thin')) {
+  customElements.define('dile-phosphor-icon-sneaker-move-thin', DileIconlibSneakerMoveThin);
+}

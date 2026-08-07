@@ -6,4 +6,6 @@ export class DileIconlibBrandVimeo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vimeo', DileIconlibBrandVimeo);
+if (!customElements.get('dile-tabler-icon-brand-vimeo')) {
+  customElements.define('dile-tabler-icon-brand-vimeo', DileIconlibBrandVimeo);
+}

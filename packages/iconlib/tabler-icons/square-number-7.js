@@ -6,4 +6,6 @@ export class DileIconlibSquareNumber7 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-number-7', DileIconlibSquareNumber7);
+if (!customElements.get('dile-tabler-icon-square-number-7')) {
+  customElements.define('dile-tabler-icon-square-number-7', DileIconlibSquareNumber7);
+}

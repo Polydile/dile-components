@@ -6,4 +6,6 @@ export class DileIconlibSystemUpdateAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-system-update-alt', DileIconlibSystemUpdateAlt);
+if (!customElements.get('dile-material-icon-system-update-alt')) {
+  customElements.define('dile-material-icon-system-update-alt', DileIconlibSystemUpdateAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAslInterpreting extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-asl-interpreting', DileIconlibAslInterpreting);
+if (!customElements.get('dile-fontawesome-icon-asl-interpreting')) {
+  customElements.define('dile-fontawesome-icon-asl-interpreting', DileIconlibAslInterpreting);
+}

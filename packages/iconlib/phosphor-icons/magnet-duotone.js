@@ -6,4 +6,6 @@ export class DileIconlibMagnetDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-magnet-duotone', DileIconlibMagnetDuotone);
+if (!customElements.get('dile-phosphor-icon-magnet-duotone')) {
+  customElements.define('dile-phosphor-icon-magnet-duotone', DileIconlibMagnetDuotone);
+}

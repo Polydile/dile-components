@@ -6,4 +6,6 @@ export class DileIconlibBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bold', DileIconlibBold);
+if (!customElements.get('dile-lucide-icon-bold')) {
+  customElements.define('dile-lucide-icon-bold', DileIconlibBold);
+}

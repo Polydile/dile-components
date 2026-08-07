@@ -6,4 +6,6 @@ export class DileIconlibReceiptRussianRuble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-receipt-russian-ruble', DileIconlibReceiptRussianRuble);
+if (!customElements.get('dile-lucide-icon-receipt-russian-ruble')) {
+  customElements.define('dile-lucide-icon-receipt-russian-ruble', DileIconlibReceiptRussianRuble);
+}

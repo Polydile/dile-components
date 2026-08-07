@@ -6,4 +6,6 @@ export class DileIconlibPermScanWifi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-scan-wifi', DileIconlibPermScanWifi);
+if (!customElements.get('dile-material-icon-perm-scan-wifi')) {
+  customElements.define('dile-material-icon-perm-scan-wifi', DileIconlibPermScanWifi);
+}

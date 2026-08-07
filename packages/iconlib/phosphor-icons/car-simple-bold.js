@@ -6,4 +6,6 @@ export class DileIconlibCarSimpleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-car-simple-bold', DileIconlibCarSimpleBold);
+if (!customElements.get('dile-phosphor-icon-car-simple-bold')) {
+  customElements.define('dile-phosphor-icon-car-simple-bold', DileIconlibCarSimpleBold);
+}

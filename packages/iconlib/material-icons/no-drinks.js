@@ -6,4 +6,6 @@ export class DileIconlibNoDrinks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-drinks', DileIconlibNoDrinks);
+if (!customElements.get('dile-material-icon-no-drinks')) {
+  customElements.define('dile-material-icon-no-drinks', DileIconlibNoDrinks);
+}

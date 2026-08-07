@@ -6,4 +6,6 @@ export class DileIconlibProjectorScreenChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-projector-screen-chart', DileIconlibProjectorScreenChart);
+if (!customElements.get('dile-phosphor-icon-projector-screen-chart')) {
+  customElements.define('dile-phosphor-icon-projector-screen-chart', DileIconlibProjectorScreenChart);
+}

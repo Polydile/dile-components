@@ -6,4 +6,6 @@ export class DileIconlibDeviceTabletSpeakerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-device-tablet-speaker-duotone', DileIconlibDeviceTabletSpeakerDuotone);
+if (!customElements.get('dile-phosphor-icon-device-tablet-speaker-duotone')) {
+  customElements.define('dile-phosphor-icon-device-tablet-speaker-duotone', DileIconlibDeviceTabletSpeakerDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWorldExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-exclamation', DileIconlibWorldExclamation);
+if (!customElements.get('dile-tabler-icon-world-exclamation')) {
+  customElements.define('dile-tabler-icon-world-exclamation', DileIconlibWorldExclamation);
+}

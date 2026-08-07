@@ -6,4 +6,6 @@ export class DileIconlibTipJarBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tip-jar-bold', DileIconlibTipJarBold);
+if (!customElements.get('dile-phosphor-icon-tip-jar-bold')) {
+  customElements.define('dile-phosphor-icon-tip-jar-bold', DileIconlibTipJarBold);
+}

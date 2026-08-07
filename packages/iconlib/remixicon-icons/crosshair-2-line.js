@@ -6,4 +6,6 @@ export class DileIconlibCrosshair2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-crosshair-2-line', DileIconlibCrosshair2Line);
+if (!customElements.get('dile-remixicon-icon-crosshair-2-line')) {
+  customElements.define('dile-remixicon-icon-crosshair-2-line', DileIconlibCrosshair2Line);
+}

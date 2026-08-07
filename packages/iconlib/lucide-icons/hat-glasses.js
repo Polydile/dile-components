@@ -6,4 +6,6 @@ export class DileIconlibHatGlasses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hat-glasses', DileIconlibHatGlasses);
+if (!customElements.get('dile-lucide-icon-hat-glasses')) {
+  customElements.define('dile-lucide-icon-hat-glasses', DileIconlibHatGlasses);
+}

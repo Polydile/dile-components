@@ -6,4 +6,6 @@ export class DileIconlibInstagramLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-instagram-logo', DileIconlibInstagramLogo);
+if (!customElements.get('dile-phosphor-icon-instagram-logo')) {
+  customElements.define('dile-phosphor-icon-instagram-logo', DileIconlibInstagramLogo);
+}

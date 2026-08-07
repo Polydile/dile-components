@@ -6,4 +6,6 @@ export class DileIconlibObjectUngroup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-object-ungroup', DileIconlibObjectUngroup);
+if (!customElements.get('dile-fontawesome-icon-object-ungroup')) {
+  customElements.define('dile-fontawesome-icon-object-ungroup', DileIconlibObjectUngroup);
+}

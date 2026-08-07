@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobeIllustrator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-illustrator', DileIconlibBrandAdobeIllustrator);
+if (!customElements.get('dile-tabler-icon-brand-adobe-illustrator')) {
+  customElements.define('dile-tabler-icon-brand-adobe-illustrator', DileIconlibBrandAdobeIllustrator);
+}

@@ -6,4 +6,6 @@ export class DileIconlibIndeterminateCheckBox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-indeterminate-check-box', DileIconlibIndeterminateCheckBox);
+if (!customElements.get('dile-material-icon-indeterminate-check-box')) {
+  customElements.define('dile-material-icon-indeterminate-check-box', DileIconlibIndeterminateCheckBox);
+}

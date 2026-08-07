@@ -6,4 +6,6 @@ export class DileIconlibStraighten extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-straighten', DileIconlibStraighten);
+if (!customElements.get('dile-material-icon-straighten')) {
+  customElements.define('dile-material-icon-straighten', DileIconlibStraighten);
+}

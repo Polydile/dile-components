@@ -6,4 +6,6 @@ export class DileIconlibBarbellBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-barbell-bold', DileIconlibBarbellBold);
+if (!customElements.get('dile-phosphor-icon-barbell-bold')) {
+  customElements.define('dile-phosphor-icon-barbell-bold', DileIconlibBarbellBold);
+}

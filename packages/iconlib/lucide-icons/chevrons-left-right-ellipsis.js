@@ -6,4 +6,6 @@ export class DileIconlibChevronsLeftRightEllipsis extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chevrons-left-right-ellipsis', DileIconlibChevronsLeftRightEllipsis);
+if (!customElements.get('dile-lucide-icon-chevrons-left-right-ellipsis')) {
+  customElements.define('dile-lucide-icon-chevrons-left-right-ellipsis', DileIconlibChevronsLeftRightEllipsis);
+}

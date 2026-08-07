@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarCanadian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-canadian', DileIconlibCurrencyDollarCanadian);
+if (!customElements.get('dile-tabler-icon-currency-dollar-canadian')) {
+  customElements.define('dile-tabler-icon-currency-dollar-canadian', DileIconlibCurrencyDollarCanadian);
+}

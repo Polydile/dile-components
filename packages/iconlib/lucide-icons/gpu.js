@@ -6,4 +6,6 @@ export class DileIconlibGpu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-gpu', DileIconlibGpu);
+if (!customElements.get('dile-lucide-icon-gpu')) {
+  customElements.define('dile-lucide-icon-gpu', DileIconlibGpu);
+}

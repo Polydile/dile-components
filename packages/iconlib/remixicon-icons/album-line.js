@@ -6,4 +6,6 @@ export class DileIconlibAlbumLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-album-line', DileIconlibAlbumLine);
+if (!customElements.get('dile-remixicon-icon-album-line')) {
+  customElements.define('dile-remixicon-icon-album-line', DileIconlibAlbumLine);
+}

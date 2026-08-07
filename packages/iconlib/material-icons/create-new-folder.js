@@ -6,4 +6,6 @@ export class DileIconlibCreateNewFolder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-create-new-folder', DileIconlibCreateNewFolder);
+if (!customElements.get('dile-material-icon-create-new-folder')) {
+  customElements.define('dile-material-icon-create-new-folder', DileIconlibCreateNewFolder);
+}

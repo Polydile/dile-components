@@ -6,4 +6,6 @@ export class DileIconlibBento extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bento', DileIconlibBento);
+if (!customElements.get('dile-material-icon-bento')) {
+  customElements.define('dile-material-icon-bento', DileIconlibBento);
+}

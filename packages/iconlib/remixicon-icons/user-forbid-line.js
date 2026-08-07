@@ -6,4 +6,6 @@ export class DileIconlibUserForbidLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-user-forbid-line', DileIconlibUserForbidLine);
+if (!customElements.get('dile-remixicon-icon-user-forbid-line')) {
+  customElements.define('dile-remixicon-icon-user-forbid-line', DileIconlibUserForbidLine);
+}

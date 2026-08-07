@@ -6,4 +6,6 @@ export class DileIconlibCalendarOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-off', DileIconlibCalendarOff);
+if (!customElements.get('dile-tabler-icon-calendar-off')) {
+  customElements.define('dile-tabler-icon-calendar-off', DileIconlibCalendarOff);
+}

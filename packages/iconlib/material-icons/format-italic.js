@@ -6,4 +6,6 @@ export class DileIconlibFormatItalic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-italic', DileIconlibFormatItalic);
+if (!customElements.get('dile-material-icon-format-italic')) {
+  customElements.define('dile-material-icon-format-italic', DileIconlibFormatItalic);
+}

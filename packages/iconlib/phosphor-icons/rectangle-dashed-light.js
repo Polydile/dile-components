@@ -6,4 +6,6 @@ export class DileIconlibRectangleDashedLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rectangle-dashed-light', DileIconlibRectangleDashedLight);
+if (!customElements.get('dile-phosphor-icon-rectangle-dashed-light')) {
+  customElements.define('dile-phosphor-icon-rectangle-dashed-light', DileIconlibRectangleDashedLight);
+}

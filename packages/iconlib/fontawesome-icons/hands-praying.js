@@ -6,4 +6,6 @@ export class DileIconlibHandsPraying extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-praying', DileIconlibHandsPraying);
+if (!customElements.get('dile-fontawesome-icon-hands-praying')) {
+  customElements.define('dile-fontawesome-icon-hands-praying', DileIconlibHandsPraying);
+}

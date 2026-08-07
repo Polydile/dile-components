@@ -6,4 +6,6 @@ export class DileIconlibDeviceImacQuestion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-imac-question', DileIconlibDeviceImacQuestion);
+if (!customElements.get('dile-tabler-icon-device-imac-question')) {
+  customElements.define('dile-tabler-icon-device-imac-question', DileIconlibDeviceImacQuestion);
+}

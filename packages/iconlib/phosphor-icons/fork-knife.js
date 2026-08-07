@@ -6,4 +6,6 @@ export class DileIconlibForkKnife extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fork-knife', DileIconlibForkKnife);
+if (!customElements.get('dile-phosphor-icon-fork-knife')) {
+  customElements.define('dile-phosphor-icon-fork-knife', DileIconlibForkKnife);
+}

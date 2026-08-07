@@ -6,4 +6,6 @@ export class DileIconlibRectangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rectangle', DileIconlibRectangle);
+if (!customElements.get('dile-tabler-icon-rectangle')) {
+  customElements.define('dile-tabler-icon-rectangle', DileIconlibRectangle);
+}

@@ -1,2 +1,4 @@
 import { DileCrudUpdate } from './src/DileCrudUpdate.js';
-customElements.define('dile-crud-update', DileCrudUpdate);
+if (!customElements.get('dile-crud-update')) {
+  customElements.define('dile-crud-update', DileCrudUpdate);
+}

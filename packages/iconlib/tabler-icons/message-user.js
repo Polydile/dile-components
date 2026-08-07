@@ -6,4 +6,6 @@ export class DileIconlibMessageUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-user', DileIconlibMessageUser);
+if (!customElements.get('dile-tabler-icon-message-user')) {
+  customElements.define('dile-tabler-icon-message-user', DileIconlibMessageUser);
+}

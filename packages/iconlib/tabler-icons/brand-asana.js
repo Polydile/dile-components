@@ -6,4 +6,6 @@ export class DileIconlibBrandAsana extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-asana', DileIconlibBrandAsana);
+if (!customElements.get('dile-tabler-icon-brand-asana')) {
+  customElements.define('dile-tabler-icon-brand-asana', DileIconlibBrandAsana);
+}

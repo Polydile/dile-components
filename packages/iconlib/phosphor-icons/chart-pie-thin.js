@@ -6,4 +6,6 @@ export class DileIconlibChartPieThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-pie-thin', DileIconlibChartPieThin);
+if (!customElements.get('dile-phosphor-icon-chart-pie-thin')) {
+  customElements.define('dile-phosphor-icon-chart-pie-thin', DileIconlibChartPieThin);
+}

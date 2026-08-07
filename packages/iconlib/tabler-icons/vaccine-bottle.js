@@ -6,4 +6,6 @@ export class DileIconlibVaccineBottle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vaccine-bottle', DileIconlibVaccineBottle);
+if (!customElements.get('dile-tabler-icon-vaccine-bottle')) {
+  customElements.define('dile-tabler-icon-vaccine-bottle', DileIconlibVaccineBottle);
+}

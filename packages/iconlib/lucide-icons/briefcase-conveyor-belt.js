@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseConveyorBelt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-briefcase-conveyor-belt', DileIconlibBriefcaseConveyorBelt);
+if (!customElements.get('dile-lucide-icon-briefcase-conveyor-belt')) {
+  customElements.define('dile-lucide-icon-briefcase-conveyor-belt', DileIconlibBriefcaseConveyorBelt);
+}

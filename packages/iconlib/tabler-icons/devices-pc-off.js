@@ -6,4 +6,6 @@ export class DileIconlibDevicesPcOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-devices-pc-off', DileIconlibDevicesPcOff);
+if (!customElements.get('dile-tabler-icon-devices-pc-off')) {
+  customElements.define('dile-tabler-icon-devices-pc-off', DileIconlibDevicesPcOff);
+}

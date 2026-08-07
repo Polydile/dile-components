@@ -6,4 +6,6 @@ export class DileIconlibYelp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yelp', DileIconlibYelp);
+if (!customElements.get('dile-fontawesome-icon-yelp')) {
+  customElements.define('dile-fontawesome-icon-yelp', DileIconlibYelp);
+}

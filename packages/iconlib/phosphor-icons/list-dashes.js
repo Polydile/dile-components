@@ -6,4 +6,6 @@ export class DileIconlibListDashes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-list-dashes', DileIconlibListDashes);
+if (!customElements.get('dile-phosphor-icon-list-dashes')) {
+  customElements.define('dile-phosphor-icon-list-dashes', DileIconlibListDashes);
+}

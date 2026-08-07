@@ -6,4 +6,6 @@ export class DileIconlibGlassWhiskey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-glass-whiskey', DileIconlibGlassWhiskey);
+if (!customElements.get('dile-fontawesome-icon-glass-whiskey')) {
+  customElements.define('dile-fontawesome-icon-glass-whiskey', DileIconlibGlassWhiskey);
+}

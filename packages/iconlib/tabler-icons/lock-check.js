@@ -6,4 +6,6 @@ export class DileIconlibLockCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-check', DileIconlibLockCheck);
+if (!customElements.get('dile-tabler-icon-lock-check')) {
+  customElements.define('dile-tabler-icon-lock-check', DileIconlibLockCheck);
+}

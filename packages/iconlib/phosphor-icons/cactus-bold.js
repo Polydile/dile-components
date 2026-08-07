@@ -6,4 +6,6 @@ export class DileIconlibCactusBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cactus-bold', DileIconlibCactusBold);
+if (!customElements.get('dile-phosphor-icon-cactus-bold')) {
+  customElements.define('dile-phosphor-icon-cactus-bold', DileIconlibCactusBold);
+}

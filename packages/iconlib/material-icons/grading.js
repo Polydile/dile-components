@@ -6,4 +6,6 @@ export class DileIconlibGrading extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-grading', DileIconlibGrading);
+if (!customElements.get('dile-material-icon-grading')) {
+  customElements.define('dile-material-icon-grading', DileIconlibGrading);
+}

@@ -6,4 +6,6 @@ export class DileIconlibOpenAiLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-open-ai-logo-light', DileIconlibOpenAiLogoLight);
+if (!customElements.get('dile-phosphor-icon-open-ai-logo-light')) {
+  customElements.define('dile-phosphor-icon-open-ai-logo-light', DileIconlibOpenAiLogoLight);
+}

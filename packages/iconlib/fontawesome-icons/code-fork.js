@@ -6,4 +6,6 @@ export class DileIconlibCodeFork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-code-fork', DileIconlibCodeFork);
+if (!customElements.get('dile-fontawesome-icon-code-fork')) {
+  customElements.define('dile-fontawesome-icon-code-fork', DileIconlibCodeFork);
+}

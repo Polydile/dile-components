@@ -6,4 +6,6 @@ export class DileIconlibBringForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bring-forward', DileIconlibBringForward);
+if (!customElements.get('dile-remixicon-icon-bring-forward')) {
+  customElements.define('dile-remixicon-icon-bring-forward', DileIconlibBringForward);
+}

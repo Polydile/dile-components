@@ -6,4 +6,6 @@ export class DileIconlibSettingsEthernet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-ethernet', DileIconlibSettingsEthernet);
+if (!customElements.get('dile-material-icon-settings-ethernet')) {
+  customElements.define('dile-material-icon-settings-ethernet', DileIconlibSettingsEthernet);
+}

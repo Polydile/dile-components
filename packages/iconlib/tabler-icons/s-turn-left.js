@@ -6,4 +6,6 @@ export class DileIconlibSTurnLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-s-turn-left', DileIconlibSTurnLeft);
+if (!customElements.get('dile-tabler-icon-s-turn-left')) {
+  customElements.define('dile-tabler-icon-s-turn-left', DileIconlibSTurnLeft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPager extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pager', DileIconlibPager);
+if (!customElements.get('dile-fontawesome-icon-pager')) {
+  customElements.define('dile-fontawesome-icon-pager', DileIconlibPager);
+}

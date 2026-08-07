@@ -6,4 +6,6 @@ export class DileIconlibPercentDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-percent-duotone', DileIconlibPercentDuotone);
+if (!customElements.get('dile-phosphor-icon-percent-duotone')) {
+  customElements.define('dile-phosphor-icon-percent-duotone', DileIconlibPercentDuotone);
+}

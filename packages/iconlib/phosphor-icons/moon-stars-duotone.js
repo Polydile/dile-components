@@ -6,4 +6,6 @@ export class DileIconlibMoonStarsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-moon-stars-duotone', DileIconlibMoonStarsDuotone);
+if (!customElements.get('dile-phosphor-icon-moon-stars-duotone')) {
+  customElements.define('dile-phosphor-icon-moon-stars-duotone', DileIconlibMoonStarsDuotone);
+}

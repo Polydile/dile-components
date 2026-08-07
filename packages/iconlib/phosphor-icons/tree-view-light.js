@@ -6,4 +6,6 @@ export class DileIconlibTreeViewLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tree-view-light', DileIconlibTreeViewLight);
+if (!customElements.get('dile-phosphor-icon-tree-view-light')) {
+  customElements.define('dile-phosphor-icon-tree-view-light', DileIconlibTreeViewLight);
+}

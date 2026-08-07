@@ -6,4 +6,6 @@ export class DileIconlibArrowsRandom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-random', DileIconlibArrowsRandom);
+if (!customElements.get('dile-tabler-icon-arrows-random')) {
+  customElements.define('dile-tabler-icon-arrows-random', DileIconlibArrowsRandom);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDiceThreeThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dice-three-thin', DileIconlibDiceThreeThin);
+if (!customElements.get('dile-phosphor-icon-dice-three-thin')) {
+  customElements.define('dile-phosphor-icon-dice-three-thin', DileIconlibDiceThreeThin);
+}

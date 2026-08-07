@@ -6,4 +6,6 @@ export class DileIconlibDriveFileMoveOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drive-file-move-outline', DileIconlibDriveFileMoveOutline);
+if (!customElements.get('dile-material-icon-drive-file-move-outline')) {
+  customElements.define('dile-material-icon-drive-file-move-outline', DileIconlibDriveFileMoveOutline);
+}

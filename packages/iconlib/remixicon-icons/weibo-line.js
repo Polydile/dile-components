@@ -6,4 +6,6 @@ export class DileIconlibWeiboLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-weibo-line', DileIconlibWeiboLine);
+if (!customElements.get('dile-remixicon-icon-weibo-line')) {
+  customElements.define('dile-remixicon-icon-weibo-line', DileIconlibWeiboLine);
+}

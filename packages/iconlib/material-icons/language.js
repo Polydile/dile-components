@@ -6,4 +6,6 @@ export class DileIconlibLanguage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-language', DileIconlibLanguage);
+if (!customElements.get('dile-material-icon-language')) {
+  customElements.define('dile-material-icon-language', DileIconlibLanguage);
+}

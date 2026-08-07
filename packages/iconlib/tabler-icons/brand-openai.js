@@ -6,4 +6,6 @@ export class DileIconlibBrandOpenai extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-openai', DileIconlibBrandOpenai);
+if (!customElements.get('dile-tabler-icon-brand-openai')) {
+  customElements.define('dile-tabler-icon-brand-openai', DileIconlibBrandOpenai);
+}

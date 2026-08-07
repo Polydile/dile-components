@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftWordLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-word-logo-duotone', DileIconlibMicrosoftWordLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-microsoft-word-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-microsoft-word-logo-duotone', DileIconlibMicrosoftWordLogoDuotone);
+}

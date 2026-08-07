@@ -6,4 +6,6 @@ export class DileIconlibSensorWindow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sensor-window', DileIconlibSensorWindow);
+if (!customElements.get('dile-material-icon-sensor-window')) {
+  customElements.define('dile-material-icon-sensor-window', DileIconlibSensorWindow);
+}

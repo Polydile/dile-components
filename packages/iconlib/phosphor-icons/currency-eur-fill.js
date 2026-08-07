@@ -6,4 +6,6 @@ export class DileIconlibCurrencyEurFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-eur-fill', DileIconlibCurrencyEurFill);
+if (!customElements.get('dile-phosphor-icon-currency-eur-fill')) {
+  customElements.define('dile-phosphor-icon-currency-eur-fill', DileIconlibCurrencyEurFill);
+}

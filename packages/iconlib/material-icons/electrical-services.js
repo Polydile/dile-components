@@ -6,4 +6,6 @@ export class DileIconlibElectricalServices extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electrical-services', DileIconlibElectricalServices);
+if (!customElements.get('dile-material-icon-electrical-services')) {
+  customElements.define('dile-material-icon-electrical-services', DileIconlibElectricalServices);
+}

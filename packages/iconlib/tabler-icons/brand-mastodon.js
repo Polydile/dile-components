@@ -6,4 +6,6 @@ export class DileIconlibBrandMastodon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mastodon', DileIconlibBrandMastodon);
+if (!customElements.get('dile-tabler-icon-brand-mastodon')) {
+  customElements.define('dile-tabler-icon-brand-mastodon', DileIconlibBrandMastodon);
+}

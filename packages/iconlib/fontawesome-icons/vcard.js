@@ -6,4 +6,6 @@ export class DileIconlibVcard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vcard', DileIconlibVcard);
+if (!customElements.get('dile-fontawesome-icon-vcard')) {
+  customElements.define('dile-fontawesome-icon-vcard', DileIconlibVcard);
+}

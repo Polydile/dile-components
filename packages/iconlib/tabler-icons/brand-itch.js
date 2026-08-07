@@ -6,4 +6,6 @@ export class DileIconlibBrandItch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-itch', DileIconlibBrandItch);
+if (!customElements.get('dile-tabler-icon-brand-itch')) {
+  customElements.define('dile-tabler-icon-brand-itch', DileIconlibBrandItch);
+}

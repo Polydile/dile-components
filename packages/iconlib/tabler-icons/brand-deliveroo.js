@@ -6,4 +6,6 @@ export class DileIconlibBrandDeliveroo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-deliveroo', DileIconlibBrandDeliveroo);
+if (!customElements.get('dile-tabler-icon-brand-deliveroo')) {
+  customElements.define('dile-tabler-icon-brand-deliveroo', DileIconlibBrandDeliveroo);
+}

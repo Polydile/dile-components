@@ -6,4 +6,6 @@ export class DileIconlibAirConditioningDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-air-conditioning-disabled', DileIconlibAirConditioningDisabled);
+if (!customElements.get('dile-tabler-icon-air-conditioning-disabled')) {
+  customElements.define('dile-tabler-icon-air-conditioning-disabled', DileIconlibAirConditioningDisabled);
+}

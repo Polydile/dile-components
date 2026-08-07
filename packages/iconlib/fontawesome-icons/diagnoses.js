@@ -6,4 +6,6 @@ export class DileIconlibDiagnoses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-diagnoses', DileIconlibDiagnoses);
+if (!customElements.get('dile-fontawesome-icon-diagnoses')) {
+  customElements.define('dile-fontawesome-icon-diagnoses', DileIconlibDiagnoses);
+}

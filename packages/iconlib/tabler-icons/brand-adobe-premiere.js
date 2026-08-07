@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobePremiere extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-premiere', DileIconlibBrandAdobePremiere);
+if (!customElements.get('dile-tabler-icon-brand-adobe-premiere')) {
+  customElements.define('dile-tabler-icon-brand-adobe-premiere', DileIconlibBrandAdobePremiere);
+}

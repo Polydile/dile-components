@@ -6,4 +6,6 @@ export class DileIconlibIroningSteamFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ironing-steam-filled', DileIconlibIroningSteamFilled);
+if (!customElements.get('dile-tabler-icon-ironing-steam-filled')) {
+  customElements.define('dile-tabler-icon-ironing-steam-filled', DileIconlibIroningSteamFilled);
+}

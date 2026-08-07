@@ -6,4 +6,6 @@ export class DileIconlibWindmillFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-windmill-filled', DileIconlibWindmillFilled);
+if (!customElements.get('dile-tabler-icon-windmill-filled')) {
+  customElements.define('dile-tabler-icon-windmill-filled', DileIconlibWindmillFilled);
+}

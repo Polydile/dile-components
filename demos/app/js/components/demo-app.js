@@ -108,4 +108,6 @@ export class DemoApp extends FeedbackMixin(LitElement) {
 
 
 }
-customElements.define('demo-app', DemoApp);
+if (!customElements.get('demo-app')) {
+  customElements.define('demo-app', DemoApp);
+}

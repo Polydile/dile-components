@@ -6,4 +6,6 @@ export class DileIconlibLifebuoyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lifebuoy-fill', DileIconlibLifebuoyFill);
+if (!customElements.get('dile-remixicon-icon-lifebuoy-fill')) {
+  customElements.define('dile-remixicon-icon-lifebuoy-fill', DileIconlibLifebuoyFill);
+}

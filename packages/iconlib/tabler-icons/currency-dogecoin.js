@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDogecoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dogecoin', DileIconlibCurrencyDogecoin);
+if (!customElements.get('dile-tabler-icon-currency-dogecoin')) {
+  customElements.define('dile-tabler-icon-currency-dogecoin', DileIconlibCurrencyDogecoin);
+}

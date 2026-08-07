@@ -6,4 +6,6 @@ export class DileIconlibMicroblog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-microblog', DileIconlibMicroblog);
+if (!customElements.get('dile-fontawesome-icon-microblog')) {
+  customElements.define('dile-fontawesome-icon-microblog', DileIconlibMicroblog);
+}

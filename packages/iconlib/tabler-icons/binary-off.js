@@ -6,4 +6,6 @@ export class DileIconlibBinaryOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-binary-off', DileIconlibBinaryOff);
+if (!customElements.get('dile-tabler-icon-binary-off')) {
+  customElements.define('dile-tabler-icon-binary-off', DileIconlibBinaryOff);
+}

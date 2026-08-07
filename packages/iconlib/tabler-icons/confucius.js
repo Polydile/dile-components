@@ -6,4 +6,6 @@ export class DileIconlibConfucius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-confucius', DileIconlibConfucius);
+if (!customElements.get('dile-tabler-icon-confucius')) {
+  customElements.define('dile-tabler-icon-confucius', DileIconlibConfucius);
+}

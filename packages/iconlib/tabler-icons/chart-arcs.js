@@ -6,4 +6,6 @@ export class DileIconlibChartArcs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-arcs', DileIconlibChartArcs);
+if (!customElements.get('dile-tabler-icon-chart-arcs')) {
+  customElements.define('dile-tabler-icon-chart-arcs', DileIconlibChartArcs);
+}

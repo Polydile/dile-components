@@ -6,4 +6,6 @@ export class DileIconlibAlignLeftSimpleThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-align-left-simple-thin', DileIconlibAlignLeftSimpleThin);
+if (!customElements.get('dile-phosphor-icon-align-left-simple-thin')) {
+  customElements.define('dile-phosphor-icon-align-left-simple-thin', DileIconlibAlignLeftSimpleThin);
+}

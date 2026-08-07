@@ -6,4 +6,6 @@ export class DileIconlibTrashRestore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trash-restore', DileIconlibTrashRestore);
+if (!customElements.get('dile-fontawesome-icon-trash-restore')) {
+  customElements.define('dile-fontawesome-icon-trash-restore', DileIconlibTrashRestore);
+}

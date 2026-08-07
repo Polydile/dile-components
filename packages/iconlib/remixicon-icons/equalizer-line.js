@@ -6,4 +6,6 @@ export class DileIconlibEqualizerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-equalizer-line', DileIconlibEqualizerLine);
+if (!customElements.get('dile-remixicon-icon-equalizer-line')) {
+  customElements.define('dile-remixicon-icon-equalizer-line', DileIconlibEqualizerLine);
+}

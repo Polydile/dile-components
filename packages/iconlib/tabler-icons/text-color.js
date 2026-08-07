@@ -6,4 +6,6 @@ export class DileIconlibTextColor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-color', DileIconlibTextColor);
+if (!customElements.get('dile-tabler-icon-text-color')) {
+  customElements.define('dile-tabler-icon-text-color', DileIconlibTextColor);
+}

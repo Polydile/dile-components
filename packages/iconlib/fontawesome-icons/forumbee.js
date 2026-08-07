@@ -6,4 +6,6 @@ export class DileIconlibForumbee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-forumbee', DileIconlibForumbee);
+if (!customElements.get('dile-fontawesome-icon-forumbee')) {
+  customElements.define('dile-fontawesome-icon-forumbee', DileIconlibForumbee);
+}

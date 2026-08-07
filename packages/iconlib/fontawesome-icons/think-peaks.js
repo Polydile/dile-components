@@ -6,4 +6,6 @@ export class DileIconlibThinkPeaks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-think-peaks', DileIconlibThinkPeaks);
+if (!customElements.get('dile-fontawesome-icon-think-peaks')) {
+  customElements.define('dile-fontawesome-icon-think-peaks', DileIconlibThinkPeaks);
+}

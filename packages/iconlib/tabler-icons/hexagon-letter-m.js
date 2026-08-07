@@ -6,4 +6,6 @@ export class DileIconlibHexagonLetterM extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-letter-m', DileIconlibHexagonLetterM);
+if (!customElements.get('dile-tabler-icon-hexagon-letter-m')) {
+  customElements.define('dile-tabler-icon-hexagon-letter-m', DileIconlibHexagonLetterM);
+}

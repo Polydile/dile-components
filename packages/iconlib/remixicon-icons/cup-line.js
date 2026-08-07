@@ -6,4 +6,6 @@ export class DileIconlibCupLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cup-line', DileIconlibCupLine);
+if (!customElements.get('dile-remixicon-icon-cup-line')) {
+  customElements.define('dile-remixicon-icon-cup-line', DileIconlibCupLine);
+}

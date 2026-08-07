@@ -6,4 +6,6 @@ export class DileIconlibRugby extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rugby', DileIconlibRugby);
+if (!customElements.get('dile-tabler-icon-rugby')) {
+  customElements.define('dile-tabler-icon-rugby', DileIconlibRugby);
+}

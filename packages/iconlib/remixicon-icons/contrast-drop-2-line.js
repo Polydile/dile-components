@@ -6,4 +6,6 @@ export class DileIconlibContrastDrop2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-contrast-drop-2-line', DileIconlibContrastDrop2Line);
+if (!customElements.get('dile-remixicon-icon-contrast-drop-2-line')) {
+  customElements.define('dile-remixicon-icon-contrast-drop-2-line', DileIconlibContrastDrop2Line);
+}

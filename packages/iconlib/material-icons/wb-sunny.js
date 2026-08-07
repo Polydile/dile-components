@@ -6,4 +6,6 @@ export class DileIconlibWbSunny extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wb-sunny', DileIconlibWbSunny);
+if (!customElements.get('dile-material-icon-wb-sunny')) {
+  customElements.define('dile-material-icon-wb-sunny', DileIconlibWbSunny);
+}

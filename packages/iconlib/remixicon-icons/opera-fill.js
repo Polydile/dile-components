@@ -6,4 +6,6 @@ export class DileIconlibOperaFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-opera-fill', DileIconlibOperaFill);
+if (!customElements.get('dile-remixicon-icon-opera-fill')) {
+  customElements.define('dile-remixicon-icon-opera-fill', DileIconlibOperaFill);
+}

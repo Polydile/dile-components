@@ -6,4 +6,6 @@ export class DileIconlibArrowsSplit2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-split-2', DileIconlibArrowsSplit2);
+if (!customElements.get('dile-tabler-icon-arrows-split-2')) {
+  customElements.define('dile-tabler-icon-arrows-split-2', DileIconlibArrowsSplit2);
+}

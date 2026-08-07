@@ -6,4 +6,6 @@ export class DileIconlibLinkedin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-linkedin', DileIconlibLinkedin);
+if (!customElements.get('dile-lucide-icon-linkedin')) {
+  customElements.define('dile-lucide-icon-linkedin', DileIconlibLinkedin);
+}

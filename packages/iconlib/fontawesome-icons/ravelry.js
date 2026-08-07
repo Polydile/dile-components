@@ -6,4 +6,6 @@ export class DileIconlibRavelry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ravelry', DileIconlibRavelry);
+if (!customElements.get('dile-fontawesome-icon-ravelry')) {
+  customElements.define('dile-fontawesome-icon-ravelry', DileIconlibRavelry);
+}

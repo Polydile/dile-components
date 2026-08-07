@@ -6,4 +6,6 @@ export class DileIconlibAirVent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-air-vent', DileIconlibAirVent);
+if (!customElements.get('dile-lucide-icon-air-vent')) {
+  customElements.define('dile-lucide-icon-air-vent', DileIconlibAirVent);
+}

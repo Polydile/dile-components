@@ -6,4 +6,6 @@ export class DileIconlibInstallMobile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-install-mobile', DileIconlibInstallMobile);
+if (!customElements.get('dile-material-icon-install-mobile')) {
+  customElements.define('dile-material-icon-install-mobile', DileIconlibInstallMobile);
+}

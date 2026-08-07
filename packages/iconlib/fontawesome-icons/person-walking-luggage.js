@@ -6,4 +6,6 @@ export class DileIconlibPersonWalkingLuggage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-walking-luggage', DileIconlibPersonWalkingLuggage);
+if (!customElements.get('dile-fontawesome-icon-person-walking-luggage')) {
+  customElements.define('dile-fontawesome-icon-person-walking-luggage', DileIconlibPersonWalkingLuggage);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAssistWalker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-assist-walker', DileIconlibAssistWalker);
+if (!customElements.get('dile-material-icon-assist-walker')) {
+  customElements.define('dile-material-icon-assist-walker', DileIconlibAssistWalker);
+}

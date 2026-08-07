@@ -6,4 +6,6 @@ export class DileIconlibFunnelPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-funnel-plus', DileIconlibFunnelPlus);
+if (!customElements.get('dile-lucide-icon-funnel-plus')) {
+  customElements.define('dile-lucide-icon-funnel-plus', DileIconlibFunnelPlus);
+}

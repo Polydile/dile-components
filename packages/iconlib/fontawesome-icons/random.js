@@ -6,4 +6,6 @@ export class DileIconlibRandom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-random', DileIconlibRandom);
+if (!customElements.get('dile-fontawesome-icon-random')) {
+  customElements.define('dile-fontawesome-icon-random', DileIconlibRandom);
+}

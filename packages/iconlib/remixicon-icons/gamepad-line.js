@@ -6,4 +6,6 @@ export class DileIconlibGamepadLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-gamepad-line', DileIconlibGamepadLine);
+if (!customElements.get('dile-remixicon-icon-gamepad-line')) {
+  customElements.define('dile-remixicon-icon-gamepad-line', DileIconlibGamepadLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibQuinscape extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-quinscape', DileIconlibQuinscape);
+if (!customElements.get('dile-fontawesome-icon-quinscape')) {
+  customElements.define('dile-fontawesome-icon-quinscape', DileIconlibQuinscape);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBagSimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bag-simple-duotone', DileIconlibBagSimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-bag-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-bag-simple-duotone', DileIconlibBagSimpleDuotone);
+}

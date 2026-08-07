@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-dollar-duotone', DileIconlibCurrencyDollarDuotone);
+if (!customElements.get('dile-phosphor-icon-currency-dollar-duotone')) {
+  customElements.define('dile-phosphor-icon-currency-dollar-duotone', DileIconlibCurrencyDollarDuotone);
+}

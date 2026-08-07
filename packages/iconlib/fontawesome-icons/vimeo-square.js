@@ -6,4 +6,6 @@ export class DileIconlibVimeoSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vimeo-square', DileIconlibVimeoSquare);
+if (!customElements.get('dile-fontawesome-icon-vimeo-square')) {
+  customElements.define('dile-fontawesome-icon-vimeo-square', DileIconlibVimeoSquare);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDoubleArrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-double-arrow', DileIconlibDoubleArrow);
+if (!customElements.get('dile-material-icon-double-arrow')) {
+  customElements.define('dile-material-icon-double-arrow', DileIconlibDoubleArrow);
+}

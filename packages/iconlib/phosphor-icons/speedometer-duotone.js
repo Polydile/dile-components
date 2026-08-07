@@ -6,4 +6,6 @@ export class DileIconlibSpeedometerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-speedometer-duotone', DileIconlibSpeedometerDuotone);
+if (!customElements.get('dile-phosphor-icon-speedometer-duotone')) {
+  customElements.define('dile-phosphor-icon-speedometer-duotone', DileIconlibSpeedometerDuotone);
+}

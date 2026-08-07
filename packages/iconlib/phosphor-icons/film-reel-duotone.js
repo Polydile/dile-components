@@ -6,4 +6,6 @@ export class DileIconlibFilmReelDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-film-reel-duotone', DileIconlibFilmReelDuotone);
+if (!customElements.get('dile-phosphor-icon-film-reel-duotone')) {
+  customElements.define('dile-phosphor-icon-film-reel-duotone', DileIconlibFilmReelDuotone);
+}

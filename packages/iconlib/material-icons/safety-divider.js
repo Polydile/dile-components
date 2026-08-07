@@ -6,4 +6,6 @@ export class DileIconlibSafetyDivider extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-safety-divider', DileIconlibSafetyDivider);
+if (!customElements.get('dile-material-icon-safety-divider')) {
+  customElements.define('dile-material-icon-safety-divider', DileIconlibSafetyDivider);
+}

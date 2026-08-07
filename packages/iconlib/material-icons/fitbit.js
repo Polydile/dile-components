@@ -6,4 +6,6 @@ export class DileIconlibFitbit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fitbit', DileIconlibFitbit);
+if (!customElements.get('dile-material-icon-fitbit')) {
+  customElements.define('dile-material-icon-fitbit', DileIconlibFitbit);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLinkBreakThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-link-break-thin', DileIconlibLinkBreakThin);
+if (!customElements.get('dile-phosphor-icon-link-break-thin')) {
+  customElements.define('dile-phosphor-icon-link-break-thin', DileIconlibLinkBreakThin);
+}

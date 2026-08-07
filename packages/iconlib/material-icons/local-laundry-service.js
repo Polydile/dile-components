@@ -6,4 +6,6 @@ export class DileIconlibLocalLaundryService extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-laundry-service', DileIconlibLocalLaundryService);
+if (!customElements.get('dile-material-icon-local-laundry-service')) {
+  customElements.define('dile-material-icon-local-laundry-service', DileIconlibLocalLaundryService);
+}

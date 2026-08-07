@@ -6,4 +6,6 @@ export class DileIconlibClearAll extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clear-all', DileIconlibClearAll);
+if (!customElements.get('dile-tabler-icon-clear-all')) {
+  customElements.define('dile-tabler-icon-clear-all', DileIconlibClearAll);
+}

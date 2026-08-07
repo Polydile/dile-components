@@ -6,4 +6,6 @@ export class DileIconlibFolderBookmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-bookmark', DileIconlibFolderBookmark);
+if (!customElements.get('dile-lucide-icon-folder-bookmark')) {
+  customElements.define('dile-lucide-icon-folder-bookmark', DileIconlibFolderBookmark);
+}

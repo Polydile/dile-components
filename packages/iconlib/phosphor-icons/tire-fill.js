@@ -6,4 +6,6 @@ export class DileIconlibTireFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tire-fill', DileIconlibTireFill);
+if (!customElements.get('dile-phosphor-icon-tire-fill')) {
+  customElements.define('dile-phosphor-icon-tire-fill', DileIconlibTireFill);
+}

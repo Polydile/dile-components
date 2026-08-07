@@ -6,4 +6,6 @@ export class DileIconlibDongSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dong-sign', DileIconlibDongSign);
+if (!customElements.get('dile-fontawesome-icon-dong-sign')) {
+  customElements.define('dile-fontawesome-icon-dong-sign', DileIconlibDongSign);
+}

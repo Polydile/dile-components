@@ -6,4 +6,6 @@ export class DileIconlibRowsPlusBottom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rows-plus-bottom', DileIconlibRowsPlusBottom);
+if (!customElements.get('dile-phosphor-icon-rows-plus-bottom')) {
+  customElements.define('dile-phosphor-icon-rows-plus-bottom', DileIconlibRowsPlusBottom);
+}

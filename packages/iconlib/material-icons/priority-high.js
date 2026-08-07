@@ -6,4 +6,6 @@ export class DileIconlibPriorityHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-priority-high', DileIconlibPriorityHigh);
+if (!customElements.get('dile-material-icon-priority-high')) {
+  customElements.define('dile-material-icon-priority-high', DileIconlibPriorityHigh);
+}

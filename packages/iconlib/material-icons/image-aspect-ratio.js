@@ -6,4 +6,6 @@ export class DileIconlibImageAspectRatio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-image-aspect-ratio', DileIconlibImageAspectRatio);
+if (!customElements.get('dile-material-icon-image-aspect-ratio')) {
+  customElements.define('dile-material-icon-image-aspect-ratio', DileIconlibImageAspectRatio);
+}

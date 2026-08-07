@@ -6,4 +6,6 @@ export class DileIconlibLocationPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-location-pause', DileIconlibLocationPause);
+if (!customElements.get('dile-tabler-icon-location-pause')) {
+  customElements.define('dile-tabler-icon-location-pause', DileIconlibLocationPause);
+}

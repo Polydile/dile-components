@@ -6,4 +6,6 @@ export class DileIconlibPrompt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-prompt', DileIconlibPrompt);
+if (!customElements.get('dile-tabler-icon-prompt')) {
+  customElements.define('dile-tabler-icon-prompt', DileIconlibPrompt);
+}

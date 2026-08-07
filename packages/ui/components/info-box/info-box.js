@@ -1,3 +1,5 @@
 import { DileInfoBox } from "./src/DileInfoBox.js";
 
-window.customElements.define("dile-info-box", DileInfoBox);
+if (!customElements.get("dile-info-box")) {
+  window.customElements.define("dile-info-box", DileInfoBox);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSlackFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-slack-fill', DileIconlibSlackFill);
+if (!customElements.get('dile-remixicon-icon-slack-fill')) {
+  customElements.define('dile-remixicon-icon-slack-fill', DileIconlibSlackFill);
+}

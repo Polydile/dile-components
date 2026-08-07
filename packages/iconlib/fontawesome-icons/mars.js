@@ -6,4 +6,6 @@ export class DileIconlibMars extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mars', DileIconlibMars);
+if (!customElements.get('dile-fontawesome-icon-mars')) {
+  customElements.define('dile-fontawesome-icon-mars', DileIconlibMars);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChromeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chrome-line', DileIconlibChromeLine);
+if (!customElements.get('dile-remixicon-icon-chrome-line')) {
+  customElements.define('dile-remixicon-icon-chrome-line', DileIconlibChromeLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEngineering extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-engineering', DileIconlibEngineering);
+if (!customElements.get('dile-material-icon-engineering')) {
+  customElements.define('dile-material-icon-engineering', DileIconlibEngineering);
+}

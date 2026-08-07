@@ -6,4 +6,6 @@ export class DileIconlibTextDirectionRtl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-direction-rtl', DileIconlibTextDirectionRtl);
+if (!customElements.get('dile-tabler-icon-text-direction-rtl')) {
+  customElements.define('dile-tabler-icon-text-direction-rtl', DileIconlibTextDirectionRtl);
+}

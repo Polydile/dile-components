@@ -6,4 +6,6 @@ export class DileIconlibFlaskRound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flask-round', DileIconlibFlaskRound);
+if (!customElements.get('dile-lucide-icon-flask-round')) {
+  customElements.define('dile-lucide-icon-flask-round', DileIconlibFlaskRound);
+}

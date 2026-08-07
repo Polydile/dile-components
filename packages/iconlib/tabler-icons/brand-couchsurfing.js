@@ -6,4 +6,6 @@ export class DileIconlibBrandCouchsurfing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-couchsurfing', DileIconlibBrandCouchsurfing);
+if (!customElements.get('dile-tabler-icon-brand-couchsurfing')) {
+  customElements.define('dile-tabler-icon-brand-couchsurfing', DileIconlibBrandCouchsurfing);
+}

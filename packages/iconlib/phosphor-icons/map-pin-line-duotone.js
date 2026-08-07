@@ -6,4 +6,6 @@ export class DileIconlibMapPinLineDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-map-pin-line-duotone', DileIconlibMapPinLineDuotone);
+if (!customElements.get('dile-phosphor-icon-map-pin-line-duotone')) {
+  customElements.define('dile-phosphor-icon-map-pin-line-duotone', DileIconlibMapPinLineDuotone);
+}

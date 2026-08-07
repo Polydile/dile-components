@@ -6,4 +6,6 @@ export class DileIconlibFlipCameraIos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flip-camera-ios', DileIconlibFlipCameraIos);
+if (!customElements.get('dile-material-icon-flip-camera-ios')) {
+  customElements.define('dile-material-icon-flip-camera-ios', DileIconlibFlipCameraIos);
+}

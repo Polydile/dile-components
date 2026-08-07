@@ -6,4 +6,6 @@ export class DileIconlibEqualizerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-equalizer-light', DileIconlibEqualizerLight);
+if (!customElements.get('dile-phosphor-icon-equalizer-light')) {
+  customElements.define('dile-phosphor-icon-equalizer-light', DileIconlibEqualizerLight);
+}

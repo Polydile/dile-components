@@ -6,4 +6,6 @@ export class DileIconlibWifiTetheringError extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-tethering-error', DileIconlibWifiTetheringError);
+if (!customElements.get('dile-material-icon-wifi-tethering-error')) {
+  customElements.define('dile-material-icon-wifi-tethering-error', DileIconlibWifiTetheringError);
+}

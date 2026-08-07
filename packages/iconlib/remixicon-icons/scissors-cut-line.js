@@ -6,4 +6,6 @@ export class DileIconlibScissorsCutLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-scissors-cut-line', DileIconlibScissorsCutLine);
+if (!customElements.get('dile-remixicon-icon-scissors-cut-line')) {
+  customElements.define('dile-remixicon-icon-scissors-cut-line', DileIconlibScissorsCutLine);
+}

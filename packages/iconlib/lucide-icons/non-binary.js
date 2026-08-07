@@ -6,4 +6,6 @@ export class DileIconlibNonBinary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-non-binary', DileIconlibNonBinary);
+if (!customElements.get('dile-lucide-icon-non-binary')) {
+  customElements.define('dile-lucide-icon-non-binary', DileIconlibNonBinary);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCancelScheduleSend extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cancel-schedule-send', DileIconlibCancelScheduleSend);
+if (!customElements.get('dile-material-icon-cancel-schedule-send')) {
+  customElements.define('dile-material-icon-cancel-schedule-send', DileIconlibCancelScheduleSend);
+}

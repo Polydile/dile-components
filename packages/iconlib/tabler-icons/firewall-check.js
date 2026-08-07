@@ -6,4 +6,6 @@ export class DileIconlibFirewallCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-firewall-check', DileIconlibFirewallCheck);
+if (!customElements.get('dile-tabler-icon-firewall-check')) {
+  customElements.define('dile-tabler-icon-firewall-check', DileIconlibFirewallCheck);
+}

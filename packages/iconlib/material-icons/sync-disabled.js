@@ -6,4 +6,6 @@ export class DileIconlibSyncDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sync-disabled', DileIconlibSyncDisabled);
+if (!customElements.get('dile-material-icon-sync-disabled')) {
+  customElements.define('dile-material-icon-sync-disabled', DileIconlibSyncDisabled);
+}

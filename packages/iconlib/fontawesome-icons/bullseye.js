@@ -6,4 +6,6 @@ export class DileIconlibBullseye extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bullseye', DileIconlibBullseye);
+if (!customElements.get('dile-fontawesome-icon-bullseye')) {
+  customElements.define('dile-fontawesome-icon-bullseye', DileIconlibBullseye);
+}

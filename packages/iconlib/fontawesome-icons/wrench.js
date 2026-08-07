@@ -6,4 +6,6 @@ export class DileIconlibWrench extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wrench', DileIconlibWrench);
+if (!customElements.get('dile-fontawesome-icon-wrench')) {
+  customElements.define('dile-fontawesome-icon-wrench', DileIconlibWrench);
+}

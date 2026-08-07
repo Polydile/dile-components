@@ -6,4 +6,6 @@ export class DileIconlibEditLocationAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-edit-location-alt', DileIconlibEditLocationAlt);
+if (!customElements.get('dile-material-icon-edit-location-alt')) {
+  customElements.define('dile-material-icon-edit-location-alt', DileIconlibEditLocationAlt);
+}

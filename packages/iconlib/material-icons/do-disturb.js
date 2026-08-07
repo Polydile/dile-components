@@ -6,4 +6,6 @@ export class DileIconlibDoDisturb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-do-disturb', DileIconlibDoDisturb);
+if (!customElements.get('dile-material-icon-do-disturb')) {
+  customElements.define('dile-material-icon-do-disturb', DileIconlibDoDisturb);
+}

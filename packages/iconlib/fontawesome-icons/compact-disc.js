@@ -6,4 +6,6 @@ export class DileIconlibCompactDisc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-compact-disc', DileIconlibCompactDisc);
+if (!customElements.get('dile-fontawesome-icon-compact-disc')) {
+  customElements.define('dile-fontawesome-icon-compact-disc', DileIconlibCompactDisc);
+}

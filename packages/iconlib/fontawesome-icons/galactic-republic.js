@@ -6,4 +6,6 @@ export class DileIconlibGalacticRepublic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-galactic-republic', DileIconlibGalacticRepublic);
+if (!customElements.get('dile-fontawesome-icon-galactic-republic')) {
+  customElements.define('dile-fontawesome-icon-galactic-republic', DileIconlibGalacticRepublic);
+}

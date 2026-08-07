@@ -6,4 +6,6 @@ export class DileIconlibLumonDrop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lumon-drop', DileIconlibLumonDrop);
+if (!customElements.get('dile-fontawesome-icon-lumon-drop')) {
+  customElements.define('dile-fontawesome-icon-lumon-drop', DileIconlibLumonDrop);
+}

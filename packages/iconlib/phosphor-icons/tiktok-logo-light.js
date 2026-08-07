@@ -6,4 +6,6 @@ export class DileIconlibTiktokLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tiktok-logo-light', DileIconlibTiktokLogoLight);
+if (!customElements.get('dile-phosphor-icon-tiktok-logo-light')) {
+  customElements.define('dile-phosphor-icon-tiktok-logo-light', DileIconlibTiktokLogoLight);
+}

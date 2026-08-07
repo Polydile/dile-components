@@ -6,4 +6,6 @@ export class DileIconlibCameraRotate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-camera-rotate', DileIconlibCameraRotate);
+if (!customElements.get('dile-fontawesome-icon-camera-rotate')) {
+  customElements.define('dile-fontawesome-icon-camera-rotate', DileIconlibCameraRotate);
+}

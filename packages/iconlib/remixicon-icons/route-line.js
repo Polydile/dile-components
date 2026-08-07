@@ -6,4 +6,6 @@ export class DileIconlibRouteLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-route-line', DileIconlibRouteLine);
+if (!customElements.get('dile-remixicon-icon-route-line')) {
+  customElements.define('dile-remixicon-icon-route-line', DileIconlibRouteLine);
+}

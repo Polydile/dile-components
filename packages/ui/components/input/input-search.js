@@ -1,3 +1,5 @@
 import { DileInputSearch } from "./src/DileInputSearch.js";
 
-window.customElements.define("dile-input-search", DileInputSearch);
+if (!customElements.get("dile-input-search")) {
+  window.customElements.define("dile-input-search", DileInputSearch);
+}

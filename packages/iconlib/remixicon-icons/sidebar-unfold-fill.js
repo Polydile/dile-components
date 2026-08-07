@@ -6,4 +6,6 @@ export class DileIconlibSidebarUnfoldFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sidebar-unfold-fill', DileIconlibSidebarUnfoldFill);
+if (!customElements.get('dile-remixicon-icon-sidebar-unfold-fill')) {
+  customElements.define('dile-remixicon-icon-sidebar-unfold-fill', DileIconlibSidebarUnfoldFill);
+}

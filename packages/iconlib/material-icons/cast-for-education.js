@@ -6,4 +6,6 @@ export class DileIconlibCastForEducation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cast-for-education', DileIconlibCastForEducation);
+if (!customElements.get('dile-material-icon-cast-for-education')) {
+  customElements.define('dile-material-icon-cast-for-education', DileIconlibCastForEducation);
+}

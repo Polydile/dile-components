@@ -6,4 +6,6 @@ export class DileIconlibPrescription extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-prescription', DileIconlibPrescription);
+if (!customElements.get('dile-tabler-icon-prescription')) {
+  customElements.define('dile-tabler-icon-prescription', DileIconlibPrescription);
+}

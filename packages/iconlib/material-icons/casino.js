@@ -6,4 +6,6 @@ export class DileIconlibCasino extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-casino', DileIconlibCasino);
+if (!customElements.get('dile-material-icon-casino')) {
+  customElements.define('dile-material-icon-casino', DileIconlibCasino);
+}

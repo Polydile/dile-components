@@ -6,4 +6,6 @@ export class DileIconlibFirstAidKitBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-first-aid-kit-bold', DileIconlibFirstAidKitBold);
+if (!customElements.get('dile-phosphor-icon-first-aid-kit-bold')) {
+  customElements.define('dile-phosphor-icon-first-aid-kit-bold', DileIconlibFirstAidKitBold);
+}

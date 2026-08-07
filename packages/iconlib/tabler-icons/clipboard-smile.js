@@ -6,4 +6,6 @@ export class DileIconlibClipboardSmile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clipboard-smile', DileIconlibClipboardSmile);
+if (!customElements.get('dile-tabler-icon-clipboard-smile')) {
+  customElements.define('dile-tabler-icon-clipboard-smile', DileIconlibClipboardSmile);
+}

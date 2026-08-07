@@ -6,4 +6,6 @@ export class DileIconlibPrinterCloudFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-printer-cloud-fill', DileIconlibPrinterCloudFill);
+if (!customElements.get('dile-remixicon-icon-printer-cloud-fill')) {
+  customElements.define('dile-remixicon-icon-printer-cloud-fill', DileIconlibPrinterCloudFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSortAscendingBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sort-ascending-bold', DileIconlibSortAscendingBold);
+if (!customElements.get('dile-phosphor-icon-sort-ascending-bold')) {
+  customElements.define('dile-phosphor-icon-sort-ascending-bold', DileIconlibSortAscendingBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFahrenheitFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-fahrenheit-fill', DileIconlibFahrenheitFill);
+if (!customElements.get('dile-remixicon-icon-fahrenheit-fill')) {
+  customElements.define('dile-remixicon-icon-fahrenheit-fill', DileIconlibFahrenheitFill);
+}

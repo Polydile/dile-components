@@ -6,4 +6,6 @@ export class DileIconlibWechatChannelsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wechat-channels-fill', DileIconlibWechatChannelsFill);
+if (!customElements.get('dile-remixicon-icon-wechat-channels-fill')) {
+  customElements.define('dile-remixicon-icon-wechat-channels-fill', DileIconlibWechatChannelsFill);
+}

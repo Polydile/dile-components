@@ -6,4 +6,6 @@ export class DileIconlibMessageSquareDot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-message-square-dot', DileIconlibMessageSquareDot);
+if (!customElements.get('dile-lucide-icon-message-square-dot')) {
+  customElements.define('dile-lucide-icon-message-square-dot', DileIconlibMessageSquareDot);
+}

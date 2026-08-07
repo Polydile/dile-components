@@ -6,4 +6,6 @@ export class DileIconlibSimCardBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sim-card-bold', DileIconlibSimCardBold);
+if (!customElements.get('dile-phosphor-icon-sim-card-bold')) {
+  customElements.define('dile-phosphor-icon-sim-card-bold', DileIconlibSimCardBold);
+}

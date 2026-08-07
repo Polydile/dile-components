@@ -6,4 +6,6 @@ export class DileIconlibBrandOkRu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-ok-ru', DileIconlibBrandOkRu);
+if (!customElements.get('dile-tabler-icon-brand-ok-ru')) {
+  customElements.define('dile-tabler-icon-brand-ok-ru', DileIconlibBrandOkRu);
+}

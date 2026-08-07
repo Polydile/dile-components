@@ -6,4 +6,6 @@ export class DileIconlibTemperatureSnow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-snow', DileIconlibTemperatureSnow);
+if (!customElements.get('dile-tabler-icon-temperature-snow')) {
+  customElements.define('dile-tabler-icon-temperature-snow', DileIconlibTemperatureSnow);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextTSlashDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-t-slash-duotone', DileIconlibTextTSlashDuotone);
+if (!customElements.get('dile-phosphor-icon-text-t-slash-duotone')) {
+  customElements.define('dile-phosphor-icon-text-t-slash-duotone', DileIconlibTextTSlashDuotone);
+}

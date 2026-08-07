@@ -6,4 +6,6 @@ export class DileIconlibGlassCocktail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-glass-cocktail', DileIconlibGlassCocktail);
+if (!customElements.get('dile-tabler-icon-glass-cocktail')) {
+  customElements.define('dile-tabler-icon-glass-cocktail', DileIconlibGlassCocktail);
+}

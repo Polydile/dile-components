@@ -6,4 +6,6 @@ export class DileIconlibCarambolaFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-carambola-filled', DileIconlibCarambolaFilled);
+if (!customElements.get('dile-tabler-icon-carambola-filled')) {
+  customElements.define('dile-tabler-icon-carambola-filled', DileIconlibCarambolaFilled);
+}

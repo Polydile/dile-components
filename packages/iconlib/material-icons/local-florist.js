@@ -6,4 +6,6 @@ export class DileIconlibLocalFlorist extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-florist', DileIconlibLocalFlorist);
+if (!customElements.get('dile-material-icon-local-florist')) {
+  customElements.define('dile-material-icon-local-florist', DileIconlibLocalFlorist);
+}

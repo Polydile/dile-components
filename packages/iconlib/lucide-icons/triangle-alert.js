@@ -6,4 +6,6 @@ export class DileIconlibTriangleAlert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-triangle-alert', DileIconlibTriangleAlert);
+if (!customElements.get('dile-lucide-icon-triangle-alert')) {
+  customElements.define('dile-lucide-icon-triangle-alert', DileIconlibTriangleAlert);
+}

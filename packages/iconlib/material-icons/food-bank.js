@@ -6,4 +6,6 @@ export class DileIconlibFoodBank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-food-bank', DileIconlibFoodBank);
+if (!customElements.get('dile-material-icon-food-bank')) {
+  customElements.define('dile-material-icon-food-bank', DileIconlibFoodBank);
+}

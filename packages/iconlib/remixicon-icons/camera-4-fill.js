@@ -6,4 +6,6 @@ export class DileIconlibCamera4Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-camera-4-fill', DileIconlibCamera4Fill);
+if (!customElements.get('dile-remixicon-icon-camera-4-fill')) {
+  customElements.define('dile-remixicon-icon-camera-4-fill', DileIconlibCamera4Fill);
+}

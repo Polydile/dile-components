@@ -6,4 +6,6 @@ export class DileIconlibAncientPavilionLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ancient-pavilion-line', DileIconlibAncientPavilionLine);
+if (!customElements.get('dile-remixicon-icon-ancient-pavilion-line')) {
+  customElements.define('dile-remixicon-icon-ancient-pavilion-line', DileIconlibAncientPavilionLine);
+}

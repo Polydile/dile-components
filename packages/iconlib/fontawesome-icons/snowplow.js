@@ -6,4 +6,6 @@ export class DileIconlibSnowplow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-snowplow', DileIconlibSnowplow);
+if (!customElements.get('dile-fontawesome-icon-snowplow')) {
+  customElements.define('dile-fontawesome-icon-snowplow', DileIconlibSnowplow);
+}

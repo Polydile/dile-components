@@ -6,4 +6,6 @@ export class DileIconlibCurrencyKroneDanish extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-krone-danish', DileIconlibCurrencyKroneDanish);
+if (!customElements.get('dile-tabler-icon-currency-krone-danish')) {
+  customElements.define('dile-tabler-icon-currency-krone-danish', DileIconlibCurrencyKroneDanish);
+}

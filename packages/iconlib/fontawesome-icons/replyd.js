@@ -6,4 +6,6 @@ export class DileIconlibReplyd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-replyd', DileIconlibReplyd);
+if (!customElements.get('dile-fontawesome-icon-replyd')) {
+  customElements.define('dile-fontawesome-icon-replyd', DileIconlibReplyd);
+}

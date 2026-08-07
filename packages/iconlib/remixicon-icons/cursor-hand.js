@@ -6,4 +6,6 @@ export class DileIconlibCursorHand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cursor-hand', DileIconlibCursorHand);
+if (!customElements.get('dile-remixicon-icon-cursor-hand')) {
+  customElements.define('dile-remixicon-icon-cursor-hand', DileIconlibCursorHand);
+}

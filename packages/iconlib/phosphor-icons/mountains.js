@@ -6,4 +6,6 @@ export class DileIconlibMountains extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mountains', DileIconlibMountains);
+if (!customElements.get('dile-phosphor-icon-mountains')) {
+  customElements.define('dile-phosphor-icon-mountains', DileIconlibMountains);
+}

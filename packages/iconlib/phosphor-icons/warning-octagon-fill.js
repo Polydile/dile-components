@@ -6,4 +6,6 @@ export class DileIconlibWarningOctagonFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-warning-octagon-fill', DileIconlibWarningOctagonFill);
+if (!customElements.get('dile-phosphor-icon-warning-octagon-fill')) {
+  customElements.define('dile-phosphor-icon-warning-octagon-fill', DileIconlibWarningOctagonFill);
+}

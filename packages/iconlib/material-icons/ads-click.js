@@ -6,4 +6,6 @@ export class DileIconlibAdsClick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ads-click', DileIconlibAdsClick);
+if (!customElements.get('dile-material-icon-ads-click')) {
+  customElements.define('dile-material-icon-ads-click', DileIconlibAdsClick);
+}

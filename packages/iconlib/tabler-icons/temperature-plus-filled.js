@@ -6,4 +6,6 @@ export class DileIconlibTemperaturePlusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-plus-filled', DileIconlibTemperaturePlusFilled);
+if (!customElements.get('dile-tabler-icon-temperature-plus-filled')) {
+  customElements.define('dile-tabler-icon-temperature-plus-filled', DileIconlibTemperaturePlusFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRazorElectric extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-razor-electric', DileIconlibRazorElectric);
+if (!customElements.get('dile-tabler-icon-razor-electric')) {
+  customElements.define('dile-tabler-icon-razor-electric', DileIconlibRazorElectric);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMagnetic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-magnetic', DileIconlibMagnetic);
+if (!customElements.get('dile-tabler-icon-magnetic')) {
+  customElements.define('dile-tabler-icon-magnetic', DileIconlibMagnetic);
+}

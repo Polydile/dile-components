@@ -6,4 +6,6 @@ export class DileIconlibSolarPanel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-solar-panel', DileIconlibSolarPanel);
+if (!customElements.get('dile-tabler-icon-solar-panel')) {
+  customElements.define('dile-tabler-icon-solar-panel', DileIconlibSolarPanel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTelegramPlane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-telegram-plane', DileIconlibTelegramPlane);
+if (!customElements.get('dile-fontawesome-icon-telegram-plane')) {
+  customElements.define('dile-fontawesome-icon-telegram-plane', DileIconlibTelegramPlane);
+}

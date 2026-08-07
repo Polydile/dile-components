@@ -6,4 +6,6 @@ export class DileIconlibLampPendantFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lamp-pendant-fill', DileIconlibLampPendantFill);
+if (!customElements.get('dile-phosphor-icon-lamp-pendant-fill')) {
+  customElements.define('dile-phosphor-icon-lamp-pendant-fill', DileIconlibLampPendantFill);
+}

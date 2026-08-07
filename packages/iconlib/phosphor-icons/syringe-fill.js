@@ -6,4 +6,6 @@ export class DileIconlibSyringeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-syringe-fill', DileIconlibSyringeFill);
+if (!customElements.get('dile-phosphor-icon-syringe-fill')) {
+  customElements.define('dile-phosphor-icon-syringe-fill', DileIconlibSyringeFill);
+}

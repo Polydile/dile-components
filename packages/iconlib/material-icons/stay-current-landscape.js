@@ -6,4 +6,6 @@ export class DileIconlibStayCurrentLandscape extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stay-current-landscape', DileIconlibStayCurrentLandscape);
+if (!customElements.get('dile-material-icon-stay-current-landscape')) {
+  customElements.define('dile-material-icon-stay-current-landscape', DileIconlibStayCurrentLandscape);
+}

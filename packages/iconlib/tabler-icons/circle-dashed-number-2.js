@@ -6,4 +6,6 @@ export class DileIconlibCircleDashedNumber2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-dashed-number-2', DileIconlibCircleDashedNumber2);
+if (!customElements.get('dile-tabler-icon-circle-dashed-number-2')) {
+  customElements.define('dile-tabler-icon-circle-dashed-number-2', DileIconlibCircleDashedNumber2);
+}

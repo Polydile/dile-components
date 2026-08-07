@@ -6,4 +6,6 @@ export class DileIconlibBrandHbo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-hbo', DileIconlibBrandHbo);
+if (!customElements.get('dile-tabler-icon-brand-hbo')) {
+  customElements.define('dile-tabler-icon-brand-hbo', DileIconlibBrandHbo);
+}

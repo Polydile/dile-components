@@ -6,4 +6,6 @@ export class DileIconlibHouseTsunami extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-tsunami', DileIconlibHouseTsunami);
+if (!customElements.get('dile-fontawesome-icon-house-tsunami')) {
+  customElements.define('dile-fontawesome-icon-house-tsunami', DileIconlibHouseTsunami);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMapTrifoldDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-map-trifold-duotone', DileIconlibMapTrifoldDuotone);
+if (!customElements.get('dile-phosphor-icon-map-trifold-duotone')) {
+  customElements.define('dile-phosphor-icon-map-trifold-duotone', DileIconlibMapTrifoldDuotone);
+}

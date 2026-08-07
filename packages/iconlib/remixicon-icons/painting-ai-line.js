@@ -6,4 +6,6 @@ export class DileIconlibPaintingAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-painting-ai-line', DileIconlibPaintingAiLine);
+if (!customElements.get('dile-remixicon-icon-painting-ai-line')) {
+  customElements.define('dile-remixicon-icon-painting-ai-line', DileIconlibPaintingAiLine);
+}

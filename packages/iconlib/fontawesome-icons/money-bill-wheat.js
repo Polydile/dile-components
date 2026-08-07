@@ -6,4 +6,6 @@ export class DileIconlibMoneyBillWheat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-money-bill-wheat', DileIconlibMoneyBillWheat);
+if (!customElements.get('dile-fontawesome-icon-money-bill-wheat')) {
+  customElements.define('dile-fontawesome-icon-money-bill-wheat', DileIconlibMoneyBillWheat);
+}

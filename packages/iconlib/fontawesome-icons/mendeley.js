@@ -6,4 +6,6 @@ export class DileIconlibMendeley extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mendeley', DileIconlibMendeley);
+if (!customElements.get('dile-fontawesome-icon-mendeley')) {
+  customElements.define('dile-fontawesome-icon-mendeley', DileIconlibMendeley);
+}

@@ -56,4 +56,6 @@ export class DileEditorToolbarItem extends DileI18nMixin(LitElement) {
     }
   }
 }
-customElements.define('dile-editor-toolbar-item', DileEditorToolbarItem);
+if (!customElements.get('dile-editor-toolbar-item')) {
+  customElements.define('dile-editor-toolbar-item', DileEditorToolbarItem);
+}

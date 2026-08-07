@@ -6,4 +6,6 @@ export class DileIconlibCalendarStarLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-star-light', DileIconlibCalendarStarLight);
+if (!customElements.get('dile-phosphor-icon-calendar-star-light')) {
+  customElements.define('dile-phosphor-icon-calendar-star-light', DileIconlibCalendarStarLight);
+}

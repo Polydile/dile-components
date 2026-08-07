@@ -6,4 +6,6 @@ export class DileIconlibIndianRupeeSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-indian-rupee-sign', DileIconlibIndianRupeeSign);
+if (!customElements.get('dile-fontawesome-icon-indian-rupee-sign')) {
+  customElements.define('dile-fontawesome-icon-indian-rupee-sign', DileIconlibIndianRupeeSign);
+}

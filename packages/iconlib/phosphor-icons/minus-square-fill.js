@@ -6,4 +6,6 @@ export class DileIconlibMinusSquareFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-minus-square-fill', DileIconlibMinusSquareFill);
+if (!customElements.get('dile-phosphor-icon-minus-square-fill')) {
+  customElements.define('dile-phosphor-icon-minus-square-fill', DileIconlibMinusSquareFill);
+}

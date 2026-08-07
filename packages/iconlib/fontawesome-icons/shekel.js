@@ -6,4 +6,6 @@ export class DileIconlibShekel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shekel', DileIconlibShekel);
+if (!customElements.get('dile-fontawesome-icon-shekel')) {
+  customElements.define('dile-fontawesome-icon-shekel', DileIconlibShekel);
+}

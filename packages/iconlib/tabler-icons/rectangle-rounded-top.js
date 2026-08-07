@@ -6,4 +6,6 @@ export class DileIconlibRectangleRoundedTop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rectangle-rounded-top', DileIconlibRectangleRoundedTop);
+if (!customElements.get('dile-tabler-icon-rectangle-rounded-top')) {
+  customElements.define('dile-tabler-icon-rectangle-rounded-top', DileIconlibRectangleRoundedTop);
+}

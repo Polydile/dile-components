@@ -6,4 +6,6 @@ export class DileIconlibHandsBound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-bound', DileIconlibHandsBound);
+if (!customElements.get('dile-fontawesome-icon-hands-bound')) {
+  customElements.define('dile-fontawesome-icon-hands-bound', DileIconlibHandsBound);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBookMarkedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-book-marked-fill', DileIconlibBookMarkedFill);
+if (!customElements.get('dile-remixicon-icon-book-marked-fill')) {
+  customElements.define('dile-remixicon-icon-book-marked-fill', DileIconlibBookMarkedFill);
+}

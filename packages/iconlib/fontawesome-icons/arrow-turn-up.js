@@ -6,4 +6,6 @@ export class DileIconlibArrowTurnUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-turn-up', DileIconlibArrowTurnUp);
+if (!customElements.get('dile-fontawesome-icon-arrow-turn-up')) {
+  customElements.define('dile-fontawesome-icon-arrow-turn-up', DileIconlibArrowTurnUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFormatStrikethrough extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-strikethrough', DileIconlibFormatStrikethrough);
+if (!customElements.get('dile-material-icon-format-strikethrough')) {
+  customElements.define('dile-material-icon-format-strikethrough', DileIconlibFormatStrikethrough);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAnticlockwiseLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-anticlockwise-line', DileIconlibAnticlockwiseLine);
+if (!customElements.get('dile-remixicon-icon-anticlockwise-line')) {
+  customElements.define('dile-remixicon-icon-anticlockwise-line', DileIconlibAnticlockwiseLine);
+}

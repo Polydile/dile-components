@@ -6,4 +6,6 @@ export class DileIconlibFolderTree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-folder-tree', DileIconlibFolderTree);
+if (!customElements.get('dile-fontawesome-icon-folder-tree')) {
+  customElements.define('dile-fontawesome-icon-folder-tree', DileIconlibFolderTree);
+}

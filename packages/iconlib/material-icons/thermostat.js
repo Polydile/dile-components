@@ -6,4 +6,6 @@ export class DileIconlibThermostat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-thermostat', DileIconlibThermostat);
+if (!customElements.get('dile-material-icon-thermostat')) {
+  customElements.define('dile-material-icon-thermostat', DileIconlibThermostat);
+}

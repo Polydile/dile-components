@@ -6,4 +6,6 @@ export class DileIconlibNuclearPlantDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-nuclear-plant-duotone', DileIconlibNuclearPlantDuotone);
+if (!customElements.get('dile-phosphor-icon-nuclear-plant-duotone')) {
+  customElements.define('dile-phosphor-icon-nuclear-plant-duotone', DileIconlibNuclearPlantDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSwipeDownFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-swipe-down-filled', DileIconlibSwipeDownFilled);
+if (!customElements.get('dile-tabler-icon-swipe-down-filled')) {
+  customElements.define('dile-tabler-icon-swipe-down-filled', DileIconlibSwipeDownFilled);
+}

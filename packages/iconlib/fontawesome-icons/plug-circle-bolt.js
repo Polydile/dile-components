@@ -6,4 +6,6 @@ export class DileIconlibPlugCircleBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plug-circle-bolt', DileIconlibPlugCircleBolt);
+if (!customElements.get('dile-fontawesome-icon-plug-circle-bolt')) {
+  customElements.define('dile-fontawesome-icon-plug-circle-bolt', DileIconlibPlugCircleBolt);
+}

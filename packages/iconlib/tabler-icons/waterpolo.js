@@ -6,4 +6,6 @@ export class DileIconlibWaterpolo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-waterpolo', DileIconlibWaterpolo);
+if (!customElements.get('dile-tabler-icon-waterpolo')) {
+  customElements.define('dile-tabler-icon-waterpolo', DileIconlibWaterpolo);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowDownLong extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-down-long', DileIconlibArrowDownLong);
+if (!customElements.get('dile-fontawesome-icon-arrow-down-long')) {
+  customElements.define('dile-fontawesome-icon-arrow-down-long', DileIconlibArrowDownLong);
+}

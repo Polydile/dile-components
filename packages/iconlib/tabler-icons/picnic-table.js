@@ -6,4 +6,6 @@ export class DileIconlibPicnicTable extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-picnic-table', DileIconlibPicnicTable);
+if (!customElements.get('dile-tabler-icon-picnic-table')) {
+  customElements.define('dile-tabler-icon-picnic-table', DileIconlibPicnicTable);
+}

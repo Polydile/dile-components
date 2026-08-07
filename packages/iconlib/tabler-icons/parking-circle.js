@@ -6,4 +6,6 @@ export class DileIconlibParkingCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-parking-circle', DileIconlibParkingCircle);
+if (!customElements.get('dile-tabler-icon-parking-circle')) {
+  customElements.define('dile-tabler-icon-parking-circle', DileIconlibParkingCircle);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZodiacCancer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-cancer', DileIconlibZodiacCancer);
+if (!customElements.get('dile-tabler-icon-zodiac-cancer')) {
+  customElements.define('dile-tabler-icon-zodiac-cancer', DileIconlibZodiacCancer);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartCovariate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-covariate', DileIconlibChartCovariate);
+if (!customElements.get('dile-tabler-icon-chart-covariate')) {
+  customElements.define('dile-tabler-icon-chart-covariate', DileIconlibChartCovariate);
+}

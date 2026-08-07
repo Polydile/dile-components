@@ -6,4 +6,6 @@ export class DileIconlibBattleNet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-battle-net', DileIconlibBattleNet);
+if (!customElements.get('dile-fontawesome-icon-battle-net')) {
+  customElements.define('dile-fontawesome-icon-battle-net', DileIconlibBattleNet);
+}

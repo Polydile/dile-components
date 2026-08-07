@@ -6,4 +6,6 @@ export class DileIconlibSleigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sleigh', DileIconlibSleigh);
+if (!customElements.get('dile-tabler-icon-sleigh')) {
+  customElements.define('dile-tabler-icon-sleigh', DileIconlibSleigh);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEggAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-egg-alt', DileIconlibEggAlt);
+if (!customElements.get('dile-material-icon-egg-alt')) {
+  customElements.define('dile-material-icon-egg-alt', DileIconlibEggAlt);
+}

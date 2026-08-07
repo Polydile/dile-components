@@ -6,4 +6,6 @@ export class DileIconlibHttpPostOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-post-off', DileIconlibHttpPostOff);
+if (!customElements.get('dile-tabler-icon-http-post-off')) {
+  customElements.define('dile-tabler-icon-http-post-off', DileIconlibHttpPostOff);
+}

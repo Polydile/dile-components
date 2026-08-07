@@ -6,4 +6,6 @@ export class DileIconlibColorFilterFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-color-filter-fill', DileIconlibColorFilterFill);
+if (!customElements.get('dile-remixicon-icon-color-filter-fill')) {
+  customElements.define('dile-remixicon-icon-color-filter-fill', DileIconlibColorFilterFill);
+}

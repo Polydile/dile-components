@@ -6,4 +6,6 @@ export class DileIconlibHelmetSafety extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-helmet-safety', DileIconlibHelmetSafety);
+if (!customElements.get('dile-fontawesome-icon-helmet-safety')) {
+  customElements.define('dile-fontawesome-icon-helmet-safety', DileIconlibHelmetSafety);
+}

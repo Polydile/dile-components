@@ -6,4 +6,6 @@ export class DileIconlibHeartMusicCameraBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-heart-music-camera-bolt', DileIconlibHeartMusicCameraBolt);
+if (!customElements.get('dile-fontawesome-icon-heart-music-camera-bolt')) {
+  customElements.define('dile-fontawesome-icon-heart-music-camera-bolt', DileIconlibHeartMusicCameraBolt);
+}

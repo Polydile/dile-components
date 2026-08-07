@@ -6,4 +6,6 @@ export class DileIconlibImageSquareFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-image-square-fill', DileIconlibImageSquareFill);
+if (!customElements.get('dile-phosphor-icon-image-square-fill')) {
+  customElements.define('dile-phosphor-icon-image-square-fill', DileIconlibImageSquareFill);
+}

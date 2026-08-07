@@ -6,4 +6,6 @@ export class DileIconlibMedalMilitaryBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-medal-military-bold', DileIconlibMedalMilitaryBold);
+if (!customElements.get('dile-phosphor-icon-medal-military-bold')) {
+  customElements.define('dile-phosphor-icon-medal-military-bold', DileIconlibMedalMilitaryBold);
+}

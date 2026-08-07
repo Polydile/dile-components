@@ -6,4 +6,6 @@ export class DileIconlibCalendarSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-search', DileIconlibCalendarSearch);
+if (!customElements.get('dile-tabler-icon-calendar-search')) {
+  customElements.define('dile-tabler-icon-calendar-search', DileIconlibCalendarSearch);
+}

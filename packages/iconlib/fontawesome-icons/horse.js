@@ -6,4 +6,6 @@ export class DileIconlibHorse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-horse', DileIconlibHorse);
+if (!customElements.get('dile-fontawesome-icon-horse')) {
+  customElements.define('dile-fontawesome-icon-horse', DileIconlibHorse);
+}

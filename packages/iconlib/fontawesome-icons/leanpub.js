@@ -6,4 +6,6 @@ export class DileIconlibLeanpub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-leanpub', DileIconlibLeanpub);
+if (!customElements.get('dile-fontawesome-icon-leanpub')) {
+  customElements.define('dile-fontawesome-icon-leanpub', DileIconlibLeanpub);
+}

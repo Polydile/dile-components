@@ -6,4 +6,6 @@ export class DileIconlibDonutLarge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-donut-large', DileIconlibDonutLarge);
+if (!customElements.get('dile-material-icon-donut-large')) {
+  customElements.define('dile-material-icon-donut-large', DileIconlibDonutLarge);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMessageSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-search', DileIconlibMessageSearch);
+if (!customElements.get('dile-tabler-icon-message-search')) {
+  customElements.define('dile-tabler-icon-message-search', DileIconlibMessageSearch);
+}

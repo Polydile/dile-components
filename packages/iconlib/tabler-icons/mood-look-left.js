@@ -6,4 +6,6 @@ export class DileIconlibMoodLookLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-look-left', DileIconlibMoodLookLeft);
+if (!customElements.get('dile-tabler-icon-mood-look-left')) {
+  customElements.define('dile-tabler-icon-mood-look-left', DileIconlibMoodLookLeft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVirusCovidSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-virus-covid-slash', DileIconlibVirusCovidSlash);
+if (!customElements.get('dile-fontawesome-icon-virus-covid-slash')) {
+  customElements.define('dile-fontawesome-icon-virus-covid-slash', DileIconlibVirusCovidSlash);
+}

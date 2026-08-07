@@ -6,4 +6,6 @@ export class DileIconlibEtsy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-etsy', DileIconlibEtsy);
+if (!customElements.get('dile-fontawesome-icon-etsy')) {
+  customElements.define('dile-fontawesome-icon-etsy', DileIconlibEtsy);
+}

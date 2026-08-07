@@ -6,4 +6,6 @@ export class DileIconlibPermContactCalendar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-contact-calendar', DileIconlibPermContactCalendar);
+if (!customElements.get('dile-material-icon-perm-contact-calendar')) {
+  customElements.define('dile-material-icon-perm-contact-calendar', DileIconlibPermContactCalendar);
+}

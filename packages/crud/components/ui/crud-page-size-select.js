@@ -1,2 +1,4 @@
 import { DileCrudPageSizeSelect } from "./src/DileCrudPageSizeSelect.js";
-customElements.define('dile-crud-page-size-select', DileCrudPageSizeSelect);
+if (!customElements.get('dile-crud-page-size-select')) {
+  customElements.define('dile-crud-page-size-select', DileCrudPageSizeSelect);
+}

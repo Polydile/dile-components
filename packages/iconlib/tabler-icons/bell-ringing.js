@@ -6,4 +6,6 @@ export class DileIconlibBellRinging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bell-ringing', DileIconlibBellRinging);
+if (!customElements.get('dile-tabler-icon-bell-ringing')) {
+  customElements.define('dile-tabler-icon-bell-ringing', DileIconlibBellRinging);
+}

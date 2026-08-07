@@ -6,4 +6,6 @@ export class DileIconlibRefundFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-refund-fill', DileIconlibRefundFill);
+if (!customElements.get('dile-remixicon-icon-refund-fill')) {
+  customElements.define('dile-remixicon-icon-refund-fill', DileIconlibRefundFill);
+}

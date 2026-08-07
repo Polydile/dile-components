@@ -6,4 +6,6 @@ export class DileIconlibGlobeOceania extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-globe-oceania', DileIconlibGlobeOceania);
+if (!customElements.get('dile-fontawesome-icon-globe-oceania')) {
+  customElements.define('dile-fontawesome-icon-globe-oceania', DileIconlibGlobeOceania);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPlayBugs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-play-bugs', DileIconlibPlayBugs);
+if (!customElements.get('dile-tabler-icon-play-bugs')) {
+  customElements.define('dile-tabler-icon-play-bugs', DileIconlibPlayBugs);
+}

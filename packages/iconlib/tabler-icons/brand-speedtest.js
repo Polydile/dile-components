@@ -6,4 +6,6 @@ export class DileIconlibBrandSpeedtest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-speedtest', DileIconlibBrandSpeedtest);
+if (!customElements.get('dile-tabler-icon-brand-speedtest')) {
+  customElements.define('dile-tabler-icon-brand-speedtest', DileIconlibBrandSpeedtest);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWorldDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-dollar', DileIconlibWorldDollar);
+if (!customElements.get('dile-tabler-icon-world-dollar')) {
+  customElements.define('dile-tabler-icon-world-dollar', DileIconlibWorldDollar);
+}

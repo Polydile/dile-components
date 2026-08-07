@@ -6,4 +6,6 @@ export class DileIconlibScrollText extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-scroll-text', DileIconlibScrollText);
+if (!customElements.get('dile-lucide-icon-scroll-text')) {
+  customElements.define('dile-lucide-icon-scroll-text', DileIconlibScrollText);
+}

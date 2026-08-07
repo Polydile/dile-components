@@ -6,4 +6,6 @@ export class DileIconlibKeyframeAlignHorizontalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-keyframe-align-horizontal-filled', DileIconlibKeyframeAlignHorizontalFilled);
+if (!customElements.get('dile-tabler-icon-keyframe-align-horizontal-filled')) {
+  customElements.define('dile-tabler-icon-keyframe-align-horizontal-filled', DileIconlibKeyframeAlignHorizontalFilled);
+}

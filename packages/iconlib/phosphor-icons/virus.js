@@ -6,4 +6,6 @@ export class DileIconlibVirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-virus', DileIconlibVirus);
+if (!customElements.get('dile-phosphor-icon-virus')) {
+  customElements.define('dile-phosphor-icon-virus', DileIconlibVirus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLightbulbFilamentDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lightbulb-filament-duotone', DileIconlibLightbulbFilamentDuotone);
+if (!customElements.get('dile-phosphor-icon-lightbulb-filament-duotone')) {
+  customElements.define('dile-phosphor-icon-lightbulb-filament-duotone', DileIconlibLightbulbFilamentDuotone);
+}

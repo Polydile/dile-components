@@ -6,4 +6,6 @@ export class DileIconlibParkBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-park-bold', DileIconlibParkBold);
+if (!customElements.get('dile-phosphor-icon-park-bold')) {
+  customElements.define('dile-phosphor-icon-park-bold', DileIconlibParkBold);
+}

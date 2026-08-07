@@ -6,4 +6,6 @@ export class DileIconlibCalendarTimes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-calendar-times', DileIconlibCalendarTimes);
+if (!customElements.get('dile-fontawesome-icon-regular-calendar-times')) {
+  customElements.define('dile-fontawesome-icon-regular-calendar-times', DileIconlibCalendarTimes);
+}

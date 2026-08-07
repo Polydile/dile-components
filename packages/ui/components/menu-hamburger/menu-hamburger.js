@@ -1,3 +1,5 @@
 import { DileMenuHamburger } from './src/DileMenuHamburger.js';
 
-window.customElements.define('dile-menu-hamburger', DileMenuHamburger);
+if (!customElements.get('dile-menu-hamburger')) {
+  window.customElements.define('dile-menu-hamburger', DileMenuHamburger);
+}

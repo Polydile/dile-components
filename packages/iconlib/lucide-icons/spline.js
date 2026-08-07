@@ -6,4 +6,6 @@ export class DileIconlibSpline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-spline', DileIconlibSpline);
+if (!customElements.get('dile-lucide-icon-spline')) {
+  customElements.define('dile-lucide-icon-spline', DileIconlibSpline);
+}

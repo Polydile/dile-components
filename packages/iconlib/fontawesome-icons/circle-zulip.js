@@ -6,4 +6,6 @@ export class DileIconlibCircleZulip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-zulip', DileIconlibCircleZulip);
+if (!customElements.get('dile-fontawesome-icon-circle-zulip')) {
+  customElements.define('dile-fontawesome-icon-circle-zulip', DileIconlibCircleZulip);
+}

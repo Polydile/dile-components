@@ -6,4 +6,6 @@ export class DileIconlibTransactionRupee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-transaction-rupee', DileIconlibTransactionRupee);
+if (!customElements.get('dile-tabler-icon-transaction-rupee')) {
+  customElements.define('dile-tabler-icon-transaction-rupee', DileIconlibTransactionRupee);
+}

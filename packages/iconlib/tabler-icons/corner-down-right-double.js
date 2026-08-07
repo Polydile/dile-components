@@ -6,4 +6,6 @@ export class DileIconlibCornerDownRightDouble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-corner-down-right-double', DileIconlibCornerDownRightDouble);
+if (!customElements.get('dile-tabler-icon-corner-down-right-double')) {
+  customElements.define('dile-tabler-icon-corner-down-right-double', DileIconlibCornerDownRightDouble);
+}

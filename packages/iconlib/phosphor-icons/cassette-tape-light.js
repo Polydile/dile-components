@@ -6,4 +6,6 @@ export class DileIconlibCassetteTapeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cassette-tape-light', DileIconlibCassetteTapeLight);
+if (!customElements.get('dile-phosphor-icon-cassette-tape-light')) {
+  customElements.define('dile-phosphor-icon-cassette-tape-light', DileIconlibCassetteTapeLight);
+}

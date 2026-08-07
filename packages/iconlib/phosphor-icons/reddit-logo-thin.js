@@ -6,4 +6,6 @@ export class DileIconlibRedditLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-reddit-logo-thin', DileIconlibRedditLogoThin);
+if (!customElements.get('dile-phosphor-icon-reddit-logo-thin')) {
+  customElements.define('dile-phosphor-icon-reddit-logo-thin', DileIconlibRedditLogoThin);
+}

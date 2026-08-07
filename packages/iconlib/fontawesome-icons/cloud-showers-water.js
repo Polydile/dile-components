@@ -6,4 +6,6 @@ export class DileIconlibCloudShowersWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-showers-water', DileIconlibCloudShowersWater);
+if (!customElements.get('dile-fontawesome-icon-cloud-showers-water')) {
+  customElements.define('dile-fontawesome-icon-cloud-showers-water', DileIconlibCloudShowersWater);
+}

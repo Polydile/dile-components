@@ -6,4 +6,6 @@ export class DileIconlibCollapseHorizontalLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-collapse-horizontal-line', DileIconlibCollapseHorizontalLine);
+if (!customElements.get('dile-remixicon-icon-collapse-horizontal-line')) {
+  customElements.define('dile-remixicon-icon-collapse-horizontal-line', DileIconlibCollapseHorizontalLine);
+}

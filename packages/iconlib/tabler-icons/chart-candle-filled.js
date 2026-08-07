@@ -6,4 +6,6 @@ export class DileIconlibChartCandleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-candle-filled', DileIconlibChartCandleFilled);
+if (!customElements.get('dile-tabler-icon-chart-candle-filled')) {
+  customElements.define('dile-tabler-icon-chart-candle-filled', DileIconlibChartCandleFilled);
+}

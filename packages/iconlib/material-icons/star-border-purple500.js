@@ -6,4 +6,6 @@ export class DileIconlibStarBorderPurple500 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-star-border-purple500', DileIconlibStarBorderPurple500);
+if (!customElements.get('dile-material-icon-star-border-purple500')) {
+  customElements.define('dile-material-icon-star-border-purple500', DileIconlibStarBorderPurple500);
+}

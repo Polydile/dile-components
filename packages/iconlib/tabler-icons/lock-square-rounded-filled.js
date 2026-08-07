@@ -6,4 +6,6 @@ export class DileIconlibLockSquareRoundedFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-square-rounded-filled', DileIconlibLockSquareRoundedFilled);
+if (!customElements.get('dile-tabler-icon-lock-square-rounded-filled')) {
+  customElements.define('dile-tabler-icon-lock-square-rounded-filled', DileIconlibLockSquareRoundedFilled);
+}

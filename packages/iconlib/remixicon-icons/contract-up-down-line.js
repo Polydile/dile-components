@@ -6,4 +6,6 @@ export class DileIconlibContractUpDownLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-contract-up-down-line', DileIconlibContractUpDownLine);
+if (!customElements.get('dile-remixicon-icon-contract-up-down-line')) {
+  customElements.define('dile-remixicon-icon-contract-up-down-line', DileIconlibContractUpDownLine);
+}

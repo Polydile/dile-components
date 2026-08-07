@@ -6,4 +6,6 @@ export class DileIconlibCheckboxBlankCircleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-checkbox-blank-circle-fill', DileIconlibCheckboxBlankCircleFill);
+if (!customElements.get('dile-remixicon-icon-checkbox-blank-circle-fill')) {
+  customElements.define('dile-remixicon-icon-checkbox-blank-circle-fill', DileIconlibCheckboxBlankCircleFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeavyShowersLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-heavy-showers-line', DileIconlibHeavyShowersLine);
+if (!customElements.get('dile-remixicon-icon-heavy-showers-line')) {
+  customElements.define('dile-remixicon-icon-heavy-showers-line', DileIconlibHeavyShowersLine);
+}

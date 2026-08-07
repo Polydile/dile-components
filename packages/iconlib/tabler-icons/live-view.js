@@ -6,4 +6,6 @@ export class DileIconlibLiveView extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-live-view', DileIconlibLiveView);
+if (!customElements.get('dile-tabler-icon-live-view')) {
+  customElements.define('dile-tabler-icon-live-view', DileIconlibLiveView);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStethoscopeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stethoscope-duotone', DileIconlibStethoscopeDuotone);
+if (!customElements.get('dile-phosphor-icon-stethoscope-duotone')) {
+  customElements.define('dile-phosphor-icon-stethoscope-duotone', DileIconlibStethoscopeDuotone);
+}

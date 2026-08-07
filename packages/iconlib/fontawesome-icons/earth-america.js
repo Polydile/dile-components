@@ -6,4 +6,6 @@ export class DileIconlibEarthAmerica extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-earth-america', DileIconlibEarthAmerica);
+if (!customElements.get('dile-fontawesome-icon-earth-america')) {
+  customElements.define('dile-fontawesome-icon-earth-america', DileIconlibEarthAmerica);
+}

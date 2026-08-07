@@ -6,4 +6,6 @@ export class DileIconlibQuidditchBroomBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-quidditch-broom-ball', DileIconlibQuidditchBroomBall);
+if (!customElements.get('dile-fontawesome-icon-quidditch-broom-ball')) {
+  customElements.define('dile-fontawesome-icon-quidditch-broom-ball', DileIconlibQuidditchBroomBall);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBoxesStacked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-boxes-stacked', DileIconlibBoxesStacked);
+if (!customElements.get('dile-fontawesome-icon-boxes-stacked')) {
+  customElements.define('dile-fontawesome-icon-boxes-stacked', DileIconlibBoxesStacked);
+}

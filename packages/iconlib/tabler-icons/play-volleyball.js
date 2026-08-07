@@ -6,4 +6,6 @@ export class DileIconlibPlayVolleyball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-play-volleyball', DileIconlibPlayVolleyball);
+if (!customElements.get('dile-tabler-icon-play-volleyball')) {
+  customElements.define('dile-tabler-icon-play-volleyball', DileIconlibPlayVolleyball);
+}

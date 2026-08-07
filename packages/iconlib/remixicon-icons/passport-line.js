@@ -6,4 +6,6 @@ export class DileIconlibPassportLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-passport-line', DileIconlibPassportLine);
+if (!customElements.get('dile-remixicon-icon-passport-line')) {
+  customElements.define('dile-remixicon-icon-passport-line', DileIconlibPassportLine);
+}

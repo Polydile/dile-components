@@ -6,4 +6,6 @@ export class DileIconlibHeart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-heart', DileIconlibHeart);
+if (!customElements.get('dile-fontawesome-icon-heart')) {
+  customElements.define('dile-fontawesome-icon-heart', DileIconlibHeart);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLegoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lego-bold', DileIconlibLegoBold);
+if (!customElements.get('dile-phosphor-icon-lego-bold')) {
+  customElements.define('dile-phosphor-icon-lego-bold', DileIconlibLegoBold);
+}

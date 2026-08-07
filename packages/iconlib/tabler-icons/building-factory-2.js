@@ -6,4 +6,6 @@ export class DileIconlibBuildingFactory2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-factory-2', DileIconlibBuildingFactory2);
+if (!customElements.get('dile-tabler-icon-building-factory-2')) {
+  customElements.define('dile-tabler-icon-building-factory-2', DileIconlibBuildingFactory2);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeviceImacPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-imac-pause', DileIconlibDeviceImacPause);
+if (!customElements.get('dile-tabler-icon-device-imac-pause')) {
+  customElements.define('dile-tabler-icon-device-imac-pause', DileIconlibDeviceImacPause);
+}

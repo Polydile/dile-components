@@ -6,4 +6,6 @@ export class DileIconlibBrushLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-brush-line', DileIconlibBrushLine);
+if (!customElements.get('dile-remixicon-icon-brush-line')) {
+  customElements.define('dile-remixicon-icon-brush-line', DileIconlibBrushLine);
+}

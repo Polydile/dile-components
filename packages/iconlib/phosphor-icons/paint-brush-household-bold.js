@@ -6,4 +6,6 @@ export class DileIconlibPaintBrushHouseholdBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-brush-household-bold', DileIconlibPaintBrushHouseholdBold);
+if (!customElements.get('dile-phosphor-icon-paint-brush-household-bold')) {
+  customElements.define('dile-phosphor-icon-paint-brush-household-bold', DileIconlibPaintBrushHouseholdBold);
+}

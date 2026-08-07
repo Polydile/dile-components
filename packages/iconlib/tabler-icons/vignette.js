@@ -6,4 +6,6 @@ export class DileIconlibVignette extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vignette', DileIconlibVignette);
+if (!customElements.get('dile-tabler-icon-vignette')) {
+  customElements.define('dile-tabler-icon-vignette', DileIconlibVignette);
+}

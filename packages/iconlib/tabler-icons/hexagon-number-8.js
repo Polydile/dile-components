@@ -6,4 +6,6 @@ export class DileIconlibHexagonNumber8 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-number-8', DileIconlibHexagonNumber8);
+if (!customElements.get('dile-tabler-icon-hexagon-number-8')) {
+  customElements.define('dile-tabler-icon-hexagon-number-8', DileIconlibHexagonNumber8);
+}

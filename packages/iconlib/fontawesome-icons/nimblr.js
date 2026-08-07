@@ -6,4 +6,6 @@ export class DileIconlibNimblr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-nimblr', DileIconlibNimblr);
+if (!customElements.get('dile-fontawesome-icon-nimblr')) {
+  customElements.define('dile-fontawesome-icon-nimblr', DileIconlibNimblr);
+}

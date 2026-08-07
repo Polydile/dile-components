@@ -6,4 +6,6 @@ export class DileIconlibContact extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-contact', DileIconlibContact);
+if (!customElements.get('dile-lucide-icon-contact')) {
+  customElements.define('dile-lucide-icon-contact', DileIconlibContact);
+}

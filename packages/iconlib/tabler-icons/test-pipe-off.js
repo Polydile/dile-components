@@ -6,4 +6,6 @@ export class DileIconlibTestPipeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-test-pipe-off', DileIconlibTestPipeOff);
+if (!customElements.get('dile-tabler-icon-test-pipe-off')) {
+  customElements.define('dile-tabler-icon-test-pipe-off', DileIconlibTestPipeOff);
+}

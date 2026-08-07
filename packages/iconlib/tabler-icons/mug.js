@@ -6,4 +6,6 @@ export class DileIconlibMug extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mug', DileIconlibMug);
+if (!customElements.get('dile-tabler-icon-mug')) {
+  customElements.define('dile-tabler-icon-mug', DileIconlibMug);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCowboyHatLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cowboy-hat-light', DileIconlibCowboyHatLight);
+if (!customElements.get('dile-phosphor-icon-cowboy-hat-light')) {
+  customElements.define('dile-phosphor-icon-cowboy-hat-light', DileIconlibCowboyHatLight);
+}

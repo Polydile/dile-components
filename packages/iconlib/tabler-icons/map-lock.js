@@ -6,4 +6,6 @@ export class DileIconlibMapLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-lock', DileIconlibMapLock);
+if (!customElements.get('dile-tabler-icon-map-lock')) {
+  customElements.define('dile-tabler-icon-map-lock', DileIconlibMapLock);
+}

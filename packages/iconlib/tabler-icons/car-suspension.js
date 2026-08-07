@@ -6,4 +6,6 @@ export class DileIconlibCarSuspension extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-suspension', DileIconlibCarSuspension);
+if (!customElements.get('dile-tabler-icon-car-suspension')) {
+  customElements.define('dile-tabler-icon-car-suspension', DileIconlibCarSuspension);
+}

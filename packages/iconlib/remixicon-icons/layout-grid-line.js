@@ -6,4 +6,6 @@ export class DileIconlibLayoutGridLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-layout-grid-line', DileIconlibLayoutGridLine);
+if (!customElements.get('dile-remixicon-icon-layout-grid-line')) {
+  customElements.define('dile-remixicon-icon-layout-grid-line', DileIconlibLayoutGridLine);
+}

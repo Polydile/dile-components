@@ -6,4 +6,6 @@ export class DileIconlibDoubleQuotesR extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-double-quotes-r', DileIconlibDoubleQuotesR);
+if (!customElements.get('dile-remixicon-icon-double-quotes-r')) {
+  customElements.define('dile-remixicon-icon-double-quotes-r', DileIconlibDoubleQuotesR);
+}

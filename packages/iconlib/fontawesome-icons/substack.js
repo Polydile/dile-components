@@ -6,4 +6,6 @@ export class DileIconlibSubstack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-substack', DileIconlibSubstack);
+if (!customElements.get('dile-fontawesome-icon-substack')) {
+  customElements.define('dile-fontawesome-icon-substack', DileIconlibSubstack);
+}

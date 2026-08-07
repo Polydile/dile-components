@@ -6,4 +6,6 @@ export class DileIconlibCheckDoubleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-check-double-line', DileIconlibCheckDoubleLine);
+if (!customElements.get('dile-remixicon-icon-check-double-line')) {
+  customElements.define('dile-remixicon-icon-check-double-line', DileIconlibCheckDoubleLine);
+}

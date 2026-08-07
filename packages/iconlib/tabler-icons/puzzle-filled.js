@@ -6,4 +6,6 @@ export class DileIconlibPuzzleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-puzzle-filled', DileIconlibPuzzleFilled);
+if (!customElements.get('dile-tabler-icon-puzzle-filled')) {
+  customElements.define('dile-tabler-icon-puzzle-filled', DileIconlibPuzzleFilled);
+}

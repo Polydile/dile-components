@@ -6,4 +6,6 @@ export class DileIconlibFolderDelete extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-folder-delete', DileIconlibFolderDelete);
+if (!customElements.get('dile-material-icon-folder-delete')) {
+  customElements.define('dile-material-icon-folder-delete', DileIconlibFolderDelete);
+}

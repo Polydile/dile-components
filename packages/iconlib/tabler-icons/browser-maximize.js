@@ -6,4 +6,6 @@ export class DileIconlibBrowserMaximize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-browser-maximize', DileIconlibBrowserMaximize);
+if (!customElements.get('dile-tabler-icon-browser-maximize')) {
+  customElements.define('dile-tabler-icon-browser-maximize', DileIconlibBrowserMaximize);
+}

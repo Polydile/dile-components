@@ -6,4 +6,6 @@ export class DileIconlibBrandPushover extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-pushover', DileIconlibBrandPushover);
+if (!customElements.get('dile-tabler-icon-brand-pushover')) {
+  customElements.define('dile-tabler-icon-brand-pushover', DileIconlibBrandPushover);
+}

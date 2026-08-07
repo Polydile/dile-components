@@ -6,4 +6,6 @@ export class DileIconlibMeatOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-meat-off', DileIconlibMeatOff);
+if (!customElements.get('dile-tabler-icon-meat-off')) {
+  customElements.define('dile-tabler-icon-meat-off', DileIconlibMeatOff);
+}

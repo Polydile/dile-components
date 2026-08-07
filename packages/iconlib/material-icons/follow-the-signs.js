@@ -6,4 +6,6 @@ export class DileIconlibFollowTheSigns extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-follow-the-signs', DileIconlibFollowTheSigns);
+if (!customElements.get('dile-material-icon-follow-the-signs')) {
+  customElements.define('dile-material-icon-follow-the-signs', DileIconlibFollowTheSigns);
+}

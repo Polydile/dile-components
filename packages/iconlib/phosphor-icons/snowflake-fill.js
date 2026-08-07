@@ -6,4 +6,6 @@ export class DileIconlibSnowflakeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-snowflake-fill', DileIconlibSnowflakeFill);
+if (!customElements.get('dile-phosphor-icon-snowflake-fill')) {
+  customElements.define('dile-phosphor-icon-snowflake-fill', DileIconlibSnowflakeFill);
+}

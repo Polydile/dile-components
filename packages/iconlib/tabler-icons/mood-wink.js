@@ -6,4 +6,6 @@ export class DileIconlibMoodWink extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-wink', DileIconlibMoodWink);
+if (!customElements.get('dile-tabler-icon-mood-wink')) {
+  customElements.define('dile-tabler-icon-mood-wink', DileIconlibMoodWink);
+}

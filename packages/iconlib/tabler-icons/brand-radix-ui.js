@@ -6,4 +6,6 @@ export class DileIconlibBrandRadixUi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-radix-ui', DileIconlibBrandRadixUi);
+if (!customElements.get('dile-tabler-icon-brand-radix-ui')) {
+  customElements.define('dile-tabler-icon-brand-radix-ui', DileIconlibBrandRadixUi);
+}

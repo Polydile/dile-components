@@ -6,4 +6,6 @@ export class DileIconlibAppBlocking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-app-blocking', DileIconlibAppBlocking);
+if (!customElements.get('dile-material-icon-app-blocking')) {
+  customElements.define('dile-material-icon-app-blocking', DileIconlibAppBlocking);
+}

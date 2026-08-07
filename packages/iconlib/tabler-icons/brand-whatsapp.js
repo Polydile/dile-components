@@ -6,4 +6,6 @@ export class DileIconlibBrandWhatsapp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-whatsapp', DileIconlibBrandWhatsapp);
+if (!customElements.get('dile-tabler-icon-brand-whatsapp')) {
+  customElements.define('dile-tabler-icon-brand-whatsapp', DileIconlibBrandWhatsapp);
+}

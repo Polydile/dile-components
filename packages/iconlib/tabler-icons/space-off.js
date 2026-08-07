@@ -6,4 +6,6 @@ export class DileIconlibSpaceOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-space-off', DileIconlibSpaceOff);
+if (!customElements.get('dile-tabler-icon-space-off')) {
+  customElements.define('dile-tabler-icon-space-off', DileIconlibSpaceOff);
+}

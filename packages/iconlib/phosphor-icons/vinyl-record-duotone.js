@@ -6,4 +6,6 @@ export class DileIconlibVinylRecordDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vinyl-record-duotone', DileIconlibVinylRecordDuotone);
+if (!customElements.get('dile-phosphor-icon-vinyl-record-duotone')) {
+  customElements.define('dile-phosphor-icon-vinyl-record-duotone', DileIconlibVinylRecordDuotone);
+}

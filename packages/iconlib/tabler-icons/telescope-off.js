@@ -6,4 +6,6 @@ export class DileIconlibTelescopeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-telescope-off', DileIconlibTelescopeOff);
+if (!customElements.get('dile-tabler-icon-telescope-off')) {
+  customElements.define('dile-tabler-icon-telescope-off', DileIconlibTelescopeOff);
+}

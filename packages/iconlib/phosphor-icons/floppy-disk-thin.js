@@ -6,4 +6,6 @@ export class DileIconlibFloppyDiskThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-floppy-disk-thin', DileIconlibFloppyDiskThin);
+if (!customElements.get('dile-phosphor-icon-floppy-disk-thin')) {
+  customElements.define('dile-phosphor-icon-floppy-disk-thin', DileIconlibFloppyDiskThin);
+}

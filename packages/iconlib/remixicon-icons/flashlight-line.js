@@ -6,4 +6,6 @@ export class DileIconlibFlashlightLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flashlight-line', DileIconlibFlashlightLine);
+if (!customElements.get('dile-remixicon-icon-flashlight-line')) {
+  customElements.define('dile-remixicon-icon-flashlight-line', DileIconlibFlashlightLine);
+}

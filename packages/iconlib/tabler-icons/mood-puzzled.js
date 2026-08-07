@@ -6,4 +6,6 @@ export class DileIconlibMoodPuzzled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-puzzled', DileIconlibMoodPuzzled);
+if (!customElements.get('dile-tabler-icon-mood-puzzled')) {
+  customElements.define('dile-tabler-icon-mood-puzzled', DileIconlibMoodPuzzled);
+}

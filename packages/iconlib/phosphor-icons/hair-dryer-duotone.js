@@ -6,4 +6,6 @@ export class DileIconlibHairDryerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hair-dryer-duotone', DileIconlibHairDryerDuotone);
+if (!customElements.get('dile-phosphor-icon-hair-dryer-duotone')) {
+  customElements.define('dile-phosphor-icon-hair-dryer-duotone', DileIconlibHairDryerDuotone);
+}

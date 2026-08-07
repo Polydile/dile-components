@@ -6,4 +6,6 @@ export class DileIconlibHammerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hammer-line', DileIconlibHammerLine);
+if (!customElements.get('dile-remixicon-icon-hammer-line')) {
+  customElements.define('dile-remixicon-icon-hammer-line', DileIconlibHammerLine);
+}

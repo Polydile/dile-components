@@ -6,4 +6,6 @@ export class DileIconlibShovelPitchforks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shovel-pitchforks', DileIconlibShovelPitchforks);
+if (!customElements.get('dile-tabler-icon-shovel-pitchforks')) {
+  customElements.define('dile-tabler-icon-shovel-pitchforks', DileIconlibShovelPitchforks);
+}

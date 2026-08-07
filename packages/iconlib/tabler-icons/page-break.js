@@ -6,4 +6,6 @@ export class DileIconlibPageBreak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-page-break', DileIconlibPageBreak);
+if (!customElements.get('dile-tabler-icon-page-break')) {
+  customElements.define('dile-tabler-icon-page-break', DileIconlibPageBreak);
+}

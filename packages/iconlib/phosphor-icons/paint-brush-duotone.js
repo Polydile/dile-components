@@ -6,4 +6,6 @@ export class DileIconlibPaintBrushDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-brush-duotone', DileIconlibPaintBrushDuotone);
+if (!customElements.get('dile-phosphor-icon-paint-brush-duotone')) {
+  customElements.define('dile-phosphor-icon-paint-brush-duotone', DileIconlibPaintBrushDuotone);
+}

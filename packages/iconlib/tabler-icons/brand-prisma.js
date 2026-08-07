@@ -6,4 +6,6 @@ export class DileIconlibBrandPrisma extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-prisma', DileIconlibBrandPrisma);
+if (!customElements.get('dile-tabler-icon-brand-prisma')) {
+  customElements.define('dile-tabler-icon-brand-prisma', DileIconlibBrandPrisma);
+}

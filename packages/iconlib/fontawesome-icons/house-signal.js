@@ -6,4 +6,6 @@ export class DileIconlibHouseSignal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-signal', DileIconlibHouseSignal);
+if (!customElements.get('dile-fontawesome-icon-house-signal')) {
+  customElements.define('dile-fontawesome-icon-house-signal', DileIconlibHouseSignal);
+}

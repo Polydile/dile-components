@@ -6,4 +6,6 @@ export class DileIconlibGuitarThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-guitar-thin', DileIconlibGuitarThin);
+if (!customElements.get('dile-phosphor-icon-guitar-thin')) {
+  customElements.define('dile-phosphor-icon-guitar-thin', DileIconlibGuitarThin);
+}

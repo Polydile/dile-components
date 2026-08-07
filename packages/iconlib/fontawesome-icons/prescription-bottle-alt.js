@@ -6,4 +6,6 @@ export class DileIconlibPrescriptionBottleAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-prescription-bottle-alt', DileIconlibPrescriptionBottleAlt);
+if (!customElements.get('dile-fontawesome-icon-prescription-bottle-alt')) {
+  customElements.define('dile-fontawesome-icon-prescription-bottle-alt', DileIconlibPrescriptionBottleAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCameraDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-camera-duotone', DileIconlibCameraDuotone);
+if (!customElements.get('dile-phosphor-icon-camera-duotone')) {
+  customElements.define('dile-phosphor-icon-camera-duotone', DileIconlibCameraDuotone);
+}

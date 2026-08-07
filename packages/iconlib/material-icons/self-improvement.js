@@ -6,4 +6,6 @@ export class DileIconlibSelfImprovement extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-self-improvement', DileIconlibSelfImprovement);
+if (!customElements.get('dile-material-icon-self-improvement')) {
+  customElements.define('dile-material-icon-self-improvement', DileIconlibSelfImprovement);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLetterCirclePDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-letter-circle-p-duotone', DileIconlibLetterCirclePDuotone);
+if (!customElements.get('dile-phosphor-icon-letter-circle-p-duotone')) {
+  customElements.define('dile-phosphor-icon-letter-circle-p-duotone', DileIconlibLetterCirclePDuotone);
+}

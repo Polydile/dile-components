@@ -6,4 +6,6 @@ export class DileIconlibWrenchOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wrench-off', DileIconlibWrenchOff);
+if (!customElements.get('dile-lucide-icon-wrench-off')) {
+  customElements.define('dile-lucide-icon-wrench-off', DileIconlibWrenchOff);
+}

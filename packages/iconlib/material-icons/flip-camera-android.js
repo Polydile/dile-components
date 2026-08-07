@@ -6,4 +6,6 @@ export class DileIconlibFlipCameraAndroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flip-camera-android', DileIconlibFlipCameraAndroid);
+if (!customElements.get('dile-material-icon-flip-camera-android')) {
+  customElements.define('dile-material-icon-flip-camera-android', DileIconlibFlipCameraAndroid);
+}

@@ -6,4 +6,6 @@ export class DileIconlibToggleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-toggle-line', DileIconlibToggleLine);
+if (!customElements.get('dile-remixicon-icon-toggle-line')) {
+  customElements.define('dile-remixicon-icon-toggle-line', DileIconlibToggleLine);
+}

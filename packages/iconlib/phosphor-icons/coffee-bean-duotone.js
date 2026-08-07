@@ -6,4 +6,6 @@ export class DileIconlibCoffeeBeanDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-coffee-bean-duotone', DileIconlibCoffeeBeanDuotone);
+if (!customElements.get('dile-phosphor-icon-coffee-bean-duotone')) {
+  customElements.define('dile-phosphor-icon-coffee-bean-duotone', DileIconlibCoffeeBeanDuotone);
+}

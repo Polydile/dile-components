@@ -6,4 +6,6 @@ export class DileIconlibLitecoinSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-litecoin-sign', DileIconlibLitecoinSign);
+if (!customElements.get('dile-fontawesome-icon-litecoin-sign')) {
+  customElements.define('dile-fontawesome-icon-litecoin-sign', DileIconlibLitecoinSign);
+}

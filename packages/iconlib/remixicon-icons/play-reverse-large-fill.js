@@ -6,4 +6,6 @@ export class DileIconlibPlayReverseLargeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-play-reverse-large-fill', DileIconlibPlayReverseLargeFill);
+if (!customElements.get('dile-remixicon-icon-play-reverse-large-fill')) {
+  customElements.define('dile-remixicon-icon-play-reverse-large-fill', DileIconlibPlayReverseLargeFill);
+}

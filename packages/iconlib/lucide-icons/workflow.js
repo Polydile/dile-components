@@ -6,4 +6,6 @@ export class DileIconlibWorkflow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-workflow', DileIconlibWorkflow);
+if (!customElements.get('dile-lucide-icon-workflow')) {
+  customElements.define('dile-lucide-icon-workflow', DileIconlibWorkflow);
+}

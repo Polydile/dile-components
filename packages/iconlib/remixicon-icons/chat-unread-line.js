@@ -6,4 +6,6 @@ export class DileIconlibChatUnreadLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-unread-line', DileIconlibChatUnreadLine);
+if (!customElements.get('dile-remixicon-icon-chat-unread-line')) {
+  customElements.define('dile-remixicon-icon-chat-unread-line', DileIconlibChatUnreadLine);
+}

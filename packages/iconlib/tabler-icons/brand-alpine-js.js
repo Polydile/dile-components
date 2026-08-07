@@ -6,4 +6,6 @@ export class DileIconlibBrandAlpineJs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-alpine-js', DileIconlibBrandAlpineJs);
+if (!customElements.get('dile-tabler-icon-brand-alpine-js')) {
+  customElements.define('dile-tabler-icon-brand-alpine-js', DileIconlibBrandAlpineJs);
+}

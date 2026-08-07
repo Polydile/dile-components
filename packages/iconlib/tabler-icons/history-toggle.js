@@ -6,4 +6,6 @@ export class DileIconlibHistoryToggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-history-toggle', DileIconlibHistoryToggle);
+if (!customElements.get('dile-tabler-icon-history-toggle')) {
+  customElements.define('dile-tabler-icon-history-toggle', DileIconlibHistoryToggle);
+}

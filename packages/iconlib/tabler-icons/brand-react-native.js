@@ -6,4 +6,6 @@ export class DileIconlibBrandReactNative extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-react-native', DileIconlibBrandReactNative);
+if (!customElements.get('dile-tabler-icon-brand-react-native')) {
+  customElements.define('dile-tabler-icon-brand-react-native', DileIconlibBrandReactNative);
+}

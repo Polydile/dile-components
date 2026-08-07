@@ -6,4 +6,6 @@ export class DileIconlibIceberg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-iceberg', DileIconlibIceberg);
+if (!customElements.get('dile-tabler-icon-iceberg')) {
+  customElements.define('dile-tabler-icon-iceberg', DileIconlibIceberg);
+}

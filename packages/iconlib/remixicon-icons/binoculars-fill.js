@@ -6,4 +6,6 @@ export class DileIconlibBinocularsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-binoculars-fill', DileIconlibBinocularsFill);
+if (!customElements.get('dile-remixicon-icon-binoculars-fill')) {
+  customElements.define('dile-remixicon-icon-binoculars-fill', DileIconlibBinocularsFill);
+}

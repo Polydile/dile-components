@@ -6,4 +6,6 @@ export class DileIconlibCubesStacked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cubes-stacked', DileIconlibCubesStacked);
+if (!customElements.get('dile-fontawesome-icon-cubes-stacked')) {
+  customElements.define('dile-fontawesome-icon-cubes-stacked', DileIconlibCubesStacked);
+}

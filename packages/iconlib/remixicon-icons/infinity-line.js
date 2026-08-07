@@ -6,4 +6,6 @@ export class DileIconlibInfinityLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-infinity-line', DileIconlibInfinityLine);
+if (!customElements.get('dile-remixicon-icon-infinity-line')) {
+  customElements.define('dile-remixicon-icon-infinity-line', DileIconlibInfinityLine);
+}

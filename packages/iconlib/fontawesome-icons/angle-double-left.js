@@ -6,4 +6,6 @@ export class DileIconlibAngleDoubleLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-angle-double-left', DileIconlibAngleDoubleLeft);
+if (!customElements.get('dile-fontawesome-icon-angle-double-left')) {
+  customElements.define('dile-fontawesome-icon-angle-double-left', DileIconlibAngleDoubleLeft);
+}

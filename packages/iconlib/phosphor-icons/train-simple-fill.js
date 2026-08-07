@@ -6,4 +6,6 @@ export class DileIconlibTrainSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-train-simple-fill', DileIconlibTrainSimpleFill);
+if (!customElements.get('dile-phosphor-icon-train-simple-fill')) {
+  customElements.define('dile-phosphor-icon-train-simple-fill', DileIconlibTrainSimpleFill);
+}

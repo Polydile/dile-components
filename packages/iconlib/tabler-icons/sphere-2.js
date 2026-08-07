@@ -6,4 +6,6 @@ export class DileIconlibSphere2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sphere-2', DileIconlibSphere2);
+if (!customElements.get('dile-tabler-icon-sphere-2')) {
+  customElements.define('dile-tabler-icon-sphere-2', DileIconlibSphere2);
+}

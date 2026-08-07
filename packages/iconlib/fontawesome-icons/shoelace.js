@@ -6,4 +6,6 @@ export class DileIconlibShoelace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shoelace', DileIconlibShoelace);
+if (!customElements.get('dile-fontawesome-icon-shoelace')) {
+  customElements.define('dile-fontawesome-icon-shoelace', DileIconlibShoelace);
+}

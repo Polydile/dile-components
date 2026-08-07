@@ -6,4 +6,6 @@ export class DileIconlibMarkPenFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mark-pen-fill', DileIconlibMarkPenFill);
+if (!customElements.get('dile-remixicon-icon-mark-pen-fill')) {
+  customElements.define('dile-remixicon-icon-mark-pen-fill', DileIconlibMarkPenFill);
+}

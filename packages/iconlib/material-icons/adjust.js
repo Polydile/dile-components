@@ -6,4 +6,6 @@ export class DileIconlibAdjust extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-adjust', DileIconlibAdjust);
+if (!customElements.get('dile-material-icon-adjust')) {
+  customElements.define('dile-material-icon-adjust', DileIconlibAdjust);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMapNorth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-north', DileIconlibMapNorth);
+if (!customElements.get('dile-tabler-icon-map-north')) {
+  customElements.define('dile-tabler-icon-map-north', DileIconlibMapNorth);
+}

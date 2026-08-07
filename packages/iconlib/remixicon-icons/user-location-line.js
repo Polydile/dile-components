@@ -6,4 +6,6 @@ export class DileIconlibUserLocationLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-user-location-line', DileIconlibUserLocationLine);
+if (!customElements.get('dile-remixicon-icon-user-location-line')) {
+  customElements.define('dile-remixicon-icon-user-location-line', DileIconlibUserLocationLine);
+}

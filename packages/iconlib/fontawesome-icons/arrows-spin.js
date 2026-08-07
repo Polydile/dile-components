@@ -6,4 +6,6 @@ export class DileIconlibArrowsSpin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-spin', DileIconlibArrowsSpin);
+if (!customElements.get('dile-fontawesome-icon-arrows-spin')) {
+  customElements.define('dile-fontawesome-icon-arrows-spin', DileIconlibArrowsSpin);
+}

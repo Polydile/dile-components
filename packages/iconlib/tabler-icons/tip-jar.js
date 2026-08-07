@@ -6,4 +6,6 @@ export class DileIconlibTipJar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tip-jar', DileIconlibTipJar);
+if (!customElements.get('dile-tabler-icon-tip-jar')) {
+  customElements.define('dile-tabler-icon-tip-jar', DileIconlibTipJar);
+}

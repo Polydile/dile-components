@@ -6,4 +6,6 @@ export class DileIconlibAccessPoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-access-point', DileIconlibAccessPoint);
+if (!customElements.get('dile-tabler-icon-access-point')) {
+  customElements.define('dile-tabler-icon-access-point', DileIconlibAccessPoint);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGlasses2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-glasses-2-line', DileIconlibGlasses2Line);
+if (!customElements.get('dile-remixicon-icon-glasses-2-line')) {
+  customElements.define('dile-remixicon-icon-glasses-2-line', DileIconlibGlasses2Line);
+}

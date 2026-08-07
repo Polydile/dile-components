@@ -6,4 +6,6 @@ export class DileIconlibFeatherPointed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-feather-pointed', DileIconlibFeatherPointed);
+if (!customElements.get('dile-fontawesome-icon-feather-pointed')) {
+  customElements.define('dile-fontawesome-icon-feather-pointed', DileIconlibFeatherPointed);
+}

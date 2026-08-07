@@ -6,4 +6,6 @@ export class DileIconlibTruck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-truck', DileIconlibTruck);
+if (!customElements.get('dile-phosphor-icon-truck')) {
+  customElements.define('dile-phosphor-icon-truck', DileIconlibTruck);
+}

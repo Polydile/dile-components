@@ -6,4 +6,6 @@ export class DileIconlibFilterCircleDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-filter-circle-dollar', DileIconlibFilterCircleDollar);
+if (!customElements.get('dile-fontawesome-icon-filter-circle-dollar')) {
+  customElements.define('dile-fontawesome-icon-filter-circle-dollar', DileIconlibFilterCircleDollar);
+}

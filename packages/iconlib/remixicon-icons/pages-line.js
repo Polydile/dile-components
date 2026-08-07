@@ -6,4 +6,6 @@ export class DileIconlibPagesLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pages-line', DileIconlibPagesLine);
+if (!customElements.get('dile-remixicon-icon-pages-line')) {
+  customElements.define('dile-remixicon-icon-pages-line', DileIconlibPagesLine);
+}

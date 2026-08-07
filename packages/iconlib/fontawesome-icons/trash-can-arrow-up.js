@@ -6,4 +6,6 @@ export class DileIconlibTrashCanArrowUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trash-can-arrow-up', DileIconlibTrashCanArrowUp);
+if (!customElements.get('dile-fontawesome-icon-trash-can-arrow-up')) {
+  customElements.define('dile-fontawesome-icon-trash-can-arrow-up', DileIconlibTrashCanArrowUp);
+}

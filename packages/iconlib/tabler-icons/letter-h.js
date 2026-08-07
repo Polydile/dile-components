@@ -6,4 +6,6 @@ export class DileIconlibLetterH extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-h', DileIconlibLetterH);
+if (!customElements.get('dile-tabler-icon-letter-h')) {
+  customElements.define('dile-tabler-icon-letter-h', DileIconlibLetterH);
+}

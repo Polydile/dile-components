@@ -6,4 +6,6 @@ export class DileIconlibBarricadeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-barricade-fill', DileIconlibBarricadeFill);
+if (!customElements.get('dile-phosphor-icon-barricade-fill')) {
+  customElements.define('dile-phosphor-icon-barricade-fill', DileIconlibBarricadeFill);
+}

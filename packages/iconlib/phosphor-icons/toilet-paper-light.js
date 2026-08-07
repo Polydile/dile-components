@@ -6,4 +6,6 @@ export class DileIconlibToiletPaperLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toilet-paper-light', DileIconlibToiletPaperLight);
+if (!customElements.get('dile-phosphor-icon-toilet-paper-light')) {
+  customElements.define('dile-phosphor-icon-toilet-paper-light', DileIconlibToiletPaperLight);
+}

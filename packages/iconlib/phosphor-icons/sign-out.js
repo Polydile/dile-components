@@ -6,4 +6,6 @@ export class DileIconlibSignOut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sign-out', DileIconlibSignOut);
+if (!customElements.get('dile-phosphor-icon-sign-out')) {
+  customElements.define('dile-phosphor-icon-sign-out', DileIconlibSignOut);
+}

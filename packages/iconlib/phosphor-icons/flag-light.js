@@ -6,4 +6,6 @@ export class DileIconlibFlagLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-light', DileIconlibFlagLight);
+if (!customElements.get('dile-phosphor-icon-flag-light')) {
+  customElements.define('dile-phosphor-icon-flag-light', DileIconlibFlagLight);
+}

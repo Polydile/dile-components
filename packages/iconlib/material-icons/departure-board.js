@@ -6,4 +6,6 @@ export class DileIconlibDepartureBoard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-departure-board', DileIconlibDepartureBoard);
+if (!customElements.get('dile-material-icon-departure-board')) {
+  customElements.define('dile-material-icon-departure-board', DileIconlibDepartureBoard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChessFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chess-filled', DileIconlibChessFilled);
+if (!customElements.get('dile-tabler-icon-chess-filled')) {
+  customElements.define('dile-tabler-icon-chess-filled', DileIconlibChessFilled);
+}

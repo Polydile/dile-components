@@ -6,4 +6,6 @@ export class DileIconlibChargingStation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-charging-station', DileIconlibChargingStation);
+if (!customElements.get('dile-material-icon-charging-station')) {
+  customElements.define('dile-material-icon-charging-station', DileIconlibChargingStation);
+}

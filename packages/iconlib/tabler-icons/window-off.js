@@ -6,4 +6,6 @@ export class DileIconlibWindowOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-window-off', DileIconlibWindowOff);
+if (!customElements.get('dile-tabler-icon-window-off')) {
+  customElements.define('dile-tabler-icon-window-off', DileIconlibWindowOff);
+}

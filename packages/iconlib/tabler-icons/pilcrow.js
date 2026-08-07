@@ -6,4 +6,6 @@ export class DileIconlibPilcrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pilcrow', DileIconlibPilcrow);
+if (!customElements.get('dile-tabler-icon-pilcrow')) {
+  customElements.define('dile-tabler-icon-pilcrow', DileIconlibPilcrow);
+}

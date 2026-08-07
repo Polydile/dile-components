@@ -6,4 +6,6 @@ export class DileIconlibCassetteTapeThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cassette-tape-thin', DileIconlibCassetteTapeThin);
+if (!customElements.get('dile-phosphor-icon-cassette-tape-thin')) {
+  customElements.define('dile-phosphor-icon-cassette-tape-thin', DileIconlibCassetteTapeThin);
+}

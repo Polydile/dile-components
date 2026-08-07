@@ -6,4 +6,6 @@ export class DileIconlibLoaderPinwheel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-loader-pinwheel', DileIconlibLoaderPinwheel);
+if (!customElements.get('dile-lucide-icon-loader-pinwheel')) {
+  customElements.define('dile-lucide-icon-loader-pinwheel', DileIconlibLoaderPinwheel);
+}

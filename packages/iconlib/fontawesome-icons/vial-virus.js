@@ -6,4 +6,6 @@ export class DileIconlibVialVirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vial-virus', DileIconlibVialVirus);
+if (!customElements.get('dile-fontawesome-icon-vial-virus')) {
+  customElements.define('dile-fontawesome-icon-vial-virus', DileIconlibVialVirus);
+}

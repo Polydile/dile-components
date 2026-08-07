@@ -6,4 +6,6 @@ export class DileIconlibCircleLetterZ extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-letter-z', DileIconlibCircleLetterZ);
+if (!customElements.get('dile-tabler-icon-circle-letter-z')) {
+  customElements.define('dile-tabler-icon-circle-letter-z', DileIconlibCircleLetterZ);
+}

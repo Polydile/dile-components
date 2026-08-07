@@ -6,4 +6,6 @@ export class DileIconlibStarBorder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-star-border', DileIconlibStarBorder);
+if (!customElements.get('dile-material-icon-star-border')) {
+  customElements.define('dile-material-icon-star-border', DileIconlibStarBorder);
+}

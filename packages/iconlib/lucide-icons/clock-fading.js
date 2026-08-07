@@ -6,4 +6,6 @@ export class DileIconlibClockFading extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-clock-fading', DileIconlibClockFading);
+if (!customElements.get('dile-lucide-icon-clock-fading')) {
+  customElements.define('dile-lucide-icon-clock-fading', DileIconlibClockFading);
+}

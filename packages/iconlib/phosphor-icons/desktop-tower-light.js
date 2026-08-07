@@ -6,4 +6,6 @@ export class DileIconlibDesktopTowerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-desktop-tower-light', DileIconlibDesktopTowerLight);
+if (!customElements.get('dile-phosphor-icon-desktop-tower-light')) {
+  customElements.define('dile-phosphor-icon-desktop-tower-light', DileIconlibDesktopTowerLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShieldCat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shield-cat', DileIconlibShieldCat);
+if (!customElements.get('dile-fontawesome-icon-shield-cat')) {
+  customElements.define('dile-fontawesome-icon-shield-cat', DileIconlibShieldCat);
+}

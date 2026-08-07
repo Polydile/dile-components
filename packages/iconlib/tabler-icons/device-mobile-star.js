@@ -6,4 +6,6 @@ export class DileIconlibDeviceMobileStar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-mobile-star', DileIconlibDeviceMobileStar);
+if (!customElements.get('dile-tabler-icon-device-mobile-star')) {
+  customElements.define('dile-tabler-icon-device-mobile-star', DileIconlibDeviceMobileStar);
+}

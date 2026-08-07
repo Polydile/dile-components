@@ -6,4 +6,6 @@ export class DileIconlibPenNibThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pen-nib-thin', DileIconlibPenNibThin);
+if (!customElements.get('dile-phosphor-icon-pen-nib-thin')) {
+  customElements.define('dile-phosphor-icon-pen-nib-thin', DileIconlibPenNibThin);
+}

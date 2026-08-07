@@ -6,4 +6,6 @@ export class DileIconlibMedicineBottleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-medicine-bottle-line', DileIconlibMedicineBottleLine);
+if (!customElements.get('dile-remixicon-icon-medicine-bottle-line')) {
+  customElements.define('dile-remixicon-icon-medicine-bottle-line', DileIconlibMedicineBottleLine);
+}

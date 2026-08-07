@@ -6,4 +6,6 @@ export class DileIconlibFolderOpen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folder-open', DileIconlibFolderOpen);
+if (!customElements.get('dile-tabler-icon-folder-open')) {
+  customElements.define('dile-tabler-icon-folder-open', DileIconlibFolderOpen);
+}

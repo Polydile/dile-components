@@ -6,4 +6,6 @@ export class DileIconlibIsland extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-island', DileIconlibIsland);
+if (!customElements.get('dile-phosphor-icon-island')) {
+  customElements.define('dile-phosphor-icon-island', DileIconlibIsland);
+}

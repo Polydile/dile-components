@@ -6,4 +6,6 @@ export class DileIconlibTentArrowTurnLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tent-arrow-turn-left', DileIconlibTentArrowTurnLeft);
+if (!customElements.get('dile-fontawesome-icon-tent-arrow-turn-left')) {
+  customElements.define('dile-fontawesome-icon-tent-arrow-turn-left', DileIconlibTentArrowTurnLeft);
+}

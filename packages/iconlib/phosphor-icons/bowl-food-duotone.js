@@ -6,4 +6,6 @@ export class DileIconlibBowlFoodDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bowl-food-duotone', DileIconlibBowlFoodDuotone);
+if (!customElements.get('dile-phosphor-icon-bowl-food-duotone')) {
+  customElements.define('dile-phosphor-icon-bowl-food-duotone', DileIconlibBowlFoodDuotone);
+}

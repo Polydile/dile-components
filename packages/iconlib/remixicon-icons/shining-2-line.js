@@ -6,4 +6,6 @@ export class DileIconlibShining2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shining-2-line', DileIconlibShining2Line);
+if (!customElements.get('dile-remixicon-icon-shining-2-line')) {
+  customElements.define('dile-remixicon-icon-shining-2-line', DileIconlibShining2Line);
+}

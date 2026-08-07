@@ -6,4 +6,6 @@ export class DileIconlibSimCardDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sim-card-duotone', DileIconlibSimCardDuotone);
+if (!customElements.get('dile-phosphor-icon-sim-card-duotone')) {
+  customElements.define('dile-phosphor-icon-sim-card-duotone', DileIconlibSimCardDuotone);
+}

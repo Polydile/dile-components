@@ -6,4 +6,6 @@ export class DileIconlibHollyBerry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-holly-berry', DileIconlibHollyBerry);
+if (!customElements.get('dile-fontawesome-icon-holly-berry')) {
+  customElements.define('dile-fontawesome-icon-holly-berry', DileIconlibHollyBerry);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTemperature0 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-temperature-0', DileIconlibTemperature0);
+if (!customElements.get('dile-fontawesome-icon-temperature-0')) {
+  customElements.define('dile-fontawesome-icon-temperature-0', DileIconlibTemperature0);
+}

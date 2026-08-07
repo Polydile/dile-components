@@ -6,4 +6,6 @@ export class DileIconlibDeviceMobileRotated extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-mobile-rotated', DileIconlibDeviceMobileRotated);
+if (!customElements.get('dile-tabler-icon-device-mobile-rotated')) {
+  customElements.define('dile-tabler-icon-device-mobile-rotated', DileIconlibDeviceMobileRotated);
+}

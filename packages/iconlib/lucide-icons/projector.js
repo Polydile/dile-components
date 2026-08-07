@@ -6,4 +6,6 @@ export class DileIconlibProjector extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-projector', DileIconlibProjector);
+if (!customElements.get('dile-lucide-icon-projector')) {
+  customElements.define('dile-lucide-icon-projector', DileIconlibProjector);
+}

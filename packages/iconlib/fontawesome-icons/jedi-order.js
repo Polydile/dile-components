@@ -6,4 +6,6 @@ export class DileIconlibJediOrder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-jedi-order', DileIconlibJediOrder);
+if (!customElements.get('dile-fontawesome-icon-jedi-order')) {
+  customElements.define('dile-fontawesome-icon-jedi-order', DileIconlibJediOrder);
+}

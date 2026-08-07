@@ -6,4 +6,6 @@ export class DileIconlibTeamspeak extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-teamspeak', DileIconlibTeamspeak);
+if (!customElements.get('dile-fontawesome-icon-teamspeak')) {
+  customElements.define('dile-fontawesome-icon-teamspeak', DileIconlibTeamspeak);
+}

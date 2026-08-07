@@ -6,4 +6,6 @@ export class DileIconlibTopologyStarRing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-topology-star-ring', DileIconlibTopologyStarRing);
+if (!customElements.get('dile-tabler-icon-topology-star-ring')) {
+  customElements.define('dile-tabler-icon-topology-star-ring', DileIconlibTopologyStarRing);
+}

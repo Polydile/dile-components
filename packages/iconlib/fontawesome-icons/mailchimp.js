@@ -6,4 +6,6 @@ export class DileIconlibMailchimp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mailchimp', DileIconlibMailchimp);
+if (!customElements.get('dile-fontawesome-icon-mailchimp')) {
+  customElements.define('dile-fontawesome-icon-mailchimp', DileIconlibMailchimp);
+}

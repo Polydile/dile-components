@@ -6,4 +6,6 @@ export class DileIconlibLongArrowAltRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-long-arrow-alt-right', DileIconlibLongArrowAltRight);
+if (!customElements.get('dile-fontawesome-icon-long-arrow-alt-right')) {
+  customElements.define('dile-fontawesome-icon-long-arrow-alt-right', DileIconlibLongArrowAltRight);
+}

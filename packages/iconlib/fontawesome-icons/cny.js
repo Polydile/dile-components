@@ -6,4 +6,6 @@ export class DileIconlibCny extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cny', DileIconlibCny);
+if (!customElements.get('dile-fontawesome-icon-cny')) {
+  customElements.define('dile-fontawesome-icon-cny', DileIconlibCny);
+}

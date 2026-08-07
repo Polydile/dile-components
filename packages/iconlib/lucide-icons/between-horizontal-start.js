@@ -6,4 +6,6 @@ export class DileIconlibBetweenHorizontalStart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-between-horizontal-start', DileIconlibBetweenHorizontalStart);
+if (!customElements.get('dile-lucide-icon-between-horizontal-start')) {
+  customElements.define('dile-lucide-icon-between-horizontal-start', DileIconlibBetweenHorizontalStart);
+}

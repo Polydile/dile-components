@@ -6,4 +6,6 @@ export class DileIconlibAppStoreIos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-app-store-ios', DileIconlibAppStoreIos);
+if (!customElements.get('dile-fontawesome-icon-app-store-ios')) {
+  customElements.define('dile-fontawesome-icon-app-store-ios', DileIconlibAppStoreIos);
+}

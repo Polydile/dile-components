@@ -6,4 +6,6 @@ export class DileIconlibLoaderQuarter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-loader-quarter', DileIconlibLoaderQuarter);
+if (!customElements.get('dile-tabler-icon-loader-quarter')) {
+  customElements.define('dile-tabler-icon-loader-quarter', DileIconlibLoaderQuarter);
+}

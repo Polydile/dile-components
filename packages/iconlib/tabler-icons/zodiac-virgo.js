@@ -6,4 +6,6 @@ export class DileIconlibZodiacVirgo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-virgo', DileIconlibZodiacVirgo);
+if (!customElements.get('dile-tabler-icon-zodiac-virgo')) {
+  customElements.define('dile-tabler-icon-zodiac-virgo', DileIconlibZodiacVirgo);
+}

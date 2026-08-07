@@ -6,4 +6,6 @@ export class DileIconlibScribbleLoopLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scribble-loop-light', DileIconlibScribbleLoopLight);
+if (!customElements.get('dile-phosphor-icon-scribble-loop-light')) {
+  customElements.define('dile-phosphor-icon-scribble-loop-light', DileIconlibScribbleLoopLight);
+}

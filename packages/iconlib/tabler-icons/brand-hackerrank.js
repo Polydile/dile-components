@@ -6,4 +6,6 @@ export class DileIconlibBrandHackerrank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-hackerrank', DileIconlibBrandHackerrank);
+if (!customElements.get('dile-tabler-icon-brand-hackerrank')) {
+  customElements.define('dile-tabler-icon-brand-hackerrank', DileIconlibBrandHackerrank);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandSublimeText extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-sublime-text', DileIconlibBrandSublimeText);
+if (!customElements.get('dile-tabler-icon-brand-sublime-text')) {
+  customElements.define('dile-tabler-icon-brand-sublime-text', DileIconlibBrandSublimeText);
+}

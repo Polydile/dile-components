@@ -6,4 +6,6 @@ export class DileIconlibGrillFork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grill-fork', DileIconlibGrillFork);
+if (!customElements.get('dile-tabler-icon-grill-fork')) {
+  customElements.define('dile-tabler-icon-grill-fork', DileIconlibGrillFork);
+}

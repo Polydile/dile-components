@@ -6,4 +6,6 @@ export class DileIconlibChair extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-chair', DileIconlibChair);
+if (!customElements.get('dile-fontawesome-icon-chair')) {
+  customElements.define('dile-fontawesome-icon-chair', DileIconlibChair);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScaleway extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scaleway', DileIconlibScaleway);
+if (!customElements.get('dile-fontawesome-icon-scaleway')) {
+  customElements.define('dile-fontawesome-icon-scaleway', DileIconlibScaleway);
+}

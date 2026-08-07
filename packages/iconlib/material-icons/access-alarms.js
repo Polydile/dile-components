@@ -6,4 +6,6 @@ export class DileIconlibAccessAlarms extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-access-alarms', DileIconlibAccessAlarms);
+if (!customElements.get('dile-material-icon-access-alarms')) {
+  customElements.define('dile-material-icon-access-alarms', DileIconlibAccessAlarms);
+}

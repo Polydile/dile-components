@@ -6,4 +6,6 @@ export class DileIconlibEyeglass2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eyeglass-2-filled', DileIconlibEyeglass2Filled);
+if (!customElements.get('dile-tabler-icon-eyeglass-2-filled')) {
+  customElements.define('dile-tabler-icon-eyeglass-2-filled', DileIconlibEyeglass2Filled);
+}

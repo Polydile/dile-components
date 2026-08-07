@@ -1,3 +1,5 @@
 import { DileConfirmText } from './src/DileConfirmText.js';
 
-window.customElements.define('dile-confirm-text', DileConfirmText);
+if (!customElements.get('dile-confirm-text')) {
+  window.customElements.define('dile-confirm-text', DileConfirmText);
+}

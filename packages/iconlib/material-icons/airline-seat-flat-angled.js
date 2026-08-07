@@ -6,4 +6,6 @@ export class DileIconlibAirlineSeatFlatAngled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airline-seat-flat-angled', DileIconlibAirlineSeatFlatAngled);
+if (!customElements.get('dile-material-icon-airline-seat-flat-angled')) {
+  customElements.define('dile-material-icon-airline-seat-flat-angled', DileIconlibAirlineSeatFlatAngled);
+}

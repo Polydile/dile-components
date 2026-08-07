@@ -6,4 +6,6 @@ export class DileIconlibMoodLookUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-look-up', DileIconlibMoodLookUp);
+if (!customElements.get('dile-tabler-icon-mood-look-up')) {
+  customElements.define('dile-tabler-icon-mood-look-up', DileIconlibMoodLookUp);
+}

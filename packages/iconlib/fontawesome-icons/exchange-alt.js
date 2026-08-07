@@ -6,4 +6,6 @@ export class DileIconlibExchangeAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-exchange-alt', DileIconlibExchangeAlt);
+if (!customElements.get('dile-fontawesome-icon-exchange-alt')) {
+  customElements.define('dile-fontawesome-icon-exchange-alt', DileIconlibExchangeAlt);
+}

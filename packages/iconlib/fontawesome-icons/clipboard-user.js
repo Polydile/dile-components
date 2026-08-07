@@ -6,4 +6,6 @@ export class DileIconlibClipboardUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-clipboard-user', DileIconlibClipboardUser);
+if (!customElements.get('dile-fontawesome-icon-clipboard-user')) {
+  customElements.define('dile-fontawesome-icon-clipboard-user', DileIconlibClipboardUser);
+}

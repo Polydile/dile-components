@@ -6,4 +6,6 @@ export class DileIconlibRoadsterFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-roadster-fill', DileIconlibRoadsterFill);
+if (!customElements.get('dile-remixicon-icon-roadster-fill')) {
+  customElements.define('dile-remixicon-icon-roadster-fill', DileIconlibRoadsterFill);
+}

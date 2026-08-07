@@ -6,4 +6,6 @@ export class DileIconlibKnifeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-knife-line', DileIconlibKnifeLine);
+if (!customElements.get('dile-remixicon-icon-knife-line')) {
+  customElements.define('dile-remixicon-icon-knife-line', DileIconlibKnifeLine);
+}

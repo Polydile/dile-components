@@ -6,4 +6,6 @@ export class DileIconlibDeviceNintendoOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-nintendo-off', DileIconlibDeviceNintendoOff);
+if (!customElements.get('dile-tabler-icon-device-nintendo-off')) {
+  customElements.define('dile-tabler-icon-device-nintendo-off', DileIconlibDeviceNintendoOff);
+}

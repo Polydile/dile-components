@@ -6,4 +6,6 @@ export class DileIconlibFax extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fax', DileIconlibFax);
+if (!customElements.get('dile-fontawesome-icon-fax')) {
+  customElements.define('dile-fontawesome-icon-fax', DileIconlibFax);
+}

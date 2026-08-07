@@ -6,4 +6,6 @@ export class DileIconlibPaperBag extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-paper-bag', DileIconlibPaperBag);
+if (!customElements.get('dile-lucide-icon-paper-bag')) {
+  customElements.define('dile-lucide-icon-paper-bag', DileIconlibPaperBag);
+}

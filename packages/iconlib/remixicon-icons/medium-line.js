@@ -6,4 +6,6 @@ export class DileIconlibMediumLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-medium-line', DileIconlibMediumLine);
+if (!customElements.get('dile-remixicon-icon-medium-line')) {
+  customElements.define('dile-remixicon-icon-medium-line', DileIconlibMediumLine);
+}

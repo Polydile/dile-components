@@ -6,4 +6,6 @@ export class DileIconlibBrandPaypay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-paypay', DileIconlibBrandPaypay);
+if (!customElements.get('dile-tabler-icon-brand-paypay')) {
+  customElements.define('dile-tabler-icon-brand-paypay', DileIconlibBrandPaypay);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPickaxe extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pickaxe', DileIconlibPickaxe);
+if (!customElements.get('dile-lucide-icon-pickaxe')) {
+  customElements.define('dile-lucide-icon-pickaxe', DileIconlibPickaxe);
+}

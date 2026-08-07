@@ -6,4 +6,6 @@ export class DileIconlibPersonPregnant extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-pregnant', DileIconlibPersonPregnant);
+if (!customElements.get('dile-fontawesome-icon-person-pregnant')) {
+  customElements.define('dile-fontawesome-icon-person-pregnant', DileIconlibPersonPregnant);
+}

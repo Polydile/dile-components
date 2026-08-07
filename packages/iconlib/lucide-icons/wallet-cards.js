@@ -6,4 +6,6 @@ export class DileIconlibWalletCards extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wallet-cards', DileIconlibWalletCards);
+if (!customElements.get('dile-lucide-icon-wallet-cards')) {
+  customElements.define('dile-lucide-icon-wallet-cards', DileIconlibWalletCards);
+}

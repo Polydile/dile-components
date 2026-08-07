@@ -6,4 +6,6 @@ export class DileIconlibMonitorCloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-monitor-cloud', DileIconlibMonitorCloud);
+if (!customElements.get('dile-lucide-icon-monitor-cloud')) {
+  customElements.define('dile-lucide-icon-monitor-cloud', DileIconlibMonitorCloud);
+}

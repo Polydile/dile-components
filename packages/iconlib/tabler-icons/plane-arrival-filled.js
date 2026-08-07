@@ -6,4 +6,6 @@ export class DileIconlibPlaneArrivalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-plane-arrival-filled', DileIconlibPlaneArrivalFilled);
+if (!customElements.get('dile-tabler-icon-plane-arrival-filled')) {
+  customElements.define('dile-tabler-icon-plane-arrival-filled', DileIconlibPlaneArrivalFilled);
+}

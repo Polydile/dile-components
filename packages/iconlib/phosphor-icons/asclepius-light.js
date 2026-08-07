@@ -6,4 +6,6 @@ export class DileIconlibAsclepiusLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-asclepius-light', DileIconlibAsclepiusLight);
+if (!customElements.get('dile-phosphor-icon-asclepius-light')) {
+  customElements.define('dile-phosphor-icon-asclepius-light', DileIconlibAsclepiusLight);
+}

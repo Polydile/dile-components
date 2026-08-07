@@ -6,4 +6,6 @@ export class DileIconlibBrandRevolut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-revolut', DileIconlibBrandRevolut);
+if (!customElements.get('dile-tabler-icon-brand-revolut')) {
+  customElements.define('dile-tabler-icon-brand-revolut', DileIconlibBrandRevolut);
+}

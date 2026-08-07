@@ -6,4 +6,6 @@ export class DileIconlibPalette extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-palette', DileIconlibPalette);
+if (!customElements.get('dile-phosphor-icon-palette')) {
+  customElements.define('dile-phosphor-icon-palette', DileIconlibPalette);
+}

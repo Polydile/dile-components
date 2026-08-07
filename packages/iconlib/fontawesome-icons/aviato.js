@@ -6,4 +6,6 @@ export class DileIconlibAviato extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-aviato', DileIconlibAviato);
+if (!customElements.get('dile-fontawesome-icon-aviato')) {
+  customElements.define('dile-fontawesome-icon-aviato', DileIconlibAviato);
+}

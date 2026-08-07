@@ -6,4 +6,6 @@ export class DileIconlibCubeSend extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cube-send', DileIconlibCubeSend);
+if (!customElements.get('dile-tabler-icon-cube-send')) {
+  customElements.define('dile-tabler-icon-cube-send', DileIconlibCubeSend);
+}

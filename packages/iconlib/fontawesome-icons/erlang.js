@@ -6,4 +6,6 @@ export class DileIconlibErlang extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-erlang', DileIconlibErlang);
+if (!customElements.get('dile-fontawesome-icon-erlang')) {
+  customElements.define('dile-fontawesome-icon-erlang', DileIconlibErlang);
+}

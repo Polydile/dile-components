@@ -6,4 +6,6 @@ export class DileIconlibPhonePause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-phone-pause', DileIconlibPhonePause);
+if (!customElements.get('dile-phosphor-icon-phone-pause')) {
+  customElements.define('dile-phosphor-icon-phone-pause', DileIconlibPhonePause);
+}

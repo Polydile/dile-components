@@ -6,4 +6,6 @@ export class DileIconlibBrandTailwind extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tailwind', DileIconlibBrandTailwind);
+if (!customElements.get('dile-tabler-icon-brand-tailwind')) {
+  customElements.define('dile-tabler-icon-brand-tailwind', DileIconlibBrandTailwind);
+}

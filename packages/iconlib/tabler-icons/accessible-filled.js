@@ -6,4 +6,6 @@ export class DileIconlibAccessibleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-accessible-filled', DileIconlibAccessibleFilled);
+if (!customElements.get('dile-tabler-icon-accessible-filled')) {
+  customElements.define('dile-tabler-icon-accessible-filled', DileIconlibAccessibleFilled);
+}

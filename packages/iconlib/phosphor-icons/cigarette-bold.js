@@ -6,4 +6,6 @@ export class DileIconlibCigaretteBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cigarette-bold', DileIconlibCigaretteBold);
+if (!customElements.get('dile-phosphor-icon-cigarette-bold')) {
+  customElements.define('dile-phosphor-icon-cigarette-bold', DileIconlibCigaretteBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCashApp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cash-app', DileIconlibCashApp);
+if (!customElements.get('dile-fontawesome-icon-cash-app')) {
+  customElements.define('dile-fontawesome-icon-cash-app', DileIconlibCashApp);
+}

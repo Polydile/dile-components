@@ -6,4 +6,6 @@ export class DileIconlibDocumentScanner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-document-scanner', DileIconlibDocumentScanner);
+if (!customElements.get('dile-material-icon-document-scanner')) {
+  customElements.define('dile-material-icon-document-scanner', DileIconlibDocumentScanner);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowAltCircleUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-arrow-alt-circle-up', DileIconlibArrowAltCircleUp);
+if (!customElements.get('dile-fontawesome-icon-regular-arrow-alt-circle-up')) {
+  customElements.define('dile-fontawesome-icon-regular-arrow-alt-circle-up', DileIconlibArrowAltCircleUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMountainFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mountain-filled', DileIconlibMountainFilled);
+if (!customElements.get('dile-tabler-icon-mountain-filled')) {
+  customElements.define('dile-tabler-icon-mountain-filled', DileIconlibMountainFilled);
+}

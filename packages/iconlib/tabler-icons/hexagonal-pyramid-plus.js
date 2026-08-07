@@ -6,4 +6,6 @@ export class DileIconlibHexagonalPyramidPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagonal-pyramid-plus', DileIconlibHexagonalPyramidPlus);
+if (!customElements.get('dile-tabler-icon-hexagonal-pyramid-plus')) {
+  customElements.define('dile-tabler-icon-hexagonal-pyramid-plus', DileIconlibHexagonalPyramidPlus);
+}

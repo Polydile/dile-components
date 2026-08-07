@@ -6,4 +6,6 @@ export class DileIconlibGrinHearts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grin-hearts', DileIconlibGrinHearts);
+if (!customElements.get('dile-fontawesome-icon-grin-hearts')) {
+  customElements.define('dile-fontawesome-icon-grin-hearts', DileIconlibGrinHearts);
+}

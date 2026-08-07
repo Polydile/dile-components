@@ -6,4 +6,6 @@ export class DileIconlibLocalParking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-parking', DileIconlibLocalParking);
+if (!customElements.get('dile-material-icon-local-parking')) {
+  customElements.define('dile-material-icon-local-parking', DileIconlibLocalParking);
+}

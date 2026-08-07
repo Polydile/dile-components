@@ -6,4 +6,6 @@ export class DileIconlibChartSpline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chart-spline', DileIconlibChartSpline);
+if (!customElements.get('dile-lucide-icon-chart-spline')) {
+  customElements.define('dile-lucide-icon-chart-spline', DileIconlibChartSpline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDateRange extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-date-range', DileIconlibDateRange);
+if (!customElements.get('dile-material-icon-date-range')) {
+  customElements.define('dile-material-icon-date-range', DileIconlibDateRange);
+}

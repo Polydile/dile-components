@@ -6,4 +6,6 @@ export class DileIconlibReceiptJapaneseYen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-receipt-japanese-yen', DileIconlibReceiptJapaneseYen);
+if (!customElements.get('dile-lucide-icon-receipt-japanese-yen')) {
+  customElements.define('dile-lucide-icon-receipt-japanese-yen', DileIconlibReceiptJapaneseYen);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBoreHole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bore-hole', DileIconlibBoreHole);
+if (!customElements.get('dile-fontawesome-icon-bore-hole')) {
+  customElements.define('dile-fontawesome-icon-bore-hole', DileIconlibBoreHole);
+}

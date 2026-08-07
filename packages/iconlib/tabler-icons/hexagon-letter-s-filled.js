@@ -6,4 +6,6 @@ export class DileIconlibHexagonLetterSFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-letter-s-filled', DileIconlibHexagonLetterSFilled);
+if (!customElements.get('dile-tabler-icon-hexagon-letter-s-filled')) {
+  customElements.define('dile-tabler-icon-hexagon-letter-s-filled', DileIconlibHexagonLetterSFilled);
+}

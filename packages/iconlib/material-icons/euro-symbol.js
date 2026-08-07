@@ -6,4 +6,6 @@ export class DileIconlibEuroSymbol extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-euro-symbol', DileIconlibEuroSymbol);
+if (!customElements.get('dile-material-icon-euro-symbol')) {
+  customElements.define('dile-material-icon-euro-symbol', DileIconlibEuroSymbol);
+}

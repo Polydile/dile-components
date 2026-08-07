@@ -6,4 +6,6 @@ export class DileIconlibClaude extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-claude', DileIconlibClaude);
+if (!customElements.get('dile-fontawesome-icon-claude')) {
+  customElements.define('dile-fontawesome-icon-claude', DileIconlibClaude);
+}

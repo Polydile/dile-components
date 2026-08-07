@@ -6,4 +6,6 @@ export class DileIconlibSportsHockey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-hockey', DileIconlibSportsHockey);
+if (!customElements.get('dile-material-icon-sports-hockey')) {
+  customElements.define('dile-material-icon-sports-hockey', DileIconlibSportsHockey);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHatHard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hat-hard', DileIconlibHatHard);
+if (!customElements.get('dile-fontawesome-icon-hat-hard')) {
+  customElements.define('dile-fontawesome-icon-hat-hard', DileIconlibHatHard);
+}

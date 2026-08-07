@@ -6,4 +6,6 @@ export class DileIconlibWritingSignOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-writing-sign-off', DileIconlibWritingSignOff);
+if (!customElements.get('dile-tabler-icon-writing-sign-off')) {
+  customElements.define('dile-tabler-icon-writing-sign-off', DileIconlibWritingSignOff);
+}

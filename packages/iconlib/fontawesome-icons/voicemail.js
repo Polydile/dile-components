@@ -6,4 +6,6 @@ export class DileIconlibVoicemail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-voicemail', DileIconlibVoicemail);
+if (!customElements.get('dile-fontawesome-icon-voicemail')) {
+  customElements.define('dile-fontawesome-icon-voicemail', DileIconlibVoicemail);
+}

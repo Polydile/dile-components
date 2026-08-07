@@ -6,4 +6,6 @@ export class DileIconlibSquareNumber5Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-number-5-filled', DileIconlibSquareNumber5Filled);
+if (!customElements.get('dile-tabler-icon-square-number-5-filled')) {
+  customElements.define('dile-tabler-icon-square-number-5-filled', DileIconlibSquareNumber5Filled);
+}

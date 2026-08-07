@@ -6,4 +6,6 @@ export class DileIconlibDeviceAirpods extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-airpods', DileIconlibDeviceAirpods);
+if (!customElements.get('dile-tabler-icon-device-airpods')) {
+  customElements.define('dile-tabler-icon-device-airpods', DileIconlibDeviceAirpods);
+}

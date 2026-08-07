@@ -6,4 +6,6 @@ export class DileIconlibCameraSwitchLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-camera-switch-line', DileIconlibCameraSwitchLine);
+if (!customElements.get('dile-remixicon-icon-camera-switch-line')) {
+  customElements.define('dile-remixicon-icon-camera-switch-line', DileIconlibCameraSwitchLine);
+}

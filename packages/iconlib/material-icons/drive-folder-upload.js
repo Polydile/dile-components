@@ -6,4 +6,6 @@ export class DileIconlibDriveFolderUpload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drive-folder-upload', DileIconlibDriveFolderUpload);
+if (!customElements.get('dile-material-icon-drive-folder-upload')) {
+  customElements.define('dile-material-icon-drive-folder-upload', DileIconlibDriveFolderUpload);
+}

@@ -1,3 +1,5 @@
 import { DileToastPersistent } from './src/DileToastPersistent.js';
 
-customElements.define("dile-toast-persistent", DileToastPersistent);
+if (!customElements.get("dile-toast-persistent")) {
+  customElements.define("dile-toast-persistent", DileToastPersistent);
+}

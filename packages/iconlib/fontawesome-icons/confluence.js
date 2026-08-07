@@ -6,4 +6,6 @@ export class DileIconlibConfluence extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-confluence', DileIconlibConfluence);
+if (!customElements.get('dile-fontawesome-icon-confluence')) {
+  customElements.define('dile-fontawesome-icon-confluence', DileIconlibConfluence);
+}

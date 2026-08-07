@@ -6,4 +6,6 @@ export class DileIconlibGoodreadsLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-goodreads-logo-thin', DileIconlibGoodreadsLogoThin);
+if (!customElements.get('dile-phosphor-icon-goodreads-logo-thin')) {
+  customElements.define('dile-phosphor-icon-goodreads-logo-thin', DileIconlibGoodreadsLogoThin);
+}

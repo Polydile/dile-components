@@ -6,4 +6,6 @@ export class DileIconlibPointerCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-code', DileIconlibPointerCode);
+if (!customElements.get('dile-tabler-icon-pointer-code')) {
+  customElements.define('dile-tabler-icon-pointer-code', DileIconlibPointerCode);
+}

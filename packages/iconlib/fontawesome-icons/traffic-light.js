@@ -6,4 +6,6 @@ export class DileIconlibTrafficLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-traffic-light', DileIconlibTrafficLight);
+if (!customElements.get('dile-fontawesome-icon-traffic-light')) {
+  customElements.define('dile-fontawesome-icon-traffic-light', DileIconlibTrafficLight);
+}

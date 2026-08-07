@@ -6,4 +6,6 @@ export class DileIconlibUnfoldHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-unfold-horizontal', DileIconlibUnfoldHorizontal);
+if (!customElements.get('dile-lucide-icon-unfold-horizontal')) {
+  customElements.define('dile-lucide-icon-unfold-horizontal', DileIconlibUnfoldHorizontal);
+}

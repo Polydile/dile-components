@@ -6,4 +6,6 @@ export class DileIconlibBrandCodesandbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-codesandbox', DileIconlibBrandCodesandbox);
+if (!customElements.get('dile-tabler-icon-brand-codesandbox')) {
+  customElements.define('dile-tabler-icon-brand-codesandbox', DileIconlibBrandCodesandbox);
+}

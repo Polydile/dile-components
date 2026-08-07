@@ -6,4 +6,6 @@ export class DileIconlibYoutubeSearchedFor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-youtube-searched-for', DileIconlibYoutubeSearchedFor);
+if (!customElements.get('dile-material-icon-youtube-searched-for')) {
+  customElements.define('dile-material-icon-youtube-searched-for', DileIconlibYoutubeSearchedFor);
+}

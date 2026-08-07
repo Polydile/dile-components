@@ -6,4 +6,6 @@ export class DileIconlibAmbulanceLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ambulance-light', DileIconlibAmbulanceLight);
+if (!customElements.get('dile-phosphor-icon-ambulance-light')) {
+  customElements.define('dile-phosphor-icon-ambulance-light', DileIconlibAmbulanceLight);
+}

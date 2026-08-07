@@ -6,4 +6,6 @@ export class DileIconlibHop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hop', DileIconlibHop);
+if (!customElements.get('dile-lucide-icon-hop')) {
+  customElements.define('dile-lucide-icon-hop', DileIconlibHop);
+}

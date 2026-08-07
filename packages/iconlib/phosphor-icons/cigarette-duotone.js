@@ -6,4 +6,6 @@ export class DileIconlibCigaretteDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cigarette-duotone', DileIconlibCigaretteDuotone);
+if (!customElements.get('dile-phosphor-icon-cigarette-duotone')) {
+  customElements.define('dile-phosphor-icon-cigarette-duotone', DileIconlibCigaretteDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBookShelfLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-book-shelf-line', DileIconlibBookShelfLine);
+if (!customElements.get('dile-remixicon-icon-book-shelf-line')) {
+  customElements.define('dile-remixicon-icon-book-shelf-line', DileIconlibBookShelfLine);
+}

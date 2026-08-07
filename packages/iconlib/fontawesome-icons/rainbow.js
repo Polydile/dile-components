@@ -6,4 +6,6 @@ export class DileIconlibRainbow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rainbow', DileIconlibRainbow);
+if (!customElements.get('dile-fontawesome-icon-rainbow')) {
+  customElements.define('dile-fontawesome-icon-rainbow', DileIconlibRainbow);
+}

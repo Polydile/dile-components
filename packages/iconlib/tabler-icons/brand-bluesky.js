@@ -6,4 +6,6 @@ export class DileIconlibBrandBluesky extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bluesky', DileIconlibBrandBluesky);
+if (!customElements.get('dile-tabler-icon-brand-bluesky')) {
+  customElements.define('dile-tabler-icon-brand-bluesky', DileIconlibBrandBluesky);
+}

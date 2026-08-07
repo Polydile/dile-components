@@ -6,4 +6,6 @@ export class DileIconlibBounceRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bounce-right', DileIconlibBounceRight);
+if (!customElements.get('dile-tabler-icon-bounce-right')) {
+  customElements.define('dile-tabler-icon-bounce-right', DileIconlibBounceRight);
+}

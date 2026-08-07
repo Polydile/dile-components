@@ -6,4 +6,6 @@ export class DileIconlibLaptopMinimal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-laptop-minimal', DileIconlibLaptopMinimal);
+if (!customElements.get('dile-lucide-icon-laptop-minimal')) {
+  customElements.define('dile-lucide-icon-laptop-minimal', DileIconlibLaptopMinimal);
+}

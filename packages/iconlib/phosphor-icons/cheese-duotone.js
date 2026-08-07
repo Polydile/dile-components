@@ -6,4 +6,6 @@ export class DileIconlibCheeseDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cheese-duotone', DileIconlibCheeseDuotone);
+if (!customElements.get('dile-phosphor-icon-cheese-duotone')) {
+  customElements.define('dile-phosphor-icon-cheese-duotone', DileIconlibCheeseDuotone);
+}

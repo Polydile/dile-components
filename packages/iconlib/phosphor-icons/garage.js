@@ -6,4 +6,6 @@ export class DileIconlibGarage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-garage', DileIconlibGarage);
+if (!customElements.get('dile-phosphor-icon-garage')) {
+  customElements.define('dile-phosphor-icon-garage', DileIconlibGarage);
+}

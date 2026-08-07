@@ -6,4 +6,6 @@ export class DileIconlibChildRifle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-child-rifle', DileIconlibChildRifle);
+if (!customElements.get('dile-fontawesome-icon-child-rifle')) {
+  customElements.define('dile-fontawesome-icon-child-rifle', DileIconlibChildRifle);
+}

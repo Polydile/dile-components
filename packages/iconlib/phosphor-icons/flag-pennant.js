@@ -6,4 +6,6 @@ export class DileIconlibFlagPennant extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-pennant', DileIconlibFlagPennant);
+if (!customElements.get('dile-phosphor-icon-flag-pennant')) {
+  customElements.define('dile-phosphor-icon-flag-pennant', DileIconlibFlagPennant);
+}

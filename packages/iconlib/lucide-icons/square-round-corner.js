@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundCorner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-round-corner', DileIconlibSquareRoundCorner);
+if (!customElements.get('dile-lucide-icon-square-round-corner')) {
+  customElements.define('dile-lucide-icon-square-round-corner', DileIconlibSquareRoundCorner);
+}

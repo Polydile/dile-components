@@ -6,4 +6,6 @@ export class DileIconlibBeaker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-beaker', DileIconlibBeaker);
+if (!customElements.get('dile-lucide-icon-beaker')) {
+  customElements.define('dile-lucide-icon-beaker', DileIconlibBeaker);
+}

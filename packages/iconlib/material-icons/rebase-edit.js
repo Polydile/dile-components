@@ -6,4 +6,6 @@ export class DileIconlibRebaseEdit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rebase-edit', DileIconlibRebaseEdit);
+if (!customElements.get('dile-material-icon-rebase-edit')) {
+  customElements.define('dile-material-icon-rebase-edit', DileIconlibRebaseEdit);
+}

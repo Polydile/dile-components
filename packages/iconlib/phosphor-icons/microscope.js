@@ -6,4 +6,6 @@ export class DileIconlibMicroscope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microscope', DileIconlibMicroscope);
+if (!customElements.get('dile-phosphor-icon-microscope')) {
+  customElements.define('dile-phosphor-icon-microscope', DileIconlibMicroscope);
+}

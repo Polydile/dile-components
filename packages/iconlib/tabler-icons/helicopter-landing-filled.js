@@ -6,4 +6,6 @@ export class DileIconlibHelicopterLandingFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-helicopter-landing-filled', DileIconlibHelicopterLandingFilled);
+if (!customElements.get('dile-tabler-icon-helicopter-landing-filled')) {
+  customElements.define('dile-tabler-icon-helicopter-landing-filled', DileIconlibHelicopterLandingFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPointerCollaboration2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-collaboration-2', DileIconlibPointerCollaboration2);
+if (!customElements.get('dile-tabler-icon-pointer-collaboration-2')) {
+  customElements.define('dile-tabler-icon-pointer-collaboration-2', DileIconlibPointerCollaboration2);
+}

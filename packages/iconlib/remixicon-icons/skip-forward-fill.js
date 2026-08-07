@@ -6,4 +6,6 @@ export class DileIconlibSkipForwardFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-skip-forward-fill', DileIconlibSkipForwardFill);
+if (!customElements.get('dile-remixicon-icon-skip-forward-fill')) {
+  customElements.define('dile-remixicon-icon-skip-forward-fill', DileIconlibSkipForwardFill);
+}

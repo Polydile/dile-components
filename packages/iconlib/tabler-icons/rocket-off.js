@@ -6,4 +6,6 @@ export class DileIconlibRocketOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rocket-off', DileIconlibRocketOff);
+if (!customElements.get('dile-tabler-icon-rocket-off')) {
+  customElements.define('dile-tabler-icon-rocket-off', DileIconlibRocketOff);
+}

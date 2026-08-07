@@ -6,4 +6,6 @@ export class DileIconlibBrandAmigo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-amigo', DileIconlibBrandAmigo);
+if (!customElements.get('dile-tabler-icon-brand-amigo')) {
+  customElements.define('dile-tabler-icon-brand-amigo', DileIconlibBrandAmigo);
+}

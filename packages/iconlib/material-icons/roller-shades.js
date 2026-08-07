@@ -6,4 +6,6 @@ export class DileIconlibRollerShades extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-roller-shades', DileIconlibRollerShades);
+if (!customElements.get('dile-material-icon-roller-shades')) {
+  customElements.define('dile-material-icon-roller-shades', DileIconlibRollerShades);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMosquitoNet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mosquito-net', DileIconlibMosquitoNet);
+if (!customElements.get('dile-fontawesome-icon-mosquito-net')) {
+  customElements.define('dile-fontawesome-icon-mosquito-net', DileIconlibMosquitoNet);
+}

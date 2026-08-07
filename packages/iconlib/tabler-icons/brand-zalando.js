@@ -6,4 +6,6 @@ export class DileIconlibBrandZalando extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zalando', DileIconlibBrandZalando);
+if (!customElements.get('dile-tabler-icon-brand-zalando')) {
+  customElements.define('dile-tabler-icon-brand-zalando', DileIconlibBrandZalando);
+}

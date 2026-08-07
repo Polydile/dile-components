@@ -6,4 +6,6 @@ export class DileIconlibCarTunnel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-car-tunnel', DileIconlibCarTunnel);
+if (!customElements.get('dile-fontawesome-icon-car-tunnel')) {
+  customElements.define('dile-fontawesome-icon-car-tunnel', DileIconlibCarTunnel);
+}

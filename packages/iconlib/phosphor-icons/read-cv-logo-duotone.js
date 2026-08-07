@@ -6,4 +6,6 @@ export class DileIconlibReadCvLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-read-cv-logo-duotone', DileIconlibReadCvLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-read-cv-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-read-cv-logo-duotone', DileIconlibReadCvLogoDuotone);
+}

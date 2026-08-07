@@ -6,4 +6,6 @@ export class DileIconlibLasso extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lasso', DileIconlibLasso);
+if (!customElements.get('dile-phosphor-icon-lasso')) {
+  customElements.define('dile-phosphor-icon-lasso', DileIconlibLasso);
+}

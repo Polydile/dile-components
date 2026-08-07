@@ -6,4 +6,6 @@ export class DileIconlibBugBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bug-bold', DileIconlibBugBold);
+if (!customElements.get('dile-phosphor-icon-bug-bold')) {
+  customElements.define('dile-phosphor-icon-bug-bold', DileIconlibBugBold);
+}

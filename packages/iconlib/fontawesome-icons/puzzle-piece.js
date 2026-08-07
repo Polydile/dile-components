@@ -6,4 +6,6 @@ export class DileIconlibPuzzlePiece extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-puzzle-piece', DileIconlibPuzzlePiece);
+if (!customElements.get('dile-fontawesome-icon-puzzle-piece')) {
+  customElements.define('dile-fontawesome-icon-puzzle-piece', DileIconlibPuzzlePiece);
+}

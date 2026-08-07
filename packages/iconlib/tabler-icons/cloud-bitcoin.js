@@ -6,4 +6,6 @@ export class DileIconlibCloudBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-bitcoin', DileIconlibCloudBitcoin);
+if (!customElements.get('dile-tabler-icon-cloud-bitcoin')) {
+  customElements.define('dile-tabler-icon-cloud-bitcoin', DileIconlibCloudBitcoin);
+}

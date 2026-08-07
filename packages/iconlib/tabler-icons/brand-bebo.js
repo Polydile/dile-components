@@ -6,4 +6,6 @@ export class DileIconlibBrandBebo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bebo', DileIconlibBrandBebo);
+if (!customElements.get('dile-tabler-icon-brand-bebo')) {
+  customElements.define('dile-tabler-icon-brand-bebo', DileIconlibBrandBebo);
+}

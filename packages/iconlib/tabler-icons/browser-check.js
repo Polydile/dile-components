@@ -6,4 +6,6 @@ export class DileIconlibBrowserCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-browser-check', DileIconlibBrowserCheck);
+if (!customElements.get('dile-tabler-icon-browser-check')) {
+  customElements.define('dile-tabler-icon-browser-check', DileIconlibBrowserCheck);
+}

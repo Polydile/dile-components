@@ -6,4 +6,6 @@ export class DileIconlibWordpressFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wordpress-fill', DileIconlibWordpressFill);
+if (!customElements.get('dile-remixicon-icon-wordpress-fill')) {
+  customElements.define('dile-remixicon-icon-wordpress-fill', DileIconlibWordpressFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandPlanetscale extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-planetscale', DileIconlibBrandPlanetscale);
+if (!customElements.get('dile-tabler-icon-brand-planetscale')) {
+  customElements.define('dile-tabler-icon-brand-planetscale', DileIconlibBrandPlanetscale);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRunningWithErrors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-running-with-errors', DileIconlibRunningWithErrors);
+if (!customElements.get('dile-material-icon-running-with-errors')) {
+  customElements.define('dile-material-icon-running-with-errors', DileIconlibRunningWithErrors);
+}

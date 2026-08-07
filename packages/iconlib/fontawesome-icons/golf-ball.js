@@ -6,4 +6,6 @@ export class DileIconlibGolfBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-golf-ball', DileIconlibGolfBall);
+if (!customElements.get('dile-fontawesome-icon-golf-ball')) {
+  customElements.define('dile-fontawesome-icon-golf-ball', DileIconlibGolfBall);
+}

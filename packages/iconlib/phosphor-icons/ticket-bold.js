@@ -6,4 +6,6 @@ export class DileIconlibTicketBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ticket-bold', DileIconlibTicketBold);
+if (!customElements.get('dile-phosphor-icon-ticket-bold')) {
+  customElements.define('dile-phosphor-icon-ticket-bold', DileIconlibTicketBold);
+}

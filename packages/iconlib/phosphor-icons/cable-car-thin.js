@@ -6,4 +6,6 @@ export class DileIconlibCableCarThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cable-car-thin', DileIconlibCableCarThin);
+if (!customElements.get('dile-phosphor-icon-cable-car-thin')) {
+  customElements.define('dile-phosphor-icon-cable-car-thin', DileIconlibCableCarThin);
+}

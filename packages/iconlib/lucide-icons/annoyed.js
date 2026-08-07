@@ -6,4 +6,6 @@ export class DileIconlibAnnoyed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-annoyed', DileIconlibAnnoyed);
+if (!customElements.get('dile-lucide-icon-annoyed')) {
+  customElements.define('dile-lucide-icon-annoyed', DileIconlibAnnoyed);
+}

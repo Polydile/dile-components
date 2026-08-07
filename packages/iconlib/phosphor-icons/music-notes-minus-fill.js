@@ -6,4 +6,6 @@ export class DileIconlibMusicNotesMinusFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-music-notes-minus-fill', DileIconlibMusicNotesMinusFill);
+if (!customElements.get('dile-phosphor-icon-music-notes-minus-fill')) {
+  customElements.define('dile-phosphor-icon-music-notes-minus-fill', DileIconlibMusicNotesMinusFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAlarmMinusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alarm-minus-filled', DileIconlibAlarmMinusFilled);
+if (!customElements.get('dile-tabler-icon-alarm-minus-filled')) {
+  customElements.define('dile-tabler-icon-alarm-minus-filled', DileIconlibAlarmMinusFilled);
+}

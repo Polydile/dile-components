@@ -6,4 +6,6 @@ export class DileIconlibNapster extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-napster', DileIconlibNapster);
+if (!customElements.get('dile-fontawesome-icon-napster')) {
+  customElements.define('dile-fontawesome-icon-napster', DileIconlibNapster);
+}

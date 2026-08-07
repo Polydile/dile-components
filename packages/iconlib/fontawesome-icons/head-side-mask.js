@@ -6,4 +6,6 @@ export class DileIconlibHeadSideMask extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-head-side-mask', DileIconlibHeadSideMask);
+if (!customElements.get('dile-fontawesome-icon-head-side-mask')) {
+  customElements.define('dile-fontawesome-icon-head-side-mask', DileIconlibHeadSideMask);
+}

@@ -6,4 +6,6 @@ export class DileIconlibThermometerColdDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-thermometer-cold-duotone', DileIconlibThermometerColdDuotone);
+if (!customElements.get('dile-phosphor-icon-thermometer-cold-duotone')) {
+  customElements.define('dile-phosphor-icon-thermometer-cold-duotone', DileIconlibThermometerColdDuotone);
+}

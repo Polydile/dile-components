@@ -6,4 +6,6 @@ export class DileIconlibSelectionBackground extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-background', DileIconlibSelectionBackground);
+if (!customElements.get('dile-phosphor-icon-selection-background')) {
+  customElements.define('dile-phosphor-icon-selection-background', DileIconlibSelectionBackground);
+}

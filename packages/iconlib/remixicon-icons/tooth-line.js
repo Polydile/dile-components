@@ -6,4 +6,6 @@ export class DileIconlibToothLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tooth-line', DileIconlibToothLine);
+if (!customElements.get('dile-remixicon-icon-tooth-line')) {
+  customElements.define('dile-remixicon-icon-tooth-line', DileIconlibToothLine);
+}

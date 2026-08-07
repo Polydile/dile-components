@@ -6,4 +6,6 @@ export class DileIconlibCake3Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cake-3-fill', DileIconlibCake3Fill);
+if (!customElements.get('dile-remixicon-icon-cake-3-fill')) {
+  customElements.define('dile-remixicon-icon-cake-3-fill', DileIconlibCake3Fill);
+}

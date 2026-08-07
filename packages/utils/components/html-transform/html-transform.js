@@ -1,3 +1,5 @@
 import { DileHtmlTransform } from './src/DileHtmlTransform.js';
 
-window.customElements.define('dile-html-transform', DileHtmlTransform);
+if (!customElements.get('dile-html-transform')) {
+  window.customElements.define('dile-html-transform', DileHtmlTransform);
+}

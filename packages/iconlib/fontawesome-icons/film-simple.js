@@ -6,4 +6,6 @@ export class DileIconlibFilmSimple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-film-simple', DileIconlibFilmSimple);
+if (!customElements.get('dile-fontawesome-icon-film-simple')) {
+  customElements.define('dile-fontawesome-icon-film-simple', DileIconlibFilmSimple);
+}

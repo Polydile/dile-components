@@ -6,4 +6,6 @@ export class DileIconlibEdgeLegacy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-edge-legacy', DileIconlibEdgeLegacy);
+if (!customElements.get('dile-fontawesome-icon-edge-legacy')) {
+  customElements.define('dile-fontawesome-icon-edge-legacy', DileIconlibEdgeLegacy);
+}

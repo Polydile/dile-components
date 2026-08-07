@@ -6,4 +6,6 @@ export class DileIconlibNoMeals extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-meals', DileIconlibNoMeals);
+if (!customElements.get('dile-material-icon-no-meals')) {
+  customElements.define('dile-material-icon-no-meals', DileIconlibNoMeals);
+}

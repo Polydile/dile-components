@@ -6,4 +6,6 @@ export class DileIconlibExpandArrowsAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-expand-arrows-alt', DileIconlibExpandArrowsAlt);
+if (!customElements.get('dile-fontawesome-icon-expand-arrows-alt')) {
+  customElements.define('dile-fontawesome-icon-expand-arrows-alt', DileIconlibExpandArrowsAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBuildingBurjAlArab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-burj-al-arab', DileIconlibBuildingBurjAlArab);
+if (!customElements.get('dile-tabler-icon-building-burj-al-arab')) {
+  customElements.define('dile-tabler-icon-building-burj-al-arab', DileIconlibBuildingBurjAlArab);
+}

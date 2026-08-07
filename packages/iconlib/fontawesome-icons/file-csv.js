@@ -6,4 +6,6 @@ export class DileIconlibFileCsv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-csv', DileIconlibFileCsv);
+if (!customElements.get('dile-fontawesome-icon-file-csv')) {
+  customElements.define('dile-fontawesome-icon-file-csv', DileIconlibFileCsv);
+}

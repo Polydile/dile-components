@@ -6,4 +6,6 @@ export class DileIconlibSettingsInputSvideo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-input-svideo', DileIconlibSettingsInputSvideo);
+if (!customElements.get('dile-material-icon-settings-input-svideo')) {
+  customElements.define('dile-material-icon-settings-input-svideo', DileIconlibSettingsInputSvideo);
+}

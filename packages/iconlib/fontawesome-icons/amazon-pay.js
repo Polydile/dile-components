@@ -6,4 +6,6 @@ export class DileIconlibAmazonPay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-amazon-pay', DileIconlibAmazonPay);
+if (!customElements.get('dile-fontawesome-icon-amazon-pay')) {
+  customElements.define('dile-fontawesome-icon-amazon-pay', DileIconlibAmazonPay);
+}

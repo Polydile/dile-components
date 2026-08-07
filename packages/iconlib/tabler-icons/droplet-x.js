@@ -6,4 +6,6 @@ export class DileIconlibDropletX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-droplet-x', DileIconlibDropletX);
+if (!customElements.get('dile-tabler-icon-droplet-x')) {
+  customElements.define('dile-tabler-icon-droplet-x', DileIconlibDropletX);
+}

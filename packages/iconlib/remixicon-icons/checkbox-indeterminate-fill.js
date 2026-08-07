@@ -6,4 +6,6 @@ export class DileIconlibCheckboxIndeterminateFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-checkbox-indeterminate-fill', DileIconlibCheckboxIndeterminateFill);
+if (!customElements.get('dile-remixicon-icon-checkbox-indeterminate-fill')) {
+  customElements.define('dile-remixicon-icon-checkbox-indeterminate-fill', DileIconlibCheckboxIndeterminateFill);
+}

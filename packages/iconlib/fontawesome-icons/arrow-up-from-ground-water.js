@@ -6,4 +6,6 @@ export class DileIconlibArrowUpFromGroundWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-up-from-ground-water', DileIconlibArrowUpFromGroundWater);
+if (!customElements.get('dile-fontawesome-icon-arrow-up-from-ground-water')) {
+  customElements.define('dile-fontawesome-icon-arrow-up-from-ground-water', DileIconlibArrowUpFromGroundWater);
+}

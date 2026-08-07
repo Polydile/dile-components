@@ -6,4 +6,6 @@ export class DileIconlibTachometerAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tachometer-alt', DileIconlibTachometerAlt);
+if (!customElements.get('dile-fontawesome-icon-tachometer-alt')) {
+  customElements.define('dile-fontawesome-icon-tachometer-alt', DileIconlibTachometerAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSteeringWheelDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-steering-wheel-duotone', DileIconlibSteeringWheelDuotone);
+if (!customElements.get('dile-phosphor-icon-steering-wheel-duotone')) {
+  customElements.define('dile-phosphor-icon-steering-wheel-duotone', DileIconlibSteeringWheelDuotone);
+}

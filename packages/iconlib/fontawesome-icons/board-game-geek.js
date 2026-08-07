@@ -6,4 +6,6 @@ export class DileIconlibBoardGameGeek extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-board-game-geek', DileIconlibBoardGameGeek);
+if (!customElements.get('dile-fontawesome-icon-board-game-geek')) {
+  customElements.define('dile-fontawesome-icon-board-game-geek', DileIconlibBoardGameGeek);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVideoFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-video-filled', DileIconlibVideoFilled);
+if (!customElements.get('dile-tabler-icon-video-filled')) {
+  customElements.define('dile-tabler-icon-video-filled', DileIconlibVideoFilled);
+}

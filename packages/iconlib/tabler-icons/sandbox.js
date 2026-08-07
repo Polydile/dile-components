@@ -6,4 +6,6 @@ export class DileIconlibSandbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sandbox', DileIconlibSandbox);
+if (!customElements.get('dile-tabler-icon-sandbox')) {
+  customElements.define('dile-tabler-icon-sandbox', DileIconlibSandbox);
+}

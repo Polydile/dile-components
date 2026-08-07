@@ -6,4 +6,6 @@ export class DileIconlibTornadoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tornado-light', DileIconlibTornadoLight);
+if (!customElements.get('dile-phosphor-icon-tornado-light')) {
+  customElements.define('dile-phosphor-icon-tornado-light', DileIconlibTornadoLight);
+}

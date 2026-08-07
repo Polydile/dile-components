@@ -6,4 +6,6 @@ export class DileIconlibBowlRice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bowl-rice', DileIconlibBowlRice);
+if (!customElements.get('dile-fontawesome-icon-bowl-rice')) {
+  customElements.define('dile-fontawesome-icon-bowl-rice', DileIconlibBowlRice);
+}

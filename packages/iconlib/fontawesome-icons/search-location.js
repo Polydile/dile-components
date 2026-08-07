@@ -6,4 +6,6 @@ export class DileIconlibSearchLocation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-search-location', DileIconlibSearchLocation);
+if (!customElements.get('dile-fontawesome-icon-search-location')) {
+  customElements.define('dile-fontawesome-icon-search-location', DileIconlibSearchLocation);
+}

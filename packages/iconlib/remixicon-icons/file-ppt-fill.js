@@ -6,4 +6,6 @@ export class DileIconlibFilePptFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-ppt-fill', DileIconlibFilePptFill);
+if (!customElements.get('dile-remixicon-icon-file-ppt-fill')) {
+  customElements.define('dile-remixicon-icon-file-ppt-fill', DileIconlibFilePptFill);
+}

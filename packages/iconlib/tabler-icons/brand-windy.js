@@ -6,4 +6,6 @@ export class DileIconlibBrandWindy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-windy', DileIconlibBrandWindy);
+if (!customElements.get('dile-tabler-icon-brand-windy')) {
+  customElements.define('dile-tabler-icon-brand-windy', DileIconlibBrandWindy);
+}

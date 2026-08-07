@@ -6,4 +6,6 @@ export class DileIconlibMailPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-pause', DileIconlibMailPause);
+if (!customElements.get('dile-tabler-icon-mail-pause')) {
+  customElements.define('dile-tabler-icon-mail-pause', DileIconlibMailPause);
+}

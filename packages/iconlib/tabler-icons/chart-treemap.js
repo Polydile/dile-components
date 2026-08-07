@@ -6,4 +6,6 @@ export class DileIconlibChartTreemap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-treemap', DileIconlibChartTreemap);
+if (!customElements.get('dile-tabler-icon-chart-treemap')) {
+  customElements.define('dile-tabler-icon-chart-treemap', DileIconlibChartTreemap);
+}

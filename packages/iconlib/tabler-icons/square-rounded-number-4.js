@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedNumber4 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-number-4', DileIconlibSquareRoundedNumber4);
+if (!customElements.get('dile-tabler-icon-square-rounded-number-4')) {
+  customElements.define('dile-tabler-icon-square-rounded-number-4', DileIconlibSquareRoundedNumber4);
+}

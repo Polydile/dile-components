@@ -6,4 +6,6 @@ export class DileIconlibMathAvg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-avg', DileIconlibMathAvg);
+if (!customElements.get('dile-tabler-icon-math-avg')) {
+  customElements.define('dile-tabler-icon-math-avg', DileIconlibMathAvg);
+}

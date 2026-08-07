@@ -6,4 +6,6 @@ export class DileIconlibAirlineSeatReclineExtra extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airline-seat-recline-extra', DileIconlibAirlineSeatReclineExtra);
+if (!customElements.get('dile-material-icon-airline-seat-recline-extra')) {
+  customElements.define('dile-material-icon-airline-seat-recline-extra', DileIconlibAirlineSeatReclineExtra);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAiGenerate2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ai-generate-2', DileIconlibAiGenerate2);
+if (!customElements.get('dile-remixicon-icon-ai-generate-2')) {
+  customElements.define('dile-remixicon-icon-ai-generate-2', DileIconlibAiGenerate2);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTty extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tty', DileIconlibTty);
+if (!customElements.get('dile-fontawesome-icon-tty')) {
+  customElements.define('dile-fontawesome-icon-tty', DileIconlibTty);
+}

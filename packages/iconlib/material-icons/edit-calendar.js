@@ -6,4 +6,6 @@ export class DileIconlibEditCalendar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-edit-calendar', DileIconlibEditCalendar);
+if (!customElements.get('dile-material-icon-edit-calendar')) {
+  customElements.define('dile-material-icon-edit-calendar', DileIconlibEditCalendar);
+}

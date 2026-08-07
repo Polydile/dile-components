@@ -6,4 +6,6 @@ export class DileIconlibMicExternalOn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mic-external-on', DileIconlibMicExternalOn);
+if (!customElements.get('dile-material-icon-mic-external-on')) {
+  customElements.define('dile-material-icon-mic-external-on', DileIconlibMicExternalOn);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLaurelWreathFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-laurel-wreath-filled', DileIconlibLaurelWreathFilled);
+if (!customElements.get('dile-tabler-icon-laurel-wreath-filled')) {
+  customElements.define('dile-tabler-icon-laurel-wreath-filled', DileIconlibLaurelWreathFilled);
+}

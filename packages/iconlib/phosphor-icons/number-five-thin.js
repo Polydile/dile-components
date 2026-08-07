@@ -6,4 +6,6 @@ export class DileIconlibNumberFiveThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-five-thin', DileIconlibNumberFiveThin);
+if (!customElements.get('dile-phosphor-icon-number-five-thin')) {
+  customElements.define('dile-phosphor-icon-number-five-thin', DileIconlibNumberFiveThin);
+}

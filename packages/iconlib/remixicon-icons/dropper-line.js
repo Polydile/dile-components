@@ -6,4 +6,6 @@ export class DileIconlibDropperLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dropper-line', DileIconlibDropperLine);
+if (!customElements.get('dile-remixicon-icon-dropper-line')) {
+  customElements.define('dile-remixicon-icon-dropper-line', DileIconlibDropperLine);
+}

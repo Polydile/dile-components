@@ -6,4 +6,6 @@ export class DileIconlibCalendarCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-cancel', DileIconlibCalendarCancel);
+if (!customElements.get('dile-tabler-icon-calendar-cancel')) {
+  customElements.define('dile-tabler-icon-calendar-cancel', DileIconlibCalendarCancel);
+}

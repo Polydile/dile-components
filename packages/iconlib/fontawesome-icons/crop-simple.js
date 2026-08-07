@@ -6,4 +6,6 @@ export class DileIconlibCropSimple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-crop-simple', DileIconlibCropSimple);
+if (!customElements.get('dile-fontawesome-icon-crop-simple')) {
+  customElements.define('dile-fontawesome-icon-crop-simple', DileIconlibCropSimple);
+}

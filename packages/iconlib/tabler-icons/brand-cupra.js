@@ -6,4 +6,6 @@ export class DileIconlibBrandCupra extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cupra', DileIconlibBrandCupra);
+if (!customElements.get('dile-tabler-icon-brand-cupra')) {
+  customElements.define('dile-tabler-icon-brand-cupra', DileIconlibBrandCupra);
+}

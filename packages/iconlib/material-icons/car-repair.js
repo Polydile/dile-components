@@ -6,4 +6,6 @@ export class DileIconlibCarRepair extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-car-repair', DileIconlibCarRepair);
+if (!customElements.get('dile-material-icon-car-repair')) {
+  customElements.define('dile-material-icon-car-repair', DileIconlibCarRepair);
+}

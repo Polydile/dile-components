@@ -6,4 +6,6 @@ export class DileIconlibExclamationMarkFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-exclamation-mark-fill', DileIconlibExclamationMarkFill);
+if (!customElements.get('dile-phosphor-icon-exclamation-mark-fill')) {
+  customElements.define('dile-phosphor-icon-exclamation-mark-fill', DileIconlibExclamationMarkFill);
+}

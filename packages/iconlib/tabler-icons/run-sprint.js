@@ -6,4 +6,6 @@ export class DileIconlibRunSprint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-run-sprint', DileIconlibRunSprint);
+if (!customElements.get('dile-tabler-icon-run-sprint')) {
+  customElements.define('dile-tabler-icon-run-sprint', DileIconlibRunSprint);
+}

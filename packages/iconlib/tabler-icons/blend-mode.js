@@ -6,4 +6,6 @@ export class DileIconlibBlendMode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-blend-mode', DileIconlibBlendMode);
+if (!customElements.get('dile-tabler-icon-blend-mode')) {
+  customElements.define('dile-tabler-icon-blend-mode', DileIconlibBlendMode);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChatCircleSlashDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chat-circle-slash-duotone', DileIconlibChatCircleSlashDuotone);
+if (!customElements.get('dile-phosphor-icon-chat-circle-slash-duotone')) {
+  customElements.define('dile-phosphor-icon-chat-circle-slash-duotone', DileIconlibChatCircleSlashDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScorpio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scorpio', DileIconlibScorpio);
+if (!customElements.get('dile-fontawesome-icon-scorpio')) {
+  customElements.define('dile-fontawesome-icon-scorpio', DileIconlibScorpio);
+}

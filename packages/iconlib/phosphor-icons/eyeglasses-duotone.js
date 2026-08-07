@@ -6,4 +6,6 @@ export class DileIconlibEyeglassesDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-eyeglasses-duotone', DileIconlibEyeglassesDuotone);
+if (!customElements.get('dile-phosphor-icon-eyeglasses-duotone')) {
+  customElements.define('dile-phosphor-icon-eyeglasses-duotone', DileIconlibEyeglassesDuotone);
+}

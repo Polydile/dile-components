@@ -6,4 +6,6 @@ export class DileIconlibCircuitAmmeter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-ammeter', DileIconlibCircuitAmmeter);
+if (!customElements.get('dile-tabler-icon-circuit-ammeter')) {
+  customElements.define('dile-tabler-icon-circuit-ammeter', DileIconlibCircuitAmmeter);
+}

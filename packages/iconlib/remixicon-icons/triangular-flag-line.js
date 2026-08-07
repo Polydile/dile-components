@@ -6,4 +6,6 @@ export class DileIconlibTriangularFlagLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-triangular-flag-line', DileIconlibTriangularFlagLine);
+if (!customElements.get('dile-remixicon-icon-triangular-flag-line')) {
+  customElements.define('dile-remixicon-icon-triangular-flag-line', DileIconlibTriangularFlagLine);
+}

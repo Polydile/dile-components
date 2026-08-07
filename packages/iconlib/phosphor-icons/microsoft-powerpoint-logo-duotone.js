@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftPowerpointLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-duotone', DileIconlibMicrosoftPowerpointLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-microsoft-powerpoint-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-microsoft-powerpoint-logo-duotone', DileIconlibMicrosoftPowerpointLogoDuotone);
+}

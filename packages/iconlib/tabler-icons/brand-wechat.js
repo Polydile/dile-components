@@ -6,4 +6,6 @@ export class DileIconlibBrandWechat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-wechat', DileIconlibBrandWechat);
+if (!customElements.get('dile-tabler-icon-brand-wechat')) {
+  customElements.define('dile-tabler-icon-brand-wechat', DileIconlibBrandWechat);
+}

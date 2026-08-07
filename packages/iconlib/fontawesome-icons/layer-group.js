@@ -6,4 +6,6 @@ export class DileIconlibLayerGroup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-layer-group', DileIconlibLayerGroup);
+if (!customElements.get('dile-fontawesome-icon-layer-group')) {
+  customElements.define('dile-fontawesome-icon-layer-group', DileIconlibLayerGroup);
+}

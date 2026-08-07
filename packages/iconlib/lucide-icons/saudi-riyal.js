@@ -6,4 +6,6 @@ export class DileIconlibSaudiRiyal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-saudi-riyal', DileIconlibSaudiRiyal);
+if (!customElements.get('dile-lucide-icon-saudi-riyal')) {
+  customElements.define('dile-lucide-icon-saudi-riyal', DileIconlibSaudiRiyal);
+}

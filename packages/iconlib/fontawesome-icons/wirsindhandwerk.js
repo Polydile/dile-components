@@ -6,4 +6,6 @@ export class DileIconlibWirsindhandwerk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wirsindhandwerk', DileIconlibWirsindhandwerk);
+if (!customElements.get('dile-fontawesome-icon-wirsindhandwerk')) {
+  customElements.define('dile-fontawesome-icon-wirsindhandwerk', DileIconlibWirsindhandwerk);
+}

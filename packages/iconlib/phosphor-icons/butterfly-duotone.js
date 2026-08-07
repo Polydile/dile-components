@@ -6,4 +6,6 @@ export class DileIconlibButterflyDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-butterfly-duotone', DileIconlibButterflyDuotone);
+if (!customElements.get('dile-phosphor-icon-butterfly-duotone')) {
+  customElements.define('dile-phosphor-icon-butterfly-duotone', DileIconlibButterflyDuotone);
+}

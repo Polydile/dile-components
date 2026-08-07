@@ -6,4 +6,6 @@ export class DileIconlibSackXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sack-xmark', DileIconlibSackXmark);
+if (!customElements.get('dile-fontawesome-icon-sack-xmark')) {
+  customElements.define('dile-fontawesome-icon-sack-xmark', DileIconlibSackXmark);
+}

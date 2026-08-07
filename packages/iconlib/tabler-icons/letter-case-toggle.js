@@ -6,4 +6,6 @@ export class DileIconlibLetterCaseToggle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-case-toggle', DileIconlibLetterCaseToggle);
+if (!customElements.get('dile-tabler-icon-letter-case-toggle')) {
+  customElements.define('dile-tabler-icon-letter-case-toggle', DileIconlibLetterCaseToggle);
+}

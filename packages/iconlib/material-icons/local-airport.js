@@ -6,4 +6,6 @@ export class DileIconlibLocalAirport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-airport', DileIconlibLocalAirport);
+if (!customElements.get('dile-material-icon-local-airport')) {
+  customElements.define('dile-material-icon-local-airport', DileIconlibLocalAirport);
+}

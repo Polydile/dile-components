@@ -6,4 +6,6 @@ export class DileIconlibUnderlineOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-underline-off', DileIconlibUnderlineOff);
+if (!customElements.get('dile-tabler-icon-underline-off')) {
+  customElements.define('dile-tabler-icon-underline-off', DileIconlibUnderlineOff);
+}

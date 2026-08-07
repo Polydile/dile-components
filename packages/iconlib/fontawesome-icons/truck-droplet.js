@@ -6,4 +6,6 @@ export class DileIconlibTruckDroplet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-droplet', DileIconlibTruckDroplet);
+if (!customElements.get('dile-fontawesome-icon-truck-droplet')) {
+  customElements.define('dile-fontawesome-icon-truck-droplet', DileIconlibTruckDroplet);
+}

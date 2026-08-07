@@ -6,4 +6,6 @@ export class DileIconlibArrowDownUpAcrossLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-down-up-across-line', DileIconlibArrowDownUpAcrossLine);
+if (!customElements.get('dile-fontawesome-icon-arrow-down-up-across-line')) {
+  customElements.define('dile-fontawesome-icon-arrow-down-up-across-line', DileIconlibArrowDownUpAcrossLine);
+}

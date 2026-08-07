@@ -6,4 +6,6 @@ export class DileIconlibCoinMoneroFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-monero-filled', DileIconlibCoinMoneroFilled);
+if (!customElements.get('dile-tabler-icon-coin-monero-filled')) {
+  customElements.define('dile-tabler-icon-coin-monero-filled', DileIconlibCoinMoneroFilled);
+}

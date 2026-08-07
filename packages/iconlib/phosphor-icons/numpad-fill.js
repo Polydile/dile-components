@@ -6,4 +6,6 @@ export class DileIconlibNumpadFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-numpad-fill', DileIconlibNumpadFill);
+if (!customElements.get('dile-phosphor-icon-numpad-fill')) {
+  customElements.define('dile-phosphor-icon-numpad-fill', DileIconlibNumpadFill);
+}

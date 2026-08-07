@@ -6,4 +6,6 @@ export class DileIconlibCarBatteryThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-car-battery-thin', DileIconlibCarBatteryThin);
+if (!customElements.get('dile-phosphor-icon-car-battery-thin')) {
+  customElements.define('dile-phosphor-icon-car-battery-thin', DileIconlibCarBatteryThin);
+}

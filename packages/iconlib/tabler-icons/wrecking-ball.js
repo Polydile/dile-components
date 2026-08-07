@@ -6,4 +6,6 @@ export class DileIconlibWreckingBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wrecking-ball', DileIconlibWreckingBall);
+if (!customElements.get('dile-tabler-icon-wrecking-ball')) {
+  customElements.define('dile-tabler-icon-wrecking-ball', DileIconlibWreckingBall);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDevice3dLens extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-3d-lens', DileIconlibDevice3dLens);
+if (!customElements.get('dile-tabler-icon-device-3d-lens')) {
+  customElements.define('dile-tabler-icon-device-3d-lens', DileIconlibDevice3dLens);
+}

@@ -6,4 +6,6 @@ export class DileIconlibJoomla extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-joomla', DileIconlibJoomla);
+if (!customElements.get('dile-fontawesome-icon-joomla')) {
+  customElements.define('dile-fontawesome-icon-joomla', DileIconlibJoomla);
+}

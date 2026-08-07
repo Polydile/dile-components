@@ -6,4 +6,6 @@ export class DileIconlibMaskVentilator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mask-ventilator', DileIconlibMaskVentilator);
+if (!customElements.get('dile-fontawesome-icon-mask-ventilator')) {
+  customElements.define('dile-fontawesome-icon-mask-ventilator', DileIconlibMaskVentilator);
+}

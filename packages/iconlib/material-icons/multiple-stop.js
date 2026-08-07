@@ -6,4 +6,6 @@ export class DileIconlibMultipleStop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-multiple-stop', DileIconlibMultipleStop);
+if (!customElements.get('dile-material-icon-multiple-stop')) {
+  customElements.define('dile-material-icon-multiple-stop', DileIconlibMultipleStop);
+}

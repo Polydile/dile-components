@@ -6,4 +6,6 @@ export class DileIconlibFireExtinguisherBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fire-extinguisher-bold', DileIconlibFireExtinguisherBold);
+if (!customElements.get('dile-phosphor-icon-fire-extinguisher-bold')) {
+  customElements.define('dile-phosphor-icon-fire-extinguisher-bold', DileIconlibFireExtinguisherBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTreasureMapLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-treasure-map-line', DileIconlibTreasureMapLine);
+if (!customElements.get('dile-remixicon-icon-treasure-map-line')) {
+  customElements.define('dile-remixicon-icon-treasure-map-line', DileIconlibTreasureMapLine);
+}

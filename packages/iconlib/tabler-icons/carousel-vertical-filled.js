@@ -6,4 +6,6 @@ export class DileIconlibCarouselVerticalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-carousel-vertical-filled', DileIconlibCarouselVerticalFilled);
+if (!customElements.get('dile-tabler-icon-carousel-vertical-filled')) {
+  customElements.define('dile-tabler-icon-carousel-vertical-filled', DileIconlibCarouselVerticalFilled);
+}

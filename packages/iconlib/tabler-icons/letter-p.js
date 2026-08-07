@@ -6,4 +6,6 @@ export class DileIconlibLetterP extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-p', DileIconlibLetterP);
+if (!customElements.get('dile-tabler-icon-letter-p')) {
+  customElements.define('dile-tabler-icon-letter-p', DileIconlibLetterP);
+}

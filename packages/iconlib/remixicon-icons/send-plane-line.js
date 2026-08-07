@@ -6,4 +6,6 @@ export class DileIconlibSendPlaneLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-send-plane-line', DileIconlibSendPlaneLine);
+if (!customElements.get('dile-remixicon-icon-send-plane-line')) {
+  customElements.define('dile-remixicon-icon-send-plane-line', DileIconlibSendPlaneLine);
+}

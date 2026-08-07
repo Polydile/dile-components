@@ -6,4 +6,6 @@ export class DileIconlibBrandFortnite extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-fortnite', DileIconlibBrandFortnite);
+if (!customElements.get('dile-tabler-icon-brand-fortnite')) {
+  customElements.define('dile-tabler-icon-brand-fortnite', DileIconlibBrandFortnite);
+}

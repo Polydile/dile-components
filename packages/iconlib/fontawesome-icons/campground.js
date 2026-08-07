@@ -6,4 +6,6 @@ export class DileIconlibCampground extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-campground', DileIconlibCampground);
+if (!customElements.get('dile-fontawesome-icon-campground')) {
+  customElements.define('dile-fontawesome-icon-campground', DileIconlibCampground);
+}

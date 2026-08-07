@@ -6,4 +6,6 @@ export class DileIconlibFireTruckFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fire-truck-fill', DileIconlibFireTruckFill);
+if (!customElements.get('dile-phosphor-icon-fire-truck-fill')) {
+  customElements.define('dile-phosphor-icon-fire-truck-fill', DileIconlibFireTruckFill);
+}

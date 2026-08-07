@@ -6,4 +6,6 @@ export class DileIconlibGooglePhotosLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-photos-logo-thin', DileIconlibGooglePhotosLogoThin);
+if (!customElements.get('dile-phosphor-icon-google-photos-logo-thin')) {
+  customElements.define('dile-phosphor-icon-google-photos-logo-thin', DileIconlibGooglePhotosLogoThin);
+}

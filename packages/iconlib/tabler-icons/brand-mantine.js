@@ -6,4 +6,6 @@ export class DileIconlibBrandMantine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mantine', DileIconlibBrandMantine);
+if (!customElements.get('dile-tabler-icon-brand-mantine')) {
+  customElements.define('dile-tabler-icon-brand-mantine', DileIconlibBrandMantine);
+}

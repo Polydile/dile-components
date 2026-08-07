@@ -6,4 +6,6 @@ export class DileIconlibMixer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mixer', DileIconlibMixer);
+if (!customElements.get('dile-fontawesome-icon-mixer')) {
+  customElements.define('dile-fontawesome-icon-mixer', DileIconlibMixer);
+}

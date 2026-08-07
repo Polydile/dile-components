@@ -6,4 +6,6 @@ export class DileIconlibSuperpowers extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-superpowers', DileIconlibSuperpowers);
+if (!customElements.get('dile-fontawesome-icon-superpowers')) {
+  customElements.define('dile-fontawesome-icon-superpowers', DileIconlibSuperpowers);
+}

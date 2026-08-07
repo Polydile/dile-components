@@ -6,4 +6,6 @@ export class DileIconlibCircleNumber1Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-number-1-filled', DileIconlibCircleNumber1Filled);
+if (!customElements.get('dile-tabler-icon-circle-number-1-filled')) {
+  customElements.define('dile-tabler-icon-circle-number-1-filled', DileIconlibCircleNumber1Filled);
+}

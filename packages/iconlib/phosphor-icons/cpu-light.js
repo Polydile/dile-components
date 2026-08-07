@@ -6,4 +6,6 @@ export class DileIconlibCpuLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cpu-light', DileIconlibCpuLight);
+if (!customElements.get('dile-phosphor-icon-cpu-light')) {
+  customElements.define('dile-phosphor-icon-cpu-light', DileIconlibCpuLight);
+}

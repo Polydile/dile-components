@@ -6,4 +6,6 @@ export class DileIconlibTrendDownFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trend-down-fill', DileIconlibTrendDownFill);
+if (!customElements.get('dile-phosphor-icon-trend-down-fill')) {
+  customElements.define('dile-phosphor-icon-trend-down-fill', DileIconlibTrendDownFill);
+}

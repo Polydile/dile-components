@@ -6,4 +6,6 @@ export class DileIconlibNeos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-neos', DileIconlibNeos);
+if (!customElements.get('dile-fontawesome-icon-neos')) {
+  customElements.define('dile-fontawesome-icon-neos', DileIconlibNeos);
+}

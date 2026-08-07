@@ -6,4 +6,6 @@ export class DileIconlibGoodreads extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-goodreads', DileIconlibGoodreads);
+if (!customElements.get('dile-fontawesome-icon-goodreads')) {
+  customElements.define('dile-fontawesome-icon-goodreads', DileIconlibGoodreads);
+}

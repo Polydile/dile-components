@@ -6,4 +6,6 @@ export class DileIconlibTapAndPlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tap-and-play', DileIconlibTapAndPlay);
+if (!customElements.get('dile-material-icon-tap-and-play')) {
+  customElements.define('dile-material-icon-tap-and-play', DileIconlibTapAndPlay);
+}

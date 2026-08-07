@@ -6,4 +6,6 @@ export class DileIconlibCropFree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-crop-free', DileIconlibCropFree);
+if (!customElements.get('dile-material-icon-crop-free')) {
+  customElements.define('dile-material-icon-crop-free', DileIconlibCropFree);
+}

@@ -6,4 +6,6 @@ export class DileIconlibReceipt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-receipt', DileIconlibReceipt);
+if (!customElements.get('dile-fontawesome-icon-receipt')) {
+  customElements.define('dile-fontawesome-icon-receipt', DileIconlibReceipt);
+}

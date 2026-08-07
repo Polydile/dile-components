@@ -6,4 +6,6 @@ export class DileIconlibTimesRectangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-times-rectangle', DileIconlibTimesRectangle);
+if (!customElements.get('dile-fontawesome-icon-times-rectangle')) {
+  customElements.define('dile-fontawesome-icon-times-rectangle', DileIconlibTimesRectangle);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRotateCcwSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rotate-ccw-square', DileIconlibRotateCcwSquare);
+if (!customElements.get('dile-lucide-icon-rotate-ccw-square')) {
+  customElements.define('dile-lucide-icon-rotate-ccw-square', DileIconlibRotateCcwSquare);
+}

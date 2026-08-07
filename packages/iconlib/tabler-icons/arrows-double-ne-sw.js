@@ -6,4 +6,6 @@ export class DileIconlibArrowsDoubleNeSw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-double-ne-sw', DileIconlibArrowsDoubleNeSw);
+if (!customElements.get('dile-tabler-icon-arrows-double-ne-sw')) {
+  customElements.define('dile-tabler-icon-arrows-double-ne-sw', DileIconlibArrowsDoubleNeSw);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVaccineOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vaccine-off', DileIconlibVaccineOff);
+if (!customElements.get('dile-tabler-icon-vaccine-off')) {
+  customElements.define('dile-tabler-icon-vaccine-off', DileIconlibVaccineOff);
+}

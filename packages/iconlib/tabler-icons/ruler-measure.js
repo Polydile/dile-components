@@ -6,4 +6,6 @@ export class DileIconlibRulerMeasure extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ruler-measure', DileIconlibRulerMeasure);
+if (!customElements.get('dile-tabler-icon-ruler-measure')) {
+  customElements.define('dile-tabler-icon-ruler-measure', DileIconlibRulerMeasure);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFacebookFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-facebook-fill', DileIconlibFacebookFill);
+if (!customElements.get('dile-remixicon-icon-facebook-fill')) {
+  customElements.define('dile-remixicon-icon-facebook-fill', DileIconlibFacebookFill);
+}

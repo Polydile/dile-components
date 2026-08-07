@@ -6,4 +6,6 @@ export class DileIconlibLawnMower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lawn-mower', DileIconlibLawnMower);
+if (!customElements.get('dile-tabler-icon-lawn-mower')) {
+  customElements.define('dile-tabler-icon-lawn-mower', DileIconlibLawnMower);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFileInvoiceDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-invoice-dollar', DileIconlibFileInvoiceDollar);
+if (!customElements.get('dile-fontawesome-icon-file-invoice-dollar')) {
+  customElements.define('dile-fontawesome-icon-file-invoice-dollar', DileIconlibFileInvoiceDollar);
+}

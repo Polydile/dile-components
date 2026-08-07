@@ -6,4 +6,6 @@ export class DileIconlibHourglassHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hourglass-high', DileIconlibHourglassHigh);
+if (!customElements.get('dile-phosphor-icon-hourglass-high')) {
+  customElements.define('dile-phosphor-icon-hourglass-high', DileIconlibHourglassHigh);
+}

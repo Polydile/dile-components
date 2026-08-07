@@ -6,4 +6,6 @@ export class DileIconlibUmbraco extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-umbraco', DileIconlibUmbraco);
+if (!customElements.get('dile-fontawesome-icon-umbraco')) {
+  customElements.define('dile-fontawesome-icon-umbraco', DileIconlibUmbraco);
+}

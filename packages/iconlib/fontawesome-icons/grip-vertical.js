@@ -6,4 +6,6 @@ export class DileIconlibGripVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grip-vertical', DileIconlibGripVertical);
+if (!customElements.get('dile-fontawesome-icon-grip-vertical')) {
+  customElements.define('dile-fontawesome-icon-grip-vertical', DileIconlibGripVertical);
+}

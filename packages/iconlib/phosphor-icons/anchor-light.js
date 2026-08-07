@@ -6,4 +6,6 @@ export class DileIconlibAnchorLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-anchor-light', DileIconlibAnchorLight);
+if (!customElements.get('dile-phosphor-icon-anchor-light')) {
+  customElements.define('dile-phosphor-icon-anchor-light', DileIconlibAnchorLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowsMerge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrows-merge', DileIconlibArrowsMerge);
+if (!customElements.get('dile-phosphor-icon-arrows-merge')) {
+  customElements.define('dile-phosphor-icon-arrows-merge', DileIconlibArrowsMerge);
+}

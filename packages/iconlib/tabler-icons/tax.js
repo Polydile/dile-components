@@ -6,4 +6,6 @@ export class DileIconlibTax extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tax', DileIconlibTax);
+if (!customElements.get('dile-tabler-icon-tax')) {
+  customElements.define('dile-tabler-icon-tax', DileIconlibTax);
+}

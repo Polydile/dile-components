@@ -6,4 +6,6 @@ export class DileIconlibRamFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ram-fill', DileIconlibRamFill);
+if (!customElements.get('dile-remixicon-icon-ram-fill')) {
+  customElements.define('dile-remixicon-icon-ram-fill', DileIconlibRamFill);
+}

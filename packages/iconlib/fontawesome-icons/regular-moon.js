@@ -6,4 +6,6 @@ export class DileIconlibMoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-moon', DileIconlibMoon);
+if (!customElements.get('dile-fontawesome-icon-regular-moon')) {
+  customElements.define('dile-fontawesome-icon-regular-moon', DileIconlibMoon);
+}

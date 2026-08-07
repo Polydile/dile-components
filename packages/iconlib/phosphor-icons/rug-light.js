@@ -6,4 +6,6 @@ export class DileIconlibRugLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rug-light', DileIconlibRugLight);
+if (!customElements.get('dile-phosphor-icon-rug-light')) {
+  customElements.define('dile-phosphor-icon-rug-light', DileIconlibRugLight);
+}

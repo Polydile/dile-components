@@ -6,4 +6,6 @@ export class DileIconlibCircleDot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-dot', DileIconlibCircleDot);
+if (!customElements.get('dile-fontawesome-icon-circle-dot')) {
+  customElements.define('dile-fontawesome-icon-circle-dot', DileIconlibCircleDot);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShoppingBasket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shopping-basket', DileIconlibShoppingBasket);
+if (!customElements.get('dile-fontawesome-icon-shopping-basket')) {
+  customElements.define('dile-fontawesome-icon-shopping-basket', DileIconlibShoppingBasket);
+}

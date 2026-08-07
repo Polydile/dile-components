@@ -6,4 +6,6 @@ export class DileIconlibPinnedFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pinned-filled', DileIconlibPinnedFilled);
+if (!customElements.get('dile-tabler-icon-pinned-filled')) {
+  customElements.define('dile-tabler-icon-pinned-filled', DileIconlibPinnedFilled);
+}

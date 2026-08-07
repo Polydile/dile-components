@@ -6,4 +6,6 @@ export class DileIconlibMoustache extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-moustache', DileIconlibMoustache);
+if (!customElements.get('dile-tabler-icon-moustache')) {
+  customElements.define('dile-tabler-icon-moustache', DileIconlibMoustache);
+}

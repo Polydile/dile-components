@@ -6,4 +6,6 @@ export class DileIconlibGitkraken extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gitkraken', DileIconlibGitkraken);
+if (!customElements.get('dile-fontawesome-icon-gitkraken')) {
+  customElements.define('dile-fontawesome-icon-gitkraken', DileIconlibGitkraken);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFrancSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-franc-sign', DileIconlibFrancSign);
+if (!customElements.get('dile-fontawesome-icon-franc-sign')) {
+  customElements.define('dile-fontawesome-icon-franc-sign', DileIconlibFrancSign);
+}

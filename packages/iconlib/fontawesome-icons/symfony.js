@@ -6,4 +6,6 @@ export class DileIconlibSymfony extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-symfony', DileIconlibSymfony);
+if (!customElements.get('dile-fontawesome-icon-symfony')) {
+  customElements.define('dile-fontawesome-icon-symfony', DileIconlibSymfony);
+}

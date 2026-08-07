@@ -6,4 +6,6 @@ export class DileIconlibWashingMachineDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-washing-machine-duotone', DileIconlibWashingMachineDuotone);
+if (!customElements.get('dile-phosphor-icon-washing-machine-duotone')) {
+  customElements.define('dile-phosphor-icon-washing-machine-duotone', DileIconlibWashingMachineDuotone);
+}

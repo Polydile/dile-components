@@ -6,4 +6,6 @@ export class DileIconlibLayoutKanban extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-kanban', DileIconlibLayoutKanban);
+if (!customElements.get('dile-tabler-icon-layout-kanban')) {
+  customElements.define('dile-tabler-icon-layout-kanban', DileIconlibLayoutKanban);
+}

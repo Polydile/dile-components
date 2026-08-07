@@ -6,4 +6,6 @@ export class DileIconlibQuidditch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-quidditch', DileIconlibQuidditch);
+if (!customElements.get('dile-fontawesome-icon-quidditch')) {
+  customElements.define('dile-fontawesome-icon-quidditch', DileIconlibQuidditch);
+}

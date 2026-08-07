@@ -6,4 +6,6 @@ export class DileIconlibViewfinderOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-viewfinder-off', DileIconlibViewfinderOff);
+if (!customElements.get('dile-tabler-icon-viewfinder-off')) {
+  customElements.define('dile-tabler-icon-viewfinder-off', DileIconlibViewfinderOff);
+}

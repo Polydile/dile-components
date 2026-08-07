@@ -6,4 +6,6 @@ export class DileIconlibW3c extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-w3c', DileIconlibW3c);
+if (!customElements.get('dile-fontawesome-icon-w3c')) {
+  customElements.define('dile-fontawesome-icon-w3c', DileIconlibW3c);
+}

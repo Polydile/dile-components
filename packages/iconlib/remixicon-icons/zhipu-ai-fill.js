@@ -6,4 +6,6 @@ export class DileIconlibZhipuAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-zhipu-ai-fill', DileIconlibZhipuAiFill);
+if (!customElements.get('dile-remixicon-icon-zhipu-ai-fill')) {
+  customElements.define('dile-remixicon-icon-zhipu-ai-fill', DileIconlibZhipuAiFill);
+}

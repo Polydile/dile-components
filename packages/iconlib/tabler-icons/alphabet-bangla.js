@@ -6,4 +6,6 @@ export class DileIconlibAlphabetBangla extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-bangla', DileIconlibAlphabetBangla);
+if (!customElements.get('dile-tabler-icon-alphabet-bangla')) {
+  customElements.define('dile-tabler-icon-alphabet-bangla', DileIconlibAlphabetBangla);
+}

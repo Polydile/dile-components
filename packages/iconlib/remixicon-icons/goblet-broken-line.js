@@ -6,4 +6,6 @@ export class DileIconlibGobletBrokenLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-goblet-broken-line', DileIconlibGobletBrokenLine);
+if (!customElements.get('dile-remixicon-icon-goblet-broken-line')) {
+  customElements.define('dile-remixicon-icon-goblet-broken-line', DileIconlibGobletBrokenLine);
+}

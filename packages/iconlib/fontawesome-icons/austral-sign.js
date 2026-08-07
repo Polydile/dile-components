@@ -6,4 +6,6 @@ export class DileIconlibAustralSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-austral-sign', DileIconlibAustralSign);
+if (!customElements.get('dile-fontawesome-icon-austral-sign')) {
+  customElements.define('dile-fontawesome-icon-austral-sign', DileIconlibAustralSign);
+}

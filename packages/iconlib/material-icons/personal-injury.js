@@ -6,4 +6,6 @@ export class DileIconlibPersonalInjury extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-personal-injury', DileIconlibPersonalInjury);
+if (!customElements.get('dile-material-icon-personal-injury')) {
+  customElements.define('dile-material-icon-personal-injury', DileIconlibPersonalInjury);
+}

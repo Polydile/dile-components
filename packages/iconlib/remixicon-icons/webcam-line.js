@@ -6,4 +6,6 @@ export class DileIconlibWebcamLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-webcam-line', DileIconlibWebcamLine);
+if (!customElements.get('dile-remixicon-icon-webcam-line')) {
+  customElements.define('dile-remixicon-icon-webcam-line', DileIconlibWebcamLine);
+}

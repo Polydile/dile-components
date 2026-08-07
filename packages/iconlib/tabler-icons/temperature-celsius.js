@@ -6,4 +6,6 @@ export class DileIconlibTemperatureCelsius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-celsius', DileIconlibTemperatureCelsius);
+if (!customElements.get('dile-tabler-icon-temperature-celsius')) {
+  customElements.define('dile-tabler-icon-temperature-celsius', DileIconlibTemperatureCelsius);
+}

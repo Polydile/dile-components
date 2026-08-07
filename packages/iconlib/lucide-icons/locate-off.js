@@ -6,4 +6,6 @@ export class DileIconlibLocateOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-locate-off', DileIconlibLocateOff);
+if (!customElements.get('dile-lucide-icon-locate-off')) {
+  customElements.define('dile-lucide-icon-locate-off', DileIconlibLocateOff);
+}

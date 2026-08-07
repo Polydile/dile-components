@@ -6,4 +6,6 @@ export class DileIconlibMatrixLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-matrix-logo', DileIconlibMatrixLogo);
+if (!customElements.get('dile-phosphor-icon-matrix-logo')) {
+  customElements.define('dile-phosphor-icon-matrix-logo', DileIconlibMatrixLogo);
+}

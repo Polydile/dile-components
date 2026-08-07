@@ -6,4 +6,6 @@ export class DileIconlibSplitCellsHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-split-cells-horizontal', DileIconlibSplitCellsHorizontal);
+if (!customElements.get('dile-remixicon-icon-split-cells-horizontal')) {
+  customElements.define('dile-remixicon-icon-split-cells-horizontal', DileIconlibSplitCellsHorizontal);
+}

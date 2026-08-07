@@ -6,4 +6,6 @@ export class DileIconlibFileExcelLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-excel-line', DileIconlibFileExcelLine);
+if (!customElements.get('dile-remixicon-icon-file-excel-line')) {
+  customElements.define('dile-remixicon-icon-file-excel-line', DileIconlibFileExcelLine);
+}

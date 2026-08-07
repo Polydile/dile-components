@@ -6,4 +6,6 @@ export class DileIconlibBatchPrediction extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-batch-prediction', DileIconlibBatchPrediction);
+if (!customElements.get('dile-material-icon-batch-prediction')) {
+  customElements.define('dile-material-icon-batch-prediction', DileIconlibBatchPrediction);
+}

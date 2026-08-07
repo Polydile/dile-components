@@ -6,4 +6,6 @@ export class DileIconlibJetski extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-jetski', DileIconlibJetski);
+if (!customElements.get('dile-tabler-icon-jetski')) {
+  customElements.define('dile-tabler-icon-jetski', DileIconlibJetski);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFolderSimpleDashedDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-simple-dashed-duotone', DileIconlibFolderSimpleDashedDuotone);
+if (!customElements.get('dile-phosphor-icon-folder-simple-dashed-duotone')) {
+  customElements.define('dile-phosphor-icon-folder-simple-dashed-duotone', DileIconlibFolderSimpleDashedDuotone);
+}

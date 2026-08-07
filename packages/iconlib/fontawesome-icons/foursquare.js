@@ -6,4 +6,6 @@ export class DileIconlibFoursquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-foursquare', DileIconlibFoursquare);
+if (!customElements.get('dile-fontawesome-icon-foursquare')) {
+  customElements.define('dile-fontawesome-icon-foursquare', DileIconlibFoursquare);
+}

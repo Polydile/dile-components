@@ -6,4 +6,6 @@ export class DileIconlibSofaFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sofa-fill', DileIconlibSofaFill);
+if (!customElements.get('dile-remixicon-icon-sofa-fill')) {
+  customElements.define('dile-remixicon-icon-sofa-fill', DileIconlibSofaFill);
+}

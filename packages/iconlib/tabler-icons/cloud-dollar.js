@@ -6,4 +6,6 @@ export class DileIconlibCloudDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-dollar', DileIconlibCloudDollar);
+if (!customElements.get('dile-tabler-icon-cloud-dollar')) {
+  customElements.define('dile-tabler-icon-cloud-dollar', DileIconlibCloudDollar);
+}

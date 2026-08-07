@@ -6,4 +6,6 @@ export class DileIconlibBookOpenTextFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-book-open-text-fill', DileIconlibBookOpenTextFill);
+if (!customElements.get('dile-phosphor-icon-book-open-text-fill')) {
+  customElements.define('dile-phosphor-icon-book-open-text-fill', DileIconlibBookOpenTextFill);
+}

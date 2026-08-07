@@ -6,4 +6,6 @@ export class DileIconlibDragMoveFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-drag-move-fill', DileIconlibDragMoveFill);
+if (!customElements.get('dile-remixicon-icon-drag-move-fill')) {
+  customElements.define('dile-remixicon-icon-drag-move-fill', DileIconlibDragMoveFill);
+}

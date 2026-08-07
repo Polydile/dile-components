@@ -6,4 +6,6 @@ export class DileIconlibFolder5Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-5-fill', DileIconlibFolder5Fill);
+if (!customElements.get('dile-remixicon-icon-folder-5-fill')) {
+  customElements.define('dile-remixicon-icon-folder-5-fill', DileIconlibFolder5Fill);
+}

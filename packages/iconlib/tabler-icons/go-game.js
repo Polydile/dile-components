@@ -6,4 +6,6 @@ export class DileIconlibGoGame extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-go-game', DileIconlibGoGame);
+if (!customElements.get('dile-tabler-icon-go-game')) {
+  customElements.define('dile-tabler-icon-go-game', DileIconlibGoGame);
+}

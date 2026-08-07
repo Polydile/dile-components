@@ -6,4 +6,6 @@ export class DileIconlibTranslateAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-translate-ai', DileIconlibTranslateAi);
+if (!customElements.get('dile-remixicon-icon-translate-ai')) {
+  customElements.define('dile-remixicon-icon-translate-ai', DileIconlibTranslateAi);
+}

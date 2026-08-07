@@ -6,4 +6,6 @@ export class DileIconlibWashTemperature4 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-temperature-4', DileIconlibWashTemperature4);
+if (!customElements.get('dile-tabler-icon-wash-temperature-4')) {
+  customElements.define('dile-tabler-icon-wash-temperature-4', DileIconlibWashTemperature4);
+}

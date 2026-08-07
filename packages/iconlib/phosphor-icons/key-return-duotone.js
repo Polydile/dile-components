@@ -6,4 +6,6 @@ export class DileIconlibKeyReturnDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-key-return-duotone', DileIconlibKeyReturnDuotone);
+if (!customElements.get('dile-phosphor-icon-key-return-duotone')) {
+  customElements.define('dile-phosphor-icon-key-return-duotone', DileIconlibKeyReturnDuotone);
+}

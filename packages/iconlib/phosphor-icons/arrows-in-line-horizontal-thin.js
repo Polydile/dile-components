@@ -6,4 +6,6 @@ export class DileIconlibArrowsInLineHorizontalThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrows-in-line-horizontal-thin', DileIconlibArrowsInLineHorizontalThin);
+if (!customElements.get('dile-phosphor-icon-arrows-in-line-horizontal-thin')) {
+  customElements.define('dile-phosphor-icon-arrows-in-line-horizontal-thin', DileIconlibArrowsInLineHorizontalThin);
+}

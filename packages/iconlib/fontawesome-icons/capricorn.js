@@ -6,4 +6,6 @@ export class DileIconlibCapricorn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-capricorn', DileIconlibCapricorn);
+if (!customElements.get('dile-fontawesome-icon-capricorn')) {
+  customElements.define('dile-fontawesome-icon-capricorn', DileIconlibCapricorn);
+}

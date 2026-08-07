@@ -6,4 +6,6 @@ export class DileIconlibArrowTrendDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-trend-down', DileIconlibArrowTrendDown);
+if (!customElements.get('dile-fontawesome-icon-arrow-trend-down')) {
+  customElements.define('dile-fontawesome-icon-arrow-trend-down', DileIconlibArrowTrendDown);
+}

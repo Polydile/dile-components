@@ -6,4 +6,6 @@ export class DileIconlibFileEditLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-edit-line', DileIconlibFileEditLine);
+if (!customElements.get('dile-remixicon-icon-file-edit-line')) {
+  customElements.define('dile-remixicon-icon-file-edit-line', DileIconlibFileEditLine);
+}

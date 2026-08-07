@@ -6,4 +6,6 @@ export class DileIconlibHomeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-home-filled', DileIconlibHomeFilled);
+if (!customElements.get('dile-material-icon-home-filled')) {
+  customElements.define('dile-material-icon-home-filled', DileIconlibHomeFilled);
+}

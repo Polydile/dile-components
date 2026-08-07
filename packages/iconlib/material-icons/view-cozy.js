@@ -6,4 +6,6 @@ export class DileIconlibViewCozy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-cozy', DileIconlibViewCozy);
+if (!customElements.get('dile-material-icon-view-cozy')) {
+  customElements.define('dile-material-icon-view-cozy', DileIconlibViewCozy);
+}

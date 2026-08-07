@@ -6,4 +6,6 @@ export class DileIconlibAquarius extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-aquarius', DileIconlibAquarius);
+if (!customElements.get('dile-fontawesome-icon-aquarius')) {
+  customElements.define('dile-fontawesome-icon-aquarius', DileIconlibAquarius);
+}

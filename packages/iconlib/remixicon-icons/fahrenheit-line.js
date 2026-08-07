@@ -6,4 +6,6 @@ export class DileIconlibFahrenheitLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-fahrenheit-line', DileIconlibFahrenheitLine);
+if (!customElements.get('dile-remixicon-icon-fahrenheit-line')) {
+  customElements.define('dile-remixicon-icon-fahrenheit-line', DileIconlibFahrenheitLine);
+}

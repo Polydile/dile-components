@@ -6,4 +6,6 @@ export class DileIconlibCalendarMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-calendar-minus', DileIconlibCalendarMinus);
+if (!customElements.get('dile-lucide-icon-calendar-minus')) {
+  customElements.define('dile-lucide-icon-calendar-minus', DileIconlibCalendarMinus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUnfoldMoreDouble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-unfold-more-double', DileIconlibUnfoldMoreDouble);
+if (!customElements.get('dile-material-icon-unfold-more-double')) {
+  customElements.define('dile-material-icon-unfold-more-double', DileIconlibUnfoldMoreDouble);
+}

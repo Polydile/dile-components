@@ -6,4 +6,6 @@ export class DileIconlibGooglePodcastsLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-podcasts-logo-bold', DileIconlibGooglePodcastsLogoBold);
+if (!customElements.get('dile-phosphor-icon-google-podcasts-logo-bold')) {
+  customElements.define('dile-phosphor-icon-google-podcasts-logo-bold', DileIconlibGooglePodcastsLogoBold);
+}

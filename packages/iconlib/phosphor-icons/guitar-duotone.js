@@ -6,4 +6,6 @@ export class DileIconlibGuitarDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-guitar-duotone', DileIconlibGuitarDuotone);
+if (!customElements.get('dile-phosphor-icon-guitar-duotone')) {
+  customElements.define('dile-phosphor-icon-guitar-duotone', DileIconlibGuitarDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPentagonMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pentagon-minus', DileIconlibPentagonMinus);
+if (!customElements.get('dile-tabler-icon-pentagon-minus')) {
+  customElements.define('dile-tabler-icon-pentagon-minus', DileIconlibPentagonMinus);
+}

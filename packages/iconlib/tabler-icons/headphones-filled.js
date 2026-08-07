@@ -6,4 +6,6 @@ export class DileIconlibHeadphonesFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-headphones-filled', DileIconlibHeadphonesFilled);
+if (!customElements.get('dile-tabler-icon-headphones-filled')) {
+  customElements.define('dile-tabler-icon-headphones-filled', DileIconlibHeadphonesFilled);
+}

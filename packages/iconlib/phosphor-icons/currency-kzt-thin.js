@@ -6,4 +6,6 @@ export class DileIconlibCurrencyKztThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-kzt-thin', DileIconlibCurrencyKztThin);
+if (!customElements.get('dile-phosphor-icon-currency-kzt-thin')) {
+  customElements.define('dile-phosphor-icon-currency-kzt-thin', DileIconlibCurrencyKztThin);
+}

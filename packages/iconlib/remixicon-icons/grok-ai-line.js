@@ -6,4 +6,6 @@ export class DileIconlibGrokAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-grok-ai-line', DileIconlibGrokAiLine);
+if (!customElements.get('dile-remixicon-icon-grok-ai-line')) {
+  customElements.define('dile-remixicon-icon-grok-ai-line', DileIconlibGrokAiLine);
+}

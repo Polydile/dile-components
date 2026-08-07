@@ -6,4 +6,6 @@ export class DileIconlibRamenDining extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ramen-dining', DileIconlibRamenDining);
+if (!customElements.get('dile-material-icon-ramen-dining')) {
+  customElements.define('dile-material-icon-ramen-dining', DileIconlibRamenDining);
+}

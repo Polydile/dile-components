@@ -6,4 +6,6 @@ export class DileIconlibRadioactiveDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-radioactive-duotone', DileIconlibRadioactiveDuotone);
+if (!customElements.get('dile-phosphor-icon-radioactive-duotone')) {
+  customElements.define('dile-phosphor-icon-radioactive-duotone', DileIconlibRadioactiveDuotone);
+}

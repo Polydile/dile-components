@@ -6,4 +6,6 @@ export class DileIconlibBrandStackshare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-stackshare', DileIconlibBrandStackshare);
+if (!customElements.get('dile-tabler-icon-brand-stackshare')) {
+  customElements.define('dile-tabler-icon-brand-stackshare', DileIconlibBrandStackshare);
+}

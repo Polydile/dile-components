@@ -6,4 +6,6 @@ export class DileIconlibUDiskLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-u-disk-line', DileIconlibUDiskLine);
+if (!customElements.get('dile-remixicon-icon-u-disk-line')) {
+  customElements.define('dile-remixicon-icon-u-disk-line', DileIconlibUDiskLine);
+}

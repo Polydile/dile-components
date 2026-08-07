@@ -6,4 +6,6 @@ export class DileIconlibTailwindCssLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tailwind-css-line', DileIconlibTailwindCssLine);
+if (!customElements.get('dile-remixicon-icon-tailwind-css-line')) {
+  customElements.define('dile-remixicon-icon-tailwind-css-line', DileIconlibTailwindCssLine);
+}

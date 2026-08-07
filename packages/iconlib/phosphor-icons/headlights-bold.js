@@ -6,4 +6,6 @@ export class DileIconlibHeadlightsBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headlights-bold', DileIconlibHeadlightsBold);
+if (!customElements.get('dile-phosphor-icon-headlights-bold')) {
+  customElements.define('dile-phosphor-icon-headlights-bold', DileIconlibHeadlightsBold);
+}

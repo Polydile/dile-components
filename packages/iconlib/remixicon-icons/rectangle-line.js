@@ -6,4 +6,6 @@ export class DileIconlibRectangleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rectangle-line', DileIconlibRectangleLine);
+if (!customElements.get('dile-remixicon-icon-rectangle-line')) {
+  customElements.define('dile-remixicon-icon-rectangle-line', DileIconlibRectangleLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandDropbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-dropbox', DileIconlibBrandDropbox);
+if (!customElements.get('dile-tabler-icon-brand-dropbox')) {
+  customElements.define('dile-tabler-icon-brand-dropbox', DileIconlibBrandDropbox);
+}

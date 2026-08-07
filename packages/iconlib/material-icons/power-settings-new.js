@@ -6,4 +6,6 @@ export class DileIconlibPowerSettingsNew extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-power-settings-new', DileIconlibPowerSettingsNew);
+if (!customElements.get('dile-material-icon-power-settings-new')) {
+  customElements.define('dile-material-icon-power-settings-new', DileIconlibPowerSettingsNew);
+}

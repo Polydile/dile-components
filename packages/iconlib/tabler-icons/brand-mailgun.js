@@ -6,4 +6,6 @@ export class DileIconlibBrandMailgun extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mailgun', DileIconlibBrandMailgun);
+if (!customElements.get('dile-tabler-icon-brand-mailgun')) {
+  customElements.define('dile-tabler-icon-brand-mailgun', DileIconlibBrandMailgun);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLayoutNavbarInactive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-navbar-inactive', DileIconlibLayoutNavbarInactive);
+if (!customElements.get('dile-tabler-icon-layout-navbar-inactive')) {
+  customElements.define('dile-tabler-icon-layout-navbar-inactive', DileIconlibLayoutNavbarInactive);
+}

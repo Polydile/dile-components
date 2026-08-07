@@ -6,4 +6,6 @@ export class DileIconlibSignHanging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sign-hanging', DileIconlibSignHanging);
+if (!customElements.get('dile-fontawesome-icon-sign-hanging')) {
+  customElements.define('dile-fontawesome-icon-sign-hanging', DileIconlibSignHanging);
+}

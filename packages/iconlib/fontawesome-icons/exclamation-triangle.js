@@ -6,4 +6,6 @@ export class DileIconlibExclamationTriangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-exclamation-triangle', DileIconlibExclamationTriangle);
+if (!customElements.get('dile-fontawesome-icon-exclamation-triangle')) {
+  customElements.define('dile-fontawesome-icon-exclamation-triangle', DileIconlibExclamationTriangle);
+}

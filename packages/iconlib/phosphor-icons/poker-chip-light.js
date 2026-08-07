@@ -6,4 +6,6 @@ export class DileIconlibPokerChipLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-poker-chip-light', DileIconlibPokerChipLight);
+if (!customElements.get('dile-phosphor-icon-poker-chip-light')) {
+  customElements.define('dile-phosphor-icon-poker-chip-light', DileIconlibPokerChipLight);
+}

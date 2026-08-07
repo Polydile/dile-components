@@ -6,4 +6,6 @@ export class DileIconlibPottedPlantThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-potted-plant-thin', DileIconlibPottedPlantThin);
+if (!customElements.get('dile-phosphor-icon-potted-plant-thin')) {
+  customElements.define('dile-phosphor-icon-potted-plant-thin', DileIconlibPottedPlantThin);
+}

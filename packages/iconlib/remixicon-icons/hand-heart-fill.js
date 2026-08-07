@@ -6,4 +6,6 @@ export class DileIconlibHandHeartFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hand-heart-fill', DileIconlibHandHeartFill);
+if (!customElements.get('dile-remixicon-icon-hand-heart-fill')) {
+  customElements.define('dile-remixicon-icon-hand-heart-fill', DileIconlibHandHeartFill);
+}

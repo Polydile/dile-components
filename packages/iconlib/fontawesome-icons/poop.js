@@ -6,4 +6,6 @@ export class DileIconlibPoop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-poop', DileIconlibPoop);
+if (!customElements.get('dile-fontawesome-icon-poop')) {
+  customElements.define('dile-fontawesome-icon-poop', DileIconlibPoop);
+}

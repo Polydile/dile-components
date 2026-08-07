@@ -6,4 +6,6 @@ export class DileIconlibAmbulance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ambulance', DileIconlibAmbulance);
+if (!customElements.get('dile-tabler-icon-ambulance')) {
+  customElements.define('dile-tabler-icon-ambulance', DileIconlibAmbulance);
+}

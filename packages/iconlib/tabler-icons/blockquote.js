@@ -6,4 +6,6 @@ export class DileIconlibBlockquote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-blockquote', DileIconlibBlockquote);
+if (!customElements.get('dile-tabler-icon-blockquote')) {
+  customElements.define('dile-tabler-icon-blockquote', DileIconlibBlockquote);
+}

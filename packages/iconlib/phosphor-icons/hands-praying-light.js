@@ -6,4 +6,6 @@ export class DileIconlibHandsPrayingLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hands-praying-light', DileIconlibHandsPrayingLight);
+if (!customElements.get('dile-phosphor-icon-hands-praying-light')) {
+  customElements.define('dile-phosphor-icon-hands-praying-light', DileIconlibHandsPrayingLight);
+}

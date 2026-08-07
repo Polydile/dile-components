@@ -6,4 +6,6 @@ export class DileIconlibMartini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-martini', DileIconlibMartini);
+if (!customElements.get('dile-phosphor-icon-martini')) {
+  customElements.define('dile-phosphor-icon-martini', DileIconlibMartini);
+}

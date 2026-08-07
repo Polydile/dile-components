@@ -6,4 +6,6 @@ export class DileIconlibBrandFlutter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-flutter', DileIconlibBrandFlutter);
+if (!customElements.get('dile-tabler-icon-brand-flutter')) {
+  customElements.define('dile-tabler-icon-brand-flutter', DileIconlibBrandFlutter);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFileSvgLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-svg-light', DileIconlibFileSvgLight);
+if (!customElements.get('dile-phosphor-icon-file-svg-light')) {
+  customElements.define('dile-phosphor-icon-file-svg-light', DileIconlibFileSvgLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPinDistanceFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pin-distance-fill', DileIconlibPinDistanceFill);
+if (!customElements.get('dile-remixicon-icon-pin-distance-fill')) {
+  customElements.define('dile-remixicon-icon-pin-distance-fill', DileIconlibPinDistanceFill);
+}

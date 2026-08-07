@@ -6,4 +6,6 @@ export class DileIconlibRug extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rug', DileIconlibRug);
+if (!customElements.get('dile-phosphor-icon-rug')) {
+  customElements.define('dile-phosphor-icon-rug', DileIconlibRug);
+}

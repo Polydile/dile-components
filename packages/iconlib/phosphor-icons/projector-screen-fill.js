@@ -6,4 +6,6 @@ export class DileIconlibProjectorScreenFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-projector-screen-fill', DileIconlibProjectorScreenFill);
+if (!customElements.get('dile-phosphor-icon-projector-screen-fill')) {
+  customElements.define('dile-phosphor-icon-projector-screen-fill', DileIconlibProjectorScreenFill);
+}

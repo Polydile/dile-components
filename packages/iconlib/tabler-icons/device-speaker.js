@@ -6,4 +6,6 @@ export class DileIconlibDeviceSpeaker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-speaker', DileIconlibDeviceSpeaker);
+if (!customElements.get('dile-tabler-icon-device-speaker')) {
+  customElements.define('dile-tabler-icon-device-speaker', DileIconlibDeviceSpeaker);
+}

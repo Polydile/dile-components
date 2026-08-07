@@ -6,4 +6,6 @@ export class DileIconlibBanknoteX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-banknote-x', DileIconlibBanknoteX);
+if (!customElements.get('dile-lucide-icon-banknote-x')) {
+  customElements.define('dile-lucide-icon-banknote-x', DileIconlibBanknoteX);
+}

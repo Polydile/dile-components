@@ -6,4 +6,6 @@ export class DileIconlibSentimentSatisfiedAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sentiment-satisfied-alt', DileIconlibSentimentSatisfiedAlt);
+if (!customElements.get('dile-material-icon-sentiment-satisfied-alt')) {
+  customElements.define('dile-material-icon-sentiment-satisfied-alt', DileIconlibSentimentSatisfiedAlt);
+}

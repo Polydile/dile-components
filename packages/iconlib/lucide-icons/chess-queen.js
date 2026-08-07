@@ -6,4 +6,6 @@ export class DileIconlibChessQueen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chess-queen', DileIconlibChessQueen);
+if (!customElements.get('dile-lucide-icon-chess-queen')) {
+  customElements.define('dile-lucide-icon-chess-queen', DileIconlibChessQueen);
+}

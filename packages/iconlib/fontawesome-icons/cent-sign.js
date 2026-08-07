@@ -6,4 +6,6 @@ export class DileIconlibCentSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cent-sign', DileIconlibCentSign);
+if (!customElements.get('dile-fontawesome-icon-cent-sign')) {
+  customElements.define('dile-fontawesome-icon-cent-sign', DileIconlibCentSign);
+}

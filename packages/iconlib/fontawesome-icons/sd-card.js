@@ -6,4 +6,6 @@ export class DileIconlibSdCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sd-card', DileIconlibSdCard);
+if (!customElements.get('dile-fontawesome-icon-sd-card')) {
+  customElements.define('dile-fontawesome-icon-sd-card', DileIconlibSdCard);
+}

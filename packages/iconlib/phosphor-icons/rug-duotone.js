@@ -6,4 +6,6 @@ export class DileIconlibRugDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rug-duotone', DileIconlibRugDuotone);
+if (!customElements.get('dile-phosphor-icon-rug-duotone')) {
+  customElements.define('dile-phosphor-icon-rug-duotone', DileIconlibRugDuotone);
+}

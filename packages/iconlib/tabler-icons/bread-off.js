@@ -6,4 +6,6 @@ export class DileIconlibBreadOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bread-off', DileIconlibBreadOff);
+if (!customElements.get('dile-tabler-icon-bread-off')) {
+  customElements.define('dile-tabler-icon-bread-off', DileIconlibBreadOff);
+}

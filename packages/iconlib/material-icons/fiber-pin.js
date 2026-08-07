@@ -6,4 +6,6 @@ export class DileIconlibFiberPin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fiber-pin', DileIconlibFiberPin);
+if (!customElements.get('dile-material-icon-fiber-pin')) {
+  customElements.define('dile-material-icon-fiber-pin', DileIconlibFiberPin);
+}

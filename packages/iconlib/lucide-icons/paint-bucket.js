@@ -6,4 +6,6 @@ export class DileIconlibPaintBucket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-paint-bucket', DileIconlibPaintBucket);
+if (!customElements.get('dile-lucide-icon-paint-bucket')) {
+  customElements.define('dile-lucide-icon-paint-bucket', DileIconlibPaintBucket);
+}

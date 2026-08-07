@@ -6,4 +6,6 @@ export class DileIconlibMirrorRectangular extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mirror-rectangular', DileIconlibMirrorRectangular);
+if (!customElements.get('dile-lucide-icon-mirror-rectangular')) {
+  customElements.define('dile-lucide-icon-mirror-rectangular', DileIconlibMirrorRectangular);
+}

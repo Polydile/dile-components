@@ -6,4 +6,6 @@ export class DileIconlibPokerChipDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-poker-chip-duotone', DileIconlibPokerChipDuotone);
+if (!customElements.get('dile-phosphor-icon-poker-chip-duotone')) {
+  customElements.define('dile-phosphor-icon-poker-chip-duotone', DileIconlibPokerChipDuotone);
+}

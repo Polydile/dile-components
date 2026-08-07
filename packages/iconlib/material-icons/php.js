@@ -6,4 +6,6 @@ export class DileIconlibPhp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-php', DileIconlibPhp);
+if (!customElements.get('dile-material-icon-php')) {
+  customElements.define('dile-material-icon-php', DileIconlibPhp);
+}

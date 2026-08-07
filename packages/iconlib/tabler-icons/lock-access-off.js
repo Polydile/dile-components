@@ -6,4 +6,6 @@ export class DileIconlibLockAccessOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-access-off', DileIconlibLockAccessOff);
+if (!customElements.get('dile-tabler-icon-lock-access-off')) {
+  customElements.define('dile-tabler-icon-lock-access-off', DileIconlibLockAccessOff);
+}

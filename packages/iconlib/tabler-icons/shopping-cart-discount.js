@@ -6,4 +6,6 @@ export class DileIconlibShoppingCartDiscount extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shopping-cart-discount', DileIconlibShoppingCartDiscount);
+if (!customElements.get('dile-tabler-icon-shopping-cart-discount')) {
+  customElements.define('dile-tabler-icon-shopping-cart-discount', DileIconlibShoppingCartDiscount);
+}

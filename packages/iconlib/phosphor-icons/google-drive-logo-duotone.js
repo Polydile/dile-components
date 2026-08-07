@@ -6,4 +6,6 @@ export class DileIconlibGoogleDriveLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-drive-logo-duotone', DileIconlibGoogleDriveLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-google-drive-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-google-drive-logo-duotone', DileIconlibGoogleDriveLogoDuotone);
+}

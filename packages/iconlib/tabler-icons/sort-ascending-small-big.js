@@ -6,4 +6,6 @@ export class DileIconlibSortAscendingSmallBig extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sort-ascending-small-big', DileIconlibSortAscendingSmallBig);
+if (!customElements.get('dile-tabler-icon-sort-ascending-small-big')) {
+  customElements.define('dile-tabler-icon-sort-ascending-small-big', DileIconlibSortAscendingSmallBig);
+}

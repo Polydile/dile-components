@@ -6,4 +6,6 @@ export class DileIconlibTimerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-timer-fill', DileIconlibTimerFill);
+if (!customElements.get('dile-remixicon-icon-timer-fill')) {
+  customElements.define('dile-remixicon-icon-timer-fill', DileIconlibTimerFill);
+}

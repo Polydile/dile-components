@@ -6,4 +6,6 @@ export class DileIconlibTextAlignLeftFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-align-left-fill', DileIconlibTextAlignLeftFill);
+if (!customElements.get('dile-phosphor-icon-text-align-left-fill')) {
+  customElements.define('dile-phosphor-icon-text-align-left-fill', DileIconlibTextAlignLeftFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBluetoothConnectedThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bluetooth-connected-thin', DileIconlibBluetoothConnectedThin);
+if (!customElements.get('dile-phosphor-icon-bluetooth-connected-thin')) {
+  customElements.define('dile-phosphor-icon-bluetooth-connected-thin', DileIconlibBluetoothConnectedThin);
+}

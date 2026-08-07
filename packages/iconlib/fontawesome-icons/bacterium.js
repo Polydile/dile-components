@@ -6,4 +6,6 @@ export class DileIconlibBacterium extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bacterium', DileIconlibBacterium);
+if (!customElements.get('dile-fontawesome-icon-bacterium')) {
+  customElements.define('dile-fontawesome-icon-bacterium', DileIconlibBacterium);
+}

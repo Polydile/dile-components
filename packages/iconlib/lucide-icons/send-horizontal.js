@@ -6,4 +6,6 @@ export class DileIconlibSendHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-send-horizontal', DileIconlibSendHorizontal);
+if (!customElements.get('dile-lucide-icon-send-horizontal')) {
+  customElements.define('dile-lucide-icon-send-horizontal', DileIconlibSendHorizontal);
+}

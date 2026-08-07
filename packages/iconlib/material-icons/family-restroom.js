@@ -6,4 +6,6 @@ export class DileIconlibFamilyRestroom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-family-restroom', DileIconlibFamilyRestroom);
+if (!customElements.get('dile-material-icon-family-restroom')) {
+  customElements.define('dile-material-icon-family-restroom', DileIconlibFamilyRestroom);
+}

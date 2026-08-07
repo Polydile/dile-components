@@ -6,4 +6,6 @@ export class DileIconlibHandOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hand-off', DileIconlibHandOff);
+if (!customElements.get('dile-tabler-icon-hand-off')) {
+  customElements.define('dile-tabler-icon-hand-off', DileIconlibHandOff);
+}

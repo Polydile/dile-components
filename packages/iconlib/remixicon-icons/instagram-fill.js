@@ -6,4 +6,6 @@ export class DileIconlibInstagramFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-instagram-fill', DileIconlibInstagramFill);
+if (!customElements.get('dile-remixicon-icon-instagram-fill')) {
+  customElements.define('dile-remixicon-icon-instagram-fill', DileIconlibInstagramFill);
+}

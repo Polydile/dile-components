@@ -6,4 +6,6 @@ export class DileIconlibBowlChopsticksFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bowl-chopsticks-filled', DileIconlibBowlChopsticksFilled);
+if (!customElements.get('dile-tabler-icon-bowl-chopsticks-filled')) {
+  customElements.define('dile-tabler-icon-bowl-chopsticks-filled', DileIconlibBowlChopsticksFilled);
+}

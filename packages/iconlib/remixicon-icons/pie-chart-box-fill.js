@@ -6,4 +6,6 @@ export class DileIconlibPieChartBoxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pie-chart-box-fill', DileIconlibPieChartBoxFill);
+if (!customElements.get('dile-remixicon-icon-pie-chart-box-fill')) {
+  customElements.define('dile-remixicon-icon-pie-chart-box-fill', DileIconlibPieChartBoxFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEvernoteLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-evernote-line', DileIconlibEvernoteLine);
+if (!customElements.get('dile-remixicon-icon-evernote-line')) {
+  customElements.define('dile-remixicon-icon-evernote-line', DileIconlibEvernoteLine);
+}

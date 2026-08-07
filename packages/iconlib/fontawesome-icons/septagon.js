@@ -6,4 +6,6 @@ export class DileIconlibSeptagon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-septagon', DileIconlibSeptagon);
+if (!customElements.get('dile-fontawesome-icon-septagon')) {
+  customElements.define('dile-fontawesome-icon-septagon', DileIconlibSeptagon);
+}

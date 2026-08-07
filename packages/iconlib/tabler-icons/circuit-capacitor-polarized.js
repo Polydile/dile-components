@@ -6,4 +6,6 @@ export class DileIconlibCircuitCapacitorPolarized extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-capacitor-polarized', DileIconlibCircuitCapacitorPolarized);
+if (!customElements.get('dile-tabler-icon-circuit-capacitor-polarized')) {
+  customElements.define('dile-tabler-icon-circuit-capacitor-polarized', DileIconlibCircuitCapacitorPolarized);
+}

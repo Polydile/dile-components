@@ -6,4 +6,6 @@ export class DileIconlibXboxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-xbox-line', DileIconlibXboxLine);
+if (!customElements.get('dile-remixicon-icon-xbox-line')) {
+  customElements.define('dile-remixicon-icon-xbox-line', DileIconlibXboxLine);
+}

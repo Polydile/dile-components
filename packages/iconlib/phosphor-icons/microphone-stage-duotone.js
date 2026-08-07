@@ -6,4 +6,6 @@ export class DileIconlibMicrophoneStageDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microphone-stage-duotone', DileIconlibMicrophoneStageDuotone);
+if (!customElements.get('dile-phosphor-icon-microphone-stage-duotone')) {
+  customElements.define('dile-phosphor-icon-microphone-stage-duotone', DileIconlibMicrophoneStageDuotone);
+}

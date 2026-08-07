@@ -6,4 +6,6 @@ export class DileIconlibProhibit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-prohibit', DileIconlibProhibit);
+if (!customElements.get('dile-phosphor-icon-prohibit')) {
+  customElements.define('dile-phosphor-icon-prohibit', DileIconlibProhibit);
+}

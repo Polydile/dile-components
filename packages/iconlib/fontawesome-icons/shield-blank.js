@@ -6,4 +6,6 @@ export class DileIconlibShieldBlank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shield-blank', DileIconlibShieldBlank);
+if (!customElements.get('dile-fontawesome-icon-shield-blank')) {
+  customElements.define('dile-fontawesome-icon-shield-blank', DileIconlibShieldBlank);
+}

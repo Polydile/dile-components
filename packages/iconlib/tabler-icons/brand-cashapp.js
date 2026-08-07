@@ -6,4 +6,6 @@ export class DileIconlibBrandCashapp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cashapp', DileIconlibBrandCashapp);
+if (!customElements.get('dile-tabler-icon-brand-cashapp')) {
+  customElements.define('dile-tabler-icon-brand-cashapp', DileIconlibBrandCashapp);
+}

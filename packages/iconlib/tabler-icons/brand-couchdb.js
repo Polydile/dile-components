@@ -6,4 +6,6 @@ export class DileIconlibBrandCouchdb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-couchdb', DileIconlibBrandCouchdb);
+if (!customElements.get('dile-tabler-icon-brand-couchdb')) {
+  customElements.define('dile-tabler-icon-brand-couchdb', DileIconlibBrandCouchdb);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAppleLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-apple-logo-fill', DileIconlibAppleLogoFill);
+if (!customElements.get('dile-phosphor-icon-apple-logo-fill')) {
+  customElements.define('dile-phosphor-icon-apple-logo-fill', DileIconlibAppleLogoFill);
+}

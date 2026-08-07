@@ -6,4 +6,6 @@ export class DileIconlibTornado extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tornado', DileIconlibTornado);
+if (!customElements.get('dile-material-icon-tornado')) {
+  customElements.define('dile-material-icon-tornado', DileIconlibTornado);
+}

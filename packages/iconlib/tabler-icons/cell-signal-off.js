@@ -6,4 +6,6 @@ export class DileIconlibCellSignalOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cell-signal-off', DileIconlibCellSignalOff);
+if (!customElements.get('dile-tabler-icon-cell-signal-off')) {
+  customElements.define('dile-tabler-icon-cell-signal-off', DileIconlibCellSignalOff);
+}

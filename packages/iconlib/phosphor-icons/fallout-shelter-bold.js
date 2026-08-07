@@ -6,4 +6,6 @@ export class DileIconlibFalloutShelterBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fallout-shelter-bold', DileIconlibFalloutShelterBold);
+if (!customElements.get('dile-phosphor-icon-fallout-shelter-bold')) {
+  customElements.define('dile-phosphor-icon-fallout-shelter-bold', DileIconlibFalloutShelterBold);
+}

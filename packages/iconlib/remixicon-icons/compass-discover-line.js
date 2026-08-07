@@ -6,4 +6,6 @@ export class DileIconlibCompassDiscoverLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-compass-discover-line', DileIconlibCompassDiscoverLine);
+if (!customElements.get('dile-remixicon-icon-compass-discover-line')) {
+  customElements.define('dile-remixicon-icon-compass-discover-line', DileIconlibCompassDiscoverLine);
+}

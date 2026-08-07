@@ -6,4 +6,6 @@ export class DileIconlibWix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wix', DileIconlibWix);
+if (!customElements.get('dile-fontawesome-icon-wix')) {
+  customElements.define('dile-fontawesome-icon-wix', DileIconlibWix);
+}

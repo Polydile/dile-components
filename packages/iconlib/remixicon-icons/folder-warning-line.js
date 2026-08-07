@@ -6,4 +6,6 @@ export class DileIconlibFolderWarningLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-warning-line', DileIconlibFolderWarningLine);
+if (!customElements.get('dile-remixicon-icon-folder-warning-line')) {
+  customElements.define('dile-remixicon-icon-folder-warning-line', DileIconlibFolderWarningLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibIntersectThreeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-intersect-three-light', DileIconlibIntersectThreeLight);
+if (!customElements.get('dile-phosphor-icon-intersect-three-light')) {
+  customElements.define('dile-phosphor-icon-intersect-three-light', DileIconlibIntersectThreeLight);
+}

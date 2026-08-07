@@ -6,4 +6,6 @@ export class DileIconlibWaypoints extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-waypoints', DileIconlibWaypoints);
+if (!customElements.get('dile-lucide-icon-waypoints')) {
+  customElements.define('dile-lucide-icon-waypoints', DileIconlibWaypoints);
+}

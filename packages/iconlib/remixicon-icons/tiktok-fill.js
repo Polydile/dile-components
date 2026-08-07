@@ -6,4 +6,6 @@ export class DileIconlibTiktokFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tiktok-fill', DileIconlibTiktokFill);
+if (!customElements.get('dile-remixicon-icon-tiktok-fill')) {
+  customElements.define('dile-remixicon-icon-tiktok-fill', DileIconlibTiktokFill);
+}

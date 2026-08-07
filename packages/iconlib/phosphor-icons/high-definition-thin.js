@@ -6,4 +6,6 @@ export class DileIconlibHighDefinitionThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-high-definition-thin', DileIconlibHighDefinitionThin);
+if (!customElements.get('dile-phosphor-icon-high-definition-thin')) {
+  customElements.define('dile-phosphor-icon-high-definition-thin', DileIconlibHighDefinitionThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVpnKeyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-vpn-key-off', DileIconlibVpnKeyOff);
+if (!customElements.get('dile-material-icon-vpn-key-off')) {
+  customElements.define('dile-material-icon-vpn-key-off', DileIconlibVpnKeyOff);
+}

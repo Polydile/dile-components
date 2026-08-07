@@ -6,4 +6,6 @@ export class DileIconlibLighthouseThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lighthouse-thin', DileIconlibLighthouseThin);
+if (!customElements.get('dile-phosphor-icon-lighthouse-thin')) {
+  customElements.define('dile-phosphor-icon-lighthouse-thin', DileIconlibLighthouseThin);
+}

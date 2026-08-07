@@ -6,4 +6,6 @@ export class DileIconlibLocationCity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-location-city', DileIconlibLocationCity);
+if (!customElements.get('dile-material-icon-location-city')) {
+  customElements.define('dile-material-icon-location-city', DileIconlibLocationCity);
+}

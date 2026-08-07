@@ -6,4 +6,6 @@ export class DileIconlibZoomOut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-zoom-out', DileIconlibZoomOut);
+if (!customElements.get('dile-lucide-icon-zoom-out')) {
+  customElements.define('dile-lucide-icon-zoom-out', DileIconlibZoomOut);
+}

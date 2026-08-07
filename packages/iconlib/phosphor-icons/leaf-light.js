@@ -6,4 +6,6 @@ export class DileIconlibLeafLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-leaf-light', DileIconlibLeafLight);
+if (!customElements.get('dile-phosphor-icon-leaf-light')) {
+  customElements.define('dile-phosphor-icon-leaf-light', DileIconlibLeafLight);
+}

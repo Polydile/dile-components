@@ -6,4 +6,6 @@ export class DileIconlibCarLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-car-line', DileIconlibCarLine);
+if (!customElements.get('dile-remixicon-icon-car-line')) {
+  customElements.define('dile-remixicon-icon-car-line', DileIconlibCarLine);
+}

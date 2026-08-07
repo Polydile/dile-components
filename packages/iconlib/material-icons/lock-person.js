@@ -6,4 +6,6 @@ export class DileIconlibLockPerson extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-lock-person', DileIconlibLockPerson);
+if (!customElements.get('dile-material-icon-lock-person')) {
+  customElements.define('dile-material-icon-lock-person', DileIconlibLockPerson);
+}

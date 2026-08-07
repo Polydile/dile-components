@@ -6,4 +6,6 @@ export class DileIconlibUnsorted extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unsorted', DileIconlibUnsorted);
+if (!customElements.get('dile-fontawesome-icon-unsorted')) {
+  customElements.define('dile-fontawesome-icon-unsorted', DileIconlibUnsorted);
+}

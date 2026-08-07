@@ -6,4 +6,6 @@ export class DileIconlibFileCsvFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-csv-fill', DileIconlibFileCsvFill);
+if (!customElements.get('dile-phosphor-icon-file-csv-fill')) {
+  customElements.define('dile-phosphor-icon-file-csv-fill', DileIconlibFileCsvFill);
+}

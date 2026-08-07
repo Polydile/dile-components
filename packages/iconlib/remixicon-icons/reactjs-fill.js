@@ -6,4 +6,6 @@ export class DileIconlibReactjsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-reactjs-fill', DileIconlibReactjsFill);
+if (!customElements.get('dile-remixicon-icon-reactjs-fill')) {
+  customElements.define('dile-remixicon-icon-reactjs-fill', DileIconlibReactjsFill);
+}

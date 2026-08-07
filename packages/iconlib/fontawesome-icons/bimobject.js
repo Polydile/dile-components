@@ -6,4 +6,6 @@ export class DileIconlibBimobject extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bimobject', DileIconlibBimobject);
+if (!customElements.get('dile-fontawesome-icon-bimobject')) {
+  customElements.define('dile-fontawesome-icon-bimobject', DileIconlibBimobject);
+}

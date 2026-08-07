@@ -6,4 +6,6 @@ export class DileIconlibFileTypeCsv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-csv', DileIconlibFileTypeCsv);
+if (!customElements.get('dile-tabler-icon-file-type-csv')) {
+  customElements.define('dile-tabler-icon-file-type-csv', DileIconlibFileTypeCsv);
+}

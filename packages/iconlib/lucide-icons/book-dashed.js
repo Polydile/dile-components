@@ -6,4 +6,6 @@ export class DileIconlibBookDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-book-dashed', DileIconlibBookDashed);
+if (!customElements.get('dile-lucide-icon-book-dashed')) {
+  customElements.define('dile-lucide-icon-book-dashed', DileIconlibBookDashed);
+}

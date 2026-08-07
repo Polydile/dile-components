@@ -6,4 +6,6 @@ export class DileIconlibTempleBuddhist extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-temple-buddhist', DileIconlibTempleBuddhist);
+if (!customElements.get('dile-material-icon-temple-buddhist')) {
+  customElements.define('dile-material-icon-temple-buddhist', DileIconlibTempleBuddhist);
+}

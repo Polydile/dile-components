@@ -6,4 +6,6 @@ export class DileIconlibCommute extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-commute', DileIconlibCommute);
+if (!customElements.get('dile-material-icon-commute')) {
+  customElements.define('dile-material-icon-commute', DileIconlibCommute);
+}

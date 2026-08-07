@@ -6,4 +6,6 @@ export class DileIconlibGroupOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-group-off', DileIconlibGroupOff);
+if (!customElements.get('dile-material-icon-group-off')) {
+  customElements.define('dile-material-icon-group-off', DileIconlibGroupOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVirusDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-virus-duotone', DileIconlibVirusDuotone);
+if (!customElements.get('dile-phosphor-icon-virus-duotone')) {
+  customElements.define('dile-phosphor-icon-virus-duotone', DileIconlibVirusDuotone);
+}

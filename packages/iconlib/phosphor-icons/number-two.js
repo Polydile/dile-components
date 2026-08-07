@@ -6,4 +6,6 @@ export class DileIconlibNumberTwo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-two', DileIconlibNumberTwo);
+if (!customElements.get('dile-phosphor-icon-number-two')) {
+  customElements.define('dile-phosphor-icon-number-two', DileIconlibNumberTwo);
+}

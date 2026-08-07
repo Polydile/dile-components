@@ -6,4 +6,6 @@ export class DileIconlibDiamondPercent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-diamond-percent', DileIconlibDiamondPercent);
+if (!customElements.get('dile-lucide-icon-diamond-percent')) {
+  customElements.define('dile-lucide-icon-diamond-percent', DileIconlibDiamondPercent);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTerminalLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-terminal-light', DileIconlibTerminalLight);
+if (!customElements.get('dile-phosphor-icon-terminal-light')) {
+  customElements.define('dile-phosphor-icon-terminal-light', DileIconlibTerminalLight);
+}

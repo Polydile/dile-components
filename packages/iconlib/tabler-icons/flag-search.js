@@ -6,4 +6,6 @@ export class DileIconlibFlagSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flag-search', DileIconlibFlagSearch);
+if (!customElements.get('dile-tabler-icon-flag-search')) {
+  customElements.define('dile-tabler-icon-flag-search', DileIconlibFlagSearch);
+}

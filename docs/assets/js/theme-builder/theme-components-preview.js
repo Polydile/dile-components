@@ -1,3 +1,5 @@
 import { DileThemeComponentsPreview } from './DileThemeComponentsPreview.js';
 
-window.customElements.define('dile-theme-components-preview', DileThemeComponentsPreview);
+if (!customElements.get('dile-theme-components-preview')) {
+  window.customElements.define('dile-theme-components-preview', DileThemeComponentsPreview);
+}

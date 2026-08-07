@@ -6,4 +6,6 @@ export class DileIconlibCalendarPlusFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-plus-fill', DileIconlibCalendarPlusFill);
+if (!customElements.get('dile-phosphor-icon-calendar-plus-fill')) {
+  customElements.define('dile-phosphor-icon-calendar-plus-fill', DileIconlibCalendarPlusFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFlagCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flag-cancel', DileIconlibFlagCancel);
+if (!customElements.get('dile-tabler-icon-flag-cancel')) {
+  customElements.define('dile-tabler-icon-flag-cancel', DileIconlibFlagCancel);
+}

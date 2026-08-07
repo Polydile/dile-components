@@ -6,4 +6,6 @@ export class DileIconlibGraduationCapBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-graduation-cap-bold', DileIconlibGraduationCapBold);
+if (!customElements.get('dile-phosphor-icon-graduation-cap-bold')) {
+  customElements.define('dile-phosphor-icon-graduation-cap-bold', DileIconlibGraduationCapBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMonkeybar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-monkeybar', DileIconlibMonkeybar);
+if (!customElements.get('dile-tabler-icon-monkeybar')) {
+  customElements.define('dile-tabler-icon-monkeybar', DileIconlibMonkeybar);
+}

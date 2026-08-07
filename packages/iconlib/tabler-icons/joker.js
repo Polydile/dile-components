@@ -6,4 +6,6 @@ export class DileIconlibJoker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-joker', DileIconlibJoker);
+if (!customElements.get('dile-tabler-icon-joker')) {
+  customElements.define('dile-tabler-icon-joker', DileIconlibJoker);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShootingStarThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shooting-star-thin', DileIconlibShootingStarThin);
+if (!customElements.get('dile-phosphor-icon-shooting-star-thin')) {
+  customElements.define('dile-phosphor-icon-shooting-star-thin', DileIconlibShootingStarThin);
+}

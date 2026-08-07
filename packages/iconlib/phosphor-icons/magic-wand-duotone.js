@@ -6,4 +6,6 @@ export class DileIconlibMagicWandDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-magic-wand-duotone', DileIconlibMagicWandDuotone);
+if (!customElements.get('dile-phosphor-icon-magic-wand-duotone')) {
+  customElements.define('dile-phosphor-icon-magic-wand-duotone', DileIconlibMagicWandDuotone);
+}

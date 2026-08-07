@@ -6,4 +6,6 @@ export class DileIconlibPhoenixSquadron extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-phoenix-squadron', DileIconlibPhoenixSquadron);
+if (!customElements.get('dile-fontawesome-icon-phoenix-squadron')) {
+  customElements.define('dile-fontawesome-icon-phoenix-squadron', DileIconlibPhoenixSquadron);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNumberEightDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-eight-duotone', DileIconlibNumberEightDuotone);
+if (!customElements.get('dile-phosphor-icon-number-eight-duotone')) {
+  customElements.define('dile-phosphor-icon-number-eight-duotone', DileIconlibNumberEightDuotone);
+}

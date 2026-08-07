@@ -6,4 +6,6 @@ export class DileIconlibGridView extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-grid-view', DileIconlibGridView);
+if (!customElements.get('dile-material-icon-grid-view')) {
+  customElements.define('dile-material-icon-grid-view', DileIconlibGridView);
+}

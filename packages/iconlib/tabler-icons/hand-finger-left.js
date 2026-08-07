@@ -6,4 +6,6 @@ export class DileIconlibHandFingerLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hand-finger-left', DileIconlibHandFingerLeft);
+if (!customElements.get('dile-tabler-icon-hand-finger-left')) {
+  customElements.define('dile-tabler-icon-hand-finger-left', DileIconlibHandFingerLeft);
+}

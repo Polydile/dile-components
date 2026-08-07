@@ -6,4 +6,6 @@ export class DileIconlibBrandLeetcode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-leetcode', DileIconlibBrandLeetcode);
+if (!customElements.get('dile-tabler-icon-brand-leetcode')) {
+  customElements.define('dile-tabler-icon-brand-leetcode', DileIconlibBrandLeetcode);
+}

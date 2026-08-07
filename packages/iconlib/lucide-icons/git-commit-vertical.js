@@ -6,4 +6,6 @@ export class DileIconlibGitCommitVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-git-commit-vertical', DileIconlibGitCommitVertical);
+if (!customElements.get('dile-lucide-icon-git-commit-vertical')) {
+  customElements.define('dile-lucide-icon-git-commit-vertical', DileIconlibGitCommitVertical);
+}

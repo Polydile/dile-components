@@ -6,4 +6,6 @@ export class DileIconlibPlugsConnectedBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-plugs-connected-bold', DileIconlibPlugsConnectedBold);
+if (!customElements.get('dile-phosphor-icon-plugs-connected-bold')) {
+  customElements.define('dile-phosphor-icon-plugs-connected-bold', DileIconlibPlugsConnectedBold);
+}

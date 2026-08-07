@@ -1,2 +1,4 @@
 import { DileCrudActions } from "./src/DileCrudActions.js";
-customElements.define('dile-crud-actions', DileCrudActions);
+if (!customElements.get('dile-crud-actions')) {
+  customElements.define('dile-crud-actions', DileCrudActions);
+}

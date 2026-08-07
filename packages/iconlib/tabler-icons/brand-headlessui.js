@@ -6,4 +6,6 @@ export class DileIconlibBrandHeadlessui extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-headlessui', DileIconlibBrandHeadlessui);
+if (!customElements.get('dile-tabler-icon-brand-headlessui')) {
+  customElements.define('dile-tabler-icon-brand-headlessui', DileIconlibBrandHeadlessui);
+}

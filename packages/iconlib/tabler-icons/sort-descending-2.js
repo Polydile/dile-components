@@ -6,4 +6,6 @@ export class DileIconlibSortDescending2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sort-descending-2', DileIconlibSortDescending2);
+if (!customElements.get('dile-tabler-icon-sort-descending-2')) {
+  customElements.define('dile-tabler-icon-sort-descending-2', DileIconlibSortDescending2);
+}

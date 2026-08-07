@@ -6,4 +6,6 @@ export class DileIconlibMentalHealthFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mental-health-fill', DileIconlibMentalHealthFill);
+if (!customElements.get('dile-remixicon-icon-mental-health-fill')) {
+  customElements.define('dile-remixicon-icon-mental-health-fill', DileIconlibMentalHealthFill);
+}

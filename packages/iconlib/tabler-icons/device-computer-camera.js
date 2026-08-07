@@ -6,4 +6,6 @@ export class DileIconlibDeviceComputerCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-computer-camera', DileIconlibDeviceComputerCamera);
+if (!customElements.get('dile-tabler-icon-device-computer-camera')) {
+  customElements.define('dile-tabler-icon-device-computer-camera', DileIconlibDeviceComputerCamera);
+}

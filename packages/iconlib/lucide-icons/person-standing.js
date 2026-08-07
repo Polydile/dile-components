@@ -6,4 +6,6 @@ export class DileIconlibPersonStanding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-person-standing', DileIconlibPersonStanding);
+if (!customElements.get('dile-lucide-icon-person-standing')) {
+  customElements.define('dile-lucide-icon-person-standing', DileIconlibPersonStanding);
+}

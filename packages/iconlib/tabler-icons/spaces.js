@@ -6,4 +6,6 @@ export class DileIconlibSpaces extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spaces', DileIconlibSpaces);
+if (!customElements.get('dile-tabler-icon-spaces')) {
+  customElements.define('dile-tabler-icon-spaces', DileIconlibSpaces);
+}

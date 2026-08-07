@@ -6,4 +6,6 @@ export class DileIconlibVirtualSpace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-virtual-space', DileIconlibVirtualSpace);
+if (!customElements.get('dile-tabler-icon-virtual-space')) {
+  customElements.define('dile-tabler-icon-virtual-space', DileIconlibVirtualSpace);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDirectionsCar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-directions-car', DileIconlibDirectionsCar);
+if (!customElements.get('dile-material-icon-directions-car')) {
+  customElements.define('dile-material-icon-directions-car', DileIconlibDirectionsCar);
+}

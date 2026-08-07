@@ -6,4 +6,6 @@ export class DileIconlibMoonStar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-moon-star', DileIconlibMoonStar);
+if (!customElements.get('dile-lucide-icon-moon-star')) {
+  customElements.define('dile-lucide-icon-moon-star', DileIconlibMoonStar);
+}

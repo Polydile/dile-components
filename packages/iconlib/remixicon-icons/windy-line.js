@@ -6,4 +6,6 @@ export class DileIconlibWindyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-windy-line', DileIconlibWindyLine);
+if (!customElements.get('dile-remixicon-icon-windy-line')) {
+  customElements.define('dile-remixicon-icon-windy-line', DileIconlibWindyLine);
+}

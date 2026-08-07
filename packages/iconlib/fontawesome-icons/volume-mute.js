@@ -6,4 +6,6 @@ export class DileIconlibVolumeMute extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-volume-mute', DileIconlibVolumeMute);
+if (!customElements.get('dile-fontawesome-icon-volume-mute')) {
+  customElements.define('dile-fontawesome-icon-volume-mute', DileIconlibVolumeMute);
+}

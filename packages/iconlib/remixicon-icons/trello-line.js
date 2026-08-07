@@ -6,4 +6,6 @@ export class DileIconlibTrelloLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-trello-line', DileIconlibTrelloLine);
+if (!customElements.get('dile-remixicon-icon-trello-line')) {
+  customElements.define('dile-remixicon-icon-trello-line', DileIconlibTrelloLine);
+}

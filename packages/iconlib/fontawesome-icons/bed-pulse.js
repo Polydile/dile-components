@@ -6,4 +6,6 @@ export class DileIconlibBedPulse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bed-pulse', DileIconlibBedPulse);
+if (!customElements.get('dile-fontawesome-icon-bed-pulse')) {
+  customElements.define('dile-fontawesome-icon-bed-pulse', DileIconlibBedPulse);
+}

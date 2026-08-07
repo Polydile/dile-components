@@ -6,4 +6,6 @@ export class DileIconlibMastodonLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mastodon-logo-fill', DileIconlibMastodonLogoFill);
+if (!customElements.get('dile-phosphor-icon-mastodon-logo-fill')) {
+  customElements.define('dile-phosphor-icon-mastodon-logo-fill', DileIconlibMastodonLogoFill);
+}

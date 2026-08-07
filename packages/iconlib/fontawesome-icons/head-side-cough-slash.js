@@ -6,4 +6,6 @@ export class DileIconlibHeadSideCoughSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-head-side-cough-slash', DileIconlibHeadSideCoughSlash);
+if (!customElements.get('dile-fontawesome-icon-head-side-cough-slash')) {
+  customElements.define('dile-fontawesome-icon-head-side-cough-slash', DileIconlibHeadSideCoughSlash);
+}

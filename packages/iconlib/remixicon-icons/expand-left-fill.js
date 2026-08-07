@@ -6,4 +6,6 @@ export class DileIconlibExpandLeftFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-expand-left-fill', DileIconlibExpandLeftFill);
+if (!customElements.get('dile-remixicon-icon-expand-left-fill')) {
+  customElements.define('dile-remixicon-icon-expand-left-fill', DileIconlibExpandLeftFill);
+}

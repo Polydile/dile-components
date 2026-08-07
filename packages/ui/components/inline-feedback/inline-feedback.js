@@ -1,3 +1,5 @@
 import { DileInlineFeedback } from "./src/DileInlineFeedback.js";
 
-window.customElements.define("dile-inline-feedback", DileInlineFeedback);
+if (!customElements.get("dile-inline-feedback")) {
+  window.customElements.define("dile-inline-feedback", DileInlineFeedback);
+}

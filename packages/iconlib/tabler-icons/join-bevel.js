@@ -6,4 +6,6 @@ export class DileIconlibJoinBevel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-join-bevel', DileIconlibJoinBevel);
+if (!customElements.get('dile-tabler-icon-join-bevel')) {
+  customElements.define('dile-tabler-icon-join-bevel', DileIconlibJoinBevel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMessageFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-filled', DileIconlibMessageFilled);
+if (!customElements.get('dile-tabler-icon-message-filled')) {
+  customElements.define('dile-tabler-icon-message-filled', DileIconlibMessageFilled);
+}

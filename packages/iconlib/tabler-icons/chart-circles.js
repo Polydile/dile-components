@@ -6,4 +6,6 @@ export class DileIconlibChartCircles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-circles', DileIconlibChartCircles);
+if (!customElements.get('dile-tabler-icon-chart-circles')) {
+  customElements.define('dile-tabler-icon-chart-circles', DileIconlibChartCircles);
+}

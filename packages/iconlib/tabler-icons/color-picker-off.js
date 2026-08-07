@@ -6,4 +6,6 @@ export class DileIconlibColorPickerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-color-picker-off', DileIconlibColorPickerOff);
+if (!customElements.get('dile-tabler-icon-color-picker-off')) {
+  customElements.define('dile-tabler-icon-color-picker-off', DileIconlibColorPickerOff);
+}

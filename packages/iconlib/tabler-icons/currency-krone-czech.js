@@ -6,4 +6,6 @@ export class DileIconlibCurrencyKroneCzech extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-krone-czech', DileIconlibCurrencyKroneCzech);
+if (!customElements.get('dile-tabler-icon-currency-krone-czech')) {
+  customElements.define('dile-tabler-icon-currency-krone-czech', DileIconlibCurrencyKroneCzech);
+}

@@ -6,4 +6,6 @@ export class DileIconlibKeyholeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-keyhole-light', DileIconlibKeyholeLight);
+if (!customElements.get('dile-phosphor-icon-keyhole-light')) {
+  customElements.define('dile-phosphor-icon-keyhole-light', DileIconlibKeyholeLight);
+}

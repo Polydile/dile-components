@@ -6,4 +6,6 @@ export class DileIconlib6FtApart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-6-ft-apart', DileIconlib6FtApart);
+if (!customElements.get('dile-material-icon-6-ft-apart')) {
+  customElements.define('dile-material-icon-6-ft-apart', DileIconlib6FtApart);
+}

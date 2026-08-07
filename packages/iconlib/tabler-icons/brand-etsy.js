@@ -6,4 +6,6 @@ export class DileIconlibBrandEtsy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-etsy', DileIconlibBrandEtsy);
+if (!customElements.get('dile-tabler-icon-brand-etsy')) {
+  customElements.define('dile-tabler-icon-brand-etsy', DileIconlibBrandEtsy);
+}

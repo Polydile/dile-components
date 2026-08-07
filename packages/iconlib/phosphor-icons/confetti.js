@@ -6,4 +6,6 @@ export class DileIconlibConfetti extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-confetti', DileIconlibConfetti);
+if (!customElements.get('dile-phosphor-icon-confetti')) {
+  customElements.define('dile-phosphor-icon-confetti', DileIconlibConfetti);
+}

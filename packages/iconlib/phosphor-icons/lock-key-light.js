@@ -6,4 +6,6 @@ export class DileIconlibLockKeyLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lock-key-light', DileIconlibLockKeyLight);
+if (!customElements.get('dile-phosphor-icon-lock-key-light')) {
+  customElements.define('dile-phosphor-icon-lock-key-light', DileIconlibLockKeyLight);
+}

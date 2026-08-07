@@ -6,4 +6,6 @@ export class DileIconlibCarSuvFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-suv-filled', DileIconlibCarSuvFilled);
+if (!customElements.get('dile-tabler-icon-car-suv-filled')) {
+  customElements.define('dile-tabler-icon-car-suv-filled', DileIconlibCarSuvFilled);
+}

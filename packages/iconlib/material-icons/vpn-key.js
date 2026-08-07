@@ -6,4 +6,6 @@ export class DileIconlibVpnKey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-vpn-key', DileIconlibVpnKey);
+if (!customElements.get('dile-material-icon-vpn-key')) {
+  customElements.define('dile-material-icon-vpn-key', DileIconlibVpnKey);
+}

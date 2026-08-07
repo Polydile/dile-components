@@ -6,4 +6,6 @@ export class DileIconlibOdnoklassniki extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-odnoklassniki', DileIconlibOdnoklassniki);
+if (!customElements.get('dile-fontawesome-icon-odnoklassniki')) {
+  customElements.define('dile-fontawesome-icon-odnoklassniki', DileIconlibOdnoklassniki);
+}

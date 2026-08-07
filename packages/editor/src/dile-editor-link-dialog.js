@@ -75,4 +75,6 @@ export class DileEditorLinkDialog extends DileI18nMixin(LitElement) {
     this.titleInput.value = '';
   }
 }
-customElements.define('dile-editor-link-dialog', DileEditorLinkDialog);
+if (!customElements.get('dile-editor-link-dialog')) {
+  customElements.define('dile-editor-link-dialog', DileEditorLinkDialog);
+}

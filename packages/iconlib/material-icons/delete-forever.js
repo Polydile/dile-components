@@ -6,4 +6,6 @@ export class DileIconlibDeleteForever extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-delete-forever', DileIconlibDeleteForever);
+if (!customElements.get('dile-material-icon-delete-forever')) {
+  customElements.define('dile-material-icon-delete-forever', DileIconlibDeleteForever);
+}

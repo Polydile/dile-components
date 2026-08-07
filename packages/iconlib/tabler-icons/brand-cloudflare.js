@@ -6,4 +6,6 @@ export class DileIconlibBrandCloudflare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cloudflare', DileIconlibBrandCloudflare);
+if (!customElements.get('dile-tabler-icon-brand-cloudflare')) {
+  customElements.define('dile-tabler-icon-brand-cloudflare', DileIconlibBrandCloudflare);
+}

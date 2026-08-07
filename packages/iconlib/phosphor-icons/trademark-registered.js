@@ -6,4 +6,6 @@ export class DileIconlibTrademarkRegistered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trademark-registered', DileIconlibTrademarkRegistered);
+if (!customElements.get('dile-phosphor-icon-trademark-registered')) {
+  customElements.define('dile-phosphor-icon-trademark-registered', DileIconlibTrademarkRegistered);
+}

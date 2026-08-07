@@ -6,4 +6,6 @@ export class DileIconlibWorldDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-down', DileIconlibWorldDown);
+if (!customElements.get('dile-tabler-icon-world-down')) {
+  customElements.define('dile-tabler-icon-world-down', DileIconlibWorldDown);
+}

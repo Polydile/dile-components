@@ -6,4 +6,6 @@ export class DileIconlibWritingSignFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-writing-sign-filled', DileIconlibWritingSignFilled);
+if (!customElements.get('dile-tabler-icon-writing-sign-filled')) {
+  customElements.define('dile-tabler-icon-writing-sign-filled', DileIconlibWritingSignFilled);
+}

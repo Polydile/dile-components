@@ -6,4 +6,6 @@ export class DileIconlibSql extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sql', DileIconlibSql);
+if (!customElements.get('dile-tabler-icon-sql')) {
+  customElements.define('dile-tabler-icon-sql', DileIconlibSql);
+}

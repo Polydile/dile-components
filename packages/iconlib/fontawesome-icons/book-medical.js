@@ -6,4 +6,6 @@ export class DileIconlibBookMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-medical', DileIconlibBookMedical);
+if (!customElements.get('dile-fontawesome-icon-book-medical')) {
+  customElements.define('dile-fontawesome-icon-book-medical', DileIconlibBookMedical);
+}

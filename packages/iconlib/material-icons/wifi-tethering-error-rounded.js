@@ -6,4 +6,6 @@ export class DileIconlibWifiTetheringErrorRounded extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-tethering-error-rounded', DileIconlibWifiTetheringErrorRounded);
+if (!customElements.get('dile-material-icon-wifi-tethering-error-rounded')) {
+  customElements.define('dile-material-icon-wifi-tethering-error-rounded', DileIconlibWifiTetheringErrorRounded);
+}

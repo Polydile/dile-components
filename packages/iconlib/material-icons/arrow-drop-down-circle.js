@@ -6,4 +6,6 @@ export class DileIconlibArrowDropDownCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-arrow-drop-down-circle', DileIconlibArrowDropDownCircle);
+if (!customElements.get('dile-material-icon-arrow-drop-down-circle')) {
+  customElements.define('dile-material-icon-arrow-drop-down-circle', DileIconlibArrowDropDownCircle);
+}

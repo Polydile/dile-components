@@ -6,4 +6,6 @@ export class DileIconlibCircuitCapacitor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-capacitor', DileIconlibCircuitCapacitor);
+if (!customElements.get('dile-tabler-icon-circuit-capacitor')) {
+  customElements.define('dile-tabler-icon-circuit-capacitor', DileIconlibCircuitCapacitor);
+}

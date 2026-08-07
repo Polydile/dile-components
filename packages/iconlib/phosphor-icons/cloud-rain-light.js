@@ -6,4 +6,6 @@ export class DileIconlibCloudRainLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cloud-rain-light', DileIconlibCloudRainLight);
+if (!customElements.get('dile-phosphor-icon-cloud-rain-light')) {
+  customElements.define('dile-phosphor-icon-cloud-rain-light', DileIconlibCloudRainLight);
+}

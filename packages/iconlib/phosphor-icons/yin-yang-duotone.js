@@ -6,4 +6,6 @@ export class DileIconlibYinYangDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-yin-yang-duotone', DileIconlibYinYangDuotone);
+if (!customElements.get('dile-phosphor-icon-yin-yang-duotone')) {
+  customElements.define('dile-phosphor-icon-yin-yang-duotone', DileIconlibYinYangDuotone);
+}

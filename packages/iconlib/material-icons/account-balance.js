@@ -6,4 +6,6 @@ export class DileIconlibAccountBalance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-account-balance', DileIconlibAccountBalance);
+if (!customElements.get('dile-material-icon-account-balance')) {
+  customElements.define('dile-material-icon-account-balance', DileIconlibAccountBalance);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRefrigerator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-refrigerator', DileIconlibRefrigerator);
+if (!customElements.get('dile-lucide-icon-refrigerator')) {
+  customElements.define('dile-lucide-icon-refrigerator', DileIconlibRefrigerator);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeviceIpadShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-ipad-share', DileIconlibDeviceIpadShare);
+if (!customElements.get('dile-tabler-icon-device-ipad-share')) {
+  customElements.define('dile-tabler-icon-device-ipad-share', DileIconlibDeviceIpadShare);
+}

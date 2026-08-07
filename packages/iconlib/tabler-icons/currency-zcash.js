@@ -6,4 +6,6 @@ export class DileIconlibCurrencyZcash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-zcash', DileIconlibCurrencyZcash);
+if (!customElements.get('dile-tabler-icon-currency-zcash')) {
+  customElements.define('dile-tabler-icon-currency-zcash', DileIconlibCurrencyZcash);
+}

@@ -6,4 +6,6 @@ export class DileIconlibContactsBookFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-contacts-book-fill', DileIconlibContactsBookFill);
+if (!customElements.get('dile-remixicon-icon-contacts-book-fill')) {
+  customElements.define('dile-remixicon-icon-contacts-book-fill', DileIconlibContactsBookFill);
+}

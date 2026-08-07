@@ -6,4 +6,6 @@ export class DileIconlibMedalLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-medal-line', DileIconlibMedalLine);
+if (!customElements.get('dile-remixicon-icon-medal-line')) {
+  customElements.define('dile-remixicon-icon-medal-line', DileIconlibMedalLine);
+}

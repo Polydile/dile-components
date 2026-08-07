@@ -6,4 +6,6 @@ export class DileIconlibPartyMode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-party-mode', DileIconlibPartyMode);
+if (!customElements.get('dile-material-icon-party-mode')) {
+  customElements.define('dile-material-icon-party-mode', DileIconlibPartyMode);
+}

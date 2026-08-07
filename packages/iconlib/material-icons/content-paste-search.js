@@ -6,4 +6,6 @@ export class DileIconlibContentPasteSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-content-paste-search', DileIconlibContentPasteSearch);
+if (!customElements.get('dile-material-icon-content-paste-search')) {
+  customElements.define('dile-material-icon-content-paste-search', DileIconlibContentPasteSearch);
+}

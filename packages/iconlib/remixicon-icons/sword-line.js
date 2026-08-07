@@ -6,4 +6,6 @@ export class DileIconlibSwordLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sword-line', DileIconlibSwordLine);
+if (!customElements.get('dile-remixicon-icon-sword-line')) {
+  customElements.define('dile-remixicon-icon-sword-line', DileIconlibSwordLine);
+}

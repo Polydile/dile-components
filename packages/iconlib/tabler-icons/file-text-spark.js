@@ -6,4 +6,6 @@ export class DileIconlibFileTextSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-text-spark', DileIconlibFileTextSpark);
+if (!customElements.get('dile-tabler-icon-file-text-spark')) {
+  customElements.define('dile-tabler-icon-file-text-spark', DileIconlibFileTextSpark);
+}

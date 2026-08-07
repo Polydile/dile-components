@@ -6,4 +6,6 @@ export class DileIconlibBrandCypress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cypress', DileIconlibBrandCypress);
+if (!customElements.get('dile-tabler-icon-brand-cypress')) {
+  customElements.define('dile-tabler-icon-brand-cypress', DileIconlibBrandCypress);
+}

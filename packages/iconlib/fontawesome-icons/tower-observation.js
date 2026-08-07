@@ -6,4 +6,6 @@ export class DileIconlibTowerObservation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tower-observation', DileIconlibTowerObservation);
+if (!customElements.get('dile-fontawesome-icon-tower-observation')) {
+  customElements.define('dile-fontawesome-icon-tower-observation', DileIconlibTowerObservation);
+}

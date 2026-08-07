@@ -6,4 +6,6 @@ export class DileIconlibTrophyFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-trophy-filled', DileIconlibTrophyFilled);
+if (!customElements.get('dile-tabler-icon-trophy-filled')) {
+  customElements.define('dile-tabler-icon-trophy-filled', DileIconlibTrophyFilled);
+}

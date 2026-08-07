@@ -6,4 +6,6 @@ export class DileIconlibEnvelope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-envelope', DileIconlibEnvelope);
+if (!customElements.get('dile-fontawesome-icon-regular-envelope')) {
+  customElements.define('dile-fontawesome-icon-regular-envelope', DileIconlibEnvelope);
+}

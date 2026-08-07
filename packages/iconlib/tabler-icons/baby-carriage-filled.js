@@ -6,4 +6,6 @@ export class DileIconlibBabyCarriageFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-baby-carriage-filled', DileIconlibBabyCarriageFilled);
+if (!customElements.get('dile-tabler-icon-baby-carriage-filled')) {
+  customElements.define('dile-tabler-icon-baby-carriage-filled', DileIconlibBabyCarriageFilled);
+}

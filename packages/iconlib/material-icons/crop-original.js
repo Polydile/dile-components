@@ -6,4 +6,6 @@ export class DileIconlibCropOriginal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-crop-original', DileIconlibCropOriginal);
+if (!customElements.get('dile-material-icon-crop-original')) {
+  customElements.define('dile-material-icon-crop-original', DileIconlibCropOriginal);
+}

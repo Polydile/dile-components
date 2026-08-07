@@ -6,4 +6,6 @@ export class DileIconlibQrScanAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-qr-scan-ai-fill', DileIconlibQrScanAiFill);
+if (!customElements.get('dile-remixicon-icon-qr-scan-ai-fill')) {
+  customElements.define('dile-remixicon-icon-qr-scan-ai-fill', DileIconlibQrScanAiFill);
+}

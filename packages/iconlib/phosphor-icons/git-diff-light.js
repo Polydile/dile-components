@@ -6,4 +6,6 @@ export class DileIconlibGitDiffLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-diff-light', DileIconlibGitDiffLight);
+if (!customElements.get('dile-phosphor-icon-git-diff-light')) {
+  customElements.define('dile-phosphor-icon-git-diff-light', DileIconlibGitDiffLight);
+}

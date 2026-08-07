@@ -6,4 +6,6 @@ export class DileIconlibLuggageCartFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-luggage-cart-fill', DileIconlibLuggageCartFill);
+if (!customElements.get('dile-remixicon-icon-luggage-cart-fill')) {
+  customElements.define('dile-remixicon-icon-luggage-cart-fill', DileIconlibLuggageCartFill);
+}

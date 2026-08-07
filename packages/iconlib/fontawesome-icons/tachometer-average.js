@@ -6,4 +6,6 @@ export class DileIconlibTachometerAverage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tachometer-average', DileIconlibTachometerAverage);
+if (!customElements.get('dile-fontawesome-icon-tachometer-average')) {
+  customElements.define('dile-fontawesome-icon-tachometer-average', DileIconlibTachometerAverage);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDiscordLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-discord-line', DileIconlibDiscordLine);
+if (!customElements.get('dile-remixicon-icon-discord-line')) {
+  customElements.define('dile-remixicon-icon-discord-line', DileIconlibDiscordLine);
+}

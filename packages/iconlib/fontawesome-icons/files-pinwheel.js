@@ -6,4 +6,6 @@ export class DileIconlibFilesPinwheel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-files-pinwheel', DileIconlibFilesPinwheel);
+if (!customElements.get('dile-fontawesome-icon-files-pinwheel')) {
+  customElements.define('dile-fontawesome-icon-files-pinwheel', DileIconlibFilesPinwheel);
+}

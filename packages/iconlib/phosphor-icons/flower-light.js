@@ -6,4 +6,6 @@ export class DileIconlibFlowerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flower-light', DileIconlibFlowerLight);
+if (!customElements.get('dile-phosphor-icon-flower-light')) {
+  customElements.define('dile-phosphor-icon-flower-light', DileIconlibFlowerLight);
+}

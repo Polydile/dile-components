@@ -6,4 +6,6 @@ export class DileIconlibBlueskyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bluesky-fill', DileIconlibBlueskyFill);
+if (!customElements.get('dile-remixicon-icon-bluesky-fill')) {
+  customElements.define('dile-remixicon-icon-bluesky-fill', DileIconlibBlueskyFill);
+}

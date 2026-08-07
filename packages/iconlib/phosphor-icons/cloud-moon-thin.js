@@ -6,4 +6,6 @@ export class DileIconlibCloudMoonThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cloud-moon-thin', DileIconlibCloudMoonThin);
+if (!customElements.get('dile-phosphor-icon-cloud-moon-thin')) {
+  customElements.define('dile-phosphor-icon-cloud-moon-thin', DileIconlibCloudMoonThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEarFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ear-fill', DileIconlibEarFill);
+if (!customElements.get('dile-phosphor-icon-ear-fill')) {
+  customElements.define('dile-phosphor-icon-ear-fill', DileIconlibEarFill);
+}

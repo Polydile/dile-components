@@ -6,4 +6,6 @@ export class DileIconlibTailwindCss extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tailwind-css', DileIconlibTailwindCss);
+if (!customElements.get('dile-fontawesome-icon-tailwind-css')) {
+  customElements.define('dile-fontawesome-icon-tailwind-css', DileIconlibTailwindCss);
+}

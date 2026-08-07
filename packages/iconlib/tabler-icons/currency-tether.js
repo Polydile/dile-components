@@ -6,4 +6,6 @@ export class DileIconlibCurrencyTether extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-tether', DileIconlibCurrencyTether);
+if (!customElements.get('dile-tabler-icon-currency-tether')) {
+  customElements.define('dile-tabler-icon-currency-tether', DileIconlibCurrencyTether);
+}

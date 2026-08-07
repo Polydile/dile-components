@@ -6,4 +6,6 @@ export class DileIconlibShakeHandsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shake-hands-line', DileIconlibShakeHandsLine);
+if (!customElements.get('dile-remixicon-icon-shake-hands-line')) {
+  customElements.define('dile-remixicon-icon-shake-hands-line', DileIconlibShakeHandsLine);
+}

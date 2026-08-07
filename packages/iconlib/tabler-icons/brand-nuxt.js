@@ -6,4 +6,6 @@ export class DileIconlibBrandNuxt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-nuxt', DileIconlibBrandNuxt);
+if (!customElements.get('dile-tabler-icon-brand-nuxt')) {
+  customElements.define('dile-tabler-icon-brand-nuxt', DileIconlibBrandNuxt);
+}

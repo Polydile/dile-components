@@ -6,4 +6,6 @@ export class DileIconlibDotDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dot-duotone', DileIconlibDotDuotone);
+if (!customElements.get('dile-phosphor-icon-dot-duotone')) {
+  customElements.define('dile-phosphor-icon-dot-duotone', DileIconlibDotDuotone);
+}

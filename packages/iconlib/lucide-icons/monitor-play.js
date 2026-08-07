@@ -6,4 +6,6 @@ export class DileIconlibMonitorPlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-monitor-play', DileIconlibMonitorPlay);
+if (!customElements.get('dile-lucide-icon-monitor-play')) {
+  customElements.define('dile-lucide-icon-monitor-play', DileIconlibMonitorPlay);
+}

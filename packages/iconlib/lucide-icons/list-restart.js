@@ -6,4 +6,6 @@ export class DileIconlibListRestart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-list-restart', DileIconlibListRestart);
+if (!customElements.get('dile-lucide-icon-list-restart')) {
+  customElements.define('dile-lucide-icon-list-restart', DileIconlibListRestart);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMathYMinusY extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-y-minus-y', DileIconlibMathYMinusY);
+if (!customElements.get('dile-tabler-icon-math-y-minus-y')) {
+  customElements.define('dile-tabler-icon-math-y-minus-y', DileIconlibMathYMinusY);
+}

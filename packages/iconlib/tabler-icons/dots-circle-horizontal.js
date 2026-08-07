@@ -6,4 +6,6 @@ export class DileIconlibDotsCircleHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dots-circle-horizontal', DileIconlibDotsCircleHorizontal);
+if (!customElements.get('dile-tabler-icon-dots-circle-horizontal')) {
+  customElements.define('dile-tabler-icon-dots-circle-horizontal', DileIconlibDotsCircleHorizontal);
+}

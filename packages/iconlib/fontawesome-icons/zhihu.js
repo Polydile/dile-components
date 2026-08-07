@@ -6,4 +6,6 @@ export class DileIconlibZhihu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-zhihu', DileIconlibZhihu);
+if (!customElements.get('dile-fontawesome-icon-zhihu')) {
+  customElements.define('dile-fontawesome-icon-zhihu', DileIconlibZhihu);
+}

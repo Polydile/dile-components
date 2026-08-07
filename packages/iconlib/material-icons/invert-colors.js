@@ -6,4 +6,6 @@ export class DileIconlibInvertColors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-invert-colors', DileIconlibInvertColors);
+if (!customElements.get('dile-material-icon-invert-colors')) {
+  customElements.define('dile-material-icon-invert-colors', DileIconlibInvertColors);
+}

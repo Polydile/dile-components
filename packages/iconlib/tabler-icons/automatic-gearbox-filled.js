@@ -6,4 +6,6 @@ export class DileIconlibAutomaticGearboxFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-automatic-gearbox-filled', DileIconlibAutomaticGearboxFilled);
+if (!customElements.get('dile-tabler-icon-automatic-gearbox-filled')) {
+  customElements.define('dile-tabler-icon-automatic-gearbox-filled', DileIconlibAutomaticGearboxFilled);
+}

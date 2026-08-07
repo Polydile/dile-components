@@ -6,4 +6,6 @@ export class DileIconlibBrandGoogleHome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-home', DileIconlibBrandGoogleHome);
+if (!customElements.get('dile-tabler-icon-brand-google-home')) {
+  customElements.define('dile-tabler-icon-brand-google-home', DileIconlibBrandGoogleHome);
+}

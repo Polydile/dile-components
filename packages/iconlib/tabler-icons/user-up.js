@@ -6,4 +6,6 @@ export class DileIconlibUserUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-user-up', DileIconlibUserUp);
+if (!customElements.get('dile-tabler-icon-user-up')) {
+  customElements.define('dile-tabler-icon-user-up', DileIconlibUserUp);
+}

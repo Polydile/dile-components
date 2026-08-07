@@ -6,4 +6,6 @@ export class DileIconlibUnlock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unlock', DileIconlibUnlock);
+if (!customElements.get('dile-fontawesome-icon-unlock')) {
+  customElements.define('dile-fontawesome-icon-unlock', DileIconlibUnlock);
+}

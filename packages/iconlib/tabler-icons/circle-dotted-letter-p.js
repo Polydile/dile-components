@@ -6,4 +6,6 @@ export class DileIconlibCircleDottedLetterP extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-dotted-letter-p', DileIconlibCircleDottedLetterP);
+if (!customElements.get('dile-tabler-icon-circle-dotted-letter-p')) {
+  customElements.define('dile-tabler-icon-circle-dotted-letter-p', DileIconlibCircleDottedLetterP);
+}

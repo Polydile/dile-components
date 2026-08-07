@@ -6,4 +6,6 @@ export class DileIconlibTaobaoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-taobao-fill', DileIconlibTaobaoFill);
+if (!customElements.get('dile-remixicon-icon-taobao-fill')) {
+  customElements.define('dile-remixicon-icon-taobao-fill', DileIconlibTaobaoFill);
+}

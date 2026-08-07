@@ -6,4 +6,6 @@ export class DileIconlibCalendarDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-duotone', DileIconlibCalendarDuotone);
+if (!customElements.get('dile-phosphor-icon-calendar-duotone')) {
+  customElements.define('dile-phosphor-icon-calendar-duotone', DileIconlibCalendarDuotone);
+}

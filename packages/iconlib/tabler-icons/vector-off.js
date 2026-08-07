@@ -6,4 +6,6 @@ export class DileIconlibVectorOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vector-off', DileIconlibVectorOff);
+if (!customElements.get('dile-tabler-icon-vector-off')) {
+  customElements.define('dile-tabler-icon-vector-off', DileIconlibVectorOff);
+}

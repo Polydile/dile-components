@@ -6,4 +6,6 @@ export class DileIconlibDigitalTachograph extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-digital-tachograph', DileIconlibDigitalTachograph);
+if (!customElements.get('dile-fontawesome-icon-digital-tachograph')) {
+  customElements.define('dile-fontawesome-icon-digital-tachograph', DileIconlibDigitalTachograph);
+}

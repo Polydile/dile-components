@@ -6,4 +6,6 @@ export class DileIconlibMusicNoteLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-music-note-light', DileIconlibMusicNoteLight);
+if (!customElements.get('dile-phosphor-icon-music-note-light')) {
+  customElements.define('dile-phosphor-icon-music-note-light', DileIconlibMusicNoteLight);
+}

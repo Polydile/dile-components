@@ -6,4 +6,6 @@ export class DileIconlibLineChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-line-chart', DileIconlibLineChart);
+if (!customElements.get('dile-fontawesome-icon-line-chart')) {
+  customElements.define('dile-fontawesome-icon-line-chart', DileIconlibLineChart);
+}

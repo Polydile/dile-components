@@ -6,4 +6,6 @@ export class DileIconlibPcCase extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-pc-case', DileIconlibPcCase);
+if (!customElements.get('dile-lucide-icon-pc-case')) {
+  customElements.define('dile-lucide-icon-pc-case', DileIconlibPcCase);
+}

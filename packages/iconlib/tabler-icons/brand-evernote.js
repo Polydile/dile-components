@@ -6,4 +6,6 @@ export class DileIconlibBrandEvernote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-evernote', DileIconlibBrandEvernote);
+if (!customElements.get('dile-tabler-icon-brand-evernote')) {
+  customElements.define('dile-tabler-icon-brand-evernote', DileIconlibBrandEvernote);
+}

@@ -6,4 +6,6 @@ export class DileIconlibContactBook extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-contact-book', DileIconlibContactBook);
+if (!customElements.get('dile-fontawesome-icon-contact-book')) {
+  customElements.define('dile-fontawesome-icon-contact-book', DileIconlibContactBook);
+}

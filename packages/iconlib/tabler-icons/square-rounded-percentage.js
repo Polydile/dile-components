@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedPercentage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-percentage', DileIconlibSquareRoundedPercentage);
+if (!customElements.get('dile-tabler-icon-square-rounded-percentage')) {
+  customElements.define('dile-tabler-icon-square-rounded-percentage', DileIconlibSquareRoundedPercentage);
+}

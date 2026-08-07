@@ -6,4 +6,6 @@ export class DileIconlibMizuni extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mizuni', DileIconlibMizuni);
+if (!customElements.get('dile-fontawesome-icon-mizuni')) {
+  customElements.define('dile-fontawesome-icon-mizuni', DileIconlibMizuni);
+}

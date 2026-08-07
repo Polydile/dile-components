@@ -6,4 +6,6 @@ export class DileIconlibBrandDouban extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-douban', DileIconlibBrandDouban);
+if (!customElements.get('dile-tabler-icon-brand-douban')) {
+  customElements.define('dile-tabler-icon-brand-douban', DileIconlibBrandDouban);
+}

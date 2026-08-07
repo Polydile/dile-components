@@ -6,4 +6,6 @@ export class DileIconlibCloudExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-exclamation', DileIconlibCloudExclamation);
+if (!customElements.get('dile-tabler-icon-cloud-exclamation')) {
+  customElements.define('dile-tabler-icon-cloud-exclamation', DileIconlibCloudExclamation);
+}

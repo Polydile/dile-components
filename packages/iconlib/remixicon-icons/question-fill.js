@@ -6,4 +6,6 @@ export class DileIconlibQuestionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-question-fill', DileIconlibQuestionFill);
+if (!customElements.get('dile-remixicon-icon-question-fill')) {
+  customElements.define('dile-remixicon-icon-question-fill', DileIconlibQuestionFill);
+}

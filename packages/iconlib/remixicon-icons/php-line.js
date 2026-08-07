@@ -6,4 +6,6 @@ export class DileIconlibPhpLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-php-line', DileIconlibPhpLine);
+if (!customElements.get('dile-remixicon-icon-php-line')) {
+  customElements.define('dile-remixicon-icon-php-line', DileIconlibPhpLine);
+}

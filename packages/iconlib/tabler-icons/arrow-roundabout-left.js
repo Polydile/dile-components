@@ -6,4 +6,6 @@ export class DileIconlibArrowRoundaboutLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-roundabout-left', DileIconlibArrowRoundaboutLeft);
+if (!customElements.get('dile-tabler-icon-arrow-roundabout-left')) {
+  customElements.define('dile-tabler-icon-arrow-roundabout-left', DileIconlibArrowRoundaboutLeft);
+}

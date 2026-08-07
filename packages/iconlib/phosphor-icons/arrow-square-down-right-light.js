@@ -6,4 +6,6 @@ export class DileIconlibArrowSquareDownRightLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrow-square-down-right-light', DileIconlibArrowSquareDownRightLight);
+if (!customElements.get('dile-phosphor-icon-arrow-square-down-right-light')) {
+  customElements.define('dile-phosphor-icon-arrow-square-down-right-light', DileIconlibArrowSquareDownRightLight);
+}

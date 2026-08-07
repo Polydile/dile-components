@@ -6,4 +6,6 @@ export class DileIconlibGroupRemove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-group-remove', DileIconlibGroupRemove);
+if (!customElements.get('dile-material-icon-group-remove')) {
+  customElements.define('dile-material-icon-group-remove', DileIconlibGroupRemove);
+}

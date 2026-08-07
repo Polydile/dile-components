@@ -6,4 +6,6 @@ export class DileIconlibArrowsSplitBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrows-split-bold', DileIconlibArrowsSplitBold);
+if (!customElements.get('dile-phosphor-icon-arrows-split-bold')) {
+  customElements.define('dile-phosphor-icon-arrows-split-bold', DileIconlibArrowsSplitBold);
+}

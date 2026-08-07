@@ -6,4 +6,6 @@ export class DileIconlibFootsteps extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-footsteps', DileIconlibFootsteps);
+if (!customElements.get('dile-tabler-icon-footsteps')) {
+  customElements.define('dile-tabler-icon-footsteps', DileIconlibFootsteps);
+}

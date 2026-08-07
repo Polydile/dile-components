@@ -6,4 +6,6 @@ export class DileIconlibDroneBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-drone-bold', DileIconlibDroneBold);
+if (!customElements.get('dile-phosphor-icon-drone-bold')) {
+  customElements.define('dile-phosphor-icon-drone-bold', DileIconlibDroneBold);
+}

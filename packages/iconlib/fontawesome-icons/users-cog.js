@@ -6,4 +6,6 @@ export class DileIconlibUsersCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-users-cog', DileIconlibUsersCog);
+if (!customElements.get('dile-fontawesome-icon-users-cog')) {
+  customElements.define('dile-fontawesome-icon-users-cog', DileIconlibUsersCog);
+}

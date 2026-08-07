@@ -6,4 +6,6 @@ export class DileIconlibPersonFallingBurst extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-falling-burst', DileIconlibPersonFallingBurst);
+if (!customElements.get('dile-fontawesome-icon-person-falling-burst')) {
+  customElements.define('dile-fontawesome-icon-person-falling-burst', DileIconlibPersonFallingBurst);
+}

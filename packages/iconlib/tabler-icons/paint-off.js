@@ -6,4 +6,6 @@ export class DileIconlibPaintOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-paint-off', DileIconlibPaintOff);
+if (!customElements.get('dile-tabler-icon-paint-off')) {
+  customElements.define('dile-tabler-icon-paint-off', DileIconlibPaintOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibParachute extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-parachute', DileIconlibParachute);
+if (!customElements.get('dile-tabler-icon-parachute')) {
+  customElements.define('dile-tabler-icon-parachute', DileIconlibParachute);
+}

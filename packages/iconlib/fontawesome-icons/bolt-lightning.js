@@ -6,4 +6,6 @@ export class DileIconlibBoltLightning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bolt-lightning', DileIconlibBoltLightning);
+if (!customElements.get('dile-fontawesome-icon-bolt-lightning')) {
+  customElements.define('dile-fontawesome-icon-bolt-lightning', DileIconlibBoltLightning);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCcVisa extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-visa', DileIconlibCcVisa);
+if (!customElements.get('dile-fontawesome-icon-cc-visa')) {
+  customElements.define('dile-fontawesome-icon-cc-visa', DileIconlibCcVisa);
+}

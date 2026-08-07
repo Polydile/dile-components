@@ -6,4 +6,6 @@ export class DileIconlibPhoneLockFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-phone-lock-fill', DileIconlibPhoneLockFill);
+if (!customElements.get('dile-remixicon-icon-phone-lock-fill')) {
+  customElements.define('dile-remixicon-icon-phone-lock-fill', DileIconlibPhoneLockFill);
+}

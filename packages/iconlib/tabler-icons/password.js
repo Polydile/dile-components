@@ -6,4 +6,6 @@ export class DileIconlibPassword extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-password', DileIconlibPassword);
+if (!customElements.get('dile-tabler-icon-password')) {
+  customElements.define('dile-tabler-icon-password', DileIconlibPassword);
+}

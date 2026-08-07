@@ -6,4 +6,6 @@ export class DileIconlibCompressArrowsAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-compress-arrows-alt', DileIconlibCompressArrowsAlt);
+if (!customElements.get('dile-fontawesome-icon-compress-arrows-alt')) {
+  customElements.define('dile-fontawesome-icon-compress-arrows-alt', DileIconlibCompressArrowsAlt);
+}

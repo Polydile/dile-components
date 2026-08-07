@@ -6,4 +6,6 @@ export class DileIconlibTallymark1 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tallymark-1', DileIconlibTallymark1);
+if (!customElements.get('dile-tabler-icon-tallymark-1')) {
+  customElements.define('dile-tabler-icon-tallymark-1', DileIconlibTallymark1);
+}

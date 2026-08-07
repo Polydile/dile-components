@@ -6,4 +6,6 @@ export class DileIconlibConnectWithoutContact extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-connect-without-contact', DileIconlibConnectWithoutContact);
+if (!customElements.get('dile-material-icon-connect-without-contact')) {
+  customElements.define('dile-material-icon-connect-without-contact', DileIconlibConnectWithoutContact);
+}

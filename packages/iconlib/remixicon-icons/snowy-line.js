@@ -6,4 +6,6 @@ export class DileIconlibSnowyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-snowy-line', DileIconlibSnowyLine);
+if (!customElements.get('dile-remixicon-icon-snowy-line')) {
+  customElements.define('dile-remixicon-icon-snowy-line', DileIconlibSnowyLine);
+}

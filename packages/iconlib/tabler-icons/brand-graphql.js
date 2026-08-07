@@ -6,4 +6,6 @@ export class DileIconlibBrandGraphql extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-graphql', DileIconlibBrandGraphql);
+if (!customElements.get('dile-tabler-icon-brand-graphql')) {
+  customElements.define('dile-tabler-icon-brand-graphql', DileIconlibBrandGraphql);
+}

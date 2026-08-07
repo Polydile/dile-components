@@ -6,4 +6,6 @@ export class DileIconlibPhoneDisconnectBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-phone-disconnect-bold', DileIconlibPhoneDisconnectBold);
+if (!customElements.get('dile-phosphor-icon-phone-disconnect-bold')) {
+  customElements.define('dile-phosphor-icon-phone-disconnect-bold', DileIconlibPhoneDisconnectBold);
+}

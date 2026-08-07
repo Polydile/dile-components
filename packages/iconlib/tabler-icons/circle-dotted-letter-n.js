@@ -6,4 +6,6 @@ export class DileIconlibCircleDottedLetterN extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-dotted-letter-n', DileIconlibCircleDottedLetterN);
+if (!customElements.get('dile-tabler-icon-circle-dotted-letter-n')) {
+  customElements.define('dile-tabler-icon-circle-dotted-letter-n', DileIconlibCircleDottedLetterN);
+}

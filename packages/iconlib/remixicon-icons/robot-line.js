@@ -6,4 +6,6 @@ export class DileIconlibRobotLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-robot-line', DileIconlibRobotLine);
+if (!customElements.get('dile-remixicon-icon-robot-line')) {
+  customElements.define('dile-remixicon-icon-robot-line', DileIconlibRobotLine);
+}

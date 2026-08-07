@@ -6,4 +6,6 @@ export class DileIconlibClockShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-share', DileIconlibClockShare);
+if (!customElements.get('dile-tabler-icon-clock-share')) {
+  customElements.define('dile-tabler-icon-clock-share', DileIconlibClockShare);
+}

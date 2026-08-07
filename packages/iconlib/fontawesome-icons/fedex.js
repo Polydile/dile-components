@@ -6,4 +6,6 @@ export class DileIconlibFedex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fedex', DileIconlibFedex);
+if (!customElements.get('dile-fontawesome-icon-fedex')) {
+  customElements.define('dile-fontawesome-icon-fedex', DileIconlibFedex);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneyLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-money-light', DileIconlibMoneyLight);
+if (!customElements.get('dile-phosphor-icon-money-light')) {
+  customElements.define('dile-phosphor-icon-money-light', DileIconlibMoneyLight);
+}

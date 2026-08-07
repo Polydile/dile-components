@@ -6,4 +6,6 @@ export class DileIconlibConfettiOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-confetti-off', DileIconlibConfettiOff);
+if (!customElements.get('dile-tabler-icon-confetti-off')) {
+  customElements.define('dile-tabler-icon-confetti-off', DileIconlibConfettiOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibOpenai extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-openai', DileIconlibOpenai);
+if (!customElements.get('dile-fontawesome-icon-openai')) {
+  customElements.define('dile-fontawesome-icon-openai', DileIconlibOpenai);
+}

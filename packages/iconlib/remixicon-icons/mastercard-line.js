@@ -6,4 +6,6 @@ export class DileIconlibMastercardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mastercard-line', DileIconlibMastercardLine);
+if (!customElements.get('dile-remixicon-icon-mastercard-line')) {
+  customElements.define('dile-remixicon-icon-mastercard-line', DileIconlibMastercardLine);
+}

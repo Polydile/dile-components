@@ -6,4 +6,6 @@ export class DileIconlibLoopLeftAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-loop-left-ai-fill', DileIconlibLoopLeftAiFill);
+if (!customElements.get('dile-remixicon-icon-loop-left-ai-fill')) {
+  customElements.define('dile-remixicon-icon-loop-left-ai-fill', DileIconlibLoopLeftAiFill);
+}

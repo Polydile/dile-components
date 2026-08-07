@@ -6,4 +6,6 @@ export class DileIconlibClockSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-search', DileIconlibClockSearch);
+if (!customElements.get('dile-tabler-icon-clock-search')) {
+  customElements.define('dile-tabler-icon-clock-search', DileIconlibClockSearch);
+}

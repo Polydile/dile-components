@@ -6,4 +6,6 @@ export class DileIconlibArrowsDownToPeople extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-down-to-people', DileIconlibArrowsDownToPeople);
+if (!customElements.get('dile-fontawesome-icon-arrows-down-to-people')) {
+  customElements.define('dile-fontawesome-icon-arrows-down-to-people', DileIconlibArrowsDownToPeople);
+}

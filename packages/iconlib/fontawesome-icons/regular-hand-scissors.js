@@ -6,4 +6,6 @@ export class DileIconlibHandScissors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-hand-scissors', DileIconlibHandScissors);
+if (!customElements.get('dile-fontawesome-icon-regular-hand-scissors')) {
+  customElements.define('dile-fontawesome-icon-regular-hand-scissors', DileIconlibHandScissors);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClockExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-exclamation', DileIconlibClockExclamation);
+if (!customElements.get('dile-tabler-icon-clock-exclamation')) {
+  customElements.define('dile-tabler-icon-clock-exclamation', DileIconlibClockExclamation);
+}

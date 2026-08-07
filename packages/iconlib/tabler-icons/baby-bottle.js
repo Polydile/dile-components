@@ -6,4 +6,6 @@ export class DileIconlibBabyBottle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-baby-bottle', DileIconlibBabyBottle);
+if (!customElements.get('dile-tabler-icon-baby-bottle')) {
+  customElements.define('dile-tabler-icon-baby-bottle', DileIconlibBabyBottle);
+}

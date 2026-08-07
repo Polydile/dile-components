@@ -6,4 +6,6 @@ export class DileIconlibSettingsAutomation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-settings-automation', DileIconlibSettingsAutomation);
+if (!customElements.get('dile-tabler-icon-settings-automation')) {
+  customElements.define('dile-tabler-icon-settings-automation', DileIconlibSettingsAutomation);
+}

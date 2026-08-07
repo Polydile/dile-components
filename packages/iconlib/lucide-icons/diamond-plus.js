@@ -6,4 +6,6 @@ export class DileIconlibDiamondPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-diamond-plus', DileIconlibDiamondPlus);
+if (!customElements.get('dile-lucide-icon-diamond-plus')) {
+  customElements.define('dile-lucide-icon-diamond-plus', DileIconlibDiamondPlus);
+}

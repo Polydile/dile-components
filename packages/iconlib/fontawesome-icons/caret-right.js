@@ -6,4 +6,6 @@ export class DileIconlibCaretRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-caret-right', DileIconlibCaretRight);
+if (!customElements.get('dile-fontawesome-icon-caret-right')) {
+  customElements.define('dile-fontawesome-icon-caret-right', DileIconlibCaretRight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCapRounded extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cap-rounded', DileIconlibCapRounded);
+if (!customElements.get('dile-tabler-icon-cap-rounded')) {
+  customElements.define('dile-tabler-icon-cap-rounded', DileIconlibCapRounded);
+}

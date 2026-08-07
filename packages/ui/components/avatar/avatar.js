@@ -1,3 +1,5 @@
 import { DileAvatar } from "./src/DileAvatar.js";
 
-window.customElements.define("dile-avatar", DileAvatar);
+if (!customElements.get("dile-avatar")) {
+  window.customElements.define("dile-avatar", DileAvatar);
+}

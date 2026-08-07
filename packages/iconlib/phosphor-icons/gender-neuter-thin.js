@@ -6,4 +6,6 @@ export class DileIconlibGenderNeuterThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gender-neuter-thin', DileIconlibGenderNeuterThin);
+if (!customElements.get('dile-phosphor-icon-gender-neuter-thin')) {
+  customElements.define('dile-phosphor-icon-gender-neuter-thin', DileIconlibGenderNeuterThin);
+}

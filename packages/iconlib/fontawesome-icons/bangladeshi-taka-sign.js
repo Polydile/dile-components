@@ -6,4 +6,6 @@ export class DileIconlibBangladeshiTakaSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bangladeshi-taka-sign', DileIconlibBangladeshiTakaSign);
+if (!customElements.get('dile-fontawesome-icon-bangladeshi-taka-sign')) {
+  customElements.define('dile-fontawesome-icon-bangladeshi-taka-sign', DileIconlibBangladeshiTakaSign);
+}

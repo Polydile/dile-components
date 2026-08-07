@@ -6,4 +6,6 @@ export class DileIconlibWeightHanging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-weight-hanging', DileIconlibWeightHanging);
+if (!customElements.get('dile-fontawesome-icon-weight-hanging')) {
+  customElements.define('dile-fontawesome-icon-weight-hanging', DileIconlibWeightHanging);
+}

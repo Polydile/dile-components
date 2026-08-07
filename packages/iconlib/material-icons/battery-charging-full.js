@@ -6,4 +6,6 @@ export class DileIconlibBatteryChargingFull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-battery-charging-full', DileIconlibBatteryChargingFull);
+if (!customElements.get('dile-material-icon-battery-charging-full')) {
+  customElements.define('dile-material-icon-battery-charging-full', DileIconlibBatteryChargingFull);
+}

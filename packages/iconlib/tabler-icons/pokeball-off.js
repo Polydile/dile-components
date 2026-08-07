@@ -6,4 +6,6 @@ export class DileIconlibPokeballOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pokeball-off', DileIconlibPokeballOff);
+if (!customElements.get('dile-tabler-icon-pokeball-off')) {
+  customElements.define('dile-tabler-icon-pokeball-off', DileIconlibPokeballOff);
+}

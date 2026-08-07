@@ -6,4 +6,6 @@ export class DileIconlibLocalPharmacy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-pharmacy', DileIconlibLocalPharmacy);
+if (!customElements.get('dile-material-icon-local-pharmacy')) {
+  customElements.define('dile-material-icon-local-pharmacy', DileIconlibLocalPharmacy);
+}

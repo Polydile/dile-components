@@ -6,4 +6,6 @@ export class DileIconlibKhanda extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-khanda', DileIconlibKhanda);
+if (!customElements.get('dile-fontawesome-icon-khanda')) {
+  customElements.define('dile-fontawesome-icon-khanda', DileIconlibKhanda);
+}

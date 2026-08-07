@@ -6,4 +6,6 @@ export class DileIconlibMicrophoneStage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microphone-stage', DileIconlibMicrophoneStage);
+if (!customElements.get('dile-phosphor-icon-microphone-stage')) {
+  customElements.define('dile-phosphor-icon-microphone-stage', DileIconlibMicrophoneStage);
+}

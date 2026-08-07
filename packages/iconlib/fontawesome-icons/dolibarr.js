@@ -6,4 +6,6 @@ export class DileIconlibDolibarr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dolibarr', DileIconlibDolibarr);
+if (!customElements.get('dile-fontawesome-icon-dolibarr')) {
+  customElements.define('dile-fontawesome-icon-dolibarr', DileIconlibDolibarr);
+}

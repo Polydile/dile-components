@@ -6,4 +6,6 @@ export class DileIconlibDeleteBin6Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-delete-bin-6-fill', DileIconlibDeleteBin6Fill);
+if (!customElements.get('dile-remixicon-icon-delete-bin-6-fill')) {
+  customElements.define('dile-remixicon-icon-delete-bin-6-fill', DileIconlibDeleteBin6Fill);
+}

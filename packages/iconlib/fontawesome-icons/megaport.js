@@ -6,4 +6,6 @@ export class DileIconlibMegaport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-megaport', DileIconlibMegaport);
+if (!customElements.get('dile-fontawesome-icon-megaport')) {
+  customElements.define('dile-fontawesome-icon-megaport', DileIconlibMegaport);
+}

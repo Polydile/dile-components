@@ -6,4 +6,6 @@ export class DileIconlibKeyboardBackspace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-keyboard-backspace', DileIconlibKeyboardBackspace);
+if (!customElements.get('dile-material-icon-keyboard-backspace')) {
+  customElements.define('dile-material-icon-keyboard-backspace', DileIconlibKeyboardBackspace);
+}

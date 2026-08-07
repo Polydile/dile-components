@@ -6,4 +6,6 @@ export class DileIconlibBrandKbin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-kbin', DileIconlibBrandKbin);
+if (!customElements.get('dile-tabler-icon-brand-kbin')) {
+  customElements.define('dile-tabler-icon-brand-kbin', DileIconlibBrandKbin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandSugarizer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-sugarizer', DileIconlibBrandSugarizer);
+if (!customElements.get('dile-tabler-icon-brand-sugarizer')) {
+  customElements.define('dile-tabler-icon-brand-sugarizer', DileIconlibBrandSugarizer);
+}

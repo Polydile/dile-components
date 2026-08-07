@@ -6,4 +6,6 @@ export class DileIconlibRosetteAsterisk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rosette-asterisk', DileIconlibRosetteAsterisk);
+if (!customElements.get('dile-tabler-icon-rosette-asterisk')) {
+  customElements.define('dile-tabler-icon-rosette-asterisk', DileIconlibRosetteAsterisk);
+}

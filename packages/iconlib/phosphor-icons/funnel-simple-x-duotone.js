@@ -6,4 +6,6 @@ export class DileIconlibFunnelSimpleXDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-funnel-simple-x-duotone', DileIconlibFunnelSimpleXDuotone);
+if (!customElements.get('dile-phosphor-icon-funnel-simple-x-duotone')) {
+  customElements.define('dile-phosphor-icon-funnel-simple-x-duotone', DileIconlibFunnelSimpleXDuotone);
+}

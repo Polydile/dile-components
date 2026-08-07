@@ -6,4 +6,6 @@ export class DileIconlibGenderlessLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-genderless-line', DileIconlibGenderlessLine);
+if (!customElements.get('dile-remixicon-icon-genderless-line')) {
+  customElements.define('dile-remixicon-icon-genderless-line', DileIconlibGenderlessLine);
+}

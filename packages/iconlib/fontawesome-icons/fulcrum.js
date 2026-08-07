@@ -6,4 +6,6 @@ export class DileIconlibFulcrum extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fulcrum', DileIconlibFulcrum);
+if (!customElements.get('dile-fontawesome-icon-fulcrum')) {
+  customElements.define('dile-fontawesome-icon-fulcrum', DileIconlibFulcrum);
+}

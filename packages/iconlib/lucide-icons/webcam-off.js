@@ -6,4 +6,6 @@ export class DileIconlibWebcamOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-webcam-off', DileIconlibWebcamOff);
+if (!customElements.get('dile-lucide-icon-webcam-off')) {
+  customElements.define('dile-lucide-icon-webcam-off', DileIconlibWebcamOff);
+}

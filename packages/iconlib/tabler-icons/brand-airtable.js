@@ -6,4 +6,6 @@ export class DileIconlibBrandAirtable extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-airtable', DileIconlibBrandAirtable);
+if (!customElements.get('dile-tabler-icon-brand-airtable')) {
+  customElements.define('dile-tabler-icon-brand-airtable', DileIconlibBrandAirtable);
+}

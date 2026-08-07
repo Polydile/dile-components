@@ -6,4 +6,6 @@ export class DileIconlibTextCursor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-cursor', DileIconlibTextCursor);
+if (!customElements.get('dile-lucide-icon-text-cursor')) {
+  customElements.define('dile-lucide-icon-text-cursor', DileIconlibTextCursor);
+}

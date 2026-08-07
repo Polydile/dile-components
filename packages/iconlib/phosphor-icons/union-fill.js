@@ -6,4 +6,6 @@ export class DileIconlibUnionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-union-fill', DileIconlibUnionFill);
+if (!customElements.get('dile-phosphor-icon-union-fill')) {
+  customElements.define('dile-phosphor-icon-union-fill', DileIconlibUnionFill);
+}

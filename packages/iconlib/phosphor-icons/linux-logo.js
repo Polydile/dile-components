@@ -6,4 +6,6 @@ export class DileIconlibLinuxLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-linux-logo', DileIconlibLinuxLogo);
+if (!customElements.get('dile-phosphor-icon-linux-logo')) {
+  customElements.define('dile-phosphor-icon-linux-logo', DileIconlibLinuxLogo);
+}

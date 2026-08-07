@@ -6,4 +6,6 @@ export class DileIconlibSoundcloudLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-soundcloud-line', DileIconlibSoundcloudLine);
+if (!customElements.get('dile-remixicon-icon-soundcloud-line')) {
+  customElements.define('dile-remixicon-icon-soundcloud-line', DileIconlibSoundcloudLine);
+}

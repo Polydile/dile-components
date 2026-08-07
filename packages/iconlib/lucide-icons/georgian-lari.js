@@ -6,4 +6,6 @@ export class DileIconlibGeorgianLari extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-georgian-lari', DileIconlibGeorgianLari);
+if (!customElements.get('dile-lucide-icon-georgian-lari')) {
+  customElements.define('dile-lucide-icon-georgian-lari', DileIconlibGeorgianLari);
+}

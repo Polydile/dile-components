@@ -6,4 +6,6 @@ export class DileIconlibTaxi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-taxi', DileIconlibTaxi);
+if (!customElements.get('dile-fontawesome-icon-taxi')) {
+  customElements.define('dile-fontawesome-icon-taxi', DileIconlibTaxi);
+}

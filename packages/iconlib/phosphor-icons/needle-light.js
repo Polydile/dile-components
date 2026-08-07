@@ -6,4 +6,6 @@ export class DileIconlibNeedleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-needle-light', DileIconlibNeedleLight);
+if (!customElements.get('dile-phosphor-icon-needle-light')) {
+  customElements.define('dile-phosphor-icon-needle-light', DileIconlibNeedleLight);
+}

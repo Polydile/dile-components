@@ -6,4 +6,6 @@ export class DileIconlibToggleRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toggle-right', DileIconlibToggleRight);
+if (!customElements.get('dile-phosphor-icon-toggle-right')) {
+  customElements.define('dile-phosphor-icon-toggle-right', DileIconlibToggleRight);
+}

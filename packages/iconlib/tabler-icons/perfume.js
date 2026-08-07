@@ -6,4 +6,6 @@ export class DileIconlibPerfume extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-perfume', DileIconlibPerfume);
+if (!customElements.get('dile-tabler-icon-perfume')) {
+  customElements.define('dile-tabler-icon-perfume', DileIconlibPerfume);
+}

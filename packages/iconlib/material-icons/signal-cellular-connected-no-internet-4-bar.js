@@ -6,4 +6,6 @@ export class DileIconlibSignalCellularConnectedNoInternet4Bar extends DileBaseIc
   }
 }
 
-customElements.define('dile-material-icon-signal-cellular-connected-no-internet-4-bar', DileIconlibSignalCellularConnectedNoInternet4Bar);
+if (!customElements.get('dile-material-icon-signal-cellular-connected-no-internet-4-bar')) {
+  customElements.define('dile-material-icon-signal-cellular-connected-no-internet-4-bar', DileIconlibSignalCellularConnectedNoInternet4Bar);
+}

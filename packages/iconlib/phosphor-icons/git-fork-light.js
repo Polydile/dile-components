@@ -6,4 +6,6 @@ export class DileIconlibGitForkLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-fork-light', DileIconlibGitForkLight);
+if (!customElements.get('dile-phosphor-icon-git-fork-light')) {
+  customElements.define('dile-phosphor-icon-git-fork-light', DileIconlibGitForkLight);
+}

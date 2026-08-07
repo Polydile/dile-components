@@ -6,4 +6,6 @@ export class DileIconlibRocketLaunchDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rocket-launch-duotone', DileIconlibRocketLaunchDuotone);
+if (!customElements.get('dile-phosphor-icon-rocket-launch-duotone')) {
+  customElements.define('dile-phosphor-icon-rocket-launch-duotone', DileIconlibRocketLaunchDuotone);
+}

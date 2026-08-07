@@ -6,4 +6,6 @@ export class DileIconlibHandSwipeRightFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-swipe-right-fill', DileIconlibHandSwipeRightFill);
+if (!customElements.get('dile-phosphor-icon-hand-swipe-right-fill')) {
+  customElements.define('dile-phosphor-icon-hand-swipe-right-fill', DileIconlibHandSwipeRightFill);
+}

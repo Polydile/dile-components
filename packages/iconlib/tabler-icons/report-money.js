@@ -6,4 +6,6 @@ export class DileIconlibReportMoney extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-report-money', DileIconlibReportMoney);
+if (!customElements.get('dile-tabler-icon-report-money')) {
+  customElements.define('dile-tabler-icon-report-money', DileIconlibReportMoney);
+}

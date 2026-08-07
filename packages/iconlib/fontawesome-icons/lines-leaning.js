@@ -6,4 +6,6 @@ export class DileIconlibLinesLeaning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lines-leaning', DileIconlibLinesLeaning);
+if (!customElements.get('dile-fontawesome-icon-lines-leaning')) {
+  customElements.define('dile-fontawesome-icon-lines-leaning', DileIconlibLinesLeaning);
+}

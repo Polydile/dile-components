@@ -6,4 +6,6 @@ export class DileIconlibCcDinersClub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-diners-club', DileIconlibCcDinersClub);
+if (!customElements.get('dile-fontawesome-icon-cc-diners-club')) {
+  customElements.define('dile-fontawesome-icon-cc-diners-club', DileIconlibCcDinersClub);
+}

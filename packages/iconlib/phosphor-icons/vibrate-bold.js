@@ -6,4 +6,6 @@ export class DileIconlibVibrateBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vibrate-bold', DileIconlibVibrateBold);
+if (!customElements.get('dile-phosphor-icon-vibrate-bold')) {
+  customElements.define('dile-phosphor-icon-vibrate-bold', DileIconlibVibrateBold);
+}

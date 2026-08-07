@@ -6,4 +6,6 @@ export class DileIconlibUserSharedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-user-shared-line', DileIconlibUserSharedLine);
+if (!customElements.get('dile-remixicon-icon-user-shared-line')) {
+  customElements.define('dile-remixicon-icon-user-shared-line', DileIconlibUserSharedLine);
+}

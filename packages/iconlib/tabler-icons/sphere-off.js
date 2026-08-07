@@ -6,4 +6,6 @@ export class DileIconlibSphereOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sphere-off', DileIconlibSphereOff);
+if (!customElements.get('dile-tabler-icon-sphere-off')) {
+  customElements.define('dile-tabler-icon-sphere-off', DileIconlibSphereOff);
+}

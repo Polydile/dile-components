@@ -6,4 +6,6 @@ export class DileIconlibShutterSpeed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-shutter-speed', DileIconlibShutterSpeed);
+if (!customElements.get('dile-material-icon-shutter-speed')) {
+  customElements.define('dile-material-icon-shutter-speed', DileIconlibShutterSpeed);
+}

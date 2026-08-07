@@ -6,4 +6,6 @@ export class DileIconlibCameraExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-exclamation', DileIconlibCameraExclamation);
+if (!customElements.get('dile-tabler-icon-camera-exclamation')) {
+  customElements.define('dile-tabler-icon-camera-exclamation', DileIconlibCameraExclamation);
+}

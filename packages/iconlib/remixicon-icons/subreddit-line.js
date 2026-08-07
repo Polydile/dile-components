@@ -6,4 +6,6 @@ export class DileIconlibSubredditLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-subreddit-line', DileIconlibSubredditLine);
+if (!customElements.get('dile-remixicon-icon-subreddit-line')) {
+  customElements.define('dile-remixicon-icon-subreddit-line', DileIconlibSubredditLine);
+}

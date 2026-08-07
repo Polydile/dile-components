@@ -6,4 +6,6 @@ export class DileIconlibAlignTopSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-align-top-simple-fill', DileIconlibAlignTopSimpleFill);
+if (!customElements.get('dile-phosphor-icon-align-top-simple-fill')) {
+  customElements.define('dile-phosphor-icon-align-top-simple-fill', DileIconlibAlignTopSimpleFill);
+}

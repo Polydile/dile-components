@@ -6,4 +6,6 @@ export class DileIconlibHandsBubbles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-bubbles', DileIconlibHandsBubbles);
+if (!customElements.get('dile-fontawesome-icon-hands-bubbles')) {
+  customElements.define('dile-fontawesome-icon-hands-bubbles', DileIconlibHandsBubbles);
+}

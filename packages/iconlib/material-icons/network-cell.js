@@ -6,4 +6,6 @@ export class DileIconlibNetworkCell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-network-cell', DileIconlibNetworkCell);
+if (!customElements.get('dile-material-icon-network-cell')) {
+  customElements.define('dile-material-icon-network-cell', DileIconlibNetworkCell);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLegoOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lego-off', DileIconlibLegoOff);
+if (!customElements.get('dile-tabler-icon-lego-off')) {
+  customElements.define('dile-tabler-icon-lego-off', DileIconlibLegoOff);
+}

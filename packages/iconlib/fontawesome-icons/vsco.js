@@ -6,4 +6,6 @@ export class DileIconlibVsco extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vsco', DileIconlibVsco);
+if (!customElements.get('dile-fontawesome-icon-vsco')) {
+  customElements.define('dile-fontawesome-icon-vsco', DileIconlibVsco);
+}

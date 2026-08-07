@@ -6,4 +6,6 @@ export class DileIconlibNaturePeople extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nature-people', DileIconlibNaturePeople);
+if (!customElements.get('dile-material-icon-nature-people')) {
+  customElements.define('dile-material-icon-nature-people', DileIconlibNaturePeople);
+}

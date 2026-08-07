@@ -6,4 +6,6 @@ export class DileIconlibPhysiotherapist extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-physiotherapist', DileIconlibPhysiotherapist);
+if (!customElements.get('dile-tabler-icon-physiotherapist')) {
+  customElements.define('dile-tabler-icon-physiotherapist', DileIconlibPhysiotherapist);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandDenodo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-denodo', DileIconlibBrandDenodo);
+if (!customElements.get('dile-tabler-icon-brand-denodo')) {
+  customElements.define('dile-tabler-icon-brand-denodo', DileIconlibBrandDenodo);
+}

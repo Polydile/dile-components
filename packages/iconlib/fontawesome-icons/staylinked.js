@@ -6,4 +6,6 @@ export class DileIconlibStaylinked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-staylinked', DileIconlibStaylinked);
+if (!customElements.get('dile-fontawesome-icon-staylinked')) {
+  customElements.define('dile-fontawesome-icon-staylinked', DileIconlibStaylinked);
+}

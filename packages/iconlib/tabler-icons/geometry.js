@@ -6,4 +6,6 @@ export class DileIconlibGeometry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-geometry', DileIconlibGeometry);
+if (!customElements.get('dile-tabler-icon-geometry')) {
+  customElements.define('dile-tabler-icon-geometry', DileIconlibGeometry);
+}

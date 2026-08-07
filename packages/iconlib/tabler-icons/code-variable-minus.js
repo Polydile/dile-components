@@ -6,4 +6,6 @@ export class DileIconlibCodeVariableMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-code-variable-minus', DileIconlibCodeVariableMinus);
+if (!customElements.get('dile-tabler-icon-code-variable-minus')) {
+  customElements.define('dile-tabler-icon-code-variable-minus', DileIconlibCodeVariableMinus);
+}

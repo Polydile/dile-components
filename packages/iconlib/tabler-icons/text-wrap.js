@@ -6,4 +6,6 @@ export class DileIconlibTextWrap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-wrap', DileIconlibTextWrap);
+if (!customElements.get('dile-tabler-icon-text-wrap')) {
+  customElements.define('dile-tabler-icon-text-wrap', DileIconlibTextWrap);
+}

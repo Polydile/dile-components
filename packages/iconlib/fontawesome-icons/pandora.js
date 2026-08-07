@@ -6,4 +6,6 @@ export class DileIconlibPandora extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pandora', DileIconlibPandora);
+if (!customElements.get('dile-fontawesome-icon-pandora')) {
+  customElements.define('dile-fontawesome-icon-pandora', DileIconlibPandora);
+}

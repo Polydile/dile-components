@@ -6,4 +6,6 @@ export class DileIconlibSanitizer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sanitizer', DileIconlibSanitizer);
+if (!customElements.get('dile-material-icon-sanitizer')) {
+  customElements.define('dile-material-icon-sanitizer', DileIconlibSanitizer);
+}

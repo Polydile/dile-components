@@ -6,4 +6,6 @@ export class DileIconlibSpiral extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spiral', DileIconlibSpiral);
+if (!customElements.get('dile-fontawesome-icon-spiral')) {
+  customElements.define('dile-fontawesome-icon-spiral', DileIconlibSpiral);
+}

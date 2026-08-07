@@ -6,4 +6,6 @@ export class DileIconlibPiedPiper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pied-piper', DileIconlibPiedPiper);
+if (!customElements.get('dile-fontawesome-icon-pied-piper')) {
+  customElements.define('dile-fontawesome-icon-pied-piper', DileIconlibPiedPiper);
+}

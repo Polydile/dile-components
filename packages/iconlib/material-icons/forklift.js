@@ -6,4 +6,6 @@ export class DileIconlibForklift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-forklift', DileIconlibForklift);
+if (!customElements.get('dile-material-icon-forklift')) {
+  customElements.define('dile-material-icon-forklift', DileIconlibForklift);
+}

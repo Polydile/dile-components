@@ -6,4 +6,6 @@ export class DileIconlibPhotoBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-bolt', DileIconlibPhotoBolt);
+if (!customElements.get('dile-tabler-icon-photo-bolt')) {
+  customElements.define('dile-tabler-icon-photo-bolt', DileIconlibPhotoBolt);
+}

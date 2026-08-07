@@ -6,4 +6,6 @@ export class DileIconlibFolderSpecial extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-folder-special', DileIconlibFolderSpecial);
+if (!customElements.get('dile-material-icon-folder-special')) {
+  customElements.define('dile-material-icon-folder-special', DileIconlibFolderSpecial);
+}

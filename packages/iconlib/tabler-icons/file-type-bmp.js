@@ -6,4 +6,6 @@ export class DileIconlibFileTypeBmp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-bmp', DileIconlibFileTypeBmp);
+if (!customElements.get('dile-tabler-icon-file-type-bmp')) {
+  customElements.define('dile-tabler-icon-file-type-bmp', DileIconlibFileTypeBmp);
+}

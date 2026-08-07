@@ -6,4 +6,6 @@ export class DileIconlibPersonArrowUpFromLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-arrow-up-from-line', DileIconlibPersonArrowUpFromLine);
+if (!customElements.get('dile-fontawesome-icon-person-arrow-up-from-line')) {
+  customElements.define('dile-fontawesome-icon-person-arrow-up-from-line', DileIconlibPersonArrowUpFromLine);
+}

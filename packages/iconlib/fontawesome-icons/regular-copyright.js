@@ -6,4 +6,6 @@ export class DileIconlibCopyright extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-copyright', DileIconlibCopyright);
+if (!customElements.get('dile-fontawesome-icon-regular-copyright')) {
+  customElements.define('dile-fontawesome-icon-regular-copyright', DileIconlibCopyright);
+}

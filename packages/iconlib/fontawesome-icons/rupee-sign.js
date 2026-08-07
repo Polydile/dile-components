@@ -6,4 +6,6 @@ export class DileIconlibRupeeSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rupee-sign', DileIconlibRupeeSign);
+if (!customElements.get('dile-fontawesome-icon-rupee-sign')) {
+  customElements.define('dile-fontawesome-icon-rupee-sign', DileIconlibRupeeSign);
+}

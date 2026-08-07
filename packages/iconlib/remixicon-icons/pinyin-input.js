@@ -6,4 +6,6 @@ export class DileIconlibPinyinInput extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pinyin-input', DileIconlibPinyinInput);
+if (!customElements.get('dile-remixicon-icon-pinyin-input')) {
+  customElements.define('dile-remixicon-icon-pinyin-input', DileIconlibPinyinInput);
+}

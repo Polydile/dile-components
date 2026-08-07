@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleSwimThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-swim-thin', DileIconlibPersonSimpleSwimThin);
+if (!customElements.get('dile-phosphor-icon-person-simple-swim-thin')) {
+  customElements.define('dile-phosphor-icon-person-simple-swim-thin', DileIconlibPersonSimpleSwimThin);
+}

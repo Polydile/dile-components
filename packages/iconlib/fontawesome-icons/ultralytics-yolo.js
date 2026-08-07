@@ -6,4 +6,6 @@ export class DileIconlibUltralyticsYolo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ultralytics-yolo', DileIconlibUltralyticsYolo);
+if (!customElements.get('dile-fontawesome-icon-ultralytics-yolo')) {
+  customElements.define('dile-fontawesome-icon-ultralytics-yolo', DileIconlibUltralyticsYolo);
+}

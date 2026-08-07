@@ -6,4 +6,6 @@ export class DileIconlibNightlightRound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nightlight-round', DileIconlibNightlightRound);
+if (!customElements.get('dile-material-icon-nightlight-round')) {
+  customElements.define('dile-material-icon-nightlight-round', DileIconlibNightlightRound);
+}

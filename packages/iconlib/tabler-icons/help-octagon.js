@@ -6,4 +6,6 @@ export class DileIconlibHelpOctagon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-help-octagon', DileIconlibHelpOctagon);
+if (!customElements.get('dile-tabler-icon-help-octagon')) {
+  customElements.define('dile-tabler-icon-help-octagon', DileIconlibHelpOctagon);
+}

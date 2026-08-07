@@ -6,4 +6,6 @@ export class DileIconlibCircleChevronLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-chevron-left', DileIconlibCircleChevronLeft);
+if (!customElements.get('dile-fontawesome-icon-circle-chevron-left')) {
+  customElements.define('dile-fontawesome-icon-circle-chevron-left', DileIconlibCircleChevronLeft);
+}

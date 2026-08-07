@@ -6,4 +6,6 @@ export class DileIconlibTrolleySuitcaseDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trolley-suitcase-duotone', DileIconlibTrolleySuitcaseDuotone);
+if (!customElements.get('dile-phosphor-icon-trolley-suitcase-duotone')) {
+  customElements.define('dile-phosphor-icon-trolley-suitcase-duotone', DileIconlibTrolleySuitcaseDuotone);
+}

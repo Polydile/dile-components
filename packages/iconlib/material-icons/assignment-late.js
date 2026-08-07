@@ -6,4 +6,6 @@ export class DileIconlibAssignmentLate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-assignment-late', DileIconlibAssignmentLate);
+if (!customElements.get('dile-material-icon-assignment-late')) {
+  customElements.define('dile-material-icon-assignment-late', DileIconlibAssignmentLate);
+}

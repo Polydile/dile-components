@@ -6,4 +6,6 @@ export class DileIconlibGalaxy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-galaxy', DileIconlibGalaxy);
+if (!customElements.get('dile-tabler-icon-galaxy')) {
+  customElements.define('dile-tabler-icon-galaxy', DileIconlibGalaxy);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandSocketIo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-socket-io', DileIconlibBrandSocketIo);
+if (!customElements.get('dile-tabler-icon-brand-socket-io')) {
+  customElements.define('dile-tabler-icon-brand-socket-io', DileIconlibBrandSocketIo);
+}

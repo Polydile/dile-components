@@ -6,4 +6,6 @@ export class DileIconlibBitCoinLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bit-coin-line', DileIconlibBitCoinLine);
+if (!customElements.get('dile-remixicon-icon-bit-coin-line')) {
+  customElements.define('dile-remixicon-icon-bit-coin-line', DileIconlibBitCoinLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSunDimLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sun-dim-light', DileIconlibSunDimLight);
+if (!customElements.get('dile-phosphor-icon-sun-dim-light')) {
+  customElements.define('dile-phosphor-icon-sun-dim-light', DileIconlibSunDimLight);
+}

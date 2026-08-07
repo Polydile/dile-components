@@ -6,4 +6,6 @@ export class DileIconlibDragIndicator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drag-indicator', DileIconlibDragIndicator);
+if (!customElements.get('dile-material-icon-drag-indicator')) {
+  customElements.define('dile-material-icon-drag-indicator', DileIconlibDragIndicator);
+}

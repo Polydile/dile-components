@@ -6,4 +6,6 @@ export class DileIconlibCube3dSphere extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cube-3d-sphere', DileIconlibCube3dSphere);
+if (!customElements.get('dile-tabler-icon-cube-3d-sphere')) {
+  customElements.define('dile-tabler-icon-cube-3d-sphere', DileIconlibCube3dSphere);
+}

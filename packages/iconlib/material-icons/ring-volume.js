@@ -6,4 +6,6 @@ export class DileIconlibRingVolume extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ring-volume', DileIconlibRingVolume);
+if (!customElements.get('dile-material-icon-ring-volume')) {
+  customElements.define('dile-material-icon-ring-volume', DileIconlibRingVolume);
+}

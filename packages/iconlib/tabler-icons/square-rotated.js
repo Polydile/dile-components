@@ -6,4 +6,6 @@ export class DileIconlibSquareRotated extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rotated', DileIconlibSquareRotated);
+if (!customElements.get('dile-tabler-icon-square-rotated')) {
+  customElements.define('dile-tabler-icon-square-rotated', DileIconlibSquareRotated);
+}

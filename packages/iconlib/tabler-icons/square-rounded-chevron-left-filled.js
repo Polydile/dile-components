@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedChevronLeftFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-chevron-left-filled', DileIconlibSquareRoundedChevronLeftFilled);
+if (!customElements.get('dile-tabler-icon-square-rounded-chevron-left-filled')) {
+  customElements.define('dile-tabler-icon-square-rounded-chevron-left-filled', DileIconlibSquareRoundedChevronLeftFilled);
+}

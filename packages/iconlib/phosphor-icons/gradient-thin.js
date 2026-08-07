@@ -6,4 +6,6 @@ export class DileIconlibGradientThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gradient-thin', DileIconlibGradientThin);
+if (!customElements.get('dile-phosphor-icon-gradient-thin')) {
+  customElements.define('dile-phosphor-icon-gradient-thin', DileIconlibGradientThin);
+}

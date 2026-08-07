@@ -6,4 +6,6 @@ export class DileIconlibSplitCellsVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-split-cells-vertical', DileIconlibSplitCellsVertical);
+if (!customElements.get('dile-remixicon-icon-split-cells-vertical')) {
+  customElements.define('dile-remixicon-icon-split-cells-vertical', DileIconlibSplitCellsVertical);
+}

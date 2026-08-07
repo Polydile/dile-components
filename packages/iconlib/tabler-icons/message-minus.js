@@ -6,4 +6,6 @@ export class DileIconlibMessageMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-minus', DileIconlibMessageMinus);
+if (!customElements.get('dile-tabler-icon-message-minus')) {
+  customElements.define('dile-tabler-icon-message-minus', DileIconlibMessageMinus);
+}

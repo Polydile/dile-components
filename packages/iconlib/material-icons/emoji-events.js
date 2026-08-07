@@ -6,4 +6,6 @@ export class DileIconlibEmojiEvents extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emoji-events', DileIconlibEmojiEvents);
+if (!customElements.get('dile-material-icon-emoji-events')) {
+  customElements.define('dile-material-icon-emoji-events', DileIconlibEmojiEvents);
+}

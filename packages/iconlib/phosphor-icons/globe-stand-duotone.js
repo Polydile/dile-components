@@ -6,4 +6,6 @@ export class DileIconlibGlobeStandDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-globe-stand-duotone', DileIconlibGlobeStandDuotone);
+if (!customElements.get('dile-phosphor-icon-globe-stand-duotone')) {
+  customElements.define('dile-phosphor-icon-globe-stand-duotone', DileIconlibGlobeStandDuotone);
+}

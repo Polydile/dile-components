@@ -6,4 +6,6 @@ export class DileIconlibBarrierBlock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-barrier-block', DileIconlibBarrierBlock);
+if (!customElements.get('dile-tabler-icon-barrier-block')) {
+  customElements.define('dile-tabler-icon-barrier-block', DileIconlibBarrierBlock);
+}

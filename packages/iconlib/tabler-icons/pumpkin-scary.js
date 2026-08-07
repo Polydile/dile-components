@@ -6,4 +6,6 @@ export class DileIconlibPumpkinScary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pumpkin-scary', DileIconlibPumpkinScary);
+if (!customElements.get('dile-tabler-icon-pumpkin-scary')) {
+  customElements.define('dile-tabler-icon-pumpkin-scary', DileIconlibPumpkinScary);
+}

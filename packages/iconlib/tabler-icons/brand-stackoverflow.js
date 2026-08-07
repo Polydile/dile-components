@@ -6,4 +6,6 @@ export class DileIconlibBrandStackoverflow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-stackoverflow', DileIconlibBrandStackoverflow);
+if (!customElements.get('dile-tabler-icon-brand-stackoverflow')) {
+  customElements.define('dile-tabler-icon-brand-stackoverflow', DileIconlibBrandStackoverflow);
+}

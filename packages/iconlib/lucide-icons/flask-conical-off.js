@@ -6,4 +6,6 @@ export class DileIconlibFlaskConicalOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flask-conical-off', DileIconlibFlaskConicalOff);
+if (!customElements.get('dile-lucide-icon-flask-conical-off')) {
+  customElements.define('dile-lucide-icon-flask-conical-off', DileIconlibFlaskConicalOff);
+}

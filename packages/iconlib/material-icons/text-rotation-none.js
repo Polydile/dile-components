@@ -6,4 +6,6 @@ export class DileIconlibTextRotationNone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-text-rotation-none', DileIconlibTextRotationNone);
+if (!customElements.get('dile-material-icon-text-rotation-none')) {
+  customElements.define('dile-material-icon-text-rotation-none', DileIconlibTextRotationNone);
+}

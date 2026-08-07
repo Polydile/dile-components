@@ -6,4 +6,6 @@ export class DileIconlibMastercardFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mastercard-fill', DileIconlibMastercardFill);
+if (!customElements.get('dile-remixicon-icon-mastercard-fill')) {
+  customElements.define('dile-remixicon-icon-mastercard-fill', DileIconlibMastercardFill);
+}

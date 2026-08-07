@@ -6,4 +6,6 @@ export class DileIconlibDeviceIpadExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-ipad-exclamation', DileIconlibDeviceIpadExclamation);
+if (!customElements.get('dile-tabler-icon-device-ipad-exclamation')) {
+  customElements.define('dile-tabler-icon-device-ipad-exclamation', DileIconlibDeviceIpadExclamation);
+}

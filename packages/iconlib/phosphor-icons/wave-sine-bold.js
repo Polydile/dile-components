@@ -6,4 +6,6 @@ export class DileIconlibWaveSineBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-sine-bold', DileIconlibWaveSineBold);
+if (!customElements.get('dile-phosphor-icon-wave-sine-bold')) {
+  customElements.define('dile-phosphor-icon-wave-sine-bold', DileIconlibWaveSineBold);
+}

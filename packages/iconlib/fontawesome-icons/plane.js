@@ -6,4 +6,6 @@ export class DileIconlibPlane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plane', DileIconlibPlane);
+if (!customElements.get('dile-fontawesome-icon-plane')) {
+  customElements.define('dile-fontawesome-icon-plane', DileIconlibPlane);
+}

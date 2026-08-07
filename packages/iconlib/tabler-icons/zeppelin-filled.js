@@ -6,4 +6,6 @@ export class DileIconlibZeppelinFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zeppelin-filled', DileIconlibZeppelinFilled);
+if (!customElements.get('dile-tabler-icon-zeppelin-filled')) {
+  customElements.define('dile-tabler-icon-zeppelin-filled', DileIconlibZeppelinFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMountainsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mountains-duotone', DileIconlibMountainsDuotone);
+if (!customElements.get('dile-phosphor-icon-mountains-duotone')) {
+  customElements.define('dile-phosphor-icon-mountains-duotone', DileIconlibMountainsDuotone);
+}

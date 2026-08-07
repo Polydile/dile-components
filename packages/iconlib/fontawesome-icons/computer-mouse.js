@@ -6,4 +6,6 @@ export class DileIconlibComputerMouse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-computer-mouse', DileIconlibComputerMouse);
+if (!customElements.get('dile-fontawesome-icon-computer-mouse')) {
+  customElements.define('dile-fontawesome-icon-computer-mouse', DileIconlibComputerMouse);
+}

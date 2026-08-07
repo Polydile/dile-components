@@ -6,4 +6,6 @@ export class DileIconlibVolumeXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-volume-xmark', DileIconlibVolumeXmark);
+if (!customElements.get('dile-fontawesome-icon-volume-xmark')) {
+  customElements.define('dile-fontawesome-icon-volume-xmark', DileIconlibVolumeXmark);
+}

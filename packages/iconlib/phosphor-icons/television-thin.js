@@ -6,4 +6,6 @@ export class DileIconlibTelevisionThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-television-thin', DileIconlibTelevisionThin);
+if (!customElements.get('dile-phosphor-icon-television-thin')) {
+  customElements.define('dile-phosphor-icon-television-thin', DileIconlibTelevisionThin);
+}

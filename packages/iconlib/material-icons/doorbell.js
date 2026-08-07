@@ -6,4 +6,6 @@ export class DileIconlibDoorbell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-doorbell', DileIconlibDoorbell);
+if (!customElements.get('dile-material-icon-doorbell')) {
+  customElements.define('dile-material-icon-doorbell', DileIconlibDoorbell);
+}

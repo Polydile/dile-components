@@ -6,4 +6,6 @@ export class DileIconlibRanking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ranking', DileIconlibRanking);
+if (!customElements.get('dile-phosphor-icon-ranking')) {
+  customElements.define('dile-phosphor-icon-ranking', DileIconlibRanking);
+}

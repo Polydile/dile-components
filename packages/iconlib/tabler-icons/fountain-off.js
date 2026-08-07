@@ -6,4 +6,6 @@ export class DileIconlibFountainOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fountain-off', DileIconlibFountainOff);
+if (!customElements.get('dile-tabler-icon-fountain-off')) {
+  customElements.define('dile-tabler-icon-fountain-off', DileIconlibFountainOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHockeyDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hockey-duotone', DileIconlibHockeyDuotone);
+if (!customElements.get('dile-phosphor-icon-hockey-duotone')) {
+  customElements.define('dile-phosphor-icon-hockey-duotone', DileIconlibHockeyDuotone);
+}

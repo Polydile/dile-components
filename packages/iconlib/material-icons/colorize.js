@@ -6,4 +6,6 @@ export class DileIconlibColorize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-colorize', DileIconlibColorize);
+if (!customElements.get('dile-material-icon-colorize')) {
+  customElements.define('dile-material-icon-colorize', DileIconlibColorize);
+}

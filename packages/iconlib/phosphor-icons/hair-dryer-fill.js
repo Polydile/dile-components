@@ -6,4 +6,6 @@ export class DileIconlibHairDryerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hair-dryer-fill', DileIconlibHairDryerFill);
+if (!customElements.get('dile-phosphor-icon-hair-dryer-fill')) {
+  customElements.define('dile-phosphor-icon-hair-dryer-fill', DileIconlibHairDryerFill);
+}

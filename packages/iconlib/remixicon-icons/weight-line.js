@@ -6,4 +6,6 @@ export class DileIconlibWeightLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-weight-line', DileIconlibWeightLine);
+if (!customElements.get('dile-remixicon-icon-weight-line')) {
+  customElements.define('dile-remixicon-icon-weight-line', DileIconlibWeightLine);
+}

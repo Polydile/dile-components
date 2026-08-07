@@ -6,4 +6,6 @@ export class DileIconlibShadowLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shadow-line', DileIconlibShadowLine);
+if (!customElements.get('dile-remixicon-icon-shadow-line')) {
+  customElements.define('dile-remixicon-icon-shadow-line', DileIconlibShadowLine);
+}

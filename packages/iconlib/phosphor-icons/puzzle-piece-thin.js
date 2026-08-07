@@ -6,4 +6,6 @@ export class DileIconlibPuzzlePieceThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-puzzle-piece-thin', DileIconlibPuzzlePieceThin);
+if (!customElements.get('dile-phosphor-icon-puzzle-piece-thin')) {
+  customElements.define('dile-phosphor-icon-puzzle-piece-thin', DileIconlibPuzzlePieceThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCarFan2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-fan-2', DileIconlibCarFan2);
+if (!customElements.get('dile-tabler-icon-car-fan-2')) {
+  customElements.define('dile-tabler-icon-car-fan-2', DileIconlibCarFan2);
+}

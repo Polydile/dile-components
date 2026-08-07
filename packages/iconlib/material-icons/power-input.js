@@ -6,4 +6,6 @@ export class DileIconlibPowerInput extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-power-input', DileIconlibPowerInput);
+if (!customElements.get('dile-material-icon-power-input')) {
+  customElements.define('dile-material-icon-power-input', DileIconlibPowerInput);
+}

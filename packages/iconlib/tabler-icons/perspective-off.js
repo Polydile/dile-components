@@ -6,4 +6,6 @@ export class DileIconlibPerspectiveOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-perspective-off', DileIconlibPerspectiveOff);
+if (!customElements.get('dile-tabler-icon-perspective-off')) {
+  customElements.define('dile-tabler-icon-perspective-off', DileIconlibPerspectiveOff);
+}

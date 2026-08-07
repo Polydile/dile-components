@@ -6,4 +6,6 @@ export class DileIconlibBrandWix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-wix', DileIconlibBrandWix);
+if (!customElements.get('dile-tabler-icon-brand-wix')) {
+  customElements.define('dile-tabler-icon-brand-wix', DileIconlibBrandWix);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartGridDots extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-grid-dots', DileIconlibChartGridDots);
+if (!customElements.get('dile-tabler-icon-chart-grid-dots')) {
+  customElements.define('dile-tabler-icon-chart-grid-dots', DileIconlibChartGridDots);
+}

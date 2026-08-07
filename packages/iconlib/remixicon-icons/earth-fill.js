@@ -6,4 +6,6 @@ export class DileIconlibEarthFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-earth-fill', DileIconlibEarthFill);
+if (!customElements.get('dile-remixicon-icon-earth-fill')) {
+  customElements.define('dile-remixicon-icon-earth-fill', DileIconlibEarthFill);
+}

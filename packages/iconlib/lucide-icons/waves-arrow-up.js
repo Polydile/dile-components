@@ -6,4 +6,6 @@ export class DileIconlibWavesArrowUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-waves-arrow-up', DileIconlibWavesArrowUp);
+if (!customElements.get('dile-lucide-icon-waves-arrow-up')) {
+  customElements.define('dile-lucide-icon-waves-arrow-up', DileIconlibWavesArrowUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPictureInPictureLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-picture-in-picture-line', DileIconlibPictureInPictureLine);
+if (!customElements.get('dile-remixicon-icon-picture-in-picture-line')) {
+  customElements.define('dile-remixicon-icon-picture-in-picture-line', DileIconlibPictureInPictureLine);
+}

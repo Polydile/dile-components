@@ -1,3 +1,5 @@
 import { DileCardSlide } from "./src/DileCardSlide.js";
 
-window.customElements.define("dile-card-slide", DileCardSlide);
+if (!customElements.get("dile-card-slide")) {
+  window.customElements.define("dile-card-slide", DileCardSlide);
+}

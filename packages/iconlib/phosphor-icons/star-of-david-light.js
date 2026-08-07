@@ -6,4 +6,6 @@ export class DileIconlibStarOfDavidLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-of-david-light', DileIconlibStarOfDavidLight);
+if (!customElements.get('dile-phosphor-icon-star-of-david-light')) {
+  customElements.define('dile-phosphor-icon-star-of-david-light', DileIconlibStarOfDavidLight);
+}

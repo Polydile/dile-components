@@ -6,4 +6,6 @@ export class DileIconlibMultiply extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-multiply', DileIconlibMultiply);
+if (!customElements.get('dile-fontawesome-icon-multiply')) {
+  customElements.define('dile-fontawesome-icon-multiply', DileIconlibMultiply);
+}

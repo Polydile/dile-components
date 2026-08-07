@@ -6,4 +6,6 @@ export class DileIconlibFlask2Off extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flask-2-off', DileIconlibFlask2Off);
+if (!customElements.get('dile-tabler-icon-flask-2-off')) {
+  customElements.define('dile-tabler-icon-flask-2-off', DileIconlibFlask2Off);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRoadCircleCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-circle-check', DileIconlibRoadCircleCheck);
+if (!customElements.get('dile-fontawesome-icon-road-circle-check')) {
+  customElements.define('dile-fontawesome-icon-road-circle-check', DileIconlibRoadCircleCheck);
+}

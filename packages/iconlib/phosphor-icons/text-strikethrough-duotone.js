@@ -6,4 +6,6 @@ export class DileIconlibTextStrikethroughDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-strikethrough-duotone', DileIconlibTextStrikethroughDuotone);
+if (!customElements.get('dile-phosphor-icon-text-strikethrough-duotone')) {
+  customElements.define('dile-phosphor-icon-text-strikethrough-duotone', DileIconlibTextStrikethroughDuotone);
+}

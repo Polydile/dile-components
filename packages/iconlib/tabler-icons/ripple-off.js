@@ -6,4 +6,6 @@ export class DileIconlibRippleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ripple-off', DileIconlibRippleOff);
+if (!customElements.get('dile-tabler-icon-ripple-off')) {
+  customElements.define('dile-tabler-icon-ripple-off', DileIconlibRippleOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhoneAndroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phone-android', DileIconlibPhoneAndroid);
+if (!customElements.get('dile-material-icon-phone-android')) {
+  customElements.define('dile-material-icon-phone-android', DileIconlibPhoneAndroid);
+}

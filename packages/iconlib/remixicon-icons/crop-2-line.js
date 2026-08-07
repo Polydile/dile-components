@@ -6,4 +6,6 @@ export class DileIconlibCrop2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-crop-2-line', DileIconlibCrop2Line);
+if (!customElements.get('dile-remixicon-icon-crop-2-line')) {
+  customElements.define('dile-remixicon-icon-crop-2-line', DileIconlibCrop2Line);
+}

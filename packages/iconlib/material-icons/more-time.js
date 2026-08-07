@@ -6,4 +6,6 @@ export class DileIconlibMoreTime extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-more-time', DileIconlibMoreTime);
+if (!customElements.get('dile-material-icon-more-time')) {
+  customElements.define('dile-material-icon-more-time', DileIconlibMoreTime);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHandThreeFingers extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hand-three-fingers', DileIconlibHandThreeFingers);
+if (!customElements.get('dile-tabler-icon-hand-three-fingers')) {
+  customElements.define('dile-tabler-icon-hand-three-fingers', DileIconlibHandThreeFingers);
+}

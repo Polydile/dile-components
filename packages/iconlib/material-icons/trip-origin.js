@@ -6,4 +6,6 @@ export class DileIconlibTripOrigin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-trip-origin', DileIconlibTripOrigin);
+if (!customElements.get('dile-material-icon-trip-origin')) {
+  customElements.define('dile-material-icon-trip-origin', DileIconlibTripOrigin);
+}

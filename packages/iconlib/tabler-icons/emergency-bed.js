@@ -6,4 +6,6 @@ export class DileIconlibEmergencyBed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-emergency-bed', DileIconlibEmergencyBed);
+if (!customElements.get('dile-tabler-icon-emergency-bed')) {
+  customElements.define('dile-tabler-icon-emergency-bed', DileIconlibEmergencyBed);
+}

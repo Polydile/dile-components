@@ -6,4 +6,6 @@ export class DileIconlibPhoneBluetoothSpeaker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phone-bluetooth-speaker', DileIconlibPhoneBluetoothSpeaker);
+if (!customElements.get('dile-material-icon-phone-bluetooth-speaker')) {
+  customElements.define('dile-material-icon-phone-bluetooth-speaker', DileIconlibPhoneBluetoothSpeaker);
+}

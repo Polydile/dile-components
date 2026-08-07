@@ -6,4 +6,6 @@ export class DileIconlibShippingContainerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shipping-container-fill', DileIconlibShippingContainerFill);
+if (!customElements.get('dile-phosphor-icon-shipping-container-fill')) {
+  customElements.define('dile-phosphor-icon-shipping-container-fill', DileIconlibShippingContainerFill);
+}

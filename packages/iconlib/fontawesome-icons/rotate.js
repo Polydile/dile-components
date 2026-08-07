@@ -6,4 +6,6 @@ export class DileIconlibRotate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rotate', DileIconlibRotate);
+if (!customElements.get('dile-fontawesome-icon-rotate')) {
+  customElements.define('dile-fontawesome-icon-rotate', DileIconlibRotate);
+}

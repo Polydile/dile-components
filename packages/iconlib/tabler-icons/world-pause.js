@@ -6,4 +6,6 @@ export class DileIconlibWorldPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-pause', DileIconlibWorldPause);
+if (!customElements.get('dile-tabler-icon-world-pause')) {
+  customElements.define('dile-tabler-icon-world-pause', DileIconlibWorldPause);
+}

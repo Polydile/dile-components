@@ -6,4 +6,6 @@ export class DileIconlibVenusDouble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-venus-double', DileIconlibVenusDouble);
+if (!customElements.get('dile-fontawesome-icon-venus-double')) {
+  customElements.define('dile-fontawesome-icon-venus-double', DileIconlibVenusDouble);
+}

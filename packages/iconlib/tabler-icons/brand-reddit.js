@@ -6,4 +6,6 @@ export class DileIconlibBrandReddit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-reddit', DileIconlibBrandReddit);
+if (!customElements.get('dile-tabler-icon-brand-reddit')) {
+  customElements.define('dile-tabler-icon-brand-reddit', DileIconlibBrandReddit);
+}

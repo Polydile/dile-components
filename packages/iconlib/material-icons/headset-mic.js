@@ -6,4 +6,6 @@ export class DileIconlibHeadsetMic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-headset-mic', DileIconlibHeadsetMic);
+if (!customElements.get('dile-material-icon-headset-mic')) {
+  customElements.define('dile-material-icon-headset-mic', DileIconlibHeadsetMic);
+}

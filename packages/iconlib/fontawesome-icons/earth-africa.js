@@ -6,4 +6,6 @@ export class DileIconlibEarthAfrica extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-earth-africa', DileIconlibEarthAfrica);
+if (!customElements.get('dile-fontawesome-icon-earth-africa')) {
+  customElements.define('dile-fontawesome-icon-earth-africa', DileIconlibEarthAfrica);
+}

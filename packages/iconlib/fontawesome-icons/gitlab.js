@@ -6,4 +6,6 @@ export class DileIconlibGitlab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gitlab', DileIconlibGitlab);
+if (!customElements.get('dile-fontawesome-icon-gitlab')) {
+  customElements.define('dile-fontawesome-icon-gitlab', DileIconlibGitlab);
+}

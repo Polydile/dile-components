@@ -6,4 +6,6 @@ export class DileIconlibDeleteSweep extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-delete-sweep', DileIconlibDeleteSweep);
+if (!customElements.get('dile-material-icon-delete-sweep')) {
+  customElements.define('dile-material-icon-delete-sweep', DileIconlibDeleteSweep);
+}

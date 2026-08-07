@@ -6,4 +6,6 @@ export class DileIconlibTicTac extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tic-tac', DileIconlibTicTac);
+if (!customElements.get('dile-tabler-icon-tic-tac')) {
+  customElements.define('dile-tabler-icon-tic-tac', DileIconlibTicTac);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPeoplePulling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-pulling', DileIconlibPeoplePulling);
+if (!customElements.get('dile-fontawesome-icon-people-pulling')) {
+  customElements.define('dile-fontawesome-icon-people-pulling', DileIconlibPeoplePulling);
+}

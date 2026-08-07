@@ -6,4 +6,6 @@ export class DileIconlibSignalTowerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-signal-tower-fill', DileIconlibSignalTowerFill);
+if (!customElements.get('dile-remixicon-icon-signal-tower-fill')) {
+  customElements.define('dile-remixicon-icon-signal-tower-fill', DileIconlibSignalTowerFill);
+}

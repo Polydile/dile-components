@@ -6,4 +6,6 @@ export class DileIconlibMichelinStarFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-michelin-star-filled', DileIconlibMichelinStarFilled);
+if (!customElements.get('dile-tabler-icon-michelin-star-filled')) {
+  customElements.define('dile-tabler-icon-michelin-star-filled', DileIconlibMichelinStarFilled);
+}

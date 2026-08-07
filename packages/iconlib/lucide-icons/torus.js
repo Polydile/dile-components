@@ -6,4 +6,6 @@ export class DileIconlibTorus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-torus', DileIconlibTorus);
+if (!customElements.get('dile-lucide-icon-torus')) {
+  customElements.define('dile-lucide-icon-torus', DileIconlibTorus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhoneDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phone-disabled', DileIconlibPhoneDisabled);
+if (!customElements.get('dile-material-icon-phone-disabled')) {
+  customElements.define('dile-material-icon-phone-disabled', DileIconlibPhoneDisabled);
+}

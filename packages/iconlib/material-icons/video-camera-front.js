@@ -6,4 +6,6 @@ export class DileIconlibVideoCameraFront extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-video-camera-front', DileIconlibVideoCameraFront);
+if (!customElements.get('dile-material-icon-video-camera-front')) {
+  customElements.define('dile-material-icon-video-camera-front', DileIconlibVideoCameraFront);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandBehance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-behance', DileIconlibBrandBehance);
+if (!customElements.get('dile-tabler-icon-brand-behance')) {
+  customElements.define('dile-tabler-icon-brand-behance', DileIconlibBrandBehance);
+}

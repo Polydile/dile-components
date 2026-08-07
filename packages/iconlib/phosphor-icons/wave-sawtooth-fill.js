@@ -6,4 +6,6 @@ export class DileIconlibWaveSawtoothFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-sawtooth-fill', DileIconlibWaveSawtoothFill);
+if (!customElements.get('dile-phosphor-icon-wave-sawtooth-fill')) {
+  customElements.define('dile-phosphor-icon-wave-sawtooth-fill', DileIconlibWaveSawtoothFill);
+}

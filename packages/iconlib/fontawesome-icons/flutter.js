@@ -6,4 +6,6 @@ export class DileIconlibFlutter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-flutter', DileIconlibFlutter);
+if (!customElements.get('dile-fontawesome-icon-flutter')) {
+  customElements.define('dile-fontawesome-icon-flutter', DileIconlibFlutter);
+}

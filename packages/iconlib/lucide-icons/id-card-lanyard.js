@@ -6,4 +6,6 @@ export class DileIconlibIdCardLanyard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-id-card-lanyard', DileIconlibIdCardLanyard);
+if (!customElements.get('dile-lucide-icon-id-card-lanyard')) {
+  customElements.define('dile-lucide-icon-id-card-lanyard', DileIconlibIdCardLanyard);
+}

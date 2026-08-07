@@ -6,4 +6,6 @@ export class DileIconlibAppWindow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-app-window', DileIconlibAppWindow);
+if (!customElements.get('dile-lucide-icon-app-window')) {
+  customElements.define('dile-lucide-icon-app-window', DileIconlibAppWindow);
+}

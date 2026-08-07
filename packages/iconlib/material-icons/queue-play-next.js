@@ -6,4 +6,6 @@ export class DileIconlibQueuePlayNext extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-queue-play-next', DileIconlibQueuePlayNext);
+if (!customElements.get('dile-material-icon-queue-play-next')) {
+  customElements.define('dile-material-icon-queue-play-next', DileIconlibQueuePlayNext);
+}

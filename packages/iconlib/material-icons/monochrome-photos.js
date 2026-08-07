@@ -6,4 +6,6 @@ export class DileIconlibMonochromePhotos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-monochrome-photos', DileIconlibMonochromePhotos);
+if (!customElements.get('dile-material-icon-monochrome-photos')) {
+  customElements.define('dile-material-icon-monochrome-photos', DileIconlibMonochromePhotos);
+}

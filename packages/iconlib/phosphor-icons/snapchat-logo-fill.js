@@ -6,4 +6,6 @@ export class DileIconlibSnapchatLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-snapchat-logo-fill', DileIconlibSnapchatLogoFill);
+if (!customElements.get('dile-phosphor-icon-snapchat-logo-fill')) {
+  customElements.define('dile-phosphor-icon-snapchat-logo-fill', DileIconlibSnapchatLogoFill);
+}

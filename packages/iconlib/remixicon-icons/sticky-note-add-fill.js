@@ -6,4 +6,6 @@ export class DileIconlibStickyNoteAddFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sticky-note-add-fill', DileIconlibStickyNoteAddFill);
+if (!customElements.get('dile-remixicon-icon-sticky-note-add-fill')) {
+  customElements.define('dile-remixicon-icon-sticky-note-add-fill', DileIconlibStickyNoteAddFill);
+}

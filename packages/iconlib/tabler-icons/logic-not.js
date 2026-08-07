@@ -6,4 +6,6 @@ export class DileIconlibLogicNot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-logic-not', DileIconlibLogicNot);
+if (!customElements.get('dile-tabler-icon-logic-not')) {
+  customElements.define('dile-tabler-icon-logic-not', DileIconlibLogicNot);
+}

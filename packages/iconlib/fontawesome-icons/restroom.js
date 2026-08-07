@@ -6,4 +6,6 @@ export class DileIconlibRestroom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-restroom', DileIconlibRestroom);
+if (!customElements.get('dile-fontawesome-icon-restroom')) {
+  customElements.define('dile-fontawesome-icon-restroom', DileIconlibRestroom);
+}

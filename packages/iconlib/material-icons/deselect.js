@@ -6,4 +6,6 @@ export class DileIconlibDeselect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-deselect', DileIconlibDeselect);
+if (!customElements.get('dile-material-icon-deselect')) {
+  customElements.define('dile-material-icon-deselect', DileIconlibDeselect);
+}

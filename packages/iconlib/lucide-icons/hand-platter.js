@@ -6,4 +6,6 @@ export class DileIconlibHandPlatter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hand-platter', DileIconlibHandPlatter);
+if (!customElements.get('dile-lucide-icon-hand-platter')) {
+  customElements.define('dile-lucide-icon-hand-platter', DileIconlibHandPlatter);
+}

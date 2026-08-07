@@ -6,4 +6,6 @@ export class DileIconlibBrandNordVpn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-nord-vpn', DileIconlibBrandNordVpn);
+if (!customElements.get('dile-tabler-icon-brand-nord-vpn')) {
+  customElements.define('dile-tabler-icon-brand-nord-vpn', DileIconlibBrandNordVpn);
+}

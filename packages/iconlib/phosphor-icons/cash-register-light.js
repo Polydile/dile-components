@@ -6,4 +6,6 @@ export class DileIconlibCashRegisterLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cash-register-light', DileIconlibCashRegisterLight);
+if (!customElements.get('dile-phosphor-icon-cash-register-light')) {
+  customElements.define('dile-phosphor-icon-cash-register-light', DileIconlibCashRegisterLight);
+}

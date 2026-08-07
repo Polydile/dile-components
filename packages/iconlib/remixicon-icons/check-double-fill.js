@@ -6,4 +6,6 @@ export class DileIconlibCheckDoubleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-check-double-fill', DileIconlibCheckDoubleFill);
+if (!customElements.get('dile-remixicon-icon-check-double-fill')) {
+  customElements.define('dile-remixicon-icon-check-double-fill', DileIconlibCheckDoubleFill);
+}

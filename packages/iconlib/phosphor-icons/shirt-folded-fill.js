@@ -6,4 +6,6 @@ export class DileIconlibShirtFoldedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shirt-folded-fill', DileIconlibShirtFoldedFill);
+if (!customElements.get('dile-phosphor-icon-shirt-folded-fill')) {
+  customElements.define('dile-phosphor-icon-shirt-folded-fill', DileIconlibShirtFoldedFill);
+}

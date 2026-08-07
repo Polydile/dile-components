@@ -1,2 +1,4 @@
 import { DileModalCrudInsert } from './src/DileModalCrudInsert.js';
-customElements.define('dile-modal-crud-insert', DileModalCrudInsert);
+if (!customElements.get('dile-modal-crud-insert')) {
+  customElements.define('dile-modal-crud-insert', DileModalCrudInsert);
+}

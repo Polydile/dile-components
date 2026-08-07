@@ -6,4 +6,6 @@ export class DileIconlibWbIridescent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wb-iridescent', DileIconlibWbIridescent);
+if (!customElements.get('dile-material-icon-wb-iridescent')) {
+  customElements.define('dile-material-icon-wb-iridescent', DileIconlibWbIridescent);
+}

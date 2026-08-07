@@ -6,4 +6,6 @@ export class DileIconlibArrowsShuffle2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-shuffle-2', DileIconlibArrowsShuffle2);
+if (!customElements.get('dile-tabler-icon-arrows-shuffle-2')) {
+  customElements.define('dile-tabler-icon-arrows-shuffle-2', DileIconlibArrowsShuffle2);
+}

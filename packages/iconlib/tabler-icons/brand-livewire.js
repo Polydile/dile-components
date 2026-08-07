@@ -6,4 +6,6 @@ export class DileIconlibBrandLivewire extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-livewire', DileIconlibBrandLivewire);
+if (!customElements.get('dile-tabler-icon-brand-livewire')) {
+  customElements.define('dile-tabler-icon-brand-livewire', DileIconlibBrandLivewire);
+}

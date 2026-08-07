@@ -6,4 +6,6 @@ export class DileIconlibPushed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pushed', DileIconlibPushed);
+if (!customElements.get('dile-fontawesome-icon-pushed')) {
+  customElements.define('dile-fontawesome-icon-pushed', DileIconlibPushed);
+}

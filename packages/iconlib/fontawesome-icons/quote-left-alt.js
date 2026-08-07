@@ -6,4 +6,6 @@ export class DileIconlibQuoteLeftAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-quote-left-alt', DileIconlibQuoteLeftAlt);
+if (!customElements.get('dile-fontawesome-icon-quote-left-alt')) {
+  customElements.define('dile-fontawesome-icon-quote-left-alt', DileIconlibQuoteLeftAlt);
+}

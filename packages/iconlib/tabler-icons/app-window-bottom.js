@@ -6,4 +6,6 @@ export class DileIconlibAppWindowBottom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-app-window-bottom', DileIconlibAppWindowBottom);
+if (!customElements.get('dile-tabler-icon-app-window-bottom')) {
+  customElements.define('dile-tabler-icon-app-window-bottom', DileIconlibAppWindowBottom);
+}

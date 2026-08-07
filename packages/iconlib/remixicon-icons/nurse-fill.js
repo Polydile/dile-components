@@ -6,4 +6,6 @@ export class DileIconlibNurseFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-nurse-fill', DileIconlibNurseFill);
+if (!customElements.get('dile-remixicon-icon-nurse-fill')) {
+  customElements.define('dile-remixicon-icon-nurse-fill', DileIconlibNurseFill);
+}

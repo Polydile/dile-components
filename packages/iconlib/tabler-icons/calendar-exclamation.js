@@ -6,4 +6,6 @@ export class DileIconlibCalendarExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-exclamation', DileIconlibCalendarExclamation);
+if (!customElements.get('dile-tabler-icon-calendar-exclamation')) {
+  customElements.define('dile-tabler-icon-calendar-exclamation', DileIconlibCalendarExclamation);
+}

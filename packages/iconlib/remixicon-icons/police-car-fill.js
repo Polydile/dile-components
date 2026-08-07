@@ -6,4 +6,6 @@ export class DileIconlibPoliceCarFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-police-car-fill', DileIconlibPoliceCarFill);
+if (!customElements.get('dile-remixicon-icon-police-car-fill')) {
+  customElements.define('dile-remixicon-icon-police-car-fill', DileIconlibPoliceCarFill);
+}

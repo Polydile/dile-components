@@ -6,4 +6,6 @@ export class DileIconlibMath1Divide3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-1-divide-3', DileIconlibMath1Divide3);
+if (!customElements.get('dile-tabler-icon-math-1-divide-3')) {
+  customElements.define('dile-tabler-icon-math-1-divide-3', DileIconlibMath1Divide3);
+}

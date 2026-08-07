@@ -6,4 +6,6 @@ export class DileIconlibLanguageKatakana extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-language-katakana', DileIconlibLanguageKatakana);
+if (!customElements.get('dile-tabler-icon-language-katakana')) {
+  customElements.define('dile-tabler-icon-language-katakana', DileIconlibLanguageKatakana);
+}

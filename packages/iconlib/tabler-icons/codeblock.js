@@ -6,4 +6,6 @@ export class DileIconlibCodeblock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-codeblock', DileIconlibCodeblock);
+if (!customElements.get('dile-tabler-icon-codeblock')) {
+  customElements.define('dile-tabler-icon-codeblock', DileIconlibCodeblock);
+}

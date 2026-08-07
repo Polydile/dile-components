@@ -6,4 +6,6 @@ export class DileIconlibSquareRoot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-root', DileIconlibSquareRoot);
+if (!customElements.get('dile-tabler-icon-square-root')) {
+  customElements.define('dile-tabler-icon-square-root', DileIconlibSquareRoot);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowRotaryLastLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-rotary-last-left', DileIconlibArrowRotaryLastLeft);
+if (!customElements.get('dile-tabler-icon-arrow-rotary-last-left')) {
+  customElements.define('dile-tabler-icon-arrow-rotary-last-left', DileIconlibArrowRotaryLastLeft);
+}

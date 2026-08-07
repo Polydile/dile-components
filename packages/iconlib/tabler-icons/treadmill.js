@@ -6,4 +6,6 @@ export class DileIconlibTreadmill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-treadmill', DileIconlibTreadmill);
+if (!customElements.get('dile-tabler-icon-treadmill')) {
+  customElements.define('dile-tabler-icon-treadmill', DileIconlibTreadmill);
+}

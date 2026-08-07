@@ -6,4 +6,6 @@ export class DileIconlibArrowDownLongFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-arrow-down-long-fill', DileIconlibArrowDownLongFill);
+if (!customElements.get('dile-remixicon-icon-arrow-down-long-fill')) {
+  customElements.define('dile-remixicon-icon-arrow-down-long-fill', DileIconlibArrowDownLongFill);
+}

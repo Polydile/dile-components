@@ -6,4 +6,6 @@ export class DileIconlibVoiceprintLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-voiceprint-line', DileIconlibVoiceprintLine);
+if (!customElements.get('dile-remixicon-icon-voiceprint-line')) {
+  customElements.define('dile-remixicon-icon-voiceprint-line', DileIconlibVoiceprintLine);
+}

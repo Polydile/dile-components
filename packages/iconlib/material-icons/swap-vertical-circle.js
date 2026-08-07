@@ -6,4 +6,6 @@ export class DileIconlibSwapVerticalCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-swap-vertical-circle', DileIconlibSwapVerticalCircle);
+if (!customElements.get('dile-material-icon-swap-vertical-circle')) {
+  customElements.define('dile-material-icon-swap-vertical-circle', DileIconlibSwapVerticalCircle);
+}

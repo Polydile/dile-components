@@ -6,4 +6,6 @@ export class DileIconlibWifiProtectedSetup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-protected-setup', DileIconlibWifiProtectedSetup);
+if (!customElements.get('dile-material-icon-wifi-protected-setup')) {
+  customElements.define('dile-material-icon-wifi-protected-setup', DileIconlibWifiProtectedSetup);
+}

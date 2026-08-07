@@ -6,4 +6,6 @@ export class DileIconlibTrafficCone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-traffic-cone', DileIconlibTrafficCone);
+if (!customElements.get('dile-lucide-icon-traffic-cone')) {
+  customElements.define('dile-lucide-icon-traffic-cone', DileIconlibTrafficCone);
+}

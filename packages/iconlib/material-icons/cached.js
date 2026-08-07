@@ -6,4 +6,6 @@ export class DileIconlibCached extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cached', DileIconlibCached);
+if (!customElements.get('dile-material-icon-cached')) {
+  customElements.define('dile-material-icon-cached', DileIconlibCached);
+}

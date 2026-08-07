@@ -6,4 +6,6 @@ export class DileIconlibLemon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-lemon', DileIconlibLemon);
+if (!customElements.get('dile-fontawesome-icon-regular-lemon')) {
+  customElements.define('dile-fontawesome-icon-regular-lemon', DileIconlibLemon);
+}

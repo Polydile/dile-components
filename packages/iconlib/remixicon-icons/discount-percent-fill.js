@@ -6,4 +6,6 @@ export class DileIconlibDiscountPercentFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-discount-percent-fill', DileIconlibDiscountPercentFill);
+if (!customElements.get('dile-remixicon-icon-discount-percent-fill')) {
+  customElements.define('dile-remixicon-icon-discount-percent-fill', DileIconlibDiscountPercentFill);
+}

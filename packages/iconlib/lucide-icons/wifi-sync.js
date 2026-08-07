@@ -6,4 +6,6 @@ export class DileIconlibWifiSync extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wifi-sync', DileIconlibWifiSync);
+if (!customElements.get('dile-lucide-icon-wifi-sync')) {
+  customElements.define('dile-lucide-icon-wifi-sync', DileIconlibWifiSync);
+}

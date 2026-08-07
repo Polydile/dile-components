@@ -6,4 +6,6 @@ export class DileIconlibPastafarianism extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pastafarianism', DileIconlibPastafarianism);
+if (!customElements.get('dile-fontawesome-icon-pastafarianism')) {
+  customElements.define('dile-fontawesome-icon-pastafarianism', DileIconlibPastafarianism);
+}

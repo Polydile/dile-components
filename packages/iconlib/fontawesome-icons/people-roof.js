@@ -6,4 +6,6 @@ export class DileIconlibPeopleRoof extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-roof', DileIconlibPeopleRoof);
+if (!customElements.get('dile-fontawesome-icon-people-roof')) {
+  customElements.define('dile-fontawesome-icon-people-roof', DileIconlibPeopleRoof);
+}

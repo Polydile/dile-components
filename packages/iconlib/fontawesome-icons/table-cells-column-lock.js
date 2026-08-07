@@ -6,4 +6,6 @@ export class DileIconlibTableCellsColumnLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-table-cells-column-lock', DileIconlibTableCellsColumnLock);
+if (!customElements.get('dile-fontawesome-icon-table-cells-column-lock')) {
+  customElements.define('dile-fontawesome-icon-table-cells-column-lock', DileIconlibTableCellsColumnLock);
+}

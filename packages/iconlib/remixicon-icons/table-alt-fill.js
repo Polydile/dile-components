@@ -6,4 +6,6 @@ export class DileIconlibTableAltFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-table-alt-fill', DileIconlibTableAltFill);
+if (!customElements.get('dile-remixicon-icon-table-alt-fill')) {
+  customElements.define('dile-remixicon-icon-table-alt-fill', DileIconlibTableAltFill);
+}

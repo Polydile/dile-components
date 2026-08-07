@@ -6,4 +6,6 @@ export class DileIconlibAlignHorizontalSpaceAround extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-align-horizontal-space-around', DileIconlibAlignHorizontalSpaceAround);
+if (!customElements.get('dile-lucide-icon-align-horizontal-space-around')) {
+  customElements.define('dile-lucide-icon-align-horizontal-space-around', DileIconlibAlignHorizontalSpaceAround);
+}

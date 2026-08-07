@@ -6,4 +6,6 @@ export class DileIconlibLampWallDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lamp-wall-down', DileIconlibLampWallDown);
+if (!customElements.get('dile-lucide-icon-lamp-wall-down')) {
+  customElements.define('dile-lucide-icon-lamp-wall-down', DileIconlibLampWallDown);
+}

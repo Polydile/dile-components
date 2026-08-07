@@ -6,4 +6,6 @@ export class DileIconlibNumpadLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-numpad-light', DileIconlibNumpadLight);
+if (!customElements.get('dile-phosphor-icon-numpad-light')) {
+  customElements.define('dile-phosphor-icon-numpad-light', DileIconlibNumpadLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandUpwork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-upwork', DileIconlibBrandUpwork);
+if (!customElements.get('dile-tabler-icon-brand-upwork')) {
+  customElements.define('dile-tabler-icon-brand-upwork', DileIconlibBrandUpwork);
+}

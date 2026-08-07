@@ -6,4 +6,6 @@ export class DileIconlibFileTypeVue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-vue', DileIconlibFileTypeVue);
+if (!customElements.get('dile-tabler-icon-file-type-vue')) {
+  customElements.define('dile-tabler-icon-file-type-vue', DileIconlibFileTypeVue);
+}

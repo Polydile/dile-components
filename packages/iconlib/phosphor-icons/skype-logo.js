@@ -6,4 +6,6 @@ export class DileIconlibSkypeLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-skype-logo', DileIconlibSkypeLogo);
+if (!customElements.get('dile-phosphor-icon-skype-logo')) {
+  customElements.define('dile-phosphor-icon-skype-logo', DileIconlibSkypeLogo);
+}

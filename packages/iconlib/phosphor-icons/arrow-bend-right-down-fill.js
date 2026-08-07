@@ -6,4 +6,6 @@ export class DileIconlibArrowBendRightDownFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrow-bend-right-down-fill', DileIconlibArrowBendRightDownFill);
+if (!customElements.get('dile-phosphor-icon-arrow-bend-right-down-fill')) {
+  customElements.define('dile-phosphor-icon-arrow-bend-right-down-fill', DileIconlibArrowBendRightDownFill);
+}

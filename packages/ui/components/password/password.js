@@ -1,3 +1,5 @@
 import { DilePassword } from './src/DilePassword.js';
 
-window.customElements.define('dile-password', DilePassword);
+if (!customElements.get('dile-password')) {
+  window.customElements.define('dile-password', DilePassword);
+}

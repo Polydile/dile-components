@@ -6,4 +6,6 @@ export class DileIconlibViewComfyAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-comfy-alt', DileIconlibViewComfyAlt);
+if (!customElements.get('dile-material-icon-view-comfy-alt')) {
+  customElements.define('dile-material-icon-view-comfy-alt', DileIconlibViewComfyAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneyBillTrendUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-money-bill-trend-up', DileIconlibMoneyBillTrendUp);
+if (!customElements.get('dile-fontawesome-icon-money-bill-trend-up')) {
+  customElements.define('dile-fontawesome-icon-money-bill-trend-up', DileIconlibMoneyBillTrendUp);
+}

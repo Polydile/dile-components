@@ -6,4 +6,6 @@ export class DileIconlibFontSerif extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-font-serif', DileIconlibFontSerif);
+if (!customElements.get('dile-remixicon-icon-font-serif')) {
+  customElements.define('dile-remixicon-icon-font-serif', DileIconlibFontSerif);
+}

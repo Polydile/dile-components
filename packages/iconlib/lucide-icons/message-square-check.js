@@ -6,4 +6,6 @@ export class DileIconlibMessageSquareCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-message-square-check', DileIconlibMessageSquareCheck);
+if (!customElements.get('dile-lucide-icon-message-square-check')) {
+  customElements.define('dile-lucide-icon-message-square-check', DileIconlibMessageSquareCheck);
+}

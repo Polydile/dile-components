@@ -6,4 +6,6 @@ export class DileIconlibGuitarPickFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-guitar-pick-filled', DileIconlibGuitarPickFilled);
+if (!customElements.get('dile-tabler-icon-guitar-pick-filled')) {
+  customElements.define('dile-tabler-icon-guitar-pick-filled', DileIconlibGuitarPickFilled);
+}

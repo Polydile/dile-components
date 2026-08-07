@@ -6,4 +6,6 @@ export class DileIconlibDossierLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dossier-line', DileIconlibDossierLine);
+if (!customElements.get('dile-remixicon-icon-dossier-line')) {
+  customElements.define('dile-remixicon-icon-dossier-line', DileIconlibDossierLine);
+}

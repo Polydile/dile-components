@@ -6,4 +6,6 @@ export class DileIconlibWaveTriangleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wave-triangle-light', DileIconlibWaveTriangleLight);
+if (!customElements.get('dile-phosphor-icon-wave-triangle-light')) {
+  customElements.define('dile-phosphor-icon-wave-triangle-light', DileIconlibWaveTriangleLight);
+}

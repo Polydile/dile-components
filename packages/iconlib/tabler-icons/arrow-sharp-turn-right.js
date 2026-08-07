@@ -6,4 +6,6 @@ export class DileIconlibArrowSharpTurnRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-sharp-turn-right', DileIconlibArrowSharpTurnRight);
+if (!customElements.get('dile-tabler-icon-arrow-sharp-turn-right')) {
+  customElements.define('dile-tabler-icon-arrow-sharp-turn-right', DileIconlibArrowSharpTurnRight);
+}

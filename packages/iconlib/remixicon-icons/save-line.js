@@ -6,4 +6,6 @@ export class DileIconlibSaveLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-save-line', DileIconlibSaveLine);
+if (!customElements.get('dile-remixicon-icon-save-line')) {
+  customElements.define('dile-remixicon-icon-save-line', DileIconlibSaveLine);
+}

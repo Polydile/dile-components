@@ -6,4 +6,6 @@ export class DileIconlibSpeakerDeck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-speaker-deck', DileIconlibSpeakerDeck);
+if (!customElements.get('dile-fontawesome-icon-speaker-deck')) {
+  customElements.define('dile-fontawesome-icon-speaker-deck', DileIconlibSpeakerDeck);
+}

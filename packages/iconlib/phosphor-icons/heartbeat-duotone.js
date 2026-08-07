@@ -6,4 +6,6 @@ export class DileIconlibHeartbeatDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-heartbeat-duotone', DileIconlibHeartbeatDuotone);
+if (!customElements.get('dile-phosphor-icon-heartbeat-duotone')) {
+  customElements.define('dile-phosphor-icon-heartbeat-duotone', DileIconlibHeartbeatDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFilePyLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-py-light', DileIconlibFilePyLight);
+if (!customElements.get('dile-phosphor-icon-file-py-light')) {
+  customElements.define('dile-phosphor-icon-file-py-light', DileIconlibFilePyLight);
+}

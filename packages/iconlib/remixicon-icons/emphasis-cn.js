@@ -6,4 +6,6 @@ export class DileIconlibEmphasisCn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-emphasis-cn', DileIconlibEmphasisCn);
+if (!customElements.get('dile-remixicon-icon-emphasis-cn')) {
+  customElements.define('dile-remixicon-icon-emphasis-cn', DileIconlibEmphasisCn);
+}

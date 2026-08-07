@@ -6,4 +6,6 @@ export class DileIconlibBuildingApartment extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-building-apartment', DileIconlibBuildingApartment);
+if (!customElements.get('dile-phosphor-icon-building-apartment')) {
+  customElements.define('dile-phosphor-icon-building-apartment', DileIconlibBuildingApartment);
+}

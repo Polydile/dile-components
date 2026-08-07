@@ -6,4 +6,6 @@ export class DileIconlibTwitchLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-twitch-logo-fill', DileIconlibTwitchLogoFill);
+if (!customElements.get('dile-phosphor-icon-twitch-logo-fill')) {
+  customElements.define('dile-phosphor-icon-twitch-logo-fill', DileIconlibTwitchLogoFill);
+}

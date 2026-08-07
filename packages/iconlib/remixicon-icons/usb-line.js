@@ -6,4 +6,6 @@ export class DileIconlibUsbLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-usb-line', DileIconlibUsbLine);
+if (!customElements.get('dile-remixicon-icon-usb-line')) {
+  customElements.define('dile-remixicon-icon-usb-line', DileIconlibUsbLine);
+}

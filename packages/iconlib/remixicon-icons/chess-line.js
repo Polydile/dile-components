@@ -6,4 +6,6 @@ export class DileIconlibChessLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chess-line', DileIconlibChessLine);
+if (!customElements.get('dile-remixicon-icon-chess-line')) {
+  customElements.define('dile-remixicon-icon-chess-line', DileIconlibChessLine);
+}

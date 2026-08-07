@@ -6,4 +6,6 @@ export class DileIconlibFluorescent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fluorescent', DileIconlibFluorescent);
+if (!customElements.get('dile-material-icon-fluorescent')) {
+  customElements.define('dile-material-icon-fluorescent', DileIconlibFluorescent);
+}

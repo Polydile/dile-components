@@ -6,4 +6,6 @@ export class DileIconlibScissorsBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scissors-bold', DileIconlibScissorsBold);
+if (!customElements.get('dile-phosphor-icon-scissors-bold')) {
+  customElements.define('dile-phosphor-icon-scissors-bold', DileIconlibScissorsBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHardDrive3Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hard-drive-3-fill', DileIconlibHardDrive3Fill);
+if (!customElements.get('dile-remixicon-icon-hard-drive-3-fill')) {
+  customElements.define('dile-remixicon-icon-hard-drive-3-fill', DileIconlibHardDrive3Fill);
+}

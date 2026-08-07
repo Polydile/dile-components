@@ -6,4 +6,6 @@ export class DileIconlibCriticalRole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-critical-role', DileIconlibCriticalRole);
+if (!customElements.get('dile-fontawesome-icon-critical-role')) {
+  customElements.define('dile-fontawesome-icon-critical-role', DileIconlibCriticalRole);
+}

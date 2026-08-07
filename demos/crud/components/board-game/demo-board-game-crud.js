@@ -34,4 +34,6 @@ export class DemoBoardGamesCrud extends LitElement {
     `;
   }
 }
-customElements.define('demo-board-game-crud', DemoBoardGamesCrud);
+if (!customElements.get('demo-board-game-crud')) {
+  customElements.define('demo-board-game-crud', DemoBoardGamesCrud);
+}

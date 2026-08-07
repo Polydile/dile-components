@@ -6,4 +6,6 @@ export class DileIconlibTextHeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-text-height', DileIconlibTextHeight);
+if (!customElements.get('dile-fontawesome-icon-text-height')) {
+  customElements.define('dile-fontawesome-icon-text-height', DileIconlibTextHeight);
+}

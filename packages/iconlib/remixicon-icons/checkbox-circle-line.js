@@ -6,4 +6,6 @@ export class DileIconlibCheckboxCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-checkbox-circle-line', DileIconlibCheckboxCircleLine);
+if (!customElements.get('dile-remixicon-icon-checkbox-circle-line')) {
+  customElements.define('dile-remixicon-icon-checkbox-circle-line', DileIconlibCheckboxCircleLine);
+}

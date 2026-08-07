@@ -6,4 +6,6 @@ export class DileIconlibBatteryVerticalMediumDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-battery-vertical-medium-duotone', DileIconlibBatteryVerticalMediumDuotone);
+if (!customElements.get('dile-phosphor-icon-battery-vertical-medium-duotone')) {
+  customElements.define('dile-phosphor-icon-battery-vertical-medium-duotone', DileIconlibBatteryVerticalMediumDuotone);
+}

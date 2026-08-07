@@ -6,4 +6,6 @@ export class DileIconlibCaravanFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-caravan-filled', DileIconlibCaravanFilled);
+if (!customElements.get('dile-tabler-icon-caravan-filled')) {
+  customElements.define('dile-tabler-icon-caravan-filled', DileIconlibCaravanFilled);
+}

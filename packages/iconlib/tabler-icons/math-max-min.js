@@ -6,4 +6,6 @@ export class DileIconlibMathMaxMin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-math-max-min', DileIconlibMathMaxMin);
+if (!customElements.get('dile-tabler-icon-math-max-min')) {
+  customElements.define('dile-tabler-icon-math-max-min', DileIconlibMathMaxMin);
+}

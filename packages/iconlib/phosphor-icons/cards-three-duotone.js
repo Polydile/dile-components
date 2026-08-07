@@ -6,4 +6,6 @@ export class DileIconlibCardsThreeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cards-three-duotone', DileIconlibCardsThreeDuotone);
+if (!customElements.get('dile-phosphor-icon-cards-three-duotone')) {
+  customElements.define('dile-phosphor-icon-cards-three-duotone', DileIconlibCardsThreeDuotone);
+}

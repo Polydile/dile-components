@@ -6,4 +6,6 @@ export class DileIconlibBleachNoChlorine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bleach-no-chlorine', DileIconlibBleachNoChlorine);
+if (!customElements.get('dile-tabler-icon-bleach-no-chlorine')) {
+  customElements.define('dile-tabler-icon-bleach-no-chlorine', DileIconlibBleachNoChlorine);
+}

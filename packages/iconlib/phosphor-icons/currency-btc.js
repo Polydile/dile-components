@@ -6,4 +6,6 @@ export class DileIconlibCurrencyBtc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-btc', DileIconlibCurrencyBtc);
+if (!customElements.get('dile-phosphor-icon-currency-btc')) {
+  customElements.define('dile-phosphor-icon-currency-btc', DileIconlibCurrencyBtc);
+}

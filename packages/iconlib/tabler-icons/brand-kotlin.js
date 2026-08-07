@@ -6,4 +6,6 @@ export class DileIconlibBrandKotlin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-kotlin', DileIconlibBrandKotlin);
+if (!customElements.get('dile-tabler-icon-brand-kotlin')) {
+  customElements.define('dile-tabler-icon-brand-kotlin', DileIconlibBrandKotlin);
+}

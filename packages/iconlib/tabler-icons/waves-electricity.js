@@ -6,4 +6,6 @@ export class DileIconlibWavesElectricity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-waves-electricity', DileIconlibWavesElectricity);
+if (!customElements.get('dile-tabler-icon-waves-electricity')) {
+  customElements.define('dile-tabler-icon-waves-electricity', DileIconlibWavesElectricity);
+}

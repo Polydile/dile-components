@@ -6,4 +6,6 @@ export class DileIconlibSubtract extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-subtract', DileIconlibSubtract);
+if (!customElements.get('dile-fontawesome-icon-subtract')) {
+  customElements.define('dile-fontawesome-icon-subtract', DileIconlibSubtract);
+}

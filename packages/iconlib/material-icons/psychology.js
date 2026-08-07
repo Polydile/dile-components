@@ -6,4 +6,6 @@ export class DileIconlibPsychology extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-psychology', DileIconlibPsychology);
+if (!customElements.get('dile-material-icon-psychology')) {
+  customElements.define('dile-material-icon-psychology', DileIconlibPsychology);
+}

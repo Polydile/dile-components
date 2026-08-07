@@ -6,4 +6,6 @@ export class DileIconlibTorBrowser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tor-browser', DileIconlibTorBrowser);
+if (!customElements.get('dile-fontawesome-icon-tor-browser')) {
+  customElements.define('dile-fontawesome-icon-tor-browser', DileIconlibTorBrowser);
+}

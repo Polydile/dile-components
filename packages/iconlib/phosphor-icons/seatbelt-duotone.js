@@ -6,4 +6,6 @@ export class DileIconlibSeatbeltDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seatbelt-duotone', DileIconlibSeatbeltDuotone);
+if (!customElements.get('dile-phosphor-icon-seatbelt-duotone')) {
+  customElements.define('dile-phosphor-icon-seatbelt-duotone', DileIconlibSeatbeltDuotone);
+}

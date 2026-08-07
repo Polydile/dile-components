@@ -6,4 +6,6 @@ export class DileIconlibAmazonLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-amazon-logo-fill', DileIconlibAmazonLogoFill);
+if (!customElements.get('dile-phosphor-icon-amazon-logo-fill')) {
+  customElements.define('dile-phosphor-icon-amazon-logo-fill', DileIconlibAmazonLogoFill);
+}

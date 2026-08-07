@@ -6,4 +6,6 @@ export class DileIconlibHeadphonesThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headphones-thin', DileIconlibHeadphonesThin);
+if (!customElements.get('dile-phosphor-icon-headphones-thin')) {
+  customElements.define('dile-phosphor-icon-headphones-thin', DileIconlibHeadphonesThin);
+}

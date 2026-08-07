@@ -6,4 +6,6 @@ export class DileIconlibRvHookup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rv-hookup', DileIconlibRvHookup);
+if (!customElements.get('dile-material-icon-rv-hookup')) {
+  customElements.define('dile-material-icon-rv-hookup', DileIconlibRvHookup);
+}

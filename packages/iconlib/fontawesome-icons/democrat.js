@@ -6,4 +6,6 @@ export class DileIconlibDemocrat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-democrat', DileIconlibDemocrat);
+if (!customElements.get('dile-fontawesome-icon-democrat')) {
+  customElements.define('dile-fontawesome-icon-democrat', DileIconlibDemocrat);
+}

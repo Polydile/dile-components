@@ -6,4 +6,6 @@ export class DileIconlibHandWithdrawDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-withdraw-duotone', DileIconlibHandWithdrawDuotone);
+if (!customElements.get('dile-phosphor-icon-hand-withdraw-duotone')) {
+  customElements.define('dile-phosphor-icon-hand-withdraw-duotone', DileIconlibHandWithdrawDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibProjectorScreenChartDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-projector-screen-chart-duotone', DileIconlibProjectorScreenChartDuotone);
+if (!customElements.get('dile-phosphor-icon-projector-screen-chart-duotone')) {
+  customElements.define('dile-phosphor-icon-projector-screen-chart-duotone', DileIconlibProjectorScreenChartDuotone);
+}

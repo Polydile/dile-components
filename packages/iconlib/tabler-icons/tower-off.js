@@ -6,4 +6,6 @@ export class DileIconlibTowerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tower-off', DileIconlibTowerOff);
+if (!customElements.get('dile-tabler-icon-tower-off')) {
+  customElements.define('dile-tabler-icon-tower-off', DileIconlibTowerOff);
+}

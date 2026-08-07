@@ -6,4 +6,6 @@ export class DileIconlibNeteaseCloudMusicFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-netease-cloud-music-fill', DileIconlibNeteaseCloudMusicFill);
+if (!customElements.get('dile-remixicon-icon-netease-cloud-music-fill')) {
+  customElements.define('dile-remixicon-icon-netease-cloud-music-fill', DileIconlibNeteaseCloudMusicFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibIroningSteamOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ironing-steam-off', DileIconlibIroningSteamOff);
+if (!customElements.get('dile-tabler-icon-ironing-steam-off')) {
+  customElements.define('dile-tabler-icon-ironing-steam-off', DileIconlibIroningSteamOff);
+}

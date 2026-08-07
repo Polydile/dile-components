@@ -6,4 +6,6 @@ export class DileIconlibPokerClubsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-poker-clubs-line', DileIconlibPokerClubsLine);
+if (!customElements.get('dile-remixicon-icon-poker-clubs-line')) {
+  customElements.define('dile-remixicon-icon-poker-clubs-line', DileIconlibPokerClubsLine);
+}

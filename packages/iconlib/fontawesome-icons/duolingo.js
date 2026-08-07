@@ -6,4 +6,6 @@ export class DileIconlibDuolingo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-duolingo', DileIconlibDuolingo);
+if (!customElements.get('dile-fontawesome-icon-duolingo')) {
+  customElements.define('dile-fontawesome-icon-duolingo', DileIconlibDuolingo);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDropletHalf2Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-droplet-half-2-filled', DileIconlibDropletHalf2Filled);
+if (!customElements.get('dile-tabler-icon-droplet-half-2-filled')) {
+  customElements.define('dile-tabler-icon-droplet-half-2-filled', DileIconlibDropletHalf2Filled);
+}

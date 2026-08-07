@@ -6,4 +6,6 @@ export class DileIconlibVolumeDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-volume-down', DileIconlibVolumeDown);
+if (!customElements.get('dile-material-icon-volume-down')) {
+  customElements.define('dile-material-icon-volume-down', DileIconlibVolumeDown);
+}

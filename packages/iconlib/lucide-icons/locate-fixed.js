@@ -6,4 +6,6 @@ export class DileIconlibLocateFixed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-locate-fixed', DileIconlibLocateFixed);
+if (!customElements.get('dile-lucide-icon-locate-fixed')) {
+  customElements.define('dile-lucide-icon-locate-fixed', DileIconlibLocateFixed);
+}

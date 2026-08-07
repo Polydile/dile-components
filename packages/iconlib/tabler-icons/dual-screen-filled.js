@@ -6,4 +6,6 @@ export class DileIconlibDualScreenFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dual-screen-filled', DileIconlibDualScreenFilled);
+if (!customElements.get('dile-tabler-icon-dual-screen-filled')) {
+  customElements.define('dile-tabler-icon-dual-screen-filled', DileIconlibDualScreenFilled);
+}

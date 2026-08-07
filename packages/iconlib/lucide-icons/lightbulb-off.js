@@ -6,4 +6,6 @@ export class DileIconlibLightbulbOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lightbulb-off', DileIconlibLightbulbOff);
+if (!customElements.get('dile-lucide-icon-lightbulb-off')) {
+  customElements.define('dile-lucide-icon-lightbulb-off', DileIconlibLightbulbOff);
+}

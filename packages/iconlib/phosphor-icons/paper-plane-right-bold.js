@@ -6,4 +6,6 @@ export class DileIconlibPaperPlaneRightBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paper-plane-right-bold', DileIconlibPaperPlaneRightBold);
+if (!customElements.get('dile-phosphor-icon-paper-plane-right-bold')) {
+  customElements.define('dile-phosphor-icon-paper-plane-right-bold', DileIconlibPaperPlaneRightBold);
+}

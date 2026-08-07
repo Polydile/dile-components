@@ -6,4 +6,6 @@ export class DileIconlibHighlightAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-highlight-alt', DileIconlibHighlightAlt);
+if (!customElements.get('dile-material-icon-highlight-alt')) {
+  customElements.define('dile-material-icon-highlight-alt', DileIconlibHighlightAlt);
+}

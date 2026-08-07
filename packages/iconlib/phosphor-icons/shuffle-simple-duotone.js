@@ -6,4 +6,6 @@ export class DileIconlibShuffleSimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shuffle-simple-duotone', DileIconlibShuffleSimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-shuffle-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-shuffle-simple-duotone', DileIconlibShuffleSimpleDuotone);
+}

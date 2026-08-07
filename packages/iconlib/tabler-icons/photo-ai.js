@@ -6,4 +6,6 @@ export class DileIconlibPhotoAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-ai', DileIconlibPhotoAi);
+if (!customElements.get('dile-tabler-icon-photo-ai')) {
+  customElements.define('dile-tabler-icon-photo-ai', DileIconlibPhotoAi);
+}

@@ -6,4 +6,6 @@ export class DileIconlibXboxYFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-xbox-y-filled', DileIconlibXboxYFilled);
+if (!customElements.get('dile-tabler-icon-xbox-y-filled')) {
+  customElements.define('dile-tabler-icon-xbox-y-filled', DileIconlibXboxYFilled);
+}

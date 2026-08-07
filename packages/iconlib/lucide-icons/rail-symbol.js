@@ -6,4 +6,6 @@ export class DileIconlibRailSymbol extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rail-symbol', DileIconlibRailSymbol);
+if (!customElements.get('dile-lucide-icon-rail-symbol')) {
+  customElements.define('dile-lucide-icon-rail-symbol', DileIconlibRailSymbol);
+}

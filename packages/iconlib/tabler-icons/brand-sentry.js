@@ -6,4 +6,6 @@ export class DileIconlibBrandSentry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-sentry', DileIconlibBrandSentry);
+if (!customElements.get('dile-tabler-icon-brand-sentry')) {
+  customElements.define('dile-tabler-icon-brand-sentry', DileIconlibBrandSentry);
+}

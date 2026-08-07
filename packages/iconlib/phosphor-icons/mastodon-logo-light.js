@@ -6,4 +6,6 @@ export class DileIconlibMastodonLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mastodon-logo-light', DileIconlibMastodonLogoLight);
+if (!customElements.get('dile-phosphor-icon-mastodon-logo-light')) {
+  customElements.define('dile-phosphor-icon-mastodon-logo-light', DileIconlibMastodonLogoLight);
+}

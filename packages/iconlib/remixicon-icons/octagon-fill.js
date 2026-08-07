@@ -6,4 +6,6 @@ export class DileIconlibOctagonFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-octagon-fill', DileIconlibOctagonFill);
+if (!customElements.get('dile-remixicon-icon-octagon-fill')) {
+  customElements.define('dile-remixicon-icon-octagon-fill', DileIconlibOctagonFill);
+}

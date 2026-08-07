@@ -6,4 +6,6 @@ export class DileIconlibTextSuperscriptBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-superscript-bold', DileIconlibTextSuperscriptBold);
+if (!customElements.get('dile-phosphor-icon-text-superscript-bold')) {
+  customElements.define('dile-phosphor-icon-text-superscript-bold', DileIconlibTextSuperscriptBold);
+}

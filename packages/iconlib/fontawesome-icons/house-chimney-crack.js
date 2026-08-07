@@ -6,4 +6,6 @@ export class DileIconlibHouseChimneyCrack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-chimney-crack', DileIconlibHouseChimneyCrack);
+if (!customElements.get('dile-fontawesome-icon-house-chimney-crack')) {
+  customElements.define('dile-fontawesome-icon-house-chimney-crack', DileIconlibHouseChimneyCrack);
+}

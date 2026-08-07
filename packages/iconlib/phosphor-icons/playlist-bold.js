@@ -6,4 +6,6 @@ export class DileIconlibPlaylistBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-playlist-bold', DileIconlibPlaylistBold);
+if (!customElements.get('dile-phosphor-icon-playlist-bold')) {
+  customElements.define('dile-phosphor-icon-playlist-bold', DileIconlibPlaylistBold);
+}

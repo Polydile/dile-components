@@ -6,4 +6,6 @@ export class DileIconlibGripfire extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gripfire', DileIconlibGripfire);
+if (!customElements.get('dile-fontawesome-icon-gripfire')) {
+  customElements.define('dile-fontawesome-icon-gripfire', DileIconlibGripfire);
+}

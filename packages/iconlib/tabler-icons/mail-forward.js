@@ -6,4 +6,6 @@ export class DileIconlibMailForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-forward', DileIconlibMailForward);
+if (!customElements.get('dile-tabler-icon-mail-forward')) {
+  customElements.define('dile-tabler-icon-mail-forward', DileIconlibMailForward);
+}

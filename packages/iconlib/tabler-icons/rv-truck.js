@@ -6,4 +6,6 @@ export class DileIconlibRvTruck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rv-truck', DileIconlibRvTruck);
+if (!customElements.get('dile-tabler-icon-rv-truck')) {
+  customElements.define('dile-tabler-icon-rv-truck', DileIconlibRvTruck);
+}

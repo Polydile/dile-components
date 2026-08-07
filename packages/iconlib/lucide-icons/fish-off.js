@@ -6,4 +6,6 @@ export class DileIconlibFishOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-fish-off', DileIconlibFishOff);
+if (!customElements.get('dile-lucide-icon-fish-off')) {
+  customElements.define('dile-lucide-icon-fish-off', DileIconlibFishOff);
+}

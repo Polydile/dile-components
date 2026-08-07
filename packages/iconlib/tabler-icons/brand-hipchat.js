@@ -6,4 +6,6 @@ export class DileIconlibBrandHipchat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-hipchat', DileIconlibBrandHipchat);
+if (!customElements.get('dile-tabler-icon-brand-hipchat')) {
+  customElements.define('dile-tabler-icon-brand-hipchat', DileIconlibBrandHipchat);
+}

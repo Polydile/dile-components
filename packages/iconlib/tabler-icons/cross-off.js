@@ -6,4 +6,6 @@ export class DileIconlibCrossOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cross-off', DileIconlibCrossOff);
+if (!customElements.get('dile-tabler-icon-cross-off')) {
+  customElements.define('dile-tabler-icon-cross-off', DileIconlibCrossOff);
+}

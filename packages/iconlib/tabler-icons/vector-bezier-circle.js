@@ -6,4 +6,6 @@ export class DileIconlibVectorBezierCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vector-bezier-circle', DileIconlibVectorBezierCircle);
+if (!customElements.get('dile-tabler-icon-vector-bezier-circle')) {
+  customElements.define('dile-tabler-icon-vector-bezier-circle', DileIconlibVectorBezierCircle);
+}

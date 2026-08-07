@@ -6,4 +6,6 @@ export class DileIconlibGridGoldenratio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grid-goldenratio', DileIconlibGridGoldenratio);
+if (!customElements.get('dile-tabler-icon-grid-goldenratio')) {
+  customElements.define('dile-tabler-icon-grid-goldenratio', DileIconlibGridGoldenratio);
+}

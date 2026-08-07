@@ -6,4 +6,6 @@ export class DileIconlibBrandAlgolia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-algolia', DileIconlibBrandAlgolia);
+if (!customElements.get('dile-tabler-icon-brand-algolia')) {
+  customElements.define('dile-tabler-icon-brand-algolia', DileIconlibBrandAlgolia);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPowerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-power-off', DileIconlibPowerOff);
+if (!customElements.get('dile-fontawesome-icon-power-off')) {
+  customElements.define('dile-fontawesome-icon-power-off', DileIconlibPowerOff);
+}

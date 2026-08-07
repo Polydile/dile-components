@@ -6,4 +6,6 @@ export class DileIconlibFlagPennantThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-pennant-thin', DileIconlibFlagPennantThin);
+if (!customElements.get('dile-phosphor-icon-flag-pennant-thin')) {
+  customElements.define('dile-phosphor-icon-flag-pennant-thin', DileIconlibFlagPennantThin);
+}

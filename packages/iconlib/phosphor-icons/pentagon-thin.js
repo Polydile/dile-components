@@ -6,4 +6,6 @@ export class DileIconlibPentagonThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pentagon-thin', DileIconlibPentagonThin);
+if (!customElements.get('dile-phosphor-icon-pentagon-thin')) {
+  customElements.define('dile-phosphor-icon-pentagon-thin', DileIconlibPentagonThin);
+}

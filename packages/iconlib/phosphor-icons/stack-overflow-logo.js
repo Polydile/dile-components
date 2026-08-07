@@ -6,4 +6,6 @@ export class DileIconlibStackOverflowLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stack-overflow-logo', DileIconlibStackOverflowLogo);
+if (!customElements.get('dile-phosphor-icon-stack-overflow-logo')) {
+  customElements.define('dile-phosphor-icon-stack-overflow-logo', DileIconlibStackOverflowLogo);
+}

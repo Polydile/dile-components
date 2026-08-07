@@ -6,4 +6,6 @@ export class DileIconlibSunCloudyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sun-cloudy-fill', DileIconlibSunCloudyFill);
+if (!customElements.get('dile-remixicon-icon-sun-cloudy-fill')) {
+  customElements.define('dile-remixicon-icon-sun-cloudy-fill', DileIconlibSunCloudyFill);
+}

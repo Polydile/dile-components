@@ -6,4 +6,6 @@ export class DileIconlibContract extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-contract', DileIconlibContract);
+if (!customElements.get('dile-tabler-icon-contract')) {
+  customElements.define('dile-tabler-icon-contract', DileIconlibContract);
+}

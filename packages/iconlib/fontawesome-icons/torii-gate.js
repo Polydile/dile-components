@@ -6,4 +6,6 @@ export class DileIconlibToriiGate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-torii-gate', DileIconlibToriiGate);
+if (!customElements.get('dile-fontawesome-icon-torii-gate')) {
+  customElements.define('dile-fontawesome-icon-torii-gate', DileIconlibToriiGate);
+}

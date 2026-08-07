@@ -6,4 +6,6 @@ export class DileIconlibAccountTree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-account-tree', DileIconlibAccountTree);
+if (!customElements.get('dile-material-icon-account-tree')) {
+  customElements.define('dile-material-icon-account-tree', DileIconlibAccountTree);
+}

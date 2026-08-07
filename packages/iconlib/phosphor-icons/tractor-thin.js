@@ -6,4 +6,6 @@ export class DileIconlibTractorThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tractor-thin', DileIconlibTractorThin);
+if (!customElements.get('dile-phosphor-icon-tractor-thin')) {
+  customElements.define('dile-phosphor-icon-tractor-thin', DileIconlibTractorThin);
+}

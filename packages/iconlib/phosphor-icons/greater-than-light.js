@@ -6,4 +6,6 @@ export class DileIconlibGreaterThanLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-greater-than-light', DileIconlibGreaterThanLight);
+if (!customElements.get('dile-phosphor-icon-greater-than-light')) {
+  customElements.define('dile-phosphor-icon-greater-than-light', DileIconlibGreaterThanLight);
+}

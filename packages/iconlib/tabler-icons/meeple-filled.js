@@ -6,4 +6,6 @@ export class DileIconlibMeepleFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-meeple-filled', DileIconlibMeepleFilled);
+if (!customElements.get('dile-tabler-icon-meeple-filled')) {
+  customElements.define('dile-tabler-icon-meeple-filled', DileIconlibMeepleFilled);
+}

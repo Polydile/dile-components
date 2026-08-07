@@ -6,4 +6,6 @@ export class DileIconlibSettingsDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-settings-dollar', DileIconlibSettingsDollar);
+if (!customElements.get('dile-tabler-icon-settings-dollar')) {
+  customElements.define('dile-tabler-icon-settings-dollar', DileIconlibSettingsDollar);
+}

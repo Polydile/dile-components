@@ -6,4 +6,6 @@ export class DileIconlibMapsUgc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-maps-ugc', DileIconlibMapsUgc);
+if (!customElements.get('dile-material-icon-maps-ugc')) {
+  customElements.define('dile-material-icon-maps-ugc', DileIconlibMapsUgc);
+}

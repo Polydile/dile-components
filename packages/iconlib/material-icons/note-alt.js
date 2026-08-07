@@ -6,4 +6,6 @@ export class DileIconlibNoteAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-note-alt', DileIconlibNoteAlt);
+if (!customElements.get('dile-material-icon-note-alt')) {
+  customElements.define('dile-material-icon-note-alt', DileIconlibNoteAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCrop169 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-crop-16-9', DileIconlibCrop169);
+if (!customElements.get('dile-tabler-icon-crop-16-9')) {
+  customElements.define('dile-tabler-icon-crop-16-9', DileIconlibCrop169);
+}

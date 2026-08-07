@@ -6,4 +6,6 @@ export class DileIconlibRadioButtonUnchecked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-radio-button-unchecked', DileIconlibRadioButtonUnchecked);
+if (!customElements.get('dile-material-icon-radio-button-unchecked')) {
+  customElements.define('dile-material-icon-radio-button-unchecked', DileIconlibRadioButtonUnchecked);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBusSimple extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bus-simple', DileIconlibBusSimple);
+if (!customElements.get('dile-fontawesome-icon-bus-simple')) {
+  customElements.define('dile-fontawesome-icon-bus-simple', DileIconlibBusSimple);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrightnessHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-brightness-high', DileIconlibBrightnessHigh);
+if (!customElements.get('dile-material-icon-brightness-high')) {
+  customElements.define('dile-material-icon-brightness-high', DileIconlibBrightnessHigh);
+}

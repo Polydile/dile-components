@@ -6,4 +6,6 @@ export class DileIconlibScooterLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scooter-light', DileIconlibScooterLight);
+if (!customElements.get('dile-phosphor-icon-scooter-light')) {
+  customElements.define('dile-phosphor-icon-scooter-light', DileIconlibScooterLight);
+}

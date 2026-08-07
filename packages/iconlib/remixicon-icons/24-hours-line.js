@@ -6,4 +6,6 @@ export class DileIconlib24HoursLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-24-hours-line', DileIconlib24HoursLine);
+if (!customElements.get('dile-remixicon-icon-24-hours-line')) {
+  customElements.define('dile-remixicon-icon-24-hours-line', DileIconlib24HoursLine);
+}

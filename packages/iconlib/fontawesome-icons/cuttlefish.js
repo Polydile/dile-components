@@ -6,4 +6,6 @@ export class DileIconlibCuttlefish extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cuttlefish', DileIconlibCuttlefish);
+if (!customElements.get('dile-fontawesome-icon-cuttlefish')) {
+  customElements.define('dile-fontawesome-icon-cuttlefish', DileIconlibCuttlefish);
+}

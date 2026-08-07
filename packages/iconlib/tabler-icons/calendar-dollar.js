@@ -6,4 +6,6 @@ export class DileIconlibCalendarDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-dollar', DileIconlibCalendarDollar);
+if (!customElements.get('dile-tabler-icon-calendar-dollar')) {
+  customElements.define('dile-tabler-icon-calendar-dollar', DileIconlibCalendarDollar);
+}

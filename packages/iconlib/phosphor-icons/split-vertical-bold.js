@@ -6,4 +6,6 @@ export class DileIconlibSplitVerticalBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-split-vertical-bold', DileIconlibSplitVerticalBold);
+if (!customElements.get('dile-phosphor-icon-split-vertical-bold')) {
+  customElements.define('dile-phosphor-icon-split-vertical-bold', DileIconlibSplitVerticalBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShippingFast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shipping-fast', DileIconlibShippingFast);
+if (!customElements.get('dile-fontawesome-icon-shipping-fast')) {
+  customElements.define('dile-fontawesome-icon-shipping-fast', DileIconlibShippingFast);
+}

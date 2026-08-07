@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-briefcase-medical', DileIconlibBriefcaseMedical);
+if (!customElements.get('dile-lucide-icon-briefcase-medical')) {
+  customElements.define('dile-lucide-icon-briefcase-medical', DileIconlibBriefcaseMedical);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScreenpal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-screenpal', DileIconlibScreenpal);
+if (!customElements.get('dile-fontawesome-icon-screenpal')) {
+  customElements.define('dile-fontawesome-icon-screenpal', DileIconlibScreenpal);
+}

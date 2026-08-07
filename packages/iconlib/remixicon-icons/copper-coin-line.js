@@ -6,4 +6,6 @@ export class DileIconlibCopperCoinLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-copper-coin-line', DileIconlibCopperCoinLine);
+if (!customElements.get('dile-remixicon-icon-copper-coin-line')) {
+  customElements.define('dile-remixicon-icon-copper-coin-line', DileIconlibCopperCoinLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandGitlab extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-gitlab', DileIconlibBrandGitlab);
+if (!customElements.get('dile-tabler-icon-brand-gitlab')) {
+  customElements.define('dile-tabler-icon-brand-gitlab', DileIconlibBrandGitlab);
+}

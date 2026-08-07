@@ -6,4 +6,6 @@ export class DileIconlibTurnedInNot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-turned-in-not', DileIconlibTurnedInNot);
+if (!customElements.get('dile-material-icon-turned-in-not')) {
+  customElements.define('dile-material-icon-turned-in-not', DileIconlibTurnedInNot);
+}

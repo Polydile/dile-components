@@ -6,4 +6,6 @@ export class DileIconlibPlantOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-plant-off', DileIconlibPlantOff);
+if (!customElements.get('dile-tabler-icon-plant-off')) {
+  customElements.define('dile-tabler-icon-plant-off', DileIconlibPlantOff);
+}

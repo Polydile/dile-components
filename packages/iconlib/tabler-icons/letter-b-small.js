@@ -6,4 +6,6 @@ export class DileIconlibLetterBSmall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-b-small', DileIconlibLetterBSmall);
+if (!customElements.get('dile-tabler-icon-letter-b-small')) {
+  customElements.define('dile-tabler-icon-letter-b-small', DileIconlibLetterBSmall);
+}

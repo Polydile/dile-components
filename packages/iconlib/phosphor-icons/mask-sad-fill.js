@@ -6,4 +6,6 @@ export class DileIconlibMaskSadFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mask-sad-fill', DileIconlibMaskSadFill);
+if (!customElements.get('dile-phosphor-icon-mask-sad-fill')) {
+  customElements.define('dile-phosphor-icon-mask-sad-fill', DileIconlibMaskSadFill);
+}

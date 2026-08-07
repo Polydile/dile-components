@@ -6,4 +6,6 @@ export class DileIconlibCircuitBulb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-bulb', DileIconlibCircuitBulb);
+if (!customElements.get('dile-tabler-icon-circuit-bulb')) {
+  customElements.define('dile-tabler-icon-circuit-bulb', DileIconlibCircuitBulb);
+}

@@ -6,4 +6,6 @@ export class DileIconlibOvalVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-oval-vertical', DileIconlibOvalVertical);
+if (!customElements.get('dile-tabler-icon-oval-vertical')) {
+  customElements.define('dile-tabler-icon-oval-vertical', DileIconlibOvalVertical);
+}

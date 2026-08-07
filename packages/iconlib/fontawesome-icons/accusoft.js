@@ -6,4 +6,6 @@ export class DileIconlibAccusoft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-accusoft', DileIconlibAccusoft);
+if (!customElements.get('dile-fontawesome-icon-accusoft')) {
+  customElements.define('dile-fontawesome-icon-accusoft', DileIconlibAccusoft);
+}

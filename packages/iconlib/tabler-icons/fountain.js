@@ -6,4 +6,6 @@ export class DileIconlibFountain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fountain', DileIconlibFountain);
+if (!customElements.get('dile-tabler-icon-fountain')) {
+  customElements.define('dile-tabler-icon-fountain', DileIconlibFountain);
+}

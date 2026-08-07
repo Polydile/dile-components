@@ -6,4 +6,6 @@ export class DileIconlibEraser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eraser', DileIconlibEraser);
+if (!customElements.get('dile-tabler-icon-eraser')) {
+  customElements.define('dile-tabler-icon-eraser', DileIconlibEraser);
+}

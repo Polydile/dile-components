@@ -6,4 +6,6 @@ export class DileIconlibListOrdered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-list-ordered', DileIconlibListOrdered);
+if (!customElements.get('dile-remixicon-icon-list-ordered')) {
+  customElements.define('dile-remixicon-icon-list-ordered', DileIconlibListOrdered);
+}

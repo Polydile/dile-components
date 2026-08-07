@@ -6,4 +6,6 @@ export class DileIconlibFileZipper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-file-zipper', DileIconlibFileZipper);
+if (!customElements.get('dile-fontawesome-icon-regular-file-zipper')) {
+  customElements.define('dile-fontawesome-icon-regular-file-zipper', DileIconlibFileZipper);
+}

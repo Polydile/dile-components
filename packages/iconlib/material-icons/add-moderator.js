@@ -6,4 +6,6 @@ export class DileIconlibAddModerator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-add-moderator', DileIconlibAddModerator);
+if (!customElements.get('dile-material-icon-add-moderator')) {
+  customElements.define('dile-material-icon-add-moderator', DileIconlibAddModerator);
+}

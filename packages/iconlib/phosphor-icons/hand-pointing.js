@@ -6,4 +6,6 @@ export class DileIconlibHandPointing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-pointing', DileIconlibHandPointing);
+if (!customElements.get('dile-phosphor-icon-hand-pointing')) {
+  customElements.define('dile-phosphor-icon-hand-pointing', DileIconlibHandPointing);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeadsetLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headset-light', DileIconlibHeadsetLight);
+if (!customElements.get('dile-phosphor-icon-headset-light')) {
+  customElements.define('dile-phosphor-icon-headset-light', DileIconlibHeadsetLight);
+}

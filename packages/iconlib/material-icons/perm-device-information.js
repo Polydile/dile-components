@@ -6,4 +6,6 @@ export class DileIconlibPermDeviceInformation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-device-information', DileIconlibPermDeviceInformation);
+if (!customElements.get('dile-material-icon-perm-device-information')) {
+  customElements.define('dile-material-icon-perm-device-information', DileIconlibPermDeviceInformation);
+}

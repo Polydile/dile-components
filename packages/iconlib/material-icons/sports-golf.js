@@ -6,4 +6,6 @@ export class DileIconlibSportsGolf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-golf', DileIconlibSportsGolf);
+if (!customElements.get('dile-material-icon-sports-golf')) {
+  customElements.define('dile-material-icon-sports-golf', DileIconlibSportsGolf);
+}

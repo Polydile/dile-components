@@ -6,4 +6,6 @@ export class DileIconlibCirclesThreePlusBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-circles-three-plus-bold', DileIconlibCirclesThreePlusBold);
+if (!customElements.get('dile-phosphor-icon-circles-three-plus-bold')) {
+  customElements.define('dile-phosphor-icon-circles-three-plus-bold', DileIconlibCirclesThreePlusBold);
+}

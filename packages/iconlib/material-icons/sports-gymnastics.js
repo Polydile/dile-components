@@ -6,4 +6,6 @@ export class DileIconlibSportsGymnastics extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-gymnastics', DileIconlibSportsGymnastics);
+if (!customElements.get('dile-material-icon-sports-gymnastics')) {
+  customElements.define('dile-material-icon-sports-gymnastics', DileIconlibSportsGymnastics);
+}

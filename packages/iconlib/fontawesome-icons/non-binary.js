@@ -6,4 +6,6 @@ export class DileIconlibNonBinary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-non-binary', DileIconlibNonBinary);
+if (!customElements.get('dile-fontawesome-icon-non-binary')) {
+  customElements.define('dile-fontawesome-icon-non-binary', DileIconlibNonBinary);
+}

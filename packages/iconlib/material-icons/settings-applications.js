@@ -6,4 +6,6 @@ export class DileIconlibSettingsApplications extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-applications', DileIconlibSettingsApplications);
+if (!customElements.get('dile-material-icon-settings-applications')) {
+  customElements.define('dile-material-icon-settings-applications', DileIconlibSettingsApplications);
+}

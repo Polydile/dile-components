@@ -6,4 +6,6 @@ export class DileIconlibDeezer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deezer', DileIconlibDeezer);
+if (!customElements.get('dile-fontawesome-icon-deezer')) {
+  customElements.define('dile-fontawesome-icon-deezer', DileIconlibDeezer);
+}

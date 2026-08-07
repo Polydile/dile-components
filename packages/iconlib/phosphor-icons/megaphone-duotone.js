@@ -6,4 +6,6 @@ export class DileIconlibMegaphoneDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-megaphone-duotone', DileIconlibMegaphoneDuotone);
+if (!customElements.get('dile-phosphor-icon-megaphone-duotone')) {
+  customElements.define('dile-phosphor-icon-megaphone-duotone', DileIconlibMegaphoneDuotone);
+}

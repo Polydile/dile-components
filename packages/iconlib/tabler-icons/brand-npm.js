@@ -6,4 +6,6 @@ export class DileIconlibBrandNpm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-npm', DileIconlibBrandNpm);
+if (!customElements.get('dile-tabler-icon-brand-npm')) {
+  customElements.define('dile-tabler-icon-brand-npm', DileIconlibBrandNpm);
+}

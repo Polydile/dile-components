@@ -6,4 +6,6 @@ export class DileIconlibGogglesFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-goggles-fill', DileIconlibGogglesFill);
+if (!customElements.get('dile-remixicon-icon-goggles-fill')) {
+  customElements.define('dile-remixicon-icon-goggles-fill', DileIconlibGogglesFill);
+}

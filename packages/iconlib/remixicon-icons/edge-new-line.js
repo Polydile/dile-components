@@ -6,4 +6,6 @@ export class DileIconlibEdgeNewLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-edge-new-line', DileIconlibEdgeNewLine);
+if (!customElements.get('dile-remixicon-icon-edge-new-line')) {
+  customElements.define('dile-remixicon-icon-edge-new-line', DileIconlibEdgeNewLine);
+}

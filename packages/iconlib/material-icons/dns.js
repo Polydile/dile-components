@@ -6,4 +6,6 @@ export class DileIconlibDns extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dns', DileIconlibDns);
+if (!customElements.get('dile-material-icon-dns')) {
+  customElements.define('dile-material-icon-dns', DileIconlibDns);
+}

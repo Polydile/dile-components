@@ -6,4 +6,6 @@ export class DileIconlibFolderZipLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-zip-line', DileIconlibFolderZipLine);
+if (!customElements.get('dile-remixicon-icon-folder-zip-line')) {
+  customElements.define('dile-remixicon-icon-folder-zip-line', DileIconlibFolderZipLine);
+}

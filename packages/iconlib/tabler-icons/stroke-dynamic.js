@@ -6,4 +6,6 @@ export class DileIconlibStrokeDynamic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stroke-dynamic', DileIconlibStrokeDynamic);
+if (!customElements.get('dile-tabler-icon-stroke-dynamic')) {
+  customElements.define('dile-tabler-icon-stroke-dynamic', DileIconlibStrokeDynamic);
+}

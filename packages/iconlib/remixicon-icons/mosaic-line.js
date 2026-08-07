@@ -6,4 +6,6 @@ export class DileIconlibMosaicLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mosaic-line', DileIconlibMosaicLine);
+if (!customElements.get('dile-remixicon-icon-mosaic-line')) {
+  customElements.define('dile-remixicon-icon-mosaic-line', DileIconlibMosaicLine);
+}

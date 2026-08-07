@@ -6,4 +6,6 @@ export class DileIconlibBluetoothDrive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bluetooth-drive', DileIconlibBluetoothDrive);
+if (!customElements.get('dile-material-icon-bluetooth-drive')) {
+  customElements.define('dile-material-icon-bluetooth-drive', DileIconlibBluetoothDrive);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDirtyLens extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dirty-lens', DileIconlibDirtyLens);
+if (!customElements.get('dile-material-icon-dirty-lens')) {
+  customElements.define('dile-material-icon-dirty-lens', DileIconlibDirtyLens);
+}

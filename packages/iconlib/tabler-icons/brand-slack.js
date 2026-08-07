@@ -6,4 +6,6 @@ export class DileIconlibBrandSlack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-slack', DileIconlibBrandSlack);
+if (!customElements.get('dile-tabler-icon-brand-slack')) {
+  customElements.define('dile-tabler-icon-brand-slack', DileIconlibBrandSlack);
+}

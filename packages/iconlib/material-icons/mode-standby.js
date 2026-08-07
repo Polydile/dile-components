@@ -6,4 +6,6 @@ export class DileIconlibModeStandby extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mode-standby', DileIconlibModeStandby);
+if (!customElements.get('dile-material-icon-mode-standby')) {
+  customElements.define('dile-material-icon-mode-standby', DileIconlibModeStandby);
+}

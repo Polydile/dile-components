@@ -6,4 +6,6 @@ export class DileIconlibDevice3dCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-3d-camera', DileIconlibDevice3dCamera);
+if (!customElements.get('dile-tabler-icon-device-3d-camera')) {
+  customElements.define('dile-tabler-icon-device-3d-camera', DileIconlibDevice3dCamera);
+}

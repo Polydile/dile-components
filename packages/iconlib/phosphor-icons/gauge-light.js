@@ -6,4 +6,6 @@ export class DileIconlibGaugeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gauge-light', DileIconlibGaugeLight);
+if (!customElements.get('dile-phosphor-icon-gauge-light')) {
+  customElements.define('dile-phosphor-icon-gauge-light', DileIconlibGaugeLight);
+}

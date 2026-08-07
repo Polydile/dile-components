@@ -6,4 +6,6 @@ export class DileIconlibGithubFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-github-fill', DileIconlibGithubFill);
+if (!customElements.get('dile-remixicon-icon-github-fill')) {
+  customElements.define('dile-remixicon-icon-github-fill', DileIconlibGithubFill);
+}

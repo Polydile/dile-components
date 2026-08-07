@@ -6,4 +6,6 @@ export class DileIconlibFileTypeDocx extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-docx', DileIconlibFileTypeDocx);
+if (!customElements.get('dile-tabler-icon-file-type-docx')) {
+  customElements.define('dile-tabler-icon-file-type-docx', DileIconlibFileTypeDocx);
+}

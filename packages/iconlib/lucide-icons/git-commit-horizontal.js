@@ -6,4 +6,6 @@ export class DileIconlibGitCommitHorizontal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-git-commit-horizontal', DileIconlibGitCommitHorizontal);
+if (!customElements.get('dile-lucide-icon-git-commit-horizontal')) {
+  customElements.define('dile-lucide-icon-git-commit-horizontal', DileIconlibGitCommitHorizontal);
+}

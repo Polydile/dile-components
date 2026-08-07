@@ -6,4 +6,6 @@ export class DileIconlibLinkSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-link-simple-light', DileIconlibLinkSimpleLight);
+if (!customElements.get('dile-phosphor-icon-link-simple-light')) {
+  customElements.define('dile-phosphor-icon-link-simple-light', DileIconlibLinkSimpleLight);
+}

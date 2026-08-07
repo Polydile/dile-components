@@ -6,4 +6,6 @@ export class DileIconlibCopyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-copy-off', DileIconlibCopyOff);
+if (!customElements.get('dile-tabler-icon-copy-off')) {
+  customElements.define('dile-tabler-icon-copy-off', DileIconlibCopyOff);
+}

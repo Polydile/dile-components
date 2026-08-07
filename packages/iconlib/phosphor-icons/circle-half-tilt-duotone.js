@@ -6,4 +6,6 @@ export class DileIconlibCircleHalfTiltDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-circle-half-tilt-duotone', DileIconlibCircleHalfTiltDuotone);
+if (!customElements.get('dile-phosphor-icon-circle-half-tilt-duotone')) {
+  customElements.define('dile-phosphor-icon-circle-half-tilt-duotone', DileIconlibCircleHalfTiltDuotone);
+}

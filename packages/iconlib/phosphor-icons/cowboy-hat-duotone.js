@@ -6,4 +6,6 @@ export class DileIconlibCowboyHatDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cowboy-hat-duotone', DileIconlibCowboyHatDuotone);
+if (!customElements.get('dile-phosphor-icon-cowboy-hat-duotone')) {
+  customElements.define('dile-phosphor-icon-cowboy-hat-duotone', DileIconlibCowboyHatDuotone);
+}

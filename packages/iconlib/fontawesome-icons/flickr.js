@@ -6,4 +6,6 @@ export class DileIconlibFlickr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-flickr', DileIconlibFlickr);
+if (!customElements.get('dile-fontawesome-icon-flickr')) {
+  customElements.define('dile-fontawesome-icon-flickr', DileIconlibFlickr);
+}

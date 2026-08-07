@@ -6,4 +6,6 @@ export class DileIconlibWindowsLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-windows-logo-fill', DileIconlibWindowsLogoFill);
+if (!customElements.get('dile-phosphor-icon-windows-logo-fill')) {
+  customElements.define('dile-phosphor-icon-windows-logo-fill', DileIconlibWindowsLogoFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRendact extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rendact', DileIconlibRendact);
+if (!customElements.get('dile-fontawesome-icon-rendact')) {
+  customElements.define('dile-fontawesome-icon-rendact', DileIconlibRendact);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMicrofrontends extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-microfrontends', DileIconlibMicrofrontends);
+if (!customElements.get('dile-tabler-icon-microfrontends')) {
+  customElements.define('dile-tabler-icon-microfrontends', DileIconlibMicrofrontends);
+}

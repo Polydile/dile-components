@@ -6,4 +6,6 @@ export class DileIconlibRoadBarrier extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-barrier', DileIconlibRoadBarrier);
+if (!customElements.get('dile-fontawesome-icon-road-barrier')) {
+  customElements.define('dile-fontawesome-icon-road-barrier', DileIconlibRoadBarrier);
+}

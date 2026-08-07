@@ -6,4 +6,6 @@ export class DileIconlibFishingHook extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-fishing-hook', DileIconlibFishingHook);
+if (!customElements.get('dile-lucide-icon-fishing-hook')) {
+  customElements.define('dile-lucide-icon-fishing-hook', DileIconlibFishingHook);
+}

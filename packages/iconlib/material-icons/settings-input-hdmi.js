@@ -6,4 +6,6 @@ export class DileIconlibSettingsInputHdmi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-input-hdmi', DileIconlibSettingsInputHdmi);
+if (!customElements.get('dile-material-icon-settings-input-hdmi')) {
+  customElements.define('dile-material-icon-settings-input-hdmi', DileIconlibSettingsInputHdmi);
+}

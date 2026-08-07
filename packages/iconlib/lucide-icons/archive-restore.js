@@ -6,4 +6,6 @@ export class DileIconlibArchiveRestore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-archive-restore', DileIconlibArchiveRestore);
+if (!customElements.get('dile-lucide-icon-archive-restore')) {
+  customElements.define('dile-lucide-icon-archive-restore', DileIconlibArchiveRestore);
+}

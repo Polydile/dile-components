@@ -6,4 +6,6 @@ export class DileIconlibPassport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-passport', DileIconlibPassport);
+if (!customElements.get('dile-fontawesome-icon-passport')) {
+  customElements.define('dile-fontawesome-icon-passport', DileIconlibPassport);
+}

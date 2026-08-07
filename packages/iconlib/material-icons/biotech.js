@@ -6,4 +6,6 @@ export class DileIconlibBiotech extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-biotech', DileIconlibBiotech);
+if (!customElements.get('dile-material-icon-biotech')) {
+  customElements.define('dile-material-icon-biotech', DileIconlibBiotech);
+}

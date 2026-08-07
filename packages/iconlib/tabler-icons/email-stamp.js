@@ -6,4 +6,6 @@ export class DileIconlibEmailStamp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-email-stamp', DileIconlibEmailStamp);
+if (!customElements.get('dile-tabler-icon-email-stamp')) {
+  customElements.define('dile-tabler-icon-email-stamp', DileIconlibEmailStamp);
+}

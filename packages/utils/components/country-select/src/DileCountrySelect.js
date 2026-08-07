@@ -138,4 +138,6 @@ export class DileCountrySelect extends LitElement {
   }
 }
 
-customElements.define('dile-country-select', DileCountrySelect);
+if (!customElements.get('dile-country-select')) {
+  customElements.define('dile-country-select', DileCountrySelect);
+}

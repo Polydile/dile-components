@@ -6,4 +6,6 @@ export class DileIconlibPersonShelter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-shelter', DileIconlibPersonShelter);
+if (!customElements.get('dile-fontawesome-icon-person-shelter')) {
+  customElements.define('dile-fontawesome-icon-person-shelter', DileIconlibPersonShelter);
+}

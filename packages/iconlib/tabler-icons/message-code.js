@@ -6,4 +6,6 @@ export class DileIconlibMessageCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-code', DileIconlibMessageCode);
+if (!customElements.get('dile-tabler-icon-message-code')) {
+  customElements.define('dile-tabler-icon-message-code', DileIconlibMessageCode);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSearchEyeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-search-eye-line', DileIconlibSearchEyeLine);
+if (!customElements.get('dile-remixicon-icon-search-eye-line')) {
+  customElements.define('dile-remixicon-icon-search-eye-line', DileIconlibSearchEyeLine);
+}

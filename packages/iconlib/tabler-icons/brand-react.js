@@ -6,4 +6,6 @@ export class DileIconlibBrandReact extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-react', DileIconlibBrandReact);
+if (!customElements.get('dile-tabler-icon-brand-react')) {
+  customElements.define('dile-tabler-icon-brand-react', DileIconlibBrandReact);
+}

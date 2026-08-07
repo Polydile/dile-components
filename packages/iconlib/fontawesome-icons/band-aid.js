@@ -6,4 +6,6 @@ export class DileIconlibBandAid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-band-aid', DileIconlibBandAid);
+if (!customElements.get('dile-fontawesome-icon-band-aid')) {
+  customElements.define('dile-fontawesome-icon-band-aid', DileIconlibBandAid);
+}

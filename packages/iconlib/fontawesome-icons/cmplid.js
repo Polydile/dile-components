@@ -6,4 +6,6 @@ export class DileIconlibCmplid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cmplid', DileIconlibCmplid);
+if (!customElements.get('dile-fontawesome-icon-cmplid')) {
+  customElements.define('dile-fontawesome-icon-cmplid', DileIconlibCmplid);
+}

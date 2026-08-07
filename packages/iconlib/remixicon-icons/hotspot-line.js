@@ -6,4 +6,6 @@ export class DileIconlibHotspotLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hotspot-line', DileIconlibHotspotLine);
+if (!customElements.get('dile-remixicon-icon-hotspot-line')) {
+  customElements.define('dile-remixicon-icon-hotspot-line', DileIconlibHotspotLine);
+}

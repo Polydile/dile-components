@@ -6,4 +6,6 @@ export class DileIconlibSunriseFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sunrise-filled', DileIconlibSunriseFilled);
+if (!customElements.get('dile-tabler-icon-sunrise-filled')) {
+  customElements.define('dile-tabler-icon-sunrise-filled', DileIconlibSunriseFilled);
+}

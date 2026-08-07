@@ -6,4 +6,6 @@ export class DileIconlibKoFi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ko-fi', DileIconlibKoFi);
+if (!customElements.get('dile-fontawesome-icon-ko-fi')) {
+  customElements.define('dile-fontawesome-icon-ko-fi', DileIconlibKoFi);
+}

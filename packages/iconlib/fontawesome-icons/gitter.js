@@ -6,4 +6,6 @@ export class DileIconlibGitter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gitter', DileIconlibGitter);
+if (!customElements.get('dile-fontawesome-icon-gitter')) {
+  customElements.define('dile-fontawesome-icon-gitter', DileIconlibGitter);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMartini extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-martini', DileIconlibMartini);
+if (!customElements.get('dile-lucide-icon-martini')) {
+  customElements.define('dile-lucide-icon-martini', DileIconlibMartini);
+}

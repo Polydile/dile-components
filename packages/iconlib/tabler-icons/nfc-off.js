@@ -6,4 +6,6 @@ export class DileIconlibNfcOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-nfc-off', DileIconlibNfcOff);
+if (!customElements.get('dile-tabler-icon-nfc-off')) {
+  customElements.define('dile-tabler-icon-nfc-off', DileIconlibNfcOff);
+}

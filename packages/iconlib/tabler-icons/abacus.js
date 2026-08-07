@@ -6,4 +6,6 @@ export class DileIconlibAbacus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-abacus', DileIconlibAbacus);
+if (!customElements.get('dile-tabler-icon-abacus')) {
+  customElements.define('dile-tabler-icon-abacus', DileIconlibAbacus);
+}

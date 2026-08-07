@@ -6,4 +6,6 @@ export class DileIconlibRust extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rust', DileIconlibRust);
+if (!customElements.get('dile-fontawesome-icon-rust')) {
+  customElements.define('dile-fontawesome-icon-rust', DileIconlibRust);
+}

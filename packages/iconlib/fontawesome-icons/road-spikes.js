@@ -6,4 +6,6 @@ export class DileIconlibRoadSpikes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-spikes', DileIconlibRoadSpikes);
+if (!customElements.get('dile-fontawesome-icon-road-spikes')) {
+  customElements.define('dile-fontawesome-icon-road-spikes', DileIconlibRoadSpikes);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRenminbi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-renminbi', DileIconlibCurrencyRenminbi);
+if (!customElements.get('dile-tabler-icon-currency-renminbi')) {
+  customElements.define('dile-tabler-icon-currency-renminbi', DileIconlibCurrencyRenminbi);
+}

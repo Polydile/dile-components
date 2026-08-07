@@ -6,4 +6,6 @@ export class DileIconlibTurnDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-turn-down', DileIconlibTurnDown);
+if (!customElements.get('dile-fontawesome-icon-turn-down')) {
+  customElements.define('dile-fontawesome-icon-turn-down', DileIconlibTurnDown);
+}

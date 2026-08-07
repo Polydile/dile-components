@@ -6,4 +6,6 @@ export class DileIconlibNotEqual extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-not-equal', DileIconlibNotEqual);
+if (!customElements.get('dile-fontawesome-icon-not-equal')) {
+  customElements.define('dile-fontawesome-icon-not-equal', DileIconlibNotEqual);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArchiveDrawerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-archive-drawer-line', DileIconlibArchiveDrawerLine);
+if (!customElements.get('dile-remixicon-icon-archive-drawer-line')) {
+  customElements.define('dile-remixicon-icon-archive-drawer-line', DileIconlibArchiveDrawerLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHeptagon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-heptagon', DileIconlibHeptagon);
+if (!customElements.get('dile-fontawesome-icon-heptagon')) {
+  customElements.define('dile-fontawesome-icon-heptagon', DileIconlibHeptagon);
+}

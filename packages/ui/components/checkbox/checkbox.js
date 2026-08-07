@@ -1,3 +1,5 @@
 import { DileCheckbox } from "./src/DileCheckbox.js";
 
-window.customElements.define("dile-checkbox", DileCheckbox);
+if (!customElements.get("dile-checkbox")) {
+  window.customElements.define("dile-checkbox", DileCheckbox);
+}

@@ -6,4 +6,6 @@ export class DileIconlibXRay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-x-ray', DileIconlibXRay);
+if (!customElements.get('dile-fontawesome-icon-x-ray')) {
+  customElements.define('dile-fontawesome-icon-x-ray', DileIconlibXRay);
+}

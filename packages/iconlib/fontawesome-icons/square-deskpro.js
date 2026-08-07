@@ -6,4 +6,6 @@ export class DileIconlibSquareDeskpro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-deskpro', DileIconlibSquareDeskpro);
+if (!customElements.get('dile-fontawesome-icon-square-deskpro')) {
+  customElements.define('dile-fontawesome-icon-square-deskpro', DileIconlibSquareDeskpro);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandDocker extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-docker', DileIconlibBrandDocker);
+if (!customElements.get('dile-tabler-icon-brand-docker')) {
+  customElements.define('dile-tabler-icon-brand-docker', DileIconlibBrandDocker);
+}

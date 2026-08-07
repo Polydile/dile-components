@@ -6,4 +6,6 @@ export class DileIconlibDialpadOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dialpad-off', DileIconlibDialpadOff);
+if (!customElements.get('dile-tabler-icon-dialpad-off')) {
+  customElements.define('dile-tabler-icon-dialpad-off', DileIconlibDialpadOff);
+}

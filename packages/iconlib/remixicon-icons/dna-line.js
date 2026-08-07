@@ -6,4 +6,6 @@ export class DileIconlibDnaLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dna-line', DileIconlibDnaLine);
+if (!customElements.get('dile-remixicon-icon-dna-line')) {
+  customElements.define('dile-remixicon-icon-dna-line', DileIconlibDnaLine);
+}

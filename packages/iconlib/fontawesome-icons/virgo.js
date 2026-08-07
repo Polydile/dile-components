@@ -6,4 +6,6 @@ export class DileIconlibVirgo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-virgo', DileIconlibVirgo);
+if (!customElements.get('dile-fontawesome-icon-virgo')) {
+  customElements.define('dile-fontawesome-icon-virgo', DileIconlibVirgo);
+}

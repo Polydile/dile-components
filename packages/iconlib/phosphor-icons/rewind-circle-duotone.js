@@ -6,4 +6,6 @@ export class DileIconlibRewindCircleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-rewind-circle-duotone', DileIconlibRewindCircleDuotone);
+if (!customElements.get('dile-phosphor-icon-rewind-circle-duotone')) {
+  customElements.define('dile-phosphor-icon-rewind-circle-duotone', DileIconlibRewindCircleDuotone);
+}

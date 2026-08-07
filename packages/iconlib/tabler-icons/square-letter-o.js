@@ -6,4 +6,6 @@ export class DileIconlibSquareLetterO extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-letter-o', DileIconlibSquareLetterO);
+if (!customElements.get('dile-tabler-icon-square-letter-o')) {
+  customElements.define('dile-tabler-icon-square-letter-o', DileIconlibSquareLetterO);
+}

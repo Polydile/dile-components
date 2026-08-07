@@ -6,4 +6,6 @@ export class DileIconlibScaleUnbalancedFlip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scale-unbalanced-flip', DileIconlibScaleUnbalancedFlip);
+if (!customElements.get('dile-fontawesome-icon-scale-unbalanced-flip')) {
+  customElements.define('dile-fontawesome-icon-scale-unbalanced-flip', DileIconlibScaleUnbalancedFlip);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMilitaryAward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-military-award', DileIconlibMilitaryAward);
+if (!customElements.get('dile-tabler-icon-military-award')) {
+  customElements.define('dile-tabler-icon-military-award', DileIconlibMilitaryAward);
+}

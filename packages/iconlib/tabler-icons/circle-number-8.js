@@ -6,4 +6,6 @@ export class DileIconlibCircleNumber8 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-number-8', DileIconlibCircleNumber8);
+if (!customElements.get('dile-tabler-icon-circle-number-8')) {
+  customElements.define('dile-tabler-icon-circle-number-8', DileIconlibCircleNumber8);
+}

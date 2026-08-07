@@ -6,4 +6,6 @@ export class DileIconlibMeterCube extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-meter-cube', DileIconlibMeterCube);
+if (!customElements.get('dile-tabler-icon-meter-cube')) {
+  customElements.define('dile-tabler-icon-meter-cube', DileIconlibMeterCube);
+}

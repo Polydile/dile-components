@@ -6,4 +6,6 @@ export class DileIconlibHomeEco extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-home-eco', DileIconlibHomeEco);
+if (!customElements.get('dile-tabler-icon-home-eco')) {
+  customElements.define('dile-tabler-icon-home-eco', DileIconlibHomeEco);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignInThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sign-in-thin', DileIconlibSignInThin);
+if (!customElements.get('dile-phosphor-icon-sign-in-thin')) {
+  customElements.define('dile-phosphor-icon-sign-in-thin', DileIconlibSignInThin);
+}

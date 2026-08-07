@@ -6,4 +6,6 @@ export class DileIconlibHandThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-thin', DileIconlibHandThin);
+if (!customElements.get('dile-phosphor-icon-hand-thin')) {
+  customElements.define('dile-phosphor-icon-hand-thin', DileIconlibHandThin);
+}

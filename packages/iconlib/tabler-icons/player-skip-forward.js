@@ -6,4 +6,6 @@ export class DileIconlibPlayerSkipForward extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-player-skip-forward', DileIconlibPlayerSkipForward);
+if (!customElements.get('dile-tabler-icon-player-skip-forward')) {
+  customElements.define('dile-tabler-icon-player-skip-forward', DileIconlibPlayerSkipForward);
+}

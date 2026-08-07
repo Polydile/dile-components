@@ -6,4 +6,6 @@ export class DileIconlibBallTennis extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ball-tennis', DileIconlibBallTennis);
+if (!customElements.get('dile-tabler-icon-ball-tennis')) {
+  customElements.define('dile-tabler-icon-ball-tennis', DileIconlibBallTennis);
+}

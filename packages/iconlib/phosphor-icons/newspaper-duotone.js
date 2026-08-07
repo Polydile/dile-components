@@ -6,4 +6,6 @@ export class DileIconlibNewspaperDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-newspaper-duotone', DileIconlibNewspaperDuotone);
+if (!customElements.get('dile-phosphor-icon-newspaper-duotone')) {
+  customElements.define('dile-phosphor-icon-newspaper-duotone', DileIconlibNewspaperDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHardDrive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hard-drive', DileIconlibHardDrive);
+if (!customElements.get('dile-phosphor-icon-hard-drive')) {
+  customElements.define('dile-phosphor-icon-hard-drive', DileIconlibHardDrive);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCheckSquareLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-check-square-light', DileIconlibCheckSquareLight);
+if (!customElements.get('dile-phosphor-icon-check-square-light')) {
+  customElements.define('dile-phosphor-icon-check-square-light', DileIconlibCheckSquareLight);
+}

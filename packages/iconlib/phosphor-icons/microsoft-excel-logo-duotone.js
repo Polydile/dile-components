@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftExcelLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-excel-logo-duotone', DileIconlibMicrosoftExcelLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-microsoft-excel-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-microsoft-excel-logo-duotone', DileIconlibMicrosoftExcelLogoDuotone);
+}

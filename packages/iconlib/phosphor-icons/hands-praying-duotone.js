@@ -6,4 +6,6 @@ export class DileIconlibHandsPrayingDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hands-praying-duotone', DileIconlibHandsPrayingDuotone);
+if (!customElements.get('dile-phosphor-icon-hands-praying-duotone')) {
+  customElements.define('dile-phosphor-icon-hands-praying-duotone', DileIconlibHandsPrayingDuotone);
+}

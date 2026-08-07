@@ -6,4 +6,6 @@ export class DileIconlibBrandMessenger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-messenger', DileIconlibBrandMessenger);
+if (!customElements.get('dile-tabler-icon-brand-messenger')) {
+  customElements.define('dile-tabler-icon-brand-messenger', DileIconlibBrandMessenger);
+}

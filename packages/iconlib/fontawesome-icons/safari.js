@@ -6,4 +6,6 @@ export class DileIconlibSafari extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-safari', DileIconlibSafari);
+if (!customElements.get('dile-fontawesome-icon-safari')) {
+  customElements.define('dile-fontawesome-icon-safari', DileIconlibSafari);
+}

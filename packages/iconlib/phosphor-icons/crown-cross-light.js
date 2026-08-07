@@ -6,4 +6,6 @@ export class DileIconlibCrownCrossLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crown-cross-light', DileIconlibCrownCrossLight);
+if (!customElements.get('dile-phosphor-icon-crown-cross-light')) {
+  customElements.define('dile-phosphor-icon-crown-cross-light', DileIconlibCrownCrossLight);
+}

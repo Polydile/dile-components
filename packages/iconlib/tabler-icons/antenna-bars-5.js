@@ -6,4 +6,6 @@ export class DileIconlibAntennaBars5 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-antenna-bars-5', DileIconlibAntennaBars5);
+if (!customElements.get('dile-tabler-icon-antenna-bars-5')) {
+  customElements.define('dile-tabler-icon-antenna-bars-5', DileIconlibAntennaBars5);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTiltShiftFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tilt-shift-filled', DileIconlibTiltShiftFilled);
+if (!customElements.get('dile-tabler-icon-tilt-shift-filled')) {
+  customElements.define('dile-tabler-icon-tilt-shift-filled', DileIconlibTiltShiftFilled);
+}

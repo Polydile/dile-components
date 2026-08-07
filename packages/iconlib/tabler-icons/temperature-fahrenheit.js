@@ -6,4 +6,6 @@ export class DileIconlibTemperatureFahrenheit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-temperature-fahrenheit', DileIconlibTemperatureFahrenheit);
+if (!customElements.get('dile-tabler-icon-temperature-fahrenheit')) {
+  customElements.define('dile-tabler-icon-temperature-fahrenheit', DileIconlibTemperatureFahrenheit);
+}

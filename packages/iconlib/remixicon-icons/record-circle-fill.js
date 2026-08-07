@@ -6,4 +6,6 @@ export class DileIconlibRecordCircleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-record-circle-fill', DileIconlibRecordCircleFill);
+if (!customElements.get('dile-remixicon-icon-record-circle-fill')) {
+  customElements.define('dile-remixicon-icon-record-circle-fill', DileIconlibRecordCircleFill);
+}

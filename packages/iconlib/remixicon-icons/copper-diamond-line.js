@@ -6,4 +6,6 @@ export class DileIconlibCopperDiamondLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-copper-diamond-line', DileIconlibCopperDiamondLine);
+if (!customElements.get('dile-remixicon-icon-copper-diamond-line')) {
+  customElements.define('dile-remixicon-icon-copper-diamond-line', DileIconlibCopperDiamondLine);
+}

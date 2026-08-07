@@ -6,4 +6,6 @@ export class DileIconlibSortAscendingLetters extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sort-ascending-letters', DileIconlibSortAscendingLetters);
+if (!customElements.get('dile-tabler-icon-sort-ascending-letters')) {
+  customElements.define('dile-tabler-icon-sort-ascending-letters', DileIconlibSortAscendingLetters);
+}

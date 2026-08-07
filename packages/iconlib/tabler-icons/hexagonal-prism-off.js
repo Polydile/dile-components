@@ -6,4 +6,6 @@ export class DileIconlibHexagonalPrismOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagonal-prism-off', DileIconlibHexagonalPrismOff);
+if (!customElements.get('dile-tabler-icon-hexagonal-prism-off')) {
+  customElements.define('dile-tabler-icon-hexagonal-prism-off', DileIconlibHexagonalPrismOff);
+}

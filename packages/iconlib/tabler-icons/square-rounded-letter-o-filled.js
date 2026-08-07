@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedLetterOFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-letter-o-filled', DileIconlibSquareRoundedLetterOFilled);
+if (!customElements.get('dile-tabler-icon-square-rounded-letter-o-filled')) {
+  customElements.define('dile-tabler-icon-square-rounded-letter-o-filled', DileIconlibSquareRoundedLetterOFilled);
+}

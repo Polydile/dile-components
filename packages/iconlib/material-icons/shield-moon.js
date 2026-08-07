@@ -6,4 +6,6 @@ export class DileIconlibShieldMoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-shield-moon', DileIconlibShieldMoon);
+if (!customElements.get('dile-material-icon-shield-moon')) {
+  customElements.define('dile-material-icon-shield-moon', DileIconlibShieldMoon);
+}

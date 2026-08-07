@@ -6,4 +6,6 @@ export class DileIconlibOctahedronOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-octahedron-off', DileIconlibOctahedronOff);
+if (!customElements.get('dile-tabler-icon-octahedron-off')) {
+  customElements.define('dile-tabler-icon-octahedron-off', DileIconlibOctahedronOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSolarPower extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-solar-power', DileIconlibSolarPower);
+if (!customElements.get('dile-material-icon-solar-power')) {
+  customElements.define('dile-material-icon-solar-power', DileIconlibSolarPower);
+}

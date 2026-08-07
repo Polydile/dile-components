@@ -6,4 +6,6 @@ export class DileIconlibDeviceDesktopExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-desktop-exclamation', DileIconlibDeviceDesktopExclamation);
+if (!customElements.get('dile-tabler-icon-device-desktop-exclamation')) {
+  customElements.define('dile-tabler-icon-device-desktop-exclamation', DileIconlibDeviceDesktopExclamation);
+}

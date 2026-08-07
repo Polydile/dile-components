@@ -6,4 +6,6 @@ export class DileIconlibFinnTheHuman extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-finn-the-human', DileIconlibFinnTheHuman);
+if (!customElements.get('dile-phosphor-icon-finn-the-human')) {
+  customElements.define('dile-phosphor-icon-finn-the-human', DileIconlibFinnTheHuman);
+}

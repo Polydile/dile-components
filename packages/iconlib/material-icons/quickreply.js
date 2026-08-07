@@ -6,4 +6,6 @@ export class DileIconlibQuickreply extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-quickreply', DileIconlibQuickreply);
+if (!customElements.get('dile-material-icon-quickreply')) {
+  customElements.define('dile-material-icon-quickreply', DileIconlibQuickreply);
+}

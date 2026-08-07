@@ -6,4 +6,6 @@ export class DileIconlibDriveFileRenameOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drive-file-rename-outline', DileIconlibDriveFileRenameOutline);
+if (!customElements.get('dile-material-icon-drive-file-rename-outline')) {
+  customElements.define('dile-material-icon-drive-file-rename-outline', DileIconlibDriveFileRenameOutline);
+}

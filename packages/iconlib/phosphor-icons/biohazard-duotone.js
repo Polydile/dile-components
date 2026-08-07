@@ -6,4 +6,6 @@ export class DileIconlibBiohazardDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-biohazard-duotone', DileIconlibBiohazardDuotone);
+if (!customElements.get('dile-phosphor-icon-biohazard-duotone')) {
+  customElements.define('dile-phosphor-icon-biohazard-duotone', DileIconlibBiohazardDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFlipVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flip-vertical', DileIconlibFlipVertical);
+if (!customElements.get('dile-phosphor-icon-flip-vertical')) {
+  customElements.define('dile-phosphor-icon-flip-vertical', DileIconlibFlipVertical);
+}

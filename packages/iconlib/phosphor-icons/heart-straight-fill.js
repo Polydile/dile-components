@@ -6,4 +6,6 @@ export class DileIconlibHeartStraightFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-heart-straight-fill', DileIconlibHeartStraightFill);
+if (!customElements.get('dile-phosphor-icon-heart-straight-fill')) {
+  customElements.define('dile-phosphor-icon-heart-straight-fill', DileIconlibHeartStraightFill);
+}

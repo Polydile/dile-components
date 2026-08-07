@@ -6,4 +6,6 @@ export class DileIconlibRetweet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-retweet', DileIconlibRetweet);
+if (!customElements.get('dile-fontawesome-icon-retweet')) {
+  customElements.define('dile-fontawesome-icon-retweet', DileIconlibRetweet);
+}

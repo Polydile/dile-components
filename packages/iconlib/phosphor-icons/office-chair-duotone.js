@@ -6,4 +6,6 @@ export class DileIconlibOfficeChairDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-office-chair-duotone', DileIconlibOfficeChairDuotone);
+if (!customElements.get('dile-phosphor-icon-office-chair-duotone')) {
+  customElements.define('dile-phosphor-icon-office-chair-duotone', DileIconlibOfficeChairDuotone);
+}

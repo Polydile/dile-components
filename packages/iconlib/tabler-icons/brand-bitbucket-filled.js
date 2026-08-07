@@ -6,4 +6,6 @@ export class DileIconlibBrandBitbucketFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bitbucket-filled', DileIconlibBrandBitbucketFilled);
+if (!customElements.get('dile-tabler-icon-brand-bitbucket-filled')) {
+  customElements.define('dile-tabler-icon-brand-bitbucket-filled', DileIconlibBrandBitbucketFilled);
+}

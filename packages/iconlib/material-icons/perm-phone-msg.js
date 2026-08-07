@@ -6,4 +6,6 @@ export class DileIconlibPermPhoneMsg extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-phone-msg', DileIconlibPermPhoneMsg);
+if (!customElements.get('dile-material-icon-perm-phone-msg')) {
+  customElements.define('dile-material-icon-perm-phone-msg', DileIconlibPermPhoneMsg);
+}

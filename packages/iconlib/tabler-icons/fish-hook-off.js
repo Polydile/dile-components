@@ -6,4 +6,6 @@ export class DileIconlibFishHookOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fish-hook-off', DileIconlibFishHookOff);
+if (!customElements.get('dile-tabler-icon-fish-hook-off')) {
+  customElements.define('dile-tabler-icon-fish-hook-off', DileIconlibFishHookOff);
+}

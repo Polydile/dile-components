@@ -6,4 +6,6 @@ export class DileIconlibListCollapse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-list-collapse', DileIconlibListCollapse);
+if (!customElements.get('dile-lucide-icon-list-collapse')) {
+  customElements.define('dile-lucide-icon-list-collapse', DileIconlibListCollapse);
+}

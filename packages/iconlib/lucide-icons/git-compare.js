@@ -6,4 +6,6 @@ export class DileIconlibGitCompare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-git-compare', DileIconlibGitCompare);
+if (!customElements.get('dile-lucide-icon-git-compare')) {
+  customElements.define('dile-lucide-icon-git-compare', DileIconlibGitCompare);
+}

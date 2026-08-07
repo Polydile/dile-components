@@ -6,4 +6,6 @@ export class DileIconlibSunMoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sun-moon', DileIconlibSunMoon);
+if (!customElements.get('dile-tabler-icon-sun-moon')) {
+  customElements.define('dile-tabler-icon-sun-moon', DileIconlibSunMoon);
+}

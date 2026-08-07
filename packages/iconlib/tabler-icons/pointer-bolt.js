@@ -6,4 +6,6 @@ export class DileIconlibPointerBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-bolt', DileIconlibPointerBolt);
+if (!customElements.get('dile-tabler-icon-pointer-bolt')) {
+  customElements.define('dile-tabler-icon-pointer-bolt', DileIconlibPointerBolt);
+}

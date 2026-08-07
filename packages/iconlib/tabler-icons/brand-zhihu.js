@@ -6,4 +6,6 @@ export class DileIconlibBrandZhihu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zhihu', DileIconlibBrandZhihu);
+if (!customElements.get('dile-tabler-icon-brand-zhihu')) {
+  customElements.define('dile-tabler-icon-brand-zhihu', DileIconlibBrandZhihu);
+}

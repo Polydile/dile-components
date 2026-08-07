@@ -6,4 +6,6 @@ export class DileIconlibPrison extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-prison', DileIconlibPrison);
+if (!customElements.get('dile-tabler-icon-prison')) {
+  customElements.define('dile-tabler-icon-prison', DileIconlibPrison);
+}

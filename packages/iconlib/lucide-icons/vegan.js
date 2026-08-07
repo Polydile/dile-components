@@ -6,4 +6,6 @@ export class DileIconlibVegan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-vegan', DileIconlibVegan);
+if (!customElements.get('dile-lucide-icon-vegan')) {
+  customElements.define('dile-lucide-icon-vegan', DileIconlibVegan);
+}

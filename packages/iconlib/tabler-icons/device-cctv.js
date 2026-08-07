@@ -6,4 +6,6 @@ export class DileIconlibDeviceCctv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-cctv', DileIconlibDeviceCctv);
+if (!customElements.get('dile-tabler-icon-device-cctv')) {
+  customElements.define('dile-tabler-icon-device-cctv', DileIconlibDeviceCctv);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGalacticSenate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-galactic-senate', DileIconlibGalacticSenate);
+if (!customElements.get('dile-fontawesome-icon-galactic-senate')) {
+  customElements.define('dile-fontawesome-icon-galactic-senate', DileIconlibGalacticSenate);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartCohort extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-cohort', DileIconlibChartCohort);
+if (!customElements.get('dile-tabler-icon-chart-cohort')) {
+  customElements.define('dile-tabler-icon-chart-cohort', DileIconlibChartCohort);
+}

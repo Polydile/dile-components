@@ -6,4 +6,6 @@ export class DileIconlibPercentage60 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-percentage-60', DileIconlibPercentage60);
+if (!customElements.get('dile-tabler-icon-percentage-60')) {
+  customElements.define('dile-tabler-icon-percentage-60', DileIconlibPercentage60);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRosetteDiscountOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rosette-discount-off', DileIconlibRosetteDiscountOff);
+if (!customElements.get('dile-tabler-icon-rosette-discount-off')) {
+  customElements.define('dile-tabler-icon-rosette-discount-off', DileIconlibRosetteDiscountOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGitPullRequestThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-pull-request-thin', DileIconlibGitPullRequestThin);
+if (!customElements.get('dile-phosphor-icon-git-pull-request-thin')) {
+  customElements.define('dile-phosphor-icon-git-pull-request-thin', DileIconlibGitPullRequestThin);
+}

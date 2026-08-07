@@ -6,4 +6,6 @@ export class DileIconlibCloudUploadAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-upload-alt', DileIconlibCloudUploadAlt);
+if (!customElements.get('dile-fontawesome-icon-cloud-upload-alt')) {
+  customElements.define('dile-fontawesome-icon-cloud-upload-alt', DileIconlibCloudUploadAlt);
+}

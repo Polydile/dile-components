@@ -6,4 +6,6 @@ export class DileIconlibTimezone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-timezone', DileIconlibTimezone);
+if (!customElements.get('dile-tabler-icon-timezone')) {
+  customElements.define('dile-tabler-icon-timezone', DileIconlibTimezone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandAppstore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-appstore', DileIconlibBrandAppstore);
+if (!customElements.get('dile-tabler-icon-brand-appstore')) {
+  customElements.define('dile-tabler-icon-brand-appstore', DileIconlibBrandAppstore);
+}

@@ -6,4 +6,6 @@ export class DileIconlibIceCreamBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ice-cream-bold', DileIconlibIceCreamBold);
+if (!customElements.get('dile-phosphor-icon-ice-cream-bold')) {
+  customElements.define('dile-phosphor-icon-ice-cream-bold', DileIconlibIceCreamBold);
+}

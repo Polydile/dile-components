@@ -6,4 +6,6 @@ export class DileIconlibPanoramaFishEye extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-panorama-fish-eye', DileIconlibPanoramaFishEye);
+if (!customElements.get('dile-material-icon-panorama-fish-eye')) {
+  customElements.define('dile-material-icon-panorama-fish-eye', DileIconlibPanoramaFishEye);
+}

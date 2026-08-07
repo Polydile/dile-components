@@ -6,4 +6,6 @@ export class DileIconlibPedalBike extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pedal-bike', DileIconlibPedalBike);
+if (!customElements.get('dile-material-icon-pedal-bike')) {
+  customElements.define('dile-material-icon-pedal-bike', DileIconlibPedalBike);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLetterGSmall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-g-small', DileIconlibLetterGSmall);
+if (!customElements.get('dile-tabler-icon-letter-g-small')) {
+  customElements.define('dile-tabler-icon-letter-g-small', DileIconlibLetterGSmall);
+}

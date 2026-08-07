@@ -6,4 +6,6 @@ export class DileIconlibPanoramaVerticalOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-panorama-vertical-off', DileIconlibPanoramaVerticalOff);
+if (!customElements.get('dile-tabler-icon-panorama-vertical-off')) {
+  customElements.define('dile-tabler-icon-panorama-vertical-off', DileIconlibPanoramaVerticalOff);
+}

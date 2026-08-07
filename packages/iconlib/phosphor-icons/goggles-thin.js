@@ -6,4 +6,6 @@ export class DileIconlibGogglesThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-goggles-thin', DileIconlibGogglesThin);
+if (!customElements.get('dile-phosphor-icon-goggles-thin')) {
+  customElements.define('dile-phosphor-icon-goggles-thin', DileIconlibGogglesThin);
+}

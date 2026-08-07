@@ -6,4 +6,6 @@ export class DileIconlibBiohazardFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-biohazard-filled', DileIconlibBiohazardFilled);
+if (!customElements.get('dile-tabler-icon-biohazard-filled')) {
+  customElements.define('dile-tabler-icon-biohazard-filled', DileIconlibBiohazardFilled);
+}

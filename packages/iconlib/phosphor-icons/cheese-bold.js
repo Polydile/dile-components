@@ -6,4 +6,6 @@ export class DileIconlibCheeseBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cheese-bold', DileIconlibCheeseBold);
+if (!customElements.get('dile-phosphor-icon-cheese-bold')) {
+  customElements.define('dile-phosphor-icon-cheese-bold', DileIconlibCheeseBold);
+}

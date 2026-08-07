@@ -6,4 +6,6 @@ export class DileIconlibClockArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-clock-arrow-down', DileIconlibClockArrowDown);
+if (!customElements.get('dile-lucide-icon-clock-arrow-down')) {
+  customElements.define('dile-lucide-icon-clock-arrow-down', DileIconlibClockArrowDown);
+}

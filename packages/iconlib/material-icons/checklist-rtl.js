@@ -6,4 +6,6 @@ export class DileIconlibChecklistRtl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-checklist-rtl', DileIconlibChecklistRtl);
+if (!customElements.get('dile-material-icon-checklist-rtl')) {
+  customElements.define('dile-material-icon-checklist-rtl', DileIconlibChecklistRtl);
+}

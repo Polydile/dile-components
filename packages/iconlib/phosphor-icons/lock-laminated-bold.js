@@ -6,4 +6,6 @@ export class DileIconlibLockLaminatedBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lock-laminated-bold', DileIconlibLockLaminatedBold);
+if (!customElements.get('dile-phosphor-icon-lock-laminated-bold')) {
+  customElements.define('dile-phosphor-icon-lock-laminated-bold', DileIconlibLockLaminatedBold);
+}

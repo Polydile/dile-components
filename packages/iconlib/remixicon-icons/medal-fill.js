@@ -6,4 +6,6 @@ export class DileIconlibMedalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-medal-fill', DileIconlibMedalFill);
+if (!customElements.get('dile-remixicon-icon-medal-fill')) {
+  customElements.define('dile-remixicon-icon-medal-fill', DileIconlibMedalFill);
+}

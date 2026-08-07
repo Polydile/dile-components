@@ -6,4 +6,6 @@ export class DileIconlibFerry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ferry', DileIconlibFerry);
+if (!customElements.get('dile-fontawesome-icon-ferry')) {
+  customElements.define('dile-fontawesome-icon-ferry', DileIconlibFerry);
+}

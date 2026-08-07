@@ -6,4 +6,6 @@ export class DileIconlibStubber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stubber', DileIconlibStubber);
+if (!customElements.get('dile-fontawesome-icon-stubber')) {
+  customElements.define('dile-fontawesome-icon-stubber', DileIconlibStubber);
+}

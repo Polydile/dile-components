@@ -6,4 +6,6 @@ export class DileIconlibKeyboardVoice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-keyboard-voice', DileIconlibKeyboardVoice);
+if (!customElements.get('dile-material-icon-keyboard-voice')) {
+  customElements.define('dile-material-icon-keyboard-voice', DileIconlibKeyboardVoice);
+}

@@ -6,4 +6,6 @@ export class DileIconlibJoystickThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-joystick-thin', DileIconlibJoystickThin);
+if (!customElements.get('dile-phosphor-icon-joystick-thin')) {
+  customElements.define('dile-phosphor-icon-joystick-thin', DileIconlibJoystickThin);
+}

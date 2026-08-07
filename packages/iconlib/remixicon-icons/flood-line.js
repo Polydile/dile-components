@@ -6,4 +6,6 @@ export class DileIconlibFloodLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flood-line', DileIconlibFloodLine);
+if (!customElements.get('dile-remixicon-icon-flood-line')) {
+  customElements.define('dile-remixicon-icon-flood-line', DileIconlibFloodLine);
+}

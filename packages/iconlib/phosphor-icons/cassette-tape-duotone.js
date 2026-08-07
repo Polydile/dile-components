@@ -6,4 +6,6 @@ export class DileIconlibCassetteTapeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cassette-tape-duotone', DileIconlibCassetteTapeDuotone);
+if (!customElements.get('dile-phosphor-icon-cassette-tape-duotone')) {
+  customElements.define('dile-phosphor-icon-cassette-tape-duotone', DileIconlibCassetteTapeDuotone);
+}

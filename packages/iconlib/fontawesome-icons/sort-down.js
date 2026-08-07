@@ -6,4 +6,6 @@ export class DileIconlibSortDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sort-down', DileIconlibSortDown);
+if (!customElements.get('dile-fontawesome-icon-sort-down')) {
+  customElements.define('dile-fontawesome-icon-sort-down', DileIconlibSortDown);
+}

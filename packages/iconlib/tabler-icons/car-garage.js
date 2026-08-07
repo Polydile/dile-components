@@ -6,4 +6,6 @@ export class DileIconlibCarGarage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-car-garage', DileIconlibCarGarage);
+if (!customElements.get('dile-tabler-icon-car-garage')) {
+  customElements.define('dile-tabler-icon-car-garage', DileIconlibCarGarage);
+}

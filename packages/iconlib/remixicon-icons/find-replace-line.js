@@ -6,4 +6,6 @@ export class DileIconlibFindReplaceLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-find-replace-line', DileIconlibFindReplaceLine);
+if (!customElements.get('dile-remixicon-icon-find-replace-line')) {
+  customElements.define('dile-remixicon-icon-find-replace-line', DileIconlibFindReplaceLine);
+}

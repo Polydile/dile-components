@@ -6,4 +6,6 @@ export class DileIconlibRecharging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-recharging', DileIconlibRecharging);
+if (!customElements.get('dile-tabler-icon-recharging')) {
+  customElements.define('dile-tabler-icon-recharging', DileIconlibRecharging);
+}

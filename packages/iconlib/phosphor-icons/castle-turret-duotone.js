@@ -6,4 +6,6 @@ export class DileIconlibCastleTurretDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-castle-turret-duotone', DileIconlibCastleTurretDuotone);
+if (!customElements.get('dile-phosphor-icon-castle-turret-duotone')) {
+  customElements.define('dile-phosphor-icon-castle-turret-duotone', DileIconlibCastleTurretDuotone);
+}

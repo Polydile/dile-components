@@ -6,4 +6,6 @@ export class DileIconlibDrinksLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-drinks-line', DileIconlibDrinksLine);
+if (!customElements.get('dile-remixicon-icon-drinks-line')) {
+  customElements.define('dile-remixicon-icon-drinks-line', DileIconlibDrinksLine);
+}

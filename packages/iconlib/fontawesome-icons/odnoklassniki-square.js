@@ -6,4 +6,6 @@ export class DileIconlibOdnoklassnikiSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-odnoklassniki-square', DileIconlibOdnoklassnikiSquare);
+if (!customElements.get('dile-fontawesome-icon-odnoklassniki-square')) {
+  customElements.define('dile-fontawesome-icon-odnoklassniki-square', DileIconlibOdnoklassnikiSquare);
+}

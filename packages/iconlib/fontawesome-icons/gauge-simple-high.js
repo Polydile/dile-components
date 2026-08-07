@@ -6,4 +6,6 @@ export class DileIconlibGaugeSimpleHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gauge-simple-high', DileIconlibGaugeSimpleHigh);
+if (!customElements.get('dile-fontawesome-icon-gauge-simple-high')) {
+  customElements.define('dile-fontawesome-icon-gauge-simple-high', DileIconlibGaugeSimpleHigh);
+}

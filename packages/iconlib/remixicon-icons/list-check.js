@@ -6,4 +6,6 @@ export class DileIconlibListCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-list-check', DileIconlibListCheck);
+if (!customElements.get('dile-remixicon-icon-list-check')) {
+  customElements.define('dile-remixicon-icon-list-check', DileIconlibListCheck);
+}

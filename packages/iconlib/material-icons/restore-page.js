@@ -6,4 +6,6 @@ export class DileIconlibRestorePage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-restore-page', DileIconlibRestorePage);
+if (!customElements.get('dile-material-icon-restore-page')) {
+  customElements.define('dile-material-icon-restore-page', DileIconlibRestorePage);
+}

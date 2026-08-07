@@ -6,4 +6,6 @@ export class DileIconlibAppleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-apple-line', DileIconlibAppleLine);
+if (!customElements.get('dile-remixicon-icon-apple-line')) {
+  customElements.define('dile-remixicon-icon-apple-line', DileIconlibAppleLine);
+}

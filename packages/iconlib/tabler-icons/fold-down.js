@@ -6,4 +6,6 @@ export class DileIconlibFoldDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fold-down', DileIconlibFoldDown);
+if (!customElements.get('dile-tabler-icon-fold-down')) {
+  customElements.define('dile-tabler-icon-fold-down', DileIconlibFoldDown);
+}

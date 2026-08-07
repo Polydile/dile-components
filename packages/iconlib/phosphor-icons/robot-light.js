@@ -6,4 +6,6 @@ export class DileIconlibRobotLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-robot-light', DileIconlibRobotLight);
+if (!customElements.get('dile-phosphor-icon-robot-light')) {
+  customElements.define('dile-phosphor-icon-robot-light', DileIconlibRobotLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSkypeLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-skype-logo-light', DileIconlibSkypeLogoLight);
+if (!customElements.get('dile-phosphor-icon-skype-logo-light')) {
+  customElements.define('dile-phosphor-icon-skype-logo-light', DileIconlibSkypeLogoLight);
+}

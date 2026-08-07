@@ -6,4 +6,6 @@ export class DileIconlibKeybase extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-keybase', DileIconlibKeybase);
+if (!customElements.get('dile-fontawesome-icon-keybase')) {
+  customElements.define('dile-fontawesome-icon-keybase', DileIconlibKeybase);
+}

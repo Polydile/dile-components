@@ -6,4 +6,6 @@ export class DileIconlibSquareThreads extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-threads', DileIconlibSquareThreads);
+if (!customElements.get('dile-fontawesome-icon-square-threads')) {
+  customElements.define('dile-fontawesome-icon-square-threads', DileIconlibSquareThreads);
+}

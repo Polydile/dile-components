@@ -6,4 +6,6 @@ export class DileIconlibWechatLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wechat-logo-duotone', DileIconlibWechatLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-wechat-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-wechat-logo-duotone', DileIconlibWechatLogoDuotone);
+}

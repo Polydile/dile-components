@@ -6,4 +6,6 @@ export class DileIconlibWindow2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-window-2-line', DileIconlibWindow2Line);
+if (!customElements.get('dile-remixicon-icon-window-2-line')) {
+  customElements.define('dile-remixicon-icon-window-2-line', DileIconlibWindow2Line);
+}

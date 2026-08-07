@@ -6,4 +6,6 @@ export class DileIconlibSeatbeltBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seatbelt-bold', DileIconlibSeatbeltBold);
+if (!customElements.get('dile-phosphor-icon-seatbelt-bold')) {
+  customElements.define('dile-phosphor-icon-seatbelt-bold', DileIconlibSeatbeltBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartGantt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-chart-gantt', DileIconlibChartGantt);
+if (!customElements.get('dile-fontawesome-icon-chart-gantt')) {
+  customElements.define('dile-fontawesome-icon-chart-gantt', DileIconlibChartGantt);
+}

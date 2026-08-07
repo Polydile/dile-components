@@ -6,4 +6,6 @@ export class DileIconlibParagliding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-paragliding', DileIconlibParagliding);
+if (!customElements.get('dile-material-icon-paragliding')) {
+  customElements.define('dile-material-icon-paragliding', DileIconlibParagliding);
+}

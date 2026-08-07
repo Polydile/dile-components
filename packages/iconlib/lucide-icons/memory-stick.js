@@ -6,4 +6,6 @@ export class DileIconlibMemoryStick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-memory-stick', DileIconlibMemoryStick);
+if (!customElements.get('dile-lucide-icon-memory-stick')) {
+  customElements.define('dile-lucide-icon-memory-stick', DileIconlibMemoryStick);
+}

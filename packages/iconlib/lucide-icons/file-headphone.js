@@ -6,4 +6,6 @@ export class DileIconlibFileHeadphone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-headphone', DileIconlibFileHeadphone);
+if (!customElements.get('dile-lucide-icon-file-headphone')) {
+  customElements.define('dile-lucide-icon-file-headphone', DileIconlibFileHeadphone);
+}

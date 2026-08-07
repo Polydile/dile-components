@@ -6,4 +6,6 @@ export class DileIconlibSmileWink extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-smile-wink', DileIconlibSmileWink);
+if (!customElements.get('dile-fontawesome-icon-regular-smile-wink')) {
+  customElements.define('dile-fontawesome-icon-regular-smile-wink', DileIconlibSmileWink);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAlignHorizontalSpaceBetween extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-align-horizontal-space-between', DileIconlibAlignHorizontalSpaceBetween);
+if (!customElements.get('dile-lucide-icon-align-horizontal-space-between')) {
+  customElements.define('dile-lucide-icon-align-horizontal-space-between', DileIconlibAlignHorizontalSpaceBetween);
+}

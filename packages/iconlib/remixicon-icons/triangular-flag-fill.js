@@ -6,4 +6,6 @@ export class DileIconlibTriangularFlagFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-triangular-flag-fill', DileIconlibTriangularFlagFill);
+if (!customElements.get('dile-remixicon-icon-triangular-flag-fill')) {
+  customElements.define('dile-remixicon-icon-triangular-flag-fill', DileIconlibTriangularFlagFill);
+}

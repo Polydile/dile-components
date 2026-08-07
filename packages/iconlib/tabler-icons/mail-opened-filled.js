@@ -6,4 +6,6 @@ export class DileIconlibMailOpenedFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-opened-filled', DileIconlibMailOpenedFilled);
+if (!customElements.get('dile-tabler-icon-mail-opened-filled')) {
+  customElements.define('dile-tabler-icon-mail-opened-filled', DileIconlibMailOpenedFilled);
+}

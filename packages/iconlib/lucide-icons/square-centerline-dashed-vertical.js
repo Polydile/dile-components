@@ -6,4 +6,6 @@ export class DileIconlibSquareCenterlineDashedVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-centerline-dashed-vertical', DileIconlibSquareCenterlineDashedVertical);
+if (!customElements.get('dile-lucide-icon-square-centerline-dashed-vertical')) {
+  customElements.define('dile-lucide-icon-square-centerline-dashed-vertical', DileIconlibSquareCenterlineDashedVertical);
+}

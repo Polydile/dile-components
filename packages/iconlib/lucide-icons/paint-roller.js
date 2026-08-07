@@ -6,4 +6,6 @@ export class DileIconlibPaintRoller extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-paint-roller', DileIconlibPaintRoller);
+if (!customElements.get('dile-lucide-icon-paint-roller')) {
+  customElements.define('dile-lucide-icon-paint-roller', DileIconlibPaintRoller);
+}

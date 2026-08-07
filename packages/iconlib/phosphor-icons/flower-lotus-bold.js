@@ -6,4 +6,6 @@ export class DileIconlibFlowerLotusBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flower-lotus-bold', DileIconlibFlowerLotusBold);
+if (!customElements.get('dile-phosphor-icon-flower-lotus-bold')) {
+  customElements.define('dile-phosphor-icon-flower-lotus-bold', DileIconlibFlowerLotusBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScooterElectric extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scooter-electric', DileIconlibScooterElectric);
+if (!customElements.get('dile-tabler-icon-scooter-electric')) {
+  customElements.define('dile-tabler-icon-scooter-electric', DileIconlibScooterElectric);
+}

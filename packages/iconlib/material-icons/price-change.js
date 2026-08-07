@@ -6,4 +6,6 @@ export class DileIconlibPriceChange extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-price-change', DileIconlibPriceChange);
+if (!customElements.get('dile-material-icon-price-change')) {
+  customElements.define('dile-material-icon-price-change', DileIconlibPriceChange);
+}

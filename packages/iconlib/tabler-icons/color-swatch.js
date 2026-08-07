@@ -6,4 +6,6 @@ export class DileIconlibColorSwatch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-color-swatch', DileIconlibColorSwatch);
+if (!customElements.get('dile-tabler-icon-color-swatch')) {
+  customElements.define('dile-tabler-icon-color-swatch', DileIconlibColorSwatch);
+}

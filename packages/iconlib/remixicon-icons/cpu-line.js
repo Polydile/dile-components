@@ -6,4 +6,6 @@ export class DileIconlibCpuLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cpu-line', DileIconlibCpuLine);
+if (!customElements.get('dile-remixicon-icon-cpu-line')) {
+  customElements.define('dile-remixicon-icon-cpu-line', DileIconlibCpuLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBackHand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-back-hand', DileIconlibBackHand);
+if (!customElements.get('dile-material-icon-back-hand')) {
+  customElements.define('dile-material-icon-back-hand', DileIconlibBackHand);
+}

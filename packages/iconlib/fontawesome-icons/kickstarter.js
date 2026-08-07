@@ -6,4 +6,6 @@ export class DileIconlibKickstarter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kickstarter', DileIconlibKickstarter);
+if (!customElements.get('dile-fontawesome-icon-kickstarter')) {
+  customElements.define('dile-fontawesome-icon-kickstarter', DileIconlibKickstarter);
+}

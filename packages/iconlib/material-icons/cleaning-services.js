@@ -6,4 +6,6 @@ export class DileIconlibCleaningServices extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cleaning-services', DileIconlibCleaningServices);
+if (!customElements.get('dile-material-icon-cleaning-services')) {
+  customElements.define('dile-material-icon-cleaning-services', DileIconlibCleaningServices);
+}

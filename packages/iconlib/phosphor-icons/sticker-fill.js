@@ -6,4 +6,6 @@ export class DileIconlibStickerFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sticker-fill', DileIconlibStickerFill);
+if (!customElements.get('dile-phosphor-icon-sticker-fill')) {
+  customElements.define('dile-phosphor-icon-sticker-fill', DileIconlibStickerFill);
+}

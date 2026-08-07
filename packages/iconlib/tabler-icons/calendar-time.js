@@ -6,4 +6,6 @@ export class DileIconlibCalendarTime extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-time', DileIconlibCalendarTime);
+if (!customElements.get('dile-tabler-icon-calendar-time')) {
+  customElements.define('dile-tabler-icon-calendar-time', DileIconlibCalendarTime);
+}

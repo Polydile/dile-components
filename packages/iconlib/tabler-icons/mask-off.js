@@ -6,4 +6,6 @@ export class DileIconlibMaskOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mask-off', DileIconlibMaskOff);
+if (!customElements.get('dile-tabler-icon-mask-off')) {
+  customElements.define('dile-tabler-icon-mask-off', DileIconlibMaskOff);
+}

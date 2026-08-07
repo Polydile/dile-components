@@ -6,4 +6,6 @@ export class DileIconlibBrandXamarin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-xamarin', DileIconlibBrandXamarin);
+if (!customElements.get('dile-tabler-icon-brand-xamarin')) {
+  customElements.define('dile-tabler-icon-brand-xamarin', DileIconlibBrandXamarin);
+}

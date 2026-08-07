@@ -6,4 +6,6 @@ export class DileIconlibChristmasBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-christmas-ball', DileIconlibChristmasBall);
+if (!customElements.get('dile-tabler-icon-christmas-ball')) {
+  customElements.define('dile-tabler-icon-christmas-ball', DileIconlibChristmasBall);
+}

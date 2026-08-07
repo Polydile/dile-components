@@ -6,4 +6,6 @@ export class DileIconlibPolygon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-polygon', DileIconlibPolygon);
+if (!customElements.get('dile-tabler-icon-polygon')) {
+  customElements.define('dile-tabler-icon-polygon', DileIconlibPolygon);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUnpublished extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-unpublished', DileIconlibUnpublished);
+if (!customElements.get('dile-material-icon-unpublished')) {
+  customElements.define('dile-material-icon-unpublished', DileIconlibUnpublished);
+}

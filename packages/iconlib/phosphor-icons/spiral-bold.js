@@ -6,4 +6,6 @@ export class DileIconlibSpiralBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spiral-bold', DileIconlibSpiralBold);
+if (!customElements.get('dile-phosphor-icon-spiral-bold')) {
+  customElements.define('dile-phosphor-icon-spiral-bold', DileIconlibSpiralBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPaperclipHorizontalDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paperclip-horizontal-duotone', DileIconlibPaperclipHorizontalDuotone);
+if (!customElements.get('dile-phosphor-icon-paperclip-horizontal-duotone')) {
+  customElements.define('dile-phosphor-icon-paperclip-horizontal-duotone', DileIconlibPaperclipHorizontalDuotone);
+}

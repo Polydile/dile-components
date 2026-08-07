@@ -6,4 +6,6 @@ export class DileIconlibHttpConnect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-connect', DileIconlibHttpConnect);
+if (!customElements.get('dile-tabler-icon-http-connect')) {
+  customElements.define('dile-tabler-icon-http-connect', DileIconlibHttpConnect);
+}

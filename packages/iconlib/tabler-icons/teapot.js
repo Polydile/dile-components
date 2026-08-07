@@ -6,4 +6,6 @@ export class DileIconlibTeapot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-teapot', DileIconlibTeapot);
+if (!customElements.get('dile-tabler-icon-teapot')) {
+  customElements.define('dile-tabler-icon-teapot', DileIconlibTeapot);
+}

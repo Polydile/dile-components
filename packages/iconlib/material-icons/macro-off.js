@@ -6,4 +6,6 @@ export class DileIconlibMacroOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-macro-off', DileIconlibMacroOff);
+if (!customElements.get('dile-material-icon-macro-off')) {
+  customElements.define('dile-material-icon-macro-off', DileIconlibMacroOff);
+}

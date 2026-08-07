@@ -6,4 +6,6 @@ export class DileIconlibLandMineOn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-land-mine-on', DileIconlibLandMineOn);
+if (!customElements.get('dile-fontawesome-icon-land-mine-on')) {
+  customElements.define('dile-fontawesome-icon-land-mine-on', DileIconlibLandMineOn);
+}

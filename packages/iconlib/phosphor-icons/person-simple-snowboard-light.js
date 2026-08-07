@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleSnowboardLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-snowboard-light', DileIconlibPersonSimpleSnowboardLight);
+if (!customElements.get('dile-phosphor-icon-person-simple-snowboard-light')) {
+  customElements.define('dile-phosphor-icon-person-simple-snowboard-light', DileIconlibPersonSimpleSnowboardLight);
+}

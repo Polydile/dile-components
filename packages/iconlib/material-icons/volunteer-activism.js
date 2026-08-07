@@ -6,4 +6,6 @@ export class DileIconlibVolunteerActivism extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-volunteer-activism', DileIconlibVolunteerActivism);
+if (!customElements.get('dile-material-icon-volunteer-activism')) {
+  customElements.define('dile-material-icon-volunteer-activism', DileIconlibVolunteerActivism);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRewindBackward10 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rewind-backward-10', DileIconlibRewindBackward10);
+if (!customElements.get('dile-tabler-icon-rewind-backward-10')) {
+  customElements.define('dile-tabler-icon-rewind-backward-10', DileIconlibRewindBackward10);
+}

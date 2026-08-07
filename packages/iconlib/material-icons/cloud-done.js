@@ -6,4 +6,6 @@ export class DileIconlibCloudDone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cloud-done', DileIconlibCloudDone);
+if (!customElements.get('dile-material-icon-cloud-done')) {
+  customElements.define('dile-material-icon-cloud-done', DileIconlibCloudDone);
+}

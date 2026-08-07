@@ -6,4 +6,6 @@ export class DileIconlibBrandVlc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vlc', DileIconlibBrandVlc);
+if (!customElements.get('dile-tabler-icon-brand-vlc')) {
+  customElements.define('dile-tabler-icon-brand-vlc', DileIconlibBrandVlc);
+}

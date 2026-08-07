@@ -6,4 +6,6 @@ export class DileIconlibDog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-dog', DileIconlibDog);
+if (!customElements.get('dile-lucide-icon-dog')) {
+  customElements.define('dile-lucide-icon-dog', DileIconlibDog);
+}

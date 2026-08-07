@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarSingapore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-singapore', DileIconlibCurrencyDollarSingapore);
+if (!customElements.get('dile-tabler-icon-currency-dollar-singapore')) {
+  customElements.define('dile-tabler-icon-currency-dollar-singapore', DileIconlibCurrencyDollarSingapore);
+}

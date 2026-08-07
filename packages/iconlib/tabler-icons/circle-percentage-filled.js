@@ -6,4 +6,6 @@ export class DileIconlibCirclePercentageFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-percentage-filled', DileIconlibCirclePercentageFilled);
+if (!customElements.get('dile-tabler-icon-circle-percentage-filled')) {
+  customElements.define('dile-tabler-icon-circle-percentage-filled', DileIconlibCirclePercentageFilled);
+}

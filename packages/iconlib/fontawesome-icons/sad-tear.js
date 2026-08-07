@@ -6,4 +6,6 @@ export class DileIconlibSadTear extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sad-tear', DileIconlibSadTear);
+if (!customElements.get('dile-fontawesome-icon-sad-tear')) {
+  customElements.define('dile-fontawesome-icon-sad-tear', DileIconlibSadTear);
+}

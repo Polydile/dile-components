@@ -6,4 +6,6 @@ export class DileIconlibHelmet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-helmet', DileIconlibHelmet);
+if (!customElements.get('dile-tabler-icon-helmet')) {
+  customElements.define('dile-tabler-icon-helmet', DileIconlibHelmet);
+}

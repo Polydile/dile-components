@@ -6,4 +6,6 @@ export class DileIconlibGratipay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gratipay', DileIconlibGratipay);
+if (!customElements.get('dile-fontawesome-icon-gratipay')) {
+  customElements.define('dile-fontawesome-icon-gratipay', DileIconlibGratipay);
+}

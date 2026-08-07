@@ -6,4 +6,6 @@ export class DileIconlibNutOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-nut-off', DileIconlibNutOff);
+if (!customElements.get('dile-lucide-icon-nut-off')) {
+  customElements.define('dile-lucide-icon-nut-off', DileIconlibNutOff);
+}

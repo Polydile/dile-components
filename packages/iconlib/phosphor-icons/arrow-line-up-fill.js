@@ -6,4 +6,6 @@ export class DileIconlibArrowLineUpFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrow-line-up-fill', DileIconlibArrowLineUpFill);
+if (!customElements.get('dile-phosphor-icon-arrow-line-up-fill')) {
+  customElements.define('dile-phosphor-icon-arrow-line-up-fill', DileIconlibArrowLineUpFill);
+}

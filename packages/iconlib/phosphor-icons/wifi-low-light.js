@@ -6,4 +6,6 @@ export class DileIconlibWifiLowLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wifi-low-light', DileIconlibWifiLowLight);
+if (!customElements.get('dile-phosphor-icon-wifi-low-light')) {
+  customElements.define('dile-phosphor-icon-wifi-low-light', DileIconlibWifiLowLight);
+}

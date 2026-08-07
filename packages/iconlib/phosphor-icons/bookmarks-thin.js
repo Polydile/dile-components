@@ -6,4 +6,6 @@ export class DileIconlibBookmarksThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bookmarks-thin', DileIconlibBookmarksThin);
+if (!customElements.get('dile-phosphor-icon-bookmarks-thin')) {
+  customElements.define('dile-phosphor-icon-bookmarks-thin', DileIconlibBookmarksThin);
+}

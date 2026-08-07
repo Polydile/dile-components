@@ -6,4 +6,6 @@ export class DileIconlibStackSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stack-simple-fill', DileIconlibStackSimpleFill);
+if (!customElements.get('dile-phosphor-icon-stack-simple-fill')) {
+  customElements.define('dile-phosphor-icon-stack-simple-fill', DileIconlibStackSimpleFill);
+}

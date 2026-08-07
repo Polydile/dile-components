@@ -6,4 +6,6 @@ export class DileIconlibBikeScooter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bike-scooter', DileIconlibBikeScooter);
+if (!customElements.get('dile-material-icon-bike-scooter')) {
+  customElements.define('dile-material-icon-bike-scooter', DileIconlibBikeScooter);
+}

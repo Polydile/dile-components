@@ -6,4 +6,6 @@ export class DileIconlibGenderNeutrois extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gender-neutrois', DileIconlibGenderNeutrois);
+if (!customElements.get('dile-tabler-icon-gender-neutrois')) {
+  customElements.define('dile-tabler-icon-gender-neutrois', DileIconlibGenderNeutrois);
+}

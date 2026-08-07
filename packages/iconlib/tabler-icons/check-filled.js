@@ -6,4 +6,6 @@ export class DileIconlibCheckFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-check-filled', DileIconlibCheckFilled);
+if (!customElements.get('dile-tabler-icon-check-filled')) {
+  customElements.define('dile-tabler-icon-check-filled', DileIconlibCheckFilled);
+}

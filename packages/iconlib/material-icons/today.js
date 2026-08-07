@@ -6,4 +6,6 @@ export class DileIconlibToday extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-today', DileIconlibToday);
+if (!customElements.get('dile-material-icon-today')) {
+  customElements.define('dile-material-icon-today', DileIconlibToday);
+}

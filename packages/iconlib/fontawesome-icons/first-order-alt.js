@@ -6,4 +6,6 @@ export class DileIconlibFirstOrderAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-first-order-alt', DileIconlibFirstOrderAlt);
+if (!customElements.get('dile-fontawesome-icon-first-order-alt')) {
+  customElements.define('dile-fontawesome-icon-first-order-alt', DileIconlibFirstOrderAlt);
+}

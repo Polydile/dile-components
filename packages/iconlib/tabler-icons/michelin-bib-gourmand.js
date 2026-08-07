@@ -6,4 +6,6 @@ export class DileIconlibMichelinBibGourmand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-michelin-bib-gourmand', DileIconlibMichelinBibGourmand);
+if (!customElements.get('dile-tabler-icon-michelin-bib-gourmand')) {
+  customElements.define('dile-tabler-icon-michelin-bib-gourmand', DileIconlibMichelinBibGourmand);
+}

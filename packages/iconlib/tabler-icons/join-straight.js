@@ -6,4 +6,6 @@ export class DileIconlibJoinStraight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-join-straight', DileIconlibJoinStraight);
+if (!customElements.get('dile-tabler-icon-join-straight')) {
+  customElements.define('dile-tabler-icon-join-straight', DileIconlibJoinStraight);
+}

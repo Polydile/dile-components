@@ -6,4 +6,6 @@ export class DileIconlibErrorOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-error-outline', DileIconlibErrorOutline);
+if (!customElements.get('dile-material-icon-error-outline')) {
+  customElements.define('dile-material-icon-error-outline', DileIconlibErrorOutline);
+}

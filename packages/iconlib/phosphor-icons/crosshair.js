@@ -6,4 +6,6 @@ export class DileIconlibCrosshair extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crosshair', DileIconlibCrosshair);
+if (!customElements.get('dile-phosphor-icon-crosshair')) {
+  customElements.define('dile-phosphor-icon-crosshair', DileIconlibCrosshair);
+}

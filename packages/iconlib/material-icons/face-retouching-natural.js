@@ -6,4 +6,6 @@ export class DileIconlibFaceRetouchingNatural extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-face-retouching-natural', DileIconlibFaceRetouchingNatural);
+if (!customElements.get('dile-material-icon-face-retouching-natural')) {
+  customElements.define('dile-material-icon-face-retouching-natural', DileIconlibFaceRetouchingNatural);
+}

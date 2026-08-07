@@ -6,4 +6,6 @@ export class DileIconlibHamsa extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hamsa', DileIconlibHamsa);
+if (!customElements.get('dile-fontawesome-icon-hamsa')) {
+  customElements.define('dile-fontawesome-icon-hamsa', DileIconlibHamsa);
+}

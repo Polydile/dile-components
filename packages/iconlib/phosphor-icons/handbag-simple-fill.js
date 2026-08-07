@@ -6,4 +6,6 @@ export class DileIconlibHandbagSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-handbag-simple-fill', DileIconlibHandbagSimpleFill);
+if (!customElements.get('dile-phosphor-icon-handbag-simple-fill')) {
+  customElements.define('dile-phosphor-icon-handbag-simple-fill', DileIconlibHandbagSimpleFill);
+}

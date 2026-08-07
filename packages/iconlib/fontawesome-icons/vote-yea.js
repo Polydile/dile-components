@@ -6,4 +6,6 @@ export class DileIconlibVoteYea extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vote-yea', DileIconlibVoteYea);
+if (!customElements.get('dile-fontawesome-icon-vote-yea')) {
+  customElements.define('dile-fontawesome-icon-vote-yea', DileIconlibVoteYea);
+}

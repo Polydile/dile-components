@@ -6,4 +6,6 @@ export class DileIconlibBrandTwitter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-twitter', DileIconlibBrandTwitter);
+if (!customElements.get('dile-tabler-icon-brand-twitter')) {
+  customElements.define('dile-tabler-icon-brand-twitter', DileIconlibBrandTwitter);
+}

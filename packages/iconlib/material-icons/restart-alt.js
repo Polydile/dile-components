@@ -6,4 +6,6 @@ export class DileIconlibRestartAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-restart-alt', DileIconlibRestartAlt);
+if (!customElements.get('dile-material-icon-restart-alt')) {
+  customElements.define('dile-material-icon-restart-alt', DileIconlibRestartAlt);
+}

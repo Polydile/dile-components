@@ -6,4 +6,6 @@ export class DileIconlibDivideBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-divide-bold', DileIconlibDivideBold);
+if (!customElements.get('dile-phosphor-icon-divide-bold')) {
+  customElements.define('dile-phosphor-icon-divide-bold', DileIconlibDivideBold);
+}

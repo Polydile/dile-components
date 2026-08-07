@@ -1,3 +1,5 @@
 import { DileTimer } from "./src/DileTimer.js";
 
-window.customElements.define("dile-timer", DileTimer);
+if (!customElements.get("dile-timer")) {
+  window.customElements.define("dile-timer", DileTimer);
+}

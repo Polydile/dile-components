@@ -6,4 +6,6 @@ export class DileIconlibNewspaperFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-newspaper-fill', DileIconlibNewspaperFill);
+if (!customElements.get('dile-remixicon-icon-newspaper-fill')) {
+  customElements.define('dile-remixicon-icon-newspaper-fill', DileIconlibNewspaperFill);
+}

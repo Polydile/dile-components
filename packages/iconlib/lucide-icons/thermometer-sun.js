@@ -6,4 +6,6 @@ export class DileIconlibThermometerSun extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-thermometer-sun', DileIconlibThermometerSun);
+if (!customElements.get('dile-lucide-icon-thermometer-sun')) {
+  customElements.define('dile-lucide-icon-thermometer-sun', DileIconlibThermometerSun);
+}

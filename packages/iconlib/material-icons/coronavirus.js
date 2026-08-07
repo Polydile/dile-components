@@ -6,4 +6,6 @@ export class DileIconlibCoronavirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-coronavirus', DileIconlibCoronavirus);
+if (!customElements.get('dile-material-icon-coronavirus')) {
+  customElements.define('dile-material-icon-coronavirus', DileIconlibCoronavirus);
+}

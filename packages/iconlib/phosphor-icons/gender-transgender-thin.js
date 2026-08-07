@@ -6,4 +6,6 @@ export class DileIconlibGenderTransgenderThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gender-transgender-thin', DileIconlibGenderTransgenderThin);
+if (!customElements.get('dile-phosphor-icon-gender-transgender-thin')) {
+  customElements.define('dile-phosphor-icon-gender-transgender-thin', DileIconlibGenderTransgenderThin);
+}

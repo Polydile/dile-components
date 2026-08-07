@@ -6,4 +6,6 @@ export class DileIconlibWaterFlashLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-water-flash-line', DileIconlibWaterFlashLine);
+if (!customElements.get('dile-remixicon-icon-water-flash-line')) {
+  customElements.define('dile-remixicon-icon-water-flash-line', DileIconlibWaterFlashLine);
+}

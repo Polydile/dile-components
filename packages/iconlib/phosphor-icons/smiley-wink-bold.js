@@ -6,4 +6,6 @@ export class DileIconlibSmileyWinkBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-smiley-wink-bold', DileIconlibSmileyWinkBold);
+if (!customElements.get('dile-phosphor-icon-smiley-wink-bold')) {
+  customElements.define('dile-phosphor-icon-smiley-wink-bold', DileIconlibSmileyWinkBold);
+}

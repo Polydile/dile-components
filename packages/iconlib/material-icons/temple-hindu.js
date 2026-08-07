@@ -6,4 +6,6 @@ export class DileIconlibTempleHindu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-temple-hindu', DileIconlibTempleHindu);
+if (!customElements.get('dile-material-icon-temple-hindu')) {
+  customElements.define('dile-material-icon-temple-hindu', DileIconlibTempleHindu);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextHThreeThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-h-three-thin', DileIconlibTextHThreeThin);
+if (!customElements.get('dile-phosphor-icon-text-h-three-thin')) {
+  customElements.define('dile-phosphor-icon-text-h-three-thin', DileIconlibTextHThreeThin);
+}

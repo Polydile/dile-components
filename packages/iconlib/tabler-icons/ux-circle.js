@@ -6,4 +6,6 @@ export class DileIconlibUxCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ux-circle', DileIconlibUxCircle);
+if (!customElements.get('dile-tabler-icon-ux-circle')) {
+  customElements.define('dile-tabler-icon-ux-circle', DileIconlibUxCircle);
+}

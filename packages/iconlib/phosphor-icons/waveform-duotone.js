@@ -6,4 +6,6 @@ export class DileIconlibWaveformDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waveform-duotone', DileIconlibWaveformDuotone);
+if (!customElements.get('dile-phosphor-icon-waveform-duotone')) {
+  customElements.define('dile-phosphor-icon-waveform-duotone', DileIconlibWaveformDuotone);
+}

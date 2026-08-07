@@ -6,4 +6,6 @@ export class DileIconlibPingPongLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ping-pong-line', DileIconlibPingPongLine);
+if (!customElements.get('dile-remixicon-icon-ping-pong-line')) {
+  customElements.define('dile-remixicon-icon-ping-pong-line', DileIconlibPingPongLine);
+}

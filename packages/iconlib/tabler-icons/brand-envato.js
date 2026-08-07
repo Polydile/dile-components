@@ -6,4 +6,6 @@ export class DileIconlibBrandEnvato extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-envato', DileIconlibBrandEnvato);
+if (!customElements.get('dile-tabler-icon-brand-envato')) {
+  customElements.define('dile-tabler-icon-brand-envato', DileIconlibBrandEnvato);
+}

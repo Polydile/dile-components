@@ -6,4 +6,6 @@ export class DileIconlibHurricaneLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hurricane-light', DileIconlibHurricaneLight);
+if (!customElements.get('dile-phosphor-icon-hurricane-light')) {
+  customElements.define('dile-phosphor-icon-hurricane-light', DileIconlibHurricaneLight);
+}

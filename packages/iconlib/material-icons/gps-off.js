@@ -6,4 +6,6 @@ export class DileIconlibGpsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-gps-off', DileIconlibGpsOff);
+if (!customElements.get('dile-material-icon-gps-off')) {
+  customElements.define('dile-material-icon-gps-off', DileIconlibGpsOff);
+}

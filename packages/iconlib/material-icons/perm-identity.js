@@ -6,4 +6,6 @@ export class DileIconlibPermIdentity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-identity', DileIconlibPermIdentity);
+if (!customElements.get('dile-material-icon-perm-identity')) {
+  customElements.define('dile-material-icon-perm-identity', DileIconlibPermIdentity);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMemory extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-memory', DileIconlibMemory);
+if (!customElements.get('dile-fontawesome-icon-memory')) {
+  customElements.define('dile-fontawesome-icon-memory', DileIconlibMemory);
+}

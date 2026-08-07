@@ -6,4 +6,6 @@ export class DileIconlibDeviceVisionProWifi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-vision-pro-wifi', DileIconlibDeviceVisionProWifi);
+if (!customElements.get('dile-tabler-icon-device-vision-pro-wifi')) {
+  customElements.define('dile-tabler-icon-device-vision-pro-wifi', DileIconlibDeviceVisionProWifi);
+}

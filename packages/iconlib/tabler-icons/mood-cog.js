@@ -6,4 +6,6 @@ export class DileIconlibMoodCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-cog', DileIconlibMoodCog);
+if (!customElements.get('dile-tabler-icon-mood-cog')) {
+  customElements.define('dile-tabler-icon-mood-cog', DileIconlibMoodCog);
+}

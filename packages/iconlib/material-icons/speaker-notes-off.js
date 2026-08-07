@@ -6,4 +6,6 @@ export class DileIconlibSpeakerNotesOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-speaker-notes-off', DileIconlibSpeakerNotesOff);
+if (!customElements.get('dile-material-icon-speaker-notes-off')) {
+  customElements.define('dile-material-icon-speaker-notes-off', DileIconlibSpeakerNotesOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHryvniaSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hryvnia-sign', DileIconlibHryvniaSign);
+if (!customElements.get('dile-fontawesome-icon-hryvnia-sign')) {
+  customElements.define('dile-fontawesome-icon-hryvnia-sign', DileIconlibHryvniaSign);
+}

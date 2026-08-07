@@ -6,4 +6,6 @@ export class DileIconlibWhirl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-whirl', DileIconlibWhirl);
+if (!customElements.get('dile-tabler-icon-whirl')) {
+  customElements.define('dile-tabler-icon-whirl', DileIconlibWhirl);
+}

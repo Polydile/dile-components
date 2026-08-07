@@ -6,4 +6,6 @@ export class DileIconlibKeyboardMusic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-keyboard-music', DileIconlibKeyboardMusic);
+if (!customElements.get('dile-lucide-icon-keyboard-music')) {
+  customElements.define('dile-lucide-icon-keyboard-music', DileIconlibKeyboardMusic);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWifiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wifi-line', DileIconlibWifiLine);
+if (!customElements.get('dile-remixicon-icon-wifi-line')) {
+  customElements.define('dile-remixicon-icon-wifi-line', DileIconlibWifiLine);
+}

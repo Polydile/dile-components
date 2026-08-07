@@ -6,4 +6,6 @@ export class DileIconlibCaretSquareUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-caret-square-up', DileIconlibCaretSquareUp);
+if (!customElements.get('dile-fontawesome-icon-regular-caret-square-up')) {
+  customElements.define('dile-fontawesome-icon-regular-caret-square-up', DileIconlibCaretSquareUp);
+}

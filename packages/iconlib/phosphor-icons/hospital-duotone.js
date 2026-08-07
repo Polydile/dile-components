@@ -6,4 +6,6 @@ export class DileIconlibHospitalDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hospital-duotone', DileIconlibHospitalDuotone);
+if (!customElements.get('dile-phosphor-icon-hospital-duotone')) {
+  customElements.define('dile-phosphor-icon-hospital-duotone', DileIconlibHospitalDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTimeZoneLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-time-zone-line', DileIconlibTimeZoneLine);
+if (!customElements.get('dile-remixicon-icon-time-zone-line')) {
+  customElements.define('dile-remixicon-icon-time-zone-line', DileIconlibTimeZoneLine);
+}

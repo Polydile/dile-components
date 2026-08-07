@@ -6,4 +6,6 @@ export class DileIconlibArrowRightRotate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-right-rotate', DileIconlibArrowRightRotate);
+if (!customElements.get('dile-fontawesome-icon-arrow-right-rotate')) {
+  customElements.define('dile-fontawesome-icon-arrow-right-rotate', DileIconlibArrowRightRotate);
+}

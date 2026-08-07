@@ -6,4 +6,6 @@ export class DileIconlibRainbowOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rainbow-off', DileIconlibRainbowOff);
+if (!customElements.get('dile-tabler-icon-rainbow-off')) {
+  customElements.define('dile-tabler-icon-rainbow-off', DileIconlibRainbowOff);
+}

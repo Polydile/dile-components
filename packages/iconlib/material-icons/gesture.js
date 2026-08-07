@@ -6,4 +6,6 @@ export class DileIconlibGesture extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-gesture', DileIconlibGesture);
+if (!customElements.get('dile-material-icon-gesture')) {
+  customElements.define('dile-material-icon-gesture', DileIconlibGesture);
+}

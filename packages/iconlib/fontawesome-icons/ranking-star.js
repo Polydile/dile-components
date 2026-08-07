@@ -6,4 +6,6 @@ export class DileIconlibRankingStar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ranking-star', DileIconlibRankingStar);
+if (!customElements.get('dile-fontawesome-icon-ranking-star')) {
+  customElements.define('dile-fontawesome-icon-ranking-star', DileIconlibRankingStar);
+}

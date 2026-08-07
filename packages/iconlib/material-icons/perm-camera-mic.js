@@ -6,4 +6,6 @@ export class DileIconlibPermCameraMic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-perm-camera-mic', DileIconlibPermCameraMic);
+if (!customElements.get('dile-material-icon-perm-camera-mic')) {
+  customElements.define('dile-material-icon-perm-camera-mic', DileIconlibPermCameraMic);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWhatshot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-whatshot', DileIconlibWhatshot);
+if (!customElements.get('dile-material-icon-whatshot')) {
+  customElements.define('dile-material-icon-whatshot', DileIconlibWhatshot);
+}

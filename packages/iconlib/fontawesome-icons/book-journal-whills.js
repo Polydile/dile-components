@@ -6,4 +6,6 @@ export class DileIconlibBookJournalWhills extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-journal-whills', DileIconlibBookJournalWhills);
+if (!customElements.get('dile-fontawesome-icon-book-journal-whills')) {
+  customElements.define('dile-fontawesome-icon-book-journal-whills', DileIconlibBookJournalWhills);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFileTypeZip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-zip', DileIconlibFileTypeZip);
+if (!customElements.get('dile-tabler-icon-file-type-zip')) {
+  customElements.define('dile-tabler-icon-file-type-zip', DileIconlibFileTypeZip);
+}

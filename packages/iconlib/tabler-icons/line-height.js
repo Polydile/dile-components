@@ -6,4 +6,6 @@ export class DileIconlibLineHeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-line-height', DileIconlibLineHeight);
+if (!customElements.get('dile-tabler-icon-line-height')) {
+  customElements.define('dile-tabler-icon-line-height', DileIconlibLineHeight);
+}

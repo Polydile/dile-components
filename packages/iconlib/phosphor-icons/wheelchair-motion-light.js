@@ -6,4 +6,6 @@ export class DileIconlibWheelchairMotionLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wheelchair-motion-light', DileIconlibWheelchairMotionLight);
+if (!customElements.get('dile-phosphor-icon-wheelchair-motion-light')) {
+  customElements.define('dile-phosphor-icon-wheelchair-motion-light', DileIconlibWheelchairMotionLight);
+}

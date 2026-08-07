@@ -6,4 +6,6 @@ export class DileIconlibColumnInsertLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-column-insert-left', DileIconlibColumnInsertLeft);
+if (!customElements.get('dile-tabler-icon-column-insert-left')) {
+  customElements.define('dile-tabler-icon-column-insert-left', DileIconlibColumnInsertLeft);
+}

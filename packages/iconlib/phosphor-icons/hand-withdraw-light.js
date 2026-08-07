@@ -6,4 +6,6 @@ export class DileIconlibHandWithdrawLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-withdraw-light', DileIconlibHandWithdrawLight);
+if (!customElements.get('dile-phosphor-icon-hand-withdraw-light')) {
+  customElements.define('dile-phosphor-icon-hand-withdraw-light', DileIconlibHandWithdrawLight);
+}

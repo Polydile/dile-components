@@ -6,4 +6,6 @@ export class DileIconlibTextSelect extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-select', DileIconlibTextSelect);
+if (!customElements.get('dile-lucide-icon-text-select')) {
+  customElements.define('dile-lucide-icon-text-select', DileIconlibTextSelect);
+}

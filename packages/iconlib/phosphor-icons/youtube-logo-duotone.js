@@ -6,4 +6,6 @@ export class DileIconlibYoutubeLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-youtube-logo-duotone', DileIconlibYoutubeLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-youtube-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-youtube-logo-duotone', DileIconlibYoutubeLogoDuotone);
+}

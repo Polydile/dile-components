@@ -6,4 +6,6 @@ export class DileIconlibPeaceFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-peace-fill', DileIconlibPeaceFill);
+if (!customElements.get('dile-phosphor-icon-peace-fill')) {
+  customElements.define('dile-phosphor-icon-peace-fill', DileIconlibPeaceFill);
+}

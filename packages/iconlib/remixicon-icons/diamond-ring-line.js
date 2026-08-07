@@ -6,4 +6,6 @@ export class DileIconlibDiamondRingLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-diamond-ring-line', DileIconlibDiamondRingLine);
+if (!customElements.get('dile-remixicon-icon-diamond-ring-line')) {
+  customElements.define('dile-remixicon-icon-diamond-ring-line', DileIconlibDiamondRingLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignalWifiErrorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-signal-wifi-error-line', DileIconlibSignalWifiErrorLine);
+if (!customElements.get('dile-remixicon-icon-signal-wifi-error-line')) {
+  customElements.define('dile-remixicon-icon-signal-wifi-error-line', DileIconlibSignalWifiErrorLine);
+}

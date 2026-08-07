@@ -6,4 +6,6 @@ export class DileIconlibCreditCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-credit-card', DileIconlibCreditCard);
+if (!customElements.get('dile-phosphor-icon-credit-card')) {
+  customElements.define('dile-phosphor-icon-credit-card', DileIconlibCreditCard);
+}

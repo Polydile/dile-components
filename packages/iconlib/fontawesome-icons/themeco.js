@@ -6,4 +6,6 @@ export class DileIconlibThemeco extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-themeco', DileIconlibThemeco);
+if (!customElements.get('dile-fontawesome-icon-themeco')) {
+  customElements.define('dile-fontawesome-icon-themeco', DileIconlibThemeco);
+}

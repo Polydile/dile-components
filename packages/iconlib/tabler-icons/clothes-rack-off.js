@@ -6,4 +6,6 @@ export class DileIconlibClothesRackOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clothes-rack-off', DileIconlibClothesRackOff);
+if (!customElements.get('dile-tabler-icon-clothes-rack-off')) {
+  customElements.define('dile-tabler-icon-clothes-rack-off', DileIconlibClothesRackOff);
+}

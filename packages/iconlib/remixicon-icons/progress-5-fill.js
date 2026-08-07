@@ -6,4 +6,6 @@ export class DileIconlibProgress5Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-progress-5-fill', DileIconlibProgress5Fill);
+if (!customElements.get('dile-remixicon-icon-progress-5-fill')) {
+  customElements.define('dile-remixicon-icon-progress-5-fill', DileIconlibProgress5Fill);
+}

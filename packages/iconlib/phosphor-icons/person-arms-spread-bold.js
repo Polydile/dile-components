@@ -6,4 +6,6 @@ export class DileIconlibPersonArmsSpreadBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-arms-spread-bold', DileIconlibPersonArmsSpreadBold);
+if (!customElements.get('dile-phosphor-icon-person-arms-spread-bold')) {
+  customElements.define('dile-phosphor-icon-person-arms-spread-bold', DileIconlibPersonArmsSpreadBold);
+}

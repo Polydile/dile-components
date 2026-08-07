@@ -6,4 +6,6 @@ export class DileIconlibNotificationsActive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-notifications-active', DileIconlibNotificationsActive);
+if (!customElements.get('dile-material-icon-notifications-active')) {
+  customElements.define('dile-material-icon-notifications-active', DileIconlibNotificationsActive);
+}

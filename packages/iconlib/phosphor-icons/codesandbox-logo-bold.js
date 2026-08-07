@@ -6,4 +6,6 @@ export class DileIconlibCodesandboxLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-codesandbox-logo-bold', DileIconlibCodesandboxLogoBold);
+if (!customElements.get('dile-phosphor-icon-codesandbox-logo-bold')) {
+  customElements.define('dile-phosphor-icon-codesandbox-logo-bold', DileIconlibCodesandboxLogoBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCloudUpload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-upload', DileIconlibCloudUpload);
+if (!customElements.get('dile-tabler-icon-cloud-upload')) {
+  customElements.define('dile-tabler-icon-cloud-upload', DileIconlibCloudUpload);
+}

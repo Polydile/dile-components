@@ -6,4 +6,6 @@ export class DileIconlibFaceRollingEyes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-face-rolling-eyes', DileIconlibFaceRollingEyes);
+if (!customElements.get('dile-fontawesome-icon-regular-face-rolling-eyes')) {
+  customElements.define('dile-fontawesome-icon-regular-face-rolling-eyes', DileIconlibFaceRollingEyes);
+}

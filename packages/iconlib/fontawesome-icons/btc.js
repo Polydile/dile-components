@@ -6,4 +6,6 @@ export class DileIconlibBtc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-btc', DileIconlibBtc);
+if (!customElements.get('dile-fontawesome-icon-btc')) {
+  customElements.define('dile-fontawesome-icon-btc', DileIconlibBtc);
+}

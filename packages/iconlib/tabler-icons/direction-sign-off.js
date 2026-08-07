@@ -6,4 +6,6 @@ export class DileIconlibDirectionSignOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-direction-sign-off', DileIconlibDirectionSignOff);
+if (!customElements.get('dile-tabler-icon-direction-sign-off')) {
+  customElements.define('dile-tabler-icon-direction-sign-off', DileIconlibDirectionSignOff);
+}

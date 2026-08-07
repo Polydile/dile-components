@@ -6,4 +6,6 @@ export class DileIconlibTrashXFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-trash-x-filled', DileIconlibTrashXFilled);
+if (!customElements.get('dile-tabler-icon-trash-x-filled')) {
+  customElements.define('dile-tabler-icon-trash-x-filled', DileIconlibTrashXFilled);
+}

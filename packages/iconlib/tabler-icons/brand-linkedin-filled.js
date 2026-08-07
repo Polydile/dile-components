@@ -6,4 +6,6 @@ export class DileIconlibBrandLinkedinFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-linkedin-filled', DileIconlibBrandLinkedinFilled);
+if (!customElements.get('dile-tabler-icon-brand-linkedin-filled')) {
+  customElements.define('dile-tabler-icon-brand-linkedin-filled', DileIconlibBrandLinkedinFilled);
+}

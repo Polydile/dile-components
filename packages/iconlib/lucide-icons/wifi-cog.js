@@ -6,4 +6,6 @@ export class DileIconlibWifiCog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wifi-cog', DileIconlibWifiCog);
+if (!customElements.get('dile-lucide-icon-wifi-cog')) {
+  customElements.define('dile-lucide-icon-wifi-cog', DileIconlibWifiCog);
+}

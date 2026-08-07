@@ -6,4 +6,6 @@ export class DileIconlibRemoveFormat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-remove-format', DileIconlibRemoveFormat);
+if (!customElements.get('dile-fontawesome-icon-remove-format')) {
+  customElements.define('dile-fontawesome-icon-remove-format', DileIconlibRemoveFormat);
+}

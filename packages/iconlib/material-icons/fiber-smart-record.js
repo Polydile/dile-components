@@ -6,4 +6,6 @@ export class DileIconlibFiberSmartRecord extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fiber-smart-record', DileIconlibFiberSmartRecord);
+if (!customElements.get('dile-material-icon-fiber-smart-record')) {
+  customElements.define('dile-material-icon-fiber-smart-record', DileIconlibFiberSmartRecord);
+}

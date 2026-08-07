@@ -6,4 +6,6 @@ export class DileIconlibUsps extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-usps', DileIconlibUsps);
+if (!customElements.get('dile-fontawesome-icon-usps')) {
+  customElements.define('dile-fontawesome-icon-usps', DileIconlibUsps);
+}

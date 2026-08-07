@@ -6,4 +6,6 @@ export class DileIconlibFolderSimpleLockFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-simple-lock-fill', DileIconlibFolderSimpleLockFill);
+if (!customElements.get('dile-phosphor-icon-folder-simple-lock-fill')) {
+  customElements.define('dile-phosphor-icon-folder-simple-lock-fill', DileIconlibFolderSimpleLockFill);
+}

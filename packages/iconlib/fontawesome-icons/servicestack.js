@@ -6,4 +6,6 @@ export class DileIconlibServicestack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-servicestack', DileIconlibServicestack);
+if (!customElements.get('dile-fontawesome-icon-servicestack')) {
+  customElements.define('dile-fontawesome-icon-servicestack', DileIconlibServicestack);
+}

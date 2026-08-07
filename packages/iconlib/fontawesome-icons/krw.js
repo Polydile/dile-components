@@ -6,4 +6,6 @@ export class DileIconlibKrw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-krw', DileIconlibKrw);
+if (!customElements.get('dile-fontawesome-icon-krw')) {
+  customElements.define('dile-fontawesome-icon-krw', DileIconlibKrw);
+}

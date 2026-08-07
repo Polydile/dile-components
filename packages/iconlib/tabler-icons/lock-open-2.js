@@ -6,4 +6,6 @@ export class DileIconlibLockOpen2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lock-open-2', DileIconlibLockOpen2);
+if (!customElements.get('dile-tabler-icon-lock-open-2')) {
+  customElements.define('dile-tabler-icon-lock-open-2', DileIconlibLockOpen2);
+}

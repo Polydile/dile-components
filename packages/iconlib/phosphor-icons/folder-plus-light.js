@@ -6,4 +6,6 @@ export class DileIconlibFolderPlusLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-plus-light', DileIconlibFolderPlusLight);
+if (!customElements.get('dile-phosphor-icon-folder-plus-light')) {
+  customElements.define('dile-phosphor-icon-folder-plus-light', DileIconlibFolderPlusLight);
+}

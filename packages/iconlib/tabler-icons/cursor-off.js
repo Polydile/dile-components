@@ -6,4 +6,6 @@ export class DileIconlibCursorOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cursor-off', DileIconlibCursorOff);
+if (!customElements.get('dile-tabler-icon-cursor-off')) {
+  customElements.define('dile-tabler-icon-cursor-off', DileIconlibCursorOff);
+}

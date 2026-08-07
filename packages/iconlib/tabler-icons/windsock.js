@@ -6,4 +6,6 @@ export class DileIconlibWindsock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-windsock', DileIconlibWindsock);
+if (!customElements.get('dile-tabler-icon-windsock')) {
+  customElements.define('dile-tabler-icon-windsock', DileIconlibWindsock);
+}

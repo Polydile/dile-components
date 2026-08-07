@@ -6,4 +6,6 @@ export class DileIconlibGrillSpatula extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grill-spatula', DileIconlibGrillSpatula);
+if (!customElements.get('dile-tabler-icon-grill-spatula')) {
+  customElements.define('dile-tabler-icon-grill-spatula', DileIconlibGrillSpatula);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBadgeEuro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-badge-euro', DileIconlibBadgeEuro);
+if (!customElements.get('dile-lucide-icon-badge-euro')) {
+  customElements.define('dile-lucide-icon-badge-euro', DileIconlibBadgeEuro);
+}

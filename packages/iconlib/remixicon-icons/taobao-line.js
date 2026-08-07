@@ -6,4 +6,6 @@ export class DileIconlibTaobaoLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-taobao-line', DileIconlibTaobaoLine);
+if (!customElements.get('dile-remixicon-icon-taobao-line')) {
+  customElements.define('dile-remixicon-icon-taobao-line', DileIconlibTaobaoLine);
+}

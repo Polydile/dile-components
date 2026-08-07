@@ -6,4 +6,6 @@ export class DileIconlibUserFocusFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-focus-fill', DileIconlibUserFocusFill);
+if (!customElements.get('dile-phosphor-icon-user-focus-fill')) {
+  customElements.define('dile-phosphor-icon-user-focus-fill', DileIconlibUserFocusFill);
+}

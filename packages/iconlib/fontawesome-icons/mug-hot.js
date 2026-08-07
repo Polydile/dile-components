@@ -6,4 +6,6 @@ export class DileIconlibMugHot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mug-hot', DileIconlibMugHot);
+if (!customElements.get('dile-fontawesome-icon-mug-hot')) {
+  customElements.define('dile-fontawesome-icon-mug-hot', DileIconlibMugHot);
+}

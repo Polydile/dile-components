@@ -6,4 +6,6 @@ export class DileIconlibCloudscale extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloudscale', DileIconlibCloudscale);
+if (!customElements.get('dile-fontawesome-icon-cloudscale')) {
+  customElements.define('dile-fontawesome-icon-cloudscale', DileIconlibCloudscale);
+}

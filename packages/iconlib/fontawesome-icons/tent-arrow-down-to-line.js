@@ -6,4 +6,6 @@ export class DileIconlibTentArrowDownToLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tent-arrow-down-to-line', DileIconlibTentArrowDownToLine);
+if (!customElements.get('dile-fontawesome-icon-tent-arrow-down-to-line')) {
+  customElements.define('dile-fontawesome-icon-tent-arrow-down-to-line', DileIconlibTentArrowDownToLine);
+}

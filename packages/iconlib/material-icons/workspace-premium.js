@@ -6,4 +6,6 @@ export class DileIconlibWorkspacePremium extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-workspace-premium', DileIconlibWorkspacePremium);
+if (!customElements.get('dile-material-icon-workspace-premium')) {
+  customElements.define('dile-material-icon-workspace-premium', DileIconlibWorkspacePremium);
+}

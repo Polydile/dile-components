@@ -6,4 +6,6 @@ export class DileIconlibMailCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-cancel', DileIconlibMailCancel);
+if (!customElements.get('dile-tabler-icon-mail-cancel')) {
+  customElements.define('dile-tabler-icon-mail-cancel', DileIconlibMailCancel);
+}

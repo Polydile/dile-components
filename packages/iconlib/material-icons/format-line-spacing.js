@@ -6,4 +6,6 @@ export class DileIconlibFormatLineSpacing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-line-spacing', DileIconlibFormatLineSpacing);
+if (!customElements.get('dile-material-icon-format-line-spacing')) {
+  customElements.define('dile-material-icon-format-line-spacing', DileIconlibFormatLineSpacing);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEmojiStickerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-emoji-sticker-line', DileIconlibEmojiStickerLine);
+if (!customElements.get('dile-remixicon-icon-emoji-sticker-line')) {
+  customElements.define('dile-remixicon-icon-emoji-sticker-line', DileIconlibEmojiStickerLine);
+}

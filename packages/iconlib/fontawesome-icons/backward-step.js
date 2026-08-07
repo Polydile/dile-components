@@ -6,4 +6,6 @@ export class DileIconlibBackwardStep extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-backward-step', DileIconlibBackwardStep);
+if (!customElements.get('dile-fontawesome-icon-backward-step')) {
+  customElements.define('dile-fontawesome-icon-backward-step', DileIconlibBackwardStep);
+}

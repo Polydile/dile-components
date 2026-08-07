@@ -6,4 +6,6 @@ export class DileIconlibTimelineEventPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-timeline-event-plus', DileIconlibTimelineEventPlus);
+if (!customElements.get('dile-tabler-icon-timeline-event-plus')) {
+  customElements.define('dile-tabler-icon-timeline-event-plus', DileIconlibTimelineEventPlus);
+}

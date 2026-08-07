@@ -6,4 +6,6 @@ export class DileIconlibFaceMaskFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-face-mask-fill', DileIconlibFaceMaskFill);
+if (!customElements.get('dile-phosphor-icon-face-mask-fill')) {
+  customElements.define('dile-phosphor-icon-face-mask-fill', DileIconlibFaceMaskFill);
+}

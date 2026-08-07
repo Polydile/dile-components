@@ -6,4 +6,6 @@ export class DileIconlibNoiseControlOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-noise-control-off', DileIconlibNoiseControlOff);
+if (!customElements.get('dile-material-icon-noise-control-off')) {
+  customElements.define('dile-material-icon-noise-control-off', DileIconlibNoiseControlOff);
+}

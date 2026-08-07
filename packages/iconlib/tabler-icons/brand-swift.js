@@ -6,4 +6,6 @@ export class DileIconlibBrandSwift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-swift', DileIconlibBrandSwift);
+if (!customElements.get('dile-tabler-icon-brand-swift')) {
+  customElements.define('dile-tabler-icon-brand-swift', DileIconlibBrandSwift);
+}

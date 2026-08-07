@@ -6,4 +6,6 @@ export class DileIconlibStackOverflow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stack-overflow', DileIconlibStackOverflow);
+if (!customElements.get('dile-fontawesome-icon-stack-overflow')) {
+  customElements.define('dile-fontawesome-icon-stack-overflow', DileIconlibStackOverflow);
+}

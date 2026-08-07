@@ -6,4 +6,6 @@ export class DileIconlibFilter2Pause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-2-pause', DileIconlibFilter2Pause);
+if (!customElements.get('dile-tabler-icon-filter-2-pause')) {
+  customElements.define('dile-tabler-icon-filter-2-pause', DileIconlibFilter2Pause);
+}

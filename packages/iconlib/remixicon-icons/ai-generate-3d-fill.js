@@ -6,4 +6,6 @@ export class DileIconlibAiGenerate3dFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ai-generate-3d-fill', DileIconlibAiGenerate3dFill);
+if (!customElements.get('dile-remixicon-icon-ai-generate-3d-fill')) {
+  customElements.define('dile-remixicon-icon-ai-generate-3d-fill', DileIconlibAiGenerate3dFill);
+}

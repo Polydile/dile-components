@@ -6,4 +6,6 @@ export class DileIconlibTrafficConeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-traffic-cone-duotone', DileIconlibTrafficConeDuotone);
+if (!customElements.get('dile-phosphor-icon-traffic-cone-duotone')) {
+  customElements.define('dile-phosphor-icon-traffic-cone-duotone', DileIconlibTrafficConeDuotone);
+}

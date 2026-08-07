@@ -6,4 +6,6 @@ export class DileIconlibCarrot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-carrot', DileIconlibCarrot);
+if (!customElements.get('dile-tabler-icon-carrot')) {
+  customElements.define('dile-tabler-icon-carrot', DileIconlibCarrot);
+}

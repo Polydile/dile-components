@@ -6,4 +6,6 @@ export class DileIconlibTaskFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-task-fill', DileIconlibTaskFill);
+if (!customElements.get('dile-remixicon-icon-task-fill')) {
+  customElements.define('dile-remixicon-icon-task-fill', DileIconlibTaskFill);
+}

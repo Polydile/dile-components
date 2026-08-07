@@ -6,4 +6,6 @@ export class DileIconlibPencilPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-pause', DileIconlibPencilPause);
+if (!customElements.get('dile-tabler-icon-pencil-pause')) {
+  customElements.define('dile-tabler-icon-pencil-pause', DileIconlibPencilPause);
+}

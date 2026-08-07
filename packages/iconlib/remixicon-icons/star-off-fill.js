@@ -6,4 +6,6 @@ export class DileIconlibStarOffFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-star-off-fill', DileIconlibStarOffFill);
+if (!customElements.get('dile-remixicon-icon-star-off-fill')) {
+  customElements.define('dile-remixicon-icon-star-off-fill', DileIconlibStarOffFill);
+}

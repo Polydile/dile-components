@@ -6,4 +6,6 @@ export class DileIconlibDeviceMobileCharging extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-mobile-charging', DileIconlibDeviceMobileCharging);
+if (!customElements.get('dile-tabler-icon-device-mobile-charging')) {
+  customElements.define('dile-tabler-icon-device-mobile-charging', DileIconlibDeviceMobileCharging);
+}

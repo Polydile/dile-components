@@ -6,4 +6,6 @@ export class DileIconlibChartBarDecreasing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chart-bar-decreasing', DileIconlibChartBarDecreasing);
+if (!customElements.get('dile-lucide-icon-chart-bar-decreasing')) {
+  customElements.define('dile-lucide-icon-chart-bar-decreasing', DileIconlibChartBarDecreasing);
+}

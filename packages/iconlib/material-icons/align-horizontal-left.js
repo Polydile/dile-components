@@ -6,4 +6,6 @@ export class DileIconlibAlignHorizontalLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-align-horizontal-left', DileIconlibAlignHorizontalLeft);
+if (!customElements.get('dile-material-icon-align-horizontal-left')) {
+  customElements.define('dile-material-icon-align-horizontal-left', DileIconlibAlignHorizontalLeft);
+}

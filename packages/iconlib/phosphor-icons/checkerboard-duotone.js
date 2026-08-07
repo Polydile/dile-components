@@ -6,4 +6,6 @@ export class DileIconlibCheckerboardDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-checkerboard-duotone', DileIconlibCheckerboardDuotone);
+if (!customElements.get('dile-phosphor-icon-checkerboard-duotone')) {
+  customElements.define('dile-phosphor-icon-checkerboard-duotone', DileIconlibCheckerboardDuotone);
+}

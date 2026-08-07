@@ -6,4 +6,6 @@ export class DileIconlibDollarSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dollar-sign', DileIconlibDollarSign);
+if (!customElements.get('dile-fontawesome-icon-dollar-sign')) {
+  customElements.define('dile-fontawesome-icon-dollar-sign', DileIconlibDollarSign);
+}

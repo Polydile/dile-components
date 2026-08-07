@@ -6,4 +6,6 @@ export class DileIconlibSwipeDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-swipe-down', DileIconlibSwipeDown);
+if (!customElements.get('dile-material-icon-swipe-down')) {
+  customElements.define('dile-material-icon-swipe-down', DileIconlibSwipeDown);
+}

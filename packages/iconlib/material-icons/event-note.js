@@ -6,4 +6,6 @@ export class DileIconlibEventNote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-event-note', DileIconlibEventNote);
+if (!customElements.get('dile-material-icon-event-note')) {
+  customElements.define('dile-material-icon-event-note', DileIconlibEventNote);
+}

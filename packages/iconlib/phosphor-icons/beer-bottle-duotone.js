@@ -6,4 +6,6 @@ export class DileIconlibBeerBottleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-beer-bottle-duotone', DileIconlibBeerBottleDuotone);
+if (!customElements.get('dile-phosphor-icon-beer-bottle-duotone')) {
+  customElements.define('dile-phosphor-icon-beer-bottle-duotone', DileIconlibBeerBottleDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLightMode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-light-mode', DileIconlibLightMode);
+if (!customElements.get('dile-material-icon-light-mode')) {
+  customElements.define('dile-material-icon-light-mode', DileIconlibLightMode);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTransactionEuro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-transaction-euro', DileIconlibTransactionEuro);
+if (!customElements.get('dile-tabler-icon-transaction-euro')) {
+  customElements.define('dile-tabler-icon-transaction-euro', DileIconlibTransactionEuro);
+}

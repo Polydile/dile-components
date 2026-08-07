@@ -6,4 +6,6 @@ export class DileIconlibGuitar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-guitar', DileIconlibGuitar);
+if (!customElements.get('dile-fontawesome-icon-guitar')) {
+  customElements.define('dile-fontawesome-icon-guitar', DileIconlibGuitar);
+}

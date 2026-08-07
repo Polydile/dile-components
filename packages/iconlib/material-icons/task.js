@@ -6,4 +6,6 @@ export class DileIconlibTask extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-task', DileIconlibTask);
+if (!customElements.get('dile-material-icon-task')) {
+  customElements.define('dile-material-icon-task', DileIconlibTask);
+}

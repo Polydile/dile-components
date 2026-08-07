@@ -6,4 +6,6 @@ export class DileIconlibFerryFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ferry-filled', DileIconlibFerryFilled);
+if (!customElements.get('dile-tabler-icon-ferry-filled')) {
+  customElements.define('dile-tabler-icon-ferry-filled', DileIconlibFerryFilled);
+}

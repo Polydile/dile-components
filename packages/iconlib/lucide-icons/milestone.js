@@ -6,4 +6,6 @@ export class DileIconlibMilestone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-milestone', DileIconlibMilestone);
+if (!customElements.get('dile-lucide-icon-milestone')) {
+  customElements.define('dile-lucide-icon-milestone', DileIconlibMilestone);
+}

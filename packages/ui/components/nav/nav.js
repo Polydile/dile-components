@@ -1,3 +1,5 @@
 import { DileNav } from './src/DileNav.js';
 
-window.customElements.define('dile-nav', DileNav);
+if (!customElements.get('dile-nav')) {
+  window.customElements.define('dile-nav', DileNav);
+}

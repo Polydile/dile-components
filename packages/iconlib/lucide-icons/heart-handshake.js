@@ -6,4 +6,6 @@ export class DileIconlibHeartHandshake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-heart-handshake', DileIconlibHeartHandshake);
+if (!customElements.get('dile-lucide-icon-heart-handshake')) {
+  customElements.define('dile-lucide-icon-heart-handshake', DileIconlibHeartHandshake);
+}

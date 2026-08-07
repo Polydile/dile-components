@@ -6,4 +6,6 @@ export class DileIconlibHardDrive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-hard-drive', DileIconlibHardDrive);
+if (!customElements.get('dile-fontawesome-icon-regular-hard-drive')) {
+  customElements.define('dile-fontawesome-icon-regular-hard-drive', DileIconlibHardDrive);
+}

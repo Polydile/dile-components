@@ -6,4 +6,6 @@ export class DileIconlibSettingsInputAntenna extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-input-antenna', DileIconlibSettingsInputAntenna);
+if (!customElements.get('dile-material-icon-settings-input-antenna')) {
+  customElements.define('dile-material-icon-settings-input-antenna', DileIconlibSettingsInputAntenna);
+}

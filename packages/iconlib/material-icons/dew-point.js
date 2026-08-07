@@ -6,4 +6,6 @@ export class DileIconlibDewPoint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dew-point', DileIconlibDewPoint);
+if (!customElements.get('dile-material-icon-dew-point')) {
+  customElements.define('dile-material-icon-dew-point', DileIconlibDewPoint);
+}

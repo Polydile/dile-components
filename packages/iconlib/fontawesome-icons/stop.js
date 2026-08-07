@@ -6,4 +6,6 @@ export class DileIconlibStop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stop', DileIconlibStop);
+if (!customElements.get('dile-fontawesome-icon-stop')) {
+  customElements.define('dile-fontawesome-icon-stop', DileIconlibStop);
+}

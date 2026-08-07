@@ -6,4 +6,6 @@ export class DileIconlibDashcube extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dashcube', DileIconlibDashcube);
+if (!customElements.get('dile-fontawesome-icon-dashcube')) {
+  customElements.define('dile-fontawesome-icon-dashcube', DileIconlibDashcube);
+}

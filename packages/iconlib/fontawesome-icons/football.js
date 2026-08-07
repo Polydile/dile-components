@@ -6,4 +6,6 @@ export class DileIconlibFootball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-football', DileIconlibFootball);
+if (!customElements.get('dile-fontawesome-icon-football')) {
+  customElements.define('dile-fontawesome-icon-football', DileIconlibFootball);
+}

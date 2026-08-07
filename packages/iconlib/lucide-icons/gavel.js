@@ -6,4 +6,6 @@ export class DileIconlibGavel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-gavel', DileIconlibGavel);
+if (!customElements.get('dile-lucide-icon-gavel')) {
+  customElements.define('dile-lucide-icon-gavel', DileIconlibGavel);
+}

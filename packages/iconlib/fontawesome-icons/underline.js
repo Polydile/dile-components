@@ -6,4 +6,6 @@ export class DileIconlibUnderline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-underline', DileIconlibUnderline);
+if (!customElements.get('dile-fontawesome-icon-underline')) {
+  customElements.define('dile-fontawesome-icon-underline', DileIconlibUnderline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCoinYuanFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-yuan-filled', DileIconlibCoinYuanFilled);
+if (!customElements.get('dile-tabler-icon-coin-yuan-filled')) {
+  customElements.define('dile-tabler-icon-coin-yuan-filled', DileIconlibCoinYuanFilled);
+}

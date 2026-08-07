@@ -1,3 +1,5 @@
 import { DileSelectorItem } from "./src/DileSelectorItem.js";
 
-window.customElements.define("dile-selector-item", DileSelectorItem);
+if (!customElements.get("dile-selector-item")) {
+  window.customElements.define("dile-selector-item", DileSelectorItem);
+}

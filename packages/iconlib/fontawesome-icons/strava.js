@@ -6,4 +6,6 @@ export class DileIconlibStrava extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-strava', DileIconlibStrava);
+if (!customElements.get('dile-fontawesome-icon-strava')) {
+  customElements.define('dile-fontawesome-icon-strava', DileIconlibStrava);
+}

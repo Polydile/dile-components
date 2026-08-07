@@ -6,4 +6,6 @@ export class DileIconlibWallpaperOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wallpaper-off', DileIconlibWallpaperOff);
+if (!customElements.get('dile-tabler-icon-wallpaper-off')) {
+  customElements.define('dile-tabler-icon-wallpaper-off', DileIconlibWallpaperOff);
+}

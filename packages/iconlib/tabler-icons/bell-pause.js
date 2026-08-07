@@ -6,4 +6,6 @@ export class DileIconlibBellPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bell-pause', DileIconlibBellPause);
+if (!customElements.get('dile-tabler-icon-bell-pause')) {
+  customElements.define('dile-tabler-icon-bell-pause', DileIconlibBellPause);
+}

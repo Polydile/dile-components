@@ -6,4 +6,6 @@ export class DileIconlibWbTwilight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wb-twilight', DileIconlibWbTwilight);
+if (!customElements.get('dile-material-icon-wb-twilight')) {
+  customElements.define('dile-material-icon-wb-twilight', DileIconlibWbTwilight);
+}

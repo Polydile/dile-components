@@ -6,4 +6,6 @@ export class DileIconlibFitScreen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fit-screen', DileIconlibFitScreen);
+if (!customElements.get('dile-material-icon-fit-screen')) {
+  customElements.define('dile-material-icon-fit-screen', DileIconlibFitScreen);
+}

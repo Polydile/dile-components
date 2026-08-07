@@ -6,4 +6,6 @@ export class DileIconlibAirlineSeatFlat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airline-seat-flat', DileIconlibAirlineSeatFlat);
+if (!customElements.get('dile-material-icon-airline-seat-flat')) {
+  customElements.define('dile-material-icon-airline-seat-flat', DileIconlibAirlineSeatFlat);
+}

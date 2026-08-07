@@ -6,4 +6,6 @@ export class DileIconlibMonitorPlayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-monitor-play-fill', DileIconlibMonitorPlayFill);
+if (!customElements.get('dile-phosphor-icon-monitor-play-fill')) {
+  customElements.define('dile-phosphor-icon-monitor-play-fill', DileIconlibMonitorPlayFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHandshakeSimpleSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-handshake-simple-slash', DileIconlibHandshakeSimpleSlash);
+if (!customElements.get('dile-fontawesome-icon-handshake-simple-slash')) {
+  customElements.define('dile-fontawesome-icon-handshake-simple-slash', DileIconlibHandshakeSimpleSlash);
+}

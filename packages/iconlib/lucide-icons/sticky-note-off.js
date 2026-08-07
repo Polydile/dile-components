@@ -6,4 +6,6 @@ export class DileIconlibStickyNoteOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sticky-note-off', DileIconlibStickyNoteOff);
+if (!customElements.get('dile-lucide-icon-sticky-note-off')) {
+  customElements.define('dile-lucide-icon-sticky-note-off', DileIconlibStickyNoteOff);
+}

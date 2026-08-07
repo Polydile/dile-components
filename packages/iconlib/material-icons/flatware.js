@@ -6,4 +6,6 @@ export class DileIconlibFlatware extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flatware', DileIconlibFlatware);
+if (!customElements.get('dile-material-icon-flatware')) {
+  customElements.define('dile-material-icon-flatware', DileIconlibFlatware);
+}

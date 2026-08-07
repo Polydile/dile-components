@@ -6,4 +6,6 @@ export class DileIconlibSunglasses extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sunglasses', DileIconlibSunglasses);
+if (!customElements.get('dile-phosphor-icon-sunglasses')) {
+  customElements.define('dile-phosphor-icon-sunglasses', DileIconlibSunglasses);
+}

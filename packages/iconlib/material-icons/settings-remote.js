@@ -6,4 +6,6 @@ export class DileIconlibSettingsRemote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-remote', DileIconlibSettingsRemote);
+if (!customElements.get('dile-material-icon-settings-remote')) {
+  customElements.define('dile-material-icon-settings-remote', DileIconlibSettingsRemote);
+}

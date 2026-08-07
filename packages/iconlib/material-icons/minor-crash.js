@@ -6,4 +6,6 @@ export class DileIconlibMinorCrash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-minor-crash', DileIconlibMinorCrash);
+if (!customElements.get('dile-material-icon-minor-crash')) {
+  customElements.define('dile-material-icon-minor-crash', DileIconlibMinorCrash);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandAmazon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-amazon', DileIconlibBrandAmazon);
+if (!customElements.get('dile-tabler-icon-brand-amazon')) {
+  customElements.define('dile-tabler-icon-brand-amazon', DileIconlibBrandAmazon);
+}

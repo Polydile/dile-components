@@ -6,4 +6,6 @@ export class DileIconlibFlyingSaucerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flying-saucer-light', DileIconlibFlyingSaucerLight);
+if (!customElements.get('dile-phosphor-icon-flying-saucer-light')) {
+  customElements.define('dile-phosphor-icon-flying-saucer-light', DileIconlibFlyingSaucerLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHotTub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hot-tub', DileIconlibHotTub);
+if (!customElements.get('dile-fontawesome-icon-hot-tub')) {
+  customElements.define('dile-fontawesome-icon-hot-tub', DileIconlibHotTub);
+}

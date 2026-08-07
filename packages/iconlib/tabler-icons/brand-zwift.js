@@ -6,4 +6,6 @@ export class DileIconlibBrandZwift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zwift', DileIconlibBrandZwift);
+if (!customElements.get('dile-tabler-icon-brand-zwift')) {
+  customElements.define('dile-tabler-icon-brand-zwift', DileIconlibBrandZwift);
+}

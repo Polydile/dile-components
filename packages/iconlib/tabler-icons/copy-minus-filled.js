@@ -6,4 +6,6 @@ export class DileIconlibCopyMinusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-copy-minus-filled', DileIconlibCopyMinusFilled);
+if (!customElements.get('dile-tabler-icon-copy-minus-filled')) {
+  customElements.define('dile-tabler-icon-copy-minus-filled', DileIconlibCopyMinusFilled);
+}

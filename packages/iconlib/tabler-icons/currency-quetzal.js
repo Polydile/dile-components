@@ -6,4 +6,6 @@ export class DileIconlibCurrencyQuetzal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-quetzal', DileIconlibCurrencyQuetzal);
+if (!customElements.get('dile-tabler-icon-currency-quetzal')) {
+  customElements.define('dile-tabler-icon-currency-quetzal', DileIconlibCurrencyQuetzal);
+}

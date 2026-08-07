@@ -6,4 +6,6 @@ export class DileIconlibSolarElectricity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-solar-electricity', DileIconlibSolarElectricity);
+if (!customElements.get('dile-tabler-icon-solar-electricity')) {
+  customElements.define('dile-tabler-icon-solar-electricity', DileIconlibSolarElectricity);
+}

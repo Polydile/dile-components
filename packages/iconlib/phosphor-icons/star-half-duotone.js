@@ -6,4 +6,6 @@ export class DileIconlibStarHalfDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-half-duotone', DileIconlibStarHalfDuotone);
+if (!customElements.get('dile-phosphor-icon-star-half-duotone')) {
+  customElements.define('dile-phosphor-icon-star-half-duotone', DileIconlibStarHalfDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTimerReset extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-timer-reset', DileIconlibTimerReset);
+if (!customElements.get('dile-lucide-icon-timer-reset')) {
+  customElements.define('dile-lucide-icon-timer-reset', DileIconlibTimerReset);
+}

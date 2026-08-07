@@ -6,4 +6,6 @@ export class DileIconlibSnowmobile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-snowmobile', DileIconlibSnowmobile);
+if (!customElements.get('dile-material-icon-snowmobile')) {
+  customElements.define('dile-material-icon-snowmobile', DileIconlibSnowmobile);
+}

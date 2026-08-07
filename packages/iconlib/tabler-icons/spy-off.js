@@ -6,4 +6,6 @@ export class DileIconlibSpyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spy-off', DileIconlibSpyOff);
+if (!customElements.get('dile-tabler-icon-spy-off')) {
+  customElements.define('dile-tabler-icon-spy-off', DileIconlibSpyOff);
+}

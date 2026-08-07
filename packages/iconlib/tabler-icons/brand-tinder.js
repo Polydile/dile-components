@@ -6,4 +6,6 @@ export class DileIconlibBrandTinder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tinder', DileIconlibBrandTinder);
+if (!customElements.get('dile-tabler-icon-brand-tinder')) {
+  customElements.define('dile-tabler-icon-brand-tinder', DileIconlibBrandTinder);
+}

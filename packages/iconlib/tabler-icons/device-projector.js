@@ -6,4 +6,6 @@ export class DileIconlibDeviceProjector extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-projector', DileIconlibDeviceProjector);
+if (!customElements.get('dile-tabler-icon-device-projector')) {
+  customElements.define('dile-tabler-icon-device-projector', DileIconlibDeviceProjector);
+}

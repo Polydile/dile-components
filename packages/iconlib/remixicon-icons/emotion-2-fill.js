@@ -6,4 +6,6 @@ export class DileIconlibEmotion2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-emotion-2-fill', DileIconlibEmotion2Fill);
+if (!customElements.get('dile-remixicon-icon-emotion-2-fill')) {
+  customElements.define('dile-remixicon-icon-emotion-2-fill', DileIconlibEmotion2Fill);
+}

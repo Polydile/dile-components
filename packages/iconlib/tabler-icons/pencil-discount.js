@@ -6,4 +6,6 @@ export class DileIconlibPencilDiscount extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-discount', DileIconlibPencilDiscount);
+if (!customElements.get('dile-tabler-icon-pencil-discount')) {
+  customElements.define('dile-tabler-icon-pencil-discount', DileIconlibPencilDiscount);
+}

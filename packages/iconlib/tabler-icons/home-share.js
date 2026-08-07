@@ -6,4 +6,6 @@ export class DileIconlibHomeShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-home-share', DileIconlibHomeShare);
+if (!customElements.get('dile-tabler-icon-home-share')) {
+  customElements.define('dile-tabler-icon-home-share', DileIconlibHomeShare);
+}

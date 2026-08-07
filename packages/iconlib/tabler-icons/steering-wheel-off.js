@@ -6,4 +6,6 @@ export class DileIconlibSteeringWheelOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-steering-wheel-off', DileIconlibSteeringWheelOff);
+if (!customElements.get('dile-tabler-icon-steering-wheel-off')) {
+  customElements.define('dile-tabler-icon-steering-wheel-off', DileIconlibSteeringWheelOff);
+}

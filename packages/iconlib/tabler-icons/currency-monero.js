@@ -6,4 +6,6 @@ export class DileIconlibCurrencyMonero extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-monero', DileIconlibCurrencyMonero);
+if (!customElements.get('dile-tabler-icon-currency-monero')) {
+  customElements.define('dile-tabler-icon-currency-monero', DileIconlibCurrencyMonero);
+}

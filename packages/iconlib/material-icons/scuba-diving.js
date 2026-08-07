@@ -6,4 +6,6 @@ export class DileIconlibScubaDiving extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-scuba-diving', DileIconlibScubaDiving);
+if (!customElements.get('dile-material-icon-scuba-diving')) {
+  customElements.define('dile-material-icon-scuba-diving', DileIconlibScubaDiving);
+}

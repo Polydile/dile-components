@@ -6,4 +6,6 @@ export class DileIconlibMushroomFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mushroom-filled', DileIconlibMushroomFilled);
+if (!customElements.get('dile-tabler-icon-mushroom-filled')) {
+  customElements.define('dile-tabler-icon-mushroom-filled', DileIconlibMushroomFilled);
+}

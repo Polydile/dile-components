@@ -6,4 +6,6 @@ export class DileIconlibMasksTheater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-masks-theater', DileIconlibMasksTheater);
+if (!customElements.get('dile-tabler-icon-masks-theater')) {
+  customElements.define('dile-tabler-icon-masks-theater', DileIconlibMasksTheater);
+}

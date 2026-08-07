@@ -6,4 +6,6 @@ export class DileIconlibBrandCarbon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-carbon', DileIconlibBrandCarbon);
+if (!customElements.get('dile-tabler-icon-brand-carbon')) {
+  customElements.define('dile-tabler-icon-brand-carbon', DileIconlibBrandCarbon);
+}

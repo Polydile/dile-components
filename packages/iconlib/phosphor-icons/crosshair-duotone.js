@@ -6,4 +6,6 @@ export class DileIconlibCrosshairDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-crosshair-duotone', DileIconlibCrosshairDuotone);
+if (!customElements.get('dile-phosphor-icon-crosshair-duotone')) {
+  customElements.define('dile-phosphor-icon-crosshair-duotone', DileIconlibCrosshairDuotone);
+}

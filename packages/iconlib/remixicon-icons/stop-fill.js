@@ -6,4 +6,6 @@ export class DileIconlibStopFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stop-fill', DileIconlibStopFill);
+if (!customElements.get('dile-remixicon-icon-stop-fill')) {
+  customElements.define('dile-remixicon-icon-stop-fill', DileIconlibStopFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibInspectionPanel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-inspection-panel', DileIconlibInspectionPanel);
+if (!customElements.get('dile-lucide-icon-inspection-panel')) {
+  customElements.define('dile-lucide-icon-inspection-panel', DileIconlibInspectionPanel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFontMono extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-font-mono', DileIconlibFontMono);
+if (!customElements.get('dile-remixicon-icon-font-mono')) {
+  customElements.define('dile-remixicon-icon-font-mono', DileIconlibFontMono);
+}

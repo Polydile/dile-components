@@ -6,4 +6,6 @@ export class DileIconlibFaceGrinBeam extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-face-grin-beam', DileIconlibFaceGrinBeam);
+if (!customElements.get('dile-fontawesome-icon-regular-face-grin-beam')) {
+  customElements.define('dile-fontawesome-icon-regular-face-grin-beam', DileIconlibFaceGrinBeam);
+}

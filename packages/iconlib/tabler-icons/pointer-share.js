@@ -6,4 +6,6 @@ export class DileIconlibPointerShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-share', DileIconlibPointerShare);
+if (!customElements.get('dile-tabler-icon-pointer-share')) {
+  customElements.define('dile-tabler-icon-pointer-share', DileIconlibPointerShare);
+}

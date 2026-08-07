@@ -6,4 +6,6 @@ export class DileIconlibCalendarBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-calendar-bold', DileIconlibCalendarBold);
+if (!customElements.get('dile-phosphor-icon-calendar-bold')) {
+  customElements.define('dile-phosphor-icon-calendar-bold', DileIconlibCalendarBold);
+}

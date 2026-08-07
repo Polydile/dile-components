@@ -1,2 +1,4 @@
 import { DileCrudSingle } from "./src/DileCrudSingle.js";
-customElements.define('dile-crud-single', DileCrudSingle);
+if (!customElements.get('dile-crud-single')) {
+  customElements.define('dile-crud-single', DileCrudSingle);
+}

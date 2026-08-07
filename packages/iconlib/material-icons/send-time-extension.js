@@ -6,4 +6,6 @@ export class DileIconlibSendTimeExtension extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-send-time-extension', DileIconlibSendTimeExtension);
+if (!customElements.get('dile-material-icon-send-time-extension')) {
+  customElements.define('dile-material-icon-send-time-extension', DileIconlibSendTimeExtension);
+}

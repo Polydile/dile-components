@@ -6,4 +6,6 @@ export class DileIconlibPenNib extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pen-nib', DileIconlibPenNib);
+if (!customElements.get('dile-fontawesome-icon-pen-nib')) {
+  customElements.define('dile-fontawesome-icon-pen-nib', DileIconlibPenNib);
+}

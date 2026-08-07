@@ -6,4 +6,6 @@ export class DileIconlibCoffin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coffin', DileIconlibCoffin);
+if (!customElements.get('dile-tabler-icon-coffin')) {
+  customElements.define('dile-tabler-icon-coffin', DileIconlibCoffin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCompassCalibration extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-compass-calibration', DileIconlibCompassCalibration);
+if (!customElements.get('dile-material-icon-compass-calibration')) {
+  customElements.define('dile-material-icon-compass-calibration', DileIconlibCompassCalibration);
+}

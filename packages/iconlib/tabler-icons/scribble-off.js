@@ -6,4 +6,6 @@ export class DileIconlibScribbleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scribble-off', DileIconlibScribbleOff);
+if (!customElements.get('dile-tabler-icon-scribble-off')) {
+  customElements.define('dile-tabler-icon-scribble-off', DileIconlibScribbleOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTournament extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tournament', DileIconlibTournament);
+if (!customElements.get('dile-tabler-icon-tournament')) {
+  customElements.define('dile-tabler-icon-tournament', DileIconlibTournament);
+}

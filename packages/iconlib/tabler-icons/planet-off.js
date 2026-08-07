@@ -6,4 +6,6 @@ export class DileIconlibPlanetOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-planet-off', DileIconlibPlanetOff);
+if (!customElements.get('dile-tabler-icon-planet-off')) {
+  customElements.define('dile-tabler-icon-planet-off', DileIconlibPlanetOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAtlas extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-atlas', DileIconlibAtlas);
+if (!customElements.get('dile-fontawesome-icon-atlas')) {
+  customElements.define('dile-fontawesome-icon-atlas', DileIconlibAtlas);
+}

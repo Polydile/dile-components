@@ -6,4 +6,6 @@ export class DileIconlibTextStrikethroughBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-strikethrough-bold', DileIconlibTextStrikethroughBold);
+if (!customElements.get('dile-phosphor-icon-text-strikethrough-bold')) {
+  customElements.define('dile-phosphor-icon-text-strikethrough-bold', DileIconlibTextStrikethroughBold);
+}

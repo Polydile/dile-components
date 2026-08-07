@@ -6,4 +6,6 @@ export class DileIconlibStepInto extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-step-into', DileIconlibStepInto);
+if (!customElements.get('dile-tabler-icon-step-into')) {
+  customElements.define('dile-tabler-icon-step-into', DileIconlibStepInto);
+}

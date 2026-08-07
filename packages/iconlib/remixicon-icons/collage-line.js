@@ -6,4 +6,6 @@ export class DileIconlibCollageLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-collage-line', DileIconlibCollageLine);
+if (!customElements.get('dile-remixicon-icon-collage-line')) {
+  customElements.define('dile-remixicon-icon-collage-line', DileIconlibCollageLine);
+}

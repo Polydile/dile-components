@@ -6,4 +6,6 @@ export class DileIconlibSkyatlas extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skyatlas', DileIconlibSkyatlas);
+if (!customElements.get('dile-fontawesome-icon-skyatlas')) {
+  customElements.define('dile-fontawesome-icon-skyatlas', DileIconlibSkyatlas);
+}

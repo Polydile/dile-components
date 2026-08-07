@@ -6,4 +6,6 @@ export class DileIconlibViewCompactAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-compact-alt', DileIconlibViewCompactAlt);
+if (!customElements.get('dile-material-icon-view-compact-alt')) {
+  customElements.define('dile-material-icon-view-compact-alt', DileIconlibViewCompactAlt);
+}

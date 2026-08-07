@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-briefcase-clock', DileIconlibBriefcaseClock);
+if (!customElements.get('dile-fontawesome-icon-briefcase-clock')) {
+  customElements.define('dile-fontawesome-icon-briefcase-clock', DileIconlibBriefcaseClock);
+}

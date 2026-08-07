@@ -6,4 +6,6 @@ export class DileIconlibBaseballHelmetThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-baseball-helmet-thin', DileIconlibBaseballHelmetThin);
+if (!customElements.get('dile-phosphor-icon-baseball-helmet-thin')) {
+  customElements.define('dile-phosphor-icon-baseball-helmet-thin', DileIconlibBaseballHelmetThin);
+}

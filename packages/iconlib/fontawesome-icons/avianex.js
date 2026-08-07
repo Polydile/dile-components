@@ -6,4 +6,6 @@ export class DileIconlibAvianex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-avianex', DileIconlibAvianex);
+if (!customElements.get('dile-fontawesome-icon-avianex')) {
+  customElements.define('dile-fontawesome-icon-avianex', DileIconlibAvianex);
+}

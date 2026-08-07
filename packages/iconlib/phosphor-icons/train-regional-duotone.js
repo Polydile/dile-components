@@ -6,4 +6,6 @@ export class DileIconlibTrainRegionalDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-train-regional-duotone', DileIconlibTrainRegionalDuotone);
+if (!customElements.get('dile-phosphor-icon-train-regional-duotone')) {
+  customElements.define('dile-phosphor-icon-train-regional-duotone', DileIconlibTrainRegionalDuotone);
+}

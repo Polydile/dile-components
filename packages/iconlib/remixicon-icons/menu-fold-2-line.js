@@ -6,4 +6,6 @@ export class DileIconlibMenuFold2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-menu-fold-2-line', DileIconlibMenuFold2Line);
+if (!customElements.get('dile-remixicon-icon-menu-fold-2-line')) {
+  customElements.define('dile-remixicon-icon-menu-fold-2-line', DileIconlibMenuFold2Line);
+}

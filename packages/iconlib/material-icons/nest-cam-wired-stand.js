@@ -6,4 +6,6 @@ export class DileIconlibNestCamWiredStand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nest-cam-wired-stand', DileIconlibNestCamWiredStand);
+if (!customElements.get('dile-material-icon-nest-cam-wired-stand')) {
+  customElements.define('dile-material-icon-nest-cam-wired-stand', DileIconlibNestCamWiredStand);
+}

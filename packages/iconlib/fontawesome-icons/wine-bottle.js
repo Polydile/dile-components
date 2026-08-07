@@ -6,4 +6,6 @@ export class DileIconlibWineBottle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wine-bottle', DileIconlibWineBottle);
+if (!customElements.get('dile-fontawesome-icon-wine-bottle')) {
+  customElements.define('dile-fontawesome-icon-wine-bottle', DileIconlibWineBottle);
+}

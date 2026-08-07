@@ -6,4 +6,6 @@ export class DileIconlibTicketPercent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ticket-percent', DileIconlibTicketPercent);
+if (!customElements.get('dile-lucide-icon-ticket-percent')) {
+  customElements.define('dile-lucide-icon-ticket-percent', DileIconlibTicketPercent);
+}

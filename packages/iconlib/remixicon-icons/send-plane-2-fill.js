@@ -6,4 +6,6 @@ export class DileIconlibSendPlane2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-send-plane-2-fill', DileIconlibSendPlane2Fill);
+if (!customElements.get('dile-remixicon-icon-send-plane-2-fill')) {
+  customElements.define('dile-remixicon-icon-send-plane-2-fill', DileIconlibSendPlane2Fill);
+}

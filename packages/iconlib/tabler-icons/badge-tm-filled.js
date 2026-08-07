@@ -6,4 +6,6 @@ export class DileIconlibBadgeTmFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-badge-tm-filled', DileIconlibBadgeTmFilled);
+if (!customElements.get('dile-tabler-icon-badge-tm-filled')) {
+  customElements.define('dile-tabler-icon-badge-tm-filled', DileIconlibBadgeTmFilled);
+}

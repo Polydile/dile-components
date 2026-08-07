@@ -6,4 +6,6 @@ export class DileIconlibFileCheckCorner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-check-corner', DileIconlibFileCheckCorner);
+if (!customElements.get('dile-lucide-icon-file-check-corner')) {
+  customElements.define('dile-lucide-icon-file-check-corner', DileIconlibFileCheckCorner);
+}

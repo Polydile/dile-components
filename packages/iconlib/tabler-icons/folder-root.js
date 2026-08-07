@@ -6,4 +6,6 @@ export class DileIconlibFolderRoot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folder-root', DileIconlibFolderRoot);
+if (!customElements.get('dile-tabler-icon-folder-root')) {
+  customElements.define('dile-tabler-icon-folder-root', DileIconlibFolderRoot);
+}

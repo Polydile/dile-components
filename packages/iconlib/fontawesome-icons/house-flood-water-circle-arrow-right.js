@@ -6,4 +6,6 @@ export class DileIconlibHouseFloodWaterCircleArrowRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-flood-water-circle-arrow-right', DileIconlibHouseFloodWaterCircleArrowRight);
+if (!customElements.get('dile-fontawesome-icon-house-flood-water-circle-arrow-right')) {
+  customElements.define('dile-fontawesome-icon-house-flood-water-circle-arrow-right', DileIconlibHouseFloodWaterCircleArrowRight);
+}

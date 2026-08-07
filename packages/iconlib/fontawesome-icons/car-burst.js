@@ -6,4 +6,6 @@ export class DileIconlibCarBurst extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-car-burst', DileIconlibCarBurst);
+if (!customElements.get('dile-fontawesome-icon-car-burst')) {
+  customElements.define('dile-fontawesome-icon-car-burst', DileIconlibCarBurst);
+}

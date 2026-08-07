@@ -6,4 +6,6 @@ export class DileIconlibKubernetes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kubernetes', DileIconlibKubernetes);
+if (!customElements.get('dile-fontawesome-icon-kubernetes')) {
+  customElements.define('dile-fontawesome-icon-kubernetes', DileIconlibKubernetes);
+}

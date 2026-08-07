@@ -6,4 +6,6 @@ export class DileIconlibOmega extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-omega', DileIconlibOmega);
+if (!customElements.get('dile-lucide-icon-omega')) {
+  customElements.define('dile-lucide-icon-omega', DileIconlibOmega);
+}

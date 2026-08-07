@@ -6,4 +6,6 @@ export class DileIconlibScreenRotation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screen-rotation', DileIconlibScreenRotation);
+if (!customElements.get('dile-material-icon-screen-rotation')) {
+  customElements.define('dile-material-icon-screen-rotation', DileIconlibScreenRotation);
+}

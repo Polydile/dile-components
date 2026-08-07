@@ -6,4 +6,6 @@ export class DileIconlibMedal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-medal', DileIconlibMedal);
+if (!customElements.get('dile-lucide-icon-medal')) {
+  customElements.define('dile-lucide-icon-medal', DileIconlibMedal);
+}

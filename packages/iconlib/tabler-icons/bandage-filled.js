@@ -6,4 +6,6 @@ export class DileIconlibBandageFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bandage-filled', DileIconlibBandageFilled);
+if (!customElements.get('dile-tabler-icon-bandage-filled')) {
+  customElements.define('dile-tabler-icon-bandage-filled', DileIconlibBandageFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeskpro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deskpro', DileIconlibDeskpro);
+if (!customElements.get('dile-fontawesome-icon-deskpro')) {
+  customElements.define('dile-fontawesome-icon-deskpro', DileIconlibDeskpro);
+}

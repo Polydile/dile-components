@@ -6,4 +6,6 @@ export class DileIconlibSortAlphaUpAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sort-alpha-up-alt', DileIconlibSortAlphaUpAlt);
+if (!customElements.get('dile-fontawesome-icon-sort-alpha-up-alt')) {
+  customElements.define('dile-fontawesome-icon-sort-alpha-up-alt', DileIconlibSortAlphaUpAlt);
+}

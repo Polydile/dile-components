@@ -6,4 +6,6 @@ export class DileIconlibBitbucket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bitbucket', DileIconlibBitbucket);
+if (!customElements.get('dile-fontawesome-icon-bitbucket')) {
+  customElements.define('dile-fontawesome-icon-bitbucket', DileIconlibBitbucket);
+}

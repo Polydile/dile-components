@@ -6,4 +6,6 @@ export class DileIconlibLanguageHiragana extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-language-hiragana', DileIconlibLanguageHiragana);
+if (!customElements.get('dile-tabler-icon-language-hiragana')) {
+  customElements.define('dile-tabler-icon-language-hiragana', DileIconlibLanguageHiragana);
+}

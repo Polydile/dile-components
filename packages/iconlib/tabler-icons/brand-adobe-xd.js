@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobeXd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-xd', DileIconlibBrandAdobeXd);
+if (!customElements.get('dile-tabler-icon-brand-adobe-xd')) {
+  customElements.define('dile-tabler-icon-brand-adobe-xd', DileIconlibBrandAdobeXd);
+}

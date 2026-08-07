@@ -6,4 +6,6 @@ export class DileIconlibBroccoli extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-broccoli', DileIconlibBroccoli);
+if (!customElements.get('dile-lucide-icon-broccoli')) {
+  customElements.define('dile-lucide-icon-broccoli', DileIconlibBroccoli);
+}

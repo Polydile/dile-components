@@ -6,4 +6,6 @@ export class DileIconlibLightbulbFilamentBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lightbulb-filament-bold', DileIconlibLightbulbFilamentBold);
+if (!customElements.get('dile-phosphor-icon-lightbulb-filament-bold')) {
+  customElements.define('dile-phosphor-icon-lightbulb-filament-bold', DileIconlibLightbulbFilamentBold);
+}

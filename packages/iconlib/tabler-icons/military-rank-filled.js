@@ -6,4 +6,6 @@ export class DileIconlibMilitaryRankFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-military-rank-filled', DileIconlibMilitaryRankFilled);
+if (!customElements.get('dile-tabler-icon-military-rank-filled')) {
+  customElements.define('dile-tabler-icon-military-rank-filled', DileIconlibMilitaryRankFilled);
+}

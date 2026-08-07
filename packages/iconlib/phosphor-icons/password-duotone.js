@@ -6,4 +6,6 @@ export class DileIconlibPasswordDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-password-duotone', DileIconlibPasswordDuotone);
+if (!customElements.get('dile-phosphor-icon-password-duotone')) {
+  customElements.define('dile-phosphor-icon-password-duotone', DileIconlibPasswordDuotone);
+}

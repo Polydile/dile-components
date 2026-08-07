@@ -6,4 +6,6 @@ export class DileIconlibCurrencyYenOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-yen-off', DileIconlibCurrencyYenOff);
+if (!customElements.get('dile-tabler-icon-currency-yen-off')) {
+  customElements.define('dile-tabler-icon-currency-yen-off', DileIconlibCurrencyYenOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUsersBetweenLines extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-users-between-lines', DileIconlibUsersBetweenLines);
+if (!customElements.get('dile-fontawesome-icon-users-between-lines')) {
+  customElements.define('dile-fontawesome-icon-users-between-lines', DileIconlibUsersBetweenLines);
+}

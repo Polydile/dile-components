@@ -6,4 +6,6 @@ export class DileIconlibPerbyte extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-perbyte', DileIconlibPerbyte);
+if (!customElements.get('dile-fontawesome-icon-perbyte')) {
+  customElements.define('dile-fontawesome-icon-perbyte', DileIconlibPerbyte);
+}

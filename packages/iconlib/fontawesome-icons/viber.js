@@ -6,4 +6,6 @@ export class DileIconlibViber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-viber', DileIconlibViber);
+if (!customElements.get('dile-fontawesome-icon-viber')) {
+  customElements.define('dile-fontawesome-icon-viber', DileIconlibViber);
+}

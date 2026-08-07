@@ -6,4 +6,6 @@ export class DileIconlibFriends extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-friends', DileIconlibFriends);
+if (!customElements.get('dile-tabler-icon-friends')) {
+  customElements.define('dile-tabler-icon-friends', DileIconlibFriends);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTramFront extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tram-front', DileIconlibTramFront);
+if (!customElements.get('dile-lucide-icon-tram-front')) {
+  customElements.define('dile-lucide-icon-tram-front', DileIconlibTramFront);
+}

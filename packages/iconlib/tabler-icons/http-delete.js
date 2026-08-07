@@ -6,4 +6,6 @@ export class DileIconlibHttpDelete extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-delete', DileIconlibHttpDelete);
+if (!customElements.get('dile-tabler-icon-http-delete')) {
+  customElements.define('dile-tabler-icon-http-delete', DileIconlibHttpDelete);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAtlassian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-atlassian', DileIconlibAtlassian);
+if (!customElements.get('dile-fontawesome-icon-atlassian')) {
+  customElements.define('dile-fontawesome-icon-atlassian', DileIconlibAtlassian);
+}

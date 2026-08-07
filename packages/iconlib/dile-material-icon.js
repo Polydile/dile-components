@@ -1,3 +1,5 @@
 import { DileMaterialIcon } from "./src/DileMaterialIcon.js";
 
-customElements.define('dile-material-icon', DileMaterialIcon);
+if (!customElements.get('dile-material-icon')) {
+  customElements.define('dile-material-icon', DileMaterialIcon);
+}

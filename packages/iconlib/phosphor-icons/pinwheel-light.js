@@ -6,4 +6,6 @@ export class DileIconlibPinwheelLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pinwheel-light', DileIconlibPinwheelLight);
+if (!customElements.get('dile-phosphor-icon-pinwheel-light')) {
+  customElements.define('dile-phosphor-icon-pinwheel-light', DileIconlibPinwheelLight);
+}

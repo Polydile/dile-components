@@ -6,4 +6,6 @@ export class DileIconlibHandcuffs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-handcuffs', DileIconlibHandcuffs);
+if (!customElements.get('dile-fontawesome-icon-handcuffs')) {
+  customElements.define('dile-fontawesome-icon-handcuffs', DileIconlibHandcuffs);
+}

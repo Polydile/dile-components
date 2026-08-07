@@ -6,4 +6,6 @@ export class DileIconlibSdStorage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sd-storage', DileIconlibSdStorage);
+if (!customElements.get('dile-material-icon-sd-storage')) {
+  customElements.define('dile-material-icon-sd-storage', DileIconlibSdStorage);
+}

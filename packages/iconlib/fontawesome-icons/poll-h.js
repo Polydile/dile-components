@@ -6,4 +6,6 @@ export class DileIconlibPollH extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-poll-h', DileIconlibPollH);
+if (!customElements.get('dile-fontawesome-icon-poll-h')) {
+  customElements.define('dile-fontawesome-icon-poll-h', DileIconlibPollH);
+}

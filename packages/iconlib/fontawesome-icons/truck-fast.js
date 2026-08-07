@@ -6,4 +6,6 @@ export class DileIconlibTruckFast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-fast', DileIconlibTruckFast);
+if (!customElements.get('dile-fontawesome-icon-truck-fast')) {
+  customElements.define('dile-fontawesome-icon-truck-fast', DileIconlibTruckFast);
+}

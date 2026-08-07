@@ -6,4 +6,6 @@ export class DileIconlibAdjust extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-adjust', DileIconlibAdjust);
+if (!customElements.get('dile-fontawesome-icon-adjust')) {
+  customElements.define('dile-fontawesome-icon-adjust', DileIconlibAdjust);
+}

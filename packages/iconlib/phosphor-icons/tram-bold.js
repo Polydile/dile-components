@@ -6,4 +6,6 @@ export class DileIconlibTramBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tram-bold', DileIconlibTramBold);
+if (!customElements.get('dile-phosphor-icon-tram-bold')) {
+  customElements.define('dile-phosphor-icon-tram-bold', DileIconlibTramBold);
+}

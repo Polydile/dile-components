@@ -6,4 +6,6 @@ export class DileIconlibInputX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-input-x', DileIconlibInputX);
+if (!customElements.get('dile-tabler-icon-input-x')) {
+  customElements.define('dile-tabler-icon-input-x', DileIconlibInputX);
+}

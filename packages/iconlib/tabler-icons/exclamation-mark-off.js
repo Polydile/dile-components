@@ -6,4 +6,6 @@ export class DileIconlibExclamationMarkOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-exclamation-mark-off', DileIconlibExclamationMarkOff);
+if (!customElements.get('dile-tabler-icon-exclamation-mark-off')) {
+  customElements.define('dile-tabler-icon-exclamation-mark-off', DileIconlibExclamationMarkOff);
+}

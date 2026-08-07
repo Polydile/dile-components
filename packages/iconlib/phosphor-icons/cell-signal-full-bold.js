@@ -6,4 +6,6 @@ export class DileIconlibCellSignalFullBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cell-signal-full-bold', DileIconlibCellSignalFullBold);
+if (!customElements.get('dile-phosphor-icon-cell-signal-full-bold')) {
+  customElements.define('dile-phosphor-icon-cell-signal-full-bold', DileIconlibCellSignalFullBold);
+}

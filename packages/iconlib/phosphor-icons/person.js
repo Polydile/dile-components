@@ -6,4 +6,6 @@ export class DileIconlibPerson extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person', DileIconlibPerson);
+if (!customElements.get('dile-phosphor-icon-person')) {
+  customElements.define('dile-phosphor-icon-person', DileIconlibPerson);
+}

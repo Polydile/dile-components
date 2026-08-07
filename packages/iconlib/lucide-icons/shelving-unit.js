@@ -6,4 +6,6 @@ export class DileIconlibShelvingUnit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shelving-unit', DileIconlibShelvingUnit);
+if (!customElements.get('dile-lucide-icon-shelving-unit')) {
+  customElements.define('dile-lucide-icon-shelving-unit', DileIconlibShelvingUnit);
+}

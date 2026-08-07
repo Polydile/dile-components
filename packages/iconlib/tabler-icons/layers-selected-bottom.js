@@ -6,4 +6,6 @@ export class DileIconlibLayersSelectedBottom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layers-selected-bottom', DileIconlibLayersSelectedBottom);
+if (!customElements.get('dile-tabler-icon-layers-selected-bottom')) {
+  customElements.define('dile-tabler-icon-layers-selected-bottom', DileIconlibLayersSelectedBottom);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLayoutBoardSplitFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-board-split-filled', DileIconlibLayoutBoardSplitFilled);
+if (!customElements.get('dile-tabler-icon-layout-board-split-filled')) {
+  customElements.define('dile-tabler-icon-layout-board-split-filled', DileIconlibLayoutBoardSplitFilled);
+}

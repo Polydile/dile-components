@@ -6,4 +6,6 @@ export class DileIconlibGridFour extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-grid-four', DileIconlibGridFour);
+if (!customElements.get('dile-phosphor-icon-grid-four')) {
+  customElements.define('dile-phosphor-icon-grid-four', DileIconlibGridFour);
+}

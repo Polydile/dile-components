@@ -6,4 +6,6 @@ export class DileIconlibCpuOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cpu-off', DileIconlibCpuOff);
+if (!customElements.get('dile-tabler-icon-cpu-off')) {
+  customElements.define('dile-tabler-icon-cpu-off', DileIconlibCpuOff);
+}

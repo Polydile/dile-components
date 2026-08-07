@@ -6,4 +6,6 @@ export class DileIconlibEmergencyRecording extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emergency-recording', DileIconlibEmergencyRecording);
+if (!customElements.get('dile-material-icon-emergency-recording')) {
+  customElements.define('dile-material-icon-emergency-recording', DileIconlibEmergencyRecording);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneybagMoveBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-moneybag-move-back', DileIconlibMoneybagMoveBack);
+if (!customElements.get('dile-tabler-icon-moneybag-move-back')) {
+  customElements.define('dile-tabler-icon-moneybag-move-back', DileIconlibMoneybagMoveBack);
+}

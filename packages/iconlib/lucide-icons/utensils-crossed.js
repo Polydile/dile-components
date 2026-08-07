@@ -6,4 +6,6 @@ export class DileIconlibUtensilsCrossed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-utensils-crossed', DileIconlibUtensilsCrossed);
+if (!customElements.get('dile-lucide-icon-utensils-crossed')) {
+  customElements.define('dile-lucide-icon-utensils-crossed', DileIconlibUtensilsCrossed);
+}

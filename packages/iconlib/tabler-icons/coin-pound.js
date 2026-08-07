@@ -6,4 +6,6 @@ export class DileIconlibCoinPound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-pound', DileIconlibCoinPound);
+if (!customElements.get('dile-tabler-icon-coin-pound')) {
+  customElements.define('dile-tabler-icon-coin-pound', DileIconlibCoinPound);
+}

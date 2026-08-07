@@ -6,4 +6,6 @@ export class DileIconlibArrowsUpToLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-up-to-line', DileIconlibArrowsUpToLine);
+if (!customElements.get('dile-fontawesome-icon-arrows-up-to-line')) {
+  customElements.define('dile-fontawesome-icon-arrows-up-to-line', DileIconlibArrowsUpToLine);
+}

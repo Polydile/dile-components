@@ -6,4 +6,6 @@ export class DileIconlibViacoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-viacoin', DileIconlibViacoin);
+if (!customElements.get('dile-fontawesome-icon-viacoin')) {
+  customElements.define('dile-fontawesome-icon-viacoin', DileIconlibViacoin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibManatSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-manat-sign', DileIconlibManatSign);
+if (!customElements.get('dile-fontawesome-icon-manat-sign')) {
+  customElements.define('dile-fontawesome-icon-manat-sign', DileIconlibManatSign);
+}

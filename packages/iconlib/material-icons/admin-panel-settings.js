@@ -6,4 +6,6 @@ export class DileIconlibAdminPanelSettings extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-admin-panel-settings', DileIconlibAdminPanelSettings);
+if (!customElements.get('dile-material-icon-admin-panel-settings')) {
+  customElements.define('dile-material-icon-admin-panel-settings', DileIconlibAdminPanelSettings);
+}

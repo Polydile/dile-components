@@ -1,3 +1,5 @@
 import { DileWebVisor } from "./src/DileWebVisor.js";
 
-window.customElements.define("dile-web-visor", DileWebVisor);
+if (!customElements.get("dile-web-visor")) {
+  window.customElements.define("dile-web-visor", DileWebVisor);
+}

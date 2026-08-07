@@ -6,4 +6,6 @@ export class DileIconlibWebflow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-webflow', DileIconlibWebflow);
+if (!customElements.get('dile-fontawesome-icon-webflow')) {
+  customElements.define('dile-fontawesome-icon-webflow', DileIconlibWebflow);
+}

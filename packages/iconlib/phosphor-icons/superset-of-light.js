@@ -6,4 +6,6 @@ export class DileIconlibSupersetOfLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-superset-of-light', DileIconlibSupersetOfLight);
+if (!customElements.get('dile-phosphor-icon-superset-of-light')) {
+  customElements.define('dile-phosphor-icon-superset-of-light', DileIconlibSupersetOfLight);
+}

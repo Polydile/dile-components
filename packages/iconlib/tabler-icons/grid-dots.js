@@ -6,4 +6,6 @@ export class DileIconlibGridDots extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grid-dots', DileIconlibGridDots);
+if (!customElements.get('dile-tabler-icon-grid-dots')) {
+  customElements.define('dile-tabler-icon-grid-dots', DileIconlibGridDots);
+}

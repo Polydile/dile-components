@@ -6,4 +6,6 @@ export class DileIconlibPesetaSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-peseta-sign', DileIconlibPesetaSign);
+if (!customElements.get('dile-fontawesome-icon-peseta-sign')) {
+  customElements.define('dile-fontawesome-icon-peseta-sign', DileIconlibPesetaSign);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChessPawn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chess-pawn', DileIconlibChessPawn);
+if (!customElements.get('dile-lucide-icon-chess-pawn')) {
+  customElements.define('dile-lucide-icon-chess-pawn', DileIconlibChessPawn);
+}

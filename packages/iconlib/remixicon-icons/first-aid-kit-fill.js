@@ -6,4 +6,6 @@ export class DileIconlibFirstAidKitFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-first-aid-kit-fill', DileIconlibFirstAidKitFill);
+if (!customElements.get('dile-remixicon-icon-first-aid-kit-fill')) {
+  customElements.define('dile-remixicon-icon-first-aid-kit-fill', DileIconlibFirstAidKitFill);
+}

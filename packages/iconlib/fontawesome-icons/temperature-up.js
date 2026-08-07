@@ -6,4 +6,6 @@ export class DileIconlibTemperatureUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-temperature-up', DileIconlibTemperatureUp);
+if (!customElements.get('dile-fontawesome-icon-temperature-up')) {
+  customElements.define('dile-fontawesome-icon-temperature-up', DileIconlibTemperatureUp);
+}

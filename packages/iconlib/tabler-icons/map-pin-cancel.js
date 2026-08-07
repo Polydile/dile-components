@@ -6,4 +6,6 @@ export class DileIconlibMapPinCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-pin-cancel', DileIconlibMapPinCancel);
+if (!customElements.get('dile-tabler-icon-map-pin-cancel')) {
+  customElements.define('dile-tabler-icon-map-pin-cancel', DileIconlibMapPinCancel);
+}

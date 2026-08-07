@@ -6,4 +6,6 @@ export class DileIconlibFlower2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flower-2', DileIconlibFlower2);
+if (!customElements.get('dile-lucide-icon-flower-2')) {
+  customElements.define('dile-lucide-icon-flower-2', DileIconlibFlower2);
+}

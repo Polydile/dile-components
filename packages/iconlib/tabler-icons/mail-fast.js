@@ -6,4 +6,6 @@ export class DileIconlibMailFast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-fast', DileIconlibMailFast);
+if (!customElements.get('dile-tabler-icon-mail-fast')) {
+  customElements.define('dile-tabler-icon-mail-fast', DileIconlibMailFast);
+}

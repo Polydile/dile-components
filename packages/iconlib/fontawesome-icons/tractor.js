@@ -6,4 +6,6 @@ export class DileIconlibTractor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tractor', DileIconlibTractor);
+if (!customElements.get('dile-fontawesome-icon-tractor')) {
+  customElements.define('dile-fontawesome-icon-tractor', DileIconlibTractor);
+}

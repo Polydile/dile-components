@@ -6,4 +6,6 @@ export class DileIconlibFilePyBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-py-bold', DileIconlibFilePyBold);
+if (!customElements.get('dile-phosphor-icon-file-py-bold')) {
+  customElements.define('dile-phosphor-icon-file-py-bold', DileIconlibFilePyBold);
+}

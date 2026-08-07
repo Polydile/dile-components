@@ -6,4 +6,6 @@ export class DileIconlibCurrencyEuro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-euro', DileIconlibCurrencyEuro);
+if (!customElements.get('dile-tabler-icon-currency-euro')) {
+  customElements.define('dile-tabler-icon-currency-euro', DileIconlibCurrencyEuro);
+}

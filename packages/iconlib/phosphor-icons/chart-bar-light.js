@@ -6,4 +6,6 @@ export class DileIconlibChartBarLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-bar-light', DileIconlibChartBarLight);
+if (!customElements.get('dile-phosphor-icon-chart-bar-light')) {
+  customElements.define('dile-phosphor-icon-chart-bar-light', DileIconlibChartBarLight);
+}

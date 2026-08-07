@@ -6,4 +6,6 @@ export class DileIconlibBuildingAirport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-airport', DileIconlibBuildingAirport);
+if (!customElements.get('dile-tabler-icon-building-airport')) {
+  customElements.define('dile-tabler-icon-building-airport', DileIconlibBuildingAirport);
+}

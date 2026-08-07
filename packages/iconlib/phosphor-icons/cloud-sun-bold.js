@@ -6,4 +6,6 @@ export class DileIconlibCloudSunBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cloud-sun-bold', DileIconlibCloudSunBold);
+if (!customElements.get('dile-phosphor-icon-cloud-sun-bold')) {
+  customElements.define('dile-phosphor-icon-cloud-sun-bold', DileIconlibCloudSunBold);
+}

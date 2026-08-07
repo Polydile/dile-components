@@ -6,4 +6,6 @@ export class DileIconlibRemoveRoad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-remove-road', DileIconlibRemoveRoad);
+if (!customElements.get('dile-material-icon-remove-road')) {
+  customElements.define('dile-material-icon-remove-road', DileIconlibRemoveRoad);
+}

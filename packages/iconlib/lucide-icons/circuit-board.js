@@ -6,4 +6,6 @@ export class DileIconlibCircuitBoard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circuit-board', DileIconlibCircuitBoard);
+if (!customElements.get('dile-lucide-icon-circuit-board')) {
+  customElements.define('dile-lucide-icon-circuit-board', DileIconlibCircuitBoard);
+}

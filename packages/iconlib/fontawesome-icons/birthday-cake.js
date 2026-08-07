@@ -6,4 +6,6 @@ export class DileIconlibBirthdayCake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-birthday-cake', DileIconlibBirthdayCake);
+if (!customElements.get('dile-fontawesome-icon-birthday-cake')) {
+  customElements.define('dile-fontawesome-icon-birthday-cake', DileIconlibBirthdayCake);
+}

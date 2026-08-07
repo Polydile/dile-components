@@ -6,4 +6,6 @@ export class DileIconlibEyeSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-eye-slash', DileIconlibEyeSlash);
+if (!customElements.get('dile-fontawesome-icon-regular-eye-slash')) {
+  customElements.define('dile-fontawesome-icon-regular-eye-slash', DileIconlibEyeSlash);
+}

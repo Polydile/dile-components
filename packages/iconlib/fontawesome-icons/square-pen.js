@@ -6,4 +6,6 @@ export class DileIconlibSquarePen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-pen', DileIconlibSquarePen);
+if (!customElements.get('dile-fontawesome-icon-square-pen')) {
+  customElements.define('dile-fontawesome-icon-square-pen', DileIconlibSquarePen);
+}

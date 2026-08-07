@@ -6,4 +6,6 @@ export class DileIconlibCalendarRange extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-calendar-range', DileIconlibCalendarRange);
+if (!customElements.get('dile-lucide-icon-calendar-range')) {
+  customElements.define('dile-lucide-icon-calendar-range', DileIconlibCalendarRange);
+}

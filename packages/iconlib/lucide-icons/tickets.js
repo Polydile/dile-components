@@ -6,4 +6,6 @@ export class DileIconlibTickets extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tickets', DileIconlibTickets);
+if (!customElements.get('dile-lucide-icon-tickets')) {
+  customElements.define('dile-lucide-icon-tickets', DileIconlibTickets);
+}

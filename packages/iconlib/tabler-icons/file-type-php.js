@@ -6,4 +6,6 @@ export class DileIconlibFileTypePhp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-php', DileIconlibFileTypePhp);
+if (!customElements.get('dile-tabler-icon-file-type-php')) {
+  customElements.define('dile-tabler-icon-file-type-php', DileIconlibFileTypePhp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHandPointDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hand-point-down', DileIconlibHandPointDown);
+if (!customElements.get('dile-fontawesome-icon-hand-point-down')) {
+  customElements.define('dile-fontawesome-icon-hand-point-down', DileIconlibHandPointDown);
+}

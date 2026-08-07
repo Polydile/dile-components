@@ -6,4 +6,6 @@ export class DileIconlibWaze extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-waze', DileIconlibWaze);
+if (!customElements.get('dile-fontawesome-icon-waze')) {
+  customElements.define('dile-fontawesome-icon-waze', DileIconlibWaze);
+}

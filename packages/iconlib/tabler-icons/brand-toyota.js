@@ -6,4 +6,6 @@ export class DileIconlibBrandToyota extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-toyota', DileIconlibBrandToyota);
+if (!customElements.get('dile-tabler-icon-brand-toyota')) {
+  customElements.define('dile-tabler-icon-brand-toyota', DileIconlibBrandToyota);
+}

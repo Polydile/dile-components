@@ -6,4 +6,6 @@ export class DileIconlibCpu2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cpu-2', DileIconlibCpu2);
+if (!customElements.get('dile-tabler-icon-cpu-2')) {
+  customElements.define('dile-tabler-icon-cpu-2', DileIconlibCpu2);
+}

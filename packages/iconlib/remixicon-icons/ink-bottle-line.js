@@ -6,4 +6,6 @@ export class DileIconlibInkBottleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ink-bottle-line', DileIconlibInkBottleLine);
+if (!customElements.get('dile-remixicon-icon-ink-bottle-line')) {
+  customElements.define('dile-remixicon-icon-ink-bottle-line', DileIconlibInkBottleLine);
+}

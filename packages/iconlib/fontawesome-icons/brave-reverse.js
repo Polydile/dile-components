@@ -6,4 +6,6 @@ export class DileIconlibBraveReverse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-brave-reverse', DileIconlibBraveReverse);
+if (!customElements.get('dile-fontawesome-icon-brave-reverse')) {
+  customElements.define('dile-fontawesome-icon-brave-reverse', DileIconlibBraveReverse);
+}

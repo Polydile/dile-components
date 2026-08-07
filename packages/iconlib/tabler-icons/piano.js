@@ -6,4 +6,6 @@ export class DileIconlibPiano extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-piano', DileIconlibPiano);
+if (!customElements.get('dile-tabler-icon-piano')) {
+  customElements.define('dile-tabler-icon-piano', DileIconlibPiano);
+}

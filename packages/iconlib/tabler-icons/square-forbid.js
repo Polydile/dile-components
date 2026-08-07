@@ -6,4 +6,6 @@ export class DileIconlibSquareForbid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-forbid', DileIconlibSquareForbid);
+if (!customElements.get('dile-tabler-icon-square-forbid')) {
+  customElements.define('dile-tabler-icon-square-forbid', DileIconlibSquareForbid);
+}

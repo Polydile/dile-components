@@ -6,4 +6,6 @@ export class DileIconlibStepOut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-step-out', DileIconlibStepOut);
+if (!customElements.get('dile-tabler-icon-step-out')) {
+  customElements.define('dile-tabler-icon-step-out', DileIconlibStepOut);
+}

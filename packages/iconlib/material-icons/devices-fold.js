@@ -6,4 +6,6 @@ export class DileIconlibDevicesFold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-devices-fold', DileIconlibDevicesFold);
+if (!customElements.get('dile-material-icon-devices-fold')) {
+  customElements.define('dile-material-icon-devices-fold', DileIconlibDevicesFold);
+}

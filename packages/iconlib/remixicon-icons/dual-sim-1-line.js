@@ -6,4 +6,6 @@ export class DileIconlibDualSim1Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dual-sim-1-line', DileIconlibDualSim1Line);
+if (!customElements.get('dile-remixicon-icon-dual-sim-1-line')) {
+  customElements.define('dile-remixicon-icon-dual-sim-1-line', DileIconlibDualSim1Line);
+}

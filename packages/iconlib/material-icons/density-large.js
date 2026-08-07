@@ -6,4 +6,6 @@ export class DileIconlibDensityLarge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-density-large', DileIconlibDensityLarge);
+if (!customElements.get('dile-material-icon-density-large')) {
+  customElements.define('dile-material-icon-density-large', DileIconlibDensityLarge);
+}

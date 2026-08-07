@@ -6,4 +6,6 @@ export class DileIconlibCodeCircle2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-code-circle-2', DileIconlibCodeCircle2);
+if (!customElements.get('dile-tabler-icon-code-circle-2')) {
+  customElements.define('dile-tabler-icon-code-circle-2', DileIconlibCodeCircle2);
+}

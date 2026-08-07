@@ -6,4 +6,6 @@ export class DileIconlibCactusOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cactus-off', DileIconlibCactusOff);
+if (!customElements.get('dile-tabler-icon-cactus-off')) {
+  customElements.define('dile-tabler-icon-cactus-off', DileIconlibCactusOff);
+}

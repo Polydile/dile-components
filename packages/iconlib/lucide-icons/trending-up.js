@@ -6,4 +6,6 @@ export class DileIconlibTrendingUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-trending-up', DileIconlibTrendingUp);
+if (!customElements.get('dile-lucide-icon-trending-up')) {
+  customElements.define('dile-lucide-icon-trending-up', DileIconlibTrendingUp);
+}

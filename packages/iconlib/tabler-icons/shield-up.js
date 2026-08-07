@@ -6,4 +6,6 @@ export class DileIconlibShieldUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shield-up', DileIconlibShieldUp);
+if (!customElements.get('dile-tabler-icon-shield-up')) {
+  customElements.define('dile-tabler-icon-shield-up', DileIconlibShieldUp);
+}

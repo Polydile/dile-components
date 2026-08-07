@@ -6,4 +6,6 @@ export class DileIconlibHttpHead extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-head', DileIconlibHttpHead);
+if (!customElements.get('dile-tabler-icon-http-head')) {
+  customElements.define('dile-tabler-icon-http-head', DileIconlibHttpHead);
+}

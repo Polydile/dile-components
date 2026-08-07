@@ -6,4 +6,6 @@ export class DileIconlibYoga extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-yoga', DileIconlibYoga);
+if (!customElements.get('dile-tabler-icon-yoga')) {
+  customElements.define('dile-tabler-icon-yoga', DileIconlibYoga);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCompassBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-compass-bold', DileIconlibCompassBold);
+if (!customElements.get('dile-phosphor-icon-compass-bold')) {
+  customElements.define('dile-phosphor-icon-compass-bold', DileIconlibCompassBold);
+}

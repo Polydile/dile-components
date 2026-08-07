@@ -6,4 +6,6 @@ export class DileIconlibRoofing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-roofing', DileIconlibRoofing);
+if (!customElements.get('dile-material-icon-roofing')) {
+  customElements.define('dile-material-icon-roofing', DileIconlibRoofing);
+}

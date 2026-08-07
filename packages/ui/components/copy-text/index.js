@@ -1,5 +1,7 @@
 import { DileCopyText } from './src/DileCopyText.js';
 
-window.customElements.define('dile-copy-text', DileCopyText);
+if (!customElements.get('dile-copy-text')) {
+  window.customElements.define('dile-copy-text', DileCopyText);
+}
 
 export { DileCopyText };

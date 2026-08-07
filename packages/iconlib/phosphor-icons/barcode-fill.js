@@ -6,4 +6,6 @@ export class DileIconlibBarcodeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-barcode-fill', DileIconlibBarcodeFill);
+if (!customElements.get('dile-phosphor-icon-barcode-fill')) {
+  customElements.define('dile-phosphor-icon-barcode-fill', DileIconlibBarcodeFill);
+}

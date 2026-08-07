@@ -6,4 +6,6 @@ export class DileIconlibSquarePollVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-poll-vertical', DileIconlibSquarePollVertical);
+if (!customElements.get('dile-fontawesome-icon-square-poll-vertical')) {
+  customElements.define('dile-fontawesome-icon-square-poll-vertical', DileIconlibSquarePollVertical);
+}

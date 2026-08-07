@@ -6,4 +6,6 @@ export class DileIconlibSignalCellularOffFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-signal-cellular-off-fill', DileIconlibSignalCellularOffFill);
+if (!customElements.get('dile-remixicon-icon-signal-cellular-off-fill')) {
+  customElements.define('dile-remixicon-icon-signal-cellular-off-fill', DileIconlibSignalCellularOffFill);
+}

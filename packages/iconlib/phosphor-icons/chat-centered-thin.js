@@ -6,4 +6,6 @@ export class DileIconlibChatCenteredThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chat-centered-thin', DileIconlibChatCenteredThin);
+if (!customElements.get('dile-phosphor-icon-chat-centered-thin')) {
+  customElements.define('dile-phosphor-icon-chat-centered-thin', DileIconlibChatCenteredThin);
+}

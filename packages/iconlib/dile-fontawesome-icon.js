@@ -1,3 +1,5 @@
 import { DileFontawesomeIcon } from "./src/DileFontawesomeIcon.js";
 
-customElements.define('dile-fontawesome-icon', DileFontawesomeIcon);
+if (!customElements.get('dile-fontawesome-icon')) {
+  customElements.define('dile-fontawesome-icon', DileFontawesomeIcon);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFindInPage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-find-in-page', DileIconlibFindInPage);
+if (!customElements.get('dile-material-icon-find-in-page')) {
+  customElements.define('dile-material-icon-find-in-page', DileIconlibFindInPage);
+}

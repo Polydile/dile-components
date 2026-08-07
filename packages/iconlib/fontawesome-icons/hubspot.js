@@ -6,4 +6,6 @@ export class DileIconlibHubspot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hubspot', DileIconlibHubspot);
+if (!customElements.get('dile-fontawesome-icon-hubspot')) {
+  customElements.define('dile-fontawesome-icon-hubspot', DileIconlibHubspot);
+}

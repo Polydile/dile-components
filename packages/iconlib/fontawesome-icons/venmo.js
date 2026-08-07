@@ -6,4 +6,6 @@ export class DileIconlibVenmo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-venmo', DileIconlibVenmo);
+if (!customElements.get('dile-fontawesome-icon-venmo')) {
+  customElements.define('dile-fontawesome-icon-venmo', DileIconlibVenmo);
+}

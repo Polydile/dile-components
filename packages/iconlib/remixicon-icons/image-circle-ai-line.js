@@ -6,4 +6,6 @@ export class DileIconlibImageCircleAiLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-image-circle-ai-line', DileIconlibImageCircleAiLine);
+if (!customElements.get('dile-remixicon-icon-image-circle-ai-line')) {
+  customElements.define('dile-remixicon-icon-image-circle-ai-line', DileIconlibImageCircleAiLine);
+}

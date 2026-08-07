@@ -6,4 +6,6 @@ export class DileIconlibHeatPump extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-heat-pump', DileIconlibHeatPump);
+if (!customElements.get('dile-material-icon-heat-pump')) {
+  customElements.define('dile-material-icon-heat-pump', DileIconlibHeatPump);
+}

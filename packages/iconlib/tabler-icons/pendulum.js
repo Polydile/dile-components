@@ -6,4 +6,6 @@ export class DileIconlibPendulum extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pendulum', DileIconlibPendulum);
+if (!customElements.get('dile-tabler-icon-pendulum')) {
+  customElements.define('dile-tabler-icon-pendulum', DileIconlibPendulum);
+}

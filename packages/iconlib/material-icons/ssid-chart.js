@@ -6,4 +6,6 @@ export class DileIconlibSsidChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ssid-chart', DileIconlibSsidChart);
+if (!customElements.get('dile-material-icon-ssid-chart')) {
+  customElements.define('dile-material-icon-ssid-chart', DileIconlibSsidChart);
+}

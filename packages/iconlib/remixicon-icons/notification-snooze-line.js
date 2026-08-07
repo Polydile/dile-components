@@ -6,4 +6,6 @@ export class DileIconlibNotificationSnoozeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-notification-snooze-line', DileIconlibNotificationSnoozeLine);
+if (!customElements.get('dile-remixicon-icon-notification-snooze-line')) {
+  customElements.define('dile-remixicon-icon-notification-snooze-line', DileIconlibNotificationSnoozeLine);
+}

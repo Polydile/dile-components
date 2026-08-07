@@ -6,4 +6,6 @@ export class DileIconlibSheetPlastic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sheet-plastic', DileIconlibSheetPlastic);
+if (!customElements.get('dile-fontawesome-icon-sheet-plastic')) {
+  customElements.define('dile-fontawesome-icon-sheet-plastic', DileIconlibSheetPlastic);
+}

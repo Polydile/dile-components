@@ -6,4 +6,6 @@ export class DileIconlibCoatHangerDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-coat-hanger-duotone', DileIconlibCoatHangerDuotone);
+if (!customElements.get('dile-phosphor-icon-coat-hanger-duotone')) {
+  customElements.define('dile-phosphor-icon-coat-hanger-duotone', DileIconlibCoatHangerDuotone);
+}

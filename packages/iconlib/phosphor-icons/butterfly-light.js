@@ -6,4 +6,6 @@ export class DileIconlibButterflyLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-butterfly-light', DileIconlibButterflyLight);
+if (!customElements.get('dile-phosphor-icon-butterfly-light')) {
+  customElements.define('dile-phosphor-icon-butterfly-light', DileIconlibButterflyLight);
+}

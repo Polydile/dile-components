@@ -6,4 +6,6 @@ export class DileIconlibSquaresDiagonal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-squares-diagonal', DileIconlibSquaresDiagonal);
+if (!customElements.get('dile-tabler-icon-squares-diagonal')) {
+  customElements.define('dile-tabler-icon-squares-diagonal', DileIconlibSquaresDiagonal);
+}

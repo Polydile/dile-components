@@ -6,4 +6,6 @@ export class DileIconlibAngularjsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-angularjs-line', DileIconlibAngularjsLine);
+if (!customElements.get('dile-remixicon-icon-angularjs-line')) {
+  customElements.define('dile-remixicon-icon-angularjs-line', DileIconlibAngularjsLine);
+}

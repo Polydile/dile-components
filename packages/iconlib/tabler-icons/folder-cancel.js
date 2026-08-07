@@ -6,4 +6,6 @@ export class DileIconlibFolderCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-folder-cancel', DileIconlibFolderCancel);
+if (!customElements.get('dile-tabler-icon-folder-cancel')) {
+  customElements.define('dile-tabler-icon-folder-cancel', DileIconlibFolderCancel);
+}

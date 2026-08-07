@@ -6,4 +6,6 @@ export class DileIconlibBugOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bug-off', DileIconlibBugOff);
+if (!customElements.get('dile-tabler-icon-bug-off')) {
+  customElements.define('dile-tabler-icon-bug-off', DileIconlibBugOff);
+}

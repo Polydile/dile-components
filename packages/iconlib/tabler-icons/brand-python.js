@@ -6,4 +6,6 @@ export class DileIconlibBrandPython extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-python', DileIconlibBrandPython);
+if (!customElements.get('dile-tabler-icon-brand-python')) {
+  customElements.define('dile-tabler-icon-brand-python', DileIconlibBrandPython);
+}

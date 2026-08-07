@@ -6,4 +6,6 @@ export class DileIconlibYCombinator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-y-combinator', DileIconlibYCombinator);
+if (!customElements.get('dile-fontawesome-icon-y-combinator')) {
+  customElements.define('dile-fontawesome-icon-y-combinator', DileIconlibYCombinator);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMicVocal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mic-vocal', DileIconlibMicVocal);
+if (!customElements.get('dile-lucide-icon-mic-vocal')) {
+  customElements.define('dile-lucide-icon-mic-vocal', DileIconlibMicVocal);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonFalling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-falling', DileIconlibPersonFalling);
+if (!customElements.get('dile-fontawesome-icon-person-falling')) {
+  customElements.define('dile-fontawesome-icon-person-falling', DileIconlibPersonFalling);
+}

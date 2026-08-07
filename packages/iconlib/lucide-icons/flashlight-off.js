@@ -6,4 +6,6 @@ export class DileIconlibFlashlightOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-flashlight-off', DileIconlibFlashlightOff);
+if (!customElements.get('dile-lucide-icon-flashlight-off')) {
+  customElements.define('dile-lucide-icon-flashlight-off', DileIconlibFlashlightOff);
+}

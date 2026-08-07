@@ -6,4 +6,6 @@ export class DileIconlibFilter2Share extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-filter-2-share', DileIconlibFilter2Share);
+if (!customElements.get('dile-tabler-icon-filter-2-share')) {
+  customElements.define('dile-tabler-icon-filter-2-share', DileIconlibFilter2Share);
+}

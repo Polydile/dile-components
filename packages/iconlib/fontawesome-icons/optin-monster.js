@@ -6,4 +6,6 @@ export class DileIconlibOptinMonster extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-optin-monster', DileIconlibOptinMonster);
+if (!customElements.get('dile-fontawesome-icon-optin-monster')) {
+  customElements.define('dile-fontawesome-icon-optin-monster', DileIconlibOptinMonster);
+}

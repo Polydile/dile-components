@@ -6,4 +6,6 @@ export class DileIconlibBubbleTea extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bubble-tea', DileIconlibBubbleTea);
+if (!customElements.get('dile-tabler-icon-bubble-tea')) {
+  customElements.define('dile-tabler-icon-bubble-tea', DileIconlibBubbleTea);
+}

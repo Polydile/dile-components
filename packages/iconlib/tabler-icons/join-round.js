@@ -6,4 +6,6 @@ export class DileIconlibJoinRound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-join-round', DileIconlibJoinRound);
+if (!customElements.get('dile-tabler-icon-join-round')) {
+  customElements.define('dile-tabler-icon-join-round', DileIconlibJoinRound);
+}

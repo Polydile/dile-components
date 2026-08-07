@@ -1,3 +1,5 @@
 import { DileMessage } from './src/DileMessage.js';
 
-window.customElements.define('dile-message', DileMessage);
+if (!customElements.get('dile-message')) {
+  window.customElements.define('dile-message', DileMessage);
+}

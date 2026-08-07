@@ -6,4 +6,6 @@ export class DileIconlibDragDrop2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-drag-drop-2', DileIconlibDragDrop2);
+if (!customElements.get('dile-tabler-icon-drag-drop-2')) {
+  customElements.define('dile-tabler-icon-drag-drop-2', DileIconlibDragDrop2);
+}

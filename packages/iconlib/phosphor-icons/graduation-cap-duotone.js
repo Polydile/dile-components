@@ -6,4 +6,6 @@ export class DileIconlibGraduationCapDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-graduation-cap-duotone', DileIconlibGraduationCapDuotone);
+if (!customElements.get('dile-phosphor-icon-graduation-cap-duotone')) {
+  customElements.define('dile-phosphor-icon-graduation-cap-duotone', DileIconlibGraduationCapDuotone);
+}

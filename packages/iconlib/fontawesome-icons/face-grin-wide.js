@@ -6,4 +6,6 @@ export class DileIconlibFaceGrinWide extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-face-grin-wide', DileIconlibFaceGrinWide);
+if (!customElements.get('dile-fontawesome-icon-face-grin-wide')) {
+  customElements.define('dile-fontawesome-icon-face-grin-wide', DileIconlibFaceGrinWide);
+}

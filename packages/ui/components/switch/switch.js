@@ -1,2 +1,4 @@
 import { DileSwitch } from "./src/DileSwitch.js";
-customElements.define('dile-switch', DileSwitch);
+if (!customElements.get('dile-switch')) {
+  customElements.define('dile-switch', DileSwitch);
+}

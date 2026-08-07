@@ -6,4 +6,6 @@ export class DileIconlibSkull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-skull', DileIconlibSkull);
+if (!customElements.get('dile-fontawesome-icon-skull')) {
+  customElements.define('dile-fontawesome-icon-skull', DileIconlibSkull);
+}

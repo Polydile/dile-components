@@ -6,4 +6,6 @@ export class DileIconlibTelegramLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-telegram-line', DileIconlibTelegramLine);
+if (!customElements.get('dile-remixicon-icon-telegram-line')) {
+  customElements.define('dile-remixicon-icon-telegram-line', DileIconlibTelegramLine);
+}

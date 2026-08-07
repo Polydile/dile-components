@@ -6,4 +6,6 @@ export class DileIconlibChartNoAxesColumnDecreasing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chart-no-axes-column-decreasing', DileIconlibChartNoAxesColumnDecreasing);
+if (!customElements.get('dile-lucide-icon-chart-no-axes-column-decreasing')) {
+  customElements.define('dile-lucide-icon-chart-no-axes-column-decreasing', DileIconlibChartNoAxesColumnDecreasing);
+}

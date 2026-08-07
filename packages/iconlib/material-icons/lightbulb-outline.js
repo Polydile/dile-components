@@ -6,4 +6,6 @@ export class DileIconlibLightbulbOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-lightbulb-outline', DileIconlibLightbulbOutline);
+if (!customElements.get('dile-material-icon-lightbulb-outline')) {
+  customElements.define('dile-material-icon-lightbulb-outline', DileIconlibLightbulbOutline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGitClosePullRequestLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-git-close-pull-request-line', DileIconlibGitClosePullRequestLine);
+if (!customElements.get('dile-remixicon-icon-git-close-pull-request-line')) {
+  customElements.define('dile-remixicon-icon-git-close-pull-request-line', DileIconlibGitClosePullRequestLine);
+}

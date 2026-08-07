@@ -6,4 +6,6 @@ export class DileIconlibClockRotateLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-clock-rotate-left', DileIconlibClockRotateLeft);
+if (!customElements.get('dile-fontawesome-icon-clock-rotate-left')) {
+  customElements.define('dile-fontawesome-icon-clock-rotate-left', DileIconlibClockRotateLeft);
+}

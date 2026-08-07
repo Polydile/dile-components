@@ -6,4 +6,6 @@ export class DileIconlibOpenSourceLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-open-source-line', DileIconlibOpenSourceLine);
+if (!customElements.get('dile-remixicon-icon-open-source-line')) {
+  customElements.define('dile-remixicon-icon-open-source-line', DileIconlibOpenSourceLine);
+}

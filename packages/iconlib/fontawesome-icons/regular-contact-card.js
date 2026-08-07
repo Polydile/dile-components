@@ -6,4 +6,6 @@ export class DileIconlibContactCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-contact-card', DileIconlibContactCard);
+if (!customElements.get('dile-fontawesome-icon-regular-contact-card')) {
+  customElements.define('dile-fontawesome-icon-regular-contact-card', DileIconlibContactCard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHardHat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hard-hat', DileIconlibHardHat);
+if (!customElements.get('dile-lucide-icon-hard-hat')) {
+  customElements.define('dile-lucide-icon-hard-hat', DileIconlibHardHat);
+}

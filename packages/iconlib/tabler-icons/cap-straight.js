@@ -6,4 +6,6 @@ export class DileIconlibCapStraight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cap-straight', DileIconlibCapStraight);
+if (!customElements.get('dile-tabler-icon-cap-straight')) {
+  customElements.define('dile-tabler-icon-cap-straight', DileIconlibCapStraight);
+}

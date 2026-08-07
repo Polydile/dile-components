@@ -6,4 +6,6 @@ export class DileIconlibTransformPointTopLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-transform-point-top-left', DileIconlibTransformPointTopLeft);
+if (!customElements.get('dile-tabler-icon-transform-point-top-left')) {
+  customElements.define('dile-tabler-icon-transform-point-top-left', DileIconlibTransformPointTopLeft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibJewelryLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-jewelry-line', DileIconlibJewelryLine);
+if (!customElements.get('dile-remixicon-icon-jewelry-line')) {
+  customElements.define('dile-remixicon-icon-jewelry-line', DileIconlibJewelryLine);
+}

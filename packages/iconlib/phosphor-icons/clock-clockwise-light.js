@@ -6,4 +6,6 @@ export class DileIconlibClockClockwiseLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-clockwise-light', DileIconlibClockClockwiseLight);
+if (!customElements.get('dile-phosphor-icon-clock-clockwise-light')) {
+  customElements.define('dile-phosphor-icon-clock-clockwise-light', DileIconlibClockClockwiseLight);
+}

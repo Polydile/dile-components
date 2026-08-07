@@ -6,4 +6,6 @@ export class DileIconlibAlignVerticalJustifyStart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-align-vertical-justify-start', DileIconlibAlignVerticalJustifyStart);
+if (!customElements.get('dile-lucide-icon-align-vertical-justify-start')) {
+  customElements.define('dile-lucide-icon-align-vertical-justify-start', DileIconlibAlignVerticalJustifyStart);
+}

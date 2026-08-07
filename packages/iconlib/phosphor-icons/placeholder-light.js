@@ -6,4 +6,6 @@ export class DileIconlibPlaceholderLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-placeholder-light', DileIconlibPlaceholderLight);
+if (!customElements.get('dile-phosphor-icon-placeholder-light')) {
+  customElements.define('dile-phosphor-icon-placeholder-light', DileIconlibPlaceholderLight);
+}

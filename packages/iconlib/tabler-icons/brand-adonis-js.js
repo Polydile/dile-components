@@ -6,4 +6,6 @@ export class DileIconlibBrandAdonisJs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adonis-js', DileIconlibBrandAdonisJs);
+if (!customElements.get('dile-tabler-icon-brand-adonis-js')) {
+  customElements.define('dile-tabler-icon-brand-adonis-js', DileIconlibBrandAdonisJs);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHospitalAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hospital-alt', DileIconlibHospitalAlt);
+if (!customElements.get('dile-fontawesome-icon-hospital-alt')) {
+  customElements.define('dile-fontawesome-icon-hospital-alt', DileIconlibHospitalAlt);
+}

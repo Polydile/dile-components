@@ -6,4 +6,6 @@ export class DileIconlibTeaBagFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tea-bag-fill', DileIconlibTeaBagFill);
+if (!customElements.get('dile-phosphor-icon-tea-bag-fill')) {
+  customElements.define('dile-phosphor-icon-tea-bag-fill', DileIconlibTeaBagFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandLinqpad extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-linqpad', DileIconlibBrandLinqpad);
+if (!customElements.get('dile-tabler-icon-brand-linqpad')) {
+  customElements.define('dile-tabler-icon-brand-linqpad', DileIconlibBrandLinqpad);
+}

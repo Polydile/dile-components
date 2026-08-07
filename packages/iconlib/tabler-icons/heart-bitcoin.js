@@ -6,4 +6,6 @@ export class DileIconlibHeartBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-bitcoin', DileIconlibHeartBitcoin);
+if (!customElements.get('dile-tabler-icon-heart-bitcoin')) {
+  customElements.define('dile-tabler-icon-heart-bitcoin', DileIconlibHeartBitcoin);
+}

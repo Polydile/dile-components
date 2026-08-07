@@ -6,4 +6,6 @@ export class DileIconlibHeartBrokenFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-heart-broken-filled', DileIconlibHeartBrokenFilled);
+if (!customElements.get('dile-tabler-icon-heart-broken-filled')) {
+  customElements.define('dile-tabler-icon-heart-broken-filled', DileIconlibHeartBrokenFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneyBill1Wave extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-money-bill-1-wave', DileIconlibMoneyBill1Wave);
+if (!customElements.get('dile-fontawesome-icon-money-bill-1-wave')) {
+  customElements.define('dile-fontawesome-icon-money-bill-1-wave', DileIconlibMoneyBill1Wave);
+}

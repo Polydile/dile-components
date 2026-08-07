@@ -6,4 +6,6 @@ export class DileIconlibSort90 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sort-9-0', DileIconlibSort90);
+if (!customElements.get('dile-tabler-icon-sort-9-0')) {
+  customElements.define('dile-tabler-icon-sort-9-0', DileIconlibSort90);
+}

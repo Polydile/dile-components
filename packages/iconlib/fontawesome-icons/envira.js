@@ -6,4 +6,6 @@ export class DileIconlibEnvira extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-envira', DileIconlibEnvira);
+if (!customElements.get('dile-fontawesome-icon-envira')) {
+  customElements.define('dile-fontawesome-icon-envira', DileIconlibEnvira);
+}

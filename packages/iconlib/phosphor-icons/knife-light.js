@@ -6,4 +6,6 @@ export class DileIconlibKnifeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-knife-light', DileIconlibKnifeLight);
+if (!customElements.get('dile-phosphor-icon-knife-light')) {
+  customElements.define('dile-phosphor-icon-knife-light', DileIconlibKnifeLight);
+}

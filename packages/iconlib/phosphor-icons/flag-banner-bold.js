@@ -6,4 +6,6 @@ export class DileIconlibFlagBannerBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-banner-bold', DileIconlibFlagBannerBold);
+if (!customElements.get('dile-phosphor-icon-flag-banner-bold')) {
+  customElements.define('dile-phosphor-icon-flag-banner-bold', DileIconlibFlagBannerBold);
+}

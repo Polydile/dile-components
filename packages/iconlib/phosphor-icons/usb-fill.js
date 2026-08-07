@@ -6,4 +6,6 @@ export class DileIconlibUsbFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-usb-fill', DileIconlibUsbFill);
+if (!customElements.get('dile-phosphor-icon-usb-fill')) {
+  customElements.define('dile-phosphor-icon-usb-fill', DileIconlibUsbFill);
+}

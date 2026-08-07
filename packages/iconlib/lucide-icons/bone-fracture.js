@@ -6,4 +6,6 @@ export class DileIconlibBoneFracture extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bone-fracture', DileIconlibBoneFracture);
+if (!customElements.get('dile-lucide-icon-bone-fracture')) {
+  customElements.define('dile-lucide-icon-bone-fracture', DileIconlibBoneFracture);
+}

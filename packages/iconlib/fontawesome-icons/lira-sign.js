@@ -6,4 +6,6 @@ export class DileIconlibLiraSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lira-sign', DileIconlibLiraSign);
+if (!customElements.get('dile-fontawesome-icon-lira-sign')) {
+  customElements.define('dile-fontawesome-icon-lira-sign', DileIconlibLiraSign);
+}

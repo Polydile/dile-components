@@ -6,4 +6,6 @@ export class DileIconlibGlobeStandLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-globe-stand-light', DileIconlibGlobeStandLight);
+if (!customElements.get('dile-phosphor-icon-globe-stand-light')) {
+  customElements.define('dile-phosphor-icon-globe-stand-light', DileIconlibGlobeStandLight);
+}

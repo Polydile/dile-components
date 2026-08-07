@@ -6,4 +6,6 @@ export class DileIconlibParkLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-park-light', DileIconlibParkLight);
+if (!customElements.get('dile-phosphor-icon-park-light')) {
+  customElements.define('dile-phosphor-icon-park-light', DileIconlibParkLight);
+}

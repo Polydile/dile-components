@@ -6,4 +6,6 @@ export class DileIconlibKerning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-kerning', DileIconlibKerning);
+if (!customElements.get('dile-tabler-icon-kerning')) {
+  customElements.define('dile-tabler-icon-kerning', DileIconlibKerning);
+}

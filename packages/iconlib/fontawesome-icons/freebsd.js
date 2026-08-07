@@ -6,4 +6,6 @@ export class DileIconlibFreebsd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-freebsd', DileIconlibFreebsd);
+if (!customElements.get('dile-fontawesome-icon-freebsd')) {
+  customElements.define('dile-fontawesome-icon-freebsd', DileIconlibFreebsd);
+}

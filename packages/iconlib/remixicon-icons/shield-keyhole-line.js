@@ -6,4 +6,6 @@ export class DileIconlibShieldKeyholeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shield-keyhole-line', DileIconlibShieldKeyholeLine);
+if (!customElements.get('dile-remixicon-icon-shield-keyhole-line')) {
+  customElements.define('dile-remixicon-icon-shield-keyhole-line', DileIconlibShieldKeyholeLine);
+}

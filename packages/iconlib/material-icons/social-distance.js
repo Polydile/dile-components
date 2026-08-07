@@ -6,4 +6,6 @@ export class DileIconlibSocialDistance extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-social-distance', DileIconlibSocialDistance);
+if (!customElements.get('dile-material-icon-social-distance')) {
+  customElements.define('dile-material-icon-social-distance', DileIconlibSocialDistance);
+}

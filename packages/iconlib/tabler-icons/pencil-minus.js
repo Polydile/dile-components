@@ -6,4 +6,6 @@ export class DileIconlibPencilMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-minus', DileIconlibPencilMinus);
+if (!customElements.get('dile-tabler-icon-pencil-minus')) {
+  customElements.define('dile-tabler-icon-pencil-minus', DileIconlibPencilMinus);
+}

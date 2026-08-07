@@ -6,4 +6,6 @@ export class DileIconlibForgejo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-forgejo', DileIconlibForgejo);
+if (!customElements.get('dile-fontawesome-icon-forgejo')) {
+  customElements.define('dile-fontawesome-icon-forgejo', DileIconlibForgejo);
+}

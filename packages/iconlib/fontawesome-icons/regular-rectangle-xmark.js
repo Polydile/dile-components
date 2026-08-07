@@ -6,4 +6,6 @@ export class DileIconlibRectangleXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-rectangle-xmark', DileIconlibRectangleXmark);
+if (!customElements.get('dile-fontawesome-icon-regular-rectangle-xmark')) {
+  customElements.define('dile-fontawesome-icon-regular-rectangle-xmark', DileIconlibRectangleXmark);
+}

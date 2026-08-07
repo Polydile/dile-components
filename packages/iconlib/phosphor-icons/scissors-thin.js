@@ -6,4 +6,6 @@ export class DileIconlibScissorsThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scissors-thin', DileIconlibScissorsThin);
+if (!customElements.get('dile-phosphor-icon-scissors-thin')) {
+  customElements.define('dile-phosphor-icon-scissors-thin', DileIconlibScissorsThin);
+}

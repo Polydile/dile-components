@@ -6,4 +6,6 @@ export class DileIconlibPopsicleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-popsicle-bold', DileIconlibPopsicleBold);
+if (!customElements.get('dile-phosphor-icon-popsicle-bold')) {
+  customElements.define('dile-phosphor-icon-popsicle-bold', DileIconlibPopsicleBold);
+}

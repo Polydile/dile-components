@@ -6,4 +6,6 @@ export class DileIconlibFileTextAi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-text-ai', DileIconlibFileTextAi);
+if (!customElements.get('dile-tabler-icon-file-text-ai')) {
+  customElements.define('dile-tabler-icon-file-text-ai', DileIconlibFileTextAi);
+}

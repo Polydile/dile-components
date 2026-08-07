@@ -6,4 +6,6 @@ export class DileIconlibSearchAi4Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-search-ai-4-fill', DileIconlibSearchAi4Fill);
+if (!customElements.get('dile-remixicon-icon-search-ai-4-fill')) {
+  customElements.define('dile-remixicon-icon-search-ai-4-fill', DileIconlibSearchAi4Fill);
+}

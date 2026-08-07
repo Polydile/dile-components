@@ -6,4 +6,6 @@ export class DileIconlibGrinSquintTears extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-grin-squint-tears', DileIconlibGrinSquintTears);
+if (!customElements.get('dile-fontawesome-icon-regular-grin-squint-tears')) {
+  customElements.define('dile-fontawesome-icon-regular-grin-squint-tears', DileIconlibGrinSquintTears);
+}

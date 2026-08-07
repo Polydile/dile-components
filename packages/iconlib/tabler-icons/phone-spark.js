@@ -6,4 +6,6 @@ export class DileIconlibPhoneSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-phone-spark', DileIconlibPhoneSpark);
+if (!customElements.get('dile-tabler-icon-phone-spark')) {
+  customElements.define('dile-tabler-icon-phone-spark', DileIconlibPhoneSpark);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareWebAwesomeStroke extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-web-awesome-stroke', DileIconlibSquareWebAwesomeStroke);
+if (!customElements.get('dile-fontawesome-icon-square-web-awesome-stroke')) {
+  customElements.define('dile-fontawesome-icon-square-web-awesome-stroke', DileIconlibSquareWebAwesomeStroke);
+}

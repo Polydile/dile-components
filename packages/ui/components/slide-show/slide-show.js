@@ -1,3 +1,5 @@
 import { DileSlideShow } from "./src/DileSlideShow.js";
 
-window.customElements.define("dile-slide-show", DileSlideShow);
+if (!customElements.get("dile-slide-show")) {
+  window.customElements.define("dile-slide-show", DileSlideShow);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTvAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tv-alt', DileIconlibTvAlt);
+if (!customElements.get('dile-fontawesome-icon-tv-alt')) {
+  customElements.define('dile-fontawesome-icon-tv-alt', DileIconlibTvAlt);
+}

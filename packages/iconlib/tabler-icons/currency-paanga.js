@@ -6,4 +6,6 @@ export class DileIconlibCurrencyPaanga extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-paanga', DileIconlibCurrencyPaanga);
+if (!customElements.get('dile-tabler-icon-currency-paanga')) {
+  customElements.define('dile-tabler-icon-currency-paanga', DileIconlibCurrencyPaanga);
+}

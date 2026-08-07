@@ -6,4 +6,6 @@ export class DileIconlibBrandHexo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-hexo', DileIconlibBrandHexo);
+if (!customElements.get('dile-tabler-icon-brand-hexo')) {
+  customElements.define('dile-tabler-icon-brand-hexo', DileIconlibBrandHexo);
+}

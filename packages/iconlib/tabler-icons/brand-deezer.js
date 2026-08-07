@@ -6,4 +6,6 @@ export class DileIconlibBrandDeezer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-deezer', DileIconlibBrandDeezer);
+if (!customElements.get('dile-tabler-icon-brand-deezer')) {
+  customElements.define('dile-tabler-icon-brand-deezer', DileIconlibBrandDeezer);
+}

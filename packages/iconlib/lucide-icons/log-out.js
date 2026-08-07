@@ -6,4 +6,6 @@ export class DileIconlibLogOut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-log-out', DileIconlibLogOut);
+if (!customElements.get('dile-lucide-icon-log-out')) {
+  customElements.define('dile-lucide-icon-log-out', DileIconlibLogOut);
+}

@@ -46,4 +46,6 @@ export class DemoCountryRelations extends LitElement {
     `;
   }
 }
-customElements.define('demo-country-relations', DemoCountryRelations);
+if (!customElements.get('demo-country-relations')) {
+  customElements.define('demo-country-relations', DemoCountryRelations);
+}

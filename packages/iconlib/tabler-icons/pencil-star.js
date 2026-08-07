@@ -6,4 +6,6 @@ export class DileIconlibPencilStar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-star', DileIconlibPencilStar);
+if (!customElements.get('dile-tabler-icon-pencil-star')) {
+  customElements.define('dile-tabler-icon-pencil-star', DileIconlibPencilStar);
+}

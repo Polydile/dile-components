@@ -6,4 +6,6 @@ export class DileIconlibRecycling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-recycling', DileIconlibRecycling);
+if (!customElements.get('dile-material-icon-recycling')) {
+  customElements.define('dile-material-icon-recycling', DileIconlibRecycling);
+}

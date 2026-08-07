@@ -6,4 +6,6 @@ export class DileIconlibClockDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-dollar', DileIconlibClockDollar);
+if (!customElements.get('dile-tabler-icon-clock-dollar')) {
+  customElements.define('dile-tabler-icon-clock-dollar', DileIconlibClockDollar);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEyedropperSampleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-eyedropper-sample-duotone', DileIconlibEyedropperSampleDuotone);
+if (!customElements.get('dile-phosphor-icon-eyedropper-sample-duotone')) {
+  customElements.define('dile-phosphor-icon-eyedropper-sample-duotone', DileIconlibEyedropperSampleDuotone);
+}

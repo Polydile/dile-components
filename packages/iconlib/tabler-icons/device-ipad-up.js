@@ -6,4 +6,6 @@ export class DileIconlibDeviceIpadUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-ipad-up', DileIconlibDeviceIpadUp);
+if (!customElements.get('dile-tabler-icon-device-ipad-up')) {
+  customElements.define('dile-tabler-icon-device-ipad-up', DileIconlibDeviceIpadUp);
+}

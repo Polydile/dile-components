@@ -6,4 +6,6 @@ export class DileIconlibHouseFloodWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-flood-water', DileIconlibHouseFloodWater);
+if (!customElements.get('dile-fontawesome-icon-house-flood-water')) {
+  customElements.define('dile-fontawesome-icon-house-flood-water', DileIconlibHouseFloodWater);
+}

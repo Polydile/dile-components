@@ -6,4 +6,6 @@ export class DileIconlibLayoutBottombar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-bottombar', DileIconlibLayoutBottombar);
+if (!customElements.get('dile-tabler-icon-layout-bottombar')) {
+  customElements.define('dile-tabler-icon-layout-bottombar', DileIconlibLayoutBottombar);
+}

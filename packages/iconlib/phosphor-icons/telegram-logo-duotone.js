@@ -6,4 +6,6 @@ export class DileIconlibTelegramLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-telegram-logo-duotone', DileIconlibTelegramLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-telegram-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-telegram-logo-duotone', DileIconlibTelegramLogoDuotone);
+}

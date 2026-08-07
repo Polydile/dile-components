@@ -6,4 +6,6 @@ export class DileIconlibFortAwesome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fort-awesome', DileIconlibFortAwesome);
+if (!customElements.get('dile-fontawesome-icon-fort-awesome')) {
+  customElements.define('dile-fontawesome-icon-fort-awesome', DileIconlibFortAwesome);
+}

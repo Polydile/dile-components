@@ -6,4 +6,6 @@ export class DileIconlibMemoryBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-memory-bold', DileIconlibMemoryBold);
+if (!customElements.get('dile-phosphor-icon-memory-bold')) {
+  customElements.define('dile-phosphor-icon-memory-bold', DileIconlibMemoryBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFlagCheckered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-checkered', DileIconlibFlagCheckered);
+if (!customElements.get('dile-phosphor-icon-flag-checkered')) {
+  customElements.define('dile-phosphor-icon-flag-checkered', DileIconlibFlagCheckered);
+}

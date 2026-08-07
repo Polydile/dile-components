@@ -6,4 +6,6 @@ export class DileIconlibLaughSquint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-laugh-squint', DileIconlibLaughSquint);
+if (!customElements.get('dile-fontawesome-icon-laugh-squint')) {
+  customElements.define('dile-fontawesome-icon-laugh-squint', DileIconlibLaughSquint);
+}

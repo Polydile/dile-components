@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftOutlookLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-outlook-logo-fill', DileIconlibMicrosoftOutlookLogoFill);
+if (!customElements.get('dile-phosphor-icon-microsoft-outlook-logo-fill')) {
+  customElements.define('dile-phosphor-icon-microsoft-outlook-logo-fill', DileIconlibMicrosoftOutlookLogoFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWindArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wind-arrow-down', DileIconlibWindArrowDown);
+if (!customElements.get('dile-lucide-icon-wind-arrow-down')) {
+  customElements.define('dile-lucide-icon-wind-arrow-down', DileIconlibWindArrowDown);
+}

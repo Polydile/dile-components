@@ -6,4 +6,6 @@ export class DileIconlibDeviceIpadHorizontalMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-ipad-horizontal-minus', DileIconlibDeviceIpadHorizontalMinus);
+if (!customElements.get('dile-tabler-icon-device-ipad-horizontal-minus')) {
+  customElements.define('dile-tabler-icon-device-ipad-horizontal-minus', DileIconlibDeviceIpadHorizontalMinus);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSpaceAwesome extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-space-awesome', DileIconlibSpaceAwesome);
+if (!customElements.get('dile-fontawesome-icon-space-awesome')) {
+  customElements.define('dile-fontawesome-icon-space-awesome', DileIconlibSpaceAwesome);
+}

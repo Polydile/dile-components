@@ -6,4 +6,6 @@ export class DileIconlibBeerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-beer-off', DileIconlibBeerOff);
+if (!customElements.get('dile-tabler-icon-beer-off')) {
+  customElements.define('dile-tabler-icon-beer-off', DileIconlibBeerOff);
+}

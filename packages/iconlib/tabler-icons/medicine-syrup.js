@@ -6,4 +6,6 @@ export class DileIconlibMedicineSyrup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-medicine-syrup', DileIconlibMedicineSyrup);
+if (!customElements.get('dile-tabler-icon-medicine-syrup')) {
+  customElements.define('dile-tabler-icon-medicine-syrup', DileIconlibMedicineSyrup);
+}

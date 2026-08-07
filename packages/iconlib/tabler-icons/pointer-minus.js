@@ -6,4 +6,6 @@ export class DileIconlibPointerMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-minus', DileIconlibPointerMinus);
+if (!customElements.get('dile-tabler-icon-pointer-minus')) {
+  customElements.define('dile-tabler-icon-pointer-minus', DileIconlibPointerMinus);
+}

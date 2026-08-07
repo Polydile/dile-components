@@ -6,4 +6,6 @@ export class DileIconlibRibbonHealth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ribbon-health', DileIconlibRibbonHealth);
+if (!customElements.get('dile-tabler-icon-ribbon-health')) {
+  customElements.define('dile-tabler-icon-ribbon-health', DileIconlibRibbonHealth);
+}

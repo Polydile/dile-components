@@ -6,4 +6,6 @@ export class DileIconlibNoteBlankLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-note-blank-light', DileIconlibNoteBlankLight);
+if (!customElements.get('dile-phosphor-icon-note-blank-light')) {
+  customElements.define('dile-phosphor-icon-note-blank-light', DileIconlibNoteBlankLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLinearScale extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-linear-scale', DileIconlibLinearScale);
+if (!customElements.get('dile-material-icon-linear-scale')) {
+  customElements.define('dile-material-icon-linear-scale', DileIconlibLinearScale);
+}

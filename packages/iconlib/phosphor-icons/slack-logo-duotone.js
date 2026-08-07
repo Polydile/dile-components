@@ -6,4 +6,6 @@ export class DileIconlibSlackLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-slack-logo-duotone', DileIconlibSlackLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-slack-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-slack-logo-duotone', DileIconlibSlackLogoDuotone);
+}

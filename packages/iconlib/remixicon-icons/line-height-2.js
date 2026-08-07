@@ -6,4 +6,6 @@ export class DileIconlibLineHeight2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-line-height-2', DileIconlibLineHeight2);
+if (!customElements.get('dile-remixicon-icon-line-height-2')) {
+  customElements.define('dile-remixicon-icon-line-height-2', DileIconlibLineHeight2);
+}

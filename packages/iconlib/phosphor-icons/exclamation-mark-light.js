@@ -6,4 +6,6 @@ export class DileIconlibExclamationMarkLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-exclamation-mark-light', DileIconlibExclamationMarkLight);
+if (!customElements.get('dile-phosphor-icon-exclamation-mark-light')) {
+  customElements.define('dile-phosphor-icon-exclamation-mark-light', DileIconlibExclamationMarkLight);
+}

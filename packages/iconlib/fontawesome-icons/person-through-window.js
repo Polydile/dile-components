@@ -6,4 +6,6 @@ export class DileIconlibPersonThroughWindow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-through-window', DileIconlibPersonThroughWindow);
+if (!customElements.get('dile-fontawesome-icon-person-through-window')) {
+  customElements.define('dile-fontawesome-icon-person-through-window', DileIconlibPersonThroughWindow);
+}

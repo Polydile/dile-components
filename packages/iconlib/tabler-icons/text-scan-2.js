@@ -6,4 +6,6 @@ export class DileIconlibTextScan2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-scan-2', DileIconlibTextScan2);
+if (!customElements.get('dile-tabler-icon-text-scan-2')) {
+  customElements.define('dile-tabler-icon-text-scan-2', DileIconlibTextScan2);
+}

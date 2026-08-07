@@ -6,4 +6,6 @@ export class DileIconlibFlagCheckeredDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-checkered-duotone', DileIconlibFlagCheckeredDuotone);
+if (!customElements.get('dile-phosphor-icon-flag-checkered-duotone')) {
+  customElements.define('dile-phosphor-icon-flag-checkered-duotone', DileIconlibFlagCheckeredDuotone);
+}

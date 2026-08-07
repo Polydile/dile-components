@@ -6,4 +6,6 @@ export class DileIconlibMartiniDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-martini-duotone', DileIconlibMartiniDuotone);
+if (!customElements.get('dile-phosphor-icon-martini-duotone')) {
+  customElements.define('dile-phosphor-icon-martini-duotone', DileIconlibMartiniDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSubtask extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-subtask', DileIconlibSubtask);
+if (!customElements.get('dile-tabler-icon-subtask')) {
+  customElements.define('dile-tabler-icon-subtask', DileIconlibSubtask);
+}

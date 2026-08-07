@@ -6,4 +6,6 @@ export class DileIconlibTabletAndroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tablet-android', DileIconlibTabletAndroid);
+if (!customElements.get('dile-fontawesome-icon-tablet-android')) {
+  customElements.define('dile-fontawesome-icon-tablet-android', DileIconlibTabletAndroid);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAudible extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-audible', DileIconlibAudible);
+if (!customElements.get('dile-fontawesome-icon-audible')) {
+  customElements.define('dile-fontawesome-icon-audible', DileIconlibAudible);
+}

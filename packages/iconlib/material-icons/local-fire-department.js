@@ -6,4 +6,6 @@ export class DileIconlibLocalFireDepartment extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-fire-department', DileIconlibLocalFireDepartment);
+if (!customElements.get('dile-material-icon-local-fire-department')) {
+  customElements.define('dile-material-icon-local-fire-department', DileIconlibLocalFireDepartment);
+}

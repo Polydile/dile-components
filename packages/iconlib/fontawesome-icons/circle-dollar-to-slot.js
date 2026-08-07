@@ -6,4 +6,6 @@ export class DileIconlibCircleDollarToSlot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-circle-dollar-to-slot', DileIconlibCircleDollarToSlot);
+if (!customElements.get('dile-fontawesome-icon-circle-dollar-to-slot')) {
+  customElements.define('dile-fontawesome-icon-circle-dollar-to-slot', DileIconlibCircleDollarToSlot);
+}

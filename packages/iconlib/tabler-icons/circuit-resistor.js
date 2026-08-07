@@ -6,4 +6,6 @@ export class DileIconlibCircuitResistor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-resistor', DileIconlibCircuitResistor);
+if (!customElements.get('dile-tabler-icon-circuit-resistor')) {
+  customElements.define('dile-tabler-icon-circuit-resistor', DileIconlibCircuitResistor);
+}

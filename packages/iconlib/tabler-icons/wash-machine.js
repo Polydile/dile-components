@@ -6,4 +6,6 @@ export class DileIconlibWashMachine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-machine', DileIconlibWashMachine);
+if (!customElements.get('dile-tabler-icon-wash-machine')) {
+  customElements.define('dile-tabler-icon-wash-machine', DileIconlibWashMachine);
+}

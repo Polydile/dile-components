@@ -6,4 +6,6 @@ export class DileIconlibIntersectBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-intersect-bold', DileIconlibIntersectBold);
+if (!customElements.get('dile-phosphor-icon-intersect-bold')) {
+  customElements.define('dile-phosphor-icon-intersect-bold', DileIconlibIntersectBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSourcetree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sourcetree', DileIconlibSourcetree);
+if (!customElements.get('dile-fontawesome-icon-sourcetree')) {
+  customElements.define('dile-fontawesome-icon-sourcetree', DileIconlibSourcetree);
+}

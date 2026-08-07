@@ -6,4 +6,6 @@ export class DileIconlibFerrisWheel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ferris-wheel', DileIconlibFerrisWheel);
+if (!customElements.get('dile-lucide-icon-ferris-wheel')) {
+  customElements.define('dile-lucide-icon-ferris-wheel', DileIconlibFerrisWheel);
+}

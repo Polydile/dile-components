@@ -6,4 +6,6 @@ export class DileIconlibShareplay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shareplay', DileIconlibShareplay);
+if (!customElements.get('dile-tabler-icon-shareplay')) {
+  customElements.define('dile-tabler-icon-shareplay', DileIconlibShareplay);
+}

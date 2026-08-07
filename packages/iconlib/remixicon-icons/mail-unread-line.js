@@ -6,4 +6,6 @@ export class DileIconlibMailUnreadLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mail-unread-line', DileIconlibMailUnreadLine);
+if (!customElements.get('dile-remixicon-icon-mail-unread-line')) {
+  customElements.define('dile-remixicon-icon-mail-unread-line', DileIconlibMailUnreadLine);
+}

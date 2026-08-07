@@ -6,4 +6,6 @@ export class DileIconlibBookQuran extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-quran', DileIconlibBookQuran);
+if (!customElements.get('dile-fontawesome-icon-book-quran')) {
+  customElements.define('dile-fontawesome-icon-book-quran', DileIconlibBookQuran);
+}

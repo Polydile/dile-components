@@ -6,4 +6,6 @@ export class DileIconlibHttpQueOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-que-off', DileIconlibHttpQueOff);
+if (!customElements.get('dile-tabler-icon-http-que-off')) {
+  customElements.define('dile-tabler-icon-http-que-off', DileIconlibHttpQueOff);
+}

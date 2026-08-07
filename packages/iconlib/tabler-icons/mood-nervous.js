@@ -6,4 +6,6 @@ export class DileIconlibMoodNervous extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-nervous', DileIconlibMoodNervous);
+if (!customElements.get('dile-tabler-icon-mood-nervous')) {
+  customElements.define('dile-tabler-icon-mood-nervous', DileIconlibMoodNervous);
+}

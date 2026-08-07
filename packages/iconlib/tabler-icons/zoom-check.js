@@ -6,4 +6,6 @@ export class DileIconlibZoomCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-check', DileIconlibZoomCheck);
+if (!customElements.get('dile-tabler-icon-zoom-check')) {
+  customElements.define('dile-tabler-icon-zoom-check', DileIconlibZoomCheck);
+}

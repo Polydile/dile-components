@@ -6,4 +6,6 @@ export class DileIconlibDeviceVisionPro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-vision-pro', DileIconlibDeviceVisionPro);
+if (!customElements.get('dile-tabler-icon-device-vision-pro')) {
+  customElements.define('dile-tabler-icon-device-vision-pro', DileIconlibDeviceVisionPro);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowBackUpDouble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-back-up-double', DileIconlibArrowBackUpDouble);
+if (!customElements.get('dile-tabler-icon-arrow-back-up-double')) {
+  customElements.define('dile-tabler-icon-arrow-back-up-double', DileIconlibArrowBackUpDouble);
+}

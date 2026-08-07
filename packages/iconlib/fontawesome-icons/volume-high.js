@@ -6,4 +6,6 @@ export class DileIconlibVolumeHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-volume-high', DileIconlibVolumeHigh);
+if (!customElements.get('dile-fontawesome-icon-volume-high')) {
+  customElements.define('dile-fontawesome-icon-volume-high', DileIconlibVolumeHigh);
+}

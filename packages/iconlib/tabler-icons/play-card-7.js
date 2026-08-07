@@ -6,4 +6,6 @@ export class DileIconlibPlayCard7 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-play-card-7', DileIconlibPlayCard7);
+if (!customElements.get('dile-tabler-icon-play-card-7')) {
+  customElements.define('dile-tabler-icon-play-card-7', DileIconlibPlayCard7);
+}

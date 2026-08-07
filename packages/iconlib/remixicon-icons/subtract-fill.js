@@ -6,4 +6,6 @@ export class DileIconlibSubtractFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-subtract-fill', DileIconlibSubtractFill);
+if (!customElements.get('dile-remixicon-icon-subtract-fill')) {
+  customElements.define('dile-remixicon-icon-subtract-fill', DileIconlibSubtractFill);
+}

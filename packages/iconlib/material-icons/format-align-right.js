@@ -6,4 +6,6 @@ export class DileIconlibFormatAlignRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-align-right', DileIconlibFormatAlignRight);
+if (!customElements.get('dile-material-icon-format-align-right')) {
+  customElements.define('dile-material-icon-format-align-right', DileIconlibFormatAlignRight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNotMemberOfBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-not-member-of-bold', DileIconlibNotMemberOfBold);
+if (!customElements.get('dile-phosphor-icon-not-member-of-bold')) {
+  customElements.define('dile-phosphor-icon-not-member-of-bold', DileIconlibNotMemberOfBold);
+}

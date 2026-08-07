@@ -6,4 +6,6 @@ export class DileIconlibAlphabetHebrew extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-hebrew', DileIconlibAlphabetHebrew);
+if (!customElements.get('dile-tabler-icon-alphabet-hebrew')) {
+  customElements.define('dile-tabler-icon-alphabet-hebrew', DileIconlibAlphabetHebrew);
+}

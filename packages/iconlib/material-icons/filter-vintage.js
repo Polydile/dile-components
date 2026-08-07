@@ -6,4 +6,6 @@ export class DileIconlibFilterVintage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-filter-vintage', DileIconlibFilterVintage);
+if (!customElements.get('dile-material-icon-filter-vintage')) {
+  customElements.define('dile-material-icon-filter-vintage', DileIconlibFilterVintage);
+}

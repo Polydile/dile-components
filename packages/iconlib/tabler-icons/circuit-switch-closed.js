@@ -6,4 +6,6 @@ export class DileIconlibCircuitSwitchClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-switch-closed', DileIconlibCircuitSwitchClosed);
+if (!customElements.get('dile-tabler-icon-circuit-switch-closed')) {
+  customElements.define('dile-tabler-icon-circuit-switch-closed', DileIconlibCircuitSwitchClosed);
+}

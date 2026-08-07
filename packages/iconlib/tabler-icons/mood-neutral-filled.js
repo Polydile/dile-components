@@ -6,4 +6,6 @@ export class DileIconlibMoodNeutralFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-neutral-filled', DileIconlibMoodNeutralFilled);
+if (!customElements.get('dile-tabler-icon-mood-neutral-filled')) {
+  customElements.define('dile-tabler-icon-mood-neutral-filled', DileIconlibMoodNeutralFilled);
+}

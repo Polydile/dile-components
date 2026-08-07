@@ -6,4 +6,6 @@ export class DileIconlibScreenSearchDesktop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screen-search-desktop', DileIconlibScreenSearchDesktop);
+if (!customElements.get('dile-material-icon-screen-search-desktop')) {
+  customElements.define('dile-material-icon-screen-search-desktop', DileIconlibScreenSearchDesktop);
+}

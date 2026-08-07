@@ -6,4 +6,6 @@ export class DileIconlibFileDislike extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-dislike', DileIconlibFileDislike);
+if (!customElements.get('dile-tabler-icon-file-dislike')) {
+  customElements.define('dile-tabler-icon-file-dislike', DileIconlibFileDislike);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoodDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-dollar', DileIconlibMoodDollar);
+if (!customElements.get('dile-tabler-icon-mood-dollar')) {
+  customElements.define('dile-tabler-icon-mood-dollar', DileIconlibMoodDollar);
+}

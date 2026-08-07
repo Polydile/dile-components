@@ -6,4 +6,6 @@ export class DileIconlibBrandFeedly extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-feedly', DileIconlibBrandFeedly);
+if (!customElements.get('dile-tabler-icon-brand-feedly')) {
+  customElements.define('dile-tabler-icon-brand-feedly', DileIconlibBrandFeedly);
+}

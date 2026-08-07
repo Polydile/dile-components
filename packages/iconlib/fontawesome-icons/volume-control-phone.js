@@ -6,4 +6,6 @@ export class DileIconlibVolumeControlPhone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-volume-control-phone', DileIconlibVolumeControlPhone);
+if (!customElements.get('dile-fontawesome-icon-volume-control-phone')) {
+  customElements.define('dile-fontawesome-icon-volume-control-phone', DileIconlibVolumeControlPhone);
+}

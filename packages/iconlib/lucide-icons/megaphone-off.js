@@ -6,4 +6,6 @@ export class DileIconlibMegaphoneOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-megaphone-off', DileIconlibMegaphoneOff);
+if (!customElements.get('dile-lucide-icon-megaphone-off')) {
+  customElements.define('dile-lucide-icon-megaphone-off', DileIconlibMegaphoneOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandCodecov extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-codecov', DileIconlibBrandCodecov);
+if (!customElements.get('dile-tabler-icon-brand-codecov')) {
+  customElements.define('dile-tabler-icon-brand-codecov', DileIconlibBrandCodecov);
+}

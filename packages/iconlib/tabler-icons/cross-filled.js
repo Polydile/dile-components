@@ -6,4 +6,6 @@ export class DileIconlibCrossFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cross-filled', DileIconlibCrossFilled);
+if (!customElements.get('dile-tabler-icon-cross-filled')) {
+  customElements.define('dile-tabler-icon-cross-filled', DileIconlibCrossFilled);
+}

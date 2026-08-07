@@ -6,4 +6,6 @@ export class DileIconlibPagelines extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pagelines', DileIconlibPagelines);
+if (!customElements.get('dile-fontawesome-icon-pagelines')) {
+  customElements.define('dile-fontawesome-icon-pagelines', DileIconlibPagelines);
+}

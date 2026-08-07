@@ -6,4 +6,6 @@ export class DileIconlibKeyboardCapslock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-keyboard-capslock', DileIconlibKeyboardCapslock);
+if (!customElements.get('dile-material-icon-keyboard-capslock')) {
+  customElements.define('dile-material-icon-keyboard-capslock', DileIconlibKeyboardCapslock);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFolderUserLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-user-line', DileIconlibFolderUserLine);
+if (!customElements.get('dile-remixicon-icon-folder-user-line')) {
+  customElements.define('dile-remixicon-icon-folder-user-line', DileIconlibFolderUserLine);
+}

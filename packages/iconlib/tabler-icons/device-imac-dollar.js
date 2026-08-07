@@ -6,4 +6,6 @@ export class DileIconlibDeviceImacDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-imac-dollar', DileIconlibDeviceImacDollar);
+if (!customElements.get('dile-tabler-icon-device-imac-dollar')) {
+  customElements.define('dile-tabler-icon-device-imac-dollar', DileIconlibDeviceImacDollar);
+}

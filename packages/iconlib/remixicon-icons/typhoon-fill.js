@@ -6,4 +6,6 @@ export class DileIconlibTyphoonFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-typhoon-fill', DileIconlibTyphoonFill);
+if (!customElements.get('dile-remixicon-icon-typhoon-fill')) {
+  customElements.define('dile-remixicon-icon-typhoon-fill', DileIconlibTyphoonFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFormatColorText extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-color-text', DileIconlibFormatColorText);
+if (!customElements.get('dile-material-icon-format-color-text')) {
+  customElements.define('dile-material-icon-format-color-text', DileIconlibFormatColorText);
+}

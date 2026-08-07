@@ -6,4 +6,6 @@ export class DileIconlibChargingStation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-charging-station', DileIconlibChargingStation);
+if (!customElements.get('dile-phosphor-icon-charging-station')) {
+  customElements.define('dile-phosphor-icon-charging-station', DileIconlibChargingStation);
+}

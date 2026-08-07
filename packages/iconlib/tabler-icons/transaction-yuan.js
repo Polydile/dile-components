@@ -6,4 +6,6 @@ export class DileIconlibTransactionYuan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-transaction-yuan', DileIconlibTransactionYuan);
+if (!customElements.get('dile-tabler-icon-transaction-yuan')) {
+  customElements.define('dile-tabler-icon-transaction-yuan', DileIconlibTransactionYuan);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAuctionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-auction-fill', DileIconlibAuctionFill);
+if (!customElements.get('dile-remixicon-icon-auction-fill')) {
+  customElements.define('dile-remixicon-icon-auction-fill', DileIconlibAuctionFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSpacingVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spacing-vertical', DileIconlibSpacingVertical);
+if (!customElements.get('dile-tabler-icon-spacing-vertical')) {
+  customElements.define('dile-tabler-icon-spacing-vertical', DileIconlibSpacingVertical);
+}

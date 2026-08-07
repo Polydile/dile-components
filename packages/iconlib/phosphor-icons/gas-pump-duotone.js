@@ -6,4 +6,6 @@ export class DileIconlibGasPumpDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gas-pump-duotone', DileIconlibGasPumpDuotone);
+if (!customElements.get('dile-phosphor-icon-gas-pump-duotone')) {
+  customElements.define('dile-phosphor-icon-gas-pump-duotone', DileIconlibGasPumpDuotone);
+}

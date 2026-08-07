@@ -6,4 +6,6 @@ export class DileIconlibLassoPolygonFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lasso-polygon-filled', DileIconlibLassoPolygonFilled);
+if (!customElements.get('dile-tabler-icon-lasso-polygon-filled')) {
+  customElements.define('dile-tabler-icon-lasso-polygon-filled', DileIconlibLassoPolygonFilled);
+}

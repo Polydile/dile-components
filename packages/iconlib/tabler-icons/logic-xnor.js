@@ -6,4 +6,6 @@ export class DileIconlibLogicXnor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-logic-xnor', DileIconlibLogicXnor);
+if (!customElements.get('dile-tabler-icon-logic-xnor')) {
+  customElements.define('dile-tabler-icon-logic-xnor', DileIconlibLogicXnor);
+}

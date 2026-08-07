@@ -179,4 +179,6 @@ export class DileEditorToolbar extends DileI18nMixin(LitElement) {
     this.editorView.focus();
   }
 }
-customElements.define('dile-editor-toolbar', DileEditorToolbar);
+if (!customElements.get('dile-editor-toolbar')) {
+  customElements.define('dile-editor-toolbar', DileEditorToolbar);
+}

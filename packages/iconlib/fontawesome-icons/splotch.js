@@ -6,4 +6,6 @@ export class DileIconlibSplotch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-splotch', DileIconlibSplotch);
+if (!customElements.get('dile-fontawesome-icon-splotch')) {
+  customElements.define('dile-fontawesome-icon-splotch', DileIconlibSplotch);
+}

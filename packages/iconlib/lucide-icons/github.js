@@ -6,4 +6,6 @@ export class DileIconlibGithub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-github', DileIconlibGithub);
+if (!customElements.get('dile-lucide-icon-github')) {
+  customElements.define('dile-lucide-icon-github', DileIconlibGithub);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBasketballLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-basketball-line', DileIconlibBasketballLine);
+if (!customElements.get('dile-remixicon-icon-basketball-line')) {
+  customElements.define('dile-remixicon-icon-basketball-line', DileIconlibBasketballLine);
+}

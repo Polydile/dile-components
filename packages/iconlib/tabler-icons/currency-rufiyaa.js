@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRufiyaa extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-rufiyaa', DileIconlibCurrencyRufiyaa);
+if (!customElements.get('dile-tabler-icon-currency-rufiyaa')) {
+  customElements.define('dile-tabler-icon-currency-rufiyaa', DileIconlibCurrencyRufiyaa);
+}

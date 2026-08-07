@@ -6,4 +6,6 @@ export class DileIconlibSimCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sim-card', DileIconlibSimCard);
+if (!customElements.get('dile-fontawesome-icon-sim-card')) {
+  customElements.define('dile-fontawesome-icon-sim-card', DileIconlibSimCard);
+}

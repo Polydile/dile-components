@@ -6,4 +6,6 @@ export class DileIconlibMapPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-map-pause', DileIconlibMapPause);
+if (!customElements.get('dile-tabler-icon-map-pause')) {
+  customElements.define('dile-tabler-icon-map-pause', DileIconlibMapPause);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCalendarFold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-calendar-fold', DileIconlibCalendarFold);
+if (!customElements.get('dile-lucide-icon-calendar-fold')) {
+  customElements.define('dile-lucide-icon-calendar-fold', DileIconlibCalendarFold);
+}

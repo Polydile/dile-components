@@ -6,4 +6,6 @@ export class DileIconlibEmojiSymbols extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emoji-symbols', DileIconlibEmojiSymbols);
+if (!customElements.get('dile-material-icon-emoji-symbols')) {
+  customElements.define('dile-material-icon-emoji-symbols', DileIconlibEmojiSymbols);
+}

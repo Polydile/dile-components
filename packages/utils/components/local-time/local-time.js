@@ -1,3 +1,5 @@
 import { DileLocalTime } from './src/DileLocalTime.js';
 
-window.customElements.define('dile-local-time', DileLocalTime);
+if (!customElements.get('dile-local-time')) {
+  window.customElements.define('dile-local-time', DileLocalTime);
+}

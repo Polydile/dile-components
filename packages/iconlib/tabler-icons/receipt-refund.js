@@ -6,4 +6,6 @@ export class DileIconlibReceiptRefund extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-refund', DileIconlibReceiptRefund);
+if (!customElements.get('dile-tabler-icon-receipt-refund')) {
+  customElements.define('dile-tabler-icon-receipt-refund', DileIconlibReceiptRefund);
+}

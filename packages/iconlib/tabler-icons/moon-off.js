@@ -6,4 +6,6 @@ export class DileIconlibMoonOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-moon-off', DileIconlibMoonOff);
+if (!customElements.get('dile-tabler-icon-moon-off')) {
+  customElements.define('dile-tabler-icon-moon-off', DileIconlibMoonOff);
+}

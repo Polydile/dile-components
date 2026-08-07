@@ -6,4 +6,6 @@ export class DileIconlibClockPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-pause', DileIconlibClockPause);
+if (!customElements.get('dile-tabler-icon-clock-pause')) {
+  customElements.define('dile-tabler-icon-clock-pause', DileIconlibClockPause);
+}

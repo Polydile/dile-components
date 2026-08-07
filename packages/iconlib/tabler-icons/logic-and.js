@@ -6,4 +6,6 @@ export class DileIconlibLogicAnd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-logic-and', DileIconlibLogicAnd);
+if (!customElements.get('dile-tabler-icon-logic-and')) {
+  customElements.define('dile-tabler-icon-logic-and', DileIconlibLogicAnd);
+}

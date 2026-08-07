@@ -6,4 +6,6 @@ export class DileIconlibSportsMartialArts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-martial-arts', DileIconlibSportsMartialArts);
+if (!customElements.get('dile-material-icon-sports-martial-arts')) {
+  customElements.define('dile-material-icon-sports-martial-arts', DileIconlibSportsMartialArts);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChampagneDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-champagne-duotone', DileIconlibChampagneDuotone);
+if (!customElements.get('dile-phosphor-icon-champagne-duotone')) {
+  customElements.define('dile-phosphor-icon-champagne-duotone', DileIconlibChampagneDuotone);
+}

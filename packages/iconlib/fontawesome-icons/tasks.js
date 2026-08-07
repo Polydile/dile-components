@@ -6,4 +6,6 @@ export class DileIconlibTasks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tasks', DileIconlibTasks);
+if (!customElements.get('dile-fontawesome-icon-tasks')) {
+  customElements.define('dile-fontawesome-icon-tasks', DileIconlibTasks);
+}

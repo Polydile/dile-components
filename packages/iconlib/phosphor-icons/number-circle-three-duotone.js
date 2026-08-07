@@ -6,4 +6,6 @@ export class DileIconlibNumberCircleThreeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-circle-three-duotone', DileIconlibNumberCircleThreeDuotone);
+if (!customElements.get('dile-phosphor-icon-number-circle-three-duotone')) {
+  customElements.define('dile-phosphor-icon-number-circle-three-duotone', DileIconlibNumberCircleThreeDuotone);
+}

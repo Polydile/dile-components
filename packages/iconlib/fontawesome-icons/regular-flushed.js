@@ -6,4 +6,6 @@ export class DileIconlibFlushed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-flushed', DileIconlibFlushed);
+if (!customElements.get('dile-fontawesome-icon-regular-flushed')) {
+  customElements.define('dile-fontawesome-icon-regular-flushed', DileIconlibFlushed);
+}

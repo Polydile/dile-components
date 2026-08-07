@@ -6,4 +6,6 @@ export class DileIconlibWindowMinimize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-window-minimize', DileIconlibWindowMinimize);
+if (!customElements.get('dile-tabler-icon-window-minimize')) {
+  customElements.define('dile-tabler-icon-window-minimize', DileIconlibWindowMinimize);
+}

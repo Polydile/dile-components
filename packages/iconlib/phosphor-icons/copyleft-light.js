@@ -6,4 +6,6 @@ export class DileIconlibCopyleftLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-copyleft-light', DileIconlibCopyleftLight);
+if (!customElements.get('dile-phosphor-icon-copyleft-light')) {
+  customElements.define('dile-phosphor-icon-copyleft-light', DileIconlibCopyleftLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibKorvue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-korvue', DileIconlibKorvue);
+if (!customElements.get('dile-fontawesome-icon-korvue')) {
+  customElements.define('dile-fontawesome-icon-korvue', DileIconlibKorvue);
+}

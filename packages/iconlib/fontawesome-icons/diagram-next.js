@@ -6,4 +6,6 @@ export class DileIconlibDiagramNext extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-diagram-next', DileIconlibDiagramNext);
+if (!customElements.get('dile-fontawesome-icon-diagram-next')) {
+  customElements.define('dile-fontawesome-icon-diagram-next', DileIconlibDiagramNext);
+}

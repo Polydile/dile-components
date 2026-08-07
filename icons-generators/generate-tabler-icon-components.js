@@ -78,7 +78,9 @@ export class ${className} extends DileBaseIcon {
   }
 }
 
-customElements.define('${customElementName}', ${className});
+if (!customElements.get('${customElementName}')) {
+  customElements.define('${customElementName}', ${className});
+}
 `;
 }
 

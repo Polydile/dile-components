@@ -6,4 +6,6 @@ export class DileIconlibCirclesRelation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circles-relation', DileIconlibCirclesRelation);
+if (!customElements.get('dile-tabler-icon-circles-relation')) {
+  customElements.define('dile-tabler-icon-circles-relation', DileIconlibCirclesRelation);
+}

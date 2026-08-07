@@ -6,4 +6,6 @@ export class DileIconlibVideoCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-video-camera', DileIconlibVideoCamera);
+if (!customElements.get('dile-fontawesome-icon-video-camera')) {
+  customElements.define('dile-fontawesome-icon-video-camera', DileIconlibVideoCamera);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowBounce extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-bounce', DileIconlibArrowBounce);
+if (!customElements.get('dile-tabler-icon-arrow-bounce')) {
+  customElements.define('dile-tabler-icon-arrow-bounce', DileIconlibArrowBounce);
+}

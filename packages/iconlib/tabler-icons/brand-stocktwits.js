@@ -6,4 +6,6 @@ export class DileIconlibBrandStocktwits extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-stocktwits', DileIconlibBrandStocktwits);
+if (!customElements.get('dile-tabler-icon-brand-stocktwits')) {
+  customElements.define('dile-tabler-icon-brand-stocktwits', DileIconlibBrandStocktwits);
+}

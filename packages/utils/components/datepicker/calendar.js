@@ -1,3 +1,5 @@
 import { DileCalendar } from "./src/DileCalendar.js";
 
-window.customElements.define("dile-calendar", DileCalendar);
+if (!customElements.get("dile-calendar")) {
+  window.customElements.define("dile-calendar", DileCalendar);
+}

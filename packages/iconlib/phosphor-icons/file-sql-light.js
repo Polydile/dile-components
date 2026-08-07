@@ -6,4 +6,6 @@ export class DileIconlibFileSqlLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-sql-light', DileIconlibFileSqlLight);
+if (!customElements.get('dile-phosphor-icon-file-sql-light')) {
+  customElements.define('dile-phosphor-icon-file-sql-light', DileIconlibFileSqlLight);
+}

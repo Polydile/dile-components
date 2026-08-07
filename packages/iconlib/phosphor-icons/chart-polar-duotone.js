@@ -6,4 +6,6 @@ export class DileIconlibChartPolarDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-polar-duotone', DileIconlibChartPolarDuotone);
+if (!customElements.get('dile-phosphor-icon-chart-polar-duotone')) {
+  customElements.define('dile-phosphor-icon-chart-polar-duotone', DileIconlibChartPolarDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGraduationCapLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-graduation-cap-line', DileIconlibGraduationCapLine);
+if (!customElements.get('dile-remixicon-icon-graduation-cap-line')) {
+  customElements.define('dile-remixicon-icon-graduation-cap-line', DileIconlibGraduationCapLine);
+}

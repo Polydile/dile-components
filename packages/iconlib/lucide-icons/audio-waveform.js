@@ -6,4 +6,6 @@ export class DileIconlibAudioWaveform extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-audio-waveform', DileIconlibAudioWaveform);
+if (!customElements.get('dile-lucide-icon-audio-waveform')) {
+  customElements.define('dile-lucide-icon-audio-waveform', DileIconlibAudioWaveform);
+}

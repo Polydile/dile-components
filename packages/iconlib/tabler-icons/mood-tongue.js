@@ -6,4 +6,6 @@ export class DileIconlibMoodTongue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-tongue', DileIconlibMoodTongue);
+if (!customElements.get('dile-tabler-icon-mood-tongue')) {
+  customElements.define('dile-tabler-icon-mood-tongue', DileIconlibMoodTongue);
+}

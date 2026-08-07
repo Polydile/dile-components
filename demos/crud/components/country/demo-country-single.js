@@ -37,4 +37,6 @@ export class DemoCountrySingle extends LitElement {
     `;
   }
 }
-customElements.define('demo-country-single', DemoCountrySingle);
+if (!customElements.get('demo-country-single')) {
+  customElements.define('demo-country-single', DemoCountrySingle);
+}

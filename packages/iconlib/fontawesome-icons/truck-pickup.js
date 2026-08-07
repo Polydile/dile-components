@@ -6,4 +6,6 @@ export class DileIconlibTruckPickup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-pickup', DileIconlibTruckPickup);
+if (!customElements.get('dile-fontawesome-icon-truck-pickup')) {
+  customElements.define('dile-fontawesome-icon-truck-pickup', DileIconlibTruckPickup);
+}

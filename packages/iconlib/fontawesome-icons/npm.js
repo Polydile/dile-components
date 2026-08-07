@@ -6,4 +6,6 @@ export class DileIconlibNpm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-npm', DileIconlibNpm);
+if (!customElements.get('dile-fontawesome-icon-npm')) {
+  customElements.define('dile-fontawesome-icon-npm', DileIconlibNpm);
+}

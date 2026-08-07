@@ -6,4 +6,6 @@ export class DileIconlibPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pause', DileIconlibPause);
+if (!customElements.get('dile-material-icon-pause')) {
+  customElements.define('dile-material-icon-pause', DileIconlibPause);
+}

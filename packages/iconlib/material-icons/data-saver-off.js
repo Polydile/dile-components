@@ -6,4 +6,6 @@ export class DileIconlibDataSaverOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-data-saver-off', DileIconlibDataSaverOff);
+if (!customElements.get('dile-material-icon-data-saver-off')) {
+  customElements.define('dile-material-icon-data-saver-off', DileIconlibDataSaverOff);
+}

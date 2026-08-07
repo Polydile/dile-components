@@ -6,4 +6,6 @@ export class DileIconlibMoneyEuroBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-money-euro-box-line', DileIconlibMoneyEuroBoxLine);
+if (!customElements.get('dile-remixicon-icon-money-euro-box-line')) {
+  customElements.define('dile-remixicon-icon-money-euro-box-line', DileIconlibMoneyEuroBoxLine);
+}

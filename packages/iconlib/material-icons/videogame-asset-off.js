@@ -6,4 +6,6 @@ export class DileIconlibVideogameAssetOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-videogame-asset-off', DileIconlibVideogameAssetOff);
+if (!customElements.get('dile-material-icon-videogame-asset-off')) {
+  customElements.define('dile-material-icon-videogame-asset-off', DileIconlibVideogameAssetOff);
+}

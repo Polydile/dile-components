@@ -6,4 +6,6 @@ export class DileIconlibBrandBlackberry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-blackberry', DileIconlibBrandBlackberry);
+if (!customElements.get('dile-tabler-icon-brand-blackberry')) {
+  customElements.define('dile-tabler-icon-brand-blackberry', DileIconlibBrandBlackberry);
+}

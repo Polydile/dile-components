@@ -6,4 +6,6 @@ export class DileIconlibBatteryChargingBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-battery-charging-bold', DileIconlibBatteryChargingBold);
+if (!customElements.get('dile-phosphor-icon-battery-charging-bold')) {
+  customElements.define('dile-phosphor-icon-battery-charging-bold', DileIconlibBatteryChargingBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBlurCircular extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-blur-circular', DileIconlibBlurCircular);
+if (!customElements.get('dile-material-icon-blur-circular')) {
+  customElements.define('dile-material-icon-blur-circular', DileIconlibBlurCircular);
+}

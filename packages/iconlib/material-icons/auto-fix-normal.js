@@ -6,4 +6,6 @@ export class DileIconlibAutoFixNormal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-auto-fix-normal', DileIconlibAutoFixNormal);
+if (!customElements.get('dile-material-icon-auto-fix-normal')) {
+  customElements.define('dile-material-icon-auto-fix-normal', DileIconlibAutoFixNormal);
+}

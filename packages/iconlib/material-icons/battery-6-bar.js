@@ -6,4 +6,6 @@ export class DileIconlibBattery6Bar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-battery-6-bar', DileIconlibBattery6Bar);
+if (!customElements.get('dile-material-icon-battery-6-bar')) {
+  customElements.define('dile-material-icon-battery-6-bar', DileIconlibBattery6Bar);
+}

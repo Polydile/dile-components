@@ -6,4 +6,6 @@ export class DileIconlibCloudArrowUpThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cloud-arrow-up-thin', DileIconlibCloudArrowUpThin);
+if (!customElements.get('dile-phosphor-icon-cloud-arrow-up-thin')) {
+  customElements.define('dile-phosphor-icon-cloud-arrow-up-thin', DileIconlibCloudArrowUpThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSaladFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-salad-filled', DileIconlibSaladFilled);
+if (!customElements.get('dile-tabler-icon-salad-filled')) {
+  customElements.define('dile-tabler-icon-salad-filled', DileIconlibSaladFilled);
+}

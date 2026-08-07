@@ -6,4 +6,6 @@ export class DileIconlibBicycleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bicycle-fill', DileIconlibBicycleFill);
+if (!customElements.get('dile-phosphor-icon-bicycle-fill')) {
+  customElements.define('dile-phosphor-icon-bicycle-fill', DileIconlibBicycleFill);
+}

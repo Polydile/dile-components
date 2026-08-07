@@ -6,4 +6,6 @@ export class DileIconlibBrandApplePodcast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-apple-podcast', DileIconlibBrandApplePodcast);
+if (!customElements.get('dile-tabler-icon-brand-apple-podcast')) {
+  customElements.define('dile-tabler-icon-brand-apple-podcast', DileIconlibBrandApplePodcast);
+}

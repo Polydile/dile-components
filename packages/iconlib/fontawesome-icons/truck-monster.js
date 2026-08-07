@@ -6,4 +6,6 @@ export class DileIconlibTruckMonster extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-monster', DileIconlibTruckMonster);
+if (!customElements.get('dile-fontawesome-icon-truck-monster')) {
+  customElements.define('dile-fontawesome-icon-truck-monster', DileIconlibTruckMonster);
+}

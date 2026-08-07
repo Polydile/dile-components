@@ -6,4 +6,6 @@ export class DileIconlibBraille extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-braille', DileIconlibBraille);
+if (!customElements.get('dile-tabler-icon-braille')) {
+  customElements.define('dile-tabler-icon-braille', DileIconlibBraille);
+}

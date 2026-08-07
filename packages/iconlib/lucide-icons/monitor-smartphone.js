@@ -6,4 +6,6 @@ export class DileIconlibMonitorSmartphone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-monitor-smartphone', DileIconlibMonitorSmartphone);
+if (!customElements.get('dile-lucide-icon-monitor-smartphone')) {
+  customElements.define('dile-lucide-icon-monitor-smartphone', DileIconlibMonitorSmartphone);
+}

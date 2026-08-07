@@ -6,4 +6,6 @@ export class DileIconlibRoundaboutRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-roundabout-right', DileIconlibRoundaboutRight);
+if (!customElements.get('dile-material-icon-roundabout-right')) {
+  customElements.define('dile-material-icon-roundabout-right', DileIconlibRoundaboutRight);
+}

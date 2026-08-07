@@ -6,4 +6,6 @@ export class DileIconlibViewAgenda extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-agenda', DileIconlibViewAgenda);
+if (!customElements.get('dile-material-icon-view-agenda')) {
+  customElements.define('dile-material-icon-view-agenda', DileIconlibViewAgenda);
+}

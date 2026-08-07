@@ -6,4 +6,6 @@ export class DileIconlibSendToBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-send-to-back', DileIconlibSendToBack);
+if (!customElements.get('dile-remixicon-icon-send-to-back')) {
+  customElements.define('dile-remixicon-icon-send-to-back', DileIconlibSendToBack);
+}

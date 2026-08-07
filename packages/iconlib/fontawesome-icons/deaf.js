@@ -6,4 +6,6 @@ export class DileIconlibDeaf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deaf', DileIconlibDeaf);
+if (!customElements.get('dile-fontawesome-icon-deaf')) {
+  customElements.define('dile-fontawesome-icon-deaf', DileIconlibDeaf);
+}

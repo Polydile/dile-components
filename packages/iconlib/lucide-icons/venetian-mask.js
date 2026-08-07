@@ -6,4 +6,6 @@ export class DileIconlibVenetianMask extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-venetian-mask', DileIconlibVenetianMask);
+if (!customElements.get('dile-lucide-icon-venetian-mask')) {
+  customElements.define('dile-lucide-icon-venetian-mask', DileIconlibVenetianMask);
+}

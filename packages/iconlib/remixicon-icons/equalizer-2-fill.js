@@ -6,4 +6,6 @@ export class DileIconlibEqualizer2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-equalizer-2-fill', DileIconlibEqualizer2Fill);
+if (!customElements.get('dile-remixicon-icon-equalizer-2-fill')) {
+  customElements.define('dile-remixicon-icon-equalizer-2-fill', DileIconlibEqualizer2Fill);
+}

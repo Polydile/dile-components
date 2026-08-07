@@ -6,4 +6,6 @@ export class DileIconlibMacbookLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-macbook-line', DileIconlibMacbookLine);
+if (!customElements.get('dile-remixicon-icon-macbook-line')) {
+  customElements.define('dile-remixicon-icon-macbook-line', DileIconlibMacbookLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowNarrowRightDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-narrow-right-dashed', DileIconlibArrowNarrowRightDashed);
+if (!customElements.get('dile-tabler-icon-arrow-narrow-right-dashed')) {
+  customElements.define('dile-tabler-icon-arrow-narrow-right-dashed', DileIconlibArrowNarrowRightDashed);
+}

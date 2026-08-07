@@ -6,4 +6,6 @@ export class DileIconlibLineDotted extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-line-dotted', DileIconlibLineDotted);
+if (!customElements.get('dile-tabler-icon-line-dotted')) {
+  customElements.define('dile-tabler-icon-line-dotted', DileIconlibLineDotted);
+}

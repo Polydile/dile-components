@@ -6,4 +6,6 @@ export class DileIconlibBrandDingtalk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-dingtalk', DileIconlibBrandDingtalk);
+if (!customElements.get('dile-tabler-icon-brand-dingtalk')) {
+  customElements.define('dile-tabler-icon-brand-dingtalk', DileIconlibBrandDingtalk);
+}

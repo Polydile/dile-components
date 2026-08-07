@@ -6,4 +6,6 @@ export class DileIconlibViewInAr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-in-ar', DileIconlibViewInAr);
+if (!customElements.get('dile-material-icon-view-in-ar')) {
+  customElements.define('dile-material-icon-view-in-ar', DileIconlibViewInAr);
+}

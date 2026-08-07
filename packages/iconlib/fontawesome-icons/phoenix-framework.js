@@ -6,4 +6,6 @@ export class DileIconlibPhoenixFramework extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-phoenix-framework', DileIconlibPhoenixFramework);
+if (!customElements.get('dile-fontawesome-icon-phoenix-framework')) {
+  customElements.define('dile-fontawesome-icon-phoenix-framework', DileIconlibPhoenixFramework);
+}

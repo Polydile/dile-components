@@ -6,4 +6,6 @@ export class DileIconlibTerminalWindow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-terminal-window', DileIconlibTerminalWindow);
+if (!customElements.get('dile-phosphor-icon-terminal-window')) {
+  customElements.define('dile-phosphor-icon-terminal-window', DileIconlibTerminalWindow);
+}

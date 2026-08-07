@@ -32,4 +32,6 @@ export class DemoBoardGameList extends LitElement {
   }
 
 }
-customElements.define('demo-board-game-list', DemoBoardGameList);
+if (!customElements.get('demo-board-game-list')) {
+  customElements.define('demo-board-game-list', DemoBoardGameList);
+}

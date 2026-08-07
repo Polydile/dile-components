@@ -6,4 +6,6 @@ export class DileIconlibBubblePlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bubble-plus', DileIconlibBubblePlus);
+if (!customElements.get('dile-tabler-icon-bubble-plus')) {
+  customElements.define('dile-tabler-icon-bubble-plus', DileIconlibBubblePlus);
+}

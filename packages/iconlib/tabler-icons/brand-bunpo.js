@@ -6,4 +6,6 @@ export class DileIconlibBrandBunpo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bunpo', DileIconlibBrandBunpo);
+if (!customElements.get('dile-tabler-icon-brand-bunpo')) {
+  customElements.define('dile-tabler-icon-brand-bunpo', DileIconlibBrandBunpo);
+}

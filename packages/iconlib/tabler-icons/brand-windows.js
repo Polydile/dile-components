@@ -6,4 +6,6 @@ export class DileIconlibBrandWindows extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-windows', DileIconlibBrandWindows);
+if (!customElements.get('dile-tabler-icon-brand-windows')) {
+  customElements.define('dile-tabler-icon-brand-windows', DileIconlibBrandWindows);
+}

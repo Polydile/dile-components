@@ -6,4 +6,6 @@ export class DileIconlibMedicalCrossCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-medical-cross-circle', DileIconlibMedicalCrossCircle);
+if (!customElements.get('dile-tabler-icon-medical-cross-circle')) {
+  customElements.define('dile-tabler-icon-medical-cross-circle', DileIconlibMedicalCrossCircle);
+}

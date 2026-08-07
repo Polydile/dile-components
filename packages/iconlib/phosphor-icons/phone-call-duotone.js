@@ -6,4 +6,6 @@ export class DileIconlibPhoneCallDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-phone-call-duotone', DileIconlibPhoneCallDuotone);
+if (!customElements.get('dile-phosphor-icon-phone-call-duotone')) {
+  customElements.define('dile-phosphor-icon-phone-call-duotone', DileIconlibPhoneCallDuotone);
+}

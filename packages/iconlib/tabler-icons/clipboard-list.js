@@ -6,4 +6,6 @@ export class DileIconlibClipboardList extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clipboard-list', DileIconlibClipboardList);
+if (!customElements.get('dile-tabler-icon-clipboard-list')) {
+  customElements.define('dile-tabler-icon-clipboard-list', DileIconlibClipboardList);
+}

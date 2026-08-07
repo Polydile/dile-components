@@ -6,4 +6,6 @@ export class DileIconlibCircuitChangeover extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-changeover', DileIconlibCircuitChangeover);
+if (!customElements.get('dile-tabler-icon-circuit-changeover')) {
+  customElements.define('dile-tabler-icon-circuit-changeover', DileIconlibCircuitChangeover);
+}

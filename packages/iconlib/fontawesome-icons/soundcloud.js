@@ -6,4 +6,6 @@ export class DileIconlibSoundcloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-soundcloud', DileIconlibSoundcloud);
+if (!customElements.get('dile-fontawesome-icon-soundcloud')) {
+  customElements.define('dile-fontawesome-icon-soundcloud', DileIconlibSoundcloud);
+}

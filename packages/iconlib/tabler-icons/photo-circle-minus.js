@@ -6,4 +6,6 @@ export class DileIconlibPhotoCircleMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-circle-minus', DileIconlibPhotoCircleMinus);
+if (!customElements.get('dile-tabler-icon-photo-circle-minus')) {
+  customElements.define('dile-tabler-icon-photo-circle-minus', DileIconlibPhotoCircleMinus);
+}

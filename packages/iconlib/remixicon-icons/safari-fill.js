@@ -6,4 +6,6 @@ export class DileIconlibSafariFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-safari-fill', DileIconlibSafariFill);
+if (!customElements.get('dile-remixicon-icon-safari-fill')) {
+  customElements.define('dile-remixicon-icon-safari-fill', DileIconlibSafariFill);
+}

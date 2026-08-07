@@ -6,4 +6,6 @@ export class DileIconlibFileCppDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-cpp-duotone', DileIconlibFileCppDuotone);
+if (!customElements.get('dile-phosphor-icon-file-cpp-duotone')) {
+  customElements.define('dile-phosphor-icon-file-cpp-duotone', DileIconlibFileCppDuotone);
+}

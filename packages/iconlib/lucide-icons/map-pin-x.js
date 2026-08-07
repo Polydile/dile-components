@@ -6,4 +6,6 @@ export class DileIconlibMapPinX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-map-pin-x', DileIconlibMapPinX);
+if (!customElements.get('dile-lucide-icon-map-pin-x')) {
+  customElements.define('dile-lucide-icon-map-pin-x', DileIconlibMapPinX);
+}

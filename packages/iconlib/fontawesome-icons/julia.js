@@ -6,4 +6,6 @@ export class DileIconlibJulia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-julia', DileIconlibJulia);
+if (!customElements.get('dile-fontawesome-icon-julia')) {
+  customElements.define('dile-fontawesome-icon-julia', DileIconlibJulia);
+}

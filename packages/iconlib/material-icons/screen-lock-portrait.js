@@ -6,4 +6,6 @@ export class DileIconlibScreenLockPortrait extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-screen-lock-portrait', DileIconlibScreenLockPortrait);
+if (!customElements.get('dile-material-icon-screen-lock-portrait')) {
+  customElements.define('dile-material-icon-screen-lock-portrait', DileIconlibScreenLockPortrait);
+}

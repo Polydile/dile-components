@@ -6,4 +6,6 @@ export class DileIconlibSpaceDashboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-space-dashboard', DileIconlibSpaceDashboard);
+if (!customElements.get('dile-material-icon-space-dashboard')) {
+  customElements.define('dile-material-icon-space-dashboard', DileIconlibSpaceDashboard);
+}

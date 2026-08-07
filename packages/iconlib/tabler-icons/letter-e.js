@@ -6,4 +6,6 @@ export class DileIconlibLetterE extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-e', DileIconlibLetterE);
+if (!customElements.get('dile-tabler-icon-letter-e')) {
+  customElements.define('dile-tabler-icon-letter-e', DileIconlibLetterE);
+}

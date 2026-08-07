@@ -6,4 +6,6 @@ export class DileIconlibBookSkull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-skull', DileIconlibBookSkull);
+if (!customElements.get('dile-fontawesome-icon-book-skull')) {
+  customElements.define('dile-fontawesome-icon-book-skull', DileIconlibBookSkull);
+}

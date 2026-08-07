@@ -6,4 +6,6 @@ export class DileIconlibDoNotTouch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-do-not-touch', DileIconlibDoNotTouch);
+if (!customElements.get('dile-material-icon-do-not-touch')) {
+  customElements.define('dile-material-icon-do-not-touch', DileIconlibDoNotTouch);
+}

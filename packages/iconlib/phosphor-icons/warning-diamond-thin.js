@@ -6,4 +6,6 @@ export class DileIconlibWarningDiamondThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-warning-diamond-thin', DileIconlibWarningDiamondThin);
+if (!customElements.get('dile-phosphor-icon-warning-diamond-thin')) {
+  customElements.define('dile-phosphor-icon-warning-diamond-thin', DileIconlibWarningDiamondThin);
+}

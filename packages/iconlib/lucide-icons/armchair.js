@@ -6,4 +6,6 @@ export class DileIconlibArmchair extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-armchair', DileIconlibArmchair);
+if (!customElements.get('dile-lucide-icon-armchair')) {
+  customElements.define('dile-lucide-icon-armchair', DileIconlibArmchair);
+}

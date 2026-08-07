@@ -6,4 +6,6 @@ export class DileIconlibViewDay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-day', DileIconlibViewDay);
+if (!customElements.get('dile-material-icon-view-day')) {
+  customElements.define('dile-material-icon-view-day', DileIconlibViewDay);
+}

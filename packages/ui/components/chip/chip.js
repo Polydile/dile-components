@@ -1,2 +1,4 @@
 import { DileChip } from "./src/DileChip.js";
-customElements.define('dile-chip', DileChip);
+if (!customElements.get('dile-chip')) {
+  customElements.define('dile-chip', DileChip);
+}

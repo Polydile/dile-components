@@ -6,4 +6,6 @@ export class DileIconlibTrainFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-train-filled', DileIconlibTrainFilled);
+if (!customElements.get('dile-tabler-icon-train-filled')) {
+  customElements.define('dile-tabler-icon-train-filled', DileIconlibTrainFilled);
+}

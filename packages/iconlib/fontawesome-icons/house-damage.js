@@ -6,4 +6,6 @@ export class DileIconlibHouseDamage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-damage', DileIconlibHouseDamage);
+if (!customElements.get('dile-fontawesome-icon-house-damage')) {
+  customElements.define('dile-fontawesome-icon-house-damage', DileIconlibHouseDamage);
+}

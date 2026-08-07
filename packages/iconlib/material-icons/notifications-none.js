@@ -6,4 +6,6 @@ export class DileIconlibNotificationsNone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-notifications-none', DileIconlibNotificationsNone);
+if (!customElements.get('dile-material-icon-notifications-none')) {
+  customElements.define('dile-material-icon-notifications-none', DileIconlibNotificationsNone);
+}

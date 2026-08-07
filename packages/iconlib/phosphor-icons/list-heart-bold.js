@@ -6,4 +6,6 @@ export class DileIconlibListHeartBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-list-heart-bold', DileIconlibListHeartBold);
+if (!customElements.get('dile-phosphor-icon-list-heart-bold')) {
+  customElements.define('dile-phosphor-icon-list-heart-bold', DileIconlibListHeartBold);
+}

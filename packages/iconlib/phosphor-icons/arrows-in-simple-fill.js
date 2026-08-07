@@ -6,4 +6,6 @@ export class DileIconlibArrowsInSimpleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrows-in-simple-fill', DileIconlibArrowsInSimpleFill);
+if (!customElements.get('dile-phosphor-icon-arrows-in-simple-fill')) {
+  customElements.define('dile-phosphor-icon-arrows-in-simple-fill', DileIconlibArrowsInSimpleFill);
+}

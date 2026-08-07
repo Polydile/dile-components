@@ -6,4 +6,6 @@ export class DileIconlibNumber68Small extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-number-68-small', DileIconlibNumber68Small);
+if (!customElements.get('dile-tabler-icon-number-68-small')) {
+  customElements.define('dile-tabler-icon-number-68-small', DileIconlibNumber68Small);
+}

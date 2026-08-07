@@ -6,4 +6,6 @@ export class DileIconlibPixelfed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pixelfed', DileIconlibPixelfed);
+if (!customElements.get('dile-fontawesome-icon-pixelfed')) {
+  customElements.define('dile-fontawesome-icon-pixelfed', DileIconlibPixelfed);
+}

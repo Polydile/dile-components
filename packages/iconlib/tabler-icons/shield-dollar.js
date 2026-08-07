@@ -6,4 +6,6 @@ export class DileIconlibShieldDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shield-dollar', DileIconlibShieldDollar);
+if (!customElements.get('dile-tabler-icon-shield-dollar')) {
+  customElements.define('dile-tabler-icon-shield-dollar', DileIconlibShieldDollar);
+}

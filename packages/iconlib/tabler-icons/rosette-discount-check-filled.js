@@ -6,4 +6,6 @@ export class DileIconlibRosetteDiscountCheckFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rosette-discount-check-filled', DileIconlibRosetteDiscountCheckFilled);
+if (!customElements.get('dile-tabler-icon-rosette-discount-check-filled')) {
+  customElements.define('dile-tabler-icon-rosette-discount-check-filled', DileIconlibRosetteDiscountCheckFilled);
+}

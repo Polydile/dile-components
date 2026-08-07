@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobePhotoshop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-photoshop', DileIconlibBrandAdobePhotoshop);
+if (!customElements.get('dile-tabler-icon-brand-adobe-photoshop')) {
+  customElements.define('dile-tabler-icon-brand-adobe-photoshop', DileIconlibBrandAdobePhotoshop);
+}

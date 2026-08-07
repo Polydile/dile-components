@@ -6,4 +6,6 @@ export class DileIconlibTextIncrease extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-text-increase', DileIconlibTextIncrease);
+if (!customElements.get('dile-material-icon-text-increase')) {
+  customElements.define('dile-material-icon-text-increase', DileIconlibTextIncrease);
+}

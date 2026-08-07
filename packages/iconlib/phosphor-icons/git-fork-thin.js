@@ -6,4 +6,6 @@ export class DileIconlibGitForkThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-fork-thin', DileIconlibGitForkThin);
+if (!customElements.get('dile-phosphor-icon-git-fork-thin')) {
+  customElements.define('dile-phosphor-icon-git-fork-thin', DileIconlibGitForkThin);
+}

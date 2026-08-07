@@ -6,4 +6,6 @@ export class DileIconlibEthereum extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ethereum', DileIconlibEthereum);
+if (!customElements.get('dile-fontawesome-icon-ethereum')) {
+  customElements.define('dile-fontawesome-icon-ethereum', DileIconlibEthereum);
+}

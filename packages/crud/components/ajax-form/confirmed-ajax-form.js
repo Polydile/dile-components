@@ -1,2 +1,4 @@
 import { DileConfirmedAjaxForm } from './src/DileConfirmedAjaxForm.js';
-customElements.define('dile-confirmed-ajax-form', DileConfirmedAjaxForm);
+if (!customElements.get('dile-confirmed-ajax-form')) {
+  customElements.define('dile-confirmed-ajax-form', DileConfirmedAjaxForm);
+}

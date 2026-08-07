@@ -6,4 +6,6 @@ export class DileIconlibHandWavingDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hand-waving-duotone', DileIconlibHandWavingDuotone);
+if (!customElements.get('dile-phosphor-icon-hand-waving-duotone')) {
+  customElements.define('dile-phosphor-icon-hand-waving-duotone', DileIconlibHandWavingDuotone);
+}

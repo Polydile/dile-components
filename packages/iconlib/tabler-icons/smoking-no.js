@@ -6,4 +6,6 @@ export class DileIconlibSmokingNo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-smoking-no', DileIconlibSmokingNo);
+if (!customElements.get('dile-tabler-icon-smoking-no')) {
+  customElements.define('dile-tabler-icon-smoking-no', DileIconlibSmokingNo);
+}

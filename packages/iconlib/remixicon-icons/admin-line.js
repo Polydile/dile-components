@@ -6,4 +6,6 @@ export class DileIconlibAdminLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-admin-line', DileIconlibAdminLine);
+if (!customElements.get('dile-remixicon-icon-admin-line')) {
+  customElements.define('dile-remixicon-icon-admin-line', DileIconlibAdminLine);
+}

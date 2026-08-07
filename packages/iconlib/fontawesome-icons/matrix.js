@@ -6,4 +6,6 @@ export class DileIconlibMatrix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-matrix', DileIconlibMatrix);
+if (!customElements.get('dile-fontawesome-icon-matrix')) {
+  customElements.define('dile-fontawesome-icon-matrix', DileIconlibMatrix);
+}

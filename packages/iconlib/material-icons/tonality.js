@@ -6,4 +6,6 @@ export class DileIconlibTonality extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tonality', DileIconlibTonality);
+if (!customElements.get('dile-material-icon-tonality')) {
+  customElements.define('dile-material-icon-tonality', DileIconlibTonality);
+}

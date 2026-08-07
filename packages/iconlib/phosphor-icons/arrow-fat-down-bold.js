@@ -6,4 +6,6 @@ export class DileIconlibArrowFatDownBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrow-fat-down-bold', DileIconlibArrowFatDownBold);
+if (!customElements.get('dile-phosphor-icon-arrow-fat-down-bold')) {
+  customElements.define('dile-phosphor-icon-arrow-fat-down-bold', DileIconlibArrowFatDownBold);
+}

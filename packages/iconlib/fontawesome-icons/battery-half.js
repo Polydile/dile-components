@@ -6,4 +6,6 @@ export class DileIconlibBatteryHalf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-battery-half', DileIconlibBatteryHalf);
+if (!customElements.get('dile-fontawesome-icon-battery-half')) {
+  customElements.define('dile-fontawesome-icon-battery-half', DileIconlibBatteryHalf);
+}

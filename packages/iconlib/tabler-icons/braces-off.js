@@ -6,4 +6,6 @@ export class DileIconlibBracesOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-braces-off', DileIconlibBracesOff);
+if (!customElements.get('dile-tabler-icon-braces-off')) {
+  customElements.define('dile-tabler-icon-braces-off', DileIconlibBracesOff);
+}

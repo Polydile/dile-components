@@ -6,4 +6,6 @@ export class DileIconlibThumbsDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-thumbs-down', DileIconlibThumbsDown);
+if (!customElements.get('dile-lucide-icon-thumbs-down')) {
+  customElements.define('dile-lucide-icon-thumbs-down', DileIconlibThumbsDown);
+}

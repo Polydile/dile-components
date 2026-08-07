@@ -6,4 +6,6 @@ export class DileIconlibPlaneCircleExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plane-circle-exclamation', DileIconlibPlaneCircleExclamation);
+if (!customElements.get('dile-fontawesome-icon-plane-circle-exclamation')) {
+  customElements.define('dile-fontawesome-icon-plane-circle-exclamation', DileIconlibPlaneCircleExclamation);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFullscreenLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-fullscreen-line', DileIconlibFullscreenLine);
+if (!customElements.get('dile-remixicon-icon-fullscreen-line')) {
+  customElements.define('dile-remixicon-icon-fullscreen-line', DileIconlibFullscreenLine);
+}

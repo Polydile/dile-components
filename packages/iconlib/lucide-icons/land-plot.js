@@ -6,4 +6,6 @@ export class DileIconlibLandPlot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-land-plot', DileIconlibLandPlot);
+if (!customElements.get('dile-lucide-icon-land-plot')) {
+  customElements.define('dile-lucide-icon-land-plot', DileIconlibLandPlot);
+}

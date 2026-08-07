@@ -6,4 +6,6 @@ export class DileIconlibBrandThreads extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-threads', DileIconlibBrandThreads);
+if (!customElements.get('dile-tabler-icon-brand-threads')) {
+  customElements.define('dile-tabler-icon-brand-threads', DileIconlibBrandThreads);
+}

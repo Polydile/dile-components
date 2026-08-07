@@ -6,4 +6,6 @@ export class DileIconlibTrowel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trowel', DileIconlibTrowel);
+if (!customElements.get('dile-fontawesome-icon-trowel')) {
+  customElements.define('dile-fontawesome-icon-trowel', DileIconlibTrowel);
+}

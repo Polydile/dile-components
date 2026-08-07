@@ -6,4 +6,6 @@ export class DileIconlibSettingsOverscan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-settings-overscan', DileIconlibSettingsOverscan);
+if (!customElements.get('dile-material-icon-settings-overscan')) {
+  customElements.define('dile-material-icon-settings-overscan', DileIconlibSettingsOverscan);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCameraUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-up', DileIconlibCameraUp);
+if (!customElements.get('dile-tabler-icon-camera-up')) {
+  customElements.define('dile-tabler-icon-camera-up', DileIconlibCameraUp);
+}

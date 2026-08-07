@@ -6,4 +6,6 @@ export class DileIconlibStairsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-stairs-fill', DileIconlibStairsFill);
+if (!customElements.get('dile-phosphor-icon-stairs-fill')) {
+  customElements.define('dile-phosphor-icon-stairs-fill', DileIconlibStairsFill);
+}

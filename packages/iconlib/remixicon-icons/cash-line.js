@@ -6,4 +6,6 @@ export class DileIconlibCashLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cash-line', DileIconlibCashLine);
+if (!customElements.get('dile-remixicon-icon-cash-line')) {
+  customElements.define('dile-remixicon-icon-cash-line', DileIconlibCashLine);
+}

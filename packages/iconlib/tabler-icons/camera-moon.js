@@ -6,4 +6,6 @@ export class DileIconlibCameraMoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-moon', DileIconlibCameraMoon);
+if (!customElements.get('dile-tabler-icon-camera-moon')) {
+  customElements.define('dile-tabler-icon-camera-moon', DileIconlibCameraMoon);
+}

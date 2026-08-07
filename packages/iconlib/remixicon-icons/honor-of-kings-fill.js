@@ -6,4 +6,6 @@ export class DileIconlibHonorOfKingsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-honor-of-kings-fill', DileIconlibHonorOfKingsFill);
+if (!customElements.get('dile-remixicon-icon-honor-of-kings-fill')) {
+  customElements.define('dile-remixicon-icon-honor-of-kings-fill', DileIconlibHonorOfKingsFill);
+}

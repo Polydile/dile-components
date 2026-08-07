@@ -6,4 +6,6 @@ export class DileIconlibModeFanOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mode-fan-off', DileIconlibModeFanOff);
+if (!customElements.get('dile-material-icon-mode-fan-off')) {
+  customElements.define('dile-material-icon-mode-fan-off', DileIconlibModeFanOff);
+}

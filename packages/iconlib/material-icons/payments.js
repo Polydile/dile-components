@@ -6,4 +6,6 @@ export class DileIconlibPayments extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-payments', DileIconlibPayments);
+if (!customElements.get('dile-material-icon-payments')) {
+  customElements.define('dile-material-icon-payments', DileIconlibPayments);
+}

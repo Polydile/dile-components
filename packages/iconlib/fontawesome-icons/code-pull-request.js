@@ -6,4 +6,6 @@ export class DileIconlibCodePullRequest extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-code-pull-request', DileIconlibCodePullRequest);
+if (!customElements.get('dile-fontawesome-icon-code-pull-request')) {
+  customElements.define('dile-fontawesome-icon-code-pull-request', DileIconlibCodePullRequest);
+}

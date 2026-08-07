@@ -6,4 +6,6 @@ export class DileIconlibLuggage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-luggage', DileIconlibLuggage);
+if (!customElements.get('dile-lucide-icon-luggage')) {
+  customElements.define('dile-lucide-icon-luggage', DileIconlibLuggage);
+}

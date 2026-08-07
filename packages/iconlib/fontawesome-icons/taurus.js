@@ -6,4 +6,6 @@ export class DileIconlibTaurus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-taurus', DileIconlibTaurus);
+if (!customElements.get('dile-fontawesome-icon-taurus')) {
+  customElements.define('dile-fontawesome-icon-taurus', DileIconlibTaurus);
+}

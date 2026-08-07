@@ -6,4 +6,6 @@ export class DileIconlibEaseInOut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ease-in-out', DileIconlibEaseInOut);
+if (!customElements.get('dile-tabler-icon-ease-in-out')) {
+  customElements.define('dile-tabler-icon-ease-in-out', DileIconlibEaseInOut);
+}

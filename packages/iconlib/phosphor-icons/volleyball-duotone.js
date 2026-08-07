@@ -6,4 +6,6 @@ export class DileIconlibVolleyballDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-volleyball-duotone', DileIconlibVolleyballDuotone);
+if (!customElements.get('dile-phosphor-icon-volleyball-duotone')) {
+  customElements.define('dile-phosphor-icon-volleyball-duotone', DileIconlibVolleyballDuotone);
+}

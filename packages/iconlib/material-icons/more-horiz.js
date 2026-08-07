@@ -6,4 +6,6 @@ export class DileIconlibMoreHoriz extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-more-horiz', DileIconlibMoreHoriz);
+if (!customElements.get('dile-material-icon-more-horiz')) {
+  customElements.define('dile-material-icon-more-horiz', DileIconlibMoreHoriz);
+}

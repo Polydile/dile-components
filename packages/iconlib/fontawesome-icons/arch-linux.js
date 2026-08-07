@@ -6,4 +6,6 @@ export class DileIconlibArchLinux extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arch-linux', DileIconlibArchLinux);
+if (!customElements.get('dile-fontawesome-icon-arch-linux')) {
+  customElements.define('dile-fontawesome-icon-arch-linux', DileIconlibArchLinux);
+}

@@ -6,4 +6,6 @@ export class DileIconlibParkingFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-parking-fill', DileIconlibParkingFill);
+if (!customElements.get('dile-remixicon-icon-parking-fill')) {
+  customElements.define('dile-remixicon-icon-parking-fill', DileIconlibParkingFill);
+}

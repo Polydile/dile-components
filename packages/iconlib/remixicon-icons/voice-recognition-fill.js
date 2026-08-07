@@ -6,4 +6,6 @@ export class DileIconlibVoiceRecognitionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-voice-recognition-fill', DileIconlibVoiceRecognitionFill);
+if (!customElements.get('dile-remixicon-icon-voice-recognition-fill')) {
+  customElements.define('dile-remixicon-icon-voice-recognition-fill', DileIconlibVoiceRecognitionFill);
+}

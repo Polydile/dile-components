@@ -6,4 +6,6 @@ export class DileIconlibScroll extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-scroll', DileIconlibScroll);
+if (!customElements.get('dile-fontawesome-icon-scroll')) {
+  customElements.define('dile-fontawesome-icon-scroll', DileIconlibScroll);
+}

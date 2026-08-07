@@ -6,4 +6,6 @@ export class DileIconlibRocketchat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rocketchat', DileIconlibRocketchat);
+if (!customElements.get('dile-fontawesome-icon-rocketchat')) {
+  customElements.define('dile-fontawesome-icon-rocketchat', DileIconlibRocketchat);
+}

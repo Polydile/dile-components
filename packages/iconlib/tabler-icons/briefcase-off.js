@@ -6,4 +6,6 @@ export class DileIconlibBriefcaseOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-briefcase-off', DileIconlibBriefcaseOff);
+if (!customElements.get('dile-tabler-icon-briefcase-off')) {
+  customElements.define('dile-tabler-icon-briefcase-off', DileIconlibBriefcaseOff);
+}

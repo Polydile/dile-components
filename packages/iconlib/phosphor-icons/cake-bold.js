@@ -6,4 +6,6 @@ export class DileIconlibCakeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cake-bold', DileIconlibCakeBold);
+if (!customElements.get('dile-phosphor-icon-cake-bold')) {
+  customElements.define('dile-phosphor-icon-cake-bold', DileIconlibCakeBold);
+}

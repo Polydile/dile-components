@@ -6,4 +6,6 @@ export class DileIconlibAutoAwesomeMosaic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-auto-awesome-mosaic', DileIconlibAutoAwesomeMosaic);
+if (!customElements.get('dile-material-icon-auto-awesome-mosaic')) {
+  customElements.define('dile-material-icon-auto-awesome-mosaic', DileIconlibAutoAwesomeMosaic);
+}

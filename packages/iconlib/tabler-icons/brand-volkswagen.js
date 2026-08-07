@@ -6,4 +6,6 @@ export class DileIconlibBrandVolkswagen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-volkswagen', DileIconlibBrandVolkswagen);
+if (!customElements.get('dile-tabler-icon-brand-volkswagen')) {
+  customElements.define('dile-tabler-icon-brand-volkswagen', DileIconlibBrandVolkswagen);
+}

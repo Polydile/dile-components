@@ -6,4 +6,6 @@ export class DileIconlibWifiXBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-wifi-x-bold', DileIconlibWifiXBold);
+if (!customElements.get('dile-phosphor-icon-wifi-x-bold')) {
+  customElements.define('dile-phosphor-icon-wifi-x-bold', DileIconlibWifiXBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAddressBookLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-address-book-light', DileIconlibAddressBookLight);
+if (!customElements.get('dile-phosphor-icon-address-book-light')) {
+  customElements.define('dile-phosphor-icon-address-book-light', DileIconlibAddressBookLight);
+}

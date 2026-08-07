@@ -6,4 +6,6 @@ export class DileIconlibCricketBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cricket-bold', DileIconlibCricketBold);
+if (!customElements.get('dile-phosphor-icon-cricket-bold')) {
+  customElements.define('dile-phosphor-icon-cricket-bold', DileIconlibCricketBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCloudversify extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloudversify', DileIconlibCloudversify);
+if (!customElements.get('dile-fontawesome-icon-cloudversify')) {
+  customElements.define('dile-fontawesome-icon-cloudversify', DileIconlibCloudversify);
+}

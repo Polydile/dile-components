@@ -6,4 +6,6 @@ export class DileIconlibCameraLensLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-camera-lens-line', DileIconlibCameraLensLine);
+if (!customElements.get('dile-remixicon-icon-camera-lens-line')) {
+  customElements.define('dile-remixicon-icon-camera-lens-line', DileIconlibCameraLensLine);
+}

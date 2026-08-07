@@ -6,4 +6,6 @@ export class DileIconlibChartPieSliceDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chart-pie-slice-duotone', DileIconlibChartPieSliceDuotone);
+if (!customElements.get('dile-phosphor-icon-chart-pie-slice-duotone')) {
+  customElements.define('dile-phosphor-icon-chart-pie-slice-duotone', DileIconlibChartPieSliceDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandBadoo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-badoo', DileIconlibBrandBadoo);
+if (!customElements.get('dile-tabler-icon-brand-badoo')) {
+  customElements.define('dile-tabler-icon-brand-badoo', DileIconlibBrandBadoo);
+}

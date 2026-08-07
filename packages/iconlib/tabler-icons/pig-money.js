@@ -6,4 +6,6 @@ export class DileIconlibPigMoney extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pig-money', DileIconlibPigMoney);
+if (!customElements.get('dile-tabler-icon-pig-money')) {
+  customElements.define('dile-tabler-icon-pig-money', DileIconlibPigMoney);
+}

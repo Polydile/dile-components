@@ -6,4 +6,6 @@ export class DileIconlibControlLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-control-light', DileIconlibControlLight);
+if (!customElements.get('dile-phosphor-icon-control-light')) {
+  customElements.define('dile-phosphor-icon-control-light', DileIconlibControlLight);
+}

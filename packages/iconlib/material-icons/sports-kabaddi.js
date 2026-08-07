@@ -6,4 +6,6 @@ export class DileIconlibSportsKabaddi extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-kabaddi', DileIconlibSportsKabaddi);
+if (!customElements.get('dile-material-icon-sports-kabaddi')) {
+  customElements.define('dile-material-icon-sports-kabaddi', DileIconlibSportsKabaddi);
+}

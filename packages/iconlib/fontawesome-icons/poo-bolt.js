@@ -6,4 +6,6 @@ export class DileIconlibPooBolt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-poo-bolt', DileIconlibPooBolt);
+if (!customElements.get('dile-fontawesome-icon-poo-bolt')) {
+  customElements.define('dile-fontawesome-icon-poo-bolt', DileIconlibPooBolt);
+}

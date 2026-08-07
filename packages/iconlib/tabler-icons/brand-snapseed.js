@@ -6,4 +6,6 @@ export class DileIconlibBrandSnapseed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-snapseed', DileIconlibBrandSnapseed);
+if (!customElements.get('dile-tabler-icon-brand-snapseed')) {
+  customElements.define('dile-tabler-icon-brand-snapseed', DileIconlibBrandSnapseed);
+}

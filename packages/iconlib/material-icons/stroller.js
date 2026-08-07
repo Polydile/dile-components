@@ -6,4 +6,6 @@ export class DileIconlibStroller extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stroller', DileIconlibStroller);
+if (!customElements.get('dile-material-icon-stroller')) {
+  customElements.define('dile-material-icon-stroller', DileIconlibStroller);
+}

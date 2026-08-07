@@ -6,4 +6,6 @@ export class DileIconlibCircleHalfTiltLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-circle-half-tilt-light', DileIconlibCircleHalfTiltLight);
+if (!customElements.get('dile-phosphor-icon-circle-half-tilt-light')) {
+  customElements.define('dile-phosphor-icon-circle-half-tilt-light', DileIconlibCircleHalfTiltLight);
+}

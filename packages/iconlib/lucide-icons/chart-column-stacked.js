@@ -6,4 +6,6 @@ export class DileIconlibChartColumnStacked extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-chart-column-stacked', DileIconlibChartColumnStacked);
+if (!customElements.get('dile-lucide-icon-chart-column-stacked')) {
+  customElements.define('dile-lucide-icon-chart-column-stacked', DileIconlibChartColumnStacked);
+}

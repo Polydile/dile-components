@@ -6,4 +6,6 @@ export class DileIconlibCloudArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-arrow-down', DileIconlibCloudArrowDown);
+if (!customElements.get('dile-fontawesome-icon-cloud-arrow-down')) {
+  customElements.define('dile-fontawesome-icon-cloud-arrow-down', DileIconlibCloudArrowDown);
+}

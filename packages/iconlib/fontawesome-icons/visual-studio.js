@@ -6,4 +6,6 @@ export class DileIconlibVisualStudio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-visual-studio', DileIconlibVisualStudio);
+if (!customElements.get('dile-fontawesome-icon-visual-studio')) {
+  customElements.define('dile-fontawesome-icon-visual-studio', DileIconlibVisualStudio);
+}

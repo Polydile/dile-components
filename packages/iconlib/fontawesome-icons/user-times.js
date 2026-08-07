@@ -6,4 +6,6 @@ export class DileIconlibUserTimes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-times', DileIconlibUserTimes);
+if (!customElements.get('dile-fontawesome-icon-user-times')) {
+  customElements.define('dile-fontawesome-icon-user-times', DileIconlibUserTimes);
+}

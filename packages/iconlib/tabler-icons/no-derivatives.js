@@ -6,4 +6,6 @@ export class DileIconlibNoDerivatives extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-no-derivatives', DileIconlibNoDerivatives);
+if (!customElements.get('dile-tabler-icon-no-derivatives')) {
+  customElements.define('dile-tabler-icon-no-derivatives', DileIconlibNoDerivatives);
+}

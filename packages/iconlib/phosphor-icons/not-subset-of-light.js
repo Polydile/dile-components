@@ -6,4 +6,6 @@ export class DileIconlibNotSubsetOfLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-not-subset-of-light', DileIconlibNotSubsetOfLight);
+if (!customElements.get('dile-phosphor-icon-not-subset-of-light')) {
+  customElements.define('dile-phosphor-icon-not-subset-of-light', DileIconlibNotSubsetOfLight);
+}

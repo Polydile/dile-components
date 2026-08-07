@@ -6,4 +6,6 @@ export class DileIconlibDoorEnter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-door-enter', DileIconlibDoorEnter);
+if (!customElements.get('dile-tabler-icon-door-enter')) {
+  customElements.define('dile-tabler-icon-door-enter', DileIconlibDoorEnter);
+}

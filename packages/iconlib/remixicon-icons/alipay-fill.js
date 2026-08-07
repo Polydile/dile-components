@@ -6,4 +6,6 @@ export class DileIconlibAlipayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-alipay-fill', DileIconlibAlipayFill);
+if (!customElements.get('dile-remixicon-icon-alipay-fill')) {
+  customElements.define('dile-remixicon-icon-alipay-fill', DileIconlibAlipayFill);
+}

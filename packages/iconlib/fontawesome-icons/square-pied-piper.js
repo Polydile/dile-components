@@ -6,4 +6,6 @@ export class DileIconlibSquarePiedPiper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-pied-piper', DileIconlibSquarePiedPiper);
+if (!customElements.get('dile-fontawesome-icon-square-pied-piper')) {
+  customElements.define('dile-fontawesome-icon-square-pied-piper', DileIconlibSquarePiedPiper);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUsersLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-users-line', DileIconlibUsersLine);
+if (!customElements.get('dile-fontawesome-icon-users-line')) {
+  customElements.define('dile-fontawesome-icon-users-line', DileIconlibUsersLine);
+}

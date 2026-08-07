@@ -6,4 +6,6 @@ export class DileIconlibBrandMatrix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-matrix', DileIconlibBrandMatrix);
+if (!customElements.get('dile-tabler-icon-brand-matrix')) {
+  customElements.define('dile-tabler-icon-brand-matrix', DileIconlibBrandMatrix);
+}

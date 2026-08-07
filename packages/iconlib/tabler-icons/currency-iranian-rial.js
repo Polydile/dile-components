@@ -6,4 +6,6 @@ export class DileIconlibCurrencyIranianRial extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-iranian-rial', DileIconlibCurrencyIranianRial);
+if (!customElements.get('dile-tabler-icon-currency-iranian-rial')) {
+  customElements.define('dile-tabler-icon-currency-iranian-rial', DileIconlibCurrencyIranianRial);
+}

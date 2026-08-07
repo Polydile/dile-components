@@ -6,4 +6,6 @@ export class DileIconlibCameraHeart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-heart', DileIconlibCameraHeart);
+if (!customElements.get('dile-tabler-icon-camera-heart')) {
+  customElements.define('dile-tabler-icon-camera-heart', DileIconlibCameraHeart);
+}

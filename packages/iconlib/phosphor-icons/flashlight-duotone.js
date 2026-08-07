@@ -6,4 +6,6 @@ export class DileIconlibFlashlightDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flashlight-duotone', DileIconlibFlashlightDuotone);
+if (!customElements.get('dile-phosphor-icon-flashlight-duotone')) {
+  customElements.define('dile-phosphor-icon-flashlight-duotone', DileIconlibFlashlightDuotone);
+}

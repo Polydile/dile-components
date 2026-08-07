@@ -6,4 +6,6 @@ export class DileIconlibCheckToSlot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-check-to-slot', DileIconlibCheckToSlot);
+if (!customElements.get('dile-fontawesome-icon-check-to-slot')) {
+  customElements.define('dile-fontawesome-icon-check-to-slot', DileIconlibCheckToSlot);
+}

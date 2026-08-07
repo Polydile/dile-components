@@ -6,4 +6,6 @@ export class DileIconlibCalendarCheckLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-calendar-check-line', DileIconlibCalendarCheckLine);
+if (!customElements.get('dile-remixicon-icon-calendar-check-line')) {
+  customElements.define('dile-remixicon-icon-calendar-check-line', DileIconlibCalendarCheckLine);
+}

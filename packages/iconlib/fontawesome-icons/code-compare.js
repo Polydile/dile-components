@@ -6,4 +6,6 @@ export class DileIconlibCodeCompare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-code-compare', DileIconlibCodeCompare);
+if (!customElements.get('dile-fontawesome-icon-code-compare')) {
+  customElements.define('dile-fontawesome-icon-code-compare', DileIconlibCodeCompare);
+}

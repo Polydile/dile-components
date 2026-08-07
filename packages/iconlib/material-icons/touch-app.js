@@ -6,4 +6,6 @@ export class DileIconlibTouchApp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-touch-app', DileIconlibTouchApp);
+if (!customElements.get('dile-material-icon-touch-app')) {
+  customElements.define('dile-material-icon-touch-app', DileIconlibTouchApp);
+}

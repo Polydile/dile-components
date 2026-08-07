@@ -6,4 +6,6 @@ export class DileIconlibCashPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cash-plus', DileIconlibCashPlus);
+if (!customElements.get('dile-tabler-icon-cash-plus')) {
+  customElements.define('dile-tabler-icon-cash-plus', DileIconlibCashPlus);
+}

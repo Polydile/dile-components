@@ -6,4 +6,6 @@ export class DileIconlibCheckDouble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-check-double', DileIconlibCheckDouble);
+if (!customElements.get('dile-fontawesome-icon-check-double')) {
+  customElements.define('dile-fontawesome-icon-check-double', DileIconlibCheckDouble);
+}

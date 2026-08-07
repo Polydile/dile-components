@@ -6,4 +6,6 @@ export class DileIconlibTungsten extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tungsten', DileIconlibTungsten);
+if (!customElements.get('dile-material-icon-tungsten')) {
+  customElements.define('dile-material-icon-tungsten', DileIconlibTungsten);
+}

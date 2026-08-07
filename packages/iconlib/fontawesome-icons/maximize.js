@@ -6,4 +6,6 @@ export class DileIconlibMaximize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-maximize', DileIconlibMaximize);
+if (!customElements.get('dile-fontawesome-icon-maximize')) {
+  customElements.define('dile-fontawesome-icon-maximize', DileIconlibMaximize);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLayoutPanelLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-layout-panel-left', DileIconlibLayoutPanelLeft);
+if (!customElements.get('dile-lucide-icon-layout-panel-left')) {
+  customElements.define('dile-lucide-icon-layout-panel-left', DileIconlibLayoutPanelLeft);
+}

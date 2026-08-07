@@ -6,4 +6,6 @@ export class DileIconlibTextItalic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-italic', DileIconlibTextItalic);
+if (!customElements.get('dile-phosphor-icon-text-italic')) {
+  customElements.define('dile-phosphor-icon-text-italic', DileIconlibTextItalic);
+}

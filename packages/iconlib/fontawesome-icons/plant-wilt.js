@@ -6,4 +6,6 @@ export class DileIconlibPlantWilt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-plant-wilt', DileIconlibPlantWilt);
+if (!customElements.get('dile-fontawesome-icon-plant-wilt')) {
+  customElements.define('dile-fontawesome-icon-plant-wilt', DileIconlibPlantWilt);
+}

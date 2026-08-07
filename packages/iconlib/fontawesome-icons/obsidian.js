@@ -6,4 +6,6 @@ export class DileIconlibObsidian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-obsidian', DileIconlibObsidian);
+if (!customElements.get('dile-fontawesome-icon-obsidian')) {
+  customElements.define('dile-fontawesome-icon-obsidian', DileIconlibObsidian);
+}

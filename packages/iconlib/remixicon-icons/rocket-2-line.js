@@ -6,4 +6,6 @@ export class DileIconlibRocket2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rocket-2-line', DileIconlibRocket2Line);
+if (!customElements.get('dile-remixicon-icon-rocket-2-line')) {
+  customElements.define('dile-remixicon-icon-rocket-2-line', DileIconlibRocket2Line);
+}

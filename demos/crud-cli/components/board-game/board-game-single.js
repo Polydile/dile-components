@@ -34,4 +34,6 @@ export class BoardGameSingle extends LitElement {
     `;
   }
 }
-customElements.define('board-game-single', BoardGameSingle);
+if (!customElements.get('board-game-single')) {
+  customElements.define('board-game-single', BoardGameSingle);
+}

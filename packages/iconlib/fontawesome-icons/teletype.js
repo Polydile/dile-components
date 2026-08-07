@@ -6,4 +6,6 @@ export class DileIconlibTeletype extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-teletype', DileIconlibTeletype);
+if (!customElements.get('dile-fontawesome-icon-teletype')) {
+  customElements.define('dile-fontawesome-icon-teletype', DileIconlibTeletype);
+}

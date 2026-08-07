@@ -6,4 +6,6 @@ export class DileIconlibSquareEnvelope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-envelope', DileIconlibSquareEnvelope);
+if (!customElements.get('dile-fontawesome-icon-square-envelope')) {
+  customElements.define('dile-fontawesome-icon-square-envelope', DileIconlibSquareEnvelope);
+}

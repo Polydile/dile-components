@@ -6,4 +6,6 @@ export class DileIconlibShutDownLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shut-down-line', DileIconlibShutDownLine);
+if (!customElements.get('dile-remixicon-icon-shut-down-line')) {
+  customElements.define('dile-remixicon-icon-shut-down-line', DileIconlibShutDownLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPolyline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-polyline', DileIconlibPolyline);
+if (!customElements.get('dile-material-icon-polyline')) {
+  customElements.define('dile-material-icon-polyline', DileIconlibPolyline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRotateRectangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rotate-rectangle', DileIconlibRotateRectangle);
+if (!customElements.get('dile-tabler-icon-rotate-rectangle')) {
+  customElements.define('dile-tabler-icon-rotate-rectangle', DileIconlibRotateRectangle);
+}

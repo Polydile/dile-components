@@ -6,4 +6,6 @@ export class DileIconlibNetworkWired extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-network-wired', DileIconlibNetworkWired);
+if (!customElements.get('dile-fontawesome-icon-network-wired')) {
+  customElements.define('dile-fontawesome-icon-network-wired', DileIconlibNetworkWired);
+}

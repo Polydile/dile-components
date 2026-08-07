@@ -6,4 +6,6 @@ export class DileIconlibBrandDoctrine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-doctrine', DileIconlibBrandDoctrine);
+if (!customElements.get('dile-tabler-icon-brand-doctrine')) {
+  customElements.define('dile-tabler-icon-brand-doctrine', DileIconlibBrandDoctrine);
+}

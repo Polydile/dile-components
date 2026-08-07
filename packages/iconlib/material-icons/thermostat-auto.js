@@ -6,4 +6,6 @@ export class DileIconlibThermostatAuto extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-thermostat-auto', DileIconlibThermostatAuto);
+if (!customElements.get('dile-material-icon-thermostat-auto')) {
+  customElements.define('dile-material-icon-thermostat-auto', DileIconlibThermostatAuto);
+}

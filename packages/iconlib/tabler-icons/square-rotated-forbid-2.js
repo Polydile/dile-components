@@ -6,4 +6,6 @@ export class DileIconlibSquareRotatedForbid2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rotated-forbid-2', DileIconlibSquareRotatedForbid2);
+if (!customElements.get('dile-tabler-icon-square-rotated-forbid-2')) {
+  customElements.define('dile-tabler-icon-square-rotated-forbid-2', DileIconlibSquareRotatedForbid2);
+}

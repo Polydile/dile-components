@@ -6,4 +6,6 @@ export class DileIconlibRadioOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-radio-off', DileIconlibRadioOff);
+if (!customElements.get('dile-lucide-icon-radio-off')) {
+  customElements.define('dile-lucide-icon-radio-off', DileIconlibRadioOff);
+}

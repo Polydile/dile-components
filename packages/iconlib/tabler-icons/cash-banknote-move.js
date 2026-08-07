@@ -6,4 +6,6 @@ export class DileIconlibCashBanknoteMove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cash-banknote-move', DileIconlibCashBanknoteMove);
+if (!customElements.get('dile-tabler-icon-cash-banknote-move')) {
+  customElements.define('dile-tabler-icon-cash-banknote-move', DileIconlibCashBanknoteMove);
+}

@@ -6,4 +6,6 @@ export class DileIconlibServerCrash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-server-crash', DileIconlibServerCrash);
+if (!customElements.get('dile-lucide-icon-server-crash')) {
+  customElements.define('dile-lucide-icon-server-crash', DileIconlibServerCrash);
+}

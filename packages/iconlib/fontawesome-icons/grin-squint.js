@@ -6,4 +6,6 @@ export class DileIconlibGrinSquint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grin-squint', DileIconlibGrinSquint);
+if (!customElements.get('dile-fontawesome-icon-grin-squint')) {
+  customElements.define('dile-fontawesome-icon-grin-squint', DileIconlibGrinSquint);
+}

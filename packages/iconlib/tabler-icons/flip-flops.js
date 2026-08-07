@@ -6,4 +6,6 @@ export class DileIconlibFlipFlops extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flip-flops', DileIconlibFlipFlops);
+if (!customElements.get('dile-tabler-icon-flip-flops')) {
+  customElements.define('dile-tabler-icon-flip-flops', DileIconlibFlipFlops);
+}

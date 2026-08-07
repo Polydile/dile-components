@@ -6,4 +6,6 @@ export class DileIconlibScatterPlot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-scatter-plot', DileIconlibScatterPlot);
+if (!customElements.get('dile-material-icon-scatter-plot')) {
+  customElements.define('dile-material-icon-scatter-plot', DileIconlibScatterPlot);
+}

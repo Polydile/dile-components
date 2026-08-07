@@ -6,4 +6,6 @@ export class DileIconlibIntersectThreeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-intersect-three-fill', DileIconlibIntersectThreeFill);
+if (!customElements.get('dile-phosphor-icon-intersect-three-fill')) {
+  customElements.define('dile-phosphor-icon-intersect-three-fill', DileIconlibIntersectThreeFill);
+}

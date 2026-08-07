@@ -6,4 +6,6 @@ export class DileIconlibBrandPhp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-php', DileIconlibBrandPhp);
+if (!customElements.get('dile-tabler-icon-brand-php')) {
+  customElements.define('dile-tabler-icon-brand-php', DileIconlibBrandPhp);
+}

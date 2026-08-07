@@ -6,4 +6,6 @@ export class DileIconlibTramDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tram-duotone', DileIconlibTramDuotone);
+if (!customElements.get('dile-phosphor-icon-tram-duotone')) {
+  customElements.define('dile-phosphor-icon-tram-duotone', DileIconlibTramDuotone);
+}

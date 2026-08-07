@@ -6,4 +6,6 @@ export class DileIconlibPlayerSkipBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-player-skip-back', DileIconlibPlayerSkipBack);
+if (!customElements.get('dile-tabler-icon-player-skip-back')) {
+  customElements.define('dile-tabler-icon-player-skip-back', DileIconlibPlayerSkipBack);
+}

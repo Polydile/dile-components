@@ -6,4 +6,6 @@ export class DileIconlibGithubAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-github-alt', DileIconlibGithubAlt);
+if (!customElements.get('dile-fontawesome-icon-github-alt')) {
+  customElements.define('dile-fontawesome-icon-github-alt', DileIconlibGithubAlt);
+}

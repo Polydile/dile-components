@@ -6,4 +6,6 @@ export class DileIconlibSprayBottleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spray-bottle-light', DileIconlibSprayBottleLight);
+if (!customElements.get('dile-phosphor-icon-spray-bottle-light')) {
+  customElements.define('dile-phosphor-icon-spray-bottle-light', DileIconlibSprayBottleLight);
+}

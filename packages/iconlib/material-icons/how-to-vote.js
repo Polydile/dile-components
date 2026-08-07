@@ -6,4 +6,6 @@ export class DileIconlibHowToVote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-how-to-vote', DileIconlibHowToVote);
+if (!customElements.get('dile-material-icon-how-to-vote')) {
+  customElements.define('dile-material-icon-how-to-vote', DileIconlibHowToVote);
+}

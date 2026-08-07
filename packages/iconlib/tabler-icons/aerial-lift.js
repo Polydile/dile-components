@@ -6,4 +6,6 @@ export class DileIconlibAerialLift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-aerial-lift', DileIconlibAerialLift);
+if (!customElements.get('dile-tabler-icon-aerial-lift')) {
+  customElements.define('dile-tabler-icon-aerial-lift', DileIconlibAerialLift);
+}

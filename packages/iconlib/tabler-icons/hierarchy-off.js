@@ -6,4 +6,6 @@ export class DileIconlibHierarchyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hierarchy-off', DileIconlibHierarchyOff);
+if (!customElements.get('dile-tabler-icon-hierarchy-off')) {
+  customElements.define('dile-tabler-icon-hierarchy-off', DileIconlibHierarchyOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClosedCaptioningFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-closed-captioning-fill', DileIconlibClosedCaptioningFill);
+if (!customElements.get('dile-remixicon-icon-closed-captioning-fill')) {
+  customElements.define('dile-remixicon-icon-closed-captioning-fill', DileIconlibClosedCaptioningFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAngle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-angle', DileIconlibAngle);
+if (!customElements.get('dile-phosphor-icon-angle')) {
+  customElements.define('dile-phosphor-icon-angle', DileIconlibAngle);
+}

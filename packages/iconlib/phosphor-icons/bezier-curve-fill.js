@@ -6,4 +6,6 @@ export class DileIconlibBezierCurveFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bezier-curve-fill', DileIconlibBezierCurveFill);
+if (!customElements.get('dile-phosphor-icon-bezier-curve-fill')) {
+  customElements.define('dile-phosphor-icon-bezier-curve-fill', DileIconlibBezierCurveFill);
+}

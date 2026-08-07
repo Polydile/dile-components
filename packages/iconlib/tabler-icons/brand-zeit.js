@@ -6,4 +6,6 @@ export class DileIconlibBrandZeit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zeit', DileIconlibBrandZeit);
+if (!customElements.get('dile-tabler-icon-brand-zeit')) {
+  customElements.define('dile-tabler-icon-brand-zeit', DileIconlibBrandZeit);
+}

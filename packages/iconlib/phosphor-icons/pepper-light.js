@@ -6,4 +6,6 @@ export class DileIconlibPepperLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pepper-light', DileIconlibPepperLight);
+if (!customElements.get('dile-phosphor-icon-pepper-light')) {
+  customElements.define('dile-phosphor-icon-pepper-light', DileIconlibPepperLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSoundcloudLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-soundcloud-logo-duotone', DileIconlibSoundcloudLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-soundcloud-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-soundcloud-logo-duotone', DileIconlibSoundcloudLogoDuotone);
+}

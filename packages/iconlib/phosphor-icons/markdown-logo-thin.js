@@ -6,4 +6,6 @@ export class DileIconlibMarkdownLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-markdown-logo-thin', DileIconlibMarkdownLogoThin);
+if (!customElements.get('dile-phosphor-icon-markdown-logo-thin')) {
+  customElements.define('dile-phosphor-icon-markdown-logo-thin', DileIconlibMarkdownLogoThin);
+}

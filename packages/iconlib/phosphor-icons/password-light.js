@@ -6,4 +6,6 @@ export class DileIconlibPasswordLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-password-light', DileIconlibPasswordLight);
+if (!customElements.get('dile-phosphor-icon-password-light')) {
+  customElements.define('dile-phosphor-icon-password-light', DileIconlibPasswordLight);
+}

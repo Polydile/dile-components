@@ -6,4 +6,6 @@ export class DileIconlibVolcano extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-volcano', DileIconlibVolcano);
+if (!customElements.get('dile-tabler-icon-volcano')) {
+  customElements.define('dile-tabler-icon-volcano', DileIconlibVolcano);
+}

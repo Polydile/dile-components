@@ -6,4 +6,6 @@ export class DileIconlibMouseRightClick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mouse-right-click', DileIconlibMouseRightClick);
+if (!customElements.get('dile-phosphor-icon-mouse-right-click')) {
+  customElements.define('dile-phosphor-icon-mouse-right-click', DileIconlibMouseRightClick);
+}

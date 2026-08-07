@@ -6,4 +6,6 @@ export class DileIconlibSquarespace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-squarespace', DileIconlibSquarespace);
+if (!customElements.get('dile-fontawesome-icon-squarespace')) {
+  customElements.define('dile-fontawesome-icon-squarespace', DileIconlibSquarespace);
+}

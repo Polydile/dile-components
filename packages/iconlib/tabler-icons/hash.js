@@ -6,4 +6,6 @@ export class DileIconlibHash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hash', DileIconlibHash);
+if (!customElements.get('dile-tabler-icon-hash')) {
+  customElements.define('dile-tabler-icon-hash', DileIconlibHash);
+}

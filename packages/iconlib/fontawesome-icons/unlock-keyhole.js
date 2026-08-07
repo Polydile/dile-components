@@ -6,4 +6,6 @@ export class DileIconlibUnlockKeyhole extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unlock-keyhole', DileIconlibUnlockKeyhole);
+if (!customElements.get('dile-fontawesome-icon-unlock-keyhole')) {
+  customElements.define('dile-fontawesome-icon-unlock-keyhole', DileIconlibUnlockKeyhole);
+}

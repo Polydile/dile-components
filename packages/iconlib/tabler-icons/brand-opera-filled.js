@@ -6,4 +6,6 @@ export class DileIconlibBrandOperaFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-opera-filled', DileIconlibBrandOperaFilled);
+if (!customElements.get('dile-tabler-icon-brand-opera-filled')) {
+  customElements.define('dile-tabler-icon-brand-opera-filled', DileIconlibBrandOperaFilled);
+}

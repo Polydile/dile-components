@@ -6,4 +6,6 @@ export class DileIconlibBugOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-bug-off', DileIconlibBugOff);
+if (!customElements.get('dile-lucide-icon-bug-off')) {
+  customElements.define('dile-lucide-icon-bug-off', DileIconlibBugOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCompassDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-compass-duotone', DileIconlibCompassDuotone);
+if (!customElements.get('dile-phosphor-icon-compass-duotone')) {
+  customElements.define('dile-phosphor-icon-compass-duotone', DileIconlibCompassDuotone);
+}

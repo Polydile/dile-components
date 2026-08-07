@@ -6,4 +6,6 @@ export class DileIconlibHandsHolding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hands-holding', DileIconlibHandsHolding);
+if (!customElements.get('dile-fontawesome-icon-hands-holding')) {
+  customElements.define('dile-fontawesome-icon-hands-holding', DileIconlibHandsHolding);
+}

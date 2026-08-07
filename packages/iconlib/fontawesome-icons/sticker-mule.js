@@ -6,4 +6,6 @@ export class DileIconlibStickerMule extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sticker-mule', DileIconlibStickerMule);
+if (!customElements.get('dile-fontawesome-icon-sticker-mule')) {
+  customElements.define('dile-fontawesome-icon-sticker-mule', DileIconlibStickerMule);
+}

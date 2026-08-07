@@ -6,4 +6,6 @@ export class DileIconlibBurger extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-burger', DileIconlibBurger);
+if (!customElements.get('dile-tabler-icon-burger')) {
+  customElements.define('dile-tabler-icon-burger', DileIconlibBurger);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandSharik extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-sharik', DileIconlibBrandSharik);
+if (!customElements.get('dile-tabler-icon-brand-sharik')) {
+  customElements.define('dile-tabler-icon-brand-sharik', DileIconlibBrandSharik);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShieldChevronBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shield-chevron-bold', DileIconlibShieldChevronBold);
+if (!customElements.get('dile-phosphor-icon-shield-chevron-bold')) {
+  customElements.define('dile-phosphor-icon-shield-chevron-bold', DileIconlibShieldChevronBold);
+}

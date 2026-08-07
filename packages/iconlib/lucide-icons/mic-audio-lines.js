@@ -6,4 +6,6 @@ export class DileIconlibMicAudioLines extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mic-audio-lines', DileIconlibMicAudioLines);
+if (!customElements.get('dile-lucide-icon-mic-audio-lines')) {
+  customElements.define('dile-lucide-icon-mic-audio-lines', DileIconlibMicAudioLines);
+}

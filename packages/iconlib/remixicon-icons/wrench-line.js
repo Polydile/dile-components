@@ -6,4 +6,6 @@ export class DileIconlibWrenchLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wrench-line', DileIconlibWrenchLine);
+if (!customElements.get('dile-remixicon-icon-wrench-line')) {
+  customElements.define('dile-remixicon-icon-wrench-line', DileIconlibWrenchLine);
+}

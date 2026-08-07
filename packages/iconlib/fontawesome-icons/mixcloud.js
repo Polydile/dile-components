@@ -6,4 +6,6 @@ export class DileIconlibMixcloud extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mixcloud', DileIconlibMixcloud);
+if (!customElements.get('dile-fontawesome-icon-mixcloud')) {
+  customElements.define('dile-fontawesome-icon-mixcloud', DileIconlibMixcloud);
+}

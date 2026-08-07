@@ -6,4 +6,6 @@ export class DileIconlibFileTypeSql extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-type-sql', DileIconlibFileTypeSql);
+if (!customElements.get('dile-tabler-icon-file-type-sql')) {
+  customElements.define('dile-tabler-icon-file-type-sql', DileIconlibFileTypeSql);
+}

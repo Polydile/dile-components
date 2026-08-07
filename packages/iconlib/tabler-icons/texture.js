@@ -6,4 +6,6 @@ export class DileIconlibTexture extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-texture', DileIconlibTexture);
+if (!customElements.get('dile-tabler-icon-texture')) {
+  customElements.define('dile-tabler-icon-texture', DileIconlibTexture);
+}

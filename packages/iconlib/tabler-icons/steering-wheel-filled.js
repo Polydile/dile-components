@@ -6,4 +6,6 @@ export class DileIconlibSteeringWheelFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-steering-wheel-filled', DileIconlibSteeringWheelFilled);
+if (!customElements.get('dile-tabler-icon-steering-wheel-filled')) {
+  customElements.define('dile-tabler-icon-steering-wheel-filled', DileIconlibSteeringWheelFilled);
+}

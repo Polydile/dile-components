@@ -6,4 +6,6 @@ export class DileIconlibHemisphere extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hemisphere', DileIconlibHemisphere);
+if (!customElements.get('dile-tabler-icon-hemisphere')) {
+  customElements.define('dile-tabler-icon-hemisphere', DileIconlibHemisphere);
+}

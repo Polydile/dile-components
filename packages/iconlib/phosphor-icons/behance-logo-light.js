@@ -6,4 +6,6 @@ export class DileIconlibBehanceLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-behance-logo-light', DileIconlibBehanceLogoLight);
+if (!customElements.get('dile-phosphor-icon-behance-logo-light')) {
+  customElements.define('dile-phosphor-icon-behance-logo-light', DileIconlibBehanceLogoLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRadioReceiver extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-radio-receiver', DileIconlibRadioReceiver);
+if (!customElements.get('dile-lucide-icon-radio-receiver')) {
+  customElements.define('dile-lucide-icon-radio-receiver', DileIconlibRadioReceiver);
+}

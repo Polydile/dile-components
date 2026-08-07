@@ -6,4 +6,6 @@ export class DileIconlibAirplayLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-airplay-light', DileIconlibAirplayLight);
+if (!customElements.get('dile-phosphor-icon-airplay-light')) {
+  customElements.define('dile-phosphor-icon-airplay-light', DileIconlibAirplayLight);
+}

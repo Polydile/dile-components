@@ -6,4 +6,6 @@ export class DileIconlibThinkingHigh extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-thinking-high', DileIconlibThinkingHigh);
+if (!customElements.get('dile-tabler-icon-thinking-high')) {
+  customElements.define('dile-tabler-icon-thinking-high', DileIconlibThinkingHigh);
+}

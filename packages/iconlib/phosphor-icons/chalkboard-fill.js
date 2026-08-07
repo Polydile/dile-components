@@ -6,4 +6,6 @@ export class DileIconlibChalkboardFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chalkboard-fill', DileIconlibChalkboardFill);
+if (!customElements.get('dile-phosphor-icon-chalkboard-fill')) {
+  customElements.define('dile-phosphor-icon-chalkboard-fill', DileIconlibChalkboardFill);
+}

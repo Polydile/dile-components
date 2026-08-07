@@ -6,4 +6,6 @@ export class DileIconlibGpsFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gps-filled', DileIconlibGpsFilled);
+if (!customElements.get('dile-tabler-icon-gps-filled')) {
+  customElements.define('dile-tabler-icon-gps-filled', DileIconlibGpsFilled);
+}

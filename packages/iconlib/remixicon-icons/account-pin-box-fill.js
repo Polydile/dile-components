@@ -6,4 +6,6 @@ export class DileIconlibAccountPinBoxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-account-pin-box-fill', DileIconlibAccountPinBoxFill);
+if (!customElements.get('dile-remixicon-icon-account-pin-box-fill')) {
+  customElements.define('dile-remixicon-icon-account-pin-box-fill', DileIconlibAccountPinBoxFill);
+}

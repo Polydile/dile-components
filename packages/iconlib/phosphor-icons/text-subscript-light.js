@@ -6,4 +6,6 @@ export class DileIconlibTextSubscriptLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-subscript-light', DileIconlibTextSubscriptLight);
+if (!customElements.get('dile-phosphor-icon-text-subscript-light')) {
+  customElements.define('dile-phosphor-icon-text-subscript-light', DileIconlibTextSubscriptLight);
+}

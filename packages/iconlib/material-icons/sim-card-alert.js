@@ -6,4 +6,6 @@ export class DileIconlibSimCardAlert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sim-card-alert', DileIconlibSimCardAlert);
+if (!customElements.get('dile-material-icon-sim-card-alert')) {
+  customElements.define('dile-material-icon-sim-card-alert', DileIconlibSimCardAlert);
+}

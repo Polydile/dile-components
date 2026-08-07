@@ -6,4 +6,6 @@ export class DileIconlibGitlabLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-gitlab-line', DileIconlibGitlabLine);
+if (!customElements.get('dile-remixicon-icon-gitlab-line')) {
+  customElements.define('dile-remixicon-icon-gitlab-line', DileIconlibGitlabLine);
+}

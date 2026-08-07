@@ -6,4 +6,6 @@ export class DileIconlibDiscordLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-discord-logo', DileIconlibDiscordLogo);
+if (!customElements.get('dile-phosphor-icon-discord-logo')) {
+  customElements.define('dile-phosphor-icon-discord-logo', DileIconlibDiscordLogo);
+}

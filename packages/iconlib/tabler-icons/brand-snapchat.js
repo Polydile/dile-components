@@ -6,4 +6,6 @@ export class DileIconlibBrandSnapchat extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-snapchat', DileIconlibBrandSnapchat);
+if (!customElements.get('dile-tabler-icon-brand-snapchat')) {
+  customElements.define('dile-tabler-icon-brand-snapchat', DileIconlibBrandSnapchat);
+}

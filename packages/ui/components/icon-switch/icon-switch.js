@@ -1,3 +1,5 @@
 import { DileIconSwitch } from "./src/DileIconSwitch.js";
 
-window.customElements.define("dile-icon-switch", DileIconSwitch);
+if (!customElements.get("dile-icon-switch")) {
+  window.customElements.define("dile-icon-switch", DileIconSwitch);
+}

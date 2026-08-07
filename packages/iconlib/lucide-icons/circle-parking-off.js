@@ -6,4 +6,6 @@ export class DileIconlibCircleParkingOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-parking-off', DileIconlibCircleParkingOff);
+if (!customElements.get('dile-lucide-icon-circle-parking-off')) {
+  customElements.define('dile-lucide-icon-circle-parking-off', DileIconlibCircleParkingOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyTugrik extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-tugrik', DileIconlibCurrencyTugrik);
+if (!customElements.get('dile-tabler-icon-currency-tugrik')) {
+  customElements.define('dile-tabler-icon-currency-tugrik', DileIconlibCurrencyTugrik);
+}

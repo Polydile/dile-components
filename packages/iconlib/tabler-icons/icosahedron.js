@@ -6,4 +6,6 @@ export class DileIconlibIcosahedron extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-icosahedron', DileIconlibIcosahedron);
+if (!customElements.get('dile-tabler-icon-icosahedron')) {
+  customElements.define('dile-tabler-icon-icosahedron', DileIconlibIcosahedron);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTidal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tidal', DileIconlibTidal);
+if (!customElements.get('dile-fontawesome-icon-tidal')) {
+  customElements.define('dile-fontawesome-icon-tidal', DileIconlibTidal);
+}

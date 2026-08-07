@@ -6,4 +6,6 @@ export class DileIconlibAlertTriangleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alert-triangle-off', DileIconlibAlertTriangleOff);
+if (!customElements.get('dile-tabler-icon-alert-triangle-off')) {
+  customElements.define('dile-tabler-icon-alert-triangle-off', DileIconlibAlertTriangleOff);
+}

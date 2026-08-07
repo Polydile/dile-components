@@ -6,4 +6,6 @@ export class DileIconlibNodejsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-nodejs-line', DileIconlibNodejsLine);
+if (!customElements.get('dile-remixicon-icon-nodejs-line')) {
+  customElements.define('dile-remixicon-icon-nodejs-line', DileIconlibNodejsLine);
+}

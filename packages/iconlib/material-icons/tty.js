@@ -6,4 +6,6 @@ export class DileIconlibTty extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-tty', DileIconlibTty);
+if (!customElements.get('dile-material-icon-tty')) {
+  customElements.define('dile-material-icon-tty', DileIconlibTty);
+}

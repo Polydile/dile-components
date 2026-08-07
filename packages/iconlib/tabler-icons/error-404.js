@@ -6,4 +6,6 @@ export class DileIconlibError404 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-error-404', DileIconlibError404);
+if (!customElements.get('dile-tabler-icon-error-404')) {
+  customElements.define('dile-tabler-icon-error-404', DileIconlibError404);
+}

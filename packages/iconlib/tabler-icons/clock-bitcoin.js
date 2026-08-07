@@ -6,4 +6,6 @@ export class DileIconlibClockBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-bitcoin', DileIconlibClockBitcoin);
+if (!customElements.get('dile-tabler-icon-clock-bitcoin')) {
+  customElements.define('dile-tabler-icon-clock-bitcoin', DileIconlibClockBitcoin);
+}

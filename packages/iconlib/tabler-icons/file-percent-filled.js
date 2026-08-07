@@ -6,4 +6,6 @@ export class DileIconlibFilePercentFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-percent-filled', DileIconlibFilePercentFilled);
+if (!customElements.get('dile-tabler-icon-file-percent-filled')) {
+  customElements.define('dile-tabler-icon-file-percent-filled', DileIconlibFilePercentFilled);
+}

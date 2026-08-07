@@ -6,4 +6,6 @@ export class DileIconlibClockCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-cancel', DileIconlibClockCancel);
+if (!customElements.get('dile-tabler-icon-clock-cancel')) {
+  customElements.define('dile-tabler-icon-clock-cancel', DileIconlibClockCancel);
+}

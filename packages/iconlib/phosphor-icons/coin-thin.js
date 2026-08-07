@@ -6,4 +6,6 @@ export class DileIconlibCoinThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-coin-thin', DileIconlibCoinThin);
+if (!customElements.get('dile-phosphor-icon-coin-thin')) {
+  customElements.define('dile-phosphor-icon-coin-thin', DileIconlibCoinThin);
+}

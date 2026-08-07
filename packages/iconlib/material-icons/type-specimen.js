@@ -6,4 +6,6 @@ export class DileIconlibTypeSpecimen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-type-specimen', DileIconlibTypeSpecimen);
+if (!customElements.get('dile-material-icon-type-specimen')) {
+  customElements.define('dile-material-icon-type-specimen', DileIconlibTypeSpecimen);
+}

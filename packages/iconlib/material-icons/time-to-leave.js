@@ -6,4 +6,6 @@ export class DileIconlibTimeToLeave extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-time-to-leave', DileIconlibTimeToLeave);
+if (!customElements.get('dile-material-icon-time-to-leave')) {
+  customElements.define('dile-material-icon-time-to-leave', DileIconlibTimeToLeave);
+}

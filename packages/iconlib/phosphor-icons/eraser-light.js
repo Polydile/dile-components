@@ -6,4 +6,6 @@ export class DileIconlibEraserLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-eraser-light', DileIconlibEraserLight);
+if (!customElements.get('dile-phosphor-icon-eraser-light')) {
+  customElements.define('dile-phosphor-icon-eraser-light', DileIconlibEraserLight);
+}

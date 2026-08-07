@@ -6,4 +6,6 @@ export class DileIconlibFastRewind extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-fast-rewind', DileIconlibFastRewind);
+if (!customElements.get('dile-material-icon-fast-rewind')) {
+  customElements.define('dile-material-icon-fast-rewind', DileIconlibFastRewind);
+}

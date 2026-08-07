@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedPlusFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-plus-filled', DileIconlibSquareRoundedPlusFilled);
+if (!customElements.get('dile-tabler-icon-square-rounded-plus-filled')) {
+  customElements.define('dile-tabler-icon-square-rounded-plus-filled', DileIconlibSquareRoundedPlusFilled);
+}

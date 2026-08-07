@@ -6,4 +6,6 @@ export class DileIconlibGofore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gofore', DileIconlibGofore);
+if (!customElements.get('dile-fontawesome-icon-gofore')) {
+  customElements.define('dile-fontawesome-icon-gofore', DileIconlibGofore);
+}

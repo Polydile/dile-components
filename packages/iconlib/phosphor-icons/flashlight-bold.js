@@ -6,4 +6,6 @@ export class DileIconlibFlashlightBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flashlight-bold', DileIconlibFlashlightBold);
+if (!customElements.get('dile-phosphor-icon-flashlight-bold')) {
+  customElements.define('dile-phosphor-icon-flashlight-bold', DileIconlibFlashlightBold);
+}

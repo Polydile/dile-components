@@ -6,4 +6,6 @@ export class DileIconlibFlowerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flower-line', DileIconlibFlowerLine);
+if (!customElements.get('dile-remixicon-icon-flower-line')) {
+  customElements.define('dile-remixicon-icon-flower-line', DileIconlibFlowerLine);
+}

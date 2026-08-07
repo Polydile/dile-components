@@ -6,4 +6,6 @@ export class DileIconlibMicrosoft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-microsoft', DileIconlibMicrosoft);
+if (!customElements.get('dile-fontawesome-icon-microsoft')) {
+  customElements.define('dile-fontawesome-icon-microsoft', DileIconlibMicrosoft);
+}

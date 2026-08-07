@@ -6,4 +6,6 @@ export class DileIconlibLetterK extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-k', DileIconlibLetterK);
+if (!customElements.get('dile-tabler-icon-letter-k')) {
+  customElements.define('dile-tabler-icon-letter-k', DileIconlibLetterK);
+}

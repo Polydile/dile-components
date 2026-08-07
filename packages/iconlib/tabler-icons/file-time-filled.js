@@ -6,4 +6,6 @@ export class DileIconlibFileTimeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-time-filled', DileIconlibFileTimeFilled);
+if (!customElements.get('dile-tabler-icon-file-time-filled')) {
+  customElements.define('dile-tabler-icon-file-time-filled', DileIconlibFileTimeFilled);
+}

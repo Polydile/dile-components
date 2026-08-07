@@ -6,4 +6,6 @@ export class DileIconlibTextAUnderlineLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-a-underline-light', DileIconlibTextAUnderlineLight);
+if (!customElements.get('dile-phosphor-icon-text-a-underline-light')) {
+  customElements.define('dile-phosphor-icon-text-a-underline-light', DileIconlibTextAUnderlineLight);
+}

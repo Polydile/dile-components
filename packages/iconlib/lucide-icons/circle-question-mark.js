@@ -6,4 +6,6 @@ export class DileIconlibCircleQuestionMark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-question-mark', DileIconlibCircleQuestionMark);
+if (!customElements.get('dile-lucide-icon-circle-question-mark')) {
+  customElements.define('dile-lucide-icon-circle-question-mark', DileIconlibCircleQuestionMark);
+}

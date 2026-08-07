@@ -6,4 +6,6 @@ export class DileIconlibMultiplier05x extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-multiplier-0-5x', DileIconlibMultiplier05x);
+if (!customElements.get('dile-tabler-icon-multiplier-0-5x')) {
+  customElements.define('dile-tabler-icon-multiplier-0-5x', DileIconlibMultiplier05x);
+}

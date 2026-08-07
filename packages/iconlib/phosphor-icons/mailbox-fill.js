@@ -6,4 +6,6 @@ export class DileIconlibMailboxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mailbox-fill', DileIconlibMailboxFill);
+if (!customElements.get('dile-phosphor-icon-mailbox-fill')) {
+  customElements.define('dile-phosphor-icon-mailbox-fill', DileIconlibMailboxFill);
+}

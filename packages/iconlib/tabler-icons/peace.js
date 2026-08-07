@@ -6,4 +6,6 @@ export class DileIconlibPeace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-peace', DileIconlibPeace);
+if (!customElements.get('dile-tabler-icon-peace')) {
+  customElements.define('dile-tabler-icon-peace', DileIconlibPeace);
+}

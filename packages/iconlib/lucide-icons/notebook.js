@@ -6,4 +6,6 @@ export class DileIconlibNotebook extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-notebook', DileIconlibNotebook);
+if (!customElements.get('dile-lucide-icon-notebook')) {
+  customElements.define('dile-lucide-icon-notebook', DileIconlibNotebook);
+}

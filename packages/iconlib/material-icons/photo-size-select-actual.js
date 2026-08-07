@@ -6,4 +6,6 @@ export class DileIconlibPhotoSizeSelectActual extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-photo-size-select-actual', DileIconlibPhotoSizeSelectActual);
+if (!customElements.get('dile-material-icon-photo-size-select-actual')) {
+  customElements.define('dile-material-icon-photo-size-select-actual', DileIconlibPhotoSizeSelectActual);
+}

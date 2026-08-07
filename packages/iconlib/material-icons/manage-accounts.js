@@ -6,4 +6,6 @@ export class DileIconlibManageAccounts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-manage-accounts', DileIconlibManageAccounts);
+if (!customElements.get('dile-material-icon-manage-accounts')) {
+  customElements.define('dile-material-icon-manage-accounts', DileIconlibManageAccounts);
+}

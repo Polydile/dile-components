@@ -6,4 +6,6 @@ export class DileIconlibDoorClosedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-door-closed-line', DileIconlibDoorClosedLine);
+if (!customElements.get('dile-remixicon-icon-door-closed-line')) {
+  customElements.define('dile-remixicon-icon-door-closed-line', DileIconlibDoorClosedLine);
+}

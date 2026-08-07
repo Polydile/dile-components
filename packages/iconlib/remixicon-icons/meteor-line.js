@@ -6,4 +6,6 @@ export class DileIconlibMeteorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-meteor-line', DileIconlibMeteorLine);
+if (!customElements.get('dile-remixicon-icon-meteor-line')) {
+  customElements.define('dile-remixicon-icon-meteor-line', DileIconlibMeteorLine);
+}

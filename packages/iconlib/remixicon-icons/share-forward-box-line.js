@@ -6,4 +6,6 @@ export class DileIconlibShareForwardBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-share-forward-box-line', DileIconlibShareForwardBoxLine);
+if (!customElements.get('dile-remixicon-icon-share-forward-box-line')) {
+  customElements.define('dile-remixicon-icon-share-forward-box-line', DileIconlibShareForwardBoxLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibArrowClockwise extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-arrow-clockwise', DileIconlibArrowClockwise);
+if (!customElements.get('dile-phosphor-icon-arrow-clockwise')) {
+  customElements.define('dile-phosphor-icon-arrow-clockwise', DileIconlibArrowClockwise);
+}

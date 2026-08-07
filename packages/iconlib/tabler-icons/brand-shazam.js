@@ -6,4 +6,6 @@ export class DileIconlibBrandShazam extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-shazam', DileIconlibBrandShazam);
+if (!customElements.get('dile-tabler-icon-brand-shazam')) {
+  customElements.define('dile-tabler-icon-brand-shazam', DileIconlibBrandShazam);
+}

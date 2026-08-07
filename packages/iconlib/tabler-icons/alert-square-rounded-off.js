@@ -6,4 +6,6 @@ export class DileIconlibAlertSquareRoundedOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alert-square-rounded-off', DileIconlibAlertSquareRoundedOff);
+if (!customElements.get('dile-tabler-icon-alert-square-rounded-off')) {
+  customElements.define('dile-tabler-icon-alert-square-rounded-off', DileIconlibAlertSquareRoundedOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStoreAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-store-alt', DileIconlibStoreAlt);
+if (!customElements.get('dile-fontawesome-icon-store-alt')) {
+  customElements.define('dile-fontawesome-icon-store-alt', DileIconlibStoreAlt);
+}

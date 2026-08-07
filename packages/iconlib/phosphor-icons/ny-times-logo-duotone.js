@@ -6,4 +6,6 @@ export class DileIconlibNyTimesLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ny-times-logo-duotone', DileIconlibNyTimesLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-ny-times-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-ny-times-logo-duotone', DileIconlibNyTimesLogoDuotone);
+}

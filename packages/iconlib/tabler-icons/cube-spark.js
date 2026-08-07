@@ -6,4 +6,6 @@ export class DileIconlibCubeSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cube-spark', DileIconlibCubeSpark);
+if (!customElements.get('dile-tabler-icon-cube-spark')) {
+  customElements.define('dile-tabler-icon-cube-spark', DileIconlibCubeSpark);
+}

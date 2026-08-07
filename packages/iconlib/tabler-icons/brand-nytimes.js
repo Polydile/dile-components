@@ -6,4 +6,6 @@ export class DileIconlibBrandNytimes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-nytimes', DileIconlibBrandNytimes);
+if (!customElements.get('dile-tabler-icon-brand-nytimes')) {
+  customElements.define('dile-tabler-icon-brand-nytimes', DileIconlibBrandNytimes);
+}

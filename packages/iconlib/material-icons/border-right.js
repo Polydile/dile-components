@@ -6,4 +6,6 @@ export class DileIconlibBorderRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-border-right', DileIconlibBorderRight);
+if (!customElements.get('dile-material-icon-border-right')) {
+  customElements.define('dile-material-icon-border-right', DileIconlibBorderRight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandGmail extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-gmail', DileIconlibBrandGmail);
+if (!customElements.get('dile-tabler-icon-brand-gmail')) {
+  customElements.define('dile-tabler-icon-brand-gmail', DileIconlibBrandGmail);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCookingPot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cooking-pot', DileIconlibCookingPot);
+if (!customElements.get('dile-phosphor-icon-cooking-pot')) {
+  customElements.define('dile-phosphor-icon-cooking-pot', DileIconlibCookingPot);
+}

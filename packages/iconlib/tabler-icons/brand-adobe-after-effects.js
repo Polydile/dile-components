@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobeAfterEffects extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-after-effects', DileIconlibBrandAdobeAfterEffects);
+if (!customElements.get('dile-tabler-icon-brand-adobe-after-effects')) {
+  customElements.define('dile-tabler-icon-brand-adobe-after-effects', DileIconlibBrandAdobeAfterEffects);
+}

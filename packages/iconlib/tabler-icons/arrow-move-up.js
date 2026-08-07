@@ -6,4 +6,6 @@ export class DileIconlibArrowMoveUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-move-up', DileIconlibArrowMoveUp);
+if (!customElements.get('dile-tabler-icon-arrow-move-up')) {
+  customElements.define('dile-tabler-icon-arrow-move-up', DileIconlibArrowMoveUp);
+}

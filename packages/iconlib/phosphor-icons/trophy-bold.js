@@ -6,4 +6,6 @@ export class DileIconlibTrophyBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trophy-bold', DileIconlibTrophyBold);
+if (!customElements.get('dile-phosphor-icon-trophy-bold')) {
+  customElements.define('dile-phosphor-icon-trophy-bold', DileIconlibTrophyBold);
+}

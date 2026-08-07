@@ -6,4 +6,6 @@ export class DileIconlibWash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash', DileIconlibWash);
+if (!customElements.get('dile-tabler-icon-wash')) {
+  customElements.define('dile-tabler-icon-wash', DileIconlibWash);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhotoSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-photo-spark', DileIconlibPhotoSpark);
+if (!customElements.get('dile-tabler-icon-photo-spark')) {
+  customElements.define('dile-tabler-icon-photo-spark', DileIconlibPhotoSpark);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSink extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sink', DileIconlibSink);
+if (!customElements.get('dile-fontawesome-icon-sink')) {
+  customElements.define('dile-fontawesome-icon-sink', DileIconlibSink);
+}

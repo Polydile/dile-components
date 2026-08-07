@@ -6,4 +6,6 @@ export class DileIconlibBrandTelegram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-telegram', DileIconlibBrandTelegram);
+if (!customElements.get('dile-tabler-icon-brand-telegram')) {
+  customElements.define('dile-tabler-icon-brand-telegram', DileIconlibBrandTelegram);
+}

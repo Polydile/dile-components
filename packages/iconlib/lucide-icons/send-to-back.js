@@ -6,4 +6,6 @@ export class DileIconlibSendToBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-send-to-back', DileIconlibSendToBack);
+if (!customElements.get('dile-lucide-icon-send-to-back')) {
+  customElements.define('dile-lucide-icon-send-to-back', DileIconlibSendToBack);
+}

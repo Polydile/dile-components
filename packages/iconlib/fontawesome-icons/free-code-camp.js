@@ -6,4 +6,6 @@ export class DileIconlibFreeCodeCamp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-free-code-camp', DileIconlibFreeCodeCamp);
+if (!customElements.get('dile-fontawesome-icon-free-code-camp')) {
+  customElements.define('dile-fontawesome-icon-free-code-camp', DileIconlibFreeCodeCamp);
+}

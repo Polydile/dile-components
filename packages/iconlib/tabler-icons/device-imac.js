@@ -6,4 +6,6 @@ export class DileIconlibDeviceImac extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-imac', DileIconlibDeviceImac);
+if (!customElements.get('dile-tabler-icon-device-imac')) {
+  customElements.define('dile-tabler-icon-device-imac', DileIconlibDeviceImac);
+}

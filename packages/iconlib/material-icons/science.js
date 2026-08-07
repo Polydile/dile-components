@@ -6,4 +6,6 @@ export class DileIconlibScience extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-science', DileIconlibScience);
+if (!customElements.get('dile-material-icon-science')) {
+  customElements.define('dile-material-icon-science', DileIconlibScience);
+}

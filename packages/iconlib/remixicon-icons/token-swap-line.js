@@ -6,4 +6,6 @@ export class DileIconlibTokenSwapLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-token-swap-line', DileIconlibTokenSwapLine);
+if (!customElements.get('dile-remixicon-icon-token-swap-line')) {
+  customElements.define('dile-remixicon-icon-token-swap-line', DileIconlibTokenSwapLine);
+}

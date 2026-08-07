@@ -6,4 +6,6 @@ export class DileIconlibMouseSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mouse-simple-light', DileIconlibMouseSimpleLight);
+if (!customElements.get('dile-phosphor-icon-mouse-simple-light')) {
+  customElements.define('dile-phosphor-icon-mouse-simple-light', DileIconlibMouseSimpleLight);
+}

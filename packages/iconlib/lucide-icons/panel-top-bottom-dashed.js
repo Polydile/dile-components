@@ -6,4 +6,6 @@ export class DileIconlibPanelTopBottomDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-panel-top-bottom-dashed', DileIconlibPanelTopBottomDashed);
+if (!customElements.get('dile-lucide-icon-panel-top-bottom-dashed')) {
+  customElements.define('dile-lucide-icon-panel-top-bottom-dashed', DileIconlibPanelTopBottomDashed);
+}

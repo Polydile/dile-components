@@ -6,4 +6,6 @@ export class DileIconlibPencilExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pencil-exclamation', DileIconlibPencilExclamation);
+if (!customElements.get('dile-tabler-icon-pencil-exclamation')) {
+  customElements.define('dile-tabler-icon-pencil-exclamation', DileIconlibPencilExclamation);
+}

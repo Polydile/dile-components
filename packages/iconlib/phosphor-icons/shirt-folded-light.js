@@ -6,4 +6,6 @@ export class DileIconlibShirtFoldedLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shirt-folded-light', DileIconlibShirtFoldedLight);
+if (!customElements.get('dile-phosphor-icon-shirt-folded-light')) {
+  customElements.define('dile-phosphor-icon-shirt-folded-light', DileIconlibShirtFoldedLight);
+}

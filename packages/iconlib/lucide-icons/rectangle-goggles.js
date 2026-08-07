@@ -6,4 +6,6 @@ export class DileIconlibRectangleGoggles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rectangle-goggles', DileIconlibRectangleGoggles);
+if (!customElements.get('dile-lucide-icon-rectangle-goggles')) {
+  customElements.define('dile-lucide-icon-rectangle-goggles', DileIconlibRectangleGoggles);
+}

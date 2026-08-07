@@ -6,4 +6,6 @@ export class DileIconlibCalendarArrowDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-calendar-arrow-down', DileIconlibCalendarArrowDown);
+if (!customElements.get('dile-lucide-icon-calendar-arrow-down')) {
+  customElements.define('dile-lucide-icon-calendar-arrow-down', DileIconlibCalendarArrowDown);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRupee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-rupee', DileIconlibCurrencyRupee);
+if (!customElements.get('dile-tabler-icon-currency-rupee')) {
+  customElements.define('dile-tabler-icon-currency-rupee', DileIconlibCurrencyRupee);
+}

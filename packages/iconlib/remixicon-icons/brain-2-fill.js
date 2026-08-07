@@ -6,4 +6,6 @@ export class DileIconlibBrain2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-brain-2-fill', DileIconlibBrain2Fill);
+if (!customElements.get('dile-remixicon-icon-brain-2-fill')) {
+  customElements.define('dile-remixicon-icon-brain-2-fill', DileIconlibBrain2Fill);
+}

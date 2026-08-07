@@ -6,4 +6,6 @@ export class DileIconlibTreePine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tree-pine', DileIconlibTreePine);
+if (!customElements.get('dile-lucide-icon-tree-pine')) {
+  customElements.define('dile-lucide-icon-tree-pine', DileIconlibTreePine);
+}

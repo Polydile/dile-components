@@ -6,4 +6,6 @@ export class DileIconlibIterationCcw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-iteration-ccw', DileIconlibIterationCcw);
+if (!customElements.get('dile-lucide-icon-iteration-ccw')) {
+  customElements.define('dile-lucide-icon-iteration-ccw', DileIconlibIterationCcw);
+}

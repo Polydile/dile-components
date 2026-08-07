@@ -6,4 +6,6 @@ export class DileIconlibDumpster extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dumpster', DileIconlibDumpster);
+if (!customElements.get('dile-fontawesome-icon-dumpster')) {
+  customElements.define('dile-fontawesome-icon-dumpster', DileIconlibDumpster);
+}

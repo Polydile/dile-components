@@ -6,4 +6,6 @@ export class DileIconlibGenderAndrogyne extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gender-androgyne', DileIconlibGenderAndrogyne);
+if (!customElements.get('dile-tabler-icon-gender-androgyne')) {
+  customElements.define('dile-tabler-icon-gender-androgyne', DileIconlibGenderAndrogyne);
+}

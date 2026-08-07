@@ -6,4 +6,6 @@ export class DileIconlibFloatCenter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-float-center', DileIconlibFloatCenter);
+if (!customElements.get('dile-tabler-icon-float-center')) {
+  customElements.define('dile-tabler-icon-float-center', DileIconlibFloatCenter);
+}

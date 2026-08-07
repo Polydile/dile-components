@@ -6,4 +6,6 @@ export class DileIconlibSectionSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-section-sign', DileIconlibSectionSign);
+if (!customElements.get('dile-tabler-icon-section-sign')) {
+  customElements.define('dile-tabler-icon-section-sign', DileIconlibSectionSign);
+}

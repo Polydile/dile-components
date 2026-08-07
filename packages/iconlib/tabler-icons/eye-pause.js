@@ -6,4 +6,6 @@ export class DileIconlibEyePause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eye-pause', DileIconlibEyePause);
+if (!customElements.get('dile-tabler-icon-eye-pause')) {
+  customElements.define('dile-tabler-icon-eye-pause', DileIconlibEyePause);
+}

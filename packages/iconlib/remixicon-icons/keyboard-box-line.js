@@ -6,4 +6,6 @@ export class DileIconlibKeyboardBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-keyboard-box-line', DileIconlibKeyboardBoxLine);
+if (!customElements.get('dile-remixicon-icon-keyboard-box-line')) {
+  customElements.define('dile-remixicon-icon-keyboard-box-line', DileIconlibKeyboardBoxLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandTwitterFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-twitter-filled', DileIconlibBrandTwitterFilled);
+if (!customElements.get('dile-tabler-icon-brand-twitter-filled')) {
+  customElements.define('dile-tabler-icon-brand-twitter-filled', DileIconlibBrandTwitterFilled);
+}

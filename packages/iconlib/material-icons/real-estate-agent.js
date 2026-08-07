@@ -6,4 +6,6 @@ export class DileIconlibRealEstateAgent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-real-estate-agent', DileIconlibRealEstateAgent);
+if (!customElements.get('dile-material-icon-real-estate-agent')) {
+  customElements.define('dile-material-icon-real-estate-agent', DileIconlibRealEstateAgent);
+}

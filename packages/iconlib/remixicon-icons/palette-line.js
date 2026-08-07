@@ -6,4 +6,6 @@ export class DileIconlibPaletteLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-palette-line', DileIconlibPaletteLine);
+if (!customElements.get('dile-remixicon-icon-palette-line')) {
+  customElements.define('dile-remixicon-icon-palette-line', DileIconlibPaletteLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTrainRegionalBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-train-regional-bold', DileIconlibTrainRegionalBold);
+if (!customElements.get('dile-phosphor-icon-train-regional-bold')) {
+  customElements.define('dile-phosphor-icon-train-regional-bold', DileIconlibTrainRegionalBold);
+}

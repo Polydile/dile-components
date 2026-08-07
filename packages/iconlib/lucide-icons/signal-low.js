@@ -6,4 +6,6 @@ export class DileIconlibSignalLow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-signal-low', DileIconlibSignalLow);
+if (!customElements.get('dile-lucide-icon-signal-low')) {
+  customElements.define('dile-lucide-icon-signal-low', DileIconlibSignalLow);
+}

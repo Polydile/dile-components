@@ -6,4 +6,6 @@ export class DileIconlibKanban extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-kanban', DileIconlibKanban);
+if (!customElements.get('dile-phosphor-icon-kanban')) {
+  customElements.define('dile-phosphor-icon-kanban', DileIconlibKanban);
+}

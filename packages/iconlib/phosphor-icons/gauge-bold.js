@@ -6,4 +6,6 @@ export class DileIconlibGaugeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gauge-bold', DileIconlibGaugeBold);
+if (!customElements.get('dile-phosphor-icon-gauge-bold')) {
+  customElements.define('dile-phosphor-icon-gauge-bold', DileIconlibGaugeBold);
+}

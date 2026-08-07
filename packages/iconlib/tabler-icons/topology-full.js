@@ -6,4 +6,6 @@ export class DileIconlibTopologyFull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-topology-full', DileIconlibTopologyFull);
+if (!customElements.get('dile-tabler-icon-topology-full')) {
+  customElements.define('dile-tabler-icon-topology-full', DileIconlibTopologyFull);
+}

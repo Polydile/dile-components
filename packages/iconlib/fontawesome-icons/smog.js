@@ -6,4 +6,6 @@ export class DileIconlibSmog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-smog', DileIconlibSmog);
+if (!customElements.get('dile-fontawesome-icon-smog')) {
+  customElements.define('dile-fontawesome-icon-smog', DileIconlibSmog);
+}

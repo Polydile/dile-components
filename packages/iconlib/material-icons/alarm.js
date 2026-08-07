@@ -6,4 +6,6 @@ export class DileIconlibAlarm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-alarm', DileIconlibAlarm);
+if (!customElements.get('dile-material-icon-alarm')) {
+  customElements.define('dile-material-icon-alarm', DileIconlibAlarm);
+}

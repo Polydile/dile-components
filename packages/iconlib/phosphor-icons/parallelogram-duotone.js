@@ -6,4 +6,6 @@ export class DileIconlibParallelogramDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-parallelogram-duotone', DileIconlibParallelogramDuotone);
+if (!customElements.get('dile-phosphor-icon-parallelogram-duotone')) {
+  customElements.define('dile-phosphor-icon-parallelogram-duotone', DileIconlibParallelogramDuotone);
+}

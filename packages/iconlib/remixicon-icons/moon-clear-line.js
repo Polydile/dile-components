@@ -6,4 +6,6 @@ export class DileIconlibMoonClearLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-moon-clear-line', DileIconlibMoonClearLine);
+if (!customElements.get('dile-remixicon-icon-moon-clear-line')) {
+  customElements.define('dile-remixicon-icon-moon-clear-line', DileIconlibMoonClearLine);
+}

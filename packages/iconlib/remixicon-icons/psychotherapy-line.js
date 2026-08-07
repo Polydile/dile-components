@@ -6,4 +6,6 @@ export class DileIconlibPsychotherapyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-psychotherapy-line', DileIconlibPsychotherapyLine);
+if (!customElements.get('dile-remixicon-icon-psychotherapy-line')) {
+  customElements.define('dile-remixicon-icon-psychotherapy-line', DileIconlibPsychotherapyLine);
+}

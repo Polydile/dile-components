@@ -6,4 +6,6 @@ export class DileIconlibSnooze extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-snooze', DileIconlibSnooze);
+if (!customElements.get('dile-material-icon-snooze')) {
+  customElements.define('dile-material-icon-snooze', DileIconlibSnooze);
+}

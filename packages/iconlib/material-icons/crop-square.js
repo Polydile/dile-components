@@ -6,4 +6,6 @@ export class DileIconlibCropSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-crop-square', DileIconlibCropSquare);
+if (!customElements.get('dile-material-icon-crop-square')) {
+  customElements.define('dile-material-icon-crop-square', DileIconlibCropSquare);
+}

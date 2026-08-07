@@ -6,4 +6,6 @@ export class DileIconlibContactPage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-contact-page', DileIconlibContactPage);
+if (!customElements.get('dile-material-icon-contact-page')) {
+  customElements.define('dile-material-icon-contact-page', DileIconlibContactPage);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPersonWalkingWithCane extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-walking-with-cane', DileIconlibPersonWalkingWithCane);
+if (!customElements.get('dile-fontawesome-icon-person-walking-with-cane')) {
+  customElements.define('dile-fontawesome-icon-person-walking-with-cane', DileIconlibPersonWalkingWithCane);
+}

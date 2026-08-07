@@ -6,4 +6,6 @@ export class DileIconlibTextAlignStart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-text-align-start', DileIconlibTextAlignStart);
+if (!customElements.get('dile-lucide-icon-text-align-start')) {
+  customElements.define('dile-lucide-icon-text-align-start', DileIconlibTextAlignStart);
+}

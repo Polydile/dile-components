@@ -6,4 +6,6 @@ export class DileIconlibCricket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cricket', DileIconlibCricket);
+if (!customElements.get('dile-tabler-icon-cricket')) {
+  customElements.define('dile-tabler-icon-cricket', DileIconlibCricket);
+}

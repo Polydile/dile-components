@@ -6,4 +6,6 @@ export class DileIconlibPersonHiking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-hiking', DileIconlibPersonHiking);
+if (!customElements.get('dile-fontawesome-icon-person-hiking')) {
+  customElements.define('dile-fontawesome-icon-person-hiking', DileIconlibPersonHiking);
+}

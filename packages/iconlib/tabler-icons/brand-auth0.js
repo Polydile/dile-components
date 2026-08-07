@@ -6,4 +6,6 @@ export class DileIconlibBrandAuth0 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-auth0', DileIconlibBrandAuth0);
+if (!customElements.get('dile-tabler-icon-brand-auth0')) {
+  customElements.define('dile-tabler-icon-brand-auth0', DileIconlibBrandAuth0);
+}

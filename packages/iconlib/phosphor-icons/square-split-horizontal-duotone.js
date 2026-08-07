@@ -6,4 +6,6 @@ export class DileIconlibSquareSplitHorizontalDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-square-split-horizontal-duotone', DileIconlibSquareSplitHorizontalDuotone);
+if (!customElements.get('dile-phosphor-icon-square-split-horizontal-duotone')) {
+  customElements.define('dile-phosphor-icon-square-split-horizontal-duotone', DileIconlibSquareSplitHorizontalDuotone);
+}

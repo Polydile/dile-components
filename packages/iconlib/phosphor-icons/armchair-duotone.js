@@ -6,4 +6,6 @@ export class DileIconlibArmchairDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-armchair-duotone', DileIconlibArmchairDuotone);
+if (!customElements.get('dile-phosphor-icon-armchair-duotone')) {
+  customElements.define('dile-phosphor-icon-armchair-duotone', DileIconlibArmchairDuotone);
+}

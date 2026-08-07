@@ -6,4 +6,6 @@ export class DileIconlibRotateClockwise extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rotate-clockwise', DileIconlibRotateClockwise);
+if (!customElements.get('dile-tabler-icon-rotate-clockwise')) {
+  customElements.define('dile-tabler-icon-rotate-clockwise', DileIconlibRotateClockwise);
+}

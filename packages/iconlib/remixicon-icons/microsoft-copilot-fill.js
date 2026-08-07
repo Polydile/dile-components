@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftCopilotFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-microsoft-copilot-fill', DileIconlibMicrosoftCopilotFill);
+if (!customElements.get('dile-remixicon-icon-microsoft-copilot-fill')) {
+  customElements.define('dile-remixicon-icon-microsoft-copilot-fill', DileIconlibMicrosoftCopilotFill);
+}

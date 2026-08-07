@@ -6,4 +6,6 @@ export class DileIconlibTextFields extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-text-fields', DileIconlibTextFields);
+if (!customElements.get('dile-material-icon-text-fields')) {
+  customElements.define('dile-material-icon-text-fields', DileIconlibTextFields);
+}

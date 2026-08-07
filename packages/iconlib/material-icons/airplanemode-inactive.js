@@ -6,4 +6,6 @@ export class DileIconlibAirplanemodeInactive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airplanemode-inactive', DileIconlibAirplanemodeInactive);
+if (!customElements.get('dile-material-icon-airplanemode-inactive')) {
+  customElements.define('dile-material-icon-airplanemode-inactive', DileIconlibAirplanemodeInactive);
+}

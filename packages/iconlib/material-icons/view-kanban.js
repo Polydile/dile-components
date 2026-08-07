@@ -6,4 +6,6 @@ export class DileIconlibViewKanban extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-kanban', DileIconlibViewKanban);
+if (!customElements.get('dile-material-icon-view-kanban')) {
+  customElements.define('dile-material-icon-view-kanban', DileIconlibViewKanban);
+}

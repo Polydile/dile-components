@@ -6,4 +6,6 @@ export class DileIconlibCallSplit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-call-split', DileIconlibCallSplit);
+if (!customElements.get('dile-material-icon-call-split')) {
+  customElements.define('dile-material-icon-call-split', DileIconlibCallSplit);
+}

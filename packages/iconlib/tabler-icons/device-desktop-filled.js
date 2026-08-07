@@ -6,4 +6,6 @@ export class DileIconlibDeviceDesktopFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-desktop-filled', DileIconlibDeviceDesktopFilled);
+if (!customElements.get('dile-tabler-icon-device-desktop-filled')) {
+  customElements.define('dile-tabler-icon-device-desktop-filled', DileIconlibDeviceDesktopFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhotoCamera extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-photo-camera', DileIconlibPhotoCamera);
+if (!customElements.get('dile-material-icon-photo-camera')) {
+  customElements.define('dile-material-icon-photo-camera', DileIconlibPhotoCamera);
+}

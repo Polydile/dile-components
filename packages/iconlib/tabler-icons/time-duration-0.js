@@ -6,4 +6,6 @@ export class DileIconlibTimeDuration0 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-time-duration-0', DileIconlibTimeDuration0);
+if (!customElements.get('dile-tabler-icon-time-duration-0')) {
+  customElements.define('dile-tabler-icon-time-duration-0', DileIconlibTimeDuration0);
+}

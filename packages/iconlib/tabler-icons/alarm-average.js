@@ -6,4 +6,6 @@ export class DileIconlibAlarmAverage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alarm-average', DileIconlibAlarmAverage);
+if (!customElements.get('dile-tabler-icon-alarm-average')) {
+  customElements.define('dile-tabler-icon-alarm-average', DileIconlibAlarmAverage);
+}

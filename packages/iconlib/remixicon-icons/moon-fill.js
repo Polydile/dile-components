@@ -6,4 +6,6 @@ export class DileIconlibMoonFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-moon-fill', DileIconlibMoonFill);
+if (!customElements.get('dile-remixicon-icon-moon-fill')) {
+  customElements.define('dile-remixicon-icon-moon-fill', DileIconlibMoonFill);
+}

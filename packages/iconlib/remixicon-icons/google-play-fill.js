@@ -6,4 +6,6 @@ export class DileIconlibGooglePlayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-google-play-fill', DileIconlibGooglePlayFill);
+if (!customElements.get('dile-remixicon-icon-google-play-fill')) {
+  customElements.define('dile-remixicon-icon-google-play-fill', DileIconlibGooglePlayFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScubaMaskOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-scuba-mask-off', DileIconlibScubaMaskOff);
+if (!customElements.get('dile-tabler-icon-scuba-mask-off')) {
+  customElements.define('dile-tabler-icon-scuba-mask-off', DileIconlibScubaMaskOff);
+}

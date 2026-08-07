@@ -6,4 +6,6 @@ export class DileIconlibNewspaperBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-newspaper-bold', DileIconlibNewspaperBold);
+if (!customElements.get('dile-phosphor-icon-newspaper-bold')) {
+  customElements.define('dile-phosphor-icon-newspaper-bold', DileIconlibNewspaperBold);
+}

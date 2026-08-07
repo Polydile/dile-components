@@ -6,4 +6,6 @@ export class DileIconlibBounceLeftFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bounce-left-filled', DileIconlibBounceLeftFilled);
+if (!customElements.get('dile-tabler-icon-bounce-left-filled')) {
+  customElements.define('dile-tabler-icon-bounce-left-filled', DileIconlibBounceLeftFilled);
+}

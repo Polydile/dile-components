@@ -6,4 +6,6 @@ export class DileIconlibBuildingFortress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-fortress', DileIconlibBuildingFortress);
+if (!customElements.get('dile-tabler-icon-building-fortress')) {
+  customElements.define('dile-tabler-icon-building-fortress', DileIconlibBuildingFortress);
+}

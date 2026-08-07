@@ -6,4 +6,6 @@ export class DileIconlibBuildingLighthouse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-building-lighthouse', DileIconlibBuildingLighthouse);
+if (!customElements.get('dile-tabler-icon-building-lighthouse')) {
+  customElements.define('dile-tabler-icon-building-lighthouse', DileIconlibBuildingLighthouse);
+}

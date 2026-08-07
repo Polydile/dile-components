@@ -6,4 +6,6 @@ export class DileIconlibJewishStarFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-jewish-star-filled', DileIconlibJewishStarFilled);
+if (!customElements.get('dile-tabler-icon-jewish-star-filled')) {
+  customElements.define('dile-tabler-icon-jewish-star-filled', DileIconlibJewishStarFilled);
+}

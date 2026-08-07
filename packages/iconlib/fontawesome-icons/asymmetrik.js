@@ -6,4 +6,6 @@ export class DileIconlibAsymmetrik extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-asymmetrik', DileIconlibAsymmetrik);
+if (!customElements.get('dile-fontawesome-icon-asymmetrik')) {
+  customElements.define('dile-fontawesome-icon-asymmetrik', DileIconlibAsymmetrik);
+}

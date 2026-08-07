@@ -6,4 +6,6 @@ export class DileIconlibCompost extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-compost', DileIconlibCompost);
+if (!customElements.get('dile-material-icon-compost')) {
+  customElements.define('dile-material-icon-compost', DileIconlibCompost);
+}

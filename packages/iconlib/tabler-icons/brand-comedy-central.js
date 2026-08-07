@@ -6,4 +6,6 @@ export class DileIconlibBrandComedyCentral extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-comedy-central', DileIconlibBrandComedyCentral);
+if (!customElements.get('dile-tabler-icon-brand-comedy-central')) {
+  customElements.define('dile-tabler-icon-brand-comedy-central', DileIconlibBrandComedyCentral);
+}

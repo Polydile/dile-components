@@ -6,4 +6,6 @@ export class DileIconlibFlowerTulipLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flower-tulip-light', DileIconlibFlowerTulipLight);
+if (!customElements.get('dile-phosphor-icon-flower-tulip-light')) {
+  customElements.define('dile-phosphor-icon-flower-tulip-light', DileIconlibFlowerTulipLight);
+}

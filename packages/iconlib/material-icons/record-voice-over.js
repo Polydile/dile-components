@@ -6,4 +6,6 @@ export class DileIconlibRecordVoiceOver extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-record-voice-over', DileIconlibRecordVoiceOver);
+if (!customElements.get('dile-material-icon-record-voice-over')) {
+  customElements.define('dile-material-icon-record-voice-over', DileIconlibRecordVoiceOver);
+}

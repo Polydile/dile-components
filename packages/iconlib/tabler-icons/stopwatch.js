@@ -6,4 +6,6 @@ export class DileIconlibStopwatch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-stopwatch', DileIconlibStopwatch);
+if (!customElements.get('dile-tabler-icon-stopwatch')) {
+  customElements.define('dile-tabler-icon-stopwatch', DileIconlibStopwatch);
+}

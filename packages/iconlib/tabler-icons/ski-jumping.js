@@ -6,4 +6,6 @@ export class DileIconlibSkiJumping extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ski-jumping', DileIconlibSkiJumping);
+if (!customElements.get('dile-tabler-icon-ski-jumping')) {
+  customElements.define('dile-tabler-icon-ski-jumping', DileIconlibSkiJumping);
+}

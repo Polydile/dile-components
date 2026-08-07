@@ -6,4 +6,6 @@ export class DileIconlibHammer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hammer', DileIconlibHammer);
+if (!customElements.get('dile-fontawesome-icon-hammer')) {
+  customElements.define('dile-fontawesome-icon-hammer', DileIconlibHammer);
+}

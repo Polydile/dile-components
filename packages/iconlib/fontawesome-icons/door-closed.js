@@ -6,4 +6,6 @@ export class DileIconlibDoorClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-door-closed', DileIconlibDoorClosed);
+if (!customElements.get('dile-fontawesome-icon-door-closed')) {
+  customElements.define('dile-fontawesome-icon-door-closed', DileIconlibDoorClosed);
+}

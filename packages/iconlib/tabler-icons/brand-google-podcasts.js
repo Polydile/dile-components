@@ -6,4 +6,6 @@ export class DileIconlibBrandGooglePodcasts extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-google-podcasts', DileIconlibBrandGooglePodcasts);
+if (!customElements.get('dile-tabler-icon-brand-google-podcasts')) {
+  customElements.define('dile-tabler-icon-brand-google-podcasts', DileIconlibBrandGooglePodcasts);
+}

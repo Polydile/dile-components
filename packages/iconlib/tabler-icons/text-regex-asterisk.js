@@ -6,4 +6,6 @@ export class DileIconlibTextRegexAsterisk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-regex-asterisk', DileIconlibTextRegexAsterisk);
+if (!customElements.get('dile-tabler-icon-text-regex-asterisk')) {
+  customElements.define('dile-tabler-icon-text-regex-asterisk', DileIconlibTextRegexAsterisk);
+}

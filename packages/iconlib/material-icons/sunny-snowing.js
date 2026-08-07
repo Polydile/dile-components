@@ -6,4 +6,6 @@ export class DileIconlibSunnySnowing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sunny-snowing', DileIconlibSunnySnowing);
+if (!customElements.get('dile-material-icon-sunny-snowing')) {
+  customElements.define('dile-material-icon-sunny-snowing', DileIconlibSunnySnowing);
+}

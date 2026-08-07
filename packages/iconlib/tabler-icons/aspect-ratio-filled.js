@@ -6,4 +6,6 @@ export class DileIconlibAspectRatioFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-aspect-ratio-filled', DileIconlibAspectRatioFilled);
+if (!customElements.get('dile-tabler-icon-aspect-ratio-filled')) {
+  customElements.define('dile-tabler-icon-aspect-ratio-filled', DileIconlibAspectRatioFilled);
+}

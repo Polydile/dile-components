@@ -6,4 +6,6 @@ export class DileIconlibFindReplaceFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-find-replace-fill', DileIconlibFindReplaceFill);
+if (!customElements.get('dile-remixicon-icon-find-replace-fill')) {
+  customElements.define('dile-remixicon-icon-find-replace-fill', DileIconlibFindReplaceFill);
+}

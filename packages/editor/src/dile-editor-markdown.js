@@ -96,4 +96,6 @@ export class DileEditorMarkdown extends DileI18nMixin(LitElement) {
     this.view.focus();
   }
 }
-customElements.define('dile-editor-markdown', DileEditorMarkdown);
+if (!customElements.get('dile-editor-markdown')) {
+  customElements.define('dile-editor-markdown', DileEditorMarkdown);
+}

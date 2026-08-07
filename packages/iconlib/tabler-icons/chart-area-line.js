@@ -6,4 +6,6 @@ export class DileIconlibChartAreaLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-area-line', DileIconlibChartAreaLine);
+if (!customElements.get('dile-tabler-icon-chart-area-line')) {
+  customElements.define('dile-tabler-icon-chart-area-line', DileIconlibChartAreaLine);
+}

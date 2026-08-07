@@ -6,4 +6,6 @@ export class DileIconlibGpsSlashFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gps-slash-fill', DileIconlibGpsSlashFill);
+if (!customElements.get('dile-phosphor-icon-gps-slash-fill')) {
+  customElements.define('dile-phosphor-icon-gps-slash-fill', DileIconlibGpsSlashFill);
+}

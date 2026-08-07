@@ -6,4 +6,6 @@ export class DileIconlibMatchstick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-matchstick', DileIconlibMatchstick);
+if (!customElements.get('dile-tabler-icon-matchstick')) {
+  customElements.define('dile-tabler-icon-matchstick', DileIconlibMatchstick);
+}

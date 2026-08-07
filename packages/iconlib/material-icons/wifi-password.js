@@ -6,4 +6,6 @@ export class DileIconlibWifiPassword extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-password', DileIconlibWifiPassword);
+if (!customElements.get('dile-material-icon-wifi-password')) {
+  customElements.define('dile-material-icon-wifi-password', DileIconlibWifiPassword);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRecordVinyl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-record-vinyl', DileIconlibRecordVinyl);
+if (!customElements.get('dile-fontawesome-icon-record-vinyl')) {
+  customElements.define('dile-fontawesome-icon-record-vinyl', DileIconlibRecordVinyl);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShadowFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-shadow-fill', DileIconlibShadowFill);
+if (!customElements.get('dile-remixicon-icon-shadow-fill')) {
+  customElements.define('dile-remixicon-icon-shadow-fill', DileIconlibShadowFill);
+}

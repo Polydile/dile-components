@@ -6,4 +6,6 @@ export class DileIconlibDiscord extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-discord', DileIconlibDiscord);
+if (!customElements.get('dile-fontawesome-icon-discord')) {
+  customElements.define('dile-fontawesome-icon-discord', DileIconlibDiscord);
+}

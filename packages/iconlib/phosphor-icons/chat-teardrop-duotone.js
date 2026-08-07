@@ -6,4 +6,6 @@ export class DileIconlibChatTeardropDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-chat-teardrop-duotone', DileIconlibChatTeardropDuotone);
+if (!customElements.get('dile-phosphor-icon-chat-teardrop-duotone')) {
+  customElements.define('dile-phosphor-icon-chat-teardrop-duotone', DileIconlibChatTeardropDuotone);
+}

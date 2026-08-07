@@ -6,4 +6,6 @@ export class DileIconlibPacmanFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pacman-filled', DileIconlibPacmanFilled);
+if (!customElements.get('dile-tabler-icon-pacman-filled')) {
+  customElements.define('dile-tabler-icon-pacman-filled', DileIconlibPacmanFilled);
+}

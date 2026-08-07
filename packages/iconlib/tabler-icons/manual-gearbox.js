@@ -6,4 +6,6 @@ export class DileIconlibManualGearbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-manual-gearbox', DileIconlibManualGearbox);
+if (!customElements.get('dile-tabler-icon-manual-gearbox')) {
+  customElements.define('dile-tabler-icon-manual-gearbox', DileIconlibManualGearbox);
+}

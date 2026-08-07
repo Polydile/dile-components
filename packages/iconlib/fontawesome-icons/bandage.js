@@ -6,4 +6,6 @@ export class DileIconlibBandage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bandage', DileIconlibBandage);
+if (!customElements.get('dile-fontawesome-icon-bandage')) {
+  customElements.define('dile-fontawesome-icon-bandage', DileIconlibBandage);
+}

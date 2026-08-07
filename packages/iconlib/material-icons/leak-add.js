@@ -6,4 +6,6 @@ export class DileIconlibLeakAdd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-leak-add', DileIconlibLeakAdd);
+if (!customElements.get('dile-material-icon-leak-add')) {
+  customElements.define('dile-material-icon-leak-add', DileIconlibLeakAdd);
+}

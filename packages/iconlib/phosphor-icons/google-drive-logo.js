@@ -6,4 +6,6 @@ export class DileIconlibGoogleDriveLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-google-drive-logo', DileIconlibGoogleDriveLogo);
+if (!customElements.get('dile-phosphor-icon-google-drive-logo')) {
+  customElements.define('dile-phosphor-icon-google-drive-logo', DileIconlibGoogleDriveLogo);
+}

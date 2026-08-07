@@ -6,4 +6,6 @@ export class DileIconlibPanorama extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-panorama', DileIconlibPanorama);
+if (!customElements.get('dile-material-icon-panorama')) {
+  customElements.define('dile-material-icon-panorama', DileIconlibPanorama);
+}

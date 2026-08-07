@@ -6,4 +6,6 @@ export class DileIconlibFolderClosed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-folder-closed', DileIconlibFolderClosed);
+if (!customElements.get('dile-fontawesome-icon-regular-folder-closed')) {
+  customElements.define('dile-fontawesome-icon-regular-folder-closed', DileIconlibFolderClosed);
+}

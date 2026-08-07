@@ -6,4 +6,6 @@ export class DileIconlibCellSignal2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cell-signal-2', DileIconlibCellSignal2);
+if (!customElements.get('dile-tabler-icon-cell-signal-2')) {
+  customElements.define('dile-tabler-icon-cell-signal-2', DileIconlibCellSignal2);
+}

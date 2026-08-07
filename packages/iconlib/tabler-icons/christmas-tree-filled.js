@@ -6,4 +6,6 @@ export class DileIconlibChristmasTreeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-christmas-tree-filled', DileIconlibChristmasTreeFilled);
+if (!customElements.get('dile-tabler-icon-christmas-tree-filled')) {
+  customElements.define('dile-tabler-icon-christmas-tree-filled', DileIconlibChristmasTreeFilled);
+}

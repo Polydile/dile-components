@@ -6,4 +6,6 @@ export class DileIconlibKakaoTalk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-kakao-talk', DileIconlibKakaoTalk);
+if (!customElements.get('dile-fontawesome-icon-kakao-talk')) {
+  customElements.define('dile-fontawesome-icon-kakao-talk', DileIconlibKakaoTalk);
+}

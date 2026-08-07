@@ -6,4 +6,6 @@ export class DileIconlibKeynoteLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-keynote-line', DileIconlibKeynoteLine);
+if (!customElements.get('dile-remixicon-icon-keynote-line')) {
+  customElements.define('dile-remixicon-icon-keynote-line', DileIconlibKeynoteLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTextOrientation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-text-orientation', DileIconlibTextOrientation);
+if (!customElements.get('dile-tabler-icon-text-orientation')) {
+  customElements.define('dile-tabler-icon-text-orientation', DileIconlibTextOrientation);
+}

@@ -6,4 +6,6 @@ export class DileIconlibShowerHead extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shower-head', DileIconlibShowerHead);
+if (!customElements.get('dile-lucide-icon-shower-head')) {
+  customElements.define('dile-lucide-icon-shower-head', DileIconlibShowerHead);
+}

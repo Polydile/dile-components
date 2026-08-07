@@ -6,4 +6,6 @@ export class DileIconlibCarrotDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-carrot-duotone', DileIconlibCarrotDuotone);
+if (!customElements.get('dile-phosphor-icon-carrot-duotone')) {
+  customElements.define('dile-phosphor-icon-carrot-duotone', DileIconlibCarrotDuotone);
+}

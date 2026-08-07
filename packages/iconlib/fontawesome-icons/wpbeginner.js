@@ -6,4 +6,6 @@ export class DileIconlibWpbeginner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wpbeginner', DileIconlibWpbeginner);
+if (!customElements.get('dile-fontawesome-icon-wpbeginner')) {
+  customElements.define('dile-fontawesome-icon-wpbeginner', DileIconlibWpbeginner);
+}

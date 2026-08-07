@@ -6,4 +6,6 @@ export class DileIconlibPlaystationTriangle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-playstation-triangle', DileIconlibPlaystationTriangle);
+if (!customElements.get('dile-tabler-icon-playstation-triangle')) {
+  customElements.define('dile-tabler-icon-playstation-triangle', DileIconlibPlaystationTriangle);
+}

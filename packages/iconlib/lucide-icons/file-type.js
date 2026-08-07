@@ -6,4 +6,6 @@ export class DileIconlibFileType extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-file-type', DileIconlibFileType);
+if (!customElements.get('dile-lucide-icon-file-type')) {
+  customElements.define('dile-lucide-icon-file-type', DileIconlibFileType);
+}

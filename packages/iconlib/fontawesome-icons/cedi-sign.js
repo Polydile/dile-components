@@ -6,4 +6,6 @@ export class DileIconlibCediSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cedi-sign', DileIconlibCediSign);
+if (!customElements.get('dile-fontawesome-icon-cedi-sign')) {
+  customElements.define('dile-fontawesome-icon-cedi-sign', DileIconlibCediSign);
+}

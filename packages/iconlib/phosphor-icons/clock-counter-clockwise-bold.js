@@ -6,4 +6,6 @@ export class DileIconlibClockCounterClockwiseBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-counter-clockwise-bold', DileIconlibClockCounterClockwiseBold);
+if (!customElements.get('dile-phosphor-icon-clock-counter-clockwise-bold')) {
+  customElements.define('dile-phosphor-icon-clock-counter-clockwise-bold', DileIconlibClockCounterClockwiseBold);
+}

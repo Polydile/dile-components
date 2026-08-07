@@ -6,4 +6,6 @@ export class DileIconlibStopMiniLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stop-mini-line', DileIconlibStopMiniLine);
+if (!customElements.get('dile-remixicon-icon-stop-mini-line')) {
+  customElements.define('dile-remixicon-icon-stop-mini-line', DileIconlibStopMiniLine);
+}

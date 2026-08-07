@@ -6,4 +6,6 @@ export class DileIconlibXPowerY extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-x-power-y', DileIconlibXPowerY);
+if (!customElements.get('dile-tabler-icon-x-power-y')) {
+  customElements.define('dile-tabler-icon-x-power-y', DileIconlibXPowerY);
+}

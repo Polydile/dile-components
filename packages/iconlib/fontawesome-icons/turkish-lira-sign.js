@@ -6,4 +6,6 @@ export class DileIconlibTurkishLiraSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-turkish-lira-sign', DileIconlibTurkishLiraSign);
+if (!customElements.get('dile-fontawesome-icon-turkish-lira-sign')) {
+  customElements.define('dile-fontawesome-icon-turkish-lira-sign', DileIconlibTurkishLiraSign);
+}

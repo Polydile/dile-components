@@ -6,4 +6,6 @@ export class DileIconlibVirusSearch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-virus-search', DileIconlibVirusSearch);
+if (!customElements.get('dile-tabler-icon-virus-search')) {
+  customElements.define('dile-tabler-icon-virus-search', DileIconlibVirusSearch);
+}

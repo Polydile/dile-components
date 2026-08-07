@@ -6,4 +6,6 @@ export class DileIconlibLoadBalancer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-load-balancer', DileIconlibLoadBalancer);
+if (!customElements.get('dile-tabler-icon-load-balancer')) {
+  customElements.define('dile-tabler-icon-load-balancer', DileIconlibLoadBalancer);
+}

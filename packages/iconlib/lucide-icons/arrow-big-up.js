@@ -6,4 +6,6 @@ export class DileIconlibArrowBigUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-arrow-big-up', DileIconlibArrowBigUp);
+if (!customElements.get('dile-lucide-icon-arrow-big-up')) {
+  customElements.define('dile-lucide-icon-arrow-big-up', DileIconlibArrowBigUp);
+}

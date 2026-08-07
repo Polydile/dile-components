@@ -6,4 +6,6 @@ export class DileIconlibLocust extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-locust', DileIconlibLocust);
+if (!customElements.get('dile-fontawesome-icon-locust')) {
+  customElements.define('dile-fontawesome-icon-locust', DileIconlibLocust);
+}

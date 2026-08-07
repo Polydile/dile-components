@@ -6,4 +6,6 @@ export class DileIconlibBrowserShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-browser-share', DileIconlibBrowserShare);
+if (!customElements.get('dile-tabler-icon-browser-share')) {
+  customElements.define('dile-tabler-icon-browser-share', DileIconlibBrowserShare);
+}

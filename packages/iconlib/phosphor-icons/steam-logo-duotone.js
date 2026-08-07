@@ -6,4 +6,6 @@ export class DileIconlibSteamLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-steam-logo-duotone', DileIconlibSteamLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-steam-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-steam-logo-duotone', DileIconlibSteamLogoDuotone);
+}

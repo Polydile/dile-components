@@ -6,4 +6,6 @@ export class DileIconlibCameraBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-camera-bold', DileIconlibCameraBold);
+if (!customElements.get('dile-phosphor-icon-camera-bold')) {
+  customElements.define('dile-phosphor-icon-camera-bold', DileIconlibCameraBold);
+}

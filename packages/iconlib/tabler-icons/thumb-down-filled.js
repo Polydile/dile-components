@@ -6,4 +6,6 @@ export class DileIconlibThumbDownFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-thumb-down-filled', DileIconlibThumbDownFilled);
+if (!customElements.get('dile-tabler-icon-thumb-down-filled')) {
+  customElements.define('dile-tabler-icon-thumb-down-filled', DileIconlibThumbDownFilled);
+}

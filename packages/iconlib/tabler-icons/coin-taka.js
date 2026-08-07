@@ -6,4 +6,6 @@ export class DileIconlibCoinTaka extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-taka', DileIconlibCoinTaka);
+if (!customElements.get('dile-tabler-icon-coin-taka')) {
+  customElements.define('dile-tabler-icon-coin-taka', DileIconlibCoinTaka);
+}

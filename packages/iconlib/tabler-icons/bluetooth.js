@@ -6,4 +6,6 @@ export class DileIconlibBluetooth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bluetooth', DileIconlibBluetooth);
+if (!customElements.get('dile-tabler-icon-bluetooth')) {
+  customElements.define('dile-tabler-icon-bluetooth', DileIconlibBluetooth);
+}

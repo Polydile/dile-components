@@ -6,4 +6,6 @@ export class DileIconlibGetPocket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-get-pocket', DileIconlibGetPocket);
+if (!customElements.get('dile-fontawesome-icon-get-pocket')) {
+  customElements.define('dile-fontawesome-icon-get-pocket', DileIconlibGetPocket);
+}

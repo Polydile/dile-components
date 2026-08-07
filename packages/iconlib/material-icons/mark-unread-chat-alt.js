@@ -6,4 +6,6 @@ export class DileIconlibMarkUnreadChatAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-mark-unread-chat-alt', DileIconlibMarkUnreadChatAlt);
+if (!customElements.get('dile-material-icon-mark-unread-chat-alt')) {
+  customElements.define('dile-material-icon-mark-unread-chat-alt', DileIconlibMarkUnreadChatAlt);
+}

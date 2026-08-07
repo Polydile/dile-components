@@ -6,4 +6,6 @@ export class DileIconlibTextHFourLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-h-four-light', DileIconlibTextHFourLight);
+if (!customElements.get('dile-phosphor-icon-text-h-four-light')) {
+  customElements.define('dile-phosphor-icon-text-h-four-light', DileIconlibTextHFourLight);
+}

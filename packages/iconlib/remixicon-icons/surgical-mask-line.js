@@ -6,4 +6,6 @@ export class DileIconlibSurgicalMaskLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-surgical-mask-line', DileIconlibSurgicalMaskLine);
+if (!customElements.get('dile-remixicon-icon-surgical-mask-line')) {
+  customElements.define('dile-remixicon-icon-surgical-mask-line', DileIconlibSurgicalMaskLine);
+}

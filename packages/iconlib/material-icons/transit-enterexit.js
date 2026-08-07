@@ -6,4 +6,6 @@ export class DileIconlibTransitEnterexit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-transit-enterexit', DileIconlibTransitEnterexit);
+if (!customElements.get('dile-material-icon-transit-enterexit')) {
+  customElements.define('dile-material-icon-transit-enterexit', DileIconlibTransitEnterexit);
+}

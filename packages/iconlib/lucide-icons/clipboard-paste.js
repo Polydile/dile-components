@@ -6,4 +6,6 @@ export class DileIconlibClipboardPaste extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-clipboard-paste', DileIconlibClipboardPaste);
+if (!customElements.get('dile-lucide-icon-clipboard-paste')) {
+  customElements.define('dile-lucide-icon-clipboard-paste', DileIconlibClipboardPaste);
+}

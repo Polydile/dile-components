@@ -6,4 +6,6 @@ export class DileIconlibPanTool extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pan-tool', DileIconlibPanTool);
+if (!customElements.get('dile-material-icon-pan-tool')) {
+  customElements.define('dile-material-icon-pan-tool', DileIconlibPanTool);
+}

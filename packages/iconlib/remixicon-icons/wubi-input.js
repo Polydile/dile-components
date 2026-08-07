@@ -6,4 +6,6 @@ export class DileIconlibWubiInput extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-wubi-input', DileIconlibWubiInput);
+if (!customElements.get('dile-remixicon-icon-wubi-input')) {
+  customElements.define('dile-remixicon-icon-wubi-input', DileIconlibWubiInput);
+}

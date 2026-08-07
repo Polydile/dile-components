@@ -6,4 +6,6 @@ export class DileIconlibIcicles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-icicles', DileIconlibIcicles);
+if (!customElements.get('dile-fontawesome-icon-icicles')) {
+  customElements.define('dile-fontawesome-icon-icicles', DileIconlibIcicles);
+}

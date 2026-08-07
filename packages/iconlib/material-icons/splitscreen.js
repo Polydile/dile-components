@@ -6,4 +6,6 @@ export class DileIconlibSplitscreen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-splitscreen', DileIconlibSplitscreen);
+if (!customElements.get('dile-material-icon-splitscreen')) {
+  customElements.define('dile-material-icon-splitscreen', DileIconlibSplitscreen);
+}

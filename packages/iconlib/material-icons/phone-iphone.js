@@ -6,4 +6,6 @@ export class DileIconlibPhoneIphone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phone-iphone', DileIconlibPhoneIphone);
+if (!customElements.get('dile-material-icon-phone-iphone')) {
+  customElements.define('dile-material-icon-phone-iphone', DileIconlibPhoneIphone);
+}

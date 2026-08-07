@@ -6,4 +6,6 @@ export class DileIconlibNearbyOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nearby-off', DileIconlibNearbyOff);
+if (!customElements.get('dile-material-icon-nearby-off')) {
+  customElements.define('dile-material-icon-nearby-off', DileIconlibNearbyOff);
+}

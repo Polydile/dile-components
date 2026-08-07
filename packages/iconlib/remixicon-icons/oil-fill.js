@@ -6,4 +6,6 @@ export class DileIconlibOilFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-oil-fill', DileIconlibOilFill);
+if (!customElements.get('dile-remixicon-icon-oil-fill')) {
+  customElements.define('dile-remixicon-icon-oil-fill', DileIconlibOilFill);
+}

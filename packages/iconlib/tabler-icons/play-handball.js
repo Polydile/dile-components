@@ -6,4 +6,6 @@ export class DileIconlibPlayHandball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-play-handball', DileIconlibPlayHandball);
+if (!customElements.get('dile-tabler-icon-play-handball')) {
+  customElements.define('dile-tabler-icon-play-handball', DileIconlibPlayHandball);
+}

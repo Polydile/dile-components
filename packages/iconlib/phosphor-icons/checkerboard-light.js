@@ -6,4 +6,6 @@ export class DileIconlibCheckerboardLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-checkerboard-light', DileIconlibCheckerboardLight);
+if (!customElements.get('dile-phosphor-icon-checkerboard-light')) {
+  customElements.define('dile-phosphor-icon-checkerboard-light', DileIconlibCheckerboardLight);
+}

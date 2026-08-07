@@ -6,4 +6,6 @@ export class DileIconlibShieldCheckeredFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shield-checkered-fill', DileIconlibShieldCheckeredFill);
+if (!customElements.get('dile-phosphor-icon-shield-checkered-fill')) {
+  customElements.define('dile-phosphor-icon-shield-checkered-fill', DileIconlibShieldCheckeredFill);
+}

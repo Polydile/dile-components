@@ -6,4 +6,6 @@ export class DileIconlibGitMergeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-merge-fill', DileIconlibGitMergeFill);
+if (!customElements.get('dile-phosphor-icon-git-merge-fill')) {
+  customElements.define('dile-phosphor-icon-git-merge-fill', DileIconlibGitMergeFill);
+}

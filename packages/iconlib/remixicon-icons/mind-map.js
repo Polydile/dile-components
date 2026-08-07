@@ -6,4 +6,6 @@ export class DileIconlibMindMap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mind-map', DileIconlibMindMap);
+if (!customElements.get('dile-remixicon-icon-mind-map')) {
+  customElements.define('dile-remixicon-icon-mind-map', DileIconlibMindMap);
+}

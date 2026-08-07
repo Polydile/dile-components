@@ -6,4 +6,6 @@ export class DileIconlibUserRoundArrowLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-user-round-arrow-left', DileIconlibUserRoundArrowLeft);
+if (!customElements.get('dile-lucide-icon-user-round-arrow-left')) {
+  customElements.define('dile-lucide-icon-user-round-arrow-left', DileIconlibUserRoundArrowLeft);
+}

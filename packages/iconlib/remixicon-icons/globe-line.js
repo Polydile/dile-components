@@ -6,4 +6,6 @@ export class DileIconlibGlobeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-globe-line', DileIconlibGlobeLine);
+if (!customElements.get('dile-remixicon-icon-globe-line')) {
+  customElements.define('dile-remixicon-icon-globe-line', DileIconlibGlobeLine);
+}

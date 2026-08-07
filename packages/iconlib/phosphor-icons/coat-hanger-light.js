@@ -6,4 +6,6 @@ export class DileIconlibCoatHangerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-coat-hanger-light', DileIconlibCoatHangerLight);
+if (!customElements.get('dile-phosphor-icon-coat-hanger-light')) {
+  customElements.define('dile-phosphor-icon-coat-hanger-light', DileIconlibCoatHangerLight);
+}

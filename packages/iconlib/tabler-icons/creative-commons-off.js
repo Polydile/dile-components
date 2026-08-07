@@ -6,4 +6,6 @@ export class DileIconlibCreativeCommonsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-creative-commons-off', DileIconlibCreativeCommonsOff);
+if (!customElements.get('dile-tabler-icon-creative-commons-off')) {
+  customElements.define('dile-tabler-icon-creative-commons-off', DileIconlibCreativeCommonsOff);
+}

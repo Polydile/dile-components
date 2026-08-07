@@ -6,4 +6,6 @@ export class DileIconlibReceiptBitcoin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-bitcoin', DileIconlibReceiptBitcoin);
+if (!customElements.get('dile-tabler-icon-receipt-bitcoin')) {
+  customElements.define('dile-tabler-icon-receipt-bitcoin', DileIconlibReceiptBitcoin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibReact extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-react', DileIconlibReact);
+if (!customElements.get('dile-fontawesome-icon-react')) {
+  customElements.define('dile-fontawesome-icon-react', DileIconlibReact);
+}

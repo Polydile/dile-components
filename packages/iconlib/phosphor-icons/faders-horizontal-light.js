@@ -6,4 +6,6 @@ export class DileIconlibFadersHorizontalLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-faders-horizontal-light', DileIconlibFadersHorizontalLight);
+if (!customElements.get('dile-phosphor-icon-faders-horizontal-light')) {
+  customElements.define('dile-phosphor-icon-faders-horizontal-light', DileIconlibFadersHorizontalLight);
+}

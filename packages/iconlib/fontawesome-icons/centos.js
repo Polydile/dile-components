@@ -6,4 +6,6 @@ export class DileIconlibCentos extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-centos', DileIconlibCentos);
+if (!customElements.get('dile-fontawesome-icon-centos')) {
+  customElements.define('dile-fontawesome-icon-centos', DileIconlibCentos);
+}

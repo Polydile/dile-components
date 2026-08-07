@@ -6,4 +6,6 @@ export class DileIconlibChatSmileAi3Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-smile-ai-3-line', DileIconlibChatSmileAi3Line);
+if (!customElements.get('dile-remixicon-icon-chat-smile-ai-3-line')) {
+  customElements.define('dile-remixicon-icon-chat-smile-ai-3-line', DileIconlibChatSmileAi3Line);
+}

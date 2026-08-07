@@ -6,4 +6,6 @@ export class DileIconlibRoadHorizonBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-road-horizon-bold', DileIconlibRoadHorizonBold);
+if (!customElements.get('dile-phosphor-icon-road-horizon-bold')) {
+  customElements.define('dile-phosphor-icon-road-horizon-bold', DileIconlibRoadHorizonBold);
+}

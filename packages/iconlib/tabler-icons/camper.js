@@ -6,4 +6,6 @@ export class DileIconlibCamper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camper', DileIconlibCamper);
+if (!customElements.get('dile-tabler-icon-camper')) {
+  customElements.define('dile-tabler-icon-camper', DileIconlibCamper);
+}

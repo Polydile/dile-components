@@ -6,4 +6,6 @@ export class DileIconlibPhoneIncomingThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-phone-incoming-thin', DileIconlibPhoneIncomingThin);
+if (!customElements.get('dile-phosphor-icon-phone-incoming-thin')) {
+  customElements.define('dile-phosphor-icon-phone-incoming-thin', DileIconlibPhoneIncomingThin);
+}

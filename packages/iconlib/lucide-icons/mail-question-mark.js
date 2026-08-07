@@ -6,4 +6,6 @@ export class DileIconlibMailQuestionMark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mail-question-mark', DileIconlibMailQuestionMark);
+if (!customElements.get('dile-lucide-icon-mail-question-mark')) {
+  customElements.define('dile-lucide-icon-mail-question-mark', DileIconlibMailQuestionMark);
+}

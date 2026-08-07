@@ -6,4 +6,6 @@ export class DileIconlibBrandMyOppo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-my-oppo', DileIconlibBrandMyOppo);
+if (!customElements.get('dile-tabler-icon-brand-my-oppo')) {
+  customElements.define('dile-tabler-icon-brand-my-oppo', DileIconlibBrandMyOppo);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSimCardWarningLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sim-card-warning-line', DileIconlibSimCardWarningLine);
+if (!customElements.get('dile-remixicon-icon-sim-card-warning-line')) {
+  customElements.define('dile-remixicon-icon-sim-card-warning-line', DileIconlibSimCardWarningLine);
+}

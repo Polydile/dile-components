@@ -6,4 +6,6 @@ export class DileIconlibCheckBoxOutlineBlank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-check-box-outline-blank', DileIconlibCheckBoxOutlineBlank);
+if (!customElements.get('dile-material-icon-check-box-outline-blank')) {
+  customElements.define('dile-material-icon-check-box-outline-blank', DileIconlibCheckBoxOutlineBlank);
+}

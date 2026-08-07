@@ -6,4 +6,6 @@ export class DileIconlibRulerDimensionLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-ruler-dimension-line', DileIconlibRulerDimensionLine);
+if (!customElements.get('dile-lucide-icon-ruler-dimension-line')) {
+  customElements.define('dile-lucide-icon-ruler-dimension-line', DileIconlibRulerDimensionLine);
+}

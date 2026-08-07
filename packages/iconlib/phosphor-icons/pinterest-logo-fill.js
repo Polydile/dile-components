@@ -6,4 +6,6 @@ export class DileIconlibPinterestLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pinterest-logo-fill', DileIconlibPinterestLogoFill);
+if (!customElements.get('dile-phosphor-icon-pinterest-logo-fill')) {
+  customElements.define('dile-phosphor-icon-pinterest-logo-fill', DileIconlibPinterestLogoFill);
+}

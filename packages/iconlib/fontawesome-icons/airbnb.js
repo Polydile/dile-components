@@ -6,4 +6,6 @@ export class DileIconlibAirbnb extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-airbnb', DileIconlibAirbnb);
+if (!customElements.get('dile-fontawesome-icon-airbnb')) {
+  customElements.define('dile-fontawesome-icon-airbnb', DileIconlibAirbnb);
+}

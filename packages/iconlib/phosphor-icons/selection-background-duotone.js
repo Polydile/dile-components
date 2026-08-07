@@ -6,4 +6,6 @@ export class DileIconlibSelectionBackgroundDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-background-duotone', DileIconlibSelectionBackgroundDuotone);
+if (!customElements.get('dile-phosphor-icon-selection-background-duotone')) {
+  customElements.define('dile-phosphor-icon-selection-background-duotone', DileIconlibSelectionBackgroundDuotone);
+}

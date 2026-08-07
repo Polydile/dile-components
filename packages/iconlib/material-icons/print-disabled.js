@@ -6,4 +6,6 @@ export class DileIconlibPrintDisabled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-print-disabled', DileIconlibPrintDisabled);
+if (!customElements.get('dile-material-icon-print-disabled')) {
+  customElements.define('dile-material-icon-print-disabled', DileIconlibPrintDisabled);
+}

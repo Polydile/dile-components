@@ -6,4 +6,6 @@ export class DileIconlibMotorbikeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-motorbike-fill', DileIconlibMotorbikeFill);
+if (!customElements.get('dile-remixicon-icon-motorbike-fill')) {
+  customElements.define('dile-remixicon-icon-motorbike-fill', DileIconlibMotorbikeFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGrowth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-growth', DileIconlibGrowth);
+if (!customElements.get('dile-tabler-icon-growth')) {
+  customElements.define('dile-tabler-icon-growth', DileIconlibGrowth);
+}

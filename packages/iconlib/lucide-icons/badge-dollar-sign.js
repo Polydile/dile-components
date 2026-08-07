@@ -6,4 +6,6 @@ export class DileIconlibBadgeDollarSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-badge-dollar-sign', DileIconlibBadgeDollarSign);
+if (!customElements.get('dile-lucide-icon-badge-dollar-sign')) {
+  customElements.define('dile-lucide-icon-badge-dollar-sign', DileIconlibBadgeDollarSign);
+}

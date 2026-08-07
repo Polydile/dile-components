@@ -6,4 +6,6 @@ export class DileIconlibShieldHalved extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shield-halved', DileIconlibShieldHalved);
+if (!customElements.get('dile-fontawesome-icon-shield-halved')) {
+  customElements.define('dile-fontawesome-icon-shield-halved', DileIconlibShieldHalved);
+}

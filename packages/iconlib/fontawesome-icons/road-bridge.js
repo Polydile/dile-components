@@ -6,4 +6,6 @@ export class DileIconlibRoadBridge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-road-bridge', DileIconlibRoadBridge);
+if (!customElements.get('dile-fontawesome-icon-road-bridge')) {
+  customElements.define('dile-fontawesome-icon-road-bridge', DileIconlibRoadBridge);
+}

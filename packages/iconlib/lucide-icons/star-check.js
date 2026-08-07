@@ -6,4 +6,6 @@ export class DileIconlibStarCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-star-check', DileIconlibStarCheck);
+if (!customElements.get('dile-lucide-icon-star-check')) {
+  customElements.define('dile-lucide-icon-star-check', DileIconlibStarCheck);
+}

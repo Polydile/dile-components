@@ -6,4 +6,6 @@ export class DileIconlibTreeEvergreenDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tree-evergreen-duotone', DileIconlibTreeEvergreenDuotone);
+if (!customElements.get('dile-phosphor-icon-tree-evergreen-duotone')) {
+  customElements.define('dile-phosphor-icon-tree-evergreen-duotone', DileIconlibTreeEvergreenDuotone);
+}

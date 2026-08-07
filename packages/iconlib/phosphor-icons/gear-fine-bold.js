@@ -6,4 +6,6 @@ export class DileIconlibGearFineBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gear-fine-bold', DileIconlibGearFineBold);
+if (!customElements.get('dile-phosphor-icon-gear-fine-bold')) {
+  customElements.define('dile-phosphor-icon-gear-fine-bold', DileIconlibGearFineBold);
+}

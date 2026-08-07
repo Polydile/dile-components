@@ -6,4 +6,6 @@ export class DileIconlibTrekking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-trekking', DileIconlibTrekking);
+if (!customElements.get('dile-tabler-icon-trekking')) {
+  customElements.define('dile-tabler-icon-trekking', DileIconlibTrekking);
+}

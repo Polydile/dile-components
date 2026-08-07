@@ -6,4 +6,6 @@ export class DileIconlibTerminalWindowFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-terminal-window-fill', DileIconlibTerminalWindowFill);
+if (!customElements.get('dile-remixicon-icon-terminal-window-fill')) {
+  customElements.define('dile-remixicon-icon-terminal-window-fill', DileIconlibTerminalWindowFill);
+}

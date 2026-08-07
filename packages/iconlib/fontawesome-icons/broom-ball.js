@@ -6,4 +6,6 @@ export class DileIconlibBroomBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-broom-ball', DileIconlibBroomBall);
+if (!customElements.get('dile-fontawesome-icon-broom-ball')) {
+  customElements.define('dile-fontawesome-icon-broom-ball', DileIconlibBroomBall);
+}

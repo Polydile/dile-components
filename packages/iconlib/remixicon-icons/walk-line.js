@@ -6,4 +6,6 @@ export class DileIconlibWalkLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-walk-line', DileIconlibWalkLine);
+if (!customElements.get('dile-remixicon-icon-walk-line')) {
+  customElements.define('dile-remixicon-icon-walk-line', DileIconlibWalkLine);
+}

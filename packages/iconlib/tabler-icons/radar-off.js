@@ -6,4 +6,6 @@ export class DileIconlibRadarOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-radar-off', DileIconlibRadarOff);
+if (!customElements.get('dile-tabler-icon-radar-off')) {
+  customElements.define('dile-tabler-icon-radar-off', DileIconlibRadarOff);
+}

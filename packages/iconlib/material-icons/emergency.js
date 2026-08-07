@@ -6,4 +6,6 @@ export class DileIconlibEmergency extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emergency', DileIconlibEmergency);
+if (!customElements.get('dile-material-icon-emergency')) {
+  customElements.define('dile-material-icon-emergency', DileIconlibEmergency);
+}

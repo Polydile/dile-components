@@ -6,4 +6,6 @@ export class DileIconlibPauseCircleThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-pause-circle-thin', DileIconlibPauseCircleThin);
+if (!customElements.get('dile-phosphor-icon-pause-circle-thin')) {
+  customElements.define('dile-phosphor-icon-pause-circle-thin', DileIconlibPauseCircleThin);
+}

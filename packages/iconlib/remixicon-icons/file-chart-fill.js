@@ -6,4 +6,6 @@ export class DileIconlibFileChartFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-chart-fill', DileIconlibFileChartFill);
+if (!customElements.get('dile-remixicon-icon-file-chart-fill')) {
+  customElements.define('dile-remixicon-icon-file-chart-fill', DileIconlibFileChartFill);
+}

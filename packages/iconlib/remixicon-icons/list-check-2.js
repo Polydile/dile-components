@@ -6,4 +6,6 @@ export class DileIconlibListCheck2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-list-check-2', DileIconlibListCheck2);
+if (!customElements.get('dile-remixicon-icon-list-check-2')) {
+  customElements.define('dile-remixicon-icon-list-check-2', DileIconlibListCheck2);
+}

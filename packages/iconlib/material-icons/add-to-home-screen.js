@@ -6,4 +6,6 @@ export class DileIconlibAddToHomeScreen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-add-to-home-screen', DileIconlibAddToHomeScreen);
+if (!customElements.get('dile-material-icon-add-to-home-screen')) {
+  customElements.define('dile-material-icon-add-to-home-screen', DileIconlibAddToHomeScreen);
+}

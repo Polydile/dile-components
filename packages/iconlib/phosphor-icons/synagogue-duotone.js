@@ -6,4 +6,6 @@ export class DileIconlibSynagogueDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-synagogue-duotone', DileIconlibSynagogueDuotone);
+if (!customElements.get('dile-phosphor-icon-synagogue-duotone')) {
+  customElements.define('dile-phosphor-icon-synagogue-duotone', DileIconlibSynagogueDuotone);
+}

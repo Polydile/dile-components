@@ -6,4 +6,6 @@ export class DileIconlibRewindMiniFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rewind-mini-fill', DileIconlibRewindMiniFill);
+if (!customElements.get('dile-remixicon-icon-rewind-mini-fill')) {
+  customElements.define('dile-remixicon-icon-rewind-mini-fill', DileIconlibRewindMiniFill);
+}

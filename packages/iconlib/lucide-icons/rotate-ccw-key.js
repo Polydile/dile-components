@@ -6,4 +6,6 @@ export class DileIconlibRotateCcwKey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rotate-ccw-key', DileIconlibRotateCcwKey);
+if (!customElements.get('dile-lucide-icon-rotate-ccw-key')) {
+  customElements.define('dile-lucide-icon-rotate-ccw-key', DileIconlibRotateCcwKey);
+}

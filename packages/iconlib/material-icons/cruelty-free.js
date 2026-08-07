@@ -6,4 +6,6 @@ export class DileIconlibCrueltyFree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-cruelty-free', DileIconlibCrueltyFree);
+if (!customElements.get('dile-material-icon-cruelty-free')) {
+  customElements.define('dile-material-icon-cruelty-free', DileIconlibCrueltyFree);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandTiktokFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-tiktok-filled', DileIconlibBrandTiktokFilled);
+if (!customElements.get('dile-tabler-icon-brand-tiktok-filled')) {
+  customElements.define('dile-tabler-icon-brand-tiktok-filled', DileIconlibBrandTiktokFilled);
+}

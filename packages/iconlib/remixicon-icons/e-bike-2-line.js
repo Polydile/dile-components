@@ -6,4 +6,6 @@ export class DileIconlibEBike2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-e-bike-2-line', DileIconlibEBike2Line);
+if (!customElements.get('dile-remixicon-icon-e-bike-2-line')) {
+  customElements.define('dile-remixicon-icon-e-bike-2-line', DileIconlibEBike2Line);
+}

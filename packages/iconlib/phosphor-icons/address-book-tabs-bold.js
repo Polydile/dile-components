@@ -6,4 +6,6 @@ export class DileIconlibAddressBookTabsBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-address-book-tabs-bold', DileIconlibAddressBookTabsBold);
+if (!customElements.get('dile-phosphor-icon-address-book-tabs-bold')) {
+  customElements.define('dile-phosphor-icon-address-book-tabs-bold', DileIconlibAddressBookTabsBold);
+}

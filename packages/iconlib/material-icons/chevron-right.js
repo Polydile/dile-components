@@ -6,4 +6,6 @@ export class DileIconlibChevronRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-chevron-right', DileIconlibChevronRight);
+if (!customElements.get('dile-material-icon-chevron-right')) {
+  customElements.define('dile-material-icon-chevron-right', DileIconlibChevronRight);
+}

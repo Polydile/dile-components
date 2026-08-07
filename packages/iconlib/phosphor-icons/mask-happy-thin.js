@@ -6,4 +6,6 @@ export class DileIconlibMaskHappyThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mask-happy-thin', DileIconlibMaskHappyThin);
+if (!customElements.get('dile-phosphor-icon-mask-happy-thin')) {
+  customElements.define('dile-phosphor-icon-mask-happy-thin', DileIconlibMaskHappyThin);
+}

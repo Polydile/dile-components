@@ -6,4 +6,6 @@ export class DileIconlibMobilePhone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mobile-phone', DileIconlibMobilePhone);
+if (!customElements.get('dile-fontawesome-icon-mobile-phone')) {
+  customElements.define('dile-fontawesome-icon-mobile-phone', DileIconlibMobilePhone);
+}

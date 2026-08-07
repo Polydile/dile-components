@@ -6,4 +6,6 @@ export class DileIconlibPaintRoller extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-paint-roller', DileIconlibPaintRoller);
+if (!customElements.get('dile-fontawesome-icon-paint-roller')) {
+  customElements.define('dile-fontawesome-icon-paint-roller', DileIconlibPaintRoller);
+}

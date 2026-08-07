@@ -6,4 +6,6 @@ export class DileIconlibWhmcs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-whmcs', DileIconlibWhmcs);
+if (!customElements.get('dile-fontawesome-icon-whmcs')) {
+  customElements.define('dile-fontawesome-icon-whmcs', DileIconlibWhmcs);
+}

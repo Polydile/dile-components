@@ -6,4 +6,6 @@ export class DileIconlibWebhooksLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-webhooks-logo-duotone', DileIconlibWebhooksLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-webhooks-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-webhooks-logo-duotone', DileIconlibWebhooksLogoDuotone);
+}

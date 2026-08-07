@@ -6,4 +6,6 @@ export class DileIconlibNumberThreeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-number-three-bold', DileIconlibNumberThreeBold);
+if (!customElements.get('dile-phosphor-icon-number-three-bold')) {
+  customElements.define('dile-phosphor-icon-number-three-bold', DileIconlibNumberThreeBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEyeglassesFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-eyeglasses-fill', DileIconlibEyeglassesFill);
+if (!customElements.get('dile-phosphor-icon-eyeglasses-fill')) {
+  customElements.define('dile-phosphor-icon-eyeglasses-fill', DileIconlibEyeglassesFill);
+}

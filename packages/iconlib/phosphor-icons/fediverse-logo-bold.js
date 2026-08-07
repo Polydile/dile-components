@@ -6,4 +6,6 @@ export class DileIconlibFediverseLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-fediverse-logo-bold', DileIconlibFediverseLogoBold);
+if (!customElements.get('dile-phosphor-icon-fediverse-logo-bold')) {
+  customElements.define('dile-phosphor-icon-fediverse-logo-bold', DileIconlibFediverseLogoBold);
+}

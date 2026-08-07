@@ -6,4 +6,6 @@ export class DileIconlibFireAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fire-alt', DileIconlibFireAlt);
+if (!customElements.get('dile-fontawesome-icon-fire-alt')) {
+  customElements.define('dile-fontawesome-icon-fire-alt', DileIconlibFireAlt);
+}

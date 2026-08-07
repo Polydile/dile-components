@@ -6,4 +6,6 @@ export class DileIconlibShoppingBagExclamation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shopping-bag-exclamation', DileIconlibShoppingBagExclamation);
+if (!customElements.get('dile-tabler-icon-shopping-bag-exclamation')) {
+  customElements.define('dile-tabler-icon-shopping-bag-exclamation', DileIconlibShoppingBagExclamation);
+}

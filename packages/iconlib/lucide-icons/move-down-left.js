@@ -6,4 +6,6 @@ export class DileIconlibMoveDownLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-move-down-left', DileIconlibMoveDownLeft);
+if (!customElements.get('dile-lucide-icon-move-down-left')) {
+  customElements.define('dile-lucide-icon-move-down-left', DileIconlibMoveDownLeft);
+}

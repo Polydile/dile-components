@@ -6,4 +6,6 @@ export class DileIconlibFlagCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-flag-code', DileIconlibFlagCode);
+if (!customElements.get('dile-tabler-icon-flag-code')) {
+  customElements.define('dile-tabler-icon-flag-code', DileIconlibFlagCode);
+}

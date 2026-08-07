@@ -6,4 +6,6 @@ export class DileIconlibGpsFixDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gps-fix-duotone', DileIconlibGpsFixDuotone);
+if (!customElements.get('dile-phosphor-icon-gps-fix-duotone')) {
+  customElements.define('dile-phosphor-icon-gps-fix-duotone', DileIconlibGpsFixDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCircleEuro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-circle-euro', DileIconlibCircleEuro);
+if (!customElements.get('dile-lucide-icon-circle-euro')) {
+  customElements.define('dile-lucide-icon-circle-euro', DileIconlibCircleEuro);
+}

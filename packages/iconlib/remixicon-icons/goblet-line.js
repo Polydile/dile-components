@@ -6,4 +6,6 @@ export class DileIconlibGobletLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-goblet-line', DileIconlibGobletLine);
+if (!customElements.get('dile-remixicon-icon-goblet-line')) {
+  customElements.define('dile-remixicon-icon-goblet-line', DileIconlibGobletLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClearFormatting extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clear-formatting', DileIconlibClearFormatting);
+if (!customElements.get('dile-tabler-icon-clear-formatting')) {
+  customElements.define('dile-tabler-icon-clear-formatting', DileIconlibClearFormatting);
+}

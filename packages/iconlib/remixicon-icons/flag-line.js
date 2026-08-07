@@ -6,4 +6,6 @@ export class DileIconlibFlagLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flag-line', DileIconlibFlagLine);
+if (!customElements.get('dile-remixicon-icon-flag-line')) {
+  customElements.define('dile-remixicon-icon-flag-line', DileIconlibFlagLine);
+}

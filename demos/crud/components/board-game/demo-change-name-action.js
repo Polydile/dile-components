@@ -18,4 +18,6 @@ export class DemoChangeNameAction extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-change-name-action', DemoChangeNameAction);
+if (!customElements.get('demo-change-name-action')) {
+  customElements.define('demo-change-name-action', DemoChangeNameAction);
+}

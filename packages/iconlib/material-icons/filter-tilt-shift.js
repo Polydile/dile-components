@@ -6,4 +6,6 @@ export class DileIconlibFilterTiltShift extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-filter-tilt-shift', DileIconlibFilterTiltShift);
+if (!customElements.get('dile-material-icon-filter-tilt-shift')) {
+  customElements.define('dile-material-icon-filter-tilt-shift', DileIconlibFilterTiltShift);
+}

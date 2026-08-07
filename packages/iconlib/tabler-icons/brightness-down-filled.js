@@ -6,4 +6,6 @@ export class DileIconlibBrightnessDownFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brightness-down-filled', DileIconlibBrightnessDownFilled);
+if (!customElements.get('dile-tabler-icon-brightness-down-filled')) {
+  customElements.define('dile-tabler-icon-brightness-down-filled', DileIconlibBrightnessDownFilled);
+}

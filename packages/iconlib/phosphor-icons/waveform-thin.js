@@ -6,4 +6,6 @@ export class DileIconlibWaveformThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waveform-thin', DileIconlibWaveformThin);
+if (!customElements.get('dile-phosphor-icon-waveform-thin')) {
+  customElements.define('dile-phosphor-icon-waveform-thin', DileIconlibWaveformThin);
+}

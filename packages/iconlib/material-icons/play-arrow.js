@@ -6,4 +6,6 @@ export class DileIconlibPlayArrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-play-arrow', DileIconlibPlayArrow);
+if (!customElements.get('dile-material-icon-play-arrow')) {
+  customElements.define('dile-material-icon-play-arrow', DileIconlibPlayArrow);
+}

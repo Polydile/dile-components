@@ -6,4 +6,6 @@ export class DileIconlibDvr extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dvr', DileIconlibDvr);
+if (!customElements.get('dile-material-icon-dvr')) {
+  customElements.define('dile-material-icon-dvr', DileIconlibDvr);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCheckLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-check-line', DileIconlibCheckLine);
+if (!customElements.get('dile-remixicon-icon-check-line')) {
+  customElements.define('dile-remixicon-icon-check-line', DileIconlibCheckLine);
+}

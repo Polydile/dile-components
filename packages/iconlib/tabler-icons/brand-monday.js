@@ -6,4 +6,6 @@ export class DileIconlibBrandMonday extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-monday', DileIconlibBrandMonday);
+if (!customElements.get('dile-tabler-icon-brand-monday')) {
+  customElements.define('dile-tabler-icon-brand-monday', DileIconlibBrandMonday);
+}

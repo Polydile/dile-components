@@ -6,4 +6,6 @@ export class DileIconlibZoomQuestion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-question', DileIconlibZoomQuestion);
+if (!customElements.get('dile-tabler-icon-zoom-question')) {
+  customElements.define('dile-tabler-icon-zoom-question', DileIconlibZoomQuestion);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHardDrive2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hard-drive-2-line', DileIconlibHardDrive2Line);
+if (!customElements.get('dile-remixicon-icon-hard-drive-2-line')) {
+  customElements.define('dile-remixicon-icon-hard-drive-2-line', DileIconlibHardDrive2Line);
+}

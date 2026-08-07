@@ -6,4 +6,6 @@ export class DileIconlibDeleteColumn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-delete-column', DileIconlibDeleteColumn);
+if (!customElements.get('dile-remixicon-icon-delete-column')) {
+  customElements.define('dile-remixicon-icon-delete-column', DileIconlibDeleteColumn);
+}

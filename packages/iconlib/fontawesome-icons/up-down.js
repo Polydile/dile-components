@@ -6,4 +6,6 @@ export class DileIconlibUpDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-up-down', DileIconlibUpDown);
+if (!customElements.get('dile-fontawesome-icon-up-down')) {
+  customElements.define('dile-fontawesome-icon-up-down', DileIconlibUpDown);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMailSpark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-spark', DileIconlibMailSpark);
+if (!customElements.get('dile-tabler-icon-mail-spark')) {
+  customElements.define('dile-tabler-icon-mail-spark', DileIconlibMailSpark);
+}

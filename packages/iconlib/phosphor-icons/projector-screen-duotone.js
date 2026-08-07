@@ -6,4 +6,6 @@ export class DileIconlibProjectorScreenDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-projector-screen-duotone', DileIconlibProjectorScreenDuotone);
+if (!customElements.get('dile-phosphor-icon-projector-screen-duotone')) {
+  customElements.define('dile-phosphor-icon-projector-screen-duotone', DileIconlibProjectorScreenDuotone);
+}

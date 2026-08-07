@@ -6,4 +6,6 @@ export class DileIconlibCurrencyAfghani extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-afghani', DileIconlibCurrencyAfghani);
+if (!customElements.get('dile-tabler-icon-currency-afghani')) {
+  customElements.define('dile-tabler-icon-currency-afghani', DileIconlibCurrencyAfghani);
+}

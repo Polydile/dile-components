@@ -6,4 +6,6 @@ export class DileIconlibFormatTextdirectionLToR extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-textdirection-l-to-r', DileIconlibFormatTextdirectionLToR);
+if (!customElements.get('dile-material-icon-format-textdirection-l-to-r')) {
+  customElements.define('dile-material-icon-format-textdirection-l-to-r', DileIconlibFormatTextdirectionLToR);
+}

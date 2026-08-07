@@ -6,4 +6,6 @@ export class DileIconlibBrandYandex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-yandex', DileIconlibBrandYandex);
+if (!customElements.get('dile-tabler-icon-brand-yandex')) {
+  customElements.define('dile-tabler-icon-brand-yandex', DileIconlibBrandYandex);
+}

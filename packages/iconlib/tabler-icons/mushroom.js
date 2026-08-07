@@ -6,4 +6,6 @@ export class DileIconlibMushroom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mushroom', DileIconlibMushroom);
+if (!customElements.get('dile-tabler-icon-mushroom')) {
+  customElements.define('dile-tabler-icon-mushroom', DileIconlibMushroom);
+}

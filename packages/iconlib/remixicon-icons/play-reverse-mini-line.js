@@ -6,4 +6,6 @@ export class DileIconlibPlayReverseMiniLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-play-reverse-mini-line', DileIconlibPlayReverseMiniLine);
+if (!customElements.get('dile-remixicon-icon-play-reverse-mini-line')) {
+  customElements.define('dile-remixicon-icon-play-reverse-mini-line', DileIconlibPlayReverseMiniLine);
+}

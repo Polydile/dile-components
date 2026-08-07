@@ -6,4 +6,6 @@ export class DileIconlibJeepDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-jeep-duotone', DileIconlibJeepDuotone);
+if (!customElements.get('dile-phosphor-icon-jeep-duotone')) {
+  customElements.define('dile-phosphor-icon-jeep-duotone', DileIconlibJeepDuotone);
+}

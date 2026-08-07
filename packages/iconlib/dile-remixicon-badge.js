@@ -1,3 +1,5 @@
 import { DileRemixiconBadge } from "./src/DileRemixiconBadge.js";
 
-customElements.define('dile-remixicon-badge', DileRemixiconBadge);
+if (!customElements.get('dile-remixicon-badge')) {
+  customElements.define('dile-remixicon-badge', DileRemixiconBadge);
+}

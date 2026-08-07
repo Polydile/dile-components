@@ -6,4 +6,6 @@ export class DileIconlibFileMarkedLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-marked-line', DileIconlibFileMarkedLine);
+if (!customElements.get('dile-remixicon-icon-file-marked-line')) {
+  customElements.define('dile-remixicon-icon-file-marked-line', DileIconlibFileMarkedLine);
+}

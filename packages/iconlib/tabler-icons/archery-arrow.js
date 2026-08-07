@@ -6,4 +6,6 @@ export class DileIconlibArcheryArrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-archery-arrow', DileIconlibArcheryArrow);
+if (!customElements.get('dile-tabler-icon-archery-arrow')) {
+  customElements.define('dile-tabler-icon-archery-arrow', DileIconlibArcheryArrow);
+}

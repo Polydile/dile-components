@@ -6,4 +6,6 @@ export class DileIconlibBrandVechain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vechain', DileIconlibBrandVechain);
+if (!customElements.get('dile-tabler-icon-brand-vechain')) {
+  customElements.define('dile-tabler-icon-brand-vechain', DileIconlibBrandVechain);
+}

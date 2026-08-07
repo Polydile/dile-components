@@ -6,4 +6,6 @@ export class DileIconlibPlaneTilt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-plane-tilt', DileIconlibPlaneTilt);
+if (!customElements.get('dile-tabler-icon-plane-tilt')) {
+  customElements.define('dile-tabler-icon-plane-tilt', DileIconlibPlaneTilt);
+}

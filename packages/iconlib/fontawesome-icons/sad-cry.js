@@ -6,4 +6,6 @@ export class DileIconlibSadCry extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sad-cry', DileIconlibSadCry);
+if (!customElements.get('dile-fontawesome-icon-sad-cry')) {
+  customElements.define('dile-fontawesome-icon-sad-cry', DileIconlibSadCry);
+}

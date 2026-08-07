@@ -6,4 +6,6 @@ export class DileIconlibSparkling2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sparkling-2-fill', DileIconlibSparkling2Fill);
+if (!customElements.get('dile-remixicon-icon-sparkling-2-fill')) {
+  customElements.define('dile-remixicon-icon-sparkling-2-fill', DileIconlibSparkling2Fill);
+}

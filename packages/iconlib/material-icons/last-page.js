@@ -6,4 +6,6 @@ export class DileIconlibLastPage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-last-page', DileIconlibLastPage);
+if (!customElements.get('dile-material-icon-last-page')) {
+  customElements.define('dile-material-icon-last-page', DileIconlibLastPage);
+}

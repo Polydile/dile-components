@@ -6,4 +6,6 @@ export class DileIconlibCampaign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-campaign', DileIconlibCampaign);
+if (!customElements.get('dile-material-icon-campaign')) {
+  customElements.define('dile-material-icon-campaign', DileIconlibCampaign);
+}

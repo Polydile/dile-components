@@ -6,4 +6,6 @@ export class DileIconlibSortAlphabetDesc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sort-alphabet-desc', DileIconlibSortAlphabetDesc);
+if (!customElements.get('dile-remixicon-icon-sort-alphabet-desc')) {
+  customElements.define('dile-remixicon-icon-sort-alphabet-desc', DileIconlibSortAlphabetDesc);
+}

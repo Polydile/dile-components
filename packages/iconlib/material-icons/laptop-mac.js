@@ -6,4 +6,6 @@ export class DileIconlibLaptopMac extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-laptop-mac', DileIconlibLaptopMac);
+if (!customElements.get('dile-material-icon-laptop-mac')) {
+  customElements.define('dile-material-icon-laptop-mac', DileIconlibLaptopMac);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHttpTrace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-trace', DileIconlibHttpTrace);
+if (!customElements.get('dile-tabler-icon-http-trace')) {
+  customElements.define('dile-tabler-icon-http-trace', DileIconlibHttpTrace);
+}

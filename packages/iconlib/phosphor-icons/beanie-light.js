@@ -6,4 +6,6 @@ export class DileIconlibBeanieLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-beanie-light', DileIconlibBeanieLight);
+if (!customElements.get('dile-phosphor-icon-beanie-light')) {
+  customElements.define('dile-phosphor-icon-beanie-light', DileIconlibBeanieLight);
+}

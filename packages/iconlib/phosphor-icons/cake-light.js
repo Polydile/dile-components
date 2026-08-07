@@ -6,4 +6,6 @@ export class DileIconlibCakeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cake-light', DileIconlibCakeLight);
+if (!customElements.get('dile-phosphor-icon-cake-light')) {
+  customElements.define('dile-phosphor-icon-cake-light', DileIconlibCakeLight);
+}

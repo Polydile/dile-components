@@ -6,4 +6,6 @@ export class DileIconlibPeopleRobbery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-robbery', DileIconlibPeopleRobbery);
+if (!customElements.get('dile-fontawesome-icon-people-robbery')) {
+  customElements.define('dile-fontawesome-icon-people-robbery', DileIconlibPeopleRobbery);
+}

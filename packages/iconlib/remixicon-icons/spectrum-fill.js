@@ -6,4 +6,6 @@ export class DileIconlibSpectrumFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-spectrum-fill', DileIconlibSpectrumFill);
+if (!customElements.get('dile-remixicon-icon-spectrum-fill')) {
+  customElements.define('dile-remixicon-icon-spectrum-fill', DileIconlibSpectrumFill);
+}

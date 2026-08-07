@@ -6,4 +6,6 @@ export class DileIconlibToilet extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toilet', DileIconlibToilet);
+if (!customElements.get('dile-phosphor-icon-toilet')) {
+  customElements.define('dile-phosphor-icon-toilet', DileIconlibToilet);
+}

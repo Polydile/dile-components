@@ -6,4 +6,6 @@ export class DileIconlibDashboardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-dashboard-line', DileIconlibDashboardLine);
+if (!customElements.get('dile-remixicon-icon-dashboard-line')) {
+  customElements.define('dile-remixicon-icon-dashboard-line', DileIconlibDashboardLine);
+}

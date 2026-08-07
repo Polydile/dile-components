@@ -6,4 +6,6 @@ export class DileIconlibStickyNote extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-sticky-note', DileIconlibStickyNote);
+if (!customElements.get('dile-fontawesome-icon-regular-sticky-note')) {
+  customElements.define('dile-fontawesome-icon-regular-sticky-note', DileIconlibStickyNote);
+}

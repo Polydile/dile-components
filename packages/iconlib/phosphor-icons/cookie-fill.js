@@ -6,4 +6,6 @@ export class DileIconlibCookieFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cookie-fill', DileIconlibCookieFill);
+if (!customElements.get('dile-phosphor-icon-cookie-fill')) {
+  customElements.define('dile-phosphor-icon-cookie-fill', DileIconlibCookieFill);
+}

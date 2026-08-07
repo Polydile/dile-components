@@ -6,4 +6,6 @@ export class DileIconlibFrontLoader extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-front-loader', DileIconlibFrontLoader);
+if (!customElements.get('dile-material-icon-front-loader')) {
+  customElements.define('dile-material-icon-front-loader', DileIconlibFrontLoader);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScrewdriverWrench extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-screwdriver-wrench', DileIconlibScrewdriverWrench);
+if (!customElements.get('dile-fontawesome-icon-screwdriver-wrench')) {
+  customElements.define('dile-fontawesome-icon-screwdriver-wrench', DileIconlibScrewdriverWrench);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFolderGit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-folder-git', DileIconlibFolderGit);
+if (!customElements.get('dile-lucide-icon-folder-git')) {
+  customElements.define('dile-lucide-icon-folder-git', DileIconlibFolderGit);
+}

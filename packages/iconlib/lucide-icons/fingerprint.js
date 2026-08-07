@@ -6,4 +6,6 @@ export class DileIconlibFingerprint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-fingerprint', DileIconlibFingerprint);
+if (!customElements.get('dile-lucide-icon-fingerprint')) {
+  customElements.define('dile-lucide-icon-fingerprint', DileIconlibFingerprint);
+}

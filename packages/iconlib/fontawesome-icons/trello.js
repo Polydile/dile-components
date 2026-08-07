@@ -6,4 +6,6 @@ export class DileIconlibTrello extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-trello', DileIconlibTrello);
+if (!customElements.get('dile-fontawesome-icon-trello')) {
+  customElements.define('dile-fontawesome-icon-trello', DileIconlibTrello);
+}

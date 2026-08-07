@@ -6,4 +6,6 @@ export class DileIconlibHashStraightThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hash-straight-thin', DileIconlibHashStraightThin);
+if (!customElements.get('dile-phosphor-icon-hash-straight-thin')) {
+  customElements.define('dile-phosphor-icon-hash-straight-thin', DileIconlibHashStraightThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStarOfDavidDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-of-david-duotone', DileIconlibStarOfDavidDuotone);
+if (!customElements.get('dile-phosphor-icon-star-of-david-duotone')) {
+  customElements.define('dile-phosphor-icon-star-of-david-duotone', DileIconlibStarOfDavidDuotone);
+}

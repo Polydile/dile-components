@@ -6,4 +6,6 @@ export class DileIconlibCottonBureau extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cotton-bureau', DileIconlibCottonBureau);
+if (!customElements.get('dile-fontawesome-icon-cotton-bureau')) {
+  customElements.define('dile-fontawesome-icon-cotton-bureau', DileIconlibCottonBureau);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCursorBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cursor-bold', DileIconlibCursorBold);
+if (!customElements.get('dile-phosphor-icon-cursor-bold')) {
+  customElements.define('dile-phosphor-icon-cursor-bold', DileIconlibCursorBold);
+}

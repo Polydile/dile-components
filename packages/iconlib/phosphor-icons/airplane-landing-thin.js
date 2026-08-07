@@ -6,4 +6,6 @@ export class DileIconlibAirplaneLandingThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-airplane-landing-thin', DileIconlibAirplaneLandingThin);
+if (!customElements.get('dile-phosphor-icon-airplane-landing-thin')) {
+  customElements.define('dile-phosphor-icon-airplane-landing-thin', DileIconlibAirplaneLandingThin);
+}

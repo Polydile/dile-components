@@ -6,4 +6,6 @@ export class DileIconlibCompassRoseLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-compass-rose-light', DileIconlibCompassRoseLight);
+if (!customElements.get('dile-phosphor-icon-compass-rose-light')) {
+  customElements.define('dile-phosphor-icon-compass-rose-light', DileIconlibCompassRoseLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSystemSecurityUpdateWarning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-system-security-update-warning', DileIconlibSystemSecurityUpdateWarning);
+if (!customElements.get('dile-material-icon-system-security-update-warning')) {
+  customElements.define('dile-material-icon-system-security-update-warning', DileIconlibSystemSecurityUpdateWarning);
+}

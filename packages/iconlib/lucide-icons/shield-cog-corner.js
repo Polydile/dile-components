@@ -6,4 +6,6 @@ export class DileIconlibShieldCogCorner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shield-cog-corner', DileIconlibShieldCogCorner);
+if (!customElements.get('dile-lucide-icon-shield-cog-corner')) {
+  customElements.define('dile-lucide-icon-shield-cog-corner', DileIconlibShieldCogCorner);
+}

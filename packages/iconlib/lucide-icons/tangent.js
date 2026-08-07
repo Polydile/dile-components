@@ -6,4 +6,6 @@ export class DileIconlibTangent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tangent', DileIconlibTangent);
+if (!customElements.get('dile-lucide-icon-tangent')) {
+  customElements.define('dile-lucide-icon-tangent', DileIconlibTangent);
+}

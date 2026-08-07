@@ -6,4 +6,6 @@ export class DileIconlibBehanceLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-behance-line', DileIconlibBehanceLine);
+if (!customElements.get('dile-remixicon-icon-behance-line')) {
+  customElements.define('dile-remixicon-icon-behance-line', DileIconlibBehanceLine);
+}

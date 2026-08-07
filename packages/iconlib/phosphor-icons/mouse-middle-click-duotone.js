@@ -6,4 +6,6 @@ export class DileIconlibMouseMiddleClickDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-mouse-middle-click-duotone', DileIconlibMouseMiddleClickDuotone);
+if (!customElements.get('dile-phosphor-icon-mouse-middle-click-duotone')) {
+  customElements.define('dile-phosphor-icon-mouse-middle-click-duotone', DileIconlibMouseMiddleClickDuotone);
+}

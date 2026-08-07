@@ -6,4 +6,6 @@ export class DileIconlibFrameCornersFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-frame-corners-fill', DileIconlibFrameCornersFill);
+if (!customElements.get('dile-phosphor-icon-frame-corners-fill')) {
+  customElements.define('dile-phosphor-icon-frame-corners-fill', DileIconlibFrameCornersFill);
+}

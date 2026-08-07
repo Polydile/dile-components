@@ -6,4 +6,6 @@ export class DileIconlibDeviantart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deviantart', DileIconlibDeviantart);
+if (!customElements.get('dile-fontawesome-icon-deviantart')) {
+  customElements.define('dile-fontawesome-icon-deviantart', DileIconlibDeviantart);
+}

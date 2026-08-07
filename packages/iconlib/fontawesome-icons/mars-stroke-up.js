@@ -6,4 +6,6 @@ export class DileIconlibMarsStrokeUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mars-stroke-up', DileIconlibMarsStrokeUp);
+if (!customElements.get('dile-fontawesome-icon-mars-stroke-up')) {
+  customElements.define('dile-fontawesome-icon-mars-stroke-up', DileIconlibMarsStrokeUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandLoom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-loom', DileIconlibBrandLoom);
+if (!customElements.get('dile-tabler-icon-brand-loom')) {
+  customElements.define('dile-tabler-icon-brand-loom', DileIconlibBrandLoom);
+}

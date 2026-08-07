@@ -6,4 +6,6 @@ export class DileIconlibHazeMoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-haze-moon', DileIconlibHazeMoon);
+if (!customElements.get('dile-tabler-icon-haze-moon')) {
+  customElements.define('dile-tabler-icon-haze-moon', DileIconlibHazeMoon);
+}

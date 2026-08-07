@@ -6,4 +6,6 @@ export class DileIconlibDriversLicense extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-drivers-license', DileIconlibDriversLicense);
+if (!customElements.get('dile-fontawesome-icon-regular-drivers-license')) {
+  customElements.define('dile-fontawesome-icon-regular-drivers-license', DileIconlibDriversLicense);
+}

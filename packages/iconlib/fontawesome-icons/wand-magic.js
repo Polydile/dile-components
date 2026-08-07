@@ -6,4 +6,6 @@ export class DileIconlibWandMagic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wand-magic', DileIconlibWandMagic);
+if (!customElements.get('dile-fontawesome-icon-wand-magic')) {
+  customElements.define('dile-fontawesome-icon-wand-magic', DileIconlibWandMagic);
+}

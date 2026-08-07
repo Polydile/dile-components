@@ -6,4 +6,6 @@ export class DileIconlibAdjustmentsShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-adjustments-share', DileIconlibAdjustmentsShare);
+if (!customElements.get('dile-tabler-icon-adjustments-share')) {
+  customElements.define('dile-tabler-icon-adjustments-share', DileIconlibAdjustmentsShare);
+}

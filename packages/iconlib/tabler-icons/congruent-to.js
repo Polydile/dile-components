@@ -6,4 +6,6 @@ export class DileIconlibCongruentTo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-congruent-to', DileIconlibCongruentTo);
+if (!customElements.get('dile-tabler-icon-congruent-to')) {
+  customElements.define('dile-tabler-icon-congruent-to', DileIconlibCongruentTo);
+}

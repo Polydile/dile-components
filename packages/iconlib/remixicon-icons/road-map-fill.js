@@ -6,4 +6,6 @@ export class DileIconlibRoadMapFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-road-map-fill', DileIconlibRoadMapFill);
+if (!customElements.get('dile-remixicon-icon-road-map-fill')) {
+  customElements.define('dile-remixicon-icon-road-map-fill', DileIconlibRoadMapFill);
+}

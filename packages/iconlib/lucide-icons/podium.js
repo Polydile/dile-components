@@ -6,4 +6,6 @@ export class DileIconlibPodium extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-podium', DileIconlibPodium);
+if (!customElements.get('dile-lucide-icon-podium')) {
+  customElements.define('dile-lucide-icon-podium', DileIconlibPodium);
+}

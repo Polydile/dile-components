@@ -6,4 +6,6 @@ export class DileIconlibKeyboardShow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-keyboard-show', DileIconlibKeyboardShow);
+if (!customElements.get('dile-tabler-icon-keyboard-show')) {
+  customElements.define('dile-tabler-icon-keyboard-show', DileIconlibKeyboardShow);
+}

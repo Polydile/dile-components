@@ -6,4 +6,6 @@ export class DileIconlibPillow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pillow', DileIconlibPillow);
+if (!customElements.get('dile-tabler-icon-pillow')) {
+  customElements.define('dile-tabler-icon-pillow', DileIconlibPillow);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRelationOneToOne extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-relation-one-to-one', DileIconlibRelationOneToOne);
+if (!customElements.get('dile-tabler-icon-relation-one-to-one')) {
+  customElements.define('dile-tabler-icon-relation-one-to-one', DileIconlibRelationOneToOne);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMonitorDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-monitor-down', DileIconlibMonitorDown);
+if (!customElements.get('dile-lucide-icon-monitor-down')) {
+  customElements.define('dile-lucide-icon-monitor-down', DileIconlibMonitorDown);
+}

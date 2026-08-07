@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftTeamsLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-teams-logo-thin', DileIconlibMicrosoftTeamsLogoThin);
+if (!customElements.get('dile-phosphor-icon-microsoft-teams-logo-thin')) {
+  customElements.define('dile-phosphor-icon-microsoft-teams-logo-thin', DileIconlibMicrosoftTeamsLogoThin);
+}

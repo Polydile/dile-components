@@ -6,4 +6,6 @@ export class DileIconlibOutdoorGrill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-outdoor-grill', DileIconlibOutdoorGrill);
+if (!customElements.get('dile-material-icon-outdoor-grill')) {
+  customElements.define('dile-material-icon-outdoor-grill', DileIconlibOutdoorGrill);
+}

@@ -49,4 +49,6 @@ export class DemoBoardGamesForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-board-game-form', DemoBoardGamesForm);
+if (!customElements.get('demo-board-game-form')) {
+  customElements.define('demo-board-game-form', DemoBoardGamesForm);
+}

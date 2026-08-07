@@ -6,4 +6,6 @@ export class DileIconlibPrinterCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-printer-check', DileIconlibPrinterCheck);
+if (!customElements.get('dile-lucide-icon-printer-check')) {
+  customElements.define('dile-lucide-icon-printer-check', DileIconlibPrinterCheck);
+}

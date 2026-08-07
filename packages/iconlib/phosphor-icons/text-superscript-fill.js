@@ -6,4 +6,6 @@ export class DileIconlibTextSuperscriptFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-superscript-fill', DileIconlibTextSuperscriptFill);
+if (!customElements.get('dile-phosphor-icon-text-superscript-fill')) {
+  customElements.define('dile-phosphor-icon-text-superscript-fill', DileIconlibTextSuperscriptFill);
+}

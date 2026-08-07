@@ -6,4 +6,6 @@ export class DileIconlibAbacusOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-abacus-off', DileIconlibAbacusOff);
+if (!customElements.get('dile-tabler-icon-abacus-off')) {
+  customElements.define('dile-tabler-icon-abacus-off', DileIconlibAbacusOff);
+}

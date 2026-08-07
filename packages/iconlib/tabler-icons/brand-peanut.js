@@ -6,4 +6,6 @@ export class DileIconlibBrandPeanut extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-peanut', DileIconlibBrandPeanut);
+if (!customElements.get('dile-tabler-icon-brand-peanut')) {
+  customElements.define('dile-tabler-icon-brand-peanut', DileIconlibBrandPeanut);
+}

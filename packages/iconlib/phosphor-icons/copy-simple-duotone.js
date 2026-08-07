@@ -6,4 +6,6 @@ export class DileIconlibCopySimpleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-copy-simple-duotone', DileIconlibCopySimpleDuotone);
+if (!customElements.get('dile-phosphor-icon-copy-simple-duotone')) {
+  customElements.define('dile-phosphor-icon-copy-simple-duotone', DileIconlibCopySimpleDuotone);
+}

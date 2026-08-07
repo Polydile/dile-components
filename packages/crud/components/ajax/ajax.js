@@ -1,2 +1,4 @@
 import { DileAjax } from './src/DileAjax.js'
-customElements.define('dile-ajax', DileAjax);
+if (!customElements.get('dile-ajax')) {
+  customElements.define('dile-ajax', DileAjax);
+}

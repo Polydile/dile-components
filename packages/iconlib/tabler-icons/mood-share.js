@@ -6,4 +6,6 @@ export class DileIconlibMoodShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-share', DileIconlibMoodShare);
+if (!customElements.get('dile-tabler-icon-mood-share')) {
+  customElements.define('dile-tabler-icon-mood-share', DileIconlibMoodShare);
+}

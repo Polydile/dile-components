@@ -6,4 +6,6 @@ export class DileIconlibOctagonMinus2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-octagon-minus-2', DileIconlibOctagonMinus2);
+if (!customElements.get('dile-tabler-icon-octagon-minus-2')) {
+  customElements.define('dile-tabler-icon-octagon-minus-2', DileIconlibOctagonMinus2);
+}

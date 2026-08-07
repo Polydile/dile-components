@@ -6,4 +6,6 @@ export class DileIconlibSunset extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sunset', DileIconlibSunset);
+if (!customElements.get('dile-lucide-icon-sunset')) {
+  customElements.define('dile-lucide-icon-sunset', DileIconlibSunset);
+}

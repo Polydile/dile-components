@@ -6,4 +6,6 @@ export class DileIconlibNairaSign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-naira-sign', DileIconlibNairaSign);
+if (!customElements.get('dile-fontawesome-icon-naira-sign')) {
+  customElements.define('dile-fontawesome-icon-naira-sign', DileIconlibNairaSign);
+}

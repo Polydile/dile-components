@@ -6,4 +6,6 @@ export class DileIconlibDoNotStep extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-do-not-step', DileIconlibDoNotStep);
+if (!customElements.get('dile-material-icon-do-not-step')) {
+  customElements.define('dile-material-icon-do-not-step', DileIconlibDoNotStep);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFridge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fridge', DileIconlibFridge);
+if (!customElements.get('dile-tabler-icon-fridge')) {
+  customElements.define('dile-tabler-icon-fridge', DileIconlibFridge);
+}

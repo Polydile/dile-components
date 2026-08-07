@@ -6,4 +6,6 @@ export class DileIconlibBowlSpoonFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bowl-spoon-filled', DileIconlibBowlSpoonFilled);
+if (!customElements.get('dile-tabler-icon-bowl-spoon-filled')) {
+  customElements.define('dile-tabler-icon-bowl-spoon-filled', DileIconlibBowlSpoonFilled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandingWatermark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-branding-watermark', DileIconlibBrandingWatermark);
+if (!customElements.get('dile-material-icon-branding-watermark')) {
+  customElements.define('dile-material-icon-branding-watermark', DileIconlibBrandingWatermark);
+}

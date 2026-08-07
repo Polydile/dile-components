@@ -6,4 +6,6 @@ export class DileIconlibRose extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rose', DileIconlibRose);
+if (!customElements.get('dile-lucide-icon-rose')) {
+  customElements.define('dile-lucide-icon-rose', DileIconlibRose);
+}

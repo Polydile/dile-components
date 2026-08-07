@@ -6,4 +6,6 @@ export class DileIconlibSubtitlesOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-subtitles-off', DileIconlibSubtitlesOff);
+if (!customElements.get('dile-tabler-icon-subtitles-off')) {
+  customElements.define('dile-tabler-icon-subtitles-off', DileIconlibSubtitlesOff);
+}

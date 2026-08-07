@@ -6,4 +6,6 @@ export class DileIconlibCactusFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cactus-fill', DileIconlibCactusFill);
+if (!customElements.get('dile-remixicon-icon-cactus-fill')) {
+  customElements.define('dile-remixicon-icon-cactus-fill', DileIconlibCactusFill);
+}

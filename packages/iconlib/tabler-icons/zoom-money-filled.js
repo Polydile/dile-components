@@ -6,4 +6,6 @@ export class DileIconlibZoomMoneyFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-money-filled', DileIconlibZoomMoneyFilled);
+if (!customElements.get('dile-tabler-icon-zoom-money-filled')) {
+  customElements.define('dile-tabler-icon-zoom-money-filled', DileIconlibZoomMoneyFilled);
+}

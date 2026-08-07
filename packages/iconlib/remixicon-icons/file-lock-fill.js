@@ -6,4 +6,6 @@ export class DileIconlibFileLockFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-lock-fill', DileIconlibFileLockFill);
+if (!customElements.get('dile-remixicon-icon-file-lock-fill')) {
+  customElements.define('dile-remixicon-icon-file-lock-fill', DileIconlibFileLockFill);
+}

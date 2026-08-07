@@ -6,4 +6,6 @@ export class DileIconlibBrandTerraform extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-terraform', DileIconlibBrandTerraform);
+if (!customElements.get('dile-tabler-icon-brand-terraform')) {
+  customElements.define('dile-tabler-icon-brand-terraform', DileIconlibBrandTerraform);
+}

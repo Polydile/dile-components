@@ -6,4 +6,6 @@ export class DileIconlibFileCSharp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-c-sharp', DileIconlibFileCSharp);
+if (!customElements.get('dile-phosphor-icon-file-c-sharp')) {
+  customElements.define('dile-phosphor-icon-file-c-sharp', DileIconlibFileCSharp);
+}

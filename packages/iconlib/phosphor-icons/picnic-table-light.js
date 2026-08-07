@@ -6,4 +6,6 @@ export class DileIconlibPicnicTableLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-picnic-table-light', DileIconlibPicnicTableLight);
+if (!customElements.get('dile-phosphor-icon-picnic-table-light')) {
+  customElements.define('dile-phosphor-icon-picnic-table-light', DileIconlibPicnicTableLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhoneVolume extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-phone-volume', DileIconlibPhoneVolume);
+if (!customElements.get('dile-fontawesome-icon-phone-volume')) {
+  customElements.define('dile-fontawesome-icon-phone-volume', DileIconlibPhoneVolume);
+}

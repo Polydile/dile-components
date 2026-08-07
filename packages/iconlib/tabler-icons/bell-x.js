@@ -6,4 +6,6 @@ export class DileIconlibBellX extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-bell-x', DileIconlibBellX);
+if (!customElements.get('dile-tabler-icon-bell-x')) {
+  customElements.define('dile-tabler-icon-bell-x', DileIconlibBellX);
+}

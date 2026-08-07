@@ -6,4 +6,6 @@ export class DileIconlibShieldHalfFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shield-half-filled', DileIconlibShieldHalfFilled);
+if (!customElements.get('dile-tabler-icon-shield-half-filled')) {
+  customElements.define('dile-tabler-icon-shield-half-filled', DileIconlibShieldHalfFilled);
+}

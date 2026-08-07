@@ -6,4 +6,6 @@ export class DileIconlibTreeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tree-line', DileIconlibTreeLine);
+if (!customElements.get('dile-remixicon-icon-tree-line')) {
+  customElements.define('dile-remixicon-icon-tree-line', DileIconlibTreeLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZeroConfig extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zero-config', DileIconlibZeroConfig);
+if (!customElements.get('dile-tabler-icon-zero-config')) {
+  customElements.define('dile-tabler-icon-zero-config', DileIconlibZeroConfig);
+}

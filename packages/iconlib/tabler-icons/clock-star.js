@@ -6,4 +6,6 @@ export class DileIconlibClockStar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-star', DileIconlibClockStar);
+if (!customElements.get('dile-tabler-icon-clock-star')) {
+  customElements.define('dile-tabler-icon-clock-star', DileIconlibClockStar);
+}

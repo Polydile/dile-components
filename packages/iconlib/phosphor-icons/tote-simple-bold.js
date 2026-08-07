@@ -6,4 +6,6 @@ export class DileIconlibToteSimpleBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tote-simple-bold', DileIconlibToteSimpleBold);
+if (!customElements.get('dile-phosphor-icon-tote-simple-bold')) {
+  customElements.define('dile-phosphor-icon-tote-simple-bold', DileIconlibToteSimpleBold);
+}

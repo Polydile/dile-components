@@ -6,4 +6,6 @@ export class DileIconlibXMark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-x-mark', DileIconlibXMark);
+if (!customElements.get('dile-tabler-icon-x-mark')) {
+  customElements.define('dile-tabler-icon-x-mark', DileIconlibXMark);
+}

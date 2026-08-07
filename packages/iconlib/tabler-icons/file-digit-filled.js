@@ -6,4 +6,6 @@ export class DileIconlibFileDigitFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-digit-filled', DileIconlibFileDigitFilled);
+if (!customElements.get('dile-tabler-icon-file-digit-filled')) {
+  customElements.define('dile-tabler-icon-file-digit-filled', DileIconlibFileDigitFilled);
+}

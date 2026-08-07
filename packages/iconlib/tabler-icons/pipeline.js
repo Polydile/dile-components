@@ -6,4 +6,6 @@ export class DileIconlibPipeline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pipeline', DileIconlibPipeline);
+if (!customElements.get('dile-tabler-icon-pipeline')) {
+  customElements.define('dile-tabler-icon-pipeline', DileIconlibPipeline);
+}

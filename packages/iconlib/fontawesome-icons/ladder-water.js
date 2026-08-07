@@ -6,4 +6,6 @@ export class DileIconlibLadderWater extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ladder-water', DileIconlibLadderWater);
+if (!customElements.get('dile-fontawesome-icon-ladder-water')) {
+  customElements.define('dile-fontawesome-icon-ladder-water', DileIconlibLadderWater);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAutoFixOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-auto-fix-off', DileIconlibAutoFixOff);
+if (!customElements.get('dile-material-icon-auto-fix-off')) {
+  customElements.define('dile-material-icon-auto-fix-off', DileIconlibAutoFixOff);
+}

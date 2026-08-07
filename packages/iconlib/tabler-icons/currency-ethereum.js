@@ -6,4 +6,6 @@ export class DileIconlibCurrencyEthereum extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-ethereum', DileIconlibCurrencyEthereum);
+if (!customElements.get('dile-tabler-icon-currency-ethereum')) {
+  customElements.define('dile-tabler-icon-currency-ethereum', DileIconlibCurrencyEthereum);
+}

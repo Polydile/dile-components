@@ -6,4 +6,6 @@ export class DileIconlibEarthLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-earth-line', DileIconlibEarthLine);
+if (!customElements.get('dile-remixicon-icon-earth-line')) {
+  customElements.define('dile-remixicon-icon-earth-line', DileIconlibEarthLine);
+}

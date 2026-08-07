@@ -6,4 +6,6 @@ export class DileIconlibReceiptYuan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-receipt-yuan', DileIconlibReceiptYuan);
+if (!customElements.get('dile-tabler-icon-receipt-yuan')) {
+  customElements.define('dile-tabler-icon-receipt-yuan', DileIconlibReceiptYuan);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWorldCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-world-code', DileIconlibWorldCode);
+if (!customElements.get('dile-tabler-icon-world-code')) {
+  customElements.define('dile-tabler-icon-world-code', DileIconlibWorldCode);
+}

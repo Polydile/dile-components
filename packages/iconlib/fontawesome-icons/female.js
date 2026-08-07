@@ -6,4 +6,6 @@ export class DileIconlibFemale extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-female', DileIconlibFemale);
+if (!customElements.get('dile-fontawesome-icon-female')) {
+  customElements.define('dile-fontawesome-icon-female', DileIconlibFemale);
+}

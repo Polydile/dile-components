@@ -6,4 +6,6 @@ export class DileIconlibPottedPlantLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-potted-plant-light', DileIconlibPottedPlantLight);
+if (!customElements.get('dile-phosphor-icon-potted-plant-light')) {
+  customElements.define('dile-phosphor-icon-potted-plant-light', DileIconlibPottedPlantLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCardTravel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-card-travel', DileIconlibCardTravel);
+if (!customElements.get('dile-material-icon-card-travel')) {
+  customElements.define('dile-material-icon-card-travel', DileIconlibCardTravel);
+}

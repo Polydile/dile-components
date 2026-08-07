@@ -6,4 +6,6 @@ export class DileIconlibBrandZulip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zulip', DileIconlibBrandZulip);
+if (!customElements.get('dile-tabler-icon-brand-zulip')) {
+  customElements.define('dile-tabler-icon-brand-zulip', DileIconlibBrandZulip);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMailCode extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-code', DileIconlibMailCode);
+if (!customElements.get('dile-tabler-icon-mail-code')) {
+  customElements.define('dile-tabler-icon-mail-code', DileIconlibMailCode);
+}

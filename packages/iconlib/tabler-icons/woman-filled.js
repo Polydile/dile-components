@@ -6,4 +6,6 @@ export class DileIconlibWomanFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-woman-filled', DileIconlibWomanFilled);
+if (!customElements.get('dile-tabler-icon-woman-filled')) {
+  customElements.define('dile-tabler-icon-woman-filled', DileIconlibWomanFilled);
+}

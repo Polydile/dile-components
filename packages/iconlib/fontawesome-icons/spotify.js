@@ -6,4 +6,6 @@ export class DileIconlibSpotify extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spotify', DileIconlibSpotify);
+if (!customElements.get('dile-fontawesome-icon-spotify')) {
+  customElements.define('dile-fontawesome-icon-spotify', DileIconlibSpotify);
+}

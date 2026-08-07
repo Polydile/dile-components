@@ -6,4 +6,6 @@ export class DileIconlibBrandBooking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-booking', DileIconlibBrandBooking);
+if (!customElements.get('dile-tabler-icon-brand-booking')) {
+  customElements.define('dile-tabler-icon-brand-booking', DileIconlibBrandBooking);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandDebian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-debian', DileIconlibBrandDebian);
+if (!customElements.get('dile-tabler-icon-brand-debian')) {
+  customElements.define('dile-tabler-icon-brand-debian', DileIconlibBrandDebian);
+}

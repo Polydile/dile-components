@@ -6,4 +6,6 @@ export class DileIconlibGrimace extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-grimace', DileIconlibGrimace);
+if (!customElements.get('dile-fontawesome-icon-grimace')) {
+  customElements.define('dile-fontawesome-icon-grimace', DileIconlibGrimace);
+}

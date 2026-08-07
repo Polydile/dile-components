@@ -6,4 +6,6 @@ export class DileIconlibChildFriendly extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-child-friendly', DileIconlibChildFriendly);
+if (!customElements.get('dile-material-icon-child-friendly')) {
+  customElements.define('dile-material-icon-child-friendly', DileIconlibChildFriendly);
+}

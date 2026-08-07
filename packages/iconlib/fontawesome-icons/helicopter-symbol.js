@@ -6,4 +6,6 @@ export class DileIconlibHelicopterSymbol extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-helicopter-symbol', DileIconlibHelicopterSymbol);
+if (!customElements.get('dile-fontawesome-icon-helicopter-symbol')) {
+  customElements.define('dile-fontawesome-icon-helicopter-symbol', DileIconlibHelicopterSymbol);
+}

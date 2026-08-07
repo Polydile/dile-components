@@ -6,4 +6,6 @@ export class DileIconlibMandalorian extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mandalorian', DileIconlibMandalorian);
+if (!customElements.get('dile-fontawesome-icon-mandalorian')) {
+  customElements.define('dile-fontawesome-icon-mandalorian', DileIconlibMandalorian);
+}

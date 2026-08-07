@@ -6,4 +6,6 @@ export class DileIconlibOldRepublic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-old-republic', DileIconlibOldRepublic);
+if (!customElements.get('dile-fontawesome-icon-old-republic')) {
+  customElements.define('dile-fontawesome-icon-old-republic', DileIconlibOldRepublic);
+}

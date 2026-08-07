@@ -6,4 +6,6 @@ export class DileIconlibBatteryThreeQuarters extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-battery-three-quarters', DileIconlibBatteryThreeQuarters);
+if (!customElements.get('dile-fontawesome-icon-battery-three-quarters')) {
+  customElements.define('dile-fontawesome-icon-battery-three-quarters', DileIconlibBatteryThreeQuarters);
+}

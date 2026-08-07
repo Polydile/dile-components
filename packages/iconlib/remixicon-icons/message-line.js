@@ -6,4 +6,6 @@ export class DileIconlibMessageLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-message-line', DileIconlibMessageLine);
+if (!customElements.get('dile-remixicon-icon-message-line')) {
+  customElements.define('dile-remixicon-icon-message-line', DileIconlibMessageLine);
+}

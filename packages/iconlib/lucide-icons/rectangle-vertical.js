@@ -6,4 +6,6 @@ export class DileIconlibRectangleVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rectangle-vertical', DileIconlibRectangleVertical);
+if (!customElements.get('dile-lucide-icon-rectangle-vertical')) {
+  customElements.define('dile-lucide-icon-rectangle-vertical', DileIconlibRectangleVertical);
+}

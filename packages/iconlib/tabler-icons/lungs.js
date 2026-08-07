@@ -6,4 +6,6 @@ export class DileIconlibLungs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-lungs', DileIconlibLungs);
+if (!customElements.get('dile-tabler-icon-lungs')) {
+  customElements.define('dile-tabler-icon-lungs', DileIconlibLungs);
+}

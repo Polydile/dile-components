@@ -6,4 +6,6 @@ export class DileIconlibTrendUpThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-trend-up-thin', DileIconlibTrendUpThin);
+if (!customElements.get('dile-phosphor-icon-trend-up-thin')) {
+  customElements.define('dile-phosphor-icon-trend-up-thin', DileIconlibTrendUpThin);
+}

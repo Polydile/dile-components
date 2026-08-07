@@ -6,4 +6,6 @@ export class DileIconlibCarWashingLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-car-washing-line', DileIconlibCarWashingLine);
+if (!customElements.get('dile-remixicon-icon-car-washing-line')) {
+  customElements.define('dile-remixicon-icon-car-washing-line', DileIconlibCarWashingLine);
+}

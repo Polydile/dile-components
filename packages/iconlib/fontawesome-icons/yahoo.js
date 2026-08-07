@@ -6,4 +6,6 @@ export class DileIconlibYahoo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yahoo', DileIconlibYahoo);
+if (!customElements.get('dile-fontawesome-icon-yahoo')) {
+  customElements.define('dile-fontawesome-icon-yahoo', DileIconlibYahoo);
+}

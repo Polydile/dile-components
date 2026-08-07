@@ -6,4 +6,6 @@ export class DileIconlibFestival extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-festival', DileIconlibFestival);
+if (!customElements.get('dile-material-icon-festival')) {
+  customElements.define('dile-material-icon-festival', DileIconlibFestival);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCardholderDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cardholder-duotone', DileIconlibCardholderDuotone);
+if (!customElements.get('dile-phosphor-icon-cardholder-duotone')) {
+  customElements.define('dile-phosphor-icon-cardholder-duotone', DileIconlibCardholderDuotone);
+}

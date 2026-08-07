@@ -6,4 +6,6 @@ export class DileIconlibChartSankey extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-sankey', DileIconlibChartSankey);
+if (!customElements.get('dile-tabler-icon-chart-sankey')) {
+  customElements.define('dile-tabler-icon-chart-sankey', DileIconlibChartSankey);
+}

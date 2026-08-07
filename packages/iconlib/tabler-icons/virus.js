@@ -6,4 +6,6 @@ export class DileIconlibVirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-virus', DileIconlibVirus);
+if (!customElements.get('dile-tabler-icon-virus')) {
+  customElements.define('dile-tabler-icon-virus', DileIconlibVirus);
+}

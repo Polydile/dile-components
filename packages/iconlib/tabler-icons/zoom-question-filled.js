@@ -6,4 +6,6 @@ export class DileIconlibZoomQuestionFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zoom-question-filled', DileIconlibZoomQuestionFilled);
+if (!customElements.get('dile-tabler-icon-zoom-question-filled')) {
+  customElements.define('dile-tabler-icon-zoom-question-filled', DileIconlibZoomQuestionFilled);
+}

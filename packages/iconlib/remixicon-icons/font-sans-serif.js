@@ -6,4 +6,6 @@ export class DileIconlibFontSansSerif extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-font-sans-serif', DileIconlibFontSansSerif);
+if (!customElements.get('dile-remixicon-icon-font-sans-serif')) {
+  customElements.define('dile-remixicon-icon-font-sans-serif', DileIconlibFontSansSerif);
+}

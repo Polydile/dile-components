@@ -6,4 +6,6 @@ export class DileIconlibShredder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shredder', DileIconlibShredder);
+if (!customElements.get('dile-lucide-icon-shredder')) {
+  customElements.define('dile-lucide-icon-shredder', DileIconlibShredder);
+}

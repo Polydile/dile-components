@@ -6,4 +6,6 @@ export class DileIconlibGenderIntersexDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gender-intersex-duotone', DileIconlibGenderIntersexDuotone);
+if (!customElements.get('dile-phosphor-icon-gender-intersex-duotone')) {
+  customElements.define('dile-phosphor-icon-gender-intersex-duotone', DileIconlibGenderIntersexDuotone);
+}

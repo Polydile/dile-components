@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarBrunei extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-brunei', DileIconlibCurrencyDollarBrunei);
+if (!customElements.get('dile-tabler-icon-currency-dollar-brunei')) {
+  customElements.define('dile-tabler-icon-currency-dollar-brunei', DileIconlibCurrencyDollarBrunei);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTaxEuro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tax-euro', DileIconlibTaxEuro);
+if (!customElements.get('dile-tabler-icon-tax-euro')) {
+  customElements.define('dile-tabler-icon-tax-euro', DileIconlibTaxEuro);
+}

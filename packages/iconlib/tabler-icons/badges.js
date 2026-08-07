@@ -6,4 +6,6 @@ export class DileIconlibBadges extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-badges', DileIconlibBadges);
+if (!customElements.get('dile-tabler-icon-badges')) {
+  customElements.define('dile-tabler-icon-badges', DileIconlibBadges);
+}

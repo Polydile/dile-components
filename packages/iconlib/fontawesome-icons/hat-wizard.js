@@ -6,4 +6,6 @@ export class DileIconlibHatWizard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hat-wizard', DileIconlibHatWizard);
+if (!customElements.get('dile-fontawesome-icon-hat-wizard')) {
+  customElements.define('dile-fontawesome-icon-hat-wizard', DileIconlibHatWizard);
+}

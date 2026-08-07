@@ -6,4 +6,6 @@ export class DileIconlibNotInterested extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-not-interested', DileIconlibNotInterested);
+if (!customElements.get('dile-material-icon-not-interested')) {
+  customElements.define('dile-material-icon-not-interested', DileIconlibNotInterested);
+}

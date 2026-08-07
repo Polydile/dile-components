@@ -6,4 +6,6 @@ export class DileIconlibICursor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-i-cursor', DileIconlibICursor);
+if (!customElements.get('dile-fontawesome-icon-i-cursor')) {
+  customElements.define('dile-fontawesome-icon-i-cursor', DileIconlibICursor);
+}

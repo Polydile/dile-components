@@ -6,4 +6,6 @@ export class DileIconlibSitemapOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-sitemap-off', DileIconlibSitemapOff);
+if (!customElements.get('dile-tabler-icon-sitemap-off')) {
+  customElements.define('dile-tabler-icon-sitemap-off', DileIconlibSitemapOff);
+}

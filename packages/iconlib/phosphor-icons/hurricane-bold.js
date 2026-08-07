@@ -6,4 +6,6 @@ export class DileIconlibHurricaneBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hurricane-bold', DileIconlibHurricaneBold);
+if (!customElements.get('dile-phosphor-icon-hurricane-bold')) {
+  customElements.define('dile-phosphor-icon-hurricane-bold', DileIconlibHurricaneBold);
+}

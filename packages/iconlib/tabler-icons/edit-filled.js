@@ -6,4 +6,6 @@ export class DileIconlibEditFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-edit-filled', DileIconlibEditFilled);
+if (!customElements.get('dile-tabler-icon-edit-filled')) {
+  customElements.define('dile-tabler-icon-edit-filled', DileIconlibEditFilled);
+}

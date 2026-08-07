@@ -6,4 +6,6 @@ export class DileIconlibShowersLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-showers-line', DileIconlibShowersLine);
+if (!customElements.get('dile-remixicon-icon-showers-line')) {
+  customElements.define('dile-remixicon-icon-showers-line', DileIconlibShowersLine);
+}

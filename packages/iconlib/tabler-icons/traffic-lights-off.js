@@ -6,4 +6,6 @@ export class DileIconlibTrafficLightsOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-traffic-lights-off', DileIconlibTrafficLightsOff);
+if (!customElements.get('dile-tabler-icon-traffic-lights-off')) {
+  customElements.define('dile-tabler-icon-traffic-lights-off', DileIconlibTrafficLightsOff);
+}

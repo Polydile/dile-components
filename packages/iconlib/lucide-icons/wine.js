@@ -6,4 +6,6 @@ export class DileIconlibWine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-wine', DileIconlibWine);
+if (!customElements.get('dile-lucide-icon-wine')) {
+  customElements.define('dile-lucide-icon-wine', DileIconlibWine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWbIncandescent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wb-incandescent', DileIconlibWbIncandescent);
+if (!customElements.get('dile-material-icon-wb-incandescent')) {
+  customElements.define('dile-material-icon-wb-incandescent', DileIconlibWbIncandescent);
+}

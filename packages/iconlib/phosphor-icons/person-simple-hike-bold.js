@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleHikeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-hike-bold', DileIconlibPersonSimpleHikeBold);
+if (!customElements.get('dile-phosphor-icon-person-simple-hike-bold')) {
+  customElements.define('dile-phosphor-icon-person-simple-hike-bold', DileIconlibPersonSimpleHikeBold);
+}

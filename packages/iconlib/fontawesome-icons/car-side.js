@@ -6,4 +6,6 @@ export class DileIconlibCarSide extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-car-side', DileIconlibCarSide);
+if (!customElements.get('dile-fontawesome-icon-car-side')) {
+  customElements.define('dile-fontawesome-icon-car-side', DileIconlibCarSide);
+}

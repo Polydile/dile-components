@@ -6,4 +6,6 @@ export class DileIconlibPlugZap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-plug-zap', DileIconlibPlugZap);
+if (!customElements.get('dile-lucide-icon-plug-zap')) {
+  customElements.define('dile-lucide-icon-plug-zap', DileIconlibPlugZap);
+}

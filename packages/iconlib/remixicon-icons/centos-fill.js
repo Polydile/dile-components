@@ -6,4 +6,6 @@ export class DileIconlibCentosFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-centos-fill', DileIconlibCentosFill);
+if (!customElements.get('dile-remixicon-icon-centos-fill')) {
+  customElements.define('dile-remixicon-icon-centos-fill', DileIconlibCentosFill);
+}

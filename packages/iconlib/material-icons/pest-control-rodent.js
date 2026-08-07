@@ -6,4 +6,6 @@ export class DileIconlibPestControlRodent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pest-control-rodent', DileIconlibPestControlRodent);
+if (!customElements.get('dile-material-icon-pest-control-rodent')) {
+  customElements.define('dile-material-icon-pest-control-rodent', DileIconlibPestControlRodent);
+}

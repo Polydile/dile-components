@@ -6,4 +6,6 @@ export class DileIconlibShowChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-show-chart', DileIconlibShowChart);
+if (!customElements.get('dile-material-icon-show-chart')) {
+  customElements.define('dile-material-icon-show-chart', DileIconlibShowChart);
+}

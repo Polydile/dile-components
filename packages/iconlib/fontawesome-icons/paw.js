@@ -6,4 +6,6 @@ export class DileIconlibPaw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-paw', DileIconlibPaw);
+if (!customElements.get('dile-fontawesome-icon-paw')) {
+  customElements.define('dile-fontawesome-icon-paw', DileIconlibPaw);
+}

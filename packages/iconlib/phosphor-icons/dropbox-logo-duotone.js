@@ -6,4 +6,6 @@ export class DileIconlibDropboxLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dropbox-logo-duotone', DileIconlibDropboxLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-dropbox-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-dropbox-logo-duotone', DileIconlibDropboxLogoDuotone);
+}

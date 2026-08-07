@@ -6,4 +6,6 @@ export class DileIconlibPaintRollerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-paint-roller-light', DileIconlibPaintRollerLight);
+if (!customElements.get('dile-phosphor-icon-paint-roller-light')) {
+  customElements.define('dile-phosphor-icon-paint-roller-light', DileIconlibPaintRollerLight);
+}

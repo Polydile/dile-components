@@ -6,4 +6,6 @@ export class DileIconlibFantasyFlightGames extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fantasy-flight-games', DileIconlibFantasyFlightGames);
+if (!customElements.get('dile-fontawesome-icon-fantasy-flight-games')) {
+  customElements.define('dile-fontawesome-icon-fantasy-flight-games', DileIconlibFantasyFlightGames);
+}

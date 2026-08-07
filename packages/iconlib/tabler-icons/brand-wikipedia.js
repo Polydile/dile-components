@@ -6,4 +6,6 @@ export class DileIconlibBrandWikipedia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-wikipedia', DileIconlibBrandWikipedia);
+if (!customElements.get('dile-tabler-icon-brand-wikipedia')) {
+  customElements.define('dile-tabler-icon-brand-wikipedia', DileIconlibBrandWikipedia);
+}

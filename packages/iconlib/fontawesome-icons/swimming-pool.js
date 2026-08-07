@@ -6,4 +6,6 @@ export class DileIconlibSwimmingPool extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-swimming-pool', DileIconlibSwimmingPool);
+if (!customElements.get('dile-fontawesome-icon-swimming-pool')) {
+  customElements.define('dile-fontawesome-icon-swimming-pool', DileIconlibSwimmingPool);
+}

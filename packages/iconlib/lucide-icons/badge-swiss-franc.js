@@ -6,4 +6,6 @@ export class DileIconlibBadgeSwissFranc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-badge-swiss-franc', DileIconlibBadgeSwissFranc);
+if (!customElements.get('dile-lucide-icon-badge-swiss-franc')) {
+  customElements.define('dile-lucide-icon-badge-swiss-franc', DileIconlibBadgeSwissFranc);
+}

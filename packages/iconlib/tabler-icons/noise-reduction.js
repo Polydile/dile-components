@@ -6,4 +6,6 @@ export class DileIconlibNoiseReduction extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-noise-reduction', DileIconlibNoiseReduction);
+if (!customElements.get('dile-tabler-icon-noise-reduction')) {
+  customElements.define('dile-tabler-icon-noise-reduction', DileIconlibNoiseReduction);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSelectionPlusLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-plus-light', DileIconlibSelectionPlusLight);
+if (!customElements.get('dile-phosphor-icon-selection-plus-light')) {
+  customElements.define('dile-phosphor-icon-selection-plus-light', DileIconlibSelectionPlusLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibScheduleSend extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-schedule-send', DileIconlibScheduleSend);
+if (!customElements.get('dile-material-icon-schedule-send')) {
+  customElements.define('dile-material-icon-schedule-send', DileIconlibScheduleSend);
+}

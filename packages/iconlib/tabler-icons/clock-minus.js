@@ -6,4 +6,6 @@ export class DileIconlibClockMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clock-minus', DileIconlibClockMinus);
+if (!customElements.get('dile-tabler-icon-clock-minus')) {
+  customElements.define('dile-tabler-icon-clock-minus', DileIconlibClockMinus);
+}

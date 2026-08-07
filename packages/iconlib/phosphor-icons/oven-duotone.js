@@ -6,4 +6,6 @@ export class DileIconlibOvenDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-oven-duotone', DileIconlibOvenDuotone);
+if (!customElements.get('dile-phosphor-icon-oven-duotone')) {
+  customElements.define('dile-phosphor-icon-oven-duotone', DileIconlibOvenDuotone);
+}

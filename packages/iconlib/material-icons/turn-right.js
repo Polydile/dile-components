@@ -6,4 +6,6 @@ export class DileIconlibTurnRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-turn-right', DileIconlibTurnRight);
+if (!customElements.get('dile-material-icon-turn-right')) {
+  customElements.define('dile-material-icon-turn-right', DileIconlibTurnRight);
+}

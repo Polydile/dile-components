@@ -6,4 +6,6 @@ export class DileIconlibSealPercentFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seal-percent-fill', DileIconlibSealPercentFill);
+if (!customElements.get('dile-phosphor-icon-seal-percent-fill')) {
+  customElements.define('dile-phosphor-icon-seal-percent-fill', DileIconlibSealPercentFill);
+}

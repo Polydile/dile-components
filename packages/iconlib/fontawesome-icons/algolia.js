@@ -6,4 +6,6 @@ export class DileIconlibAlgolia extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-algolia', DileIconlibAlgolia);
+if (!customElements.get('dile-fontawesome-icon-algolia')) {
+  customElements.define('dile-fontawesome-icon-algolia', DileIconlibAlgolia);
+}

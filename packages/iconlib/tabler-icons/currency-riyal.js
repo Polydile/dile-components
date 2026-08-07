@@ -6,4 +6,6 @@ export class DileIconlibCurrencyRiyal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-riyal', DileIconlibCurrencyRiyal);
+if (!customElements.get('dile-tabler-icon-currency-riyal')) {
+  customElements.define('dile-tabler-icon-currency-riyal', DileIconlibCurrencyRiyal);
+}

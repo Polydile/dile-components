@@ -6,4 +6,6 @@ export class DileIconlibArrowsTurnToDots extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrows-turn-to-dots', DileIconlibArrowsTurnToDots);
+if (!customElements.get('dile-fontawesome-icon-arrows-turn-to-dots')) {
+  customElements.define('dile-fontawesome-icon-arrows-turn-to-dots', DileIconlibArrowsTurnToDots);
+}

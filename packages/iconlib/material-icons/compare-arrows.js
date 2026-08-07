@@ -6,4 +6,6 @@ export class DileIconlibCompareArrows extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-compare-arrows', DileIconlibCompareArrows);
+if (!customElements.get('dile-material-icon-compare-arrows')) {
+  customElements.define('dile-material-icon-compare-arrows', DileIconlibCompareArrows);
+}

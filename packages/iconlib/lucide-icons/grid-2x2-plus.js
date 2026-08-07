@@ -6,4 +6,6 @@ export class DileIconlibGrid2x2Plus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-grid-2x2-plus', DileIconlibGrid2x2Plus);
+if (!customElements.get('dile-lucide-icon-grid-2x2-plus')) {
+  customElements.define('dile-lucide-icon-grid-2x2-plus', DileIconlibGrid2x2Plus);
+}

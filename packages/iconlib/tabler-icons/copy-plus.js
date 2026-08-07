@@ -6,4 +6,6 @@ export class DileIconlibCopyPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-copy-plus', DileIconlibCopyPlus);
+if (!customElements.get('dile-tabler-icon-copy-plus')) {
+  customElements.define('dile-tabler-icon-copy-plus', DileIconlibCopyPlus);
+}

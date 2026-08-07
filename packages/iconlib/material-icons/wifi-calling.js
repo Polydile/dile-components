@@ -6,4 +6,6 @@ export class DileIconlibWifiCalling extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-calling', DileIconlibWifiCalling);
+if (!customElements.get('dile-material-icon-wifi-calling')) {
+  customElements.define('dile-material-icon-wifi-calling', DileIconlibWifiCalling);
+}

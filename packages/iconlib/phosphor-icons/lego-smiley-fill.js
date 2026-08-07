@@ -6,4 +6,6 @@ export class DileIconlibLegoSmileyFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-lego-smiley-fill', DileIconlibLegoSmileyFill);
+if (!customElements.get('dile-phosphor-icon-lego-smiley-fill')) {
+  customElements.define('dile-phosphor-icon-lego-smiley-fill', DileIconlibLegoSmileyFill);
+}

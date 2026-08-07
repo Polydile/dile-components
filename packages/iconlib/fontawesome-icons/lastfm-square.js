@@ -6,4 +6,6 @@ export class DileIconlibLastfmSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lastfm-square', DileIconlibLastfmSquare);
+if (!customElements.get('dile-fontawesome-icon-lastfm-square')) {
+  customElements.define('dile-fontawesome-icon-lastfm-square', DileIconlibLastfmSquare);
+}

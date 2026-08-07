@@ -6,4 +6,6 @@ export class DileIconlibHexagonLetterW extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hexagon-letter-w', DileIconlibHexagonLetterW);
+if (!customElements.get('dile-tabler-icon-hexagon-letter-w')) {
+  customElements.define('dile-tabler-icon-hexagon-letter-w', DileIconlibHexagonLetterW);
+}

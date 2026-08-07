@@ -6,4 +6,6 @@ export class DileIconlibDialerSip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dialer-sip', DileIconlibDialerSip);
+if (!customElements.get('dile-material-icon-dialer-sip')) {
+  customElements.define('dile-material-icon-dialer-sip', DileIconlibDialerSip);
+}

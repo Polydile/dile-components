@@ -6,4 +6,6 @@ export class DileIconlibHexagonNodes extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hexagon-nodes', DileIconlibHexagonNodes);
+if (!customElements.get('dile-fontawesome-icon-hexagon-nodes')) {
+  customElements.define('dile-fontawesome-icon-hexagon-nodes', DileIconlibHexagonNodes);
+}

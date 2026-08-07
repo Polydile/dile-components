@@ -6,4 +6,6 @@ export class DileIconlibBrowserNotSupported extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-browser-not-supported', DileIconlibBrowserNotSupported);
+if (!customElements.get('dile-material-icon-browser-not-supported')) {
+  customElements.define('dile-material-icon-browser-not-supported', DileIconlibBrowserNotSupported);
+}

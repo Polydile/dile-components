@@ -6,4 +6,6 @@ export class DileIconlibMintbit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mintbit', DileIconlibMintbit);
+if (!customElements.get('dile-fontawesome-icon-mintbit')) {
+  customElements.define('dile-fontawesome-icon-mintbit', DileIconlibMintbit);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBarcodeDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-barcode-duotone', DileIconlibBarcodeDuotone);
+if (!customElements.get('dile-phosphor-icon-barcode-duotone')) {
+  customElements.define('dile-phosphor-icon-barcode-duotone', DileIconlibBarcodeDuotone);
+}

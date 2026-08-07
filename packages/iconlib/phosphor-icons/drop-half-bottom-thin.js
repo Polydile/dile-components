@@ -6,4 +6,6 @@ export class DileIconlibDropHalfBottomThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-drop-half-bottom-thin', DileIconlibDropHalfBottomThin);
+if (!customElements.get('dile-phosphor-icon-drop-half-bottom-thin')) {
+  customElements.define('dile-phosphor-icon-drop-half-bottom-thin', DileIconlibDropHalfBottomThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFlowArrowBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flow-arrow-bold', DileIconlibFlowArrowBold);
+if (!customElements.get('dile-phosphor-icon-flow-arrow-bold')) {
+  customElements.define('dile-phosphor-icon-flow-arrow-bold', DileIconlibFlowArrowBold);
+}

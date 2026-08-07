@@ -6,4 +6,6 @@ export class DileIconlibSmileySadLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-smiley-sad-light', DileIconlibSmileySadLight);
+if (!customElements.get('dile-phosphor-icon-smiley-sad-light')) {
+  customElements.define('dile-phosphor-icon-smiley-sad-light', DileIconlibSmileySadLight);
+}

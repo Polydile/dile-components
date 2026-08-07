@@ -6,4 +6,6 @@ export class DileIconlibBookUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-book-user', DileIconlibBookUser);
+if (!customElements.get('dile-phosphor-icon-book-user')) {
+  customElements.define('dile-phosphor-icon-book-user', DileIconlibBookUser);
+}

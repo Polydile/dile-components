@@ -6,4 +6,6 @@ export class DileIconlibCodeMerge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-code-merge', DileIconlibCodeMerge);
+if (!customElements.get('dile-fontawesome-icon-code-merge')) {
+  customElements.define('dile-fontawesome-icon-code-merge', DileIconlibCodeMerge);
+}

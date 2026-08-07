@@ -6,4 +6,6 @@ export class DileIconlibLoginCircleFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-login-circle-fill', DileIconlibLoginCircleFill);
+if (!customElements.get('dile-remixicon-icon-login-circle-fill')) {
+  customElements.define('dile-remixicon-icon-login-circle-fill', DileIconlibLoginCircleFill);
+}

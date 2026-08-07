@@ -6,4 +6,6 @@ export class DileIconlibSpadeBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spade-bold', DileIconlibSpadeBold);
+if (!customElements.get('dile-phosphor-icon-spade-bold')) {
+  customElements.define('dile-phosphor-icon-spade-bold', DileIconlibSpadeBold);
+}

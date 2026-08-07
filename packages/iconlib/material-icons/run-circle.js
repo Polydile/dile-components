@@ -6,4 +6,6 @@ export class DileIconlibRunCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-run-circle', DileIconlibRunCircle);
+if (!customElements.get('dile-material-icon-run-circle')) {
+  customElements.define('dile-material-icon-run-circle', DileIconlibRunCircle);
+}

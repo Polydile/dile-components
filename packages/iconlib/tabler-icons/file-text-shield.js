@@ -6,4 +6,6 @@ export class DileIconlibFileTextShield extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-text-shield', DileIconlibFileTextShield);
+if (!customElements.get('dile-tabler-icon-file-text-shield')) {
+  customElements.define('dile-tabler-icon-file-text-shield', DileIconlibFileTextShield);
+}

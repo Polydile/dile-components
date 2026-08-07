@@ -6,4 +6,6 @@ export class DileIconlibGenderGenderfluid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gender-genderfluid', DileIconlibGenderGenderfluid);
+if (!customElements.get('dile-tabler-icon-gender-genderfluid')) {
+  customElements.define('dile-tabler-icon-gender-genderfluid', DileIconlibGenderGenderfluid);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEmojiFoodBeverage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emoji-food-beverage', DileIconlibEmojiFoodBeverage);
+if (!customElements.get('dile-material-icon-emoji-food-beverage')) {
+  customElements.define('dile-material-icon-emoji-food-beverage', DileIconlibEmojiFoodBeverage);
+}

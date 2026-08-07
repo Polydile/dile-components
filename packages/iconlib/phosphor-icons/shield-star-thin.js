@@ -6,4 +6,6 @@ export class DileIconlibShieldStarThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shield-star-thin', DileIconlibShieldStarThin);
+if (!customElements.get('dile-phosphor-icon-shield-star-thin')) {
+  customElements.define('dile-phosphor-icon-shield-star-thin', DileIconlibShieldStarThin);
+}

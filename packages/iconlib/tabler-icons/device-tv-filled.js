@@ -6,4 +6,6 @@ export class DileIconlibDeviceTvFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-tv-filled', DileIconlibDeviceTvFilled);
+if (!customElements.get('dile-tabler-icon-device-tv-filled')) {
+  customElements.define('dile-tabler-icon-device-tv-filled', DileIconlibDeviceTvFilled);
+}

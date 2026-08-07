@@ -6,4 +6,6 @@ export class DileIconlibSnowflake extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-snowflake', DileIconlibSnowflake);
+if (!customElements.get('dile-fontawesome-icon-snowflake')) {
+  customElements.define('dile-fontawesome-icon-snowflake', DileIconlibSnowflake);
+}

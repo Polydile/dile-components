@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleTaiChiDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-tai-chi-duotone', DileIconlibPersonSimpleTaiChiDuotone);
+if (!customElements.get('dile-phosphor-icon-person-simple-tai-chi-duotone')) {
+  customElements.define('dile-phosphor-icon-person-simple-tai-chi-duotone', DileIconlibPersonSimpleTaiChiDuotone);
+}

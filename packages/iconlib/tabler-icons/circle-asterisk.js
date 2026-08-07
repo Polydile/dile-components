@@ -6,4 +6,6 @@ export class DileIconlibCircleAsterisk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-asterisk', DileIconlibCircleAsterisk);
+if (!customElements.get('dile-tabler-icon-circle-asterisk')) {
+  customElements.define('dile-tabler-icon-circle-asterisk', DileIconlibCircleAsterisk);
+}

@@ -6,4 +6,6 @@ export class DileIconlibOrbit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-orbit', DileIconlibOrbit);
+if (!customElements.get('dile-lucide-icon-orbit')) {
+  customElements.define('dile-lucide-icon-orbit', DileIconlibOrbit);
+}

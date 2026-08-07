@@ -6,4 +6,6 @@ export class DileIconlibHeartsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hearts-line', DileIconlibHeartsLine);
+if (!customElements.get('dile-remixicon-icon-hearts-line')) {
+  customElements.define('dile-remixicon-icon-hearts-line', DileIconlibHeartsLine);
+}

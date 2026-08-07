@@ -6,4 +6,6 @@ export class DileIconlibBracketsCurlyBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brackets-curly-bold', DileIconlibBracketsCurlyBold);
+if (!customElements.get('dile-phosphor-icon-brackets-curly-bold')) {
+  customElements.define('dile-phosphor-icon-brackets-curly-bold', DileIconlibBracketsCurlyBold);
+}

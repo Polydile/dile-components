@@ -6,4 +6,6 @@ export class DileIconlibBorderCornerRounded extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-border-corner-rounded', DileIconlibBorderCornerRounded);
+if (!customElements.get('dile-tabler-icon-border-corner-rounded')) {
+  customElements.define('dile-tabler-icon-border-corner-rounded', DileIconlibBorderCornerRounded);
+}

@@ -6,4 +6,6 @@ export class DileIconlibEmojiTransportation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-emoji-transportation', DileIconlibEmojiTransportation);
+if (!customElements.get('dile-material-icon-emoji-transportation')) {
+  customElements.define('dile-material-icon-emoji-transportation', DileIconlibEmojiTransportation);
+}

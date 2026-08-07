@@ -6,4 +6,6 @@ export class DileIconlibPhonelinkErase extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phonelink-erase', DileIconlibPhonelinkErase);
+if (!customElements.get('dile-material-icon-phonelink-erase')) {
+  customElements.define('dile-material-icon-phonelink-erase', DileIconlibPhonelinkErase);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPhoneSquareAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-phone-square-alt', DileIconlibPhoneSquareAlt);
+if (!customElements.get('dile-fontawesome-icon-phone-square-alt')) {
+  customElements.define('dile-fontawesome-icon-phone-square-alt', DileIconlibPhoneSquareAlt);
+}

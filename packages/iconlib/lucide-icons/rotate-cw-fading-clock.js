@@ -6,4 +6,6 @@ export class DileIconlibRotateCwFadingClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rotate-cw-fading-clock', DileIconlibRotateCwFadingClock);
+if (!customElements.get('dile-lucide-icon-rotate-cw-fading-clock')) {
+  customElements.define('dile-lucide-icon-rotate-cw-fading-clock', DileIconlibRotateCwFadingClock);
+}

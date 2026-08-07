@@ -6,4 +6,6 @@ export class DileIconlibFolderKeyholeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-folder-keyhole-line', DileIconlibFolderKeyholeLine);
+if (!customElements.get('dile-remixicon-icon-folder-keyhole-line')) {
+  customElements.define('dile-remixicon-icon-folder-keyhole-line', DileIconlibFolderKeyholeLine);
+}

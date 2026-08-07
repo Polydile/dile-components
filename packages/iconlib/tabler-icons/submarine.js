@@ -6,4 +6,6 @@ export class DileIconlibSubmarine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-submarine', DileIconlibSubmarine);
+if (!customElements.get('dile-tabler-icon-submarine')) {
+  customElements.define('dile-tabler-icon-submarine', DileIconlibSubmarine);
+}

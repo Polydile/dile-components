@@ -6,4 +6,6 @@ export class DileIconlibPingPongPaddleBall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ping-pong-paddle-ball', DileIconlibPingPongPaddleBall);
+if (!customElements.get('dile-fontawesome-icon-ping-pong-paddle-ball')) {
+  customElements.define('dile-fontawesome-icon-ping-pong-paddle-ball', DileIconlibPingPongPaddleBall);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFolderSimpleDashedBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-simple-dashed-bold', DileIconlibFolderSimpleDashedBold);
+if (!customElements.get('dile-phosphor-icon-folder-simple-dashed-bold')) {
+  customElements.define('dile-phosphor-icon-folder-simple-dashed-bold', DileIconlibFolderSimpleDashedBold);
+}

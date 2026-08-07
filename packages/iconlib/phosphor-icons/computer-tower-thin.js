@@ -6,4 +6,6 @@ export class DileIconlibComputerTowerThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-computer-tower-thin', DileIconlibComputerTowerThin);
+if (!customElements.get('dile-phosphor-icon-computer-tower-thin')) {
+  customElements.define('dile-phosphor-icon-computer-tower-thin', DileIconlibComputerTowerThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareParking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-parking', DileIconlibSquareParking);
+if (!customElements.get('dile-lucide-icon-square-parking')) {
+  customElements.define('dile-lucide-icon-square-parking', DileIconlibSquareParking);
+}

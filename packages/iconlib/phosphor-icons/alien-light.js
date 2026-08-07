@@ -6,4 +6,6 @@ export class DileIconlibAlienLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-alien-light', DileIconlibAlienLight);
+if (!customElements.get('dile-phosphor-icon-alien-light')) {
+  customElements.define('dile-phosphor-icon-alien-light', DileIconlibAlienLight);
+}

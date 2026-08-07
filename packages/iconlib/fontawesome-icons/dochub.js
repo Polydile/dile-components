@@ -6,4 +6,6 @@ export class DileIconlibDochub extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dochub', DileIconlibDochub);
+if (!customElements.get('dile-fontawesome-icon-dochub')) {
+  customElements.define('dile-fontawesome-icon-dochub', DileIconlibDochub);
+}

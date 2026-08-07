@@ -6,4 +6,6 @@ export class DileIconlibSeatbeltFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seatbelt-fill', DileIconlibSeatbeltFill);
+if (!customElements.get('dile-phosphor-icon-seatbelt-fill')) {
+  customElements.define('dile-phosphor-icon-seatbelt-fill', DileIconlibSeatbeltFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDeviceWatch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-watch', DileIconlibDeviceWatch);
+if (!customElements.get('dile-tabler-icon-device-watch')) {
+  customElements.define('dile-tabler-icon-device-watch', DileIconlibDeviceWatch);
+}

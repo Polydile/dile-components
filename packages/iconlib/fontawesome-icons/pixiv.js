@@ -6,4 +6,6 @@ export class DileIconlibPixiv extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pixiv', DileIconlibPixiv);
+if (!customElements.get('dile-fontawesome-icon-pixiv')) {
+  customElements.define('dile-fontawesome-icon-pixiv', DileIconlibPixiv);
+}

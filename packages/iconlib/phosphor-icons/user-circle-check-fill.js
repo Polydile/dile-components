@@ -6,4 +6,6 @@ export class DileIconlibUserCircleCheckFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-circle-check-fill', DileIconlibUserCircleCheckFill);
+if (!customElements.get('dile-phosphor-icon-user-circle-check-fill')) {
+  customElements.define('dile-phosphor-icon-user-circle-check-fill', DileIconlibUserCircleCheckFill);
+}

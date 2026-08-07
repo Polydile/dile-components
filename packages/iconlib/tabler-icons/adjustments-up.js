@@ -6,4 +6,6 @@ export class DileIconlibAdjustmentsUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-adjustments-up', DileIconlibAdjustmentsUp);
+if (!customElements.get('dile-tabler-icon-adjustments-up')) {
+  customElements.define('dile-tabler-icon-adjustments-up', DileIconlibAdjustmentsUp);
+}

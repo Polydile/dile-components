@@ -6,4 +6,6 @@ export class DileIconlibVipOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vip-off', DileIconlibVipOff);
+if (!customElements.get('dile-tabler-icon-vip-off')) {
+  customElements.define('dile-tabler-icon-vip-off', DileIconlibVipOff);
+}

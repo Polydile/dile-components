@@ -6,4 +6,6 @@ export class DileIconlibPeopleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-people-line', DileIconlibPeopleLine);
+if (!customElements.get('dile-fontawesome-icon-people-line')) {
+  customElements.define('dile-fontawesome-icon-people-line', DileIconlibPeopleLine);
+}

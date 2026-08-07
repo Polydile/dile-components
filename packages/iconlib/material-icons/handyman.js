@@ -6,4 +6,6 @@ export class DileIconlibHandyman extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-handyman', DileIconlibHandyman);
+if (!customElements.get('dile-material-icon-handyman')) {
+  customElements.define('dile-material-icon-handyman', DileIconlibHandyman);
+}

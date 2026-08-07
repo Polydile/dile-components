@@ -6,4 +6,6 @@ export class DileIconlibAirFreshener extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-air-freshener', DileIconlibAirFreshener);
+if (!customElements.get('dile-fontawesome-icon-air-freshener')) {
+  customElements.define('dile-fontawesome-icon-air-freshener', DileIconlibAirFreshener);
+}

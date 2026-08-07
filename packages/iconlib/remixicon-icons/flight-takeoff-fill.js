@@ -6,4 +6,6 @@ export class DileIconlibFlightTakeoffFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-flight-takeoff-fill', DileIconlibFlightTakeoffFill);
+if (!customElements.get('dile-remixicon-icon-flight-takeoff-fill')) {
+  customElements.define('dile-remixicon-icon-flight-takeoff-fill', DileIconlibFlightTakeoffFill);
+}

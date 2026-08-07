@@ -6,4 +6,6 @@ export class DileIconlibBtcFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-btc-fill', DileIconlibBtcFill);
+if (!customElements.get('dile-remixicon-icon-btc-fill')) {
+  customElements.define('dile-remixicon-icon-btc-fill', DileIconlibBtcFill);
+}

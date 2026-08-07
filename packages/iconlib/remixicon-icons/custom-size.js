@@ -6,4 +6,6 @@ export class DileIconlibCustomSize extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-custom-size', DileIconlibCustomSize);
+if (!customElements.get('dile-remixicon-icon-custom-size')) {
+  customElements.define('dile-remixicon-icon-custom-size', DileIconlibCustomSize);
+}

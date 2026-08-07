@@ -6,4 +6,6 @@ export class DileIconlibArrowBackUp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-back-up', DileIconlibArrowBackUp);
+if (!customElements.get('dile-tabler-icon-arrow-back-up')) {
+  customElements.define('dile-tabler-icon-arrow-back-up', DileIconlibArrowBackUp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignatureOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-signature-off', DileIconlibSignatureOff);
+if (!customElements.get('dile-tabler-icon-signature-off')) {
+  customElements.define('dile-tabler-icon-signature-off', DileIconlibSignatureOff);
+}

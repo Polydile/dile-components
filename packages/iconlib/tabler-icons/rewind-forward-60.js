@@ -6,4 +6,6 @@ export class DileIconlibRewindForward60 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rewind-forward-60', DileIconlibRewindForward60);
+if (!customElements.get('dile-tabler-icon-rewind-forward-60')) {
+  customElements.define('dile-tabler-icon-rewind-forward-60', DileIconlibRewindForward60);
+}

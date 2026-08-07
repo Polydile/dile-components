@@ -6,4 +6,6 @@ export class DileIconlibShirtSport extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-shirt-sport', DileIconlibShirtSport);
+if (!customElements.get('dile-tabler-icon-shirt-sport')) {
+  customElements.define('dile-tabler-icon-shirt-sport', DileIconlibShirtSport);
+}

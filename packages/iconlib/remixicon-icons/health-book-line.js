@@ -6,4 +6,6 @@ export class DileIconlibHealthBookLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-health-book-line', DileIconlibHealthBookLine);
+if (!customElements.get('dile-remixicon-icon-health-book-line')) {
+  customElements.define('dile-remixicon-icon-health-book-line', DileIconlibHealthBookLine);
+}

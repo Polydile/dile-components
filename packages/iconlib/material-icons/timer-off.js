@@ -6,4 +6,6 @@ export class DileIconlibTimerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-timer-off', DileIconlibTimerOff);
+if (!customElements.get('dile-material-icon-timer-off')) {
+  customElements.define('dile-material-icon-timer-off', DileIconlibTimerOff);
+}

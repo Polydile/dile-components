@@ -6,4 +6,6 @@ export class DileIconlibFileTsx extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-tsx', DileIconlibFileTsx);
+if (!customElements.get('dile-phosphor-icon-file-tsx')) {
+  customElements.define('dile-phosphor-icon-file-tsx', DileIconlibFileTsx);
+}

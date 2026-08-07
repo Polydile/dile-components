@@ -6,4 +6,6 @@ export class DileIconlibHighDefinitionLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-high-definition-light', DileIconlibHighDefinitionLight);
+if (!customElements.get('dile-phosphor-icon-high-definition-light')) {
+  customElements.define('dile-phosphor-icon-high-definition-light', DileIconlibHighDefinitionLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUserAltSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-alt-slash', DileIconlibUserAltSlash);
+if (!customElements.get('dile-fontawesome-icon-user-alt-slash')) {
+  customElements.define('dile-fontawesome-icon-user-alt-slash', DileIconlibUserAltSlash);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCircuitCellPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-cell-plus', DileIconlibCircuitCellPlus);
+if (!customElements.get('dile-tabler-icon-circuit-cell-plus')) {
+  customElements.define('dile-tabler-icon-circuit-cell-plus', DileIconlibCircuitCellPlus);
+}

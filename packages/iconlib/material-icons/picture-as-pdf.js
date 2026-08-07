@@ -6,4 +6,6 @@ export class DileIconlibPictureAsPdf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-picture-as-pdf', DileIconlibPictureAsPdf);
+if (!customElements.get('dile-material-icon-picture-as-pdf')) {
+  customElements.define('dile-material-icon-picture-as-pdf', DileIconlibPictureAsPdf);
+}

@@ -6,4 +6,6 @@ export class DileIconlibWaveformFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waveform-fill', DileIconlibWaveformFill);
+if (!customElements.get('dile-phosphor-icon-waveform-fill')) {
+  customElements.define('dile-phosphor-icon-waveform-fill', DileIconlibWaveformFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNeuter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-neuter', DileIconlibNeuter);
+if (!customElements.get('dile-fontawesome-icon-neuter')) {
+  customElements.define('dile-fontawesome-icon-neuter', DileIconlibNeuter);
+}

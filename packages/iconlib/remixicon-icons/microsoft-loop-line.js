@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftLoopLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-microsoft-loop-line', DileIconlibMicrosoftLoopLine);
+if (!customElements.get('dile-remixicon-icon-microsoft-loop-line')) {
+  customElements.define('dile-remixicon-icon-microsoft-loop-line', DileIconlibMicrosoftLoopLine);
+}

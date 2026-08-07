@@ -6,4 +6,6 @@ export class DileIconlibIntercom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-intercom', DileIconlibIntercom);
+if (!customElements.get('dile-fontawesome-icon-intercom')) {
+  customElements.define('dile-fontawesome-icon-intercom', DileIconlibIntercom);
+}

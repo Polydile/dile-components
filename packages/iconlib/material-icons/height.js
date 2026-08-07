@@ -6,4 +6,6 @@ export class DileIconlibHeight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-height', DileIconlibHeight);
+if (!customElements.get('dile-material-icon-height')) {
+  customElements.define('dile-material-icon-height', DileIconlibHeight);
+}

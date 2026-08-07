@@ -6,4 +6,6 @@ export class DileIconlibSportsVolleyball extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sports-volleyball', DileIconlibSportsVolleyball);
+if (!customElements.get('dile-material-icon-sports-volleyball')) {
+  customElements.define('dile-material-icon-sports-volleyball', DileIconlibSportsVolleyball);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSignalWifiStatusbarConnectedNoInternet4 extends DileBase
   }
 }
 
-customElements.define('dile-material-icon-signal-wifi-statusbar-connected-no-internet-4', DileIconlibSignalWifiStatusbarConnectedNoInternet4);
+if (!customElements.get('dile-material-icon-signal-wifi-statusbar-connected-no-internet-4')) {
+  customElements.define('dile-material-icon-signal-wifi-statusbar-connected-no-internet-4', DileIconlibSignalWifiStatusbarConnectedNoInternet4);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGgCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gg-circle', DileIconlibGgCircle);
+if (!customElements.get('dile-fontawesome-icon-gg-circle')) {
+  customElements.define('dile-fontawesome-icon-gg-circle', DileIconlibGgCircle);
+}

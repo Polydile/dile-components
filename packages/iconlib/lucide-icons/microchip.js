@@ -6,4 +6,6 @@ export class DileIconlibMicrochip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-microchip', DileIconlibMicrochip);
+if (!customElements.get('dile-lucide-icon-microchip')) {
+  customElements.define('dile-lucide-icon-microchip', DileIconlibMicrochip);
+}

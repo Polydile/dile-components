@@ -6,4 +6,6 @@ export class DileIconlibAirplaneTiltThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-airplane-tilt-thin', DileIconlibAirplaneTiltThin);
+if (!customElements.get('dile-phosphor-icon-airplane-tilt-thin')) {
+  customElements.define('dile-phosphor-icon-airplane-tilt-thin', DileIconlibAirplaneTiltThin);
+}

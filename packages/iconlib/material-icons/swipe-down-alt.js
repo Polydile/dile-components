@@ -6,4 +6,6 @@ export class DileIconlibSwipeDownAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-swipe-down-alt', DileIconlibSwipeDownAlt);
+if (!customElements.get('dile-material-icon-swipe-down-alt')) {
+  customElements.define('dile-material-icon-swipe-down-alt', DileIconlibSwipeDownAlt);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCcMastercard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-mastercard', DileIconlibCcMastercard);
+if (!customElements.get('dile-fontawesome-icon-cc-mastercard')) {
+  customElements.define('dile-fontawesome-icon-cc-mastercard', DileIconlibCcMastercard);
+}

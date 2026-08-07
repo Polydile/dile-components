@@ -6,4 +6,6 @@ export class DileIconlibAmphora extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-amphora', DileIconlibAmphora);
+if (!customElements.get('dile-lucide-icon-amphora')) {
+  customElements.define('dile-lucide-icon-amphora', DileIconlibAmphora);
+}

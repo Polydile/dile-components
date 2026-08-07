@@ -6,4 +6,6 @@ export class DileIconlibNetworkOffLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-network-off-line', DileIconlibNetworkOffLine);
+if (!customElements.get('dile-remixicon-icon-network-off-line')) {
+  customElements.define('dile-remixicon-icon-network-off-line', DileIconlibNetworkOffLine);
+}

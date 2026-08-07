@@ -6,4 +6,6 @@ export class DileIconlibRoadHorizonLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-road-horizon-light', DileIconlibRoadHorizonLight);
+if (!customElements.get('dile-phosphor-icon-road-horizon-light')) {
+  customElements.define('dile-phosphor-icon-road-horizon-light', DileIconlibRoadHorizonLight);
+}

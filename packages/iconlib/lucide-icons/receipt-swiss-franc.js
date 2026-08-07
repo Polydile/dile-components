@@ -6,4 +6,6 @@ export class DileIconlibReceiptSwissFranc extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-receipt-swiss-franc', DileIconlibReceiptSwissFranc);
+if (!customElements.get('dile-lucide-icon-receipt-swiss-franc')) {
+  customElements.define('dile-lucide-icon-receipt-swiss-franc', DileIconlibReceiptSwissFranc);
+}

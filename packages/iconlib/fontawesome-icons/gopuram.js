@@ -6,4 +6,6 @@ export class DileIconlibGopuram extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-gopuram', DileIconlibGopuram);
+if (!customElements.get('dile-fontawesome-icon-gopuram')) {
+  customElements.define('dile-fontawesome-icon-gopuram', DileIconlibGopuram);
+}

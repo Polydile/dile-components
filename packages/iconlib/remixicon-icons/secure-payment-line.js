@@ -6,4 +6,6 @@ export class DileIconlibSecurePaymentLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-secure-payment-line', DileIconlibSecurePaymentLine);
+if (!customElements.get('dile-remixicon-icon-secure-payment-line')) {
+  customElements.define('dile-remixicon-icon-secure-payment-line', DileIconlibSecurePaymentLine);
+}

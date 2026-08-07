@@ -6,4 +6,6 @@ export class DileIconlibShareAltSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-share-alt-square', DileIconlibShareAltSquare);
+if (!customElements.get('dile-fontawesome-icon-share-alt-square')) {
+  customElements.define('dile-fontawesome-icon-share-alt-square', DileIconlibShareAltSquare);
+}

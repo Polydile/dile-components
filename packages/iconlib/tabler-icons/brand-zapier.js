@@ -6,4 +6,6 @@ export class DileIconlibBrandZapier extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-zapier', DileIconlibBrandZapier);
+if (!customElements.get('dile-tabler-icon-brand-zapier')) {
+  customElements.define('dile-tabler-icon-brand-zapier', DileIconlibBrandZapier);
+}

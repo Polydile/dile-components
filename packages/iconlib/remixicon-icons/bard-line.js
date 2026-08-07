@@ -6,4 +6,6 @@ export class DileIconlibBardLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bard-line', DileIconlibBardLine);
+if (!customElements.get('dile-remixicon-icon-bard-line')) {
+  customElements.define('dile-remixicon-icon-bard-line', DileIconlibBardLine);
+}

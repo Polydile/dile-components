@@ -6,4 +6,6 @@ export class DileIconlibFileExcel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-file-excel', DileIconlibFileExcel);
+if (!customElements.get('dile-fontawesome-icon-file-excel')) {
+  customElements.define('dile-fontawesome-icon-file-excel', DileIconlibFileExcel);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-crow', DileIconlibCrow);
+if (!customElements.get('dile-fontawesome-icon-crow')) {
+  customElements.define('dile-fontawesome-icon-crow', DileIconlibCrow);
+}

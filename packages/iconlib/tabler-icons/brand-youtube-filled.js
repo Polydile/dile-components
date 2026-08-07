@@ -6,4 +6,6 @@ export class DileIconlibBrandYoutubeFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-youtube-filled', DileIconlibBrandYoutubeFilled);
+if (!customElements.get('dile-tabler-icon-brand-youtube-filled')) {
+  customElements.define('dile-tabler-icon-brand-youtube-filled', DileIconlibBrandYoutubeFilled);
+}

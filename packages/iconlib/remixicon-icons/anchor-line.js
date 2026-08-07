@@ -6,4 +6,6 @@ export class DileIconlibAnchorLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-anchor-line', DileIconlibAnchorLine);
+if (!customElements.get('dile-remixicon-icon-anchor-line')) {
+  customElements.define('dile-remixicon-icon-anchor-line', DileIconlibAnchorLine);
+}

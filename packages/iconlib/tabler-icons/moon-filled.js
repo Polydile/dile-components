@@ -6,4 +6,6 @@ export class DileIconlibMoonFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-moon-filled', DileIconlibMoonFilled);
+if (!customElements.get('dile-tabler-icon-moon-filled')) {
+  customElements.define('dile-tabler-icon-moon-filled', DileIconlibMoonFilled);
+}

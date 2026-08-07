@@ -6,4 +6,6 @@ export class DileIconlibMapPinTimeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-map-pin-time-fill', DileIconlibMapPinTimeFill);
+if (!customElements.get('dile-remixicon-icon-map-pin-time-fill')) {
+  customElements.define('dile-remixicon-icon-map-pin-time-fill', DileIconlibMapPinTimeFill);
+}

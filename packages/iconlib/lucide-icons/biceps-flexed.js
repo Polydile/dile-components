@@ -6,4 +6,6 @@ export class DileIconlibBicepsFlexed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-biceps-flexed', DileIconlibBicepsFlexed);
+if (!customElements.get('dile-lucide-icon-biceps-flexed')) {
+  customElements.define('dile-lucide-icon-biceps-flexed', DileIconlibBicepsFlexed);
+}

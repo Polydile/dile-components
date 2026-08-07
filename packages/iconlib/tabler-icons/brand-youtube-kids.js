@@ -6,4 +6,6 @@ export class DileIconlibBrandYoutubeKids extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-youtube-kids', DileIconlibBrandYoutubeKids);
+if (!customElements.get('dile-tabler-icon-brand-youtube-kids')) {
+  customElements.define('dile-tabler-icon-brand-youtube-kids', DileIconlibBrandYoutubeKids);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareViadeo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-viadeo', DileIconlibSquareViadeo);
+if (!customElements.get('dile-fontawesome-icon-square-viadeo')) {
+  customElements.define('dile-fontawesome-icon-square-viadeo', DileIconlibSquareViadeo);
+}

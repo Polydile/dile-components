@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleTaiChiThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-tai-chi-thin', DileIconlibPersonSimpleTaiChiThin);
+if (!customElements.get('dile-phosphor-icon-person-simple-tai-chi-thin')) {
+  customElements.define('dile-phosphor-icon-person-simple-tai-chi-thin', DileIconlibPersonSimpleTaiChiThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandAdobeIndesign extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-adobe-indesign', DileIconlibBrandAdobeIndesign);
+if (!customElements.get('dile-tabler-icon-brand-adobe-indesign')) {
+  customElements.define('dile-tabler-icon-brand-adobe-indesign', DileIconlibBrandAdobeIndesign);
+}

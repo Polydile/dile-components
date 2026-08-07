@@ -6,4 +6,6 @@ export class DileIconlibShareCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-share-circle-line', DileIconlibShareCircleLine);
+if (!customElements.get('dile-remixicon-icon-share-circle-line')) {
+  customElements.define('dile-remixicon-icon-share-circle-line', DileIconlibShareCircleLine);
+}

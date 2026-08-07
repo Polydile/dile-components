@@ -6,4 +6,6 @@ export class DileIconlibMessageCircleCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-circle-cancel', DileIconlibMessageCircleCancel);
+if (!customElements.get('dile-tabler-icon-message-circle-cancel')) {
+  customElements.define('dile-tabler-icon-message-circle-cancel', DileIconlibMessageCircleCancel);
+}

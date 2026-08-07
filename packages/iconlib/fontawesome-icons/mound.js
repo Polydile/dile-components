@@ -6,4 +6,6 @@ export class DileIconlibMound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mound', DileIconlibMound);
+if (!customElements.get('dile-fontawesome-icon-mound')) {
+  customElements.define('dile-fontawesome-icon-mound', DileIconlibMound);
+}

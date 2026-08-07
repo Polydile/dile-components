@@ -6,4 +6,6 @@ export class DileIconlibPunchClock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-punch-clock', DileIconlibPunchClock);
+if (!customElements.get('dile-material-icon-punch-clock')) {
+  customElements.define('dile-material-icon-punch-clock', DileIconlibPunchClock);
+}

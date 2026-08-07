@@ -6,4 +6,6 @@ export class DileIconlibBoxesPacking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-boxes-packing', DileIconlibBoxesPacking);
+if (!customElements.get('dile-fontawesome-icon-boxes-packing')) {
+  customElements.define('dile-fontawesome-icon-boxes-packing', DileIconlibBoxesPacking);
+}

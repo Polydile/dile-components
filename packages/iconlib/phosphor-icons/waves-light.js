@@ -6,4 +6,6 @@ export class DileIconlibWavesLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waves-light', DileIconlibWavesLight);
+if (!customElements.get('dile-phosphor-icon-waves-light')) {
+  customElements.define('dile-phosphor-icon-waves-light', DileIconlibWavesLight);
+}

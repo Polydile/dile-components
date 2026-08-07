@@ -6,4 +6,6 @@ export class DileIconlibBilibili extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bilibili', DileIconlibBilibili);
+if (!customElements.get('dile-fontawesome-icon-bilibili')) {
+  customElements.define('dile-fontawesome-icon-bilibili', DileIconlibBilibili);
+}

@@ -6,4 +6,6 @@ export class DileIconlibLetsEncrypt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lets-encrypt', DileIconlibLetsEncrypt);
+if (!customElements.get('dile-fontawesome-icon-lets-encrypt')) {
+  customElements.define('dile-fontawesome-icon-lets-encrypt', DileIconlibLetsEncrypt);
+}

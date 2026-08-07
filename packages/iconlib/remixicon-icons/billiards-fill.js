@@ -6,4 +6,6 @@ export class DileIconlibBilliardsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-billiards-fill', DileIconlibBilliardsFill);
+if (!customElements.get('dile-remixicon-icon-billiards-fill')) {
+  customElements.define('dile-remixicon-icon-billiards-fill', DileIconlibBilliardsFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlib24HoursFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-24-hours-fill', DileIconlib24HoursFill);
+if (!customElements.get('dile-remixicon-icon-24-hours-fill')) {
+  customElements.define('dile-remixicon-icon-24-hours-fill', DileIconlib24HoursFill);
+}

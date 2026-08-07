@@ -6,4 +6,6 @@ export class DileIconlibCloudSync extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-cloud-sync', DileIconlibCloudSync);
+if (!customElements.get('dile-lucide-icon-cloud-sync')) {
+  customElements.define('dile-lucide-icon-cloud-sync', DileIconlibCloudSync);
+}

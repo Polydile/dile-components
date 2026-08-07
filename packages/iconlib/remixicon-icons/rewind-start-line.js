@@ -6,4 +6,6 @@ export class DileIconlibRewindStartLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rewind-start-line', DileIconlibRewindStartLine);
+if (!customElements.get('dile-remixicon-icon-rewind-start-line')) {
+  customElements.define('dile-remixicon-icon-rewind-start-line', DileIconlibRewindStartLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZodiacTaurus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-zodiac-taurus', DileIconlibZodiacTaurus);
+if (!customElements.get('dile-tabler-icon-zodiac-taurus')) {
+  customElements.define('dile-tabler-icon-zodiac-taurus', DileIconlibZodiacTaurus);
+}

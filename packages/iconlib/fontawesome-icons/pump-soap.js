@@ -6,4 +6,6 @@ export class DileIconlibPumpSoap extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pump-soap', DileIconlibPumpSoap);
+if (!customElements.get('dile-fontawesome-icon-pump-soap')) {
+  customElements.define('dile-fontawesome-icon-pump-soap', DileIconlibPumpSoap);
+}

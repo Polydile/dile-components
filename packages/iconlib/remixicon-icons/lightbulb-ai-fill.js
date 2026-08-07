@@ -6,4 +6,6 @@ export class DileIconlibLightbulbAiFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-lightbulb-ai-fill', DileIconlibLightbulbAiFill);
+if (!customElements.get('dile-remixicon-icon-lightbulb-ai-fill')) {
+  customElements.define('dile-remixicon-icon-lightbulb-ai-fill', DileIconlibLightbulbAiFill);
+}

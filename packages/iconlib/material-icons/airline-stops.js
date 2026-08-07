@@ -6,4 +6,6 @@ export class DileIconlibAirlineStops extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airline-stops', DileIconlibAirlineStops);
+if (!customElements.get('dile-material-icon-airline-stops')) {
+  customElements.define('dile-material-icon-airline-stops', DileIconlibAirlineStops);
+}

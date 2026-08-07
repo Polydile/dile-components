@@ -6,4 +6,6 @@ export class DileIconlibCapsuleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-capsule-line', DileIconlibCapsuleLine);
+if (!customElements.get('dile-remixicon-icon-capsule-line')) {
+  customElements.define('dile-remixicon-icon-capsule-line', DileIconlibCapsuleLine);
+}

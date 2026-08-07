@@ -6,4 +6,6 @@ export class DileIconlibSkateboardOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-skateboard-off', DileIconlibSkateboardOff);
+if (!customElements.get('dile-tabler-icon-skateboard-off')) {
+  customElements.define('dile-tabler-icon-skateboard-off', DileIconlibSkateboardOff);
+}

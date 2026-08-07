@@ -6,4 +6,6 @@ export class DileIconlibFileVueFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-vue-fill', DileIconlibFileVueFill);
+if (!customElements.get('dile-phosphor-icon-file-vue-fill')) {
+  customElements.define('dile-phosphor-icon-file-vue-fill', DileIconlibFileVueFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFrustumPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-frustum-plus', DileIconlibFrustumPlus);
+if (!customElements.get('dile-tabler-icon-frustum-plus')) {
+  customElements.define('dile-tabler-icon-frustum-plus', DileIconlibFrustumPlus);
+}

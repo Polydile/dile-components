@@ -6,4 +6,6 @@ export class DileIconlibBedroomParent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-bedroom-parent', DileIconlibBedroomParent);
+if (!customElements.get('dile-material-icon-bedroom-parent')) {
+  customElements.define('dile-material-icon-bedroom-parent', DileIconlibBedroomParent);
+}

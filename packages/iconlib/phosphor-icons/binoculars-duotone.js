@@ -6,4 +6,6 @@ export class DileIconlibBinocularsDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-binoculars-duotone', DileIconlibBinocularsDuotone);
+if (!customElements.get('dile-phosphor-icon-binoculars-duotone')) {
+  customElements.define('dile-phosphor-icon-binoculars-duotone', DileIconlibBinocularsDuotone);
+}

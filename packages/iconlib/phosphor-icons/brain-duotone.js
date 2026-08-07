@@ -6,4 +6,6 @@ export class DileIconlibBrainDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brain-duotone', DileIconlibBrainDuotone);
+if (!customElements.get('dile-phosphor-icon-brain-duotone')) {
+  customElements.define('dile-phosphor-icon-brain-duotone', DileIconlibBrainDuotone);
+}

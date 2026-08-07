@@ -6,4 +6,6 @@ export class DileIconlibUserXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-xmark', DileIconlibUserXmark);
+if (!customElements.get('dile-fontawesome-icon-user-xmark')) {
+  customElements.define('dile-fontawesome-icon-user-xmark', DileIconlibUserXmark);
+}

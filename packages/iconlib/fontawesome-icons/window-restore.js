@@ -6,4 +6,6 @@ export class DileIconlibWindowRestore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-window-restore', DileIconlibWindowRestore);
+if (!customElements.get('dile-fontawesome-icon-window-restore')) {
+  customElements.define('dile-fontawesome-icon-window-restore', DileIconlibWindowRestore);
+}

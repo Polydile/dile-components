@@ -6,4 +6,6 @@ export class DileIconlibDeviceHeartMonitor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-heart-monitor', DileIconlibDeviceHeartMonitor);
+if (!customElements.get('dile-tabler-icon-device-heart-monitor')) {
+  customElements.define('dile-tabler-icon-device-heart-monitor', DileIconlibDeviceHeartMonitor);
+}

@@ -6,4 +6,6 @@ export class DileIconlibGrass extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-grass', DileIconlibGrass);
+if (!customElements.get('dile-material-icon-grass')) {
+  customElements.define('dile-material-icon-grass', DileIconlibGrass);
+}

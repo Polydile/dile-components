@@ -6,4 +6,6 @@ export class DileIconlibFireHydrantOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fire-hydrant-off', DileIconlibFireHydrantOff);
+if (!customElements.get('dile-tabler-icon-fire-hydrant-off')) {
+  customElements.define('dile-tabler-icon-fire-hydrant-off', DileIconlibFireHydrantOff);
+}

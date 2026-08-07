@@ -6,4 +6,6 @@ export class DileIconlibBrandUber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-uber', DileIconlibBrandUber);
+if (!customElements.get('dile-tabler-icon-brand-uber')) {
+  customElements.define('dile-tabler-icon-brand-uber', DileIconlibBrandUber);
+}

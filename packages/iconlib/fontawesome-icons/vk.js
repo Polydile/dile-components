@@ -6,4 +6,6 @@ export class DileIconlibVk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-vk', DileIconlibVk);
+if (!customElements.get('dile-fontawesome-icon-vk')) {
+  customElements.define('dile-fontawesome-icon-vk', DileIconlibVk);
+}

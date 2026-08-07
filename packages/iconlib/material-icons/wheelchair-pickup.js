@@ -6,4 +6,6 @@ export class DileIconlibWheelchairPickup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wheelchair-pickup', DileIconlibWheelchairPickup);
+if (!customElements.get('dile-material-icon-wheelchair-pickup')) {
+  customElements.define('dile-material-icon-wheelchair-pickup', DileIconlibWheelchairPickup);
+}

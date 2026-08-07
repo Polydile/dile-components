@@ -6,4 +6,6 @@ export class DileIconlibSwipeRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-swipe-right', DileIconlibSwipeRight);
+if (!customElements.get('dile-tabler-icon-swipe-right')) {
+  customElements.define('dile-tabler-icon-swipe-right', DileIconlibSwipeRight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibProhibitedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-prohibited-fill', DileIconlibProhibitedFill);
+if (!customElements.get('dile-remixicon-icon-prohibited-fill')) {
+  customElements.define('dile-remixicon-icon-prohibited-fill', DileIconlibProhibitedFill);
+}

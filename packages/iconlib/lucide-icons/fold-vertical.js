@@ -6,4 +6,6 @@ export class DileIconlibFoldVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-fold-vertical', DileIconlibFoldVertical);
+if (!customElements.get('dile-lucide-icon-fold-vertical')) {
+  customElements.define('dile-lucide-icon-fold-vertical', DileIconlibFoldVertical);
+}

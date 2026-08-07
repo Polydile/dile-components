@@ -6,4 +6,6 @@ export class DileIconlibGolfBallTee extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-golf-ball-tee', DileIconlibGolfBallTee);
+if (!customElements.get('dile-fontawesome-icon-golf-ball-tee')) {
+  customElements.define('dile-fontawesome-icon-golf-ball-tee', DileIconlibGolfBallTee);
+}

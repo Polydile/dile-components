@@ -6,4 +6,6 @@ export class DileIconlibHomeUser extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-home-user', DileIconlibHomeUser);
+if (!customElements.get('dile-fontawesome-icon-home-user')) {
+  customElements.define('dile-fontawesome-icon-home-user', DileIconlibHomeUser);
+}

@@ -6,4 +6,6 @@ export class DileIconlibThreema extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-threema', DileIconlibThreema);
+if (!customElements.get('dile-fontawesome-icon-threema')) {
+  customElements.define('dile-fontawesome-icon-threema', DileIconlibThreema);
+}

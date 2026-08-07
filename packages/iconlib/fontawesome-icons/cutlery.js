@@ -6,4 +6,6 @@ export class DileIconlibCutlery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cutlery', DileIconlibCutlery);
+if (!customElements.get('dile-fontawesome-icon-cutlery')) {
+  customElements.define('dile-fontawesome-icon-cutlery', DileIconlibCutlery);
+}

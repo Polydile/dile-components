@@ -6,4 +6,6 @@ export class DileIconlibWaveSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wave-square', DileIconlibWaveSquare);
+if (!customElements.get('dile-fontawesome-icon-wave-square')) {
+  customElements.define('dile-fontawesome-icon-wave-square', DileIconlibWaveSquare);
+}

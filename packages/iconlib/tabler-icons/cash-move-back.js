@@ -6,4 +6,6 @@ export class DileIconlibCashMoveBack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cash-move-back', DileIconlibCashMoveBack);
+if (!customElements.get('dile-tabler-icon-cash-move-back')) {
+  customElements.define('dile-tabler-icon-cash-move-back', DileIconlibCashMoveBack);
+}

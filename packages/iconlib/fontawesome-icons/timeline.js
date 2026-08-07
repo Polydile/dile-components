@@ -6,4 +6,6 @@ export class DileIconlibTimeline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-timeline', DileIconlibTimeline);
+if (!customElements.get('dile-fontawesome-icon-timeline')) {
+  customElements.define('dile-fontawesome-icon-timeline', DileIconlibTimeline);
+}

@@ -6,4 +6,6 @@ export class DileIconlibStarOfDavidThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-of-david-thin', DileIconlibStarOfDavidThin);
+if (!customElements.get('dile-phosphor-icon-star-of-david-thin')) {
+  customElements.define('dile-phosphor-icon-star-of-david-thin', DileIconlibStarOfDavidThin);
+}

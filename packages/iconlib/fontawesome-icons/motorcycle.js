@@ -6,4 +6,6 @@ export class DileIconlibMotorcycle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-motorcycle', DileIconlibMotorcycle);
+if (!customElements.get('dile-fontawesome-icon-motorcycle')) {
+  customElements.define('dile-fontawesome-icon-motorcycle', DileIconlibMotorcycle);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPremiumRights extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-premium-rights', DileIconlibPremiumRights);
+if (!customElements.get('dile-tabler-icon-premium-rights')) {
+  customElements.define('dile-tabler-icon-premium-rights', DileIconlibPremiumRights);
+}

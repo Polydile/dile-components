@@ -6,4 +6,6 @@ export class DileIconlibFolderSimpleUserThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-folder-simple-user-thin', DileIconlibFolderSimpleUserThin);
+if (!customElements.get('dile-phosphor-icon-folder-simple-user-thin')) {
+  customElements.define('dile-phosphor-icon-folder-simple-user-thin', DileIconlibFolderSimpleUserThin);
+}

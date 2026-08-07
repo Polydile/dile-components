@@ -6,4 +6,6 @@ export class DileIconlibSpoon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spoon', DileIconlibSpoon);
+if (!customElements.get('dile-fontawesome-icon-spoon')) {
+  customElements.define('dile-fontawesome-icon-spoon', DileIconlibSpoon);
+}

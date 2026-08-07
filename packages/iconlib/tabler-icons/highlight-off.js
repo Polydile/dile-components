@@ -6,4 +6,6 @@ export class DileIconlibHighlightOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-highlight-off', DileIconlibHighlightOff);
+if (!customElements.get('dile-tabler-icon-highlight-off')) {
+  customElements.define('dile-tabler-icon-highlight-off', DileIconlibHighlightOff);
+}

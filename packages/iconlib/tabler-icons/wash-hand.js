@@ -6,4 +6,6 @@ export class DileIconlibWashHand extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-hand', DileIconlibWashHand);
+if (!customElements.get('dile-tabler-icon-wash-hand')) {
+  customElements.define('dile-tabler-icon-wash-hand', DileIconlibWashHand);
+}

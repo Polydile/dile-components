@@ -6,4 +6,6 @@ export class DileIconlibFilePencil extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-pencil', DileIconlibFilePencil);
+if (!customElements.get('dile-tabler-icon-file-pencil')) {
+  customElements.define('dile-tabler-icon-file-pencil', DileIconlibFilePencil);
+}

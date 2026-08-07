@@ -6,4 +6,6 @@ export class DileIconlibFocus2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-focus-2-line', DileIconlibFocus2Line);
+if (!customElements.get('dile-remixicon-icon-focus-2-line')) {
+  customElements.define('dile-remixicon-icon-focus-2-line', DileIconlibFocus2Line);
+}

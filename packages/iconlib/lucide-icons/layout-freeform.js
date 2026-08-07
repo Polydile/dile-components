@@ -6,4 +6,6 @@ export class DileIconlibLayoutFreeform extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-layout-freeform', DileIconlibLayoutFreeform);
+if (!customElements.get('dile-lucide-icon-layout-freeform')) {
+  customElements.define('dile-lucide-icon-layout-freeform', DileIconlibLayoutFreeform);
+}

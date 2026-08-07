@@ -6,4 +6,6 @@ export class DileIconlibMapPinTimeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-map-pin-time-line', DileIconlibMapPinTimeLine);
+if (!customElements.get('dile-remixicon-icon-map-pin-time-line')) {
+  customElements.define('dile-remixicon-icon-map-pin-time-line', DileIconlibMapPinTimeLine);
+}

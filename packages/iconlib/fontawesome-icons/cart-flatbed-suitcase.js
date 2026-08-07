@@ -6,4 +6,6 @@ export class DileIconlibCartFlatbedSuitcase extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cart-flatbed-suitcase', DileIconlibCartFlatbedSuitcase);
+if (!customElements.get('dile-fontawesome-icon-cart-flatbed-suitcase')) {
+  customElements.define('dile-fontawesome-icon-cart-flatbed-suitcase', DileIconlibCartFlatbedSuitcase);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChartDots3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chart-dots-3', DileIconlibChartDots3);
+if (!customElements.get('dile-tabler-icon-chart-dots-3')) {
+  customElements.define('dile-tabler-icon-chart-dots-3', DileIconlibChartDots3);
+}

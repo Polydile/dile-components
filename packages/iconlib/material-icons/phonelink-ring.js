@@ -6,4 +6,6 @@ export class DileIconlibPhonelinkRing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-phonelink-ring', DileIconlibPhonelinkRing);
+if (!customElements.get('dile-material-icon-phonelink-ring')) {
+  customElements.define('dile-material-icon-phonelink-ring', DileIconlibPhonelinkRing);
+}

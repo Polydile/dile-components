@@ -6,4 +6,6 @@ export class DileIconlibWatchmanMonitoring extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-watchman-monitoring', DileIconlibWatchmanMonitoring);
+if (!customElements.get('dile-fontawesome-icon-watchman-monitoring')) {
+  customElements.define('dile-fontawesome-icon-watchman-monitoring', DileIconlibWatchmanMonitoring);
+}

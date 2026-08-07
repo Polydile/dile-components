@@ -6,4 +6,6 @@ export class DileIconlibUserSwitch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-user-switch', DileIconlibUserSwitch);
+if (!customElements.get('dile-phosphor-icon-user-switch')) {
+  customElements.define('dile-phosphor-icon-user-switch', DileIconlibUserSwitch);
+}

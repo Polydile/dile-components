@@ -6,4 +6,6 @@ export class DileIconlibBrainBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-brain-bold', DileIconlibBrainBold);
+if (!customElements.get('dile-phosphor-icon-brain-bold')) {
+  customElements.define('dile-phosphor-icon-brain-bold', DileIconlibBrainBold);
+}

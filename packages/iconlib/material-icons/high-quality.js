@@ -6,4 +6,6 @@ export class DileIconlibHighQuality extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-high-quality', DileIconlibHighQuality);
+if (!customElements.get('dile-material-icon-high-quality')) {
+  customElements.define('dile-material-icon-high-quality', DileIconlibHighQuality);
+}

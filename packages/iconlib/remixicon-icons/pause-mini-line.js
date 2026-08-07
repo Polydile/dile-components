@@ -6,4 +6,6 @@ export class DileIconlibPauseMiniLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pause-mini-line', DileIconlibPauseMiniLine);
+if (!customElements.get('dile-remixicon-icon-pause-mini-line')) {
+  customElements.define('dile-remixicon-icon-pause-mini-line', DileIconlibPauseMiniLine);
+}

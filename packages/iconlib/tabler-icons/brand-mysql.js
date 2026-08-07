@@ -6,4 +6,6 @@ export class DileIconlibBrandMysql extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mysql', DileIconlibBrandMysql);
+if (!customElements.get('dile-tabler-icon-brand-mysql')) {
+  customElements.define('dile-tabler-icon-brand-mysql', DileIconlibBrandMysql);
+}

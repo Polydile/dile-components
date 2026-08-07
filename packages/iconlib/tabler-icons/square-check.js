@@ -6,4 +6,6 @@ export class DileIconlibSquareCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-check', DileIconlibSquareCheck);
+if (!customElements.get('dile-tabler-icon-square-check')) {
+  customElements.define('dile-tabler-icon-square-check', DileIconlibSquareCheck);
+}

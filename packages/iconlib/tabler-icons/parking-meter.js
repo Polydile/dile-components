@@ -6,4 +6,6 @@ export class DileIconlibParkingMeter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-parking-meter', DileIconlibParkingMeter);
+if (!customElements.get('dile-tabler-icon-parking-meter')) {
+  customElements.define('dile-tabler-icon-parking-meter', DileIconlibParkingMeter);
+}

@@ -6,4 +6,6 @@ export class DileIconlibNfcSymbol extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-nfc-symbol', DileIconlibNfcSymbol);
+if (!customElements.get('dile-fontawesome-icon-nfc-symbol')) {
+  customElements.define('dile-fontawesome-icon-nfc-symbol', DileIconlibNfcSymbol);
+}

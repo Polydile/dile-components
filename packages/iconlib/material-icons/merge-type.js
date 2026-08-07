@@ -6,4 +6,6 @@ export class DileIconlibMergeType extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-merge-type', DileIconlibMergeType);
+if (!customElements.get('dile-material-icon-merge-type')) {
+  customElements.define('dile-material-icon-merge-type', DileIconlibMergeType);
+}

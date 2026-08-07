@@ -6,4 +6,6 @@ export class DileIconlibObsStudio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-obs-studio', DileIconlibObsStudio);
+if (!customElements.get('dile-fontawesome-icon-obs-studio')) {
+  customElements.define('dile-fontawesome-icon-obs-studio', DileIconlibObsStudio);
+}

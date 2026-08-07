@@ -6,4 +6,6 @@ export class DileIconlibDumbbell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dumbbell', DileIconlibDumbbell);
+if (!customElements.get('dile-tabler-icon-dumbbell')) {
+  customElements.define('dile-tabler-icon-dumbbell', DileIconlibDumbbell);
+}

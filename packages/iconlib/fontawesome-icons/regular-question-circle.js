@@ -6,4 +6,6 @@ export class DileIconlibQuestionCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-question-circle', DileIconlibQuestionCircle);
+if (!customElements.get('dile-fontawesome-icon-regular-question-circle')) {
+  customElements.define('dile-fontawesome-icon-regular-question-circle', DileIconlibQuestionCircle);
+}

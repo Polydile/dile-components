@@ -6,4 +6,6 @@ export class DileIconlibCircuitBattery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-battery', DileIconlibCircuitBattery);
+if (!customElements.get('dile-tabler-icon-circuit-battery')) {
+  customElements.define('dile-tabler-icon-circuit-battery', DileIconlibCircuitBattery);
+}

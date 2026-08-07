@@ -6,4 +6,6 @@ export class DileIconlibDirectionsBoatFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-directions-boat-filled', DileIconlibDirectionsBoatFilled);
+if (!customElements.get('dile-material-icon-directions-boat-filled')) {
+  customElements.define('dile-material-icon-directions-boat-filled', DileIconlibDirectionsBoatFilled);
+}

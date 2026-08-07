@@ -6,4 +6,6 @@ export class DileIconlibJsfiddle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-jsfiddle', DileIconlibJsfiddle);
+if (!customElements.get('dile-fontawesome-icon-jsfiddle')) {
+  customElements.define('dile-fontawesome-icon-jsfiddle', DileIconlibJsfiddle);
+}

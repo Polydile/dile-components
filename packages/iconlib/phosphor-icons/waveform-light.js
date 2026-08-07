@@ -6,4 +6,6 @@ export class DileIconlibWaveformLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-waveform-light', DileIconlibWaveformLight);
+if (!customElements.get('dile-phosphor-icon-waveform-light')) {
+  customElements.define('dile-phosphor-icon-waveform-light', DileIconlibWaveformLight);
+}

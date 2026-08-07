@@ -6,4 +6,6 @@ export class DileIconlibKeyholeThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-keyhole-thin', DileIconlibKeyholeThin);
+if (!customElements.get('dile-phosphor-icon-keyhole-thin')) {
+  customElements.define('dile-phosphor-icon-keyhole-thin', DileIconlibKeyholeThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyZloty extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-zloty', DileIconlibCurrencyZloty);
+if (!customElements.get('dile-tabler-icon-currency-zloty')) {
+  customElements.define('dile-tabler-icon-currency-zloty', DileIconlibCurrencyZloty);
+}

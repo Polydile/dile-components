@@ -6,4 +6,6 @@ export class DileIconlibThumbTack extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-thumb-tack', DileIconlibThumbTack);
+if (!customElements.get('dile-fontawesome-icon-thumb-tack')) {
+  customElements.define('dile-fontawesome-icon-thumb-tack', DileIconlibThumbTack);
+}

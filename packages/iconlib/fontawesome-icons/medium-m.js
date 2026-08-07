@@ -6,4 +6,6 @@ export class DileIconlibMediumM extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-medium-m', DileIconlibMediumM);
+if (!customElements.get('dile-fontawesome-icon-medium-m')) {
+  customElements.define('dile-fontawesome-icon-medium-m', DileIconlibMediumM);
+}

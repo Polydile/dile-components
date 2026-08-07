@@ -6,4 +6,6 @@ export class DileIconlibClockDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-clock-duotone', DileIconlibClockDuotone);
+if (!customElements.get('dile-phosphor-icon-clock-duotone')) {
+  customElements.define('dile-phosphor-icon-clock-duotone', DileIconlibClockDuotone);
+}

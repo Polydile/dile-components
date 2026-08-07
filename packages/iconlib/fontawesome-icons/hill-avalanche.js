@@ -6,4 +6,6 @@ export class DileIconlibHillAvalanche extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hill-avalanche', DileIconlibHillAvalanche);
+if (!customElements.get('dile-fontawesome-icon-hill-avalanche')) {
+  customElements.define('dile-fontawesome-icon-hill-avalanche', DileIconlibHillAvalanche);
+}

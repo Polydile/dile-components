@@ -6,4 +6,6 @@ export class DileIconlibRefreshDot extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-refresh-dot', DileIconlibRefreshDot);
+if (!customElements.get('dile-tabler-icon-refresh-dot')) {
+  customElements.define('dile-tabler-icon-refresh-dot', DileIconlibRefreshDot);
+}

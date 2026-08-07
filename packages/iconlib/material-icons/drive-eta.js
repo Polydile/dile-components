@@ -6,4 +6,6 @@ export class DileIconlibDriveEta extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-drive-eta', DileIconlibDriveEta);
+if (!customElements.get('dile-material-icon-drive-eta')) {
+  customElements.define('dile-material-icon-drive-eta', DileIconlibDriveEta);
+}

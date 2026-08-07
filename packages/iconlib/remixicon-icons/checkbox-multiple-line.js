@@ -6,4 +6,6 @@ export class DileIconlibCheckboxMultipleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-checkbox-multiple-line', DileIconlibCheckboxMultipleLine);
+if (!customElements.get('dile-remixicon-icon-checkbox-multiple-line')) {
+  customElements.define('dile-remixicon-icon-checkbox-multiple-line', DileIconlibCheckboxMultipleLine);
+}

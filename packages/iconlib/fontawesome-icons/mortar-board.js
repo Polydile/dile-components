@@ -6,4 +6,6 @@ export class DileIconlibMortarBoard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mortar-board', DileIconlibMortarBoard);
+if (!customElements.get('dile-fontawesome-icon-mortar-board')) {
+  customElements.define('dile-fontawesome-icon-mortar-board', DileIconlibMortarBoard);
+}

@@ -6,4 +6,6 @@ export class DileIconlibKanbanDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-kanban-duotone', DileIconlibKanbanDuotone);
+if (!customElements.get('dile-phosphor-icon-kanban-duotone')) {
+  customElements.define('dile-phosphor-icon-kanban-duotone', DileIconlibKanbanDuotone);
+}

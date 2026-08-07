@@ -6,4 +6,6 @@ export class DileIconlibYinYangBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-yin-yang-bold', DileIconlibYinYangBold);
+if (!customElements.get('dile-phosphor-icon-yin-yang-bold')) {
+  customElements.define('dile-phosphor-icon-yin-yang-bold', DileIconlibYinYangBold);
+}

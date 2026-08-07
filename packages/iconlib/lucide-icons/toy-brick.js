@@ -6,4 +6,6 @@ export class DileIconlibToyBrick extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-toy-brick', DileIconlibToyBrick);
+if (!customElements.get('dile-lucide-icon-toy-brick')) {
+  customElements.define('dile-lucide-icon-toy-brick', DileIconlibToyBrick);
+}

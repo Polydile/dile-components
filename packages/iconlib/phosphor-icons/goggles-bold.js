@@ -6,4 +6,6 @@ export class DileIconlibGogglesBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-goggles-bold', DileIconlibGogglesBold);
+if (!customElements.get('dile-phosphor-icon-goggles-bold')) {
+  customElements.define('dile-phosphor-icon-goggles-bold', DileIconlibGogglesBold);
+}

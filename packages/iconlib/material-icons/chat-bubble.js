@@ -6,4 +6,6 @@ export class DileIconlibChatBubble extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-chat-bubble', DileIconlibChatBubble);
+if (!customElements.get('dile-material-icon-chat-bubble')) {
+  customElements.define('dile-material-icon-chat-bubble', DileIconlibChatBubble);
+}

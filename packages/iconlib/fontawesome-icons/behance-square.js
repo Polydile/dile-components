@@ -6,4 +6,6 @@ export class DileIconlibBehanceSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-behance-square', DileIconlibBehanceSquare);
+if (!customElements.get('dile-fontawesome-icon-behance-square')) {
+  customElements.define('dile-fontawesome-icon-behance-square', DileIconlibBehanceSquare);
+}

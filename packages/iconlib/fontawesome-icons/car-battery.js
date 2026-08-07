@@ -6,4 +6,6 @@ export class DileIconlibCarBattery extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-car-battery', DileIconlibCarBattery);
+if (!customElements.get('dile-fontawesome-icon-car-battery')) {
+  customElements.define('dile-fontawesome-icon-car-battery', DileIconlibCarBattery);
+}

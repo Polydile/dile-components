@@ -6,4 +6,6 @@ export class DileIconlibRampRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-ramp-right', DileIconlibRampRight);
+if (!customElements.get('dile-material-icon-ramp-right')) {
+  customElements.define('dile-material-icon-ramp-right', DileIconlibRampRight);
+}

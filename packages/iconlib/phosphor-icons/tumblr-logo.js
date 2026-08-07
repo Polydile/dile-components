@@ -6,4 +6,6 @@ export class DileIconlibTumblrLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tumblr-logo', DileIconlibTumblrLogo);
+if (!customElements.get('dile-phosphor-icon-tumblr-logo')) {
+  customElements.define('dile-phosphor-icon-tumblr-logo', DileIconlibTumblrLogo);
+}

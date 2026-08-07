@@ -6,4 +6,6 @@ export class DileIconlibServerOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-server-off', DileIconlibServerOff);
+if (!customElements.get('dile-lucide-icon-server-off')) {
+  customElements.define('dile-lucide-icon-server-off', DileIconlibServerOff);
+}

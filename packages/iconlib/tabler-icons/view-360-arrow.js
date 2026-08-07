@@ -6,4 +6,6 @@ export class DileIconlibView360Arrow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-view-360-arrow', DileIconlibView360Arrow);
+if (!customElements.get('dile-tabler-icon-view-360-arrow')) {
+  customElements.define('dile-tabler-icon-view-360-arrow', DileIconlibView360Arrow);
+}

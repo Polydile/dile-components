@@ -6,4 +6,6 @@ export class DileIconlibKeyboardArrowLeft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-keyboard-arrow-left', DileIconlibKeyboardArrowLeft);
+if (!customElements.get('dile-material-icon-keyboard-arrow-left')) {
+  customElements.define('dile-material-icon-keyboard-arrow-left', DileIconlibKeyboardArrowLeft);
+}

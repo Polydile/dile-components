@@ -6,4 +6,6 @@ export class DileIconlibFileRssFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-rss-filled', DileIconlibFileRssFilled);
+if (!customElements.get('dile-tabler-icon-file-rss-filled')) {
+  customElements.define('dile-tabler-icon-file-rss-filled', DileIconlibFileRssFilled);
+}

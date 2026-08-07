@@ -6,4 +6,6 @@ export class DileIconlibEyeQuestion extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eye-question', DileIconlibEyeQuestion);
+if (!customElements.get('dile-tabler-icon-eye-question')) {
+  customElements.define('dile-tabler-icon-eye-question', DileIconlibEyeQuestion);
+}

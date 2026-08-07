@@ -6,4 +6,6 @@ export class DileIconlibFileStarFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-star-filled', DileIconlibFileStarFilled);
+if (!customElements.get('dile-tabler-icon-file-star-filled')) {
+  customElements.define('dile-tabler-icon-file-star-filled', DileIconlibFileStarFilled);
+}

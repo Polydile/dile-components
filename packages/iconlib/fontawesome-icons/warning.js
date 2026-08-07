@@ -6,4 +6,6 @@ export class DileIconlibWarning extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-warning', DileIconlibWarning);
+if (!customElements.get('dile-fontawesome-icon-warning')) {
+  customElements.define('dile-fontawesome-icon-warning', DileIconlibWarning);
+}

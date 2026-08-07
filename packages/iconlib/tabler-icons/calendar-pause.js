@@ -6,4 +6,6 @@ export class DileIconlibCalendarPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calendar-pause', DileIconlibCalendarPause);
+if (!customElements.get('dile-tabler-icon-calendar-pause')) {
+  customElements.define('dile-tabler-icon-calendar-pause', DileIconlibCalendarPause);
+}

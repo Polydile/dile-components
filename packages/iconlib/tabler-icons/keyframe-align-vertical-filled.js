@@ -6,4 +6,6 @@ export class DileIconlibKeyframeAlignVerticalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-keyframe-align-vertical-filled', DileIconlibKeyframeAlignVerticalFilled);
+if (!customElements.get('dile-tabler-icon-keyframe-align-vertical-filled')) {
+  customElements.define('dile-tabler-icon-keyframe-align-vertical-filled', DileIconlibKeyframeAlignVerticalFilled);
+}

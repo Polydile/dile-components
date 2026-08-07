@@ -6,4 +6,6 @@ export class DileIconlibShieldOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-shield-off', DileIconlibShieldOff);
+if (!customElements.get('dile-lucide-icon-shield-off')) {
+  customElements.define('dile-lucide-icon-shield-off', DileIconlibShieldOff);
+}

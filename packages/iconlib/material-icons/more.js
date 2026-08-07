@@ -6,4 +6,6 @@ export class DileIconlibMore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-more', DileIconlibMore);
+if (!customElements.get('dile-material-icon-more')) {
+  customElements.define('dile-material-icon-more', DileIconlibMore);
+}

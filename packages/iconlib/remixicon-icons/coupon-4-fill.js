@@ -6,4 +6,6 @@ export class DileIconlibCoupon4Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-coupon-4-fill', DileIconlibCoupon4Fill);
+if (!customElements.get('dile-remixicon-icon-coupon-4-fill')) {
+  customElements.define('dile-remixicon-icon-coupon-4-fill', DileIconlibCoupon4Fill);
+}

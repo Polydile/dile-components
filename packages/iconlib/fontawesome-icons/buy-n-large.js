@@ -6,4 +6,6 @@ export class DileIconlibBuyNLarge extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-buy-n-large', DileIconlibBuyNLarge);
+if (!customElements.get('dile-fontawesome-icon-buy-n-large')) {
+  customElements.define('dile-fontawesome-icon-buy-n-large', DileIconlibBuyNLarge);
+}

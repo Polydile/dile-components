@@ -1,3 +1,5 @@
 import { DileRadio } from "./src/DileRadio.js";
 
-window.customElements.define("dile-radio", DileRadio);
+if (!customElements.get("dile-radio")) {
+  window.customElements.define("dile-radio", DileRadio);
+}

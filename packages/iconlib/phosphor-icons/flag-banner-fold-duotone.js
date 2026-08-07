@@ -6,4 +6,6 @@ export class DileIconlibFlagBannerFoldDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-banner-fold-duotone', DileIconlibFlagBannerFoldDuotone);
+if (!customElements.get('dile-phosphor-icon-flag-banner-fold-duotone')) {
+  customElements.define('dile-phosphor-icon-flag-banner-fold-duotone', DileIconlibFlagBannerFoldDuotone);
+}

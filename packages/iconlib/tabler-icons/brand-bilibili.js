@@ -6,4 +6,6 @@ export class DileIconlibBrandBilibili extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-bilibili', DileIconlibBrandBilibili);
+if (!customElements.get('dile-tabler-icon-brand-bilibili')) {
+  customElements.define('dile-tabler-icon-brand-bilibili', DileIconlibBrandBilibili);
+}

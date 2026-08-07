@@ -6,4 +6,6 @@ export class DileIconlibSimCard2Line extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sim-card-2-line', DileIconlibSimCard2Line);
+if (!customElements.get('dile-remixicon-icon-sim-card-2-line')) {
+  customElements.define('dile-remixicon-icon-sim-card-2-line', DileIconlibSimCard2Line);
+}

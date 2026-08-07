@@ -6,4 +6,6 @@ export class DileIconlibBrandNetbeans extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-netbeans', DileIconlibBrandNetbeans);
+if (!customElements.get('dile-tabler-icon-brand-netbeans')) {
+  customElements.define('dile-tabler-icon-brand-netbeans', DileIconlibBrandNetbeans);
+}

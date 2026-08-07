@@ -6,4 +6,6 @@ export class DileIconlibCircleHalf extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-half', DileIconlibCircleHalf);
+if (!customElements.get('dile-tabler-icon-circle-half')) {
+  customElements.define('dile-tabler-icon-circle-half', DileIconlibCircleHalf);
+}

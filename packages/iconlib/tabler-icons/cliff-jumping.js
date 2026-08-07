@@ -6,4 +6,6 @@ export class DileIconlibCliffJumping extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cliff-jumping', DileIconlibCliffJumping);
+if (!customElements.get('dile-tabler-icon-cliff-jumping')) {
+  customElements.define('dile-tabler-icon-cliff-jumping', DileIconlibCliffJumping);
+}

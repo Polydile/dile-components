@@ -6,4 +6,6 @@ export class DileIconlibBrandRust extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-rust', DileIconlibBrandRust);
+if (!customElements.get('dile-tabler-icon-brand-rust')) {
+  customElements.define('dile-tabler-icon-brand-rust', DileIconlibBrandRust);
+}

@@ -6,4 +6,6 @@ export class DileIconlibDoorLockBoxFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-door-lock-box-fill', DileIconlibDoorLockBoxFill);
+if (!customElements.get('dile-remixicon-icon-door-lock-box-fill')) {
+  customElements.define('dile-remixicon-icon-door-lock-box-fill', DileIconlibDoorLockBoxFill);
+}

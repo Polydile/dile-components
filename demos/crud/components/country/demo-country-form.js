@@ -30,4 +30,6 @@ export class DemoCountryForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('demo-country-form', DemoCountryForm);
+if (!customElements.get('demo-country-form')) {
+  customElements.define('demo-country-form', DemoCountryForm);
+}

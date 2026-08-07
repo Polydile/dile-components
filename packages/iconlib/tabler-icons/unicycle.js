@@ -6,4 +6,6 @@ export class DileIconlibUnicycle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-unicycle', DileIconlibUnicycle);
+if (!customElements.get('dile-tabler-icon-unicycle')) {
+  customElements.define('dile-tabler-icon-unicycle', DileIconlibUnicycle);
+}

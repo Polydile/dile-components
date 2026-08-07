@@ -6,4 +6,6 @@ export class DileIconlibBlueskyLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bluesky-line', DileIconlibBlueskyLine);
+if (!customElements.get('dile-remixicon-icon-bluesky-line')) {
+  customElements.define('dile-remixicon-icon-bluesky-line', DileIconlibBlueskyLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibChairDirector extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-chair-director', DileIconlibChairDirector);
+if (!customElements.get('dile-tabler-icon-chair-director')) {
+  customElements.define('dile-tabler-icon-chair-director', DileIconlibChairDirector);
+}

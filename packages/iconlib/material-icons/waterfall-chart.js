@@ -6,4 +6,6 @@ export class DileIconlibWaterfallChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-waterfall-chart', DileIconlibWaterfallChart);
+if (!customElements.get('dile-material-icon-waterfall-chart')) {
+  customElements.define('dile-material-icon-waterfall-chart', DileIconlibWaterfallChart);
+}

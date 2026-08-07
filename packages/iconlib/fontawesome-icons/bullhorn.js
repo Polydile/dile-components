@@ -6,4 +6,6 @@ export class DileIconlibBullhorn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bullhorn', DileIconlibBullhorn);
+if (!customElements.get('dile-fontawesome-icon-bullhorn')) {
+  customElements.define('dile-fontawesome-icon-bullhorn', DileIconlibBullhorn);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoneyPoundCircleLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-money-pound-circle-line', DileIconlibMoneyPoundCircleLine);
+if (!customElements.get('dile-remixicon-icon-money-pound-circle-line')) {
+  customElements.define('dile-remixicon-icon-money-pound-circle-line', DileIconlibMoneyPoundCircleLine);
+}

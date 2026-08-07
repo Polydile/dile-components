@@ -6,4 +6,6 @@ export class DileIconlibHackerrank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hackerrank', DileIconlibHackerrank);
+if (!customElements.get('dile-fontawesome-icon-hackerrank')) {
+  customElements.define('dile-fontawesome-icon-hackerrank', DileIconlibHackerrank);
+}

@@ -6,4 +6,6 @@ export class DileIconlibClover extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-clover', DileIconlibClover);
+if (!customElements.get('dile-fontawesome-icon-clover')) {
+  customElements.define('dile-fontawesome-icon-clover', DileIconlibClover);
+}

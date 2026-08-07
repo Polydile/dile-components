@@ -6,4 +6,6 @@ export class DileIconlibGrid4x4 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-grid-4x4', DileIconlibGrid4x4);
+if (!customElements.get('dile-tabler-icon-grid-4x4')) {
+  customElements.define('dile-tabler-icon-grid-4x4', DileIconlibGrid4x4);
+}

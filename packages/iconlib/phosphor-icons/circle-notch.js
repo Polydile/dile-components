@@ -6,4 +6,6 @@ export class DileIconlibCircleNotch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-circle-notch', DileIconlibCircleNotch);
+if (!customElements.get('dile-phosphor-icon-circle-notch')) {
+  customElements.define('dile-phosphor-icon-circle-notch', DileIconlibCircleNotch);
+}

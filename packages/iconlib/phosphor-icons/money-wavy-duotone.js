@@ -6,4 +6,6 @@ export class DileIconlibMoneyWavyDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-money-wavy-duotone', DileIconlibMoneyWavyDuotone);
+if (!customElements.get('dile-phosphor-icon-money-wavy-duotone')) {
+  customElements.define('dile-phosphor-icon-money-wavy-duotone', DileIconlibMoneyWavyDuotone);
+}

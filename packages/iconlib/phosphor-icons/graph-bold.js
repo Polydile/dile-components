@@ -6,4 +6,6 @@ export class DileIconlibGraphBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-graph-bold', DileIconlibGraphBold);
+if (!customElements.get('dile-phosphor-icon-graph-bold')) {
+  customElements.define('dile-phosphor-icon-graph-bold', DileIconlibGraphBold);
+}

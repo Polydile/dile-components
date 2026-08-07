@@ -6,4 +6,6 @@ export class DileIconlibAirlineSeatLegroomReduced extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airline-seat-legroom-reduced', DileIconlibAirlineSeatLegroomReduced);
+if (!customElements.get('dile-material-icon-airline-seat-legroom-reduced')) {
+  customElements.define('dile-material-icon-airline-seat-legroom-reduced', DileIconlibAirlineSeatLegroomReduced);
+}

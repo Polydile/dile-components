@@ -6,4 +6,6 @@ export class DileIconlibCameraOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-camera-off', DileIconlibCameraOff);
+if (!customElements.get('dile-lucide-icon-camera-off')) {
+  customElements.define('dile-lucide-icon-camera-off', DileIconlibCameraOff);
+}

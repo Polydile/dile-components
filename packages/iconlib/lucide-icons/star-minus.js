@@ -6,4 +6,6 @@ export class DileIconlibStarMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-star-minus', DileIconlibStarMinus);
+if (!customElements.get('dile-lucide-icon-star-minus')) {
+  customElements.define('dile-lucide-icon-star-minus', DileIconlibStarMinus);
+}

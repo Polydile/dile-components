@@ -6,4 +6,6 @@ export class DileIconlibPlayListLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-play-list-line', DileIconlibPlayListLine);
+if (!customElements.get('dile-remixicon-icon-play-list-line')) {
+  customElements.define('dile-remixicon-icon-play-list-line', DileIconlibPlayListLine);
+}

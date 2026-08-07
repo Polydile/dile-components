@@ -6,4 +6,6 @@ export class DileIconlibHandSanitizerLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hand-sanitizer-line', DileIconlibHandSanitizerLine);
+if (!customElements.get('dile-remixicon-icon-hand-sanitizer-line')) {
+  customElements.define('dile-remixicon-icon-hand-sanitizer-line', DileIconlibHandSanitizerLine);
+}

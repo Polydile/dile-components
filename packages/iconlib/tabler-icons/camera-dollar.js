@@ -6,4 +6,6 @@ export class DileIconlibCameraDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-camera-dollar', DileIconlibCameraDollar);
+if (!customElements.get('dile-tabler-icon-camera-dollar')) {
+  customElements.define('dile-tabler-icon-camera-dollar', DileIconlibCameraDollar);
+}

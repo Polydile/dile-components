@@ -1,3 +1,5 @@
 import { DilePages } from "./src/DilePages.js";
 
-window.customElements.define("dile-pages", DilePages);
+if (!customElements.get("dile-pages")) {
+  window.customElements.define("dile-pages", DilePages);
+}

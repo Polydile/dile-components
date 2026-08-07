@@ -6,4 +6,6 @@ export class DileIconlibWeebly extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-weebly', DileIconlibWeebly);
+if (!customElements.get('dile-fontawesome-icon-weebly')) {
+  customElements.define('dile-fontawesome-icon-weebly', DileIconlibWeebly);
+}

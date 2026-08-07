@@ -6,4 +6,6 @@ export class DileIconlibTumblrLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tumblr-line', DileIconlibTumblrLine);
+if (!customElements.get('dile-remixicon-icon-tumblr-line')) {
+  customElements.define('dile-remixicon-icon-tumblr-line', DileIconlibTumblrLine);
+}

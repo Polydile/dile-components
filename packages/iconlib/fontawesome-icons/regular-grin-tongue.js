@@ -6,4 +6,6 @@ export class DileIconlibGrinTongue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-grin-tongue', DileIconlibGrinTongue);
+if (!customElements.get('dile-fontawesome-icon-regular-grin-tongue')) {
+  customElements.define('dile-fontawesome-icon-regular-grin-tongue', DileIconlibGrinTongue);
+}

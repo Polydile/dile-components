@@ -6,4 +6,6 @@ export class DileIconlibGhost3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ghost-3', DileIconlibGhost3);
+if (!customElements.get('dile-tabler-icon-ghost-3')) {
+  customElements.define('dile-tabler-icon-ghost-3', DileIconlibGhost3);
+}

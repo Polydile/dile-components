@@ -6,4 +6,6 @@ export class DileIconlibDirectionsTransit extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-directions-transit', DileIconlibDirectionsTransit);
+if (!customElements.get('dile-material-icon-directions-transit')) {
+  customElements.define('dile-material-icon-directions-transit', DileIconlibDirectionsTransit);
+}

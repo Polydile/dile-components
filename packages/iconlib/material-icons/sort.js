@@ -6,4 +6,6 @@ export class DileIconlibSort extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sort', DileIconlibSort);
+if (!customElements.get('dile-material-icon-sort')) {
+  customElements.define('dile-material-icon-sort', DileIconlibSort);
+}

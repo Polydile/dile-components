@@ -6,4 +6,6 @@ export class DileIconlibSchedule extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-schedule', DileIconlibSchedule);
+if (!customElements.get('dile-material-icon-schedule')) {
+  customElements.define('dile-material-icon-schedule', DileIconlibSchedule);
+}

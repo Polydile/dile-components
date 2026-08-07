@@ -6,4 +6,6 @@ export class DileIconlibSelectionInverse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-inverse', DileIconlibSelectionInverse);
+if (!customElements.get('dile-phosphor-icon-selection-inverse')) {
+  customElements.define('dile-phosphor-icon-selection-inverse', DileIconlibSelectionInverse);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVideocamOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-videocam-off', DileIconlibVideocamOff);
+if (!customElements.get('dile-material-icon-videocam-off')) {
+  customElements.define('dile-material-icon-videocam-off', DileIconlibVideocamOff);
+}

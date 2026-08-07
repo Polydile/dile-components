@@ -6,4 +6,6 @@ export class DileIconlibDollyFlatbed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dolly-flatbed', DileIconlibDollyFlatbed);
+if (!customElements.get('dile-fontawesome-icon-dolly-flatbed')) {
+  customElements.define('dile-fontawesome-icon-dolly-flatbed', DileIconlibDollyFlatbed);
+}

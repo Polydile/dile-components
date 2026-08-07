@@ -6,4 +6,6 @@ export class DileIconlibGitlabLogoSimpleThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-gitlab-logo-simple-thin', DileIconlibGitlabLogoSimpleThin);
+if (!customElements.get('dile-phosphor-icon-gitlab-logo-simple-thin')) {
+  customElements.define('dile-phosphor-icon-gitlab-logo-simple-thin', DileIconlibGitlabLogoSimpleThin);
+}

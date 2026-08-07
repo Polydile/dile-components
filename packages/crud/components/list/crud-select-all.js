@@ -1,2 +1,4 @@
 import { DileCrudSelectAll } from "./src/DileCrudSelectAll.js";
-customElements.define('dile-crud-select-all', DileCrudSelectAll);
+if (!customElements.get('dile-crud-select-all')) {
+  customElements.define('dile-crud-select-all', DileCrudSelectAll);
+}

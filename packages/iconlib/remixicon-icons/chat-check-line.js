@@ -6,4 +6,6 @@ export class DileIconlibChatCheckLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-chat-check-line', DileIconlibChatCheckLine);
+if (!customElements.get('dile-remixicon-icon-chat-check-line')) {
+  customElements.define('dile-remixicon-icon-chat-check-line', DileIconlibChatCheckLine);
+}

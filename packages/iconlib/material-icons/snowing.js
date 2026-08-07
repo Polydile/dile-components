@@ -6,4 +6,6 @@ export class DileIconlibSnowing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-snowing', DileIconlibSnowing);
+if (!customElements.get('dile-material-icon-snowing')) {
+  customElements.define('dile-material-icon-snowing', DileIconlibSnowing);
+}

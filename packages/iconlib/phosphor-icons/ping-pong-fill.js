@@ -6,4 +6,6 @@ export class DileIconlibPingPongFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ping-pong-fill', DileIconlibPingPongFill);
+if (!customElements.get('dile-phosphor-icon-ping-pong-fill')) {
+  customElements.define('dile-phosphor-icon-ping-pong-fill', DileIconlibPingPongFill);
+}

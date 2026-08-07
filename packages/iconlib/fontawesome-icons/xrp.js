@@ -6,4 +6,6 @@ export class DileIconlibXrp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-xrp', DileIconlibXrp);
+if (!customElements.get('dile-fontawesome-icon-xrp')) {
+  customElements.define('dile-fontawesome-icon-xrp', DileIconlibXrp);
+}

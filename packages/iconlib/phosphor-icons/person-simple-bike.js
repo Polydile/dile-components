@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleBike extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-bike', DileIconlibPersonSimpleBike);
+if (!customElements.get('dile-phosphor-icon-person-simple-bike')) {
+  customElements.define('dile-phosphor-icon-person-simple-bike', DileIconlibPersonSimpleBike);
+}

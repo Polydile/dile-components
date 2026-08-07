@@ -6,4 +6,6 @@ export class DileIconlibCoinEuroFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-coin-euro-filled', DileIconlibCoinEuroFilled);
+if (!customElements.get('dile-tabler-icon-coin-euro-filled')) {
+  customElements.define('dile-tabler-icon-coin-euro-filled', DileIconlibCoinEuroFilled);
+}

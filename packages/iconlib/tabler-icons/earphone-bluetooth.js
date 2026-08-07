@@ -6,4 +6,6 @@ export class DileIconlibEarphoneBluetooth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-earphone-bluetooth', DileIconlibEarphoneBluetooth);
+if (!customElements.get('dile-tabler-icon-earphone-bluetooth')) {
+  customElements.define('dile-tabler-icon-earphone-bluetooth', DileIconlibEarphoneBluetooth);
+}

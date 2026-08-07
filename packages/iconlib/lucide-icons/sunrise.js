@@ -6,4 +6,6 @@ export class DileIconlibSunrise extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sunrise', DileIconlibSunrise);
+if (!customElements.get('dile-lucide-icon-sunrise')) {
+  customElements.define('dile-lucide-icon-sunrise', DileIconlibSunrise);
+}

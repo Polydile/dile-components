@@ -6,4 +6,6 @@ export class DileIconlibTruckMedical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-truck-medical', DileIconlibTruckMedical);
+if (!customElements.get('dile-fontawesome-icon-truck-medical')) {
+  customElements.define('dile-fontawesome-icon-truck-medical', DileIconlibTruckMedical);
+}

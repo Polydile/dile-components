@@ -6,4 +6,6 @@ export class DileIconlibArrowsVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrows-vertical', DileIconlibArrowsVertical);
+if (!customElements.get('dile-tabler-icon-arrows-vertical')) {
+  customElements.define('dile-tabler-icon-arrows-vertical', DileIconlibArrowsVertical);
+}

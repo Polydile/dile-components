@@ -6,4 +6,6 @@ export class DileIconlibBrandUbuntu extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-ubuntu', DileIconlibBrandUbuntu);
+if (!customElements.get('dile-tabler-icon-brand-ubuntu')) {
+  customElements.define('dile-tabler-icon-brand-ubuntu', DileIconlibBrandUbuntu);
+}

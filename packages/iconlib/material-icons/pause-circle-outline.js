@@ -6,4 +6,6 @@ export class DileIconlibPauseCircleOutline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pause-circle-outline', DileIconlibPauseCircleOutline);
+if (!customElements.get('dile-material-icon-pause-circle-outline')) {
+  customElements.define('dile-material-icon-pause-circle-outline', DileIconlibPauseCircleOutline);
+}

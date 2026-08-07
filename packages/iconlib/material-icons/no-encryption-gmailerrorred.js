@@ -6,4 +6,6 @@ export class DileIconlibNoEncryptionGmailerrorred extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-encryption-gmailerrorred', DileIconlibNoEncryptionGmailerrorred);
+if (!customElements.get('dile-material-icon-no-encryption-gmailerrorred')) {
+  customElements.define('dile-material-icon-no-encryption-gmailerrorred', DileIconlibNoEncryptionGmailerrorred);
+}

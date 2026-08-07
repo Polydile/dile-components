@@ -6,4 +6,6 @@ export class DileIconlibPhp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-php', DileIconlibPhp);
+if (!customElements.get('dile-fontawesome-icon-php')) {
+  customElements.define('dile-fontawesome-icon-php', DileIconlibPhp);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBallPenFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ball-pen-fill', DileIconlibBallPenFill);
+if (!customElements.get('dile-remixicon-icon-ball-pen-fill')) {
+  customElements.define('dile-remixicon-icon-ball-pen-fill', DileIconlibBallPenFill);
+}

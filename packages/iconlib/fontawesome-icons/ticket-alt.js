@@ -6,4 +6,6 @@ export class DileIconlibTicketAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-ticket-alt', DileIconlibTicketAlt);
+if (!customElements.get('dile-fontawesome-icon-ticket-alt')) {
+  customElements.define('dile-fontawesome-icon-ticket-alt', DileIconlibTicketAlt);
+}

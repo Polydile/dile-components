@@ -6,4 +6,6 @@ export class DileIconlibPlayForWork extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-play-for-work', DileIconlibPlayForWork);
+if (!customElements.get('dile-material-icon-play-for-work')) {
+  customElements.define('dile-material-icon-play-for-work', DileIconlibPlayForWork);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandPowershell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-powershell', DileIconlibBrandPowershell);
+if (!customElements.get('dile-tabler-icon-brand-powershell')) {
+  customElements.define('dile-tabler-icon-brand-powershell', DileIconlibBrandPowershell);
+}

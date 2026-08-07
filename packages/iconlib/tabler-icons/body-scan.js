@@ -6,4 +6,6 @@ export class DileIconlibBodyScan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-body-scan', DileIconlibBodyScan);
+if (!customElements.get('dile-tabler-icon-body-scan')) {
+  customElements.define('dile-tabler-icon-body-scan', DileIconlibBodyScan);
+}

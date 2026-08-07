@@ -6,4 +6,6 @@ export class DileIconlibBrokenImage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-broken-image', DileIconlibBrokenImage);
+if (!customElements.get('dile-material-icon-broken-image')) {
+  customElements.define('dile-material-icon-broken-image', DileIconlibBrokenImage);
+}

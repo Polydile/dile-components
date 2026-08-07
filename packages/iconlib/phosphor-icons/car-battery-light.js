@@ -6,4 +6,6 @@ export class DileIconlibCarBatteryLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-car-battery-light', DileIconlibCarBatteryLight);
+if (!customElements.get('dile-phosphor-icon-car-battery-light')) {
+  customElements.define('dile-phosphor-icon-car-battery-light', DileIconlibCarBatteryLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibColorLens extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-color-lens', DileIconlibColorLens);
+if (!customElements.get('dile-material-icon-color-lens')) {
+  customElements.define('dile-material-icon-color-lens', DileIconlibColorLens);
+}

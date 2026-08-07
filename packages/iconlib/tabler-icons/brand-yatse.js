@@ -6,4 +6,6 @@ export class DileIconlibBrandYatse extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-yatse', DileIconlibBrandYatse);
+if (!customElements.get('dile-tabler-icon-brand-yatse')) {
+  customElements.define('dile-tabler-icon-brand-yatse', DileIconlibBrandYatse);
+}

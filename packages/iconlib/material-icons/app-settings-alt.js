@@ -6,4 +6,6 @@ export class DileIconlibAppSettingsAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-app-settings-alt', DileIconlibAppSettingsAlt);
+if (!customElements.get('dile-material-icon-app-settings-alt')) {
+  customElements.define('dile-material-icon-app-settings-alt', DileIconlibAppSettingsAlt);
+}

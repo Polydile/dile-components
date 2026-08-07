@@ -6,4 +6,6 @@ export class DileIconlibGroupLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-group-line', DileIconlibGroupLine);
+if (!customElements.get('dile-remixicon-icon-group-line')) {
+  customElements.define('dile-remixicon-icon-group-line', DileIconlibGroupLine);
+}

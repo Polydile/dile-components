@@ -6,4 +6,6 @@ export class DileIconlibInstagramLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-instagram-line', DileIconlibInstagramLine);
+if (!customElements.get('dile-remixicon-icon-instagram-line')) {
+  customElements.define('dile-remixicon-icon-instagram-line', DileIconlibInstagramLine);
+}

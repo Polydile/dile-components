@@ -6,4 +6,6 @@ export class DileIconlibNuclearPlantLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-nuclear-plant-light', DileIconlibNuclearPlantLight);
+if (!customElements.get('dile-phosphor-icon-nuclear-plant-light')) {
+  customElements.define('dile-phosphor-icon-nuclear-plant-light', DileIconlibNuclearPlantLight);
+}

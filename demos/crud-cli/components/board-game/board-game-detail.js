@@ -31,4 +31,6 @@ export class boardGameDetail extends LitElement {
     `;
   }
 }
-customElements.define('board-game-detail', boardGameDetail);
+if (!customElements.get('board-game-detail')) {
+  customElements.define('board-game-detail', boardGameDetail);
+}

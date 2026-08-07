@@ -6,4 +6,6 @@ export class DileIconlibCharacterRecognitionFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-character-recognition-fill', DileIconlibCharacterRecognitionFill);
+if (!customElements.get('dile-remixicon-icon-character-recognition-fill')) {
+  customElements.define('dile-remixicon-icon-character-recognition-fill', DileIconlibCharacterRecognitionFill);
+}

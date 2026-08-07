@@ -6,4 +6,6 @@ export class DileIconlibSentimentVerySatisfied extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sentiment-very-satisfied', DileIconlibSentimentVerySatisfied);
+if (!customElements.get('dile-material-icon-sentiment-very-satisfied')) {
+  customElements.define('dile-material-icon-sentiment-very-satisfied', DileIconlibSentimentVerySatisfied);
+}

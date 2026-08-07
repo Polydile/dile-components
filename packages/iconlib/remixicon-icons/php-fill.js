@@ -6,4 +6,6 @@ export class DileIconlibPhpFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-php-fill', DileIconlibPhpFill);
+if (!customElements.get('dile-remixicon-icon-php-fill')) {
+  customElements.define('dile-remixicon-icon-php-fill', DileIconlibPhpFill);
+}

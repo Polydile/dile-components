@@ -6,4 +6,6 @@ export class DileIconlibSegway extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-segway', DileIconlibSegway);
+if (!customElements.get('dile-tabler-icon-segway')) {
+  customElements.define('dile-tabler-icon-segway', DileIconlibSegway);
+}

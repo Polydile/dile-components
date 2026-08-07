@@ -6,4 +6,6 @@ export class DileIconlibDynamicForm extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-dynamic-form', DileIconlibDynamicForm);
+if (!customElements.get('dile-material-icon-dynamic-form')) {
+  customElements.define('dile-material-icon-dynamic-form', DileIconlibDynamicForm);
+}

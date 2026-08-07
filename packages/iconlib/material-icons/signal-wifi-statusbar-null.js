@@ -6,4 +6,6 @@ export class DileIconlibSignalWifiStatusbarNull extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-signal-wifi-statusbar-null', DileIconlibSignalWifiStatusbarNull);
+if (!customElements.get('dile-material-icon-signal-wifi-statusbar-null')) {
+  customElements.define('dile-material-icon-signal-wifi-statusbar-null', DileIconlibSignalWifiStatusbarNull);
+}

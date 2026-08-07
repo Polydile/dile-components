@@ -6,4 +6,6 @@ export class DileIconlibReportMoneyFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-report-money-filled', DileIconlibReportMoneyFilled);
+if (!customElements.get('dile-tabler-icon-report-money-filled')) {
+  customElements.define('dile-tabler-icon-report-money-filled', DileIconlibReportMoneyFilled);
+}

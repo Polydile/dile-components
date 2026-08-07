@@ -6,4 +6,6 @@ export class DileIconlibBrandJira extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-jira', DileIconlibBrandJira);
+if (!customElements.get('dile-tabler-icon-brand-jira')) {
+  customElements.define('dile-tabler-icon-brand-jira', DileIconlibBrandJira);
+}

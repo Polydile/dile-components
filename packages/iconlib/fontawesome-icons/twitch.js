@@ -6,4 +6,6 @@ export class DileIconlibTwitch extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-twitch', DileIconlibTwitch);
+if (!customElements.get('dile-fontawesome-icon-twitch')) {
+  customElements.define('dile-fontawesome-icon-twitch', DileIconlibTwitch);
+}

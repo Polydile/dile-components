@@ -6,4 +6,6 @@ export class DileIconlibHospitalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hospital-fill', DileIconlibHospitalFill);
+if (!customElements.get('dile-phosphor-icon-hospital-fill')) {
+  customElements.define('dile-phosphor-icon-hospital-fill', DileIconlibHospitalFill);
+}

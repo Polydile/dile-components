@@ -6,4 +6,6 @@ export class DileIconlibCookieLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cookie-line', DileIconlibCookieLine);
+if (!customElements.get('dile-remixicon-icon-cookie-line')) {
+  customElements.define('dile-remixicon-icon-cookie-line', DileIconlibCookieLine);
+}

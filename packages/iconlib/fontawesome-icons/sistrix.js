@@ -6,4 +6,6 @@ export class DileIconlibSistrix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sistrix', DileIconlibSistrix);
+if (!customElements.get('dile-fontawesome-icon-sistrix')) {
+  customElements.define('dile-fontawesome-icon-sistrix', DileIconlibSistrix);
+}

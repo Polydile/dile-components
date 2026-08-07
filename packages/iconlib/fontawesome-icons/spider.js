@@ -6,4 +6,6 @@ export class DileIconlibSpider extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-spider', DileIconlibSpider);
+if (!customElements.get('dile-fontawesome-icon-spider')) {
+  customElements.define('dile-fontawesome-icon-spider', DileIconlibSpider);
+}

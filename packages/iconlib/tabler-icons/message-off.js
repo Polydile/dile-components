@@ -6,4 +6,6 @@ export class DileIconlibMessageOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-off', DileIconlibMessageOff);
+if (!customElements.get('dile-tabler-icon-message-off')) {
+  customElements.define('dile-tabler-icon-message-off', DileIconlibMessageOff);
+}

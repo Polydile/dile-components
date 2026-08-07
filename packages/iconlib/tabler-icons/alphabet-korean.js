@@ -6,4 +6,6 @@ export class DileIconlibAlphabetKorean extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alphabet-korean', DileIconlibAlphabetKorean);
+if (!customElements.get('dile-tabler-icon-alphabet-korean')) {
+  customElements.define('dile-tabler-icon-alphabet-korean', DileIconlibAlphabetKorean);
+}

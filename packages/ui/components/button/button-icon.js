@@ -1,3 +1,5 @@
 import { DileButtonIcon } from "./src/DileButtonIcon.js";
 
-window.customElements.define("dile-button-icon", DileButtonIcon);
+if (!customElements.get("dile-button-icon")) {
+  window.customElements.define("dile-button-icon", DileButtonIcon);
+}

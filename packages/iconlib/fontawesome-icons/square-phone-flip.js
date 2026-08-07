@@ -6,4 +6,6 @@ export class DileIconlibSquarePhoneFlip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-square-phone-flip', DileIconlibSquarePhoneFlip);
+if (!customElements.get('dile-fontawesome-icon-square-phone-flip')) {
+  customElements.define('dile-fontawesome-icon-square-phone-flip', DileIconlibSquarePhoneFlip);
+}

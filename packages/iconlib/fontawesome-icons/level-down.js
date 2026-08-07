@@ -6,4 +6,6 @@ export class DileIconlibLevelDown extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-level-down', DileIconlibLevelDown);
+if (!customElements.get('dile-fontawesome-icon-level-down')) {
+  customElements.define('dile-fontawesome-icon-level-down', DileIconlibLevelDown);
+}

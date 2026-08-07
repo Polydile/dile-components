@@ -6,4 +6,6 @@ export class DileIconlibPictureInPicture extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-picture-in-picture', DileIconlibPictureInPicture);
+if (!customElements.get('dile-fontawesome-icon-picture-in-picture')) {
+  customElements.define('dile-fontawesome-icon-picture-in-picture', DileIconlibPictureInPicture);
+}

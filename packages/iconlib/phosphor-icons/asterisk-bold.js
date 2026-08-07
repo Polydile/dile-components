@@ -6,4 +6,6 @@ export class DileIconlibAsteriskBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-asterisk-bold', DileIconlibAsteriskBold);
+if (!customElements.get('dile-phosphor-icon-asterisk-bold')) {
+  customElements.define('dile-phosphor-icon-asterisk-bold', DileIconlibAsteriskBold);
+}

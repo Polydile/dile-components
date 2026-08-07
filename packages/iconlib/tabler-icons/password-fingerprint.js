@@ -6,4 +6,6 @@ export class DileIconlibPasswordFingerprint extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-password-fingerprint', DileIconlibPasswordFingerprint);
+if (!customElements.get('dile-tabler-icon-password-fingerprint')) {
+  customElements.define('dile-tabler-icon-password-fingerprint', DileIconlibPasswordFingerprint);
+}

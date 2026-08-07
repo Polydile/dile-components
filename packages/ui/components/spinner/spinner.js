@@ -1,3 +1,5 @@
 import { DileSpinner } from "./src/DileSpinner.js";
 
-window.customElements.define("dile-spinner", DileSpinner);
+if (!customElements.get("dile-spinner")) {
+  window.customElements.define("dile-spinner", DileSpinner);
+}

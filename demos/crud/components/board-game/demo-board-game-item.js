@@ -21,4 +21,6 @@ export class DemoBoardGameItem extends LitElement {
     `;
   }
 }
-customElements.define('demo-board-game-item', DemoBoardGameItem);
+if (!customElements.get('demo-board-game-item')) {
+  customElements.define('demo-board-game-item', DemoBoardGameItem);
+}

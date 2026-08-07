@@ -6,4 +6,6 @@ export class DileIconlibSlashCommands extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-slash-commands', DileIconlibSlashCommands);
+if (!customElements.get('dile-remixicon-icon-slash-commands')) {
+  customElements.define('dile-remixicon-icon-slash-commands', DileIconlibSlashCommands);
+}

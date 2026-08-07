@@ -6,4 +6,6 @@ export class DileIconlibGridNineDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-grid-nine-duotone', DileIconlibGridNineDuotone);
+if (!customElements.get('dile-phosphor-icon-grid-nine-duotone')) {
+  customElements.define('dile-phosphor-icon-grid-nine-duotone', DileIconlibGridNineDuotone);
+}

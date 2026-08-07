@@ -6,4 +6,6 @@ export class DileIconlibUbuntuFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-ubuntu-fill', DileIconlibUbuntuFill);
+if (!customElements.get('dile-remixicon-icon-ubuntu-fill')) {
+  customElements.define('dile-remixicon-icon-ubuntu-fill', DileIconlibUbuntuFill);
+}

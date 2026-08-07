@@ -6,4 +6,6 @@ export class DileIconlibDeviceRecoverLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-device-recover-line', DileIconlibDeviceRecoverLine);
+if (!customElements.get('dile-remixicon-icon-device-recover-line')) {
+  customElements.define('dile-remixicon-icon-device-recover-line', DileIconlibDeviceRecoverLine);
+}

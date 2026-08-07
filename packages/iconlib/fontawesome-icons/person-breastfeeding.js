@@ -6,4 +6,6 @@ export class DileIconlibPersonBreastfeeding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-breastfeeding', DileIconlibPersonBreastfeeding);
+if (!customElements.get('dile-fontawesome-icon-person-breastfeeding')) {
+  customElements.define('dile-fontawesome-icon-person-breastfeeding', DileIconlibPersonBreastfeeding);
+}

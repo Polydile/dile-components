@@ -6,4 +6,6 @@ export class DileIconlibPlayerEject extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-player-eject', DileIconlibPlayerEject);
+if (!customElements.get('dile-tabler-icon-player-eject')) {
+  customElements.define('dile-tabler-icon-player-eject', DileIconlibPlayerEject);
+}

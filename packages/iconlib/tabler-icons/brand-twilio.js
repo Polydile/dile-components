@@ -6,4 +6,6 @@ export class DileIconlibBrandTwilio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-twilio', DileIconlibBrandTwilio);
+if (!customElements.get('dile-tabler-icon-brand-twilio')) {
+  customElements.define('dile-tabler-icon-brand-twilio', DileIconlibBrandTwilio);
+}

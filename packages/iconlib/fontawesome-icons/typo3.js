@@ -6,4 +6,6 @@ export class DileIconlibTypo3 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-typo3', DileIconlibTypo3);
+if (!customElements.get('dile-fontawesome-icon-typo3')) {
+  customElements.define('dile-fontawesome-icon-typo3', DileIconlibTypo3);
+}

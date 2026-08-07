@@ -6,4 +6,6 @@ export class DileIconlibSpatialAudio extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-spatial-audio', DileIconlibSpatialAudio);
+if (!customElements.get('dile-material-icon-spatial-audio')) {
+  customElements.define('dile-material-icon-spatial-audio', DileIconlibSpatialAudio);
+}

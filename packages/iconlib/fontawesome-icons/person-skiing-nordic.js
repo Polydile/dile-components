@@ -6,4 +6,6 @@ export class DileIconlibPersonSkiingNordic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-skiing-nordic', DileIconlibPersonSkiingNordic);
+if (!customElements.get('dile-fontawesome-icon-person-skiing-nordic')) {
+  customElements.define('dile-fontawesome-icon-person-skiing-nordic', DileIconlibPersonSkiingNordic);
+}

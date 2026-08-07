@@ -6,4 +6,6 @@ export class DileIconlibReactjsLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-reactjs-line', DileIconlibReactjsLine);
+if (!customElements.get('dile-remixicon-icon-reactjs-line')) {
+  customElements.define('dile-remixicon-icon-reactjs-line', DileIconlibReactjsLine);
+}

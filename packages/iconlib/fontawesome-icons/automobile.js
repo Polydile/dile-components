@@ -6,4 +6,6 @@ export class DileIconlibAutomobile extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-automobile', DileIconlibAutomobile);
+if (!customElements.get('dile-fontawesome-icon-automobile')) {
+  customElements.define('dile-fontawesome-icon-automobile', DileIconlibAutomobile);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandDatabricks extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-databricks', DileIconlibBrandDatabricks);
+if (!customElements.get('dile-tabler-icon-brand-databricks')) {
+  customElements.define('dile-tabler-icon-brand-databricks', DileIconlibBrandDatabricks);
+}

@@ -6,4 +6,6 @@ export class DileIconlibViewStream extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-view-stream', DileIconlibViewStream);
+if (!customElements.get('dile-material-icon-view-stream')) {
+  customElements.define('dile-material-icon-view-stream', DileIconlibViewStream);
+}

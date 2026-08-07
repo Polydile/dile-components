@@ -6,4 +6,6 @@ export class DileIconlibFontColor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-font-color', DileIconlibFontColor);
+if (!customElements.get('dile-remixicon-icon-font-color')) {
+  customElements.define('dile-remixicon-icon-font-color', DileIconlibFontColor);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVectorSpline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-vector-spline', DileIconlibVectorSpline);
+if (!customElements.get('dile-tabler-icon-vector-spline')) {
+  customElements.define('dile-tabler-icon-vector-spline', DileIconlibVectorSpline);
+}

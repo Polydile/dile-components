@@ -6,4 +6,6 @@ export class DileIconlibYoast extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yoast', DileIconlibYoast);
+if (!customElements.get('dile-fontawesome-icon-yoast')) {
+  customElements.define('dile-fontawesome-icon-yoast', DileIconlibYoast);
+}

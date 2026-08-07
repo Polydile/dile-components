@@ -6,4 +6,6 @@ export class DileIconlibFistRaised extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-fist-raised', DileIconlibFistRaised);
+if (!customElements.get('dile-fontawesome-icon-fist-raised')) {
+  customElements.define('dile-fontawesome-icon-fist-raised', DileIconlibFistRaised);
+}

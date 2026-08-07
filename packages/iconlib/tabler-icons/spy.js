@@ -6,4 +6,6 @@ export class DileIconlibSpy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-spy', DileIconlibSpy);
+if (!customElements.get('dile-tabler-icon-spy')) {
+  customElements.define('dile-tabler-icon-spy', DileIconlibSpy);
+}

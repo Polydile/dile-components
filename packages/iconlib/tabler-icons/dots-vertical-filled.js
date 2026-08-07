@@ -6,4 +6,6 @@ export class DileIconlibDotsVerticalFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-dots-vertical-filled', DileIconlibDotsVerticalFilled);
+if (!customElements.get('dile-tabler-icon-dots-vertical-filled')) {
+  customElements.define('dile-tabler-icon-dots-vertical-filled', DileIconlibDotsVerticalFilled);
+}

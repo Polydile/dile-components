@@ -6,4 +6,6 @@ export class DileIconlibRowInsertBottom extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-row-insert-bottom', DileIconlibRowInsertBottom);
+if (!customElements.get('dile-tabler-icon-row-insert-bottom')) {
+  customElements.define('dile-tabler-icon-row-insert-bottom', DileIconlibRowInsertBottom);
+}

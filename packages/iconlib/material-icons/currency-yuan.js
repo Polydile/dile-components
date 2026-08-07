@@ -6,4 +6,6 @@ export class DileIconlibCurrencyYuan extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-currency-yuan', DileIconlibCurrencyYuan);
+if (!customElements.get('dile-material-icon-currency-yuan')) {
+  customElements.define('dile-material-icon-currency-yuan', DileIconlibCurrencyYuan);
+}

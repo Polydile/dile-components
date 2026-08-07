@@ -6,4 +6,6 @@ export class DileIconlibLungsVirus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-lungs-virus', DileIconlibLungsVirus);
+if (!customElements.get('dile-fontawesome-icon-lungs-virus')) {
+  customElements.define('dile-fontawesome-icon-lungs-virus', DileIconlibLungsVirus);
+}

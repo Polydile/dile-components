@@ -6,4 +6,6 @@ export class DileIconlibAdCircleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-ad-circle-off', DileIconlibAdCircleOff);
+if (!customElements.get('dile-tabler-icon-ad-circle-off')) {
+  customElements.define('dile-tabler-icon-ad-circle-off', DileIconlibAdCircleOff);
+}

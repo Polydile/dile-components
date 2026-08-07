@@ -6,4 +6,6 @@ export class DileIconlibScribbleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scribble-duotone', DileIconlibScribbleDuotone);
+if (!customElements.get('dile-phosphor-icon-scribble-duotone')) {
+  customElements.define('dile-phosphor-icon-scribble-duotone', DileIconlibScribbleDuotone);
+}

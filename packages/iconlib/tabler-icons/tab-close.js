@@ -6,4 +6,6 @@ export class DileIconlibTabClose extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-tab-close', DileIconlibTabClose);
+if (!customElements.get('dile-tabler-icon-tab-close')) {
+  customElements.define('dile-tabler-icon-tab-close', DileIconlibTabClose);
+}

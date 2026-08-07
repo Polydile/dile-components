@@ -6,4 +6,6 @@ export class DileIconlibAlignVerticalSpaceBetween extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-align-vertical-space-between', DileIconlibAlignVerticalSpaceBetween);
+if (!customElements.get('dile-lucide-icon-align-vertical-space-between')) {
+  customElements.define('dile-lucide-icon-align-vertical-space-between', DileIconlibAlignVerticalSpaceBetween);
+}

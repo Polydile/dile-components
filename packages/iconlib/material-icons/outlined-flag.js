@@ -6,4 +6,6 @@ export class DileIconlibOutlinedFlag extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-outlined-flag', DileIconlibOutlinedFlag);
+if (!customElements.get('dile-material-icon-outlined-flag')) {
+  customElements.define('dile-material-icon-outlined-flag', DileIconlibOutlinedFlag);
+}

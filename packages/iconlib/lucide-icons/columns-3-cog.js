@@ -6,4 +6,6 @@ export class DileIconlibColumns3Cog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-columns-3-cog', DileIconlibColumns3Cog);
+if (!customElements.get('dile-lucide-icon-columns-3-cog')) {
+  customElements.define('dile-lucide-icon-columns-3-cog', DileIconlibColumns3Cog);
+}

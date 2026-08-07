@@ -6,4 +6,6 @@ export class DileIconlibVideoMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-video-minus', DileIconlibVideoMinus);
+if (!customElements.get('dile-tabler-icon-video-minus')) {
+  customElements.define('dile-tabler-icon-video-minus', DileIconlibVideoMinus);
+}

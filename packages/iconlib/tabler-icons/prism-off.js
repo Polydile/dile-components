@@ -6,4 +6,6 @@ export class DileIconlibPrismOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-prism-off', DileIconlibPrismOff);
+if (!customElements.get('dile-tabler-icon-prism-off')) {
+  customElements.define('dile-tabler-icon-prism-off', DileIconlibPrismOff);
+}

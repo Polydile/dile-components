@@ -6,4 +6,6 @@ export class DileIconlibPlaneLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-plane-line', DileIconlibPlaneLine);
+if (!customElements.get('dile-remixicon-icon-plane-line')) {
+  customElements.define('dile-remixicon-icon-plane-line', DileIconlibPlaneLine);
+}

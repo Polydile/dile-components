@@ -6,4 +6,6 @@ export class DileIconlibKeyRound extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-key-round', DileIconlibKeyRound);
+if (!customElements.get('dile-lucide-icon-key-round')) {
+  customElements.define('dile-lucide-icon-key-round', DileIconlibKeyRound);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTruckElectric extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-truck-electric', DileIconlibTruckElectric);
+if (!customElements.get('dile-lucide-icon-truck-electric')) {
+  customElements.define('dile-lucide-icon-truck-electric', DileIconlibTruckElectric);
+}

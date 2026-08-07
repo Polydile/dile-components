@@ -6,4 +6,6 @@ export class DileIconlibChildCombatant extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-child-combatant', DileIconlibChildCombatant);
+if (!customElements.get('dile-fontawesome-icon-child-combatant')) {
+  customElements.define('dile-fontawesome-icon-child-combatant', DileIconlibChildCombatant);
+}

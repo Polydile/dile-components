@@ -6,4 +6,6 @@ export class DileIconlibBluetoothSlash extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bluetooth-slash', DileIconlibBluetoothSlash);
+if (!customElements.get('dile-phosphor-icon-bluetooth-slash')) {
+  customElements.define('dile-phosphor-icon-bluetooth-slash', DileIconlibBluetoothSlash);
+}

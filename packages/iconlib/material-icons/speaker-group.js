@@ -6,4 +6,6 @@ export class DileIconlibSpeakerGroup extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-speaker-group', DileIconlibSpeakerGroup);
+if (!customElements.get('dile-material-icon-speaker-group')) {
+  customElements.define('dile-material-icon-speaker-group', DileIconlibSpeakerGroup);
+}

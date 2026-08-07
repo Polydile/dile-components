@@ -6,4 +6,6 @@ export class DileIconlibGooglePlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-google-plus', DileIconlibGooglePlus);
+if (!customElements.get('dile-fontawesome-icon-google-plus')) {
+  customElements.define('dile-fontawesome-icon-google-plus', DileIconlibGooglePlus);
+}

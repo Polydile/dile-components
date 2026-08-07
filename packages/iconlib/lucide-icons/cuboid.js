@@ -6,4 +6,6 @@ export class DileIconlibCuboid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-cuboid', DileIconlibCuboid);
+if (!customElements.get('dile-lucide-icon-cuboid')) {
+  customElements.define('dile-lucide-icon-cuboid', DileIconlibCuboid);
+}

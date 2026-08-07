@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleCircleDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-circle-duotone', DileIconlibPersonSimpleCircleDuotone);
+if (!customElements.get('dile-phosphor-icon-person-simple-circle-duotone')) {
+  customElements.define('dile-phosphor-icon-person-simple-circle-duotone', DileIconlibPersonSimpleCircleDuotone);
+}

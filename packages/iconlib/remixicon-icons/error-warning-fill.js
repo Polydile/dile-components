@@ -6,4 +6,6 @@ export class DileIconlibErrorWarningFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-error-warning-fill', DileIconlibErrorWarningFill);
+if (!customElements.get('dile-remixicon-icon-error-warning-fill')) {
+  customElements.define('dile-remixicon-icon-error-warning-fill', DileIconlibErrorWarningFill);
+}

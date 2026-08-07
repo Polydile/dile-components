@@ -6,4 +6,6 @@ export class DileIconlibDeviceMobileVibration extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-device-mobile-vibration', DileIconlibDeviceMobileVibration);
+if (!customElements.get('dile-tabler-icon-device-mobile-vibration')) {
+  customElements.define('dile-tabler-icon-device-mobile-vibration', DileIconlibDeviceMobileVibration);
+}

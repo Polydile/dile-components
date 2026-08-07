@@ -6,4 +6,6 @@ export class DileIconlibCalculator extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-calculator', DileIconlibCalculator);
+if (!customElements.get('dile-tabler-icon-calculator')) {
+  customElements.define('dile-tabler-icon-calculator', DileIconlibCalculator);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRectangularPrismPlus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rectangular-prism-plus', DileIconlibRectangularPrismPlus);
+if (!customElements.get('dile-tabler-icon-rectangular-prism-plus')) {
+  customElements.define('dile-tabler-icon-rectangular-prism-plus', DileIconlibRectangularPrismPlus);
+}

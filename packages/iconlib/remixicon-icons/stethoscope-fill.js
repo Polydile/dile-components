@@ -6,4 +6,6 @@ export class DileIconlibStethoscopeFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stethoscope-fill', DileIconlibStethoscopeFill);
+if (!customElements.get('dile-remixicon-icon-stethoscope-fill')) {
+  customElements.define('dile-remixicon-icon-stethoscope-fill', DileIconlibStethoscopeFill);
+}

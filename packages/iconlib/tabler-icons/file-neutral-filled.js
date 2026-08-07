@@ -6,4 +6,6 @@ export class DileIconlibFileNeutralFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-file-neutral-filled', DileIconlibFileNeutralFilled);
+if (!customElements.get('dile-tabler-icon-file-neutral-filled')) {
+  customElements.define('dile-tabler-icon-file-neutral-filled', DileIconlibFileNeutralFilled);
+}

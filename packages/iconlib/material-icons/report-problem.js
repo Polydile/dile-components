@@ -6,4 +6,6 @@ export class DileIconlibReportProblem extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-report-problem', DileIconlibReportProblem);
+if (!customElements.get('dile-material-icon-report-problem')) {
+  customElements.define('dile-material-icon-report-problem', DileIconlibReportProblem);
+}

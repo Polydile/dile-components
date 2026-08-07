@@ -6,4 +6,6 @@ export class DileIconlibYuqueFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-yuque-fill', DileIconlibYuqueFill);
+if (!customElements.get('dile-remixicon-icon-yuque-fill')) {
+  customElements.define('dile-remixicon-icon-yuque-fill', DileIconlibYuqueFill);
+}

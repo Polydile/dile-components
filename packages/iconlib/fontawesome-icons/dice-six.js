@@ -6,4 +6,6 @@ export class DileIconlibDiceSix extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dice-six', DileIconlibDiceSix);
+if (!customElements.get('dile-fontawesome-icon-dice-six')) {
+  customElements.define('dile-fontawesome-icon-dice-six', DileIconlibDiceSix);
+}

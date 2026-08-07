@@ -6,4 +6,6 @@ export class DileIconlibLollipop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lollipop', DileIconlibLollipop);
+if (!customElements.get('dile-lucide-icon-lollipop')) {
+  customElements.define('dile-lucide-icon-lollipop', DileIconlibLollipop);
+}

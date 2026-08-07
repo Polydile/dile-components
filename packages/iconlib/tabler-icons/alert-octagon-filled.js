@@ -6,4 +6,6 @@ export class DileIconlibAlertOctagonFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-alert-octagon-filled', DileIconlibAlertOctagonFilled);
+if (!customElements.get('dile-tabler-icon-alert-octagon-filled')) {
+  customElements.define('dile-tabler-icon-alert-octagon-filled', DileIconlibAlertOctagonFilled);
+}

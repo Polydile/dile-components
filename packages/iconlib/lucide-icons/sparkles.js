@@ -6,4 +6,6 @@ export class DileIconlibSparkles extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-sparkles', DileIconlibSparkles);
+if (!customElements.get('dile-lucide-icon-sparkles')) {
+  customElements.define('dile-lucide-icon-sparkles', DileIconlibSparkles);
+}

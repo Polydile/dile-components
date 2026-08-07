@@ -6,4 +6,6 @@ export class DileIconlibStackedView extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-stacked-view', DileIconlibStackedView);
+if (!customElements.get('dile-remixicon-icon-stacked-view')) {
+  customElements.define('dile-remixicon-icon-stacked-view', DileIconlibStackedView);
+}

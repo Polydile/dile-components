@@ -6,4 +6,6 @@ export class DileIconlibTimerFlashLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-timer-flash-line', DileIconlibTimerFlashLine);
+if (!customElements.get('dile-remixicon-icon-timer-flash-line')) {
+  customElements.define('dile-remixicon-icon-timer-flash-line', DileIconlibTimerFlashLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMenorah extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-menorah', DileIconlibMenorah);
+if (!customElements.get('dile-fontawesome-icon-menorah')) {
+  customElements.define('dile-fontawesome-icon-menorah', DileIconlibMenorah);
+}

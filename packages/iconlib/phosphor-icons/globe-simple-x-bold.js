@@ -6,4 +6,6 @@ export class DileIconlibGlobeSimpleXBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-globe-simple-x-bold', DileIconlibGlobeSimpleXBold);
+if (!customElements.get('dile-phosphor-icon-globe-simple-x-bold')) {
+  customElements.define('dile-phosphor-icon-globe-simple-x-bold', DileIconlibGlobeSimpleXBold);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSunLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-sun-line', DileIconlibSunLine);
+if (!customElements.get('dile-remixicon-icon-sun-line')) {
+  customElements.define('dile-remixicon-icon-sun-line', DileIconlibSunLine);
+}

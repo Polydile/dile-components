@@ -6,4 +6,6 @@ export class DileIconlibSync extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-sync', DileIconlibSync);
+if (!customElements.get('dile-material-icon-sync')) {
+  customElements.define('dile-material-icon-sync', DileIconlibSync);
+}

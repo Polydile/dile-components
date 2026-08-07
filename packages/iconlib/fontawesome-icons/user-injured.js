@@ -6,4 +6,6 @@ export class DileIconlibUserInjured extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-user-injured', DileIconlibUserInjured);
+if (!customElements.get('dile-fontawesome-icon-user-injured')) {
+  customElements.define('dile-fontawesome-icon-user-injured', DileIconlibUserInjured);
+}

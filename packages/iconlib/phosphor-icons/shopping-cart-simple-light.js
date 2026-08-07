@@ -6,4 +6,6 @@ export class DileIconlibShoppingCartSimpleLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-shopping-cart-simple-light', DileIconlibShoppingCartSimpleLight);
+if (!customElements.get('dile-phosphor-icon-shopping-cart-simple-light')) {
+  customElements.define('dile-phosphor-icon-shopping-cart-simple-light', DileIconlibShoppingCartSimpleLight);
+}

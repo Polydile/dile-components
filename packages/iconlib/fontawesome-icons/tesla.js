@@ -6,4 +6,6 @@ export class DileIconlibTesla extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-tesla', DileIconlibTesla);
+if (!customElements.get('dile-fontawesome-icon-tesla')) {
+  customElements.define('dile-fontawesome-icon-tesla', DileIconlibTesla);
+}

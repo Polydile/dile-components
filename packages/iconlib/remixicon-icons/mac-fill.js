@@ -6,4 +6,6 @@ export class DileIconlibMacFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mac-fill', DileIconlibMacFill);
+if (!customElements.get('dile-remixicon-icon-mac-fill')) {
+  customElements.define('dile-remixicon-icon-mac-fill', DileIconlibMacFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPaintbrushVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-paintbrush-vertical', DileIconlibPaintbrushVertical);
+if (!customElements.get('dile-lucide-icon-paintbrush-vertical')) {
+  customElements.define('dile-lucide-icon-paintbrush-vertical', DileIconlibPaintbrushVertical);
+}

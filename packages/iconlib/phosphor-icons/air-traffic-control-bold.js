@@ -6,4 +6,6 @@ export class DileIconlibAirTrafficControlBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-air-traffic-control-bold', DileIconlibAirTrafficControlBold);
+if (!customElements.get('dile-phosphor-icon-air-traffic-control-bold')) {
+  customElements.define('dile-phosphor-icon-air-traffic-control-bold', DileIconlibAirTrafficControlBold);
+}

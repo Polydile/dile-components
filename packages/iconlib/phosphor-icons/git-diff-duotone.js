@@ -6,4 +6,6 @@ export class DileIconlibGitDiffDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-git-diff-duotone', DileIconlibGitDiffDuotone);
+if (!customElements.get('dile-phosphor-icon-git-diff-duotone')) {
+  customElements.define('dile-phosphor-icon-git-diff-duotone', DileIconlibGitDiffDuotone);
+}

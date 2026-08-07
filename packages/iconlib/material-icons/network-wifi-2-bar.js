@@ -6,4 +6,6 @@ export class DileIconlibNetworkWifi2Bar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-network-wifi-2-bar', DileIconlibNetworkWifi2Bar);
+if (!customElements.get('dile-material-icon-network-wifi-2-bar')) {
+  customElements.define('dile-material-icon-network-wifi-2-bar', DileIconlibNetworkWifi2Bar);
+}

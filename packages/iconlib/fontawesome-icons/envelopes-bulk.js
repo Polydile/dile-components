@@ -6,4 +6,6 @@ export class DileIconlibEnvelopesBulk extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-envelopes-bulk', DileIconlibEnvelopesBulk);
+if (!customElements.get('dile-fontawesome-icon-envelopes-bulk')) {
+  customElements.define('dile-fontawesome-icon-envelopes-bulk', DileIconlibEnvelopesBulk);
+}

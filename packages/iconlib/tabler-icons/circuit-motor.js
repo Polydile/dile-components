@@ -6,4 +6,6 @@ export class DileIconlibCircuitMotor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-motor', DileIconlibCircuitMotor);
+if (!customElements.get('dile-tabler-icon-circuit-motor')) {
+  customElements.define('dile-tabler-icon-circuit-motor', DileIconlibCircuitMotor);
+}

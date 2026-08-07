@@ -6,4 +6,6 @@ export class DileIconlibFishingRod extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-fishing-rod', DileIconlibFishingRod);
+if (!customElements.get('dile-lucide-icon-fishing-rod')) {
+  customElements.define('dile-lucide-icon-fishing-rod', DileIconlibFishingRod);
+}

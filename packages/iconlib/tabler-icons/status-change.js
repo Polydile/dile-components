@@ -6,4 +6,6 @@ export class DileIconlibStatusChange extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-status-change', DileIconlibStatusChange);
+if (!customElements.get('dile-tabler-icon-status-change')) {
+  customElements.define('dile-tabler-icon-status-change', DileIconlibStatusChange);
+}

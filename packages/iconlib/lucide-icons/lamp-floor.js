@@ -6,4 +6,6 @@ export class DileIconlibLampFloor extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-lamp-floor', DileIconlibLampFloor);
+if (!customElements.get('dile-lucide-icon-lamp-floor')) {
+  customElements.define('dile-lucide-icon-lamp-floor', DileIconlibLampFloor);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMeteorFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-meteor-filled', DileIconlibMeteorFilled);
+if (!customElements.get('dile-tabler-icon-meteor-filled')) {
+  customElements.define('dile-tabler-icon-meteor-filled', DileIconlibMeteorFilled);
+}

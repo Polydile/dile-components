@@ -6,4 +6,6 @@ export class DileIconlibPlumbing extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-plumbing', DileIconlibPlumbing);
+if (!customElements.get('dile-material-icon-plumbing')) {
+  customElements.define('dile-material-icon-plumbing', DileIconlibPlumbing);
+}

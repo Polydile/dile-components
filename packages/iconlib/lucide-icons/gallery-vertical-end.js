@@ -6,4 +6,6 @@ export class DileIconlibGalleryVerticalEnd extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-gallery-vertical-end', DileIconlibGalleryVerticalEnd);
+if (!customElements.get('dile-lucide-icon-gallery-vertical-end')) {
+  customElements.define('dile-lucide-icon-gallery-vertical-end', DileIconlibGalleryVerticalEnd);
+}

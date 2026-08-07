@@ -6,4 +6,6 @@ export class DileIconlibPaywall extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-paywall', DileIconlibPaywall);
+if (!customElements.get('dile-tabler-icon-paywall')) {
+  customElements.define('dile-tabler-icon-paywall', DileIconlibPaywall);
+}

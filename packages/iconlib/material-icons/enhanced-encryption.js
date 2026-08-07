@@ -6,4 +6,6 @@ export class DileIconlibEnhancedEncryption extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-enhanced-encryption', DileIconlibEnhancedEncryption);
+if (!customElements.get('dile-material-icon-enhanced-encryption')) {
+  customElements.define('dile-material-icon-enhanced-encryption', DileIconlibEnhancedEncryption);
+}

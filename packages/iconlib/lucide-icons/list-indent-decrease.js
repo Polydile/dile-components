@@ -6,4 +6,6 @@ export class DileIconlibListIndentDecrease extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-list-indent-decrease', DileIconlibListIndentDecrease);
+if (!customElements.get('dile-lucide-icon-list-indent-decrease')) {
+  customElements.define('dile-lucide-icon-list-indent-decrease', DileIconlibListIndentDecrease);
+}

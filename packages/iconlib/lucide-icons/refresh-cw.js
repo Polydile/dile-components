@@ -6,4 +6,6 @@ export class DileIconlibRefreshCw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-refresh-cw', DileIconlibRefreshCw);
+if (!customElements.get('dile-lucide-icon-refresh-cw')) {
+  customElements.define('dile-lucide-icon-refresh-cw', DileIconlibRefreshCw);
+}

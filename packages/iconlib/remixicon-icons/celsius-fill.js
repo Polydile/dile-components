@@ -6,4 +6,6 @@ export class DileIconlibCelsiusFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-celsius-fill', DileIconlibCelsiusFill);
+if (!customElements.get('dile-remixicon-icon-celsius-fill')) {
+  customElements.define('dile-remixicon-icon-celsius-fill', DileIconlibCelsiusFill);
+}

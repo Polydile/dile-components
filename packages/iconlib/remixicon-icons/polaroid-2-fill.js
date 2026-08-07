@@ -6,4 +6,6 @@ export class DileIconlibPolaroid2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-polaroid-2-fill', DileIconlibPolaroid2Fill);
+if (!customElements.get('dile-remixicon-icon-polaroid-2-fill')) {
+  customElements.define('dile-remixicon-icon-polaroid-2-fill', DileIconlibPolaroid2Fill);
+}

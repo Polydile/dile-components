@@ -6,4 +6,6 @@ export class DileIconlibSelectionAllFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-selection-all-fill', DileIconlibSelectionAllFill);
+if (!customElements.get('dile-phosphor-icon-selection-all-fill')) {
+  customElements.define('dile-phosphor-icon-selection-all-fill', DileIconlibSelectionAllFill);
+}

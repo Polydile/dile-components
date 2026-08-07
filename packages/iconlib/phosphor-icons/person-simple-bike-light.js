@@ -6,4 +6,6 @@ export class DileIconlibPersonSimpleBikeLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-person-simple-bike-light', DileIconlibPersonSimpleBikeLight);
+if (!customElements.get('dile-phosphor-icon-person-simple-bike-light')) {
+  customElements.define('dile-phosphor-icon-person-simple-bike-light', DileIconlibPersonSimpleBikeLight);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCapProjecting extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cap-projecting', DileIconlibCapProjecting);
+if (!customElements.get('dile-tabler-icon-cap-projecting')) {
+  customElements.define('dile-tabler-icon-cap-projecting', DileIconlibCapProjecting);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUber extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-uber', DileIconlibUber);
+if (!customElements.get('dile-fontawesome-icon-uber')) {
+  customElements.define('dile-fontawesome-icon-uber', DileIconlibUber);
+}

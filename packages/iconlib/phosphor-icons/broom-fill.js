@@ -6,4 +6,6 @@ export class DileIconlibBroomFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-broom-fill', DileIconlibBroomFill);
+if (!customElements.get('dile-phosphor-icon-broom-fill')) {
+  customElements.define('dile-phosphor-icon-broom-fill', DileIconlibBroomFill);
+}

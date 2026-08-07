@@ -6,4 +6,6 @@ export class DileIconlibFishChristianity extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fish-christianity', DileIconlibFishChristianity);
+if (!customElements.get('dile-tabler-icon-fish-christianity')) {
+  customElements.define('dile-tabler-icon-fish-christianity', DileIconlibFishChristianity);
+}

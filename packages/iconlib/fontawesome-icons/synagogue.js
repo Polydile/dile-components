@@ -6,4 +6,6 @@ export class DileIconlibSynagogue extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-synagogue', DileIconlibSynagogue);
+if (!customElements.get('dile-fontawesome-icon-synagogue')) {
+  customElements.define('dile-fontawesome-icon-synagogue', DileIconlibSynagogue);
+}

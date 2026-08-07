@@ -6,4 +6,6 @@ export class DileIconlibLineSegmentsFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-line-segments-fill', DileIconlibLineSegmentsFill);
+if (!customElements.get('dile-phosphor-icon-line-segments-fill')) {
+  customElements.define('dile-phosphor-icon-line-segments-fill', DileIconlibLineSegmentsFill);
+}

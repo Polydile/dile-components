@@ -6,4 +6,6 @@ export class DileIconlibCurrencyDollarGuyanese extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-dollar-guyanese', DileIconlibCurrencyDollarGuyanese);
+if (!customElements.get('dile-tabler-icon-currency-dollar-guyanese')) {
+  customElements.define('dile-tabler-icon-currency-dollar-guyanese', DileIconlibCurrencyDollarGuyanese);
+}

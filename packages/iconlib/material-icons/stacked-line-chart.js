@@ -6,4 +6,6 @@ export class DileIconlibStackedLineChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-stacked-line-chart', DileIconlibStackedLineChart);
+if (!customElements.get('dile-material-icon-stacked-line-chart')) {
+  customElements.define('dile-material-icon-stacked-line-chart', DileIconlibStackedLineChart);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTowerControl extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-tower-control', DileIconlibTowerControl);
+if (!customElements.get('dile-lucide-icon-tower-control')) {
+  customElements.define('dile-lucide-icon-tower-control', DileIconlibTowerControl);
+}

@@ -6,4 +6,6 @@ export class DileIconlibUnison extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-unison', DileIconlibUnison);
+if (!customElements.get('dile-fontawesome-icon-unison')) {
+  customElements.define('dile-fontawesome-icon-unison', DileIconlibUnison);
+}

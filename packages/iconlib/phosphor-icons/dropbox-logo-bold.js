@@ -6,4 +6,6 @@ export class DileIconlibDropboxLogoBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-dropbox-logo-bold', DileIconlibDropboxLogoBold);
+if (!customElements.get('dile-phosphor-icon-dropbox-logo-bold')) {
+  customElements.define('dile-phosphor-icon-dropbox-logo-bold', DileIconlibDropboxLogoBold);
+}

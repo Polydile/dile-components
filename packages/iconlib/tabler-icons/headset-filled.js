@@ -6,4 +6,6 @@ export class DileIconlibHeadsetFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-headset-filled', DileIconlibHeadsetFilled);
+if (!customElements.get('dile-tabler-icon-headset-filled')) {
+  customElements.define('dile-tabler-icon-headset-filled', DileIconlibHeadsetFilled);
+}

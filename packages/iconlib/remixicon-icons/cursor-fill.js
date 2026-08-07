@@ -6,4 +6,6 @@ export class DileIconlibCursorFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cursor-fill', DileIconlibCursorFill);
+if (!customElements.get('dile-remixicon-icon-cursor-fill')) {
+  customElements.define('dile-remixicon-icon-cursor-fill', DileIconlibCursorFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTapeLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-tape-line', DileIconlibTapeLine);
+if (!customElements.get('dile-remixicon-icon-tape-line')) {
+  customElements.define('dile-remixicon-icon-tape-line', DileIconlibTapeLine);
+}

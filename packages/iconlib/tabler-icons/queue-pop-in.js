@@ -6,4 +6,6 @@ export class DileIconlibQueuePopIn extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-queue-pop-in', DileIconlibQueuePopIn);
+if (!customElements.get('dile-tabler-icon-queue-pop-in')) {
+  customElements.define('dile-tabler-icon-queue-pop-in', DileIconlibQueuePopIn);
+}

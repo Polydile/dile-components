@@ -6,4 +6,6 @@ export class DileIconlibLayoutDistributeVertical extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-layout-distribute-vertical', DileIconlibLayoutDistributeVertical);
+if (!customElements.get('dile-tabler-icon-layout-distribute-vertical')) {
+  customElements.define('dile-tabler-icon-layout-distribute-vertical', DileIconlibLayoutDistributeVertical);
+}

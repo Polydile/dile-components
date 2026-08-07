@@ -6,4 +6,6 @@ export class DileIconlibRockingChair extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rocking-chair', DileIconlibRockingChair);
+if (!customElements.get('dile-tabler-icon-rocking-chair')) {
+  customElements.define('dile-tabler-icon-rocking-chair', DileIconlibRockingChair);
+}

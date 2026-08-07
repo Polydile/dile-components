@@ -1,3 +1,5 @@
 import { DileToastItem } from "./src/DileToastItem.js";
 
-window.customElements.define("dile-toast-item", DileToastItem);
+if (!customElements.get("dile-toast-item")) {
+  window.customElements.define("dile-toast-item", DileToastItem);
+}

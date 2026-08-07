@@ -6,4 +6,6 @@ export class DileIconlibWheelchairAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wheelchair-alt', DileIconlibWheelchairAlt);
+if (!customElements.get('dile-fontawesome-icon-wheelchair-alt')) {
+  customElements.define('dile-fontawesome-icon-wheelchair-alt', DileIconlibWheelchairAlt);
+}

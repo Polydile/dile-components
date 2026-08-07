@@ -6,4 +6,6 @@ export class DileIconlibPolaroid extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-polaroid', DileIconlibPolaroid);
+if (!customElements.get('dile-tabler-icon-polaroid')) {
+  customElements.define('dile-tabler-icon-polaroid', DileIconlibPolaroid);
+}

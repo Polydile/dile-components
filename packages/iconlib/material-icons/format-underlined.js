@@ -6,4 +6,6 @@ export class DileIconlibFormatUnderlined extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-format-underlined', DileIconlibFormatUnderlined);
+if (!customElements.get('dile-material-icon-format-underlined')) {
+  customElements.define('dile-material-icon-format-underlined', DileIconlibFormatUnderlined);
+}

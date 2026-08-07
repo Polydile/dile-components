@@ -6,4 +6,6 @@ export class DileIconlibSquareScissors extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-square-scissors', DileIconlibSquareScissors);
+if (!customElements.get('dile-lucide-icon-square-scissors')) {
+  customElements.define('dile-lucide-icon-square-scissors', DileIconlibSquareScissors);
+}

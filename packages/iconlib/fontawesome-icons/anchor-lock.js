@@ -6,4 +6,6 @@ export class DileIconlibAnchorLock extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-anchor-lock', DileIconlibAnchorLock);
+if (!customElements.get('dile-fontawesome-icon-anchor-lock')) {
+  customElements.define('dile-fontawesome-icon-anchor-lock', DileIconlibAnchorLock);
+}

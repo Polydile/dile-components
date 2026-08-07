@@ -6,4 +6,6 @@ export class DileIconlibDesktop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-desktop', DileIconlibDesktop);
+if (!customElements.get('dile-fontawesome-icon-desktop')) {
+  customElements.define('dile-fontawesome-icon-desktop', DileIconlibDesktop);
+}

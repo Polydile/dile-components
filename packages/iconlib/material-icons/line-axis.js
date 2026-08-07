@@ -6,4 +6,6 @@ export class DileIconlibLineAxis extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-line-axis', DileIconlibLineAxis);
+if (!customElements.get('dile-material-icon-line-axis')) {
+  customElements.define('dile-material-icon-line-axis', DileIconlibLineAxis);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSubtractBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-subtract-bold', DileIconlibSubtractBold);
+if (!customElements.get('dile-phosphor-icon-subtract-bold')) {
+  customElements.define('dile-phosphor-icon-subtract-bold', DileIconlibSubtractBold);
+}

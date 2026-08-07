@@ -6,4 +6,6 @@ export class DileIconlibPropaneTank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-propane-tank', DileIconlibPropaneTank);
+if (!customElements.get('dile-material-icon-propane-tank')) {
+  customElements.define('dile-material-icon-propane-tank', DileIconlibPropaneTank);
+}

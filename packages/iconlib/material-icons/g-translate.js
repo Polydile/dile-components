@@ -6,4 +6,6 @@ export class DileIconlibGTranslate extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-g-translate', DileIconlibGTranslate);
+if (!customElements.get('dile-material-icon-g-translate')) {
+  customElements.define('dile-material-icon-g-translate', DileIconlibGTranslate);
+}

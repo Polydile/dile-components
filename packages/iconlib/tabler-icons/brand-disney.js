@@ -6,4 +6,6 @@ export class DileIconlibBrandDisney extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-disney', DileIconlibBrandDisney);
+if (!customElements.get('dile-tabler-icon-brand-disney')) {
+  customElements.define('dile-tabler-icon-brand-disney', DileIconlibBrandDisney);
+}

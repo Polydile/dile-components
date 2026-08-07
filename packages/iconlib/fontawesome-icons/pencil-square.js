@@ -6,4 +6,6 @@ export class DileIconlibPencilSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pencil-square', DileIconlibPencilSquare);
+if (!customElements.get('dile-fontawesome-icon-pencil-square')) {
+  customElements.define('dile-fontawesome-icon-pencil-square', DileIconlibPencilSquare);
+}

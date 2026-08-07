@@ -6,4 +6,6 @@ export class DileIconlibPersonChalkboard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-person-chalkboard', DileIconlibPersonChalkboard);
+if (!customElements.get('dile-fontawesome-icon-person-chalkboard')) {
+  customElements.define('dile-fontawesome-icon-person-chalkboard', DileIconlibPersonChalkboard);
+}

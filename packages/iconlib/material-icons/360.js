@@ -6,4 +6,6 @@ export class DileIconlib360 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-360', DileIconlib360);
+if (!customElements.get('dile-material-icon-360')) {
+  customElements.define('dile-material-icon-360', DileIconlib360);
+}

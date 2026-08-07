@@ -6,4 +6,6 @@ export class DileIconlibPlaystation extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-playstation', DileIconlibPlaystation);
+if (!customElements.get('dile-fontawesome-icon-playstation')) {
+  customElements.define('dile-fontawesome-icon-playstation', DileIconlibPlaystation);
+}

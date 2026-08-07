@@ -6,4 +6,6 @@ export class DileIconlibMicSignal extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-mic-signal', DileIconlibMicSignal);
+if (!customElements.get('dile-lucide-icon-mic-signal')) {
+  customElements.define('dile-lucide-icon-mic-signal', DileIconlibMicSignal);
+}

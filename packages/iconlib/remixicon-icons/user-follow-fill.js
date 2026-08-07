@@ -6,4 +6,6 @@ export class DileIconlibUserFollowFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-user-follow-fill', DileIconlibUserFollowFill);
+if (!customElements.get('dile-remixicon-icon-user-follow-fill')) {
+  customElements.define('dile-remixicon-icon-user-follow-fill', DileIconlibUserFollowFill);
+}

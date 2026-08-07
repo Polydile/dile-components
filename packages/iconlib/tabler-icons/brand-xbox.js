@@ -6,4 +6,6 @@ export class DileIconlibBrandXbox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-xbox', DileIconlibBrandXbox);
+if (!customElements.get('dile-tabler-icon-brand-xbox')) {
+  customElements.define('dile-tabler-icon-brand-xbox', DileIconlibBrandXbox);
+}

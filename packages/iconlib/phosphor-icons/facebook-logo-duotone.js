@@ -6,4 +6,6 @@ export class DileIconlibFacebookLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-facebook-logo-duotone', DileIconlibFacebookLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-facebook-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-facebook-logo-duotone', DileIconlibFacebookLogoDuotone);
+}

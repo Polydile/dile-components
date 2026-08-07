@@ -6,4 +6,6 @@ export class DileIconlibTentLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tent-light', DileIconlibTentLight);
+if (!customElements.get('dile-phosphor-icon-tent-light')) {
+  customElements.define('dile-phosphor-icon-tent-light', DileIconlibTentLight);
+}

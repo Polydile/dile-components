@@ -6,4 +6,6 @@ export class DileIconlibFinnTheHumanLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-finn-the-human-light', DileIconlibFinnTheHumanLight);
+if (!customElements.get('dile-phosphor-icon-finn-the-human-light')) {
+  customElements.define('dile-phosphor-icon-finn-the-human-light', DileIconlibFinnTheHumanLight);
+}

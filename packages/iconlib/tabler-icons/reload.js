@@ -6,4 +6,6 @@ export class DileIconlibReload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-reload', DileIconlibReload);
+if (!customElements.get('dile-tabler-icon-reload')) {
+  customElements.define('dile-tabler-icon-reload', DileIconlibReload);
+}

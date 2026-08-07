@@ -6,4 +6,6 @@ export class DileIconlibBluetoothXDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bluetooth-x-duotone', DileIconlibBluetoothXDuotone);
+if (!customElements.get('dile-phosphor-icon-bluetooth-x-duotone')) {
+  customElements.define('dile-phosphor-icon-bluetooth-x-duotone', DileIconlibBluetoothXDuotone);
+}

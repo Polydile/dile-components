@@ -6,4 +6,6 @@ export class DileIconlibNoLuggage extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-no-luggage', DileIconlibNoLuggage);
+if (!customElements.get('dile-material-icon-no-luggage')) {
+  customElements.define('dile-material-icon-no-luggage', DileIconlibNoLuggage);
+}

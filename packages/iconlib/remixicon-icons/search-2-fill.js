@@ -6,4 +6,6 @@ export class DileIconlibSearch2Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-search-2-fill', DileIconlibSearch2Fill);
+if (!customElements.get('dile-remixicon-icon-search-2-fill')) {
+  customElements.define('dile-remixicon-icon-search-2-fill', DileIconlibSearch2Fill);
+}

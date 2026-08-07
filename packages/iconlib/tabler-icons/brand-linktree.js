@@ -6,4 +6,6 @@ export class DileIconlibBrandLinktree extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-linktree', DileIconlibBrandLinktree);
+if (!customElements.get('dile-tabler-icon-brand-linktree')) {
+  customElements.define('dile-tabler-icon-brand-linktree', DileIconlibBrandLinktree);
+}

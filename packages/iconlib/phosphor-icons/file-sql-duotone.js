@@ -6,4 +6,6 @@ export class DileIconlibFileSqlDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-sql-duotone', DileIconlibFileSqlDuotone);
+if (!customElements.get('dile-phosphor-icon-file-sql-duotone')) {
+  customElements.define('dile-phosphor-icon-file-sql-duotone', DileIconlibFileSqlDuotone);
+}

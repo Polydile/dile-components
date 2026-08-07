@@ -6,4 +6,6 @@ export class DileIconlibBoxingGlove extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-boxing-glove', DileIconlibBoxingGlove);
+if (!customElements.get('dile-phosphor-icon-boxing-glove')) {
+  customElements.define('dile-phosphor-icon-boxing-glove', DileIconlibBoxingGlove);
+}

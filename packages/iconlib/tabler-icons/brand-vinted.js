@@ -6,4 +6,6 @@ export class DileIconlibBrandVinted extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-vinted', DileIconlibBrandVinted);
+if (!customElements.get('dile-tabler-icon-brand-vinted')) {
+  customElements.define('dile-tabler-icon-brand-vinted', DileIconlibBrandVinted);
+}

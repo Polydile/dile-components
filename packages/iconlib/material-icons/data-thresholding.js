@@ -6,4 +6,6 @@ export class DileIconlibDataThresholding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-data-thresholding', DileIconlibDataThresholding);
+if (!customElements.get('dile-material-icon-data-thresholding')) {
+  customElements.define('dile-material-icon-data-thresholding', DileIconlibDataThresholding);
+}

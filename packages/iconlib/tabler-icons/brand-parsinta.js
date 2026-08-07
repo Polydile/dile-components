@@ -6,4 +6,6 @@ export class DileIconlibBrandParsinta extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-parsinta', DileIconlibBrandParsinta);
+if (!customElements.get('dile-tabler-icon-brand-parsinta')) {
+  customElements.define('dile-tabler-icon-brand-parsinta', DileIconlibBrandParsinta);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHulaHoop extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-hula-hoop', DileIconlibHulaHoop);
+if (!customElements.get('dile-tabler-icon-hula-hoop')) {
+  customElements.define('dile-tabler-icon-hula-hoop', DileIconlibHulaHoop);
+}

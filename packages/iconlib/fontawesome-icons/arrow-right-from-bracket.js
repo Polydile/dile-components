@@ -6,4 +6,6 @@ export class DileIconlibArrowRightFromBracket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-arrow-right-from-bracket', DileIconlibArrowRightFromBracket);
+if (!customElements.get('dile-fontawesome-icon-arrow-right-from-bracket')) {
+  customElements.define('dile-fontawesome-icon-arrow-right-from-bracket', DileIconlibArrowRightFromBracket);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPercent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-percent', DileIconlibPercent);
+if (!customElements.get('dile-material-icon-percent')) {
+  customElements.define('dile-material-icon-percent', DileIconlibPercent);
+}

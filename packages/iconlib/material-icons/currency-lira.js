@@ -6,4 +6,6 @@ export class DileIconlibCurrencyLira extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-currency-lira', DileIconlibCurrencyLira);
+if (!customElements.get('dile-material-icon-currency-lira')) {
+  customElements.define('dile-material-icon-currency-lira', DileIconlibCurrencyLira);
+}

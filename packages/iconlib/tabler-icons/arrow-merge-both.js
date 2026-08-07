@@ -6,4 +6,6 @@ export class DileIconlibArrowMergeBoth extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-arrow-merge-both', DileIconlibArrowMergeBoth);
+if (!customElements.get('dile-tabler-icon-arrow-merge-both')) {
+  customElements.define('dile-tabler-icon-arrow-merge-both', DileIconlibArrowMergeBoth);
+}

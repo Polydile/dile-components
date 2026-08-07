@@ -6,4 +6,6 @@ export class DileIconlibHackerNewsSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hacker-news-square', DileIconlibHackerNewsSquare);
+if (!customElements.get('dile-fontawesome-icon-hacker-news-square')) {
+  customElements.define('dile-fontawesome-icon-hacker-news-square', DileIconlibHackerNewsSquare);
+}

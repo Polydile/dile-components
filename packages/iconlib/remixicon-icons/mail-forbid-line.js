@@ -6,4 +6,6 @@ export class DileIconlibMailForbidLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-mail-forbid-line', DileIconlibMailForbidLine);
+if (!customElements.get('dile-remixicon-icon-mail-forbid-line')) {
+  customElements.define('dile-remixicon-icon-mail-forbid-line', DileIconlibMailForbidLine);
+}

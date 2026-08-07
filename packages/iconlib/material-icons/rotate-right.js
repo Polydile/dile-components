@@ -6,4 +6,6 @@ export class DileIconlibRotateRight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-rotate-right', DileIconlibRotateRight);
+if (!customElements.get('dile-material-icon-rotate-right')) {
+  customElements.define('dile-material-icon-rotate-right', DileIconlibRotateRight);
+}

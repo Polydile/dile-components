@@ -6,4 +6,6 @@ export class DileIconlibHandCoins extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hand-coins', DileIconlibHandCoins);
+if (!customElements.get('dile-lucide-icon-hand-coins')) {
+  customElements.define('dile-lucide-icon-hand-coins', DileIconlibHandCoins);
+}

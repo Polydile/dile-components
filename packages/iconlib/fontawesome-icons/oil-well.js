@@ -6,4 +6,6 @@ export class DileIconlibOilWell extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-oil-well', DileIconlibOilWell);
+if (!customElements.get('dile-fontawesome-icon-oil-well')) {
+  customElements.define('dile-fontawesome-icon-oil-well', DileIconlibOilWell);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCupSoda extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-cup-soda', DileIconlibCupSoda);
+if (!customElements.get('dile-lucide-icon-cup-soda')) {
+  customElements.define('dile-lucide-icon-cup-soda', DileIconlibCupSoda);
+}

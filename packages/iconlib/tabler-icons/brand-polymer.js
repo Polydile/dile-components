@@ -6,4 +6,6 @@ export class DileIconlibBrandPolymer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-polymer', DileIconlibBrandPolymer);
+if (!customElements.get('dile-tabler-icon-brand-polymer')) {
+  customElements.define('dile-tabler-icon-brand-polymer', DileIconlibBrandPolymer);
+}

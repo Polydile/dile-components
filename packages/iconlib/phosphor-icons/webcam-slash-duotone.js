@@ -6,4 +6,6 @@ export class DileIconlibWebcamSlashDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-webcam-slash-duotone', DileIconlibWebcamSlashDuotone);
+if (!customElements.get('dile-phosphor-icon-webcam-slash-duotone')) {
+  customElements.define('dile-phosphor-icon-webcam-slash-duotone', DileIconlibWebcamSlashDuotone);
+}

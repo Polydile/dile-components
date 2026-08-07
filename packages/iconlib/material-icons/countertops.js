@@ -6,4 +6,6 @@ export class DileIconlibCountertops extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-countertops', DileIconlibCountertops);
+if (!customElements.get('dile-material-icon-countertops')) {
+  customElements.define('dile-material-icon-countertops', DileIconlibCountertops);
+}

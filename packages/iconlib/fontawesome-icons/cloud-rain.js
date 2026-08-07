@@ -6,4 +6,6 @@ export class DileIconlibCloudRain extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-rain', DileIconlibCloudRain);
+if (!customElements.get('dile-fontawesome-icon-cloud-rain')) {
+  customElements.define('dile-fontawesome-icon-cloud-rain', DileIconlibCloudRain);
+}

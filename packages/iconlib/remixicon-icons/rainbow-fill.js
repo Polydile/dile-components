@@ -6,4 +6,6 @@ export class DileIconlibRainbowFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-rainbow-fill', DileIconlibRainbowFill);
+if (!customElements.get('dile-remixicon-icon-rainbow-fill')) {
+  customElements.define('dile-remixicon-icon-rainbow-fill', DileIconlibRainbowFill);
+}

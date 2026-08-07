@@ -6,4 +6,6 @@ export class DileIconlibAlignVerticalSpaceAround extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-align-vertical-space-around', DileIconlibAlignVerticalSpaceAround);
+if (!customElements.get('dile-lucide-icon-align-vertical-space-around')) {
+  customElements.define('dile-lucide-icon-align-vertical-space-around', DileIconlibAlignVerticalSpaceAround);
+}

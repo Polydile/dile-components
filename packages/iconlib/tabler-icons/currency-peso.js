@@ -6,4 +6,6 @@ export class DileIconlibCurrencyPeso extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-peso', DileIconlibCurrencyPeso);
+if (!customElements.get('dile-tabler-icon-currency-peso')) {
+  customElements.define('dile-tabler-icon-currency-peso', DileIconlibCurrencyPeso);
+}

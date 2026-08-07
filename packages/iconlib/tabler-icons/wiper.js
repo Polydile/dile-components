@@ -6,4 +6,6 @@ export class DileIconlibWiper extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wiper', DileIconlibWiper);
+if (!customElements.get('dile-tabler-icon-wiper')) {
+  customElements.define('dile-tabler-icon-wiper', DileIconlibWiper);
+}

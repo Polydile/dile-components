@@ -6,4 +6,6 @@ export class DileIconlibHotel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-hotel', DileIconlibHotel);
+if (!customElements.get('dile-lucide-icon-hotel')) {
+  customElements.define('dile-lucide-icon-hotel', DileIconlibHotel);
+}

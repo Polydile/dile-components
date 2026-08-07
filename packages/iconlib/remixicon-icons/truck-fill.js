@@ -6,4 +6,6 @@ export class DileIconlibTruckFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-truck-fill', DileIconlibTruckFill);
+if (!customElements.get('dile-remixicon-icon-truck-fill')) {
+  customElements.define('dile-remixicon-icon-truck-fill', DileIconlibTruckFill);
+}

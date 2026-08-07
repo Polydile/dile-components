@@ -6,4 +6,6 @@ export class DileIconlibFileHwpLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-file-hwp-line', DileIconlibFileHwpLine);
+if (!customElements.get('dile-remixicon-icon-file-hwp-line')) {
+  customElements.define('dile-remixicon-icon-file-hwp-line', DileIconlibFileHwpLine);
+}

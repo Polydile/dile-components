@@ -6,4 +6,6 @@ export class DileIconlibCurrencyShekel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-currency-shekel', DileIconlibCurrencyShekel);
+if (!customElements.get('dile-tabler-icon-currency-shekel')) {
+  customElements.define('dile-tabler-icon-currency-shekel', DileIconlibCurrencyShekel);
+}

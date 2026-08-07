@@ -6,4 +6,6 @@ export class DileIconlibGiftCard extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-gift-card', DileIconlibGiftCard);
+if (!customElements.get('dile-tabler-icon-gift-card')) {
+  customElements.define('dile-tabler-icon-gift-card', DileIconlibGiftCard);
+}

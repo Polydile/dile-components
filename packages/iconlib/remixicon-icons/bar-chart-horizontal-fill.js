@@ -6,4 +6,6 @@ export class DileIconlibBarChartHorizontalFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-bar-chart-horizontal-fill', DileIconlibBarChartHorizontalFill);
+if (!customElements.get('dile-remixicon-icon-bar-chart-horizontal-fill')) {
+  customElements.define('dile-remixicon-icon-bar-chart-horizontal-fill', DileIconlibBarChartHorizontalFill);
+}

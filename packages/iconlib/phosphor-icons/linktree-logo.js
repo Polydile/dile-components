@@ -6,4 +6,6 @@ export class DileIconlibLinktreeLogo extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-linktree-logo', DileIconlibLinktreeLogo);
+if (!customElements.get('dile-phosphor-icon-linktree-logo')) {
+  customElements.define('dile-phosphor-icon-linktree-logo', DileIconlibLinktreeLogo);
+}

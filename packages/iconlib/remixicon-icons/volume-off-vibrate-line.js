@@ -6,4 +6,6 @@ export class DileIconlibVolumeOffVibrateLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-volume-off-vibrate-line', DileIconlibVolumeOffVibrateLine);
+if (!customElements.get('dile-remixicon-icon-volume-off-vibrate-line')) {
+  customElements.define('dile-remixicon-icon-volume-off-vibrate-line', DileIconlibVolumeOffVibrateLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFidgetSpinner extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-fidget-spinner', DileIconlibFidgetSpinner);
+if (!customElements.get('dile-tabler-icon-fidget-spinner')) {
+  customElements.define('dile-tabler-icon-fidget-spinner', DileIconlibFidgetSpinner);
+}

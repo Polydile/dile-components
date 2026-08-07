@@ -6,4 +6,6 @@ export class DileIconlibWifiTetheringOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-wifi-tethering-off', DileIconlibWifiTetheringOff);
+if (!customElements.get('dile-material-icon-wifi-tethering-off')) {
+  customElements.define('dile-material-icon-wifi-tethering-off', DileIconlibWifiTetheringOff);
+}

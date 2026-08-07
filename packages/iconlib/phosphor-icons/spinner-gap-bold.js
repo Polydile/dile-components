@@ -6,4 +6,6 @@ export class DileIconlibSpinnerGapBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-spinner-gap-bold', DileIconlibSpinnerGapBold);
+if (!customElements.get('dile-phosphor-icon-spinner-gap-bold')) {
+  customElements.define('dile-phosphor-icon-spinner-gap-bold', DileIconlibSpinnerGapBold);
+}

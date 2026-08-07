@@ -6,4 +6,6 @@ export class DileIconlibFaceKiss extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-face-kiss', DileIconlibFaceKiss);
+if (!customElements.get('dile-fontawesome-icon-regular-face-kiss')) {
+  customElements.define('dile-fontawesome-icon-regular-face-kiss', DileIconlibFaceKiss);
+}

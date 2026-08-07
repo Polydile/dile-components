@@ -6,4 +6,6 @@ export class DileIconlibFileHtmlLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-file-html-light', DileIconlibFileHtmlLight);
+if (!customElements.get('dile-phosphor-icon-file-html-light')) {
+  customElements.define('dile-phosphor-icon-file-html-light', DileIconlibFileHtmlLight);
+}

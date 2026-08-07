@@ -6,4 +6,6 @@ export class DileIconlibMusicDollar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-music-dollar', DileIconlibMusicDollar);
+if (!customElements.get('dile-tabler-icon-music-dollar')) {
+  customElements.define('dile-tabler-icon-music-dollar', DileIconlibMusicDollar);
+}

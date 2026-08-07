@@ -6,4 +6,6 @@ export class DileIconlibPeriscope extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-periscope', DileIconlibPeriscope);
+if (!customElements.get('dile-fontawesome-icon-periscope')) {
+  customElements.define('dile-fontawesome-icon-periscope', DileIconlibPeriscope);
+}

@@ -6,4 +6,6 @@ export class DileIconlibMoodMinus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mood-minus', DileIconlibMoodMinus);
+if (!customElements.get('dile-tabler-icon-mood-minus')) {
+  customElements.define('dile-tabler-icon-mood-minus', DileIconlibMoodMinus);
+}

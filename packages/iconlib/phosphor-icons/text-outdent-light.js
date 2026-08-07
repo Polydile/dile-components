@@ -6,4 +6,6 @@ export class DileIconlibTextOutdentLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-text-outdent-light', DileIconlibTextOutdentLight);
+if (!customElements.get('dile-phosphor-icon-text-outdent-light')) {
+  customElements.define('dile-phosphor-icon-text-outdent-light', DileIconlibTextOutdentLight);
+}

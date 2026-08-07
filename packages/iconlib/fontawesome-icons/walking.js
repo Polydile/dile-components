@@ -6,4 +6,6 @@ export class DileIconlibWalking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-walking', DileIconlibWalking);
+if (!customElements.get('dile-fontawesome-icon-walking')) {
+  customElements.define('dile-fontawesome-icon-walking', DileIconlibWalking);
+}

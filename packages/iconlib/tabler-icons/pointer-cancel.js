@@ -6,4 +6,6 @@ export class DileIconlibPointerCancel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-pointer-cancel', DileIconlibPointerCancel);
+if (!customElements.get('dile-tabler-icon-pointer-cancel')) {
+  customElements.define('dile-tabler-icon-pointer-cancel', DileIconlibPointerCancel);
+}

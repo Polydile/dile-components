@@ -6,4 +6,6 @@ export class DileIconlibEyeDiscount extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-eye-discount', DileIconlibEyeDiscount);
+if (!customElements.get('dile-tabler-icon-eye-discount')) {
+  customElements.define('dile-tabler-icon-eye-discount', DileIconlibEyeDiscount);
+}

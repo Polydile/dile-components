@@ -6,4 +6,6 @@ export class DileIconlibRefreshLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-refresh-line', DileIconlibRefreshLine);
+if (!customElements.get('dile-remixicon-icon-refresh-line')) {
+  customElements.define('dile-remixicon-icon-refresh-line', DileIconlibRefreshLine);
+}

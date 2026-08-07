@@ -6,4 +6,6 @@ export class DileIconlibListUnordered extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-list-unordered', DileIconlibListUnordered);
+if (!customElements.get('dile-remixicon-icon-list-unordered')) {
+  customElements.define('dile-remixicon-icon-list-unordered', DileIconlibListUnordered);
+}

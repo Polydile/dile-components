@@ -6,4 +6,6 @@ export class DileIconlibCloudsmith extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloudsmith', DileIconlibCloudsmith);
+if (!customElements.get('dile-fontawesome-icon-cloudsmith')) {
+  customElements.define('dile-fontawesome-icon-cloudsmith', DileIconlibCloudsmith);
+}

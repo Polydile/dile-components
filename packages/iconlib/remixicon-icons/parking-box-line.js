@@ -6,4 +6,6 @@ export class DileIconlibParkingBoxLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-parking-box-line', DileIconlibParkingBoxLine);
+if (!customElements.get('dile-remixicon-icon-parking-box-line')) {
+  customElements.define('dile-remixicon-icon-parking-box-line', DileIconlibParkingBoxLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCloudPause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-cloud-pause', DileIconlibCloudPause);
+if (!customElements.get('dile-tabler-icon-cloud-pause')) {
+  customElements.define('dile-tabler-icon-cloud-pause', DileIconlibCloudPause);
+}

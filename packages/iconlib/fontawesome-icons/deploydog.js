@@ -6,4 +6,6 @@ export class DileIconlibDeploydog extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-deploydog', DileIconlibDeploydog);
+if (!customElements.get('dile-fontawesome-icon-deploydog')) {
+  customElements.define('dile-fontawesome-icon-deploydog', DileIconlibDeploydog);
+}

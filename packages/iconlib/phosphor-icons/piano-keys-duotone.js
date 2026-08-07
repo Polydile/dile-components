@@ -6,4 +6,6 @@ export class DileIconlibPianoKeysDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-piano-keys-duotone', DileIconlibPianoKeysDuotone);
+if (!customElements.get('dile-phosphor-icon-piano-keys-duotone')) {
+  customElements.define('dile-phosphor-icon-piano-keys-duotone', DileIconlibPianoKeysDuotone);
+}

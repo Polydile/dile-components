@@ -6,4 +6,6 @@ export class DileIconlibBrandMixpanel extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-mixpanel', DileIconlibBrandMixpanel);
+if (!customElements.get('dile-tabler-icon-brand-mixpanel')) {
+  customElements.define('dile-tabler-icon-brand-mixpanel', DileIconlibBrandMixpanel);
+}

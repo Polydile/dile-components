@@ -6,4 +6,6 @@ export class DileIconlibFlipToFront extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-flip-to-front', DileIconlibFlipToFront);
+if (!customElements.get('dile-material-icon-flip-to-front')) {
+  customElements.define('dile-material-icon-flip-to-front', DileIconlibFlipToFront);
+}

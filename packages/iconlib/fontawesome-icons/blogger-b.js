@@ -6,4 +6,6 @@ export class DileIconlibBloggerB extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-blogger-b', DileIconlibBloggerB);
+if (!customElements.get('dile-fontawesome-icon-blogger-b')) {
+  customElements.define('dile-fontawesome-icon-blogger-b', DileIconlibBloggerB);
+}

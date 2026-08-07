@@ -6,4 +6,6 @@ export class DileIconlibXmarkSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-xmark-square', DileIconlibXmarkSquare);
+if (!customElements.get('dile-fontawesome-icon-xmark-square')) {
+  customElements.define('dile-fontawesome-icon-xmark-square', DileIconlibXmarkSquare);
+}

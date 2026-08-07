@@ -6,4 +6,6 @@ export class DileIconlibBeef extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-beef', DileIconlibBeef);
+if (!customElements.get('dile-lucide-icon-beef')) {
+  customElements.define('dile-lucide-icon-beef', DileIconlibBeef);
+}

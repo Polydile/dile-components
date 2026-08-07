@@ -6,4 +6,6 @@ export class DileIconlibPizzaSlice extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-pizza-slice', DileIconlibPizzaSlice);
+if (!customElements.get('dile-fontawesome-icon-pizza-slice')) {
+  customElements.define('dile-fontawesome-icon-pizza-slice', DileIconlibPizzaSlice);
+}

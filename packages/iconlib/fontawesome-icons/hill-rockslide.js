@@ -6,4 +6,6 @@ export class DileIconlibHillRockslide extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hill-rockslide', DileIconlibHillRockslide);
+if (!customElements.get('dile-fontawesome-icon-hill-rockslide')) {
+  customElements.define('dile-fontawesome-icon-hill-rockslide', DileIconlibHillRockslide);
+}

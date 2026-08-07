@@ -6,4 +6,6 @@ export class DileIconlibAddressBookOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-address-book-off', DileIconlibAddressBookOff);
+if (!customElements.get('dile-tabler-icon-address-book-off')) {
+  customElements.define('dile-tabler-icon-address-book-off', DileIconlibAddressBookOff);
+}

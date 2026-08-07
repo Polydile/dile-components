@@ -6,4 +6,6 @@ export class DileIconlibStudiovinari extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-studiovinari', DileIconlibStudiovinari);
+if (!customElements.get('dile-fontawesome-icon-studiovinari')) {
+  customElements.define('dile-fontawesome-icon-studiovinari', DileIconlibStudiovinari);
+}

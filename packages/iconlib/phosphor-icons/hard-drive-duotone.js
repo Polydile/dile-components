@@ -6,4 +6,6 @@ export class DileIconlibHardDriveDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-hard-drive-duotone', DileIconlibHardDriveDuotone);
+if (!customElements.get('dile-phosphor-icon-hard-drive-duotone')) {
+  customElements.define('dile-phosphor-icon-hard-drive-duotone', DileIconlibHardDriveDuotone);
+}

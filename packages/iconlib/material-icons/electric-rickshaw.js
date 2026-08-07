@@ -6,4 +6,6 @@ export class DileIconlibElectricRickshaw extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-electric-rickshaw', DileIconlibElectricRickshaw);
+if (!customElements.get('dile-material-icon-electric-rickshaw')) {
+  customElements.define('dile-material-icon-electric-rickshaw', DileIconlibElectricRickshaw);
+}

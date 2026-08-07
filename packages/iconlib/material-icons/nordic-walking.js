@@ -6,4 +6,6 @@ export class DileIconlibNordicWalking extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-nordic-walking', DileIconlibNordicWalking);
+if (!customElements.get('dile-material-icon-nordic-walking')) {
+  customElements.define('dile-material-icon-nordic-walking', DileIconlibNordicWalking);
+}

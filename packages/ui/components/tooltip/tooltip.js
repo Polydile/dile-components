@@ -1,3 +1,5 @@
 import { DileTooltip } from './src/DileTooltip.js';
 
-window.customElements.define('dile-tooltip', DileTooltip);
+if (!customElements.get('dile-tooltip')) {
+  window.customElements.define('dile-tooltip', DileTooltip);
+}

@@ -6,4 +6,6 @@ export class DileIconlibBrandAstro extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-astro', DileIconlibBrandAstro);
+if (!customElements.get('dile-tabler-icon-brand-astro')) {
+  customElements.define('dile-tabler-icon-brand-astro', DileIconlibBrandAstro);
+}

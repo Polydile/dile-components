@@ -6,4 +6,6 @@ export class DileIconlibAccessibleOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-accessible-off', DileIconlibAccessibleOff);
+if (!customElements.get('dile-tabler-icon-accessible-off')) {
+  customElements.define('dile-tabler-icon-accessible-off', DileIconlibAccessibleOff);
+}

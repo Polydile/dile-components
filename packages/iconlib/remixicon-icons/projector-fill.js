@@ -6,4 +6,6 @@ export class DileIconlibProjectorFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-projector-fill', DileIconlibProjectorFill);
+if (!customElements.get('dile-remixicon-icon-projector-fill')) {
+  customElements.define('dile-remixicon-icon-projector-fill', DileIconlibProjectorFill);
+}

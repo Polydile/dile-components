@@ -6,4 +6,6 @@ export class DileIconlibLyrics extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-lyrics', DileIconlibLyrics);
+if (!customElements.get('dile-material-icon-lyrics')) {
+  customElements.define('dile-material-icon-lyrics', DileIconlibLyrics);
+}

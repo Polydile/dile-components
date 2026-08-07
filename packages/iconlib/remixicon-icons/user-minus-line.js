@@ -6,4 +6,6 @@ export class DileIconlibUserMinusLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-user-minus-line', DileIconlibUserMinusLine);
+if (!customElements.get('dile-remixicon-icon-user-minus-line')) {
+  customElements.define('dile-remixicon-icon-user-minus-line', DileIconlibUserMinusLine);
+}

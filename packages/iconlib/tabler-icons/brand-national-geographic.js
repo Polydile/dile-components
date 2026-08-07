@@ -6,4 +6,6 @@ export class DileIconlibBrandNationalGeographic extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-national-geographic', DileIconlibBrandNationalGeographic);
+if (!customElements.get('dile-tabler-icon-brand-national-geographic')) {
+  customElements.define('dile-tabler-icon-brand-national-geographic', DileIconlibBrandNationalGeographic);
+}

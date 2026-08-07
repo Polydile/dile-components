@@ -6,4 +6,6 @@ export class DileIconlibRailwayAlert extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-railway-alert', DileIconlibRailwayAlert);
+if (!customElements.get('dile-material-icon-railway-alert')) {
+  customElements.define('dile-material-icon-railway-alert', DileIconlibRailwayAlert);
+}

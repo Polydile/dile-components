@@ -6,4 +6,6 @@ export class DileIconlibSealWarningDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-seal-warning-duotone', DileIconlibSealWarningDuotone);
+if (!customElements.get('dile-phosphor-icon-seal-warning-duotone')) {
+  customElements.define('dile-phosphor-icon-seal-warning-duotone', DileIconlibSealWarningDuotone);
+}

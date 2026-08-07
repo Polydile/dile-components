@@ -6,4 +6,6 @@ export class DileIconlibMarsAndVenusBurst extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mars-and-venus-burst', DileIconlibMarsAndVenusBurst);
+if (!customElements.get('dile-fontawesome-icon-mars-and-venus-burst')) {
+  customElements.define('dile-fontawesome-icon-mars-and-venus-burst', DileIconlibMarsAndVenusBurst);
+}

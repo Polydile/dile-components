@@ -6,4 +6,6 @@ export class DileIconlibBellRingingLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-bell-ringing-light', DileIconlibBellRingingLight);
+if (!customElements.get('dile-phosphor-icon-bell-ringing-light')) {
+  customElements.define('dile-phosphor-icon-bell-ringing-light', DileIconlibBellRingingLight);
+}

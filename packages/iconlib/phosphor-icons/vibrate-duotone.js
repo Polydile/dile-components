@@ -6,4 +6,6 @@ export class DileIconlibVibrateDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-vibrate-duotone', DileIconlibVibrateDuotone);
+if (!customElements.get('dile-phosphor-icon-vibrate-duotone')) {
+  customElements.define('dile-phosphor-icon-vibrate-duotone', DileIconlibVibrateDuotone);
+}

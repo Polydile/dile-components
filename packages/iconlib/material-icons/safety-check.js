@@ -6,4 +6,6 @@ export class DileIconlibSafetyCheck extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-safety-check', DileIconlibSafetyCheck);
+if (!customElements.get('dile-material-icon-safety-check')) {
+  customElements.define('dile-material-icon-safety-check', DileIconlibSafetyCheck);
+}

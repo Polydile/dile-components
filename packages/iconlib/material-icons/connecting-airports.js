@@ -6,4 +6,6 @@ export class DileIconlibConnectingAirports extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-connecting-airports', DileIconlibConnectingAirports);
+if (!customElements.get('dile-material-icon-connecting-airports')) {
+  customElements.define('dile-material-icon-connecting-airports', DileIconlibConnectingAirports);
+}

@@ -6,4 +6,6 @@ export class DileIconlibPixelfedFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-pixelfed-fill', DileIconlibPixelfedFill);
+if (!customElements.get('dile-remixicon-icon-pixelfed-fill')) {
+  customElements.define('dile-remixicon-icon-pixelfed-fill', DileIconlibPixelfedFill);
+}

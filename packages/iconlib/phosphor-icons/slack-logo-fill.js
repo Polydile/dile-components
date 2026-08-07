@@ -6,4 +6,6 @@ export class DileIconlibSlackLogoFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-slack-logo-fill', DileIconlibSlackLogoFill);
+if (!customElements.get('dile-phosphor-icon-slack-logo-fill')) {
+  customElements.define('dile-phosphor-icon-slack-logo-fill', DileIconlibSlackLogoFill);
+}

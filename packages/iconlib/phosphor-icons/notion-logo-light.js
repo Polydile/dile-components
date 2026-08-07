@@ -6,4 +6,6 @@ export class DileIconlibNotionLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-notion-logo-light', DileIconlibNotionLogoLight);
+if (!customElements.get('dile-phosphor-icon-notion-logo-light')) {
+  customElements.define('dile-phosphor-icon-notion-logo-light', DileIconlibNotionLogoLight);
+}

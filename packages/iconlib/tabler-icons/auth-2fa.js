@@ -6,4 +6,6 @@ export class DileIconlibAuth2fa extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-auth-2fa', DileIconlibAuth2fa);
+if (!customElements.get('dile-tabler-icon-auth-2fa')) {
+  customElements.define('dile-tabler-icon-auth-2fa', DileIconlibAuth2fa);
+}

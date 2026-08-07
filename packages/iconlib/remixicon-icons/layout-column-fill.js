@@ -6,4 +6,6 @@ export class DileIconlibLayoutColumnFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-layout-column-fill', DileIconlibLayoutColumnFill);
+if (!customElements.get('dile-remixicon-icon-layout-column-fill')) {
+  customElements.define('dile-remixicon-icon-layout-column-fill', DileIconlibLayoutColumnFill);
+}

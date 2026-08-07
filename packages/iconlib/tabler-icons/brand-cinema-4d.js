@@ -6,4 +6,6 @@ export class DileIconlibBrandCinema4d extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-cinema-4d', DileIconlibBrandCinema4d);
+if (!customElements.get('dile-tabler-icon-brand-cinema-4d')) {
+  customElements.define('dile-tabler-icon-brand-cinema-4d', DileIconlibBrandCinema4d);
+}

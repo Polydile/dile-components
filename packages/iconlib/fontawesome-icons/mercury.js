@@ -6,4 +6,6 @@ export class DileIconlibMercury extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mercury', DileIconlibMercury);
+if (!customElements.get('dile-fontawesome-icon-mercury')) {
+  customElements.define('dile-fontawesome-icon-mercury', DileIconlibMercury);
+}

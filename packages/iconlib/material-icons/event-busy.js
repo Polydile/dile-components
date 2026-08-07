@@ -6,4 +6,6 @@ export class DileIconlibEventBusy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-event-busy', DileIconlibEventBusy);
+if (!customElements.get('dile-material-icon-event-busy')) {
+  customElements.define('dile-material-icon-event-busy', DileIconlibEventBusy);
+}

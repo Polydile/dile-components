@@ -6,4 +6,6 @@ export class DileIconlibPlaystationSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-playstation-square', DileIconlibPlaystationSquare);
+if (!customElements.get('dile-tabler-icon-playstation-square')) {
+  customElements.define('dile-tabler-icon-playstation-square', DileIconlibPlaystationSquare);
+}

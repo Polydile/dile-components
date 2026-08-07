@@ -6,4 +6,6 @@ export class DileIconlibUnderline extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-underline', DileIconlibUnderline);
+if (!customElements.get('dile-remixicon-icon-underline')) {
+  customElements.define('dile-remixicon-icon-underline', DileIconlibUnderline);
+}

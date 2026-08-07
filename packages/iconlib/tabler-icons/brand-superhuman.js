@@ -6,4 +6,6 @@ export class DileIconlibBrandSuperhuman extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-superhuman', DileIconlibBrandSuperhuman);
+if (!customElements.get('dile-tabler-icon-brand-superhuman')) {
+  customElements.define('dile-tabler-icon-brand-superhuman', DileIconlibBrandSuperhuman);
+}

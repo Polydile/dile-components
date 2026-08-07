@@ -6,4 +6,6 @@ export class DileIconlibYandex extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-yandex', DileIconlibYandex);
+if (!customElements.get('dile-fontawesome-icon-yandex')) {
+  customElements.define('dile-fontawesome-icon-yandex', DileIconlibYandex);
+}

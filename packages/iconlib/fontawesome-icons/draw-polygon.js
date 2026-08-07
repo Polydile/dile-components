@@ -6,4 +6,6 @@ export class DileIconlibDrawPolygon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-draw-polygon', DileIconlibDrawPolygon);
+if (!customElements.get('dile-fontawesome-icon-draw-polygon')) {
+  customElements.define('dile-fontawesome-icon-draw-polygon', DileIconlibDrawPolygon);
+}

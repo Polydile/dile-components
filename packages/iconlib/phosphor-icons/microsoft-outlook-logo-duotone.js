@@ -6,4 +6,6 @@ export class DileIconlibMicrosoftOutlookLogoDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-microsoft-outlook-logo-duotone', DileIconlibMicrosoftOutlookLogoDuotone);
+if (!customElements.get('dile-phosphor-icon-microsoft-outlook-logo-duotone')) {
+  customElements.define('dile-phosphor-icon-microsoft-outlook-logo-duotone', DileIconlibMicrosoftOutlookLogoDuotone);
+}

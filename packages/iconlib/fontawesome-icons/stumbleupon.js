@@ -6,4 +6,6 @@ export class DileIconlibStumbleupon extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-stumbleupon', DileIconlibStumbleupon);
+if (!customElements.get('dile-fontawesome-icon-stumbleupon')) {
+  customElements.define('dile-fontawesome-icon-stumbleupon', DileIconlibStumbleupon);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSquareRoundedNumber8Filled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-square-rounded-number-8-filled', DileIconlibSquareRoundedNumber8Filled);
+if (!customElements.get('dile-tabler-icon-square-rounded-number-8-filled')) {
+  customElements.define('dile-tabler-icon-square-rounded-number-8-filled', DileIconlibSquareRoundedNumber8Filled);
+}

@@ -6,4 +6,6 @@ export class DileIconlibZhihuLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-zhihu-line', DileIconlibZhihuLine);
+if (!customElements.get('dile-remixicon-icon-zhihu-line')) {
+  customElements.define('dile-remixicon-icon-zhihu-line', DileIconlibZhihuLine);
+}

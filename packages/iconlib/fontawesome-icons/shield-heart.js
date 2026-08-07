@@ -6,4 +6,6 @@ export class DileIconlibShieldHeart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-shield-heart', DileIconlibShieldHeart);
+if (!customElements.get('dile-fontawesome-icon-shield-heart')) {
+  customElements.define('dile-fontawesome-icon-shield-heart', DileIconlibShieldHeart);
+}

@@ -6,4 +6,6 @@ export class DileIconlibAutoprefixer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-autoprefixer', DileIconlibAutoprefixer);
+if (!customElements.get('dile-fontawesome-icon-autoprefixer')) {
+  customElements.define('dile-fontawesome-icon-autoprefixer', DileIconlibAutoprefixer);
+}

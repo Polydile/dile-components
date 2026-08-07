@@ -6,4 +6,6 @@ export class DileIconlibGameControllerLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-game-controller-light', DileIconlibGameControllerLight);
+if (!customElements.get('dile-phosphor-icon-game-controller-light')) {
+  customElements.define('dile-phosphor-icon-game-controller-light', DileIconlibGameControllerLight);
+}

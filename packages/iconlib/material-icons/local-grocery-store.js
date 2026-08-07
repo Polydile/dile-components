@@ -6,4 +6,6 @@ export class DileIconlibLocalGroceryStore extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-local-grocery-store', DileIconlibLocalGroceryStore);
+if (!customElements.get('dile-material-icon-local-grocery-store')) {
+  customElements.define('dile-material-icon-local-grocery-store', DileIconlibLocalGroceryStore);
+}

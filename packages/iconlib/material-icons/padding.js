@@ -6,4 +6,6 @@ export class DileIconlibPadding extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-padding', DileIconlibPadding);
+if (!customElements.get('dile-material-icon-padding')) {
+  customElements.define('dile-material-icon-padding', DileIconlibPadding);
+}

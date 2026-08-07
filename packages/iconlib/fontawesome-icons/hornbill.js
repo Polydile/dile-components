@@ -6,4 +6,6 @@ export class DileIconlibHornbill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hornbill', DileIconlibHornbill);
+if (!customElements.get('dile-fontawesome-icon-hornbill')) {
+  customElements.define('dile-fontawesome-icon-hornbill', DileIconlibHornbill);
+}

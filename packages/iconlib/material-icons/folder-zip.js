@@ -6,4 +6,6 @@ export class DileIconlibFolderZip extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-folder-zip', DileIconlibFolderZip);
+if (!customElements.get('dile-material-icon-folder-zip')) {
+  customElements.define('dile-material-icon-folder-zip', DileIconlibFolderZip);
+}

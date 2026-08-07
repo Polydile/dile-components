@@ -6,4 +6,6 @@ export class DileIconlibMicroscopeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-microscope-off', DileIconlibMicroscopeOff);
+if (!customElements.get('dile-tabler-icon-microscope-off')) {
+  customElements.define('dile-tabler-icon-microscope-off', DileIconlibMicroscopeOff);
+}

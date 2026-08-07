@@ -6,4 +6,6 @@ export class DileIconlibWhatsappLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-whatsapp-line', DileIconlibWhatsappLine);
+if (!customElements.get('dile-remixicon-icon-whatsapp-line')) {
+  customElements.define('dile-remixicon-icon-whatsapp-line', DileIconlibWhatsappLine);
+}

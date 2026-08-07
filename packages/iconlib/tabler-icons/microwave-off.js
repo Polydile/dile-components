@@ -6,4 +6,6 @@ export class DileIconlibMicrowaveOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-microwave-off', DileIconlibMicrowaveOff);
+if (!customElements.get('dile-tabler-icon-microwave-off')) {
+  customElements.define('dile-tabler-icon-microwave-off', DileIconlibMicrowaveOff);
+}

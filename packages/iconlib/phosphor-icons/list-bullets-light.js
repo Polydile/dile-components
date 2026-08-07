@@ -6,4 +6,6 @@ export class DileIconlibListBulletsLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-list-bullets-light', DileIconlibListBulletsLight);
+if (!customElements.get('dile-phosphor-icon-list-bullets-light')) {
+  customElements.define('dile-phosphor-icon-list-bullets-light', DileIconlibListBulletsLight);
+}

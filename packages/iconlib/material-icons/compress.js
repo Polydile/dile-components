@@ -6,4 +6,6 @@ export class DileIconlibCompress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-compress', DileIconlibCompress);
+if (!customElements.get('dile-material-icon-compress')) {
+  customElements.define('dile-material-icon-compress', DileIconlibCompress);
+}

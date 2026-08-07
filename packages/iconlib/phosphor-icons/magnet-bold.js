@@ -6,4 +6,6 @@ export class DileIconlibMagnetBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-magnet-bold', DileIconlibMagnetBold);
+if (!customElements.get('dile-phosphor-icon-magnet-bold')) {
+  customElements.define('dile-phosphor-icon-magnet-bold', DileIconlibMagnetBold);
+}

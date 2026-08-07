@@ -6,4 +6,6 @@ export class DileIconlibClefStaff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-clef-staff', DileIconlibClefStaff);
+if (!customElements.get('dile-tabler-icon-clef-staff')) {
+  customElements.define('dile-tabler-icon-clef-staff', DileIconlibClefStaff);
+}

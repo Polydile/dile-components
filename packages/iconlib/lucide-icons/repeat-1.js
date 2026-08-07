@@ -6,4 +6,6 @@ export class DileIconlibRepeat1 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-repeat-1', DileIconlibRepeat1);
+if (!customElements.get('dile-lucide-icon-repeat-1')) {
+  customElements.define('dile-lucide-icon-repeat-1', DileIconlibRepeat1);
+}

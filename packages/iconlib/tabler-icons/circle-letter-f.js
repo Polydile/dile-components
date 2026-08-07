@@ -6,4 +6,6 @@ export class DileIconlibCircleLetterF extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circle-letter-f', DileIconlibCircleLetterF);
+if (!customElements.get('dile-tabler-icon-circle-letter-f')) {
+  customElements.define('dile-tabler-icon-circle-letter-f', DileIconlibCircleLetterF);
+}

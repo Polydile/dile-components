@@ -6,4 +6,6 @@ export class DileIconlibStarHalfLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-star-half-light', DileIconlibStarHalfLight);
+if (!customElements.get('dile-phosphor-icon-star-half-light')) {
+  customElements.define('dile-phosphor-icon-star-half-light', DileIconlibStarHalfLight);
+}

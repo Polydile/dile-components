@@ -6,4 +6,6 @@ export class DileIconlibRectangleCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-rectangle-circle', DileIconlibRectangleCircle);
+if (!customElements.get('dile-lucide-icon-rectangle-circle')) {
+  customElements.define('dile-lucide-icon-rectangle-circle', DileIconlibRectangleCircle);
+}

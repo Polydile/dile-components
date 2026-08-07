@@ -6,4 +6,6 @@ export class DileIconlibMattressPillow extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-mattress-pillow', DileIconlibMattressPillow);
+if (!customElements.get('dile-fontawesome-icon-mattress-pillow')) {
+  customElements.define('dile-fontawesome-icon-mattress-pillow', DileIconlibMattressPillow);
+}

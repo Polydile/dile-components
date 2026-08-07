@@ -6,4 +6,6 @@ export class DileIconlibAirplaneTicket extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-airplane-ticket', DileIconlibAirplaneTicket);
+if (!customElements.get('dile-material-icon-airplane-ticket')) {
+  customElements.define('dile-material-icon-airplane-ticket', DileIconlibAirplaneTicket);
+}

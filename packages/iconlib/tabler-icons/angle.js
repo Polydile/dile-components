@@ -6,4 +6,6 @@ export class DileIconlibAngle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-angle', DileIconlibAngle);
+if (!customElements.get('dile-tabler-icon-angle')) {
+  customElements.define('dile-tabler-icon-angle', DileIconlibAngle);
+}

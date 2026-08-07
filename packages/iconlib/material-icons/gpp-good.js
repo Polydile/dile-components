@@ -6,4 +6,6 @@ export class DileIconlibGppGood extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-gpp-good', DileIconlibGppGood);
+if (!customElements.get('dile-material-icon-gpp-good')) {
+  customElements.define('dile-material-icon-gpp-good', DileIconlibGppGood);
+}

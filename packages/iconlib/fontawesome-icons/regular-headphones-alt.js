@@ -6,4 +6,6 @@ export class DileIconlibHeadphonesAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-headphones-alt', DileIconlibHeadphonesAlt);
+if (!customElements.get('dile-fontawesome-icon-regular-headphones-alt')) {
+  customElements.define('dile-fontawesome-icon-regular-headphones-alt', DileIconlibHeadphonesAlt);
+}

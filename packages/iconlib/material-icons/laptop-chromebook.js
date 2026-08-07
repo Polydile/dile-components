@@ -6,4 +6,6 @@ export class DileIconlibLaptopChromebook extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-laptop-chromebook', DileIconlibLaptopChromebook);
+if (!customElements.get('dile-material-icon-laptop-chromebook')) {
+  customElements.define('dile-material-icon-laptop-chromebook', DileIconlibLaptopChromebook);
+}

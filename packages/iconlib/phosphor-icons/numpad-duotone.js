@@ -6,4 +6,6 @@ export class DileIconlibNumpadDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-numpad-duotone', DileIconlibNumpadDuotone);
+if (!customElements.get('dile-phosphor-icon-numpad-duotone')) {
+  customElements.define('dile-phosphor-icon-numpad-duotone', DileIconlibNumpadDuotone);
+}

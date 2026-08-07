@@ -6,4 +6,6 @@ export class DileIconlibDeviceRotateLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-device-rotate-light', DileIconlibDeviceRotateLight);
+if (!customElements.get('dile-phosphor-icon-device-rotate-light')) {
+  customElements.define('dile-phosphor-icon-device-rotate-light', DileIconlibDeviceRotateLight);
+}

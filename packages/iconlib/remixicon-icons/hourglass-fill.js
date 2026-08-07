@@ -6,4 +6,6 @@ export class DileIconlibHourglassFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-hourglass-fill', DileIconlibHourglassFill);
+if (!customElements.get('dile-remixicon-icon-hourglass-fill')) {
+  customElements.define('dile-remixicon-icon-hourglass-fill', DileIconlibHourglassFill);
+}

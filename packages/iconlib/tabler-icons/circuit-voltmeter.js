@@ -6,4 +6,6 @@ export class DileIconlibCircuitVoltmeter extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-circuit-voltmeter', DileIconlibCircuitVoltmeter);
+if (!customElements.get('dile-tabler-icon-circuit-voltmeter')) {
+  customElements.define('dile-tabler-icon-circuit-voltmeter', DileIconlibCircuitVoltmeter);
+}

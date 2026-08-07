@@ -6,4 +6,6 @@ export class DileIconlibBlockFlipped extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-block-flipped', DileIconlibBlockFlipped);
+if (!customElements.get('dile-material-icon-block-flipped')) {
+  customElements.define('dile-material-icon-block-flipped', DileIconlibBlockFlipped);
+}

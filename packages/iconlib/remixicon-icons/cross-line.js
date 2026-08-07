@@ -6,4 +6,6 @@ export class DileIconlibCrossLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-cross-line', DileIconlibCrossLine);
+if (!customElements.get('dile-remixicon-icon-cross-line')) {
+  customElements.define('dile-remixicon-icon-cross-line', DileIconlibCrossLine);
+}

@@ -19,4 +19,6 @@ export class UploadFileForm extends DileForm(LitElement) {
     `;
   }
 }
-customElements.define('upload-file-form', UploadFileForm);
+if (!customElements.get('upload-file-form')) {
+  customElements.define('upload-file-form', UploadFileForm);
+}

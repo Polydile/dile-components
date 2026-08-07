@@ -6,4 +6,6 @@ export class DileIconlibSteam extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-steam', DileIconlibSteam);
+if (!customElements.get('dile-tabler-icon-steam')) {
+  customElements.define('dile-tabler-icon-steam', DileIconlibSteam);
+}

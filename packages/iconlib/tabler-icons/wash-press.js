@@ -6,4 +6,6 @@ export class DileIconlibWashPress extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-wash-press', DileIconlibWashPress);
+if (!customElements.get('dile-tabler-icon-wash-press')) {
+  customElements.define('dile-tabler-icon-wash-press', DileIconlibWashPress);
+}

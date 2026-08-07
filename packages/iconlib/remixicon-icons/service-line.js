@@ -6,4 +6,6 @@ export class DileIconlibServiceLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-service-line', DileIconlibServiceLine);
+if (!customElements.get('dile-remixicon-icon-service-line')) {
+  customElements.define('dile-remixicon-icon-service-line', DileIconlibServiceLine);
+}

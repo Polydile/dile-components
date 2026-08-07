@@ -6,4 +6,6 @@ export class DileIconlibBuildingShield extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-building-shield', DileIconlibBuildingShield);
+if (!customElements.get('dile-fontawesome-icon-building-shield')) {
+  customElements.define('dile-fontawesome-icon-building-shield', DileIconlibBuildingShield);
+}

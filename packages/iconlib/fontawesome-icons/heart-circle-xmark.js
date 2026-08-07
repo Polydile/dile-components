@@ -6,4 +6,6 @@ export class DileIconlibHeartCircleXmark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-heart-circle-xmark', DileIconlibHeartCircleXmark);
+if (!customElements.get('dile-fontawesome-icon-heart-circle-xmark')) {
+  customElements.define('dile-fontawesome-icon-heart-circle-xmark', DileIconlibHeartCircleXmark);
+}

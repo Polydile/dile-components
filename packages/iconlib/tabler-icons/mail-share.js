@@ -6,4 +6,6 @@ export class DileIconlibMailShare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-mail-share', DileIconlibMailShare);
+if (!customElements.get('dile-tabler-icon-mail-share')) {
+  customElements.define('dile-tabler-icon-mail-share', DileIconlibMailShare);
+}

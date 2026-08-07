@@ -6,4 +6,6 @@ export class DileIconlibMagnetStraightFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-magnet-straight-fill', DileIconlibMagnetStraightFill);
+if (!customElements.get('dile-phosphor-icon-magnet-straight-fill')) {
+  customElements.define('dile-phosphor-icon-magnet-straight-fill', DileIconlibMagnetStraightFill);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTopologyFullHierarchy extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-topology-full-hierarchy', DileIconlibTopologyFullHierarchy);
+if (!customElements.get('dile-tabler-icon-topology-full-hierarchy')) {
+  customElements.define('dile-tabler-icon-topology-full-hierarchy', DileIconlibTopologyFullHierarchy);
+}

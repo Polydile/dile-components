@@ -6,4 +6,6 @@ export class DileIconlibAppWindowMac extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-app-window-mac', DileIconlibAppWindowMac);
+if (!customElements.get('dile-lucide-icon-app-window-mac')) {
+  customElements.define('dile-lucide-icon-app-window-mac', DileIconlibAppWindowMac);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrency extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-currency', DileIconlibCurrency);
+if (!customElements.get('dile-lucide-icon-currency')) {
+  customElements.define('dile-lucide-icon-currency', DileIconlibCurrency);
+}

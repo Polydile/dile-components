@@ -6,4 +6,6 @@ export class DileIconlibTabs extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-tabs', DileIconlibTabs);
+if (!customElements.get('dile-phosphor-icon-tabs')) {
+  customElements.define('dile-phosphor-icon-tabs', DileIconlibTabs);
+}

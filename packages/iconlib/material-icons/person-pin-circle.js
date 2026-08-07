@@ -6,4 +6,6 @@ export class DileIconlibPersonPinCircle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-person-pin-circle', DileIconlibPersonPinCircle);
+if (!customElements.get('dile-material-icon-person-pin-circle')) {
+  customElements.define('dile-material-icon-person-pin-circle', DileIconlibPersonPinCircle);
+}

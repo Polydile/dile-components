@@ -6,4 +6,6 @@ export class DileIconlibPlayerPauseFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-player-pause-filled', DileIconlibPlayerPauseFilled);
+if (!customElements.get('dile-tabler-icon-player-pause-filled')) {
+  customElements.define('dile-tabler-icon-player-pause-filled', DileIconlibPlayerPauseFilled);
+}

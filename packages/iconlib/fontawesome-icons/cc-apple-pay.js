@@ -6,4 +6,6 @@ export class DileIconlibCcApplePay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cc-apple-pay', DileIconlibCcApplePay);
+if (!customElements.get('dile-fontawesome-icon-cc-apple-pay')) {
+  customElements.define('dile-fontawesome-icon-cc-apple-pay', DileIconlibCcApplePay);
+}

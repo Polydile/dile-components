@@ -6,4 +6,6 @@ export class DileIconlibSitrox extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-sitrox', DileIconlibSitrox);
+if (!customElements.get('dile-fontawesome-icon-sitrox')) {
+  customElements.define('dile-fontawesome-icon-sitrox', DileIconlibSitrox);
+}

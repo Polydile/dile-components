@@ -6,4 +6,6 @@ export class DileIconlibBracketsAngle extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brackets-angle', DileIconlibBracketsAngle);
+if (!customElements.get('dile-tabler-icon-brackets-angle')) {
+  customElements.define('dile-tabler-icon-brackets-angle', DileIconlibBracketsAngle);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRockrms extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-rockrms', DileIconlibRockrms);
+if (!customElements.get('dile-fontawesome-icon-rockrms')) {
+  customElements.define('dile-fontawesome-icon-rockrms', DileIconlibRockrms);
+}

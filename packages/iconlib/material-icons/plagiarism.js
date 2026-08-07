@@ -6,4 +6,6 @@ export class DileIconlibPlagiarism extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-plagiarism', DileIconlibPlagiarism);
+if (!customElements.get('dile-material-icon-plagiarism')) {
+  customElements.define('dile-material-icon-plagiarism', DileIconlibPlagiarism);
+}

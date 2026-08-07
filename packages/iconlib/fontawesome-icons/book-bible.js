@@ -6,4 +6,6 @@ export class DileIconlibBookBible extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-book-bible', DileIconlibBookBible);
+if (!customElements.get('dile-fontawesome-icon-book-bible')) {
+  customElements.define('dile-fontawesome-icon-book-bible', DileIconlibBookBible);
+}

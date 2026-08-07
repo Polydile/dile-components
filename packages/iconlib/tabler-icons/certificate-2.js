@@ -6,4 +6,6 @@ export class DileIconlibCertificate2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-certificate-2', DileIconlibCertificate2);
+if (!customElements.get('dile-tabler-icon-certificate-2')) {
+  customElements.define('dile-tabler-icon-certificate-2', DileIconlibCertificate2);
+}

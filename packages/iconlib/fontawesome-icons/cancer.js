@@ -6,4 +6,6 @@ export class DileIconlibCancer extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cancer', DileIconlibCancer);
+if (!customElements.get('dile-fontawesome-icon-cancer')) {
+  customElements.define('dile-fontawesome-icon-cancer', DileIconlibCancer);
+}

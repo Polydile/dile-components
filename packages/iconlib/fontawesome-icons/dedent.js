@@ -6,4 +6,6 @@ export class DileIconlibDedent extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-dedent', DileIconlibDedent);
+if (!customElements.get('dile-fontawesome-icon-dedent')) {
+  customElements.define('dile-fontawesome-icon-dedent', DileIconlibDedent);
+}

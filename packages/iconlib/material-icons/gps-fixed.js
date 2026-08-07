@@ -6,4 +6,6 @@ export class DileIconlibGpsFixed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-gps-fixed', DileIconlibGpsFixed);
+if (!customElements.get('dile-material-icon-gps-fixed')) {
+  customElements.define('dile-material-icon-gps-fixed', DileIconlibGpsFixed);
+}

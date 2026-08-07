@@ -6,4 +6,6 @@ export class DileIconlibVoiceOverOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-voice-over-off', DileIconlibVoiceOverOff);
+if (!customElements.get('dile-material-icon-voice-over-off')) {
+  customElements.define('dile-material-icon-voice-over-off', DileIconlibVoiceOverOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibTrashAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-trash-alt', DileIconlibTrashAlt);
+if (!customElements.get('dile-fontawesome-icon-regular-trash-alt')) {
+  customElements.define('dile-fontawesome-icon-regular-trash-alt', DileIconlibTrashAlt);
+}

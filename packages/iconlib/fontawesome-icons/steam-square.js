@@ -6,4 +6,6 @@ export class DileIconlibSteamSquare extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-steam-square', DileIconlibSteamSquare);
+if (!customElements.get('dile-fontawesome-icon-steam-square')) {
+  customElements.define('dile-fontawesome-icon-steam-square', DileIconlibSteamSquare);
+}

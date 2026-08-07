@@ -6,4 +6,6 @@ export class DileIconlibPaintBrush extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-paint-brush', DileIconlibPaintBrush);
+if (!customElements.get('dile-fontawesome-icon-paint-brush')) {
+  customElements.define('dile-fontawesome-icon-paint-brush', DileIconlibPaintBrush);
+}

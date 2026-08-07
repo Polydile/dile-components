@@ -6,4 +6,6 @@ export class DileIconlibSteam extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-steam', DileIconlibSteam);
+if (!customElements.get('dile-fontawesome-icon-steam')) {
+  customElements.define('dile-fontawesome-icon-steam', DileIconlibSteam);
+}

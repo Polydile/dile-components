@@ -6,4 +6,6 @@ export class DileIconlibMessagePause extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-message-pause', DileIconlibMessagePause);
+if (!customElements.get('dile-tabler-icon-message-pause')) {
+  customElements.define('dile-tabler-icon-message-pause', DileIconlibMessagePause);
+}

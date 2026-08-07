@@ -6,4 +6,6 @@ export class DileIconlibSnippetFolder extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-snippet-folder', DileIconlibSnippetFolder);
+if (!customElements.get('dile-material-icon-snippet-folder')) {
+  customElements.define('dile-material-icon-snippet-folder', DileIconlibSnippetFolder);
+}

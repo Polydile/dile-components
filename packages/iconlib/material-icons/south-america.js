@@ -6,4 +6,6 @@ export class DileIconlibSouthAmerica extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-south-america', DileIconlibSouthAmerica);
+if (!customElements.get('dile-material-icon-south-america')) {
+  customElements.define('dile-material-icon-south-america', DileIconlibSouthAmerica);
+}

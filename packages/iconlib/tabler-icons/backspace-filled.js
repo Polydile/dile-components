@@ -6,4 +6,6 @@ export class DileIconlibBackspaceFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-backspace-filled', DileIconlibBackspaceFilled);
+if (!customElements.get('dile-tabler-icon-backspace-filled')) {
+  customElements.define('dile-tabler-icon-backspace-filled', DileIconlibBackspaceFilled);
+}

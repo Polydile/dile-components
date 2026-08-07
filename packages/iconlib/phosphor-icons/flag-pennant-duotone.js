@@ -6,4 +6,6 @@ export class DileIconlibFlagPennantDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-flag-pennant-duotone', DileIconlibFlagPennantDuotone);
+if (!customElements.get('dile-phosphor-icon-flag-pennant-duotone')) {
+  customElements.define('dile-phosphor-icon-flag-pennant-duotone', DileIconlibFlagPennantDuotone);
+}

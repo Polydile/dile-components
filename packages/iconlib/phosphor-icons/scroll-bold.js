@@ -6,4 +6,6 @@ export class DileIconlibScrollBold extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-scroll-bold', DileIconlibScrollBold);
+if (!customElements.get('dile-phosphor-icon-scroll-bold')) {
+  customElements.define('dile-phosphor-icon-scroll-bold', DileIconlibScrollBold);
+}

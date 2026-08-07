@@ -6,4 +6,6 @@ export class DileIconlibBrandSupernova extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-supernova', DileIconlibBrandSupernova);
+if (!customElements.get('dile-tabler-icon-brand-supernova')) {
+  customElements.define('dile-tabler-icon-brand-supernova', DileIconlibBrandSupernova);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHttpPatchOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-http-patch-off', DileIconlibHttpPatchOff);
+if (!customElements.get('dile-tabler-icon-http-patch-off')) {
+  customElements.define('dile-tabler-icon-http-patch-off', DileIconlibHttpPatchOff);
+}

@@ -6,4 +6,6 @@ export class DileIconlibHouseFire extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-house-fire', DileIconlibHouseFire);
+if (!customElements.get('dile-fontawesome-icon-house-fire')) {
+  customElements.define('dile-fontawesome-icon-house-fire', DileIconlibHouseFire);
+}

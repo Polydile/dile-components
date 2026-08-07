@@ -6,4 +6,6 @@ export class DileIconlibBadgeQuestionMark extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-badge-question-mark', DileIconlibBadgeQuestionMark);
+if (!customElements.get('dile-lucide-icon-badge-question-mark')) {
+  customElements.define('dile-lucide-icon-badge-question-mark', DileIconlibBadgeQuestionMark);
+}

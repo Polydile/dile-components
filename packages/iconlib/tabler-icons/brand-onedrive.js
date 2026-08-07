@@ -6,4 +6,6 @@ export class DileIconlibBrandOnedrive extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-onedrive', DileIconlibBrandOnedrive);
+if (!customElements.get('dile-tabler-icon-brand-onedrive')) {
+  customElements.define('dile-tabler-icon-brand-onedrive', DileIconlibBrandOnedrive);
+}

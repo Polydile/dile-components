@@ -6,4 +6,6 @@ export class DileIconlibLetterS extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-letter-s', DileIconlibLetterS);
+if (!customElements.get('dile-tabler-icon-letter-s')) {
+  customElements.define('dile-tabler-icon-letter-s', DileIconlibLetterS);
+}

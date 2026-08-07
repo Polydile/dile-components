@@ -6,4 +6,6 @@ export class DileIconlibMehBlank extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-regular-meh-blank', DileIconlibMehBlank);
+if (!customElements.get('dile-fontawesome-icon-regular-meh-blank')) {
+  customElements.define('dile-fontawesome-icon-regular-meh-blank', DileIconlibMehBlank);
+}

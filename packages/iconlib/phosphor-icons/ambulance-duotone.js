@@ -6,4 +6,6 @@ export class DileIconlibAmbulanceDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-ambulance-duotone', DileIconlibAmbulanceDuotone);
+if (!customElements.get('dile-phosphor-icon-ambulance-duotone')) {
+  customElements.define('dile-phosphor-icon-ambulance-duotone', DileIconlibAmbulanceDuotone);
+}

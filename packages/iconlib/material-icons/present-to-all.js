@@ -6,4 +6,6 @@ export class DileIconlibPresentToAll extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-present-to-all', DileIconlibPresentToAll);
+if (!customElements.get('dile-material-icon-present-to-all')) {
+  customElements.define('dile-material-icon-present-to-all', DileIconlibPresentToAll);
+}

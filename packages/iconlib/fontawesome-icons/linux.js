@@ -6,4 +6,6 @@ export class DileIconlibLinux extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-linux', DileIconlibLinux);
+if (!customElements.get('dile-fontawesome-icon-linux')) {
+  customElements.define('dile-fontawesome-icon-linux', DileIconlibLinux);
+}

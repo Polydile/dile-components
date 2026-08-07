@@ -6,4 +6,6 @@ export class DileIconlibBandcamp extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-bandcamp', DileIconlibBandcamp);
+if (!customElements.get('dile-fontawesome-icon-bandcamp')) {
+  customElements.define('dile-fontawesome-icon-bandcamp', DileIconlibBandcamp);
+}

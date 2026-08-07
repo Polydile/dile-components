@@ -6,4 +6,6 @@ export class DileIconlibWhatsappLogoLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-whatsapp-logo-light', DileIconlibWhatsappLogoLight);
+if (!customElements.get('dile-phosphor-icon-whatsapp-logo-light')) {
+  customElements.define('dile-phosphor-icon-whatsapp-logo-light', DileIconlibWhatsappLogoLight);
+}

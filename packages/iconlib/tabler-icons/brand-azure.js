@@ -6,4 +6,6 @@ export class DileIconlibBrandAzure extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-brand-azure', DileIconlibBrandAzure);
+if (!customElements.get('dile-tabler-icon-brand-azure')) {
+  customElements.define('dile-tabler-icon-brand-azure', DileIconlibBrandAzure);
+}

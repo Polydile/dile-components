@@ -6,4 +6,6 @@ export class DileIconlibChildReaching extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-child-reaching', DileIconlibChildReaching);
+if (!customElements.get('dile-fontawesome-icon-child-reaching')) {
+  customElements.define('dile-fontawesome-icon-child-reaching', DileIconlibChildReaching);
+}

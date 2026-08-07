@@ -6,4 +6,6 @@ export class DileIconlibCopyleft extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-copyleft', DileIconlibCopyleft);
+if (!customElements.get('dile-tabler-icon-copyleft')) {
+  customElements.define('dile-tabler-icon-copyleft', DileIconlibCopyleft);
+}

@@ -6,4 +6,6 @@ export class DileIconlibQuestionMarkFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-question-mark-fill', DileIconlibQuestionMarkFill);
+if (!customElements.get('dile-phosphor-icon-question-mark-fill')) {
+  customElements.define('dile-phosphor-icon-question-mark-fill', DileIconlibQuestionMarkFill);
+}

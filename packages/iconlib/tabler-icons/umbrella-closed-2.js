@@ -6,4 +6,6 @@ export class DileIconlibUmbrellaClosed2 extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-umbrella-closed-2', DileIconlibUmbrellaClosed2);
+if (!customElements.get('dile-tabler-icon-umbrella-closed-2')) {
+  customElements.define('dile-tabler-icon-umbrella-closed-2', DileIconlibUmbrellaClosed2);
+}

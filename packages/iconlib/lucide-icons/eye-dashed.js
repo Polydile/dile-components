@@ -6,4 +6,6 @@ export class DileIconlibEyeDashed extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-eye-dashed', DileIconlibEyeDashed);
+if (!customElements.get('dile-lucide-icon-eye-dashed')) {
+  customElements.define('dile-lucide-icon-eye-dashed', DileIconlibEyeDashed);
+}

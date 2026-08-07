@@ -6,4 +6,6 @@ export class DileIconlibLeafyGreen extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-lucide-icon-leafy-green', DileIconlibLeafyGreen);
+if (!customElements.get('dile-lucide-icon-leafy-green')) {
+  customElements.define('dile-lucide-icon-leafy-green', DileIconlibLeafyGreen);
+}

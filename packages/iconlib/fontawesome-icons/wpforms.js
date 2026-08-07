@@ -6,4 +6,6 @@ export class DileIconlibWpforms extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-wpforms', DileIconlibWpforms);
+if (!customElements.get('dile-fontawesome-icon-wpforms')) {
+  customElements.define('dile-fontawesome-icon-wpforms', DileIconlibWpforms);
+}

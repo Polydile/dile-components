@@ -6,4 +6,6 @@ export class DileIconlibSatelliteAlt extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-satellite-alt', DileIconlibSatelliteAlt);
+if (!customElements.get('dile-material-icon-satellite-alt')) {
+  customElements.define('dile-material-icon-satellite-alt', DileIconlibSatelliteAlt);
+}

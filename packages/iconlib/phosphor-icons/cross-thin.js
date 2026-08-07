@@ -6,4 +6,6 @@ export class DileIconlibCrossThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cross-thin', DileIconlibCrossThin);
+if (!customElements.get('dile-phosphor-icon-cross-thin')) {
+  customElements.define('dile-phosphor-icon-cross-thin', DileIconlibCrossThin);
+}

@@ -6,4 +6,6 @@ export class DileIconlibSigmaLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-sigma-light', DileIconlibSigmaLight);
+if (!customElements.get('dile-phosphor-icon-sigma-light')) {
+  customElements.define('dile-phosphor-icon-sigma-light', DileIconlibSigmaLight);
+}

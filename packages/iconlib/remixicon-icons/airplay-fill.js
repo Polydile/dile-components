@@ -6,4 +6,6 @@ export class DileIconlibAirplayFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-airplay-fill', DileIconlibAirplayFill);
+if (!customElements.get('dile-remixicon-icon-airplay-fill')) {
+  customElements.define('dile-remixicon-icon-airplay-fill', DileIconlibAirplayFill);
+}

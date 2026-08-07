@@ -6,4 +6,6 @@ export class DileIconlibShareFatLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-share-fat-light', DileIconlibShareFatLight);
+if (!customElements.get('dile-phosphor-icon-share-fat-light')) {
+  customElements.define('dile-phosphor-icon-share-fat-light', DileIconlibShareFatLight);
+}

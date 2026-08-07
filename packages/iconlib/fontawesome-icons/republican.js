@@ -6,4 +6,6 @@ export class DileIconlibRepublican extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-republican', DileIconlibRepublican);
+if (!customElements.get('dile-fontawesome-icon-republican')) {
+  customElements.define('dile-fontawesome-icon-republican', DileIconlibRepublican);
+}

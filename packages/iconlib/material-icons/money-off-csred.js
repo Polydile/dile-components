@@ -6,4 +6,6 @@ export class DileIconlibMoneyOffCsred extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-money-off-csred', DileIconlibMoneyOffCsred);
+if (!customElements.get('dile-material-icon-money-off-csred')) {
+  customElements.define('dile-material-icon-money-off-csred', DileIconlibMoneyOffCsred);
+}

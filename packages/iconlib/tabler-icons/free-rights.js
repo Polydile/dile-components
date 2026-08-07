@@ -6,4 +6,6 @@ export class DileIconlibFreeRights extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-free-rights', DileIconlibFreeRights);
+if (!customElements.get('dile-tabler-icon-free-rights')) {
+  customElements.define('dile-tabler-icon-free-rights', DileIconlibFreeRights);
+}

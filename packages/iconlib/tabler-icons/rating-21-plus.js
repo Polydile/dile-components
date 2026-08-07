@@ -6,4 +6,6 @@ export class DileIconlibRating21Plus extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-rating-21-plus', DileIconlibRating21Plus);
+if (!customElements.get('dile-tabler-icon-rating-21-plus')) {
+  customElements.define('dile-tabler-icon-rating-21-plus', DileIconlibRating21Plus);
+}

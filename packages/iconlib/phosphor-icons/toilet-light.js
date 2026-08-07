@@ -6,4 +6,6 @@ export class DileIconlibToiletLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-toilet-light', DileIconlibToiletLight);
+if (!customElements.get('dile-phosphor-icon-toilet-light')) {
+  customElements.define('dile-phosphor-icon-toilet-light', DileIconlibToiletLight);
+}

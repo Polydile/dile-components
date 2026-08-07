@@ -6,4 +6,6 @@ export class DileIconlibPivotTableChart extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-pivot-table-chart', DileIconlibPivotTableChart);
+if (!customElements.get('dile-material-icon-pivot-table-chart')) {
+  customElements.define('dile-material-icon-pivot-table-chart', DileIconlibPivotTableChart);
+}

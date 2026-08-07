@@ -6,4 +6,6 @@ export class DileIconlibHotjar extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-hotjar', DileIconlibHotjar);
+if (!customElements.get('dile-fontawesome-icon-hotjar')) {
+  customElements.define('dile-fontawesome-icon-hotjar', DileIconlibHotjar);
+}

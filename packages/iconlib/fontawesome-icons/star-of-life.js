@@ -6,4 +6,6 @@ export class DileIconlibStarOfLife extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-star-of-life', DileIconlibStarOfLife);
+if (!customElements.get('dile-fontawesome-icon-star-of-life')) {
+  customElements.define('dile-fontawesome-icon-star-of-life', DileIconlibStarOfLife);
+}

@@ -6,4 +6,6 @@ export class DileIconlibCurrencyCny extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-currency-cny', DileIconlibCurrencyCny);
+if (!customElements.get('dile-phosphor-icon-currency-cny')) {
+  customElements.define('dile-phosphor-icon-currency-cny', DileIconlibCurrencyCny);
+}

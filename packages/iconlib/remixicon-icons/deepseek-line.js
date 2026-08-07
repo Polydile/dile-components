@@ -6,4 +6,6 @@ export class DileIconlibDeepseekLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-deepseek-line', DileIconlibDeepseekLine);
+if (!customElements.get('dile-remixicon-icon-deepseek-line')) {
+  customElements.define('dile-remixicon-icon-deepseek-line', DileIconlibDeepseekLine);
+}

@@ -6,4 +6,6 @@ export class DileIconlibRepeatLight extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-repeat-light', DileIconlibRepeatLight);
+if (!customElements.get('dile-phosphor-icon-repeat-light')) {
+  customElements.define('dile-phosphor-icon-repeat-light', DileIconlibRepeatLight);
+}

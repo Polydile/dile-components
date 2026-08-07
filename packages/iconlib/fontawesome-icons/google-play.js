@@ -6,4 +6,6 @@ export class DileIconlibGooglePlay extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-google-play', DileIconlibGooglePlay);
+if (!customElements.get('dile-fontawesome-icon-google-play')) {
+  customElements.define('dile-fontawesome-icon-google-play', DileIconlibGooglePlay);
+}

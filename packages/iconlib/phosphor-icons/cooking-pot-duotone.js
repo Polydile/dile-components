@@ -6,4 +6,6 @@ export class DileIconlibCookingPotDuotone extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-cooking-pot-duotone', DileIconlibCookingPotDuotone);
+if (!customElements.get('dile-phosphor-icon-cooking-pot-duotone')) {
+  customElements.define('dile-phosphor-icon-cooking-pot-duotone', DileIconlibCookingPotDuotone);
+}

@@ -6,4 +6,6 @@ export class DileIconlibInstallLine extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-install-line', DileIconlibInstallLine);
+if (!customElements.get('dile-remixicon-icon-install-line')) {
+  customElements.define('dile-remixicon-icon-install-line', DileIconlibInstallLine);
+}

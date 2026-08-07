@@ -6,4 +6,6 @@ export class DileIconlibTelegramLogoThin extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-telegram-logo-thin', DileIconlibTelegramLogoThin);
+if (!customElements.get('dile-phosphor-icon-telegram-logo-thin')) {
+  customElements.define('dile-phosphor-icon-telegram-logo-thin', DileIconlibTelegramLogoThin);
+}

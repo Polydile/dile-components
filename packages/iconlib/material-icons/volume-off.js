@@ -6,4 +6,6 @@ export class DileIconlibVolumeOff extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-volume-off', DileIconlibVolumeOff);
+if (!customElements.get('dile-material-icon-volume-off')) {
+  customElements.define('dile-material-icon-volume-off', DileIconlibVolumeOff);
+}

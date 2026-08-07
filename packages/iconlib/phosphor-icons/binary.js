@@ -6,4 +6,6 @@ export class DileIconlibBinary extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-binary', DileIconlibBinary);
+if (!customElements.get('dile-phosphor-icon-binary')) {
+  customElements.define('dile-phosphor-icon-binary', DileIconlibBinary);
+}

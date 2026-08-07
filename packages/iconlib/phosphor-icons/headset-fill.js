@@ -6,4 +6,6 @@ export class DileIconlibHeadsetFill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-phosphor-icon-headset-fill', DileIconlibHeadsetFill);
+if (!customElements.get('dile-phosphor-icon-headset-fill')) {
+  customElements.define('dile-phosphor-icon-headset-fill', DileIconlibHeadsetFill);
+}

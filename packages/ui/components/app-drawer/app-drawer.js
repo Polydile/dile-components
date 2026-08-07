@@ -1,3 +1,5 @@
 import { DileAppDrawer } from "./src/DileAppDrawer.js";
 
-customElements.define("dile-app-drawer", DileAppDrawer);
+if (!customElements.get("dile-app-drawer")) {
+  customElements.define("dile-app-drawer", DileAppDrawer);
+}

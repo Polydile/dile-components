@@ -6,4 +6,6 @@ export class DileIconlibTransitionLeftFilled extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-tabler-icon-transition-left-filled', DileIconlibTransitionLeftFilled);
+if (!customElements.get('dile-tabler-icon-transition-left-filled')) {
+  customElements.define('dile-tabler-icon-transition-left-filled', DileIconlibTransitionLeftFilled);
+}

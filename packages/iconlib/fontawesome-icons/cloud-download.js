@@ -6,4 +6,6 @@ export class DileIconlibCloudDownload extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-fontawesome-icon-cloud-download', DileIconlibCloudDownload);
+if (!customElements.get('dile-fontawesome-icon-cloud-download')) {
+  customElements.define('dile-fontawesome-icon-cloud-download', DileIconlibCloudDownload);
+}

@@ -6,4 +6,6 @@ export class DileIconlibVrpano extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-material-icon-vrpano', DileIconlibVrpano);
+if (!customElements.get('dile-material-icon-vrpano')) {
+  customElements.define('dile-material-icon-vrpano', DileIconlibVrpano);
+}

@@ -6,4 +6,6 @@ export class DileIconlibFocus3Fill extends DileBaseIcon {
   }
 }
 
-customElements.define('dile-remixicon-icon-focus-3-fill', DileIconlibFocus3Fill);
+if (!customElements.get('dile-remixicon-icon-focus-3-fill')) {
+  customElements.define('dile-remixicon-icon-focus-3-fill', DileIconlibFocus3Fill);
+}
