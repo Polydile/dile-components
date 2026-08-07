@@ -96,7 +96,7 @@ export class DileRange extends DileEmmitChange(LitElement) {
       min: { type: Number },
       step: { type: Number },
       value: { type: Number },
-      name: { type: String },
+      name: { type: String, reflect: true },
       label: { type: String },
       message: { type: String },
       errored: { type: Boolean, reflect: true },

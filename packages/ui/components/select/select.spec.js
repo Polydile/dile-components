@@ -531,5 +531,44 @@ describe('dile-select', () => {
 
       expect(el.internals.form).toBeDefined();
     });
+
+    it('participates in FormData when name is set as an attribute', async () => {
+      document.body.innerHTML = `
+        <form id="testForm">
+          <dile-select name="fruit" value="1">
+            <select slot="select">
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+            </select>
+          </dile-select>
+        </form>
+      `;
+      const el = document.body.querySelector('dile-select');
+      await el.updateComplete;
+
+      const data = new FormData(document.getElementById('testForm'));
+      expect(data.get('fruit')).toBe('1');
+    });
+
+    it('participates in FormData when name is set as a JS property', async () => {
+      document.body.innerHTML = `
+        <form id="testForm">
+          <dile-select value="1">
+            <select slot="select">
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+            </select>
+          </dile-select>
+        </form>
+      `;
+      const el = document.body.querySelector('dile-select');
+      el.name = 'fruit';
+      await el.updateComplete;
+
+      expect(el.getAttribute('name')).toBe('fruit');
+
+      const data = new FormData(document.getElementById('testForm'));
+      expect(data.get('fruit')).toBe('1');
+    });
   });
 });

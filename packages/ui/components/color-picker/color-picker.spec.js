@@ -114,4 +114,20 @@ describe('dile-color-picker', () => {
 
     expect(data.get('color')).toBe('#123456');
   });
+
+  it('participates in FormData when name is set as a JS property', async () => {
+    document.body.innerHTML = `
+      <form id="testForm">
+        <dile-color-picker value="#123456"></dile-color-picker>
+      </form>
+    `;
+    const el = document.body.querySelector('dile-color-picker');
+    el.name = 'color';
+    await el.updateComplete;
+
+    expect(el.getAttribute('name')).toBe('color');
+
+    const data = new FormData(document.getElementById('testForm'));
+    expect(data.get('color')).toBe('#123456');
+  });
 });

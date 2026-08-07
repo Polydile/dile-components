@@ -31,8 +31,11 @@ Use the component.
 
 - **disabled**: Boolean, mark button as disabled.
 - **loading**: Boolean, shows a loading spinner and prevents interaction while loading.
-- **name**: The name of the button
+- **name**: The name of the button. It reflects to the ```name``` attribute, so it is sent correctly on native ```<form>``` submission, even if you set it from JavaScript instead of markup.
+- **value**: The value submitted for this button's ```name``` when it is the button that triggers the form submission, mirroring a native ```<button type="submit" name="..." value="...">```.
 - **type**: Use this attribute to create a submit or reset buttom, ie: `type="submit"`
+
+When ```type="submit"```, clicking the button submits its closest ancestor ```<form>``` and includes its ```name```/```value``` pair in the submitted data — only for the button that was actually clicked, so you can safely use several submit buttons with different ```name```/```value``` pairs in the same form to distinguish which action was triggered.
 
 ### CSS Custom Properties
 

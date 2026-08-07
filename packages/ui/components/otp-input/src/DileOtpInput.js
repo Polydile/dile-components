@@ -35,7 +35,7 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
       value: { type: String },
 
       /** Name for this input field */
-      name: { type: String },
+      name: { type: String, reflect: true },
 
       /** Disable the input field */
       disabled: { type: Boolean },

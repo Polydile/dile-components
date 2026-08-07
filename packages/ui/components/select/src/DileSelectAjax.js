@@ -66,7 +66,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
       endpoint: { type: String },
       label: { type: String },
       value: { type: String },
-      name: { type: String },
+      name: { type: String, reflect: true },
       disabled: { type: Boolean },
       errored: { type: Boolean },
       data: { type: Array },

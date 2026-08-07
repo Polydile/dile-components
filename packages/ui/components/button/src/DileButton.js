@@ -9,8 +9,9 @@ export class DileButton extends LitElement {
     return {
       disabled: { type: Boolean },
       loading: { type: Boolean, reflect: true },
-      name: { type: String },
+      name: { type: String, reflect: true },
       type: { type: String },
+      value: { type: String },
     };
   }
 
@@ -134,7 +135,12 @@ export class DileButton extends LitElement {
     }
 
     if (this.type === "submit") {
-      this._internals.form?.requestSubmit();
+      const form = this._internals.form;
+      if (form) {
+        this._internals.setFormValue(this.value ?? null);
+        form.requestSubmit();
+        this._internals.setFormValue(null);
+      }
     } else if (this.type === "reset") {
       this._internals.form?.reset();
     }

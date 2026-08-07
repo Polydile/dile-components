@@ -26,7 +26,7 @@ export class DileRadioGroup extends DileEmmitChange(LitElement) {
     return {
       label: { type: String },
       value: { type: String },
-      name: { type: String },
+      name: { type: String, reflect: true },
       message: { type: String },
       errored: { type: Boolean },
       hideErrorOnInput: { type: Boolean },

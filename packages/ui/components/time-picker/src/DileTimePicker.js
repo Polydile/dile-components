@@ -37,7 +37,7 @@ export class DileTimePicker extends DileEmmitChange(LitElement) {
       errored: { type: Boolean },
       hideErrorOnInput: { type: Boolean },
       focusOnStart: { type: Boolean },
-      name: { type: String },
+      name: { type: String, reflect: true },
     };
   }
 

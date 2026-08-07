@@ -58,7 +58,7 @@ export class DileTextarea extends DileEmmitChange(LitElement) {
 
   static get properties() {
     return {
-      name: { type: String },
+      name: { type: String, reflect: true },
       label: { type: String },
       errored: { 
         type: Boolean,

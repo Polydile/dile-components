@@ -60,7 +60,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       selectedFileLabel: { type: String },
       allowedExtensions: { type: Array },
       extensionErrorMessage: { type: String },
-      name: { type: String },
+      name: { type: String, reflect: true },
     };
   }
 

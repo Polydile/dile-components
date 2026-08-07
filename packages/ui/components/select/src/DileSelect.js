@@ -98,7 +98,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     return {
       label: { type: String },
       value: { type: String },
-      name: { type: String },
+      name: { type: String, reflect: true },
       disabled: { type: Boolean },
       errored: { type: Boolean },
       message: { type: String },

@@ -167,7 +167,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
       value: { type: String },
       
       /** Name for this editor form field */
-      name: { type: String },
+      name: { type: String, reflect: true },
 
       /** Label to the element */
       label: { type: String },

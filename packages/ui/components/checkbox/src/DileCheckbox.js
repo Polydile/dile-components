@@ -1,5 +1,6 @@
 import { html, css, LitElement } from "lit";
-import { DileEmmitChange } from '../../../mixins/form/index.js'; 
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { DileEmmitChange } from '../../../mixins/form/index.js';
 import { checkboxBlankIcon, checkboxCheckedIcon } from '@dile/icons';
 import '../../icon/icon.js';
 import '../../input/input-message.js';
@@ -10,7 +11,7 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
       checked: { type: Boolean, reflect: true, },
       disabled: { type: Boolean, reflect: true, },
       _hasInner: { type: Boolean },
-      name: { type: String },
+      name: { type: String, reflect: true, },
       message: { type: String },
       errored: { type: Boolean },
       hideErrorOnInput: { type: Boolean },
@@ -24,9 +25,11 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   constructor() {
     super();
     this.checked = false;
+    this.disabled = false;
     this.name = '';
     this.internals = this.attachInternals();
-    this.message = ''
+    this.message = '';
+    this._id = `dile-checkbox-${Math.random().toString(36).substr(2, 9)}`;
   }
 
   static get styles() {
@@ -49,6 +52,10 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
         --dile-icon-color: var(--dile-checkbox-checked-color, #30a030);
         align-items: center;
         justify-content: center;
+      }
+      .checkbox:focus-visible {
+        outline: var(--dile-checkbox-focus-outline, 2px solid #4A90E2);
+        outline-offset: 2px;
       }
       .isUnchecked {
         --dile-icon-color: var(--dile-checkbox-unchecked-color, var(--dile-on-background-color, #303030));
@@ -86,13 +93,22 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   render() {
     return html`
       <div @click="${this.doClick}" class="${this.disabled ? "disabled" : ""}">
-        <a href="#" @click="${this.linkClick}" @keypress="${this.doKeyPress}" class="checkbox ${this.checked ? "isChecked" : "isUnchecked"}">
+        <span
+          role="checkbox"
+          aria-checked="${this.checked}"
+          aria-disabled="${this.disabled ? "true" : "false"}"
+          aria-labelledby="${ifDefined(this._hasInner ? `${this._id}-label` : undefined)}"
+          aria-describedby="${ifDefined(this.message ? `${this._id}-message` : undefined)}"
+          tabindex="${this.disabled ? "-1" : "0"}"
+          @keydown="${this.doKeyDown}"
+          class="checkbox ${this.checked ? "isChecked" : "isUnchecked"}"
+        >
           ${this.checked ? this.checkedIcon : this.unCheckedIcon}
-        </a>
+        </span>
         ${this.innerTemplate}
       </div>
       ${this.message
-        ? html`<dile-input-message message="${this.message}" ?errored=${this.errored}></dile-input-message>`
+        ? html`<dile-input-message id="${this._id}-message" message="${this.message}" ?errored=${this.errored}></dile-input-message>`
         : ''
       }
     `;
@@ -101,14 +117,14 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
   get innerTemplate() {
     return html`
       ${this._hasInner
-        ? html` <label class="label">
+        ? html` <label id="${this._id}-label" class="label">
             <slot></slot>
           </label>`
         : ""
       }
     `
   }
-  
+
   doClick() {
     if (this.disabled) {
       return;
@@ -137,15 +153,11 @@ export class DileCheckbox extends DileEmmitChange(LitElement) {
     return html`<dile-icon .icon="${checkboxBlankIcon}"></dile-icon>`;
   }
 
-  doKeyPress(e) {
-    e.preventDefault();
-    if (e.keyCode == 32 || e.code == "Space") {
+  doKeyDown(e) {
+    if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+      e.preventDefault();
       this.doClick();
     }
-  }
-  
-  linkClick(e) {
-    e.preventDefault();
   }
 
   clear() {

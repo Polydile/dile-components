@@ -35,7 +35,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
           value: { type: String },
 
           /** Name for this input field */
-          name: { type: String },
+          name: { type: String, reflect: true },
 
           /** Has error on this input field */
           errored: { type: Boolean },

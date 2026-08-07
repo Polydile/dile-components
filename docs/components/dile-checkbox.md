@@ -31,7 +31,7 @@ Use the component:
 
 - **checked**: Boolean, defines the checkbox state (cheked / unchecked).
 - **disabled**: Boolean, defines the checkbox as disabled.
-- **name**: The name of the checkbox, only for identification purposes
+- **name**: The name of the checkbox. It reflects to the ```name``` attribute, so it is sent correctly when submitting a native ```<form>```, even if you set it from JavaScript instead of markup.
 - **message**: Text message to display below the checkbox (typically for validation errors)
 - **errored**: Boolean property to indicate the checkbox is in error state
 - **hideErrorOnInput**: Boolean property to automatically clear the error message when the user toggles the checkbox
@@ -46,6 +46,13 @@ There is a special ```value``` property. This is not a actual component property
 
 > You may note these are similar events (dile-checkbox-changed and element-changed). The reason is because dile-checkbox extends [DileEmmitChangeMixin](/mixins/dile-emmit-change-mixin) to be compatible with [DileFormMixin](/mixins/dile-form-mixin).
 
+### Accessibility Features
+
+- **Keyboard navigation**: Tab to focus the checkbox, Space to toggle it.
+- **ARIA attributes**: `role="checkbox"`, `aria-checked`, `aria-disabled`, `aria-labelledby` (linked to the slotted label), `aria-describedby` (linked to the validation message when present).
+- **Focus indicator**: Visible outline on keyboard focus (customizable with `--dile-checkbox-focus-outline`).
+- **Disabled state**: Removed from the tab order (`tabindex="-1"`) and marked with `aria-disabled="true"`.
+
 ### CSS Custom Properties
 
 You can customize it using CSS Custom Properties.
@@ -59,6 +66,7 @@ Custom property | Description | Default
 --dile-checkbox-label-margin-left | Label margin to the input element | 0.25rem
 --dile-checkbox-font-weight | Font weight for te label | normal
 --dile-checkbox-size | Checkbox size | 20px
+--dile-checkbox-focus-outline | Focus outline for the checkbox control | 2px solid #4A90E2
 
 ## dile-checkbox demos
 

@@ -26,7 +26,7 @@ export class DileColorPicker extends DileOverlay(
       label: { type: String },
 
       /** Name for this input field */
-      name: { type: String },
+      name: { type: String, reflect: true },
 
       /** Set initial value to the input. Must be a 6-digit hex color, e.g. "#3366ff" */
       value: { type: String },

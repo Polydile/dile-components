@@ -37,7 +37,7 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
       disabled: { type: Boolean },
 
       /** Name for this input field */
-      name: { type: String },
+      name: { type: String, reflect: true },
 
       /** Message Displayed */
       message: { type: String },
