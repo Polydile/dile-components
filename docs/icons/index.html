@@ -56,6 +56,11 @@ class DemoIconFamilyList extends LitElement {
       display: block;
       margin-top: 1rem;
     }
+    dile-crud {
+        margin-top: 1.5rem;
+        --dile-crud-h1-font-size: 1.2rem;
+        --dile-crud-h1-font-weight: 300;
+    }
     @media(min-width: 420px) {
       :host {
         --dile-crud-list-item-display: flex;
@@ -89,6 +94,7 @@ class DemoIconFamilyList extends LitElement {
   render() {
     return html`
       <dile-crud
+        title="Catálogo de ${this.library}"
         belongsTo="byLibrary"
         relationId="${this.library}"
         .config="${this.config}"

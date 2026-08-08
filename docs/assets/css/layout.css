@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: open sans, arial, helvetica, sans-serif;
   font-size: 15px;
-  --dile-nav-padding-y: 5px;
+  --dile-nav-padding-y: 0.65rem;
   --dile-nav-padding-x: 0.75rem;
   line-height: 1.55rem;
   background-color: var(--dile-background-color, #fff);
@@ -84,7 +84,7 @@ hr {
   border-top: 2px solid var(--dile-primary-color);
   opacity: 0.5;
 }
- 
+
 pre, pre code {
   margin: 0 0 1rem;
   overflow-x: auto;
@@ -194,7 +194,7 @@ table a code, table code {
   dile-nav .logo-dile-components {
     height: 40px;
   }
-  
+
 }
 
 @media(min-width: 1000px) {
@@ -208,12 +208,12 @@ table a code, table code {
   .logo-dile-components {
     height: 38px;
   }
-  
+
   .fixednav {
     display: block;
     min-width: 220px;
-  } 
-  
+  }
+
   main {
     gap: 2rem;
     display: grid;
