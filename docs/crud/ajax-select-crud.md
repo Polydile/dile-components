@@ -9,6 +9,10 @@ The `dile-ajax-select-crud` component is a tool to select elements with ajax sea
 
 Is based on [dile-select-ajax](/components/dile-select-ajax/) component but configured to use [dile-ajax](/crud/ajax/) in replacement of the navigator fetch Javascript interface. The `dile-ajax` service is built on top of [Axios](https://axios-http.com/), which provides a higher degree of control over requests and responses compared to native fetch.
 
+## Alternative: dile-ajax-select-crud-overlay
+
+If you'd rather show the search results in a floating popup instead of a native `<select>` — so picking an option only takes one click instead of two — use [dile-ajax-select-crud-overlay](/crud/ajax-select-crud-overlay/). It covers the exact same properties, methods and events as this component.
+
 ## Installation
 
 ```bash

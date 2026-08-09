@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax-select-crud-overlay component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import "@dile/crud/components/ajax-select-crud/ajax-select-crud-overlay.js";
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+      margin: 10px;
+    }
+    dile-ajax-select-crud-overlay.styled {
+      --dile-input-background-color: red;
+      --dile-input-color: #fff;
+      --dile-input-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-ajax-select-crud-overlay component</h1>
+    <p>
+      Same as dile-ajax-select-crud (uses axios instead of fetch), but results appear directly in a floating popup
+      as soon as they load — no extra click needed to pick an option.
+    </p>
+
+    <h2>Simple implementation</h2>
+
+    <dile-ajax-select-crud-overlay
+      id="select1"
+      idProperty="id"
+      name="country_id"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+      placeholder="Search a country..."
+    ></dile-ajax-select-crud-overlay>
+    <div id="msg1"></div>
+    <div id="msg2"></div>
+    <script>
+      const select1 = document.querySelector('#select1');
+      select1.addEventListener('element-changed', (e) => {
+        document.querySelector('#msg1').innerHTML = `Selected value: ${e.detail.value}`;
+      });
+      select1.addEventListener('dile-select-ajax-selected-text-changed', (e) => {
+        document.querySelector('#msg2').innerHTML = `Selected text: ${e.detail.selectedText}`;
+      });
+    </script>
+
+    <h2>getSelectResultList (adapting the API response shape)</h2>
+
+    <dile-ajax-select-crud-overlay
+      id="select2"
+      idProperty="id"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      placeholder="Search a country..."
+    ></dile-ajax-select-crud-overlay>
+    <script>
+      document.querySelector('#select2').getSelectResultList = (response) => response.data;
+    </script>
+
+    <h2>Static</h2>
+
+    <dile-ajax-select-crud-overlay
+      id="selectstatic"
+      static
+      idProperty="id"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      resultDataProperty="data"
+      placeholder="Select a country..."
+    ></dile-ajax-select-crud-overlay>
+
+    <h2>Disabled</h2>
+
+    <dile-ajax-select-crud-overlay disabled></dile-ajax-select-crud-overlay>
+
+    <h2>Initialized via value</h2>
+    <dile-ajax-select-crud-overlay
+      id="selectinit"
+      value="22"
+      idProperty="id"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+    ></dile-ajax-select-crud-overlay>
+
+    <h2>Styled</h2>
+    <dile-ajax-select-crud-overlay
+      idProperty="id"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+      label="Select a country"
+      class="styled"
+    ></dile-ajax-select-crud-overlay>
+
+    <h2>Errored</h2>
+    <dile-ajax-select-crud-overlay errored message="This field is required" hideErrorOnInput></dile-ajax-select-crud-overlay>
+
+    <!-- Spacer so the popups above have room to open downward without the viewport-edge flip
+         logic kicking in when the page is scrolled all the way down. -->
+    <div style="height: 300px;"></div>
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+</html>

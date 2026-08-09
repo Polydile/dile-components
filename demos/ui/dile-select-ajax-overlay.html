@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-select-ajax-overlay component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/select/select-ajax-overlay.js";
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+        margin: 10px;
+      }
+
+    dile-select-ajax-overlay.styled {
+      --dile-input-background-color: red;
+      --dile-input-color: #fff;
+      --dile-input-width: 100%;
+    }
+
+    .twocolumns {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      column-gap: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-select-ajax-overlay component</h1>
+    <p>
+      Same behavior as <a href="./dile-select-ajax.html">dile-select-ajax</a> (same properties, methods and
+      events), but results appear directly in a floating popup as soon as they load — no extra click needed
+      to open a native select and pick an option.
+    </p>
+
+    <h2>Simple implementation</h2>
+
+    <dile-select-ajax-overlay
+      id="select1"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+      placeholder="Search a country..."
+    ></dile-select-ajax-overlay>
+    <div id="msg1"></div>
+    <div id="msg2"></div>
+    <script>
+      const select1 = document.querySelector('#select1');
+      select1.addEventListener('element-changed', (e) => {
+        document.querySelector('#msg1').innerHTML = `Selected value: ${e.detail.value}`;
+      });
+      select1.addEventListener('dile-select-ajax-selected-text-changed', (e) => {
+        document.querySelector('#msg2').innerHTML = `Selected text : ${e.detail.selectedText}`;
+      })
+    </script>
+
+    <h2>Static select ajax overlay</h2>
+
+    <dile-select-ajax-overlay
+      id="selectstatic"
+      static
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      resultDataProperty="data"
+      placeholder="Select a country..."
+    ></dile-select-ajax-overlay>
+
+    <h2>Disabled</h2>
+
+    <dile-select-ajax-overlay disabled></dile-select-ajax-overlay>
+
+    <h2>Initialized via value</h2>
+    <dile-select-ajax-overlay
+      id="selectinit"
+      value="22"
+      displayProperty="name"
+      endpoint="https://timer.escuelait.com/api/countries"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+    ></dile-select-ajax-overlay>
+
+    <h2>Styled with label</h2>
+    <div class="twocolumns">
+      <dile-select-ajax-overlay
+        displayProperty="name"
+        endpoint="https://timer.escuelait.com/api/countries"
+        queryStringVariable="keyword"
+        resultDataProperty="data"
+        label="Select a country"
+        class="styled"
+      ></dile-select-ajax-overlay>
+      <span>Try to make two columns to see the position of the interface</span>
+    </div>
+
+    <h2>Errored</h2>
+    <dile-select-ajax-overlay errored message="This field is required" hideErrorOnInput></dile-select-ajax-overlay>
+
+    <!-- Spacer so the popups above have room to open downward without the viewport-edge flip
+         logic kicking in when the page is scrolled all the way down. -->
+    <div style="height: 300px;"></div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

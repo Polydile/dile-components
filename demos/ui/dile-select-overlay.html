@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-select-overlay component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/select/select-overlay.js";
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+        margin: 10px;
+      }
+
+    dile-select-overlay.styled {
+      --dile-input-background-color: red;
+      --dile-input-color: #fff;
+    }
+
+    dile-select-overlay.dark-bg {
+      --dile-input-background-color: #2a2a2a;
+      --dile-input-color: #fff;
+      --dile-select-arrow-color: #fff;
+      --dile-select-overlay-background-color: #2a2a2a;
+      --dile-select-overlay-color: #fff;
+      --dile-select-overlay-highlighted-background-color: #3f3f3f;
+    }
+
+    dile-select-overlay.custom-arrow {
+      --dile-select-arrow-color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-select-overlay component</h1>
+    <p>Accessible alternative to dile-select that shows its options in a custom overlay panel instead of the native select dropdown.</p>
+
+    <h2>Simple implementation</h2>
+
+    <dile-select-overlay id="select1" value="3">
+      <select slot="select">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </dile-select-overlay>
+    <p id="msg1"></p>
+    <script>
+      document.getElementById('select1').addEventListener('element-changed', function(e) {
+        document.getElementById('msg1').innerText = 'Select Value: ' + e.detail.value;
+      });
+    </script>
+
+    <h2>Disabled</h2>
+
+    <dile-select-overlay disabled value="c">
+      <select slot="select">
+        <option value="a">Option a</option>
+        <option value="b">Option b</option>
+        <option value="c">Option c</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>Styled with label</h2>
+    <dile-select-overlay label="Select one option" class="styled">
+      <select slot="select">
+        <option value="1">Option 1</option>
+        <option value="2" disabled>Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>Errored</h2>
+    <dile-select-overlay errored message="Error message..." hideErrorOnInput>
+      <select slot="select">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>Dark background with custom arrow color</h2>
+    <dile-select-overlay label="Select with dark background" class="dark-bg">
+      <select slot="select">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>Custom arrow color (green)</h2>
+    <dile-select-overlay label="Select with custom arrow" class="custom-arrow">
+      <select slot="select">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>Many options (max-height / scrolling)</h2>
+    <p>The overlay grows with the option list up to <code>--dile-select-overlay-max-height</code> (260px by default) and then scrolls.</p>
+
+    <dile-select-overlay id="select3" label="Choose a city">
+      <select slot="select" id="manyOptions"></select>
+    </dile-select-overlay>
+    <script>
+      const cities = [
+        'Amsterdam', 'Athens', 'Barcelona', 'Berlin', 'Bilbao', 'Birmingham', 'Bogotá', 'Bristol', 'Brussels', 'Bucharest',
+        'Budapest', 'Buenos Aires', 'Cairo', 'Cape Town', 'Chicago', 'Copenhagen', 'Dallas', 'Delhi', 'Denver', 'Dubai',
+        'Dublin', 'Edinburgh', 'Florence', 'Frankfurt', 'Geneva', 'Glasgow', 'Gothenburg', 'Hamburg', 'Helsinki', 'Hong Kong',
+        'Istanbul', 'Jakarta', 'Johannesburg', 'Lima', 'Lisbon', 'London', 'Los Angeles', 'Lyon', 'Madrid', 'Malaga',
+        'Manchester', 'Manila', 'Marseille', 'Melbourne', 'Mexico City', 'Miami', 'Milan', 'Montreal', 'Moscow', 'Mumbai',
+        'Munich', 'Nairobi', 'Naples', 'New York', 'Oslo', 'Paris', 'Porto', 'Prague', 'Rio de Janeiro', 'Rome',
+        'Rotterdam', 'San Francisco', 'Santiago', 'Sao Paulo', 'Seattle', 'Seoul', 'Seville', 'Shanghai', 'Singapore', 'Stockholm',
+        'Sydney', 'Taipei', 'Tokyo', 'Toronto', 'Turin', 'Valencia', 'Vancouver', 'Vienna', 'Warsaw', 'Zurich',
+      ];
+      const manyOptionsSelect = document.getElementById('manyOptions');
+      manyOptionsSelect.innerHTML = cities
+        .map((city, index) => `<option value="${index + 1}">${city}</option>`)
+        .join('');
+    </script>
+
+    <h2>hideTrigger + composition API (preview of dile-select-ajax-overlay)</h2>
+    <p>
+      This is <strong>not</strong> a dile component below, just a plain <code>&lt;input&gt;</code>. It stands in for
+      the search field that <code>dile-select-ajax-overlay</code> (next stage) will render itself. That component
+      won't show <code>dile-select-overlay</code>'s own trigger box (<code>hideTrigger</code>) — instead it opens the
+      popup on focus and forwards its own keydown events to it via <code>handleExternalKeydown()</code>, so the
+      hidden <code>dile-select-overlay</code> only contributes the options popup, positioned right under this field.
+    </p>
+    <p>Focus the field, type, or use the arrow keys + Enter. <code>highlightedText</code> is shown below as you navigate.</p>
+
+    <div style="max-width: 320px;">
+      <label for="fakeSearch2">Fake search field</label>
+      <input type="text" id="fakeSearch2" placeholder="Type or use arrow keys...">
+      <dile-select-overlay id="select2" hideTrigger value="2">
+        <select slot="select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </dile-select-overlay>
+    </div>
+    <p id="msg2"></p>
+    <script>
+      const select2 = document.getElementById('select2');
+      const fakeSearch2 = document.getElementById('fakeSearch2');
+      const msg2 = document.getElementById('msg2');
+
+      fakeSearch2.addEventListener('focus', () => select2.open());
+      fakeSearch2.addEventListener('keydown', (e) => {
+        select2.handleExternalKeydown(e);
+        msg2.innerText = 'Highlighted: ' + select2.highlightedText;
+      });
+      select2.addEventListener('element-changed', (e) => {
+        msg2.innerText = 'Select Value: ' + e.detail.value;
+      });
+    </script>
+
+    <!-- Spacer so the section above has room to open its popup downward without the
+         viewport-edge flip logic kicking in when the page is scrolled all the way down. -->
+    <div style="height: 300px;"></div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

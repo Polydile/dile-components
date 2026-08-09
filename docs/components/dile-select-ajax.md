@@ -17,6 +17,10 @@ If you need more advanced configuration options for your API requests, such as a
 - Configure advanced request/response interceptors
 - Customize request behavior at a detailed level
 
+## Alternative: dile-select-ajax-overlay
+
+If you'd rather show the search results in a floating popup instead of a native `<select>` — so picking an option only takes one click instead of two — use [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/). It covers the exact same properties, methods and events as this component.
+
 ## Installation
 
 To install dile-select-ajax component you have to install @dile/dile-select package.

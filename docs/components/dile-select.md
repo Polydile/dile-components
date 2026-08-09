@@ -14,6 +14,10 @@ The diferences between the native ```<select>``` are:
 - Has some styles and can be styled with custom properties
 - It is possible to create a label
 
+## Alternative: dile-select-overlay
+
+If you want full control over how the options list looks and behaves — instead of the browser's own native dropdown — consider using [dile-select-overlay](/components/dile-select-overlay/). It covers the exact same properties, methods and events as `dile-select`, but shows the options in a custom, accessible overlay panel built by the component itself.
+
 ## Installation
 
 ```bash

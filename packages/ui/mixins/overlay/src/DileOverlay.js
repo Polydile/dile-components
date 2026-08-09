@@ -73,7 +73,7 @@ export const DileOverlay = function(superClass) {
       }
     }
     cancelDelay() {
-      if(this.reardo) {
+      if(this.delayId) {
         clearTimeout(this.delayId);
       }
       this.delayId = null;
@@ -152,13 +152,13 @@ export const DileOverlay = function(superClass) {
 
       switch(this.verticalAlign) {
         case 'top':
-          this.setOverlayStyleTop(triggerRect.top - overlayHeight + moveTop, triggerRect, overlayHeight, 'top');
+          this.setOverlayStyleTop(triggerRect.top - overlayHeight + moveTop, triggerRect, overlayHeight, 'top', moveTop);
           break;
         case 'center':
-          this.setOverlayStyleTop(triggerRect.top - ((overlayHeight - (triggerRect.height / 2)) / 2) - moveTop, triggerRect, overlayHeight, 'center');
+          this.setOverlayStyleTop(triggerRect.top - ((overlayHeight - (triggerRect.height / 2)) / 2) - moveTop, triggerRect, overlayHeight, 'center', moveTop);
           break;
         default:
-          this.setOverlayStyleTop(triggerRect.bottom + 10 + moveTop, triggerRect, overlayHeight, 'bottom');
+          this.setOverlayStyleTop(triggerRect.bottom + 10 + moveTop, triggerRect, overlayHeight, 'bottom', moveTop);
       }
 
       switch(this.horizontalAlign) {
@@ -181,11 +181,14 @@ export const DileOverlay = function(superClass) {
       this.overlay.style.display = lastDisplay;
     }
 
-    setOverlayStyleTop(topValue, triggerRect, overlayHeight, direction) {
+    setOverlayStyleTop(topValue, triggerRect, overlayHeight, direction, moveTop = 0) {
       const viewportHeight = document.documentElement.clientHeight;
       const margin = 10;
       if (direction === 'bottom' && topValue + overlayHeight > viewportHeight - margin) {
-        const flipped = triggerRect.top - overlayHeight - margin;
+        // Keep the same moveTop-driven distance to the trigger when flipping above it as when
+        // sitting below it (topValue above already folds moveTop into the unflipped position),
+        // otherwise a tightened gap below reverts to the default 10px once it flips to above.
+        const flipped = triggerRect.top - overlayHeight - margin - moveTop;
         topValue = flipped >= margin ? flipped : viewportHeight - overlayHeight - margin;
       } else if (direction === 'top' && topValue < margin) {
         const flipped = triggerRect.bottom + margin;
