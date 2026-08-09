@@ -275,6 +275,39 @@ describe('dile-select-ajax-overlay', () => {
       expect(el.value).toBeUndefined();
       expect(el.shadowRoot.getElementById('search')).toBeTruthy();
     });
+
+    it('clear() does not re-select the same item (regression: infinite add loop under addOnSelect)', async () => {
+      // Regression test: unlike onClearSelected() (triggered by the user's own "x" click), the
+      // public clear() API left `data`/`keyword` untouched. Flipping isSelected back to false
+      // remounts a brand new nested dile-select-overlay, whose firstUpdated() syncs its value to
+      // whatever the native <select> currently holds. With no placeholder option and the stale
+      // data still in place, that was the just-cleared item's own option — auto-selecting it and
+      // re-firing element-changed for the same value, which under dile-many-relation's
+      // addOnSelect re-added the same item forever until the API started rate-limiting.
+      mockFetch([{ id: 1, name: 'Spain' }]);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/countries" idProperty="id" displayProperty="name" delay="10"></dile-select-ajax-overlay>
+      `);
+
+      await typeKeyword(el, 'sp');
+      await selectOption(el, 0);
+      expect(el.value).toBe('1');
+
+      const changedValues = [];
+      el.addEventListener('element-changed', (e) => { changedValues.push(e.detail.value); });
+
+      el.clear();
+      await el.updateComplete;
+      await wait(20);
+      await el.updateComplete;
+
+      expect(el.isSelected).toBe(false);
+      expect(el.value).toBeUndefined();
+      expect(el.data).toEqual([]);
+      // Exactly one event: the clear itself. A second one carrying the old value ('1') back
+      // would mean the freshly remounted select auto-picked the stale option again.
+      expect(changedValues).toEqual([undefined]);
+    });
   });
 
   describe('Form Association', () => {

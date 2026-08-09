@@ -1,4 +1,5 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css } from 'lit';
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 import { addIcon, clearIcon } from '@dile/icons';
 import '../../ajax/ajax.js';
@@ -9,13 +10,15 @@ import '@dile/ui/components/input/input-message.js';
 import { labelStyles } from '@dile/ui/components/input/src/label-styles.js';
 
 export class DileManyRelation extends DileI18nMixin(LitElement) {
+  static selectTag = 'dile-ajax-select-crud';
+
   static styles = [
     labelStyles,
     css`
       :host {
         display: block;
       }
-      dile-ajax-select-crud{
+      #theselect {
           margin-bottom: 0;
       }
       .relation-item {
@@ -61,7 +64,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
         gap: 0.5rem;
         margin-bottom: 0.5rem;
       }
-      .add-row dile-ajax-select-crud {
+      .add-row #theselect {
         flex: 1;
       }
       button.add-btn dile-icon {
@@ -159,6 +162,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
   }
 
   render() {
+    const selectTag = unsafeStatic(this.constructor.selectTag);
     return html`
       <dile-ajax
         id="ajaxlist"
@@ -186,7 +190,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
           : ""
       }
       <div class="add-row">
-        <dile-ajax-select-crud
+        <${selectTag}
           id="theselect"
           endpoint="${this.endpointGet}"
           displayProperty="${this.displayProperty}"
@@ -200,7 +204,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
           .getSelectResultList="${this.getSelectResultList}"
           language="${this.language}"
           @element-changed="${this._onSelectChanged}"
-        ></dile-ajax-select-crud>
+        ></${selectTag}>
         ${!this.addOnSelect ? html`
           <button
             class="add-btn"

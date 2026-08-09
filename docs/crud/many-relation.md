@@ -9,6 +9,10 @@ The `dile-many-relation` component provides a generic front-end interface for ma
 
 It is designed to work with any pair of entities. A typical use case would be managing the Tags associated with a Board Game from the Board Game detail page.
 
+## Alternative: dile-many-relation-overlay
+
+If you'd rather show the search results in a floating popup instead of a native `<select>` — so picking an option only takes one click instead of two — use [dile-many-relation-overlay](/crud/many-relation-overlay/). It covers the exact same properties, methods and events as this component.
+
 ## Installation
 
 ```bash
@@ -116,6 +120,8 @@ Custom property | Description | Default
 The component also uses `dile-ajax-select-crud`, `dile-icon`, and `dile-spinner` internally, so their respective CSS custom properties are also available.
 
 ## dile-many-relation Demo
+
+In the demo below you can pick the Tags associated with a particular Board Game. The select at the top is only there to choose which Board Game to work with — it's not part of `dile-many-relation` itself, it's just a `dile-ajax-select-crud` used to pick any game, and it comes with a game pre-selected by default. Below it is the actual `dile-many-relation` component, which lets you add or remove the Tags related to that game.
 
 ```html:preview
 <script type="module">

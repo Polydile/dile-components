@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dile-many-relation-overlay component demo</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/style.css" />
+        <script type="module" src="axios.js"></script>
+        <script type="module">
+            import { html } from "lit";
+            import "@dile/crud/components/many-relation/many-relation-overlay.js";
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const manyRelations =
+                    document.querySelectorAll("dile-many-relation-overlay");
+
+                manyRelations.forEach((manyRelation) => {
+                    manyRelation.itemTemplate = (item) => html`
+                        <span style="font-weight: bold;">${item.name}</span>
+                    `;
+
+                    manyRelation.addEventListener("many-relation-add-success", (event) => {
+                        console.log("✅ many-relation-add-success", event.detail);
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>dile-many-relation-overlay component</h1>
+
+            <p>
+                Igual que <a href="./dile-many-relation.html">dile-many-relation</a>, pero el
+                desplegable interno es <code>dile-ajax-select-crud-overlay</code>: los resultados
+                aparecen en un popup flotante en cuanto cargan, sin necesidad de un clic extra
+                para abrir un select nativo.
+            </p>
+
+            <p>
+                Selecciona un tag del desplegable para añadirlo al juego, o usa el botón ×
+                para eliminarlo.
+            </p>
+
+            <dile-many-relation-overlay
+                id="selectTag"
+                label="Seleccionar etiquetas"
+                endpointGet="https://timer.escuelait.com/api/tags"
+                endpointList="https://timer.escuelait.com/api/board-games/1/tags"
+                endpointAdd="https://timer.escuelait.com/api/board-games/1/tags"
+                endpointRemove="https://timer.escuelait.com/api/board-games/1/tags"
+                idProperty="id"
+                bodyIdProperty="tag_id"
+                displayProperty="name"
+                queryStringVariable="search"
+                resultDataProperty="data"
+                loadFromEndpoint
+                language="en"
+                selectDefaultPlaceholder="Select Tag..."
+                emptyListMessage="No tags yet"
+            ></dile-many-relation-overlay>
+
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #ddd;">
+
+            <h2>dile-many-relation-overlay component - Add on Select</h2>
+
+            <p>
+                Demo con comportamiento más ágil usando <code>addOnSelect</code>.
+                Con este modo, simplemente selecciona un tag del desplegable
+                y se añade automáticamente a la lista, sin necesidad de hacer clic en
+                un botón adicional. Usa el botón × para eliminar un tag.
+            </p>
+
+            <dile-many-relation-overlay
+                label="Seleccionar etiquetas (modo automático)"
+                endpointGet="https://timer.escuelait.com/api/tags"
+                endpointList="https://timer.escuelait.com/api/board-games/2/tags"
+                endpointAdd="https://timer.escuelait.com/api/board-games/2/tags"
+                endpointRemove="https://timer.escuelait.com/api/board-games/2/tags"
+                idProperty="id"
+                bodyIdProperty="tag_id"
+                displayProperty="name"
+                queryStringVariable="search"
+                resultDataProperty="data"
+                loadFromEndpoint
+                language="en"
+                selectDefaultPlaceholder="Select Tag..."
+                emptyListMessage="No tags yet"
+                addOnSelect
+            ></dile-many-relation-overlay>
+
+            <footer><a href="./index.html">Back</a></footer>
+        </div>
+    </body>
+</html>

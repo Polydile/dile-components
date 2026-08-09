@@ -499,6 +499,16 @@ export class DileSelectAjaxOverlay extends DileEmmitChange(LitElement) {
     this.isSelected = false;
     this.value = undefined;
     this.selectedText = '';
+    // isSelected flipping back to false remounts a brand new nested dile-select-overlay (the
+    // read-only and search branches are mutually exclusive templates). Its firstUpdated() syncs
+    // its value to the native <select>'s current value, and this component's <select> has no
+    // placeholder option — so leftover data/keyword from the previous search would leave a real
+    // option in place, get auto-picked as the new instance's value, and re-fire element-changed
+    // for the very same item that was just cleared (an infinite loop under addOnSelect).
+    if (!this.static) {
+      this.keyword = '';
+      this.data = [];
+    }
   }
 
   set(value) {
