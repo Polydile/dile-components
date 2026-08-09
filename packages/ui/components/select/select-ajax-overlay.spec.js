@@ -310,6 +310,53 @@ describe('dile-select-ajax-overlay', () => {
     });
   });
 
+  describe('Icons', () => {
+    it('propagates iconProperty to data-icon on each generated <option>', async () => {
+      mockFetch([
+        { id: 1, name: 'Spain', iconName: 'lucide.house' },
+        { id: 2, name: 'France', iconName: 'material.star' },
+      ]);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/countries" idProperty="id" displayProperty="name" iconProperty="iconName" delay="10"></dile-select-ajax-overlay>
+      `);
+
+      await typeKeyword(el, 'sp');
+
+      const options = el.select.options;
+      expect(options[0].icon).toBe('lucide.house');
+      expect(options[1].icon).toBe('material.star');
+    });
+
+    it('propagates icon as the default data-icon on the generated <select>, overridable per option via iconProperty', async () => {
+      mockFetch([
+        { id: 1, name: 'Spain' },
+        { id: 2, name: 'France', iconName: 'material.star' },
+      ]);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/countries" idProperty="id" displayProperty="name" iconProperty="iconName" icon="lucide.globe" delay="10"></dile-select-ajax-overlay>
+      `);
+
+      await typeKeyword(el, 'sp');
+
+      const options = el.select.options;
+      // Spain has no iconName of its own, so it falls back to the select-level default.
+      expect(options[0].icon).toBe('lucide.globe');
+      // France declares its own icon via iconProperty, which takes precedence.
+      expect(options[1].icon).toBe('material.star');
+    });
+
+    it('does not set data-icon at all when neither icon nor iconProperty is used', async () => {
+      mockFetch([{ id: 1, name: 'Spain' }]);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/countries" idProperty="id" displayProperty="name" delay="10"></dile-select-ajax-overlay>
+      `);
+
+      await typeKeyword(el, 'sp');
+
+      expect(el.select.options[0].icon).toBeUndefined();
+    });
+  });
+
   describe('Form Association', () => {
     it('is form-associated and sets form value', async () => {
       const el = await renderSelectAjaxOverlay(`

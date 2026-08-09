@@ -153,6 +153,26 @@ describe('dile-ajax-select-crud-overlay', () => {
     });
   });
 
+  describe('Icons (inherited from dile-select-ajax-overlay)', () => {
+    it('propagates iconProperty and icon to data-icon on the generated options/select', async () => {
+      mockAxios([
+        { id: 1, name: 'Spain' },
+        { id: 2, name: 'France', iconName: 'material.star' },
+      ]);
+      const el = await renderCrudSelect(`
+        <dile-ajax-select-crud-overlay endpoint="/api/countries" idProperty="id" displayProperty="name" iconProperty="iconName" icon="lucide.globe" delay="10"></dile-ajax-select-crud-overlay>
+      `);
+
+      await typeKeyword(el, 'sp');
+
+      const options = el.select.options;
+      // Spain has no iconName of its own, so it falls back to the select-level default.
+      expect(options[0].icon).toBe('lucide.globe');
+      // France declares its own icon via iconProperty, which takes precedence.
+      expect(options[1].icon).toBe('material.star');
+    });
+  });
+
   describe('Form Association', () => {
     it('is form-associated, same as dile-select-ajax-overlay', async () => {
       mockAxios([]);

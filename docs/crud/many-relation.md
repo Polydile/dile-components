@@ -70,6 +70,8 @@ Basic usage:
 - **maxResults**: Number. Maximum number of results requested per search query. **Must be set together with `pageParamName`** — if only one of the two is provided, neither has any effect.
 - **pageParamName**: String. Query string parameter name used to pass the page size to `endpointGet`. **Must be set together with `maxResults`** — if only one of the two is provided, neither has any effect.
 - **getSelectResultList**: Object (Function). Custom function to extract the items array from the `endpointGet` response. Signature: `(response) => []`.
+- **iconProperty**: String. Property of each item holding a [dile-iconlib](/icons/dile-iconlib/) `family.name` icon string (e.g. `"lucide.house"`), shown next to that option. Only has an effect on [dile-many-relation-overlay](/crud/many-relation-overlay/) — the native-select-based `dile-ajax-select-crud` used here can't show icons.
+- **icon**: String. `family.name` icon string used as the default icon for every option that doesn't have its own via `iconProperty`. Same `dile-many-relation-overlay`-only caveat as `iconProperty`.
 
 #### List customisation
 

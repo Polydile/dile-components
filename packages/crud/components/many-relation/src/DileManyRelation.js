@@ -110,6 +110,14 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
       maxResults: { type: Number },
       pageParamName: { type: String },
       getSelectResultList: { type: Object },
+      /** Property in each result item holding a dile-iconlib "family.name" icon string, shown
+       *  next to that option. Only has an effect when the internal select is
+       *  dile-ajax-select-crud-overlay (i.e. on dile-many-relation-overlay) — the native-select-based
+       *  dile-ajax-select-crud can't show icons. */
+      iconProperty: { type: String },
+      /** dile-iconlib "family.name" icon string used as the default icon for every option that
+       *  doesn't have its own via iconProperty. Same dile-many-relation-overlay-only caveat as iconProperty. */
+      icon: { type: String },
 
       // Related list customisation
       itemTemplate: { type: Object },
@@ -202,6 +210,8 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
           maxResults="${this.maxResults}"
           pageParamName="${this.pageParamName}"
           .getSelectResultList="${this.getSelectResultList}"
+          iconProperty="${this.iconProperty}"
+          icon="${this.icon}"
           language="${this.language}"
           @element-changed="${this._onSelectChanged}"
         ></${selectTag}>

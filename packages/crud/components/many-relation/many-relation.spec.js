@@ -48,6 +48,15 @@ describe.each(VARIANTS)('$tag (select: $selectTag)', ({ tag, selectTag }) => {
     expect(theselect.tagName.toLowerCase()).toBe(selectTag);
   });
 
+  it('passes iconProperty and icon through to the internal select', async () => {
+    mockAxios({ get: vi.fn(() => Promise.resolve({ status: 200, data: [] })) });
+    const el = await renderManyRelation('iconProperty="iconName" icon="lucide.globe"');
+
+    const theselect = select(el);
+    expect(theselect.getAttribute('iconproperty')).toBe('iconName');
+    expect(theselect.getAttribute('icon')).toBe('lucide.globe');
+  });
+
   it('loads the related items list from endpointList on connect', async () => {
     const get = vi.fn(() =>
       Promise.resolve({ status: 200, data: { data: [{ id: 1, name: 'Strategy' }] } })
@@ -97,5 +106,49 @@ describe.each(VARIANTS)('$tag (select: $selectTag)', ({ tag, selectTag }) => {
     await vi.waitFor(() => expect(get).toHaveBeenCalled());
 
     expect(del).toHaveBeenCalledWith('/api/board-games/1/tags/9', {}, undefined);
+  });
+});
+
+describe('dile-many-relation-overlay icons (only the overlay select supports them)', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+    delete window.axiosInstance;
+  });
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  it('reaches the internal dile-select-overlay popup as data-icon on the generated options', async () => {
+    const get = vi.fn(() =>
+      Promise.resolve({ status: 200, data: [{ id: 1, name: 'Strategy', iconName: 'material.star' }] })
+    );
+    window.axiosInstance = { get };
+
+    document.body.innerHTML = `
+      <dile-many-relation-overlay
+        endpointGet="/api/tags"
+        endpointList="/api/board-games/1/tags"
+        endpointAdd="/api/board-games/1/tags"
+        endpointRemove="/api/board-games/1/tags"
+        idProperty="id"
+        displayProperty="name"
+        iconProperty="iconName"
+        icon="lucide.globe"
+      ></dile-many-relation-overlay>
+    `;
+    const el = document.body.querySelector('dile-many-relation-overlay');
+    await el.updateComplete;
+
+    const theselect = el.shadowRoot.getElementById('theselect');
+    const input = theselect.shadowRoot.getElementById('search');
+    input.value = 'str';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await wait(theselect.delay + 50);
+    await theselect.updateComplete;
+
+    const options = theselect.select.options;
+    // Only result has its own iconName, taking precedence over the select-level default.
+    expect(options[0].icon).toBe('material.star');
   });
 });
