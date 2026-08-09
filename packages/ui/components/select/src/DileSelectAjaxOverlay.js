@@ -135,6 +135,12 @@ export class DileSelectAjaxOverlay extends DileEmmitChange(LitElement) {
       resultDataProperty: { type: String },
       displayProperty: { type: String },
       idProperty: { type: String },
+      /** Property in each data object holding a dile-iconlib "family.name" icon string, applied
+       *  per option. Leave unset if you don't need per-option icons. */
+      iconProperty: { type: String },
+      /** dile-iconlib "family.name" icon string applied to every option that has no icon of its
+       *  own via iconProperty. */
+      icon: { type: String },
       delay: { type: Number },
       keyword: {
         type: String,
@@ -342,9 +348,9 @@ export class DileSelectAjaxOverlay extends DileEmmitChange(LitElement) {
           ?disabled=${this.disabled}
           @element-changed=${this.doSelected}
         >
-          <select slot="select">
+          <select slot="select" data-icon="${ifDefined(this.icon)}">
             ${this.data.map(item => html`
-              <option value="${item[this.idProperty]}">${item[this.displayProperty]}</option>
+              <option value="${item[this.idProperty]}" data-icon="${ifDefined(this.iconProperty ? item[this.iconProperty] : undefined)}">${item[this.displayProperty]}</option>
             `)}
           </select>
         </dile-select-overlay>

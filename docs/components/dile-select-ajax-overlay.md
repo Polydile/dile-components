@@ -60,6 +60,8 @@ Same set as [dile-select-ajax](/components/dile-select-ajax/#properties), except
 - **resultDataProperty**: String, specifies which property in the JSON response contains the data for the options. Leave blank if the JSON result directly contains the data array.
 - **displayProperty**: String, the property in each data object used to display the option text.
 - **idProperty**: String, the property in each data object used as the unique identifier for the options.
+- **iconProperty**: String, the property in each data object holding a [dile-iconlib](/icons/dile-iconlib/) `family.name` icon string (e.g. `"lucide.house"`), shown next to that option. Leave unset if you don't need per-option icons.
+- **icon**: String, a `family.name` icon string used as the default icon for every option that doesn't have its own via `iconProperty`.
 - **delay**: Number, the debounce delay in milliseconds before making the request to the API endpoint as the user types.
 - **opened**: Boolean, read-only state reflecting whether the results popup is currently open (delegates to the internal `dile-select-overlay`).
 - **keyword**: String, state property that holds the current search keyword entered by the user.

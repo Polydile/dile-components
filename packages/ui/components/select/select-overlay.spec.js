@@ -1,5 +1,7 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import './select-overlay.js';
+import '@dile/iconlib/lucide-icons/house.js';
+import '@dile/iconlib/material-icons/star.js';
 
 describe('dile-select-overlay', () => {
   afterEach(() => {
@@ -148,6 +150,93 @@ describe('dile-select-overlay', () => {
       await el.updateComplete;
 
       expect(updatePositionSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('Icons', () => {
+    it("shows the selected option's icon on the trigger, marked aria-hidden", async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay value="2">
+          <select slot="select">
+            <option value="1">Option 1</option>
+            <option value="2" data-icon="lucide.house">Option 2</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      const icon = el.shadowRoot.querySelector('.trigger-text dile-iconlib');
+      expect(icon).toBeTruthy();
+      expect(icon.getAttribute('icon')).toBe('lucide.house');
+      expect(icon.getAttribute('aria-hidden')).toBe('true');
+    });
+
+    it("does not show an icon on the trigger when the selected option has none", async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay value="1">
+          <select slot="select">
+            <option value="1">Option 1</option>
+            <option value="2" data-icon="lucide.house">Option 2</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      expect(el.shadowRoot.querySelector('.trigger-text dile-iconlib')).toBeNull();
+    });
+
+    it("shows each option's icon in the listbox, keeping the option text as its accessible name", async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay>
+          <select slot="select">
+            <option value="1" data-icon="lucide.house">Option 1</option>
+            <option value="2" data-icon="material.star">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      await open(el);
+      const items = el.shadowRoot.querySelectorAll('[role="option"]');
+      expect(items[0].querySelector('dile-iconlib').getAttribute('icon')).toBe('lucide.house');
+      expect(items[0].textContent.trim()).toBe('Option 1');
+      expect(items[1].querySelector('dile-iconlib').getAttribute('icon')).toBe('material.star');
+      expect(items[2].querySelector('dile-iconlib')).toBeNull();
+    });
+
+    it('uses data-icon on the <select> as the default icon for options that do not declare their own', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay value="2">
+          <select slot="select" data-icon="lucide.house">
+            <option value="1">Option 1</option>
+            <option value="2" data-icon="material.star">Option 2</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      await open(el);
+      const items = el.shadowRoot.querySelectorAll('[role="option"]');
+      // Option 1 has no icon of its own, so it falls back to the select-level default.
+      expect(items[0].querySelector('dile-iconlib').getAttribute('icon')).toBe('lucide.house');
+      // Option 2 declares its own icon, which takes precedence over the select-level default.
+      expect(items[1].querySelector('dile-iconlib').getAttribute('icon')).toBe('material.star');
+      // The trigger shows the selected option's own icon too.
+      expect(el.shadowRoot.querySelector('.trigger-text dile-iconlib').getAttribute('icon')).toBe('material.star');
+    });
+
+    it('warns and skips rendering an icon that has not been imported/registered', async () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay>
+          <select slot="select">
+            <option value="1" data-icon="lucide.this-icon-does-not-exist">Option 1</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      await open(el);
+      const item = el.shadowRoot.querySelector('[role="option"]');
+      expect(item.querySelector('dile-iconlib')).toBeNull();
+      expect(warnSpy).toHaveBeenCalled();
+      warnSpy.mockRestore();
     });
   });
 

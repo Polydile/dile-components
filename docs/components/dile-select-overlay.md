@@ -7,7 +7,7 @@ tags: forms
 
 Accessible alternative to [dile-select](/components/dile-select/) that does not rely on the native `<select>` popup for its UI. Instead of opening the browser's own dropdown, it shows the options in a floating overlay panel built and styled by the component itself, following the WAI-ARIA APG "select-only combobox" pattern (a `role="combobox"` trigger button plus a `role="listbox"` popup).
 
-Use it when you want full control over how the option list looks (custom styles, icons, richer option markup in the future) while keeping the exact same public interface as `dile-select` — properties, methods and the `element-changed` event all match, so the two components are interchangeable in most cases.
+Use it when you want full control over how the option list looks (custom styles, icons) while keeping the exact same public interface as `dile-select` — properties, methods and the `element-changed` event all match, so the two components are interchangeable in most cases.
 
 Also used internally by [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/), embedded with `hideTrigger` to provide its results popup.
 
@@ -32,6 +32,42 @@ Use the component. Just like `dile-select`, it requires a native `<select>` in t
   <select slot="select">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+</dile-select-overlay>
+```
+
+## Icons
+
+Options can show a leading icon from [dile-iconlib](/icons/dile-iconlib/), using its `family.name` string format (e.g. `"lucide.house"`, `"material.star"`). The icon appears both on the trigger (for the selected option) and next to each option in the popup, and is marked `aria-hidden="true"` so it doesn't interfere with the option's accessible name (still the option's text).
+
+There are two ways to set it:
+
+- **Per option**: add `data-icon="family.name"` to the individual `<option>`.
+- **For the whole select**: add `data-icon="family.name"` to the `<select>` element itself — it's used as the default icon for every option that doesn't declare its own.
+
+```html
+<dile-select-overlay name="select1" label="Selector">
+  <select slot="select">
+    <option value="1" data-icon="lucide.house">Option 1</option>
+    <option value="2" data-icon="material.star">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+</dile-select-overlay>
+```
+
+As with `dile-selector-item`'s equivalent icon support, you must import the specific icon module you use (e.g. `@dile/iconlib/lucide-icons/house.js`) — if it isn't imported/registered yet, a warning is logged to the console and the icon is skipped until it becomes available.
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/lucide-icons/house.js';
+  import '@dile/iconlib/material-icons/star.js';
+  import '@dile/ui/components/select/select-overlay.js';
+</script>
+<dile-select-overlay name="select1" label="Selector with icons" value="2">
+  <select slot="select">
+    <option value="1" data-icon="lucide.house">Option 1</option>
+    <option value="2" data-icon="material.star">Option 2</option>
     <option value="3">Option 3</option>
   </select>
 </dile-select-overlay>
@@ -125,6 +161,8 @@ Custom property | Description | Default
 --dile-select-overlay-max-height | Options popup max height before scrolling | 260px
 --dile-select-overlay-box-shadow | Options popup box shadow | 0 4px 10px rgba(0, 0, 0, 0.15)
 --dile-select-overlay-highlighted-background-color | Background color of the highlighted option | #eef6ff
+--dile-select-overlay-option-icon-size | Size of an option's `dile-iconlib` icon (trigger and popup) | 16px
+--dile-select-overlay-option-icon-color | Color of an option's `dile-iconlib` icon (trigger and popup) | currentColor
 
 ## dile-select-overlay demos
 

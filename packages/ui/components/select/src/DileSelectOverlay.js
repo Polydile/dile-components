@@ -4,8 +4,12 @@ import { DileEmmitChange } from '../../../mixins/form/index.js';
 import { DileOverlay } from '../../../mixins/overlay/index.js';
 import { DileCloseDocumentClick } from '../../../mixins/close-document-click/index.js';
 import { labelStyles, messageStyles } from '../../input/index.js';
+import '@dile/iconlib/dile-iconlib.js';
 
 const TYPEAHEAD_RESET_DELAY = 500;
+// Mirrors DileSelectorItem's renderIconlibIcon() folder map/registration-warning convention.
+const ICONLIB_FOLDERS = { material: 'material-icons', lucide: 'lucide-icons', fontawesome: 'fontawesome-icons' };
+const warnedIcons = new Set();
 
 export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEmmitChange(LitElement))) {
   static get styles() {
@@ -69,12 +73,27 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         pointer-events: none;
       }
       .trigger-text {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        overflow: hidden;
+      }
+      .trigger-text.placeholder {
+        color: var(--dile-input-placeholder-color, #ccc);
+      }
+      .trigger-label {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .trigger-text.placeholder {
-        color: var(--dile-input-placeholder-color, #ccc);
+      .option-icon {
+        display: flex;
+        align-items: center;
+        flex: none;
+      }
+      .option-icon dile-iconlib {
+        --dile-icon-size: var(--dile-select-overlay-option-icon-size, 16px);
+        --dile-icon-color: var(--dile-select-overlay-option-icon-color, currentColor);
       }
       .arrow-icon {
         width: 18px;
@@ -115,6 +134,9 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         transform: translateY(0);
       }
       .option {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
         padding: var(--dile-select-overlay-option-padding, 7px 10px);
         cursor: pointer;
         color: var(--dile-select-overlay-color, #303030);
@@ -193,7 +215,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
 
   get options() {
     return this.elselect
-      ? Array.from(this.elselect.options).map(o => ({ value: o.value, text: o.textContent }))
+      ? Array.from(this.elselect.options).map(o => ({ value: o.value, text: o.textContent, icon: o.dataset.icon || this.elselect.dataset.icon }))
       : [];
   }
 
@@ -319,7 +341,10 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         @click="${this._onTriggerClick}"
         @keydown="${this.handleExternalKeydown}"
       >
-        <span class="trigger-text ${selected ? '' : 'placeholder'}">${selected ? selected.text : this.placeholder}</span>
+        <span class="trigger-text ${selected ? '' : 'placeholder'}">
+          ${selected && selected.icon ? html`<span class="option-icon">${this.renderIconlibIcon(selected.icon)}</span>` : ''}
+          <span class="trigger-label">${selected ? selected.text : this.placeholder}</span>
+        </span>
         <span class="arrow-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 448" enable-background="new 0 0 256 448">
             <path d="M255.9 168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2 0-7.9 1.6-11.2 4.8S0 163.8 0 168c0 4.4 1.6 8.2 4.8 11.4l112 112c3.1 3.1 6.8 4.6 11.2 4.6 4.4 0 8.2-1.5 11.4-4.6l112-112c3-3.2 4.5-7 4.5-11.4z"></path>
@@ -341,10 +366,30 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
             aria-selected="${opt.value === (this.value ?? '')}"
             @click="${() => this.selectOption(index)}"
             @mousemove="${() => this._setActiveIndex(index, false)}"
-          >${opt.text}</li>
+          >${opt.icon ? html`<span class="option-icon">${this.renderIconlibIcon(opt.icon)}</span>` : ''}${opt.text}</li>
         `)}
       </ul>
     `;
+  }
+
+  renderIconlibIcon(icon) {
+    const dotIndex = icon.indexOf('.');
+    if (dotIndex === -1) {
+      return html`<dile-iconlib icon="${icon}" aria-hidden="true"></dile-iconlib>`;
+    }
+    const family = icon.slice(0, dotIndex);
+    const name = icon.slice(dotIndex + 1);
+    const tagName = `dile-${family}-icon-${name}`;
+    if (customElements.get(tagName)) {
+      return html`<dile-iconlib icon="${icon}" aria-hidden="true"></dile-iconlib>`;
+    }
+    if (!warnedIcons.has(icon)) {
+      warnedIcons.add(icon);
+      const folder = ICONLIB_FOLDERS[family] || family;
+      console.warn(`dile-select-overlay: icon "${icon}" is not registered. Import "@dile/iconlib/${folder}/${name}.js" before using it.`);
+    }
+    customElements.whenDefined(tagName).then(() => this.requestUpdate());
+    return '';
   }
 
   _optionId(index) {

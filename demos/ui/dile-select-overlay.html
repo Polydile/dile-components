@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="../css/style.css">
   <script type="module">
     import "@dile/ui/components/select/select-overlay.js";
+    import "@dile/iconlib/lucide-icons/credit-card.js";
+    import "@dile/iconlib/lucide-icons/wallet.js";
+    import "@dile/iconlib/lucide-icons/banknote.js";
+    import "@dile/iconlib/lucide-icons/globe.js";
+    import "@dile/iconlib/material-icons/star.js";
   </script>
   <style>
     * {
@@ -34,6 +39,10 @@
     dile-select-overlay.custom-arrow {
       --dile-select-arrow-color: #00ff00;
     }
+
+    .payment {
+        --dile-select-overlay-option-icon-color: #369;
+    }
   </style>
 </head>
 <body>
@@ -56,6 +65,32 @@
         document.getElementById('msg1').innerText = 'Select Value: ' + e.detail.value;
       });
     </script>
+
+    <h2>Icons</h2>
+    <p>
+      Options can show a leading icon from <code>dile-iconlib</code>, either per option
+      (<code>data-icon</code> on the <code>&lt;option&gt;</code>) or as a default for the whole
+      select (<code>data-icon</code> on the <code>&lt;select&gt;</code>, overridable per option).
+    </p>
+
+    <h3>Per-option icon</h3>
+    <dile-select-overlay id="select4" label="Payment method" value="card" class="payment">
+      <select slot="select">
+        <option value="card" data-icon="lucide.credit-card">Credit card</option>
+        <option value="wallet" data-icon="lucide.wallet">Digital wallet</option>
+        <option value="cash" data-icon="lucide.banknote">Cash</option>
+      </select>
+    </dile-select-overlay>
+
+    <h3>Select-level default icon (with a per-option override)</h3>
+    <p>Every option below uses the select's own <code>lucide.globe</code> icon, except "Featured destination", which overrides it with its own icon.</p>
+    <dile-select-overlay id="select5" label="Destination">
+      <select slot="select" data-icon="lucide.globe">
+        <option value="1">Lisbon</option>
+        <option value="2">Buenos Aires</option>
+        <option value="3" data-icon="material.star">Featured destination</option>
+      </select>
+    </dile-select-overlay>
 
     <h2>Disabled</h2>
 
