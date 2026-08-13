@@ -41,6 +41,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
         flex-direction: column;
         justify-content: center;
+        z-index: 2;
       }
       p {
         margin: 0;
