@@ -36,8 +36,8 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         padding: var(--dile-input-padding,  7px 5px);
         display: none;
         position: absolute;
-        background-color: #fff;
-        border: 1px solid #ccc;
+        background-color: var(--dile-background-color, #fff);
+        color: var(--dile-on-background-color, #303030);
         border: var(--dile-input-border-width, 1px) solid var(--dile-input-border-color, #888);
         flex-direction: column;
         justify-content: center;
