@@ -41,11 +41,31 @@ Use the component.
 - **endpoint**: String, the URL for switch the action on the resource.
 - **checkedLabel**:  String, label for checked state.
 - **uncheckedLabel**:  String, label for unchecked state.
+- **loading**: Boolean, read-only. Indicates whether a request is in progress. Shows a spinner icon next to the switch when true.
 - **requestApiAdapter**: Object, to adapt the request body object.
 
 ### Custom Events
 
-This component does not dispatch any custom events on its own, but you can listen to the `ajax-response` custom event from [`dile-ajax`](/crud/ajax/) and also the custom events from [dile-switch events](/components/dile-switch/).
+The component dispatches the following custom events:
+
+- **dile-ajax-switch-success**: Fired when the AJAX request succeeds. The event detail contains the same information as the `ajax-success` event from [dile-ajax](/crud/ajax/).
+- **dile-ajax-switch-error**: Fired when the AJAX request fails. The event detail contains the same information as the `ajax-error` event from [dile-ajax](/crud/ajax/).
+
+You can also listen to the custom events from [dile-switch events](/components/dile-switch/).
+
+#### Example listening to success/error events:
+
+```javascript
+const switchElement = document.querySelector('dile-ajax-switch');
+
+switchElement.addEventListener('dile-ajax-switch-success', (e) => {
+  console.log('Switch updated successfully', e.detail);
+});
+
+switchElement.addEventListener('dile-ajax-switch-error', (e) => {
+  console.log('Error updating switch', e.detail);
+});
+```
 
 
 ### dile-ajax-switch example

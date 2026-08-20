@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/switch/switch.js';
+import '@dile/ui/components/spinner/spinner-icon.js';
 import '../../ajax/ajax.js';
 import { RequestApiAdapter } from '../../../lib/RequestApiAdapter.js';
 
@@ -8,6 +9,14 @@ export class DileAjaxSwitch extends LitElement {
     css`
       :host {
         display: block;
+      }
+      .switch-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      dile-spinner-icon {
+        flex-shrink: 0;
       }
     `
   ];
@@ -18,7 +27,7 @@ export class DileAjaxSwitch extends LitElement {
       endpoint: { type: String },
       checkedLabel: { type: String },
       uncheckedLabel: { type: String },
-      loading: { type: Boolean },
+      loading: { type: Boolean, reflect: true },
       method: { type: String },
       requestApiAdapter: { type: Object },
     };
@@ -28,6 +37,7 @@ export class DileAjaxSwitch extends LitElement {
     super();
     this.requestApiAdapter = new RequestApiAdapter();
     this.method = 'patch';
+    this.loading = false;
   }
 
   render() {
@@ -39,14 +49,17 @@ export class DileAjaxSwitch extends LitElement {
         @ajax-success="${this.doSuccessAjax}"
         @ajax-error="${this.doErrorAjax}"
       ></dile-ajax>
-      <dile-switch
-        ?disabled=${this.loading} 
-        ?checked=${this.value}
-        useReactiveLabels
-        checkedLabel="${this.checkedLabel}"
-        uncheckedLabel="${this.uncheckedLabel}"
-        @dile-switch-changed=${this.save}
-      ></dile-switch>
+      <div class="switch-container">
+        <dile-switch
+          ?disabled=${this.loading} 
+          ?checked=${this.value}
+          useReactiveLabels
+          checkedLabel="${this.checkedLabel}"
+          uncheckedLabel="${this.uncheckedLabel}"
+          @dile-switch-changed=${this.save}
+        ></dile-switch>
+        <dile-spinner-icon ?active=${this.loading}></dile-spinner-icon>
+      </div>
     `;
   }
 
@@ -63,13 +76,23 @@ export class DileAjaxSwitch extends LitElement {
     }
   }
 
-  doErrorAjax() {
+  doErrorAjax(e) {
     this.loading = false;
     this.value = !this.value;
+    this.dispatchEvent(new CustomEvent('dile-ajax-switch-error', {
+      detail: e.detail,
+      composed: true,
+      bubbles: true,
+    }));
   }
 
-  doSuccessAjax() {
+  doSuccessAjax(e) {
     this.loading = false;
+    this.dispatchEvent(new CustomEvent('dile-ajax-switch-success', {
+      detail: e.detail,
+      composed: true,
+      bubbles: true,
+    }));
   }
 }
 

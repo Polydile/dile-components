@@ -9,7 +9,7 @@ export class DileSpinnerIcon extends DileSpinnerMixin(LitElement) {
         display: none;
       }
       :host([active]) {
-        display: inline-block;
+        display: inline-flex;
       }
       dile-lucide-icon-loader-circle {
         animation: spin var(--dile-spinner-icon-animation-time, 1s) linear infinite;
