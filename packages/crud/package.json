@@ -1,6 +1,6 @@
 {
   "name": "@dile/crud",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Components to create a generic crud system based on Web Components and Lit",
   "main": "index.js",
   "type": "module",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://dile-components.com/",
   "dependencies": {
-    "@dile/ui": "^3.5.5",
+    "@dile/ui": "^3.5.6",
     "axios": "^1.19.0",
     "lit": "^2.7.0 || ^3.0.0"
   },
