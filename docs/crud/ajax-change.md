@@ -30,7 +30,7 @@ import '@dile/crud/components/ajax-change/ajax-change.js';
   dataFieldName="status"
 >
   <dile-select name="status" slot="input" label="Status">
-    <select slot="input">
+    <select slot="selects">
       <option value="">Select...</option>
       <option value="active">Active</option>
       <option value="inactive">Inactive</option>
@@ -111,7 +111,7 @@ The wrapper uses the `slotchange` event to dynamically detect when components ar
   dataFieldName="status"
 >
   <dile-select name="status" slot="input" label="Status">
-    <select slot="input">
+    <select slot="select">
       <option value="">Select...</option>
       <option value="active">Active</option>
       <option value="inactive">Inactive</option>
@@ -164,7 +164,7 @@ For this to work, `fct-color-picker` must:
   method="patch"
   dataFieldName="status"
 >
-  <dile-select name="status" slot="select" label="Status">
+  <dile-select name="status" label="Status" slot="input">
     <select slot="select">
       <option value="">Select...</option>
       <option value="active">Active</option>
