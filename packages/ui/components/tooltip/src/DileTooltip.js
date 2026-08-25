@@ -76,7 +76,7 @@ export class DileTooltip extends LitElement {
         transform: translateX(-50%);
         border-width: 5px;
         border-style: solid;
-        border-color: transparent transparent var(--dile-tooltip-background-color, #e74c3c) transparent;
+        border-color: transparent transparent var(--dile-tooltip-background-color, var(--dile-primary-color, #e74c3c)) transparent;
       }
       
       .animation{

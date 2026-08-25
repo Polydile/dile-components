@@ -1,4 +1,5 @@
 export { DileInput } from './src/DileInput.js';
+export { DileInputIcon } from './src/DileInputIcon.js';
 export { DileInputInteger } from './src/DileInputInteger.js';
 export { DileInputMessage } from './src/DileInputMessage.js';
 export { DileInputMoney } from './src/DileInputMoney.js';
