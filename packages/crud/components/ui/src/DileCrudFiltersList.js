@@ -43,7 +43,7 @@ export class DileCrudFiltersList extends LitElement {
     }
 
     filterItemTemplate(filter) {
-        if(! filter.hidden) {
+        if(! filter.hidden && filter.active) {
             switch(filter.type) {
                 case 'select':
                     return html`
