@@ -28,5 +28,5 @@
     "@reduxjs/toolkit": "^2.5.1",
     "lit": "^2.7.0 || ^3.0.0"
   },
-  "gitHead": "8a8d595933229b12066f2dac5aa165b7a904a341"
+  "gitHead": "23c70e02e9b106b4e130c46b0fb5f5af2460ca04"
 }
