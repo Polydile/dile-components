@@ -165,7 +165,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this._ajaxrem = this.shadowRoot.getElementById('ajaxrem');
 
     if (this.loadFromEndpoint) {
-      this._refreshList();
+      this.refreshList();
     }
   }
 
@@ -268,8 +268,8 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   _onAddSuccess(e) {
     this._selectedId = null;
-    this._clearSelect();
-    this._refreshList();
+    this.clearSelect();
+    this.refreshList();
     if (this.hideErrorOnInput && this.errored) {
       this.message = '';
       this.errored = false;
@@ -290,7 +290,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
 
   _onRemoveSuccess() {
     this._removingItemId = undefined;
-    this._refreshList();
+    this.refreshList();
     this._dispatch('many-relation-remove-success');
   }
 
@@ -299,7 +299,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this._dispatch('many-relation-remove-error');
   }
 
-  _refreshList() {
+  refreshList() {
     this._loadingList = true;
     this.updateComplete.then(() => this._ajaxlist.generateRequest());
   }
@@ -314,7 +314,7 @@ export class DileManyRelation extends DileI18nMixin(LitElement) {
     this._dispatch('many-relation-list-error');
   }
 
-  _clearSelect() {
+  clearSelect() {
     const select = this.shadowRoot.getElementById('theselect');
     if (select) {
       select.clear();

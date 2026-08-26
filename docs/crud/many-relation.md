@@ -86,6 +86,11 @@ Basic usage:
 - **errored**: Boolean. When `true`, the message is styled as an error. Requires `message` to be set.
 - **hideErrorOnInput**: Boolean. When `true`, clears `message` and `errored` automatically once a relation has been successfully added (i.e., after the POST completes).
 
+### Methods
+
+- **clearSelect()**: Clears the internal select component, removing any selected item. Useful when you need to manually reset the select from outside the component.
+- **refreshList()**: Refreshes the list of related items by fetching the latest data from `endpointList`. Useful when external changes occur and you want to update the component without waiting for user interactions.
+
 ### Custom events
 
 - **many-relation-add-success**: Dispatched when a new relation has been successfully created via POST. The `detail` property contains the server response.
