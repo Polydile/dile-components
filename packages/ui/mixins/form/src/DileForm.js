@@ -117,14 +117,22 @@ export const DileForm = (superclass) => class extends superclass {
         const value = this.firstValue[fieldName][index];
         const node = this.getNodeElement(name);
         if (node) {
-          node.value = value;
+          if (typeof node.set === "function") {
+            node.set(value);
+          } else {
+            node.value = value;
+          }
         }
       }
     } else if (this.firstValue.hasOwnProperty(name)) {
       let value = this.firstValue[name];
       let node = this.getNodeElement(name);
       if (node) {
-        node.value = value;
+        if (typeof node.set === "function") {
+          node.set(value);
+        } else {
+          node.value = value;
+        }
       }
     }
   }

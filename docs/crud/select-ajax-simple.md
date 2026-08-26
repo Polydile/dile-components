@@ -60,6 +60,55 @@ Use the component.
 - **pageParamName**: String, the name of the query parameter used for pagination/result limits.
 - **additionalQueryString**: Object, additional query parameters to include in the request.
 
+## Methods
+
+The component provides the following useful methods for form integration and field management:
+
+### clear()
+
+Clears the select value and resets it to an empty string. This method is automatically called by `DileForm.clearData()` when clearing an entire form.
+
+**Usage:**
+```javascript
+const selectEl = document.querySelector('dile-select-ajax-simple');
+selectEl.clear();  // Resets value to ''
+```
+
+**When used with DileForm:**
+```javascript
+class MyForm extends DileForm(LitElement) {
+  render() {
+    return html`
+      <dile-select-ajax-simple name="category" ...></dile-select-ajax-simple>
+      <button @click=${() => this.clearData()}>Clear Form</button>
+    `;
+  }
+}
+// Calling clearData() will automatically call clear() on the select
+```
+
+### clearError()
+
+Clears the error state and error message from the field. Useful when you want to remove validation error indicators after user interaction.
+
+**Usage:**
+```javascript
+const selectEl = document.querySelector('dile-select-ajax-simple');
+selectEl.clearError();  // Removes errored state and message
+```
+
+**When used with forms:**
+```javascript
+// Automatically clears errors when user starts selecting
+selectEl.addEventListener('element-changed', (e) => {
+  selectEl.clearError();  // Clear error on selection change
+});
+```
+
+**Related methods:**
+- Use `DileForm.clearErrors()` to clear errors on all form fields at once
+- Use `DileForm.showError(name, message)` to display validation errors
+
 ## Events
 
 The component emits the following events:
@@ -130,6 +179,41 @@ Works with:
 ## Configuring Axios
 
 Since `dile-select-ajax-simple` uses Axios internally, you can configure the Axios instance to suit your project's needs. Refer to the [Axios Configuration guide](/crud/axios-configuration/) for details on authentication, headers, interceptors, and other advanced configurations.
+
+## Form Integration
+
+This component is fully compatible with the `DileForm` mixin and integrates seamlessly with form components. When used inside a form with `DileForm`, the component participates in all form operations:
+
+**Supported form operations:**
+- `getData()` - Returns the selected value
+- `setData(data)` - Sets the value programmatically
+- `clearData()` - Clears the value (calls the `clear()` method)
+- `resetData()` - Resets to the initial value
+- `resetField(name)` - Resets a specific field
+- `showError(name, message)` - Displays validation errors
+- `clearErrors()` - Clears all error messages
+
+**Example with DileForm:**
+```javascript
+import { DileForm } from '@dile/ui/mixins/form';
+import { LitElement, html } from 'lit';
+
+class MyForm extends DileForm(LitElement) {
+  render() {
+    return html`
+      <form>
+        <dile-select-ajax-simple
+          name="category"
+          label="Select Category"
+          endpoint="/api/categories"
+        ></dile-select-ajax-simple>
+        <button @click=${() => this.getData()}>Get Form Data</button>
+        <button @click=${() => this.clearData()}>Clear Form</button>
+      </form>
+    `;
+  }
+}
+```
 
 ## Using in CRUD Filters
 

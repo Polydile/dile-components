@@ -53,6 +53,7 @@ export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElemen
             <dile-select-ajax-simple
                 label="${filter.label}"
                 name="${filter.name}"
+                value="${filter.value || ''}"
                 endpoint="${filter.endpoint}"
                 displayProperty="${filter.optionLabelField || 'name'}"
                 idProperty="${filter.optionValueField || 'id'}"

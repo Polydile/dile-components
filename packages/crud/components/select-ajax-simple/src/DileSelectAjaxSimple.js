@@ -85,6 +85,7 @@ export class DileSelectAjaxSimple extends DileAxios(DileEmmitChange(LitElement))
 
   updated(changedProperties) {
     if (changedProperties.has('value')) {
+      this.selectCurrentValue();
       this.emmitChange();
     }
   }
@@ -139,6 +140,23 @@ export class DileSelectAjaxSimple extends DileAxios(DileEmmitChange(LitElement))
   onSelected(e) {
     this.value = e.detail.value;
     e.stopPropagation();
+  }
+
+  /**
+   * Clears the select value and resets it to empty.
+   * Used by DileForm.clearData() method.
+   */
+  clear() {
+    this.value = '';
+  }
+
+  /**
+   * Clears the error state and error message.
+   * Used when need to clean error messages from the field.
+   */
+  clearError() {
+    this.errored = false;
+    this.message = '';
   }
 
   render() {
