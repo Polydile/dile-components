@@ -81,7 +81,9 @@ Use the component.
 
 ## Methods
 
-Not documented yet
+- **set(value)**: Sets the selected value programmatically. Takes a value parameter that matches the `idProperty` of an item. If the value is provided, the component fetches and displays the selected item's text.
+- **clear()**: Clears the current selection, resetting the component to its initial search state. The input field is cleared and ready for a new search.
+- **close()**: Closes the dropdown menu when it's open, hiding the results section.
 
 ## Events
 
