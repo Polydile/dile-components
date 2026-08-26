@@ -70,10 +70,15 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
 
   doRefresh() {
     this.delayTimer = null;
+    // Normalize filter types: select_ajax → select for backend compatibility
+    const normalizedFilters = this.filters.map(filter => ({
+      ...filter,
+      type: filter.type === 'select_ajax' ? 'select' : filter.type
+    }));
     let data = {
       per_page: this.pageSize,
       keyword: this.keyword,
-      filters: this.filters,
+      filters: normalizedFilters,
     }
     if (this.sort && this.sort.sortField) {
       data.sortField = this.sort.sortField;

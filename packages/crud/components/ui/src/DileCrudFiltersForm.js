@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { DileFormChangeDetect, DileForm } from '@dile/ui/mixins/form/index.js';
 import '@dile/ui/components/checkbox/checkbox.js';
 import '@dile/ui/components/select/select.js';
+import '@dile/crud/components/select-ajax-simple/select-ajax-simple.js';
 
 export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElement)) {
   static styles = css`
@@ -46,6 +47,27 @@ export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElemen
                     `)}
                 </select>
             </dile-select>
+        `;
+      case 'select_ajax':
+        return html`
+            <dile-select-ajax-simple
+                label="${filter.label}"
+                name="${filter.name}"
+                endpoint="${filter.endpoint}"
+                displayProperty="${filter.optionLabelField || 'name'}"
+                idProperty="${filter.optionValueField || 'id'}"
+                resultDataProperty="${filter.resultDataProperty || 'data'}"
+                selectDefaultPlaceholder="${filter.selectDefaultPlaceholder || ''}"
+                emptyMessage="${filter.emptyMessage || ''}"
+                ajaxErrorMessage="${filter.ajaxErrorMessage || ''}"
+                message="${filter.message || ''}"
+                pageParamName="${filter.pageParamName || ''}"
+                .maxResults=${filter.maxResults}
+                .getSelectResultList=${filter.getSelectResultList}
+                .additionalQueryString=${filter.additionalQueryString}
+                ?disabled=${filter.disabled || false}
+                ?errored=${filter.errored || false}
+            ></dile-select-ajax-simple>
         `;
       default:
         return html`

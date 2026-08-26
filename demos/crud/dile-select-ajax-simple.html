@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-select-ajax-simple component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/select-ajax-simple/select-ajax-simple.js'
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-select-ajax-simple component</h1>
+
+    <p>Simple select component that loads options via AJAX (single load, no search).</p>
+
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      export class SelectAjaxSimpleDemo extends LitElement {
+        static styles = [
+          css`
+            :host {
+              display: block;
+            }
+            .demo-section {
+              margin-bottom: 3rem;
+              padding: 1.5rem;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+            }
+            .demo-section h2 {
+              margin-top: 0;
+              font-size: 1.2rem;
+              color: #333;
+            }
+            .demo-section p {
+              margin-top: 0;
+              font-size: 0.9rem;
+              color: #666;
+            }
+            dile-select-ajax-simple {
+              margin: 1rem 0;
+            }
+            .info {
+              background-color: #f5f5f5;
+              padding: 1rem;
+              border-radius: 4px;
+              margin-top: 1rem;
+              font-size: 0.9rem;
+            }
+            .value-display {
+              margin-top: 1rem;
+              padding: 0.5rem;
+              background-color: #e8f4f8;
+              border-left: 3px solid #0066cc;
+              border-radius: 2px;
+            }
+          `
+        ];
+
+        constructor() {
+          super();
+          this.selectedValue1 = '';
+          this.selectedValue2 = '';
+          this.selectedValue3 = '';
+        }
+
+        connectedCallback() {
+          super.connectedCallback();
+          // Listen to element-changed events
+          this.addEventListener('element-changed', (e) => {
+            if (e.detail.name === 'tags1') {
+              this.selectedValue1 = e.detail.value;
+            } else if (e.detail.name === 'tags2') {
+              this.selectedValue2 = e.detail.value;
+            } else if (e.detail.name === 'tags3') {
+              this.selectedValue3 = e.detail.value;
+            }
+            this.requestUpdate();
+          });
+        }
+
+        render() {
+          return html`
+            <div class="demo-section">
+              <h2>Basic Usage</h2>
+              <p>Simple select loading tags from the API endpoint.</p>
+              
+              <dile-select-ajax-simple
+                name="tags1"
+                label="Select a tag"
+                endpoint="https://timer.escuelait.com/api/tags"
+                displayProperty="name"
+                idProperty="id"
+              ></dile-select-ajax-simple>
+
+              ${this.selectedValue1 
+                ? html`<div class="value-display">Selected value: <strong>${this.selectedValue1}</strong></div>`
+                : ''
+              }
+            </div>
+
+            <div class="demo-section">
+              <h2>With Custom Messages</h2>
+              <p>Using custom placeholder and error messages.</p>
+              
+              <dile-select-ajax-simple
+                name="tags2"
+                label="Choose a category"
+                endpoint="https://timer.escuelait.com/api/tags"
+                displayProperty="name"
+                idProperty="id"
+                selectDefaultPlaceholder="-- Please select a category --"
+                emptyMessage="No categories available"
+                ajaxErrorMessage="Failed to load categories"
+                message="You can select a category from the list"
+              ></dile-select-ajax-simple>
+
+              ${this.selectedValue2 
+                ? html`<div class="value-display">Selected value: <strong>${this.selectedValue2}</strong></div>`
+                : ''
+              }
+            </div>
+
+            <div class="demo-section">
+              <h2>Disabled State</h2>
+              <p>Select component in disabled state.</p>
+              
+              <dile-select-ajax-simple
+                name="tags3"
+                label="Disabled tag selector"
+                endpoint="https://timer.escuelait.com/api/tags"
+                displayProperty="name"
+                idProperty="id"
+                disabled
+              ></dile-select-ajax-simple>
+            </div>
+
+            <div class="demo-section">
+              <h2>Error State (Invalid Endpoint)</h2>
+              <p>Select component with an invalid endpoint showing error handling.</p>
+              
+              <dile-select-ajax-simple
+                name="tags-error"
+                label="Select from invalid endpoint"
+                endpoint="https://timer.escuelait.com/api/invalid-endpoint"
+                displayProperty="name"
+                idProperty="id"
+                ajaxErrorMessage="⚠️ Could not load the tags. Please try again later."
+              ></dile-select-ajax-simple>
+            </div>
+
+            <div class="demo-section">
+              <h2>Errored Visual State with Message</h2>
+              <p>Select component showing errored visual state with custom message.</p>
+              
+              <dile-select-ajax-simple
+                name="tags-validation-error"
+                label="Select a required category"
+                endpoint="https://timer.escuelait.com/api/tags"
+                displayProperty="name"
+                idProperty="id"
+                errored
+                message="This field is required"
+              ></dile-select-ajax-simple>
+            </div>
+
+            <div class="demo-section">
+              <h2>Features</h2>
+              <div class="info">
+                <ul>
+                  <li>✓ Single AJAX load on component connection (no search functionality)</li>
+                  <li>✓ Loading spinner while fetching data</li>
+                  <li>✓ Error handling with customizable error message</li>
+                  <li>✓ Empty state handling</li>
+                  <li>✓ Support for custom <code>resultDataProperty</code> (default: "data")</li>
+                  <li>✓ Support for custom <code>getSelectResultList</code> function for complex response parsing</li>
+                  <li>✓ Form integration with <code>name</code> and form value tracking</li>
+                  <li>✓ Emits <code>element-changed</code> event on selection</li>
+                  <li>✓ Disabled and error states supported</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="demo-section">
+              <h2>Configuration Options</h2>
+              <div class="info">
+                <h3>Main Properties</h3>
+                <ul>
+                  <li><code>endpoint</code> - API URL to fetch options from</li>
+                  <li><code>label</code> - Label text for the select</li>
+                  <li><code>name</code> - Form field name</li>
+                  <li><code>displayProperty</code> - Property name to display in options (default: "name")</li>
+                  <li><code>idProperty</code> - Property name to use as option value (default: "id")</li>
+                  <li><code>resultDataProperty</code> - Path to data array in response (default: "data")</li>
+                  <li><code>getSelectResultList</code> - Custom function to extract data from response</li>
+                  <li><code>selectDefaultPlaceholder</code> - Empty option text</li>
+                  <li><code>emptyMessage</code> - Message when no data is available</li>
+                  <li><code>ajaxErrorMessage</code> - Message on request error</li>
+                  <li><code>disabled</code> - Disable the select</li>
+                  <li><code>errored</code> - Show error visual state</li>
+                  <li><code>message</code> - Additional help/error message</li>
+                </ul>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      customElements.define('select-ajax-simple-demo', SelectAjaxSimpleDemo);
+    </script>
+
+    <select-ajax-simple-demo></select-ajax-simple-demo>
+
+  </div>
+</body>
+
+</html>

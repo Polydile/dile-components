@@ -43,6 +43,16 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
       value: false,
       type: 'boolean',
     },
+    {
+      name: 'tag',
+      endpoint: 'https://timer.escuelait.com/api/tags',
+      label: 'Tag',
+      active: false,
+      value: false,
+      type: 'select_ajax',
+      optionLabelField: 'name',
+      optionValueField: 'id',
+    }
   ],
   responseAdapter: new BoardGameResponseApiAdapter(),
   actions: {

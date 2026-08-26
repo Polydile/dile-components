@@ -38,6 +38,7 @@ export class DileCrudFilters extends DileI18nMixin(LitElement) {
             if (filter.name in data) {
                 switch(filter.type) {
                     case 'select':
+                    case 'select_ajax':
                         if(data[filter.name] === '') {
                             filter.active = false;
                         } else {
