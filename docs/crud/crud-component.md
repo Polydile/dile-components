@@ -78,6 +78,10 @@ Custom property | Description | Default
 --dile-crud-insert-button-font-size | Font size for the insert button | 1rem
 --dile-crud-action-color | Color for action buttons and icons | #888
 --dile-on-crud-action-color | Text/foreground color for action buttons | #fff
+--dile-crud-filters-label-font-size | Font size for filter overlay and labels (affects entire filters popup) | var(--dile-input-label-font-size, 1em)
+--dile-crud-filters-select-font-size | Font size for select fields in filters | var(--dile-select-font-size, 0.875em)
+--dile-crud-filters-input-padding | Padding for input/select fields in filters | var(--dile-input-padding, 5px)
+--dile-crud-filters-label-margin-bottom | Margin bottom for filter labels | var(--dile-input-label-margin-bottom, 4px)
 
 
 ## Generating CRUD Components for Entities with the CLI

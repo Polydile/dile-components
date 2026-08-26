@@ -6,14 +6,18 @@ import '@dile/crud/components/select-ajax-simple/select-ajax-simple.js';
 
 export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElement)) {
   static styles = css`
-        :host {
-            display: block;
-        }
-        p {
-            margin: 0.4rem 0;
-            
-        }
-    `;
+    :host {
+      display: block;
+      font-size: var(--dile-crud-filters-label-font-size, var(--dile-input-label-font-size, 1em));
+      --dile-select-font-size: var(--dile-crud-filters-select-font-size, var(--dile-select-font-size, 0.875em));
+      --dile-input-label-font-size: var(--dile-crud-filters-label-font-size, var(--dile-input-label-font-size, 1em));
+      --dile-input-padding: var(--dile-crud-filters-input-padding, var(--dile-input-padding, 5px));
+      --dile-input-label-margin-bottom: var(--dile-crud-filters-label-margin-bottom, var(--dile-input-label-margin-bottom, 4px));
+    }
+    p {
+      margin: 0.4rem 0;
+    }
+  `;
 
   static get properties() {
     return {
