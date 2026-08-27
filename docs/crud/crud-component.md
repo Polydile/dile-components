@@ -40,7 +40,7 @@ Use the component.
 - **relationId**: String, is the identifier that uniquely identifies the specific resource. 
 - **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **filtersAlwaysVisible**: Boolean, when `true`, renders the filters form directly below the nav actions bar instead of hiding it behind a button that opens an overlay. Default `false`. See [Always Visible Filters](#always-visible-filters).
-- **singleActionDispatcher**: String, the `name` of an action defined in `config.actions.single` to run directly on the selected items, bypassing the batch actions dropdown menu. See [Single Action Dispatcher](#single-action-dispatcher).
+- **singleActionDispatcher**: String, the `name` of an action defined in `config.actions.list` to run directly on the selected items, bypassing the batch actions dropdown menu. See [Single Action Dispatcher](#single-action-dispatcher).
 
 ### Methods
 
@@ -318,7 +318,7 @@ You can customize the appearance of the filters card and its grid layout with th
 
 When a resource only needs a single batch action (for example, just deleting the selected items), opening the actions dropdown menu to pick from a list of one is unnecessary friction. Setting `singleActionDispatcher` to the `name` of an action renders a direct button for that action instead, skipping the dropdown selection step entirely.
 
-The action definition (`label`, `destructive`, etc.) is looked up by `name` in `config.actions.single`, using the same action object shape documented on the [actions configuration page](/crud/actions-configuration/). The button is only shown once at least one item is selected via checkboxes, exactly like the standard batch actions menu.
+The action definition (`label`, `destructive`, etc.) is looked up by `name` in `config.actions.list`, using the same action object shape documented on the [actions configuration page](/crud/actions-configuration/). The button is only shown once at least one item is selected via checkboxes, exactly like the standard batch actions menu.
 
 ```html:preview
 <script type="module">

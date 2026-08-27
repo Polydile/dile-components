@@ -39,7 +39,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                 id="elactions"
                 .actionIds=${this.actionIds}
                 endpoint=${this.config.endpoint}
-                .actions=${this.config.actions.single}
+                .actions=${this.config.actions.list}
                 actionName="${this.singleActionDispatcher}"
                 .formActionsTemplate=${this.config.templates.formActions}
                 language="${this.language}"
