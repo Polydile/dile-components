@@ -33,7 +33,7 @@ class DemoIconCatalogItem extends LitElement {
     .icon-preview svg {
       width: 28px;
       height: 28px;
-      color: #444;
+      color: var(--dile-on-background-color);
       display: block;
     }
     .meta {
