@@ -26,6 +26,8 @@ export class DileTooltip extends LitElement {
         border-radius: var(--dile-tooltip-border-radius, 6px);;
         padding: var(--dile-tooltip-padding, 5px);
         z-index: 10000;
+        white-space: normal;
+        overflow-wrap: break-word;
       }
 
       .tooltip-top,
