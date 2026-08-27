@@ -8,6 +8,8 @@ export const formStyles = css`
   --dile-modal-height: auto;
   --dile-modal-close-icon-top: 1rem;
   --dile-modal-close-icon-color: #f66;
+  --dile-modal-content-background-color: var(--dile-background-color, #fff);
+  --dile-modal-content-text-color: var(--dile-on-background-color, #303030);
 }
 @media(min-width: 380px) {
   :host {

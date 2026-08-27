@@ -19,12 +19,18 @@ export class DileCrudFilters extends DileI18nMixin(LitElement) {
     render() {
         return html`
             <dile-crud-list-options .icon="${filterIcon}" label="${this.translations.filters_label}" >
-                <dile-crud-filters-form 
-                    id="elform"
-                    .filters=${this.filters} 
-                    @dile-form-changed=${this.filtersChanged}
-                ></dile-crud-filters-form>
+                ${this.formTemplate}
             </dile-crud-list-options>
+        `;
+    }
+
+    get formTemplate() {
+        return html`
+            <dile-crud-filters-form 
+                id="elform"
+                .filters=${this.filters} 
+                @dile-form-changed=${this.filtersChanged}
+            ></dile-crud-filters-form>
         `;
     }
 

@@ -7,7 +7,7 @@ export class DemoBoardGameItem extends LitElement {
     css`
       :host {
         display: block;
-        color: #303030;
+        color: var(--dile-on-background-color, #303030);
       }
     `
   ];

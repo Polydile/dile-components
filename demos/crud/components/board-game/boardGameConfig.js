@@ -71,6 +71,13 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
         name: 'DemoChangeNameAction'
       },
     ],
+    single: [
+      {
+        label: 'Delete board games',
+        name: 'DeleteAction',
+        destructive: true,
+      },
+    ],
   },
   templates: {
     item: (boardGame) => html`<demo-board-game-item .boardGame=${boardGame}></demo-board-game-item>`,

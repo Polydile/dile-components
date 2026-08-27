@@ -39,6 +39,8 @@ Use the component.
 - **belongsTo**: String, indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. 
 - **relationId**: String, is the identifier that uniquely identifies the specific resource. 
 - **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
+- **filtersAlwaysVisible**: Boolean, when `true`, renders the filters form directly below the nav actions bar instead of hiding it behind a button that opens an overlay. Default `false`. See [Always Visible Filters](#always-visible-filters).
+- **singleActionDispatcher**: String, the `name` of an action defined in `config.actions.single` to run directly on the selected items, bypassing the batch actions dropdown menu. See [Single Action Dispatcher](#single-action-dispatcher).
 
 ### Methods
 
@@ -60,7 +62,7 @@ This component is based on elements such as `dile-crud-list`, `dile-crud-insert`
 - **crud-item-insert**: Dispatched when the system shows the insert form.
 - **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties `msg` with a message from the server response, `action` with the name of the action being responded to, and `data` with any additional data that the backend may have sent as a response. Of course, the backend shoul be developed to send all this data.
 
-### CRUD component CSS Custom Properties
+### CRUD component CSS Custom Properties {#crud-component-css-custom-properties}
 
 It is possible to customize the appearance of CRUD components using Custom CSS Properties. This component uses elements such as `dile-button` and `dile-input-search`, and therefore supports the custom CSS properties documented for those components. It also uses CSS custom properties that are consistently applied across the entire component catalog, some of which are detailed on the theming page.
 
@@ -82,6 +84,19 @@ Custom property | Description | Default
 --dile-crud-filters-select-font-size | Font size for select fields in filters | var(--dile-select-font-size, 0.875em)
 --dile-crud-filters-input-padding | Padding for input/select fields in filters | var(--dile-input-padding, 5px)
 --dile-crud-filters-label-margin-bottom | Margin bottom for filter labels | var(--dile-input-label-margin-bottom, 4px)
+--dile-crud-filters-field-margin | Margin for filter fields (checkboxes and other elements) | 0.4rem 0
+--dile-crud-filters-inline-margin | Margin of the card wrapping the always-visible filters form | 0.5rem 0
+--dile-crud-filters-inline-background-color | Background color of the always-visible filters card | var(--dile-very-light-color, #f5f5f5)
+--dile-crud-filters-inline-border | Border of the always-visible filters card | none
+--dile-crud-filters-inline-gap | Gap between filter fields in the always-visible filters grid (from 500px viewport width) | 1rem
+--dile-crud-filters-inline-columns-medium | Grid columns for the always-visible filters form on viewports from 500px wide | 1fr 1fr
+--dile-crud-filters-inline-columns-large | Grid columns for the always-visible filters form on viewports from 1200px wide | 1fr 1fr 1fr
+--dile-crud-single-action-background-color | Background color of the single action dispatcher button | var(--dile-primary-color, #7BB93D)
+--dile-crud-single-action-text-color | Text color of the single action dispatcher button | var(--dile-on-primary-color, #fff)
+--dile-crud-single-action-border-color | Border color of the single action dispatcher button | var(--dile-primary-dark-color, #12354d)
+--dile-crud-single-action-hover-background-color | Background color of the single action dispatcher button on hover | var(--dile-primary-light-color, #f3f3ae)
+--dile-crud-single-action-hover-text-color | Text color of the single action dispatcher button on hover | var(--dile-on-primary-light-color, #303030)
+--dile-crud-single-action-hover-border-color | Border color of the single action dispatcher button on hover | var(--dile-primary-color, #666666)
 
 
 ## Generating CRUD Components for Entities with the CLI
@@ -252,3 +267,105 @@ customElements.define('demo-board-game-crud', DemoBoardGameCrud);
 </script>
 <demo-board-game-crud></demo-board-game-crud>
 ```
+
+## Always Visible Filters {#always-visible-filters}
+
+By default, filters are hidden behind a button that opens an overlay panel (see the `dile-crud-filters` component used in the examples above). Setting the `filtersAlwaysVisible` property to `true` renders the filters form directly below the nav actions bar instead, using the `dile-crud-filters-inline` component internally.
+
+This is useful when filters are a primary part of the workflow and you want them visible at all times, without requiring an extra click to open them.
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class DemoBoardGameCrudFiltersAlwaysVisible extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = window.boardGameConfig.getConfig();
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        filtersAlwaysVisible
+        .config="${this.config}"
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('demo-board-game-crud-filters-always-visible', DemoBoardGameCrudFiltersAlwaysVisible);
+</script>
+<demo-board-game-crud-filters-always-visible></demo-board-game-crud-filters-always-visible>
+```
+
+You can customize the appearance of the filters card and its grid layout with the `--dile-crud-filters-inline-*` custom properties documented in the [CSS Custom Properties](#crud-component-css-custom-properties) table above.
+
+## Single Action Dispatcher {#single-action-dispatcher}
+
+When a resource only needs a single batch action (for example, just deleting the selected items), opening the actions dropdown menu to pick from a list of one is unnecessary friction. Setting `singleActionDispatcher` to the `name` of an action renders a direct button for that action instead, skipping the dropdown selection step entirely.
+
+The action definition (`label`, `destructive`, etc.) is looked up by `name` in `config.actions.single`, using the same action object shape documented on the [actions configuration page](/crud/actions-configuration/). The button is only shown once at least one item is selected via checkboxes, exactly like the standard batch actions menu.
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class DemoBoardGameCrudSingleAction extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = window.boardGameConfig.getConfig();
+    this.config.customization.hideCheckboxSelection = false;
+    this.config.actions.single = [
+      {
+        label: 'Delete board games',
+        name: 'DeleteAction',
+        destructive: true,
+      },
+    ];
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        singleActionDispatcher="DeleteAction"
+        .config="${this.config}"
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('demo-board-game-crud-single-action', DemoBoardGameCrudSingleAction);
+</script>
+<demo-board-game-crud-single-action></demo-board-game-crud-single-action>
+```
+
+> Note that `config.templates.formActions` is reused as-is for the single action dispatcher (it receives the action name and the array of selected item ids, just like batch actions do). Only the action metadata (`label`, `destructive`) is sourced from `actions.single` instead of `actions.list`.
+
+You can customize the button's colors, including its hover state, with the `--dile-crud-single-action-*` custom properties documented in the [CSS Custom Properties](#crud-component-css-custom-properties) table above.

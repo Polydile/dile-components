@@ -10,10 +10,12 @@ import '../../list/crud-list.js';
 import '../../ui/crud-sort-form.js';
 import '../../ui/crud-page-size.js';
 import '../../ui/crud-filters.js';
+import '../../ui/crud-filters-inline.js';
 import '../../insert/crud-insert.js';
 import '../../update/crud-update.js';
 import '../../action/crud-actions.js';
 import '../../action/crud-delete-action.js';
+import '../../action/crud-single-action-dispatcher.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
 import { crudStyles } from '../../../styles/crud-styles.js';
@@ -95,12 +97,15 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         keyword: { type: String },
         belongsTo: { type: String },
         relationId: { type: String },
+        filtersAlwaysVisible: { type: Boolean },
+        singleActionDispatcher: { type: String },
       };
     }
 
     constructor() {
         super();
         this.actionIds = [];
+        this.filtersAlwaysVisible = false;
     }
 
     // GETTERS ELEMENTOS
@@ -135,6 +140,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
             <main>
                 ${this.navActionsTemplate}
+                ${this.filtersAlwaysVisible && !this.config.customization.disableFilter ? this.filtersAlwaysVisibleTemplate : ''}
                 <div
                     @item-checkbox-changed=${this.itemCheckboxChanged}
                     @dile-chip-icon-click=${this.removeFilter}
@@ -232,11 +238,11 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                     }
                     <div class="actions" slot="actions">
                         ${this.actionsTemplate}
-                        ${this.config.customization.disableFilter
+                        ${this.config.customization.disableFilter || this.filtersAlwaysVisible
                             ? ''
                             : html`
                                 <dile-crud-filters
-                                    class="action-controller" 
+                                    class="action-controller"
                                     id="elfilters"
                                     @filters-changed=${this.filtersChanged}
                                     .filters=${this.config.availableFilters || []}
@@ -276,10 +282,21 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         `
     }
 
+    get filtersAlwaysVisibleTemplate() {
+        return html`
+            <dile-crud-filters-inline
+                id="elfilters"
+                @filters-changed=${this.filtersChanged}
+                .filters=${this.config.availableFilters || []}
+                language="${this.language}"
+            ></dile-crud-filters-inline>
+        `
+    }
+
     get disableAllActionFunctionalities() {
         const customization = this.config.customization;
-        return customization.disableHelp 
-            && customization.disableFilter 
+        return customization.disableHelp
+            && (customization.disableFilter || this.filtersAlwaysVisible)
             && customization.disablePagination
             && customization.disableSort
             && customization.hideCheckboxSelection;

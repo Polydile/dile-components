@@ -15,7 +15,7 @@ export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElemen
       --dile-input-label-margin-bottom: var(--dile-crud-filters-label-margin-bottom, var(--dile-input-label-margin-bottom, 4px));
     }
     p {
-      margin: 0.4rem 0;
+      margin: var(--dile-crud-filters-field-margin, 0.4rem 0);
     }
   `;
 

@@ -10,6 +10,12 @@ export const DileCrudMixin = (superclass) => class extends superclass {
     }
 
     get actionsTemplate() {
+        return this.singleActionDispatcher
+            ? this.singleActionDispatcherTemplate
+            : this.standardActionsTemplate;
+    }
+
+    get standardActionsTemplate() {
         return html`
             <dile-crud-actions
                 @crud-action-success=${this.actionSuccess}
@@ -22,6 +28,23 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                 language="${this.language}"
                 .responseAdapter=${this.config.responseAdapter}
             ></dile-crud-actions>
+        `
+    }
+
+    get singleActionDispatcherTemplate() {
+        return html`
+            <dile-crud-single-action-dispatcher
+                @crud-action-success=${this.actionSuccess}
+                class="action-controller"
+                id="elactions"
+                .actionIds=${this.actionIds}
+                endpoint=${this.config.endpoint}
+                .actions=${this.config.actions.single}
+                actionName="${this.singleActionDispatcher}"
+                .formActionsTemplate=${this.config.templates.formActions}
+                language="${this.language}"
+                .responseAdapter=${this.config.responseAdapter}
+            ></dile-crud-single-action-dispatcher>
         `
     }
 
