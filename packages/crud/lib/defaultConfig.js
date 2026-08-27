@@ -30,6 +30,7 @@ export const defaultConfig = {
     disableSort: true,
     disableFilter: true,
     disableHelp: true,
+    disableListActionsOnSingleComponent: false,
   },
   responseAdapter: new ResponseApiAdapter(),
   requestAdapter: new RequestApiAdapter(),
@@ -57,6 +58,7 @@ export const defaultConfig = {
       }
     ],
     single: [],
+    directSingleActions: [],
   },
   templates: {
     item: () => templatePlaceholder('item'),

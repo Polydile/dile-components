@@ -244,6 +244,8 @@ To enable single actions on a resource, define two properties in the resource's 
 
 - **actions.single**: An array of actions to be displayed for individual items. Each action object follows the properties defined in the [Action Object Properties](#action-object-properties) section. Single actions support all properties including the `shouldAppear` function, which is particularly useful for showing/hiding actions based on the item's state.
 
+- **actions.directSingleActions**: An optional array of action names (strings) that should be rendered as standalone buttons in the actions bar, instead of being hidden inside the box-selector. Use this for critical or frequently used actions that must be immediately visible. Actions not listed here continue to appear in the box-selector. If all single actions are listed here, the box-selector is hidden entirely.
+
 - **templates.formSingleActions**: A template function that renders the appropriate form component for each selected action. This template receives two parameters:
   - `actionName`: The name of the selected action (string).
   - `element`: The data object of the item on which the action is being performed (object).
@@ -275,7 +277,9 @@ actions: {
         label: "Publish item",
         shouldAppear: (element) => element.status === 'draft'
       }
-    ]
+    ],
+    // SetEurope and QuickPublish appear as buttons; SetAsia and PublishAction stay in the box-selector
+    directSingleActions: ['SetEurope', 'QuickPublish'],
   },
 
 templates: {

@@ -76,20 +76,29 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     `
   }
 
+  get showActionsBar() {
+    const c = this.config;
+    const hasEdit = !c?.customization?.disableEdit;
+    const hasDirectActions = c?.actions?.directSingleActions?.length > 0;
+    const hasListActions = !c?.customization?.disableListActionsOnSingleComponent && c?.actions?.list?.length > 0;
+    return hasEdit || hasDirectActions || hasListActions;
+  }
+
   get contentTemplate() {
     return html`
       <main class="elcontainer">
         ${this.detailTemplate}
-        ${this.config?.customization?.disableEdit && (!this.config?.actions?.list || this.config.actions.list.length === 0) ? '' : html`
+        ${this.showActionsBar ? html`
           <div class="actions" @action-success=${this.actionSuccess}>
               ${!this.config?.customization?.disableEdit ? html`
                 <dile-button .icon="${editIcon}" @click=${this.edit}>
                   ${this.startUpdateLabelComputed(this.config.labels.startUpdateAction, this.translations)}
                 </dile-button>
               ` : ''}
-              ${this.actionsTemplate}
+              ${this.directActionsTemplate}
+              ${this.config?.customization?.disableListActionsOnSingleComponent ? '' : this.actionsTemplate}
           </div>
-        `}
+        ` : ''}
       </main>
 
       ${this.updateTemplate}
@@ -115,6 +124,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     return html`
       <dile-crud-single-actions
         .actions=${this.config.actions.single}
+        .directSingleActions=${this.config.actions.directSingleActions || []}
         .formActionsTemplate=${this.config.templates.formSingleActions}
         .actionIds=${this.actionIds}
         endpoint=${this.config.endpoint}
@@ -126,12 +136,34 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     `
   }
 
+  get directActionsTemplate() {
+    const directSingleActions = this.config.actions.directSingleActions || [];
+    return directSingleActions.map(actionName => {
+      const action = (this.config.actions.single || []).find(a => a.name === actionName);
+      if (!action) return '';
+      if (action.shouldAppear && !action.shouldAppear(this.element)) return '';
+      return html`
+        <dile-button class="action-controller" @click=${() => this.triggerDirectAction(actionName)}>
+          ${action.label}
+        </dile-button>
+      `;
+    });
+  }
+
   get detailElement() {
     return this.shadowRoot.getElementById('eldetail');
   }
 
+  get singleActionsElement() {
+    return this.shadowRoot.querySelector('dile-crud-single-actions');
+  }
+
   refresh() {
     this.detailElement.refresh();
+  }
+
+  triggerDirectAction(actionName) {
+    this.singleActionsElement.triggerAction(actionName);
   }
 
   elementLoaded(e) {

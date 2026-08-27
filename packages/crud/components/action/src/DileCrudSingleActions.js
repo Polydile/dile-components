@@ -39,17 +39,23 @@ export class DileCrudSingleActions extends DileCrudActions {
     return {
       actions: { type: Array },
       element: { type: Object },
+      directSingleActions: { type: Array },
     };
   }
 
   constructor() {
     super();
     this.actions = [];
+    this.directSingleActions = [];
   }
 
   get actionListTemplate() {
+    const visibleActions = this.actions.filter(action =>
+      (!action.shouldAppear || action.shouldAppear(this.element)) &&
+      !this.directSingleActions.includes(action.name)
+    );
     return html`
-      ${this.actions.length > 0
+      ${visibleActions.length > 0
         ? html`
           <dile-card title="${this.translations.element_actions}">
             <dile-box-selector 
@@ -57,9 +63,7 @@ export class DileCrudSingleActions extends DileCrudActions {
                 attrForSelected="name"
                 @dile-selected-changed="${this.onActionSelected}"
             >
-                ${this.actions
-                  .filter(action => !action.shouldAppear || action.shouldAppear(this.element))
-                  .map(action => html`
+                ${visibleActions.map(action => html`
                     <dile-box-selector-item 
                         label="${action.label}"
                         name="${action.name}"
@@ -85,6 +89,17 @@ export class DileCrudSingleActions extends DileCrudActions {
     
     if (selectedAction && selectedAction.onClick) {
       selectedAction.onClick(this.element);
+    } else {
+      this.showAction();
+    }
+  }
+
+  triggerAction(actionName) {
+    this.selection = actionName;
+    this.computeDestructive();
+    const action = this.actions.find(a => a.name === actionName);
+    if (action && action.onClick) {
+      action.onClick(this.element);
     } else {
       this.showAction();
     }

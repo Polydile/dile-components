@@ -17,6 +17,7 @@ The `customization` property is an object containing multiple boolean flags that
 - **`disableSort`** (boolean): When set to `true`, disables sorting functionality. Default: `true`.
 - **`disableFilter`** (boolean): When set to `true`, disables filtering functionality. Default: `true`.
 - **`disableHelp`** (boolean): When set to `true`, hides the help information. Default: `true`.
+- **`disableListActionsOnSingleComponent`** (boolean): When set to `true`, hides list actions (batch actions menu) in the `dile-crud-single` component. Useful when you only want single-item actions or direct actions visible. Default: `false`.
 
 #### Example usage
 
@@ -32,6 +33,7 @@ customization: {
   disableHelp: false,           // Show help
   disableEdit: false,           // Enable editing
   disableDelete: false,         // Enable deletion
+  disableListActionsOnSingleComponent: false,  // Show list actions in single view
 },
 ```
 
@@ -54,5 +56,6 @@ customization: {
   disableSort: true,
   disableFilter: true,
   disableHelp: true,
+  disableListActionsOnSingleComponent: false,
 },
 ```

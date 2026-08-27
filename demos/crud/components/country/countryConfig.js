@@ -41,7 +41,8 @@ export const countryConfig = new CrudConfigBuilder('https://timer.escuelait.com/
         label: "Show console message",
         onClick: (element) => console.log('Foo Action:', element),
       }
-    ]
+    ],
+    directSingleActions: ['SetEurope', 'Foo'],
   },
   labels: {
     helpTitle: 'Country help',
