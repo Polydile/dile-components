@@ -29,8 +29,7 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
         }
         dile-order-switch {
             margin-bottom: 0;
-            --dile-icon-color: var(--dile-secondary-color);
-
+            --dile-icon-color: var(--dile-crud-order-switch-icon-color, var(--dile-secondary-color, #888));
         }
     `
   ];
