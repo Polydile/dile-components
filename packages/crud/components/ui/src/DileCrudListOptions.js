@@ -13,7 +13,7 @@ export class DileCrudListOptions extends LitElement {
             .content {
                 padding: 0.5rem;
                 background: var(--dile-primary-light-color);
-                color: #303030;
+                color: var(--dile-on-primary-light-color);
             }
             dile-button-icon {
                 display: none;
