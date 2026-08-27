@@ -11,7 +11,7 @@ export class DileCrudFiltersInline extends DileCrudFilters {
       dile-card {
           margin: var(--dile-crud-filters-inline-margin, 0.5rem 0) !important;
           --dile-card-background-color: var(--dile-crud-filters-inline-background-color, var(--dile-gray-very-light-color, #f5f5f5));
-          --dile-card-text-color
+          --dile-card-text-color: var(--dile-crud-filters-inline-text-color, var(--dile-on-gray-very-light-color, #303030));
           --dile-card-border: var(--dile-crud-filters-inline-border, none);
       }
       dile-crud-filters-form {
