@@ -371,6 +371,28 @@ const countryConfig = new CrudConfigBuilder('https://example.com/api/countries',
 - The `onClick` function receives the current element data as a parameter, allowing you to perform actions based on the item's state or properties.
 - This approach is ideal for actions that directly modify the item without requiring user input.
 
+### Preventing Automatic Refresh with destructiveActionNames
+
+By default, after an action completes successfully, the `dile-crud-single` component automatically refreshes the item detail view to reflect any changes made by the action. However, when an action is destructive (e.g., deletion, archiving) or permanently alters the resource state, this automatic refresh is unnecessary and may cause errors.
+
+To prevent the automatic refresh for specific actions, use the `destructiveActionNames` configuration property. This property takes an array of action names that should be treated as destructive:
+
+```javascript
+const countryConfig = new CrudConfigBuilder('https://example.com/api/countries', {
+  // ... other config properties
+  destructiveActionNames: ['DeleteAction', 'ArchiveAction', 'ReviewAndDeleteAction'],
+});
+```
+
+When an action is listed in `destructiveActionNames`:
+- The automatic refresh is skipped after the action completes
+- The component assumes the resource no longer needs to be displayed or has been fundamentally altered
+- This prevents unnecessary API calls and potential errors when trying to reload a deleted resource
+
+**Default value:** `['DeleteAction']`
+
+This property works alongside your action definitions and `onActionSingleSuccess` handlers to give you fine-grained control over the component's behavior after actions are executed.
+
 ## Action Handlers in the Configuration
 
 Both the `dile-crud` and `dile-crud-single` components emit a `crud-action-success` custom event that can be captured in the component host tag, to create handlers affecting the application. However, when actions are executed, some operations may need to occur within the component itself, such as refreshing lists.
