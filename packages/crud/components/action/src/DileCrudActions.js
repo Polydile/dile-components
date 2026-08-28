@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 import { moreVertIcon } from '@dile/icons';
 import '@dile/ui/components/confirm/confirm.js';
 import '@dile/ui/components/select/select.js';
-import '../../ajax/ajax.js'
+import '@dile/ui/components/spinner/spinner-modal.js';
+import '../../ajax/ajax.js';
 import '../../ui/crud-list-options.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 import { ResponseApiAdapter } from '../../../lib/ResponseApiAdapter.js';
@@ -62,8 +63,9 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       endpoint: { type: String },
       actions: { type: Array },
       formActionsTemplate: { type: Object },
-      destructive: { type: Boolean, reflect: true, },
+      destructive: { type: Boolean, reflect: true },
       responseAdapter: { type: Object },
+      loading: { type: Boolean },
     };
   }
 
@@ -73,6 +75,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     this.actions = [];
     this.selection = 'DeleteAction';
     this.responseAdapter = new ResponseApiAdapter();
+    this.loading = false;
   }
 
   firstUpdated() {
@@ -85,7 +88,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
         ${this.ajaxTemplate}
         ${this.actionListTemplate}
         ${this.confirmActionTemplate}
-        `;
+        <dile-spinner-modal ?active=${this.loading}></dile-spinner-modal>
+    `;
   }
 
   get ajaxTemplate() {
@@ -119,7 +123,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
               ${this.actions.map(action => html`<option value="${action.name}">${action.label}</option>`)}
           </select>
       </dile-select>
-    `
+    `;
   }
 
   get confirmActionTemplate() {
@@ -169,15 +173,24 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     this.confirmElement.open();
     let listOptions = this.shadowRoot.querySelector('dile-crud-list-options');
     if (listOptions) {
-      listOptions.close()
+      listOptions.close();
     }
   }
 
   get selectedActionForm() {
-    return this.shadowRoot.querySelector(`[action="${this.selection}"]`)
+    return this.shadowRoot.querySelector(`[action="${this.selection}"]`);
   }
 
   doAction() {
+    this.loading = true;
+    this.dispatchEvent(new CustomEvent('crud-action-start', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        action: this.selection,
+        actionIds: this.actionIds,
+      }
+    }));
     let actionData = this.selectedActionForm.getData();
     this.ajaxAction.data = {
       type: this.selection,
@@ -188,6 +201,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
   }
 
   doSuccessAction(e) {
+    this.loading = false;
     this.selectedActionForm.resetData();
     this.selectedActionForm.clearErrors();
     this.confirmElement.close();
@@ -204,6 +218,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
   }
 
   doErrorAction(e) {
+    this.loading = false;
     this.responseAdapter.setResponse(e.detail);
     this.selectedActionForm.showErrors(e.detail.errors);  
     this.dispatchEvent(new CustomEvent('crud-action-error', {
@@ -217,11 +232,12 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
   }
 
   getActionForm() {
-    let actionForm = this.shadowRoot.querySelector(`[action="${this.selection}"]`)
+    let actionForm = this.shadowRoot.querySelector(`[action="${this.selection}"]`);
     return actionForm;
   }
 
   cancelAction() {
+    this.loading = false;
     this.selectedActionForm.clearErrors();
     this.selectedActionForm.resetData();
   }
