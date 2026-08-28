@@ -1,72 +1,64 @@
-import { html, css, LitElement } from "lit";
-import { DileInput } from '@dile/ui/components/input/index.js';
-import '@dile/ui/components/icon/icon.js';
-import { calendarIcon } from '@dile/icons/index.js';
+import { html, css } from "lit";
+import { DileInputIcon } from '@dile/ui/components/input/index.js';
+import '@dile/iconlib/lucide-icons/calendar.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
 
 import {
   formatDate,
 } from '@lion/ui/localize.js';
 
-export class DileDatepicker extends DileInput {
+export class DileDatepicker extends DileInputIcon {
   static get styles() {
     return [
       super.styles,
       css`
-      div.container {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem;
-      }
-      section.input {
-        flex-grow: 1;
-      }
-      .icon-container {
-        margin-top: var(--icon-container-margin-top, 0.5rem);
-      }
-      dile-icon {
-        cursor: pointer;
-        --dile-icon-size: var(--dile-datepicker-trigger-size, 36px);
-      }
-      dile-calendar {
-        font-size: var(--dile-datepicker-font-size, 0.9rem); 
-      }
-      dile-menu-overlay {
-        --dile-menu-overlay-width: var(--dile-datepicker-width, 280px);
-      }
-      dile-icon {
-        --dile-icon-color: var(--dile-datepicker-trigger-color, #39c);
-      }
-      dile-icon.trigger-disabled {
-        --dile-icon-color: var(--dile-datepicker-trigger-disabled-color, #ccc);
-      }
-      span {
-        display: flex;
-        margin-bottom: var(--dile-datepicker-trigger-margin-bottom, 0.2em);
-      }
-      @media(min-width: 350px) {
+        dile-calendar {
+          font-size: var(--dile-datepicker-font-size, 0.9rem); 
+        }
         dile-menu-overlay {
-          --dile-menu-overlay-width: var(--dile-datepicker-width, 300px);
-          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 300px);
-        } 
-      }
-      @media(min-width: 450px) {
-        dile-menu-overlay {
-          --dile-menu-overlay-width: var(--dile-datepicker-width, 320px);
-          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 320px);
-        } 
-      }
-      @media(min-width: 500px) {
-        dile-menu-overlay {
-          --dile-menu-overlay-width: var(--dile-datepicker-width, 350px);
-          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 350px);
-        } 
-      }
-    `];
+          display: flex;
+          align-items: center;
+          --dile-menu-overlay-width: var(--dile-datepicker-width, 280px);
+          --dile-menu-overlay-max-width: var(--dile-datepicker-width, 280px);
+        }
+        .trigger-container {
+          display: flex;
+          align-items: center;
+        }
+        .input-icon-btn {
+          --dile-input-icon-color: var(--dile-datepicker-trigger-color, var(--dile-on-background-color, #303030));
+          --dile-input-icon-size: var(--dile-datepicker-trigger-size, 20px);
+          --dile-input-icon-background-color: var(--dile-datepicker-trigger-background-color, transparent);
+          --dile-input-icon-hover-background-color: var(--dile-datepicker-trigger-hover-background-color, var(--dile-input-icon-hover-bg, rgba(0, 0, 0, 0.05)));
+        }
+        .input-icon-btn:disabled {
+          --dile-input-icon-color: var(--dile-datepicker-trigger-disabled-color, #ccc);
+        }
+        @media(min-width: 350px) {
+          dile-menu-overlay {
+            --dile-menu-overlay-width: var(--dile-datepicker-width, 300px);
+            --dile-menu-overlay-max-width: var(--dile-datepicker-width, 300px);
+          } 
+        }
+        @media(min-width: 450px) {
+          dile-menu-overlay {
+            --dile-menu-overlay-width: var(--dile-datepicker-width, 320px);
+            --dile-menu-overlay-max-width: var(--dile-datepicker-width, 320px);
+          } 
+        }
+        @media(min-width: 500px) {
+          dile-menu-overlay {
+            --dile-menu-overlay-width: var(--dile-datepicker-width, 350px);
+            --dile-menu-overlay-max-width: var(--dile-datepicker-width, 350px);
+          } 
+        }
+      `
+    ];
   }
   
   static get properties() {
     return {
+      ...super.properties,
       firstDayOfWeek: { type: Number },
       horizontalAlign: { type: String },
       verticalAlign: { type: String },
@@ -77,6 +69,7 @@ export class DileDatepicker extends DileInput {
 
   constructor() {
     super();
+    this.icon = 'lucide.calendar';
     this.firstDayOfWeek = 0;
     this.horizontalAlign = 'under_right';
     this.verticalAlign = 'center';
@@ -84,37 +77,25 @@ export class DileDatepicker extends DileInput {
     this.moveLeft = 0;
   }
 
-
-  render() {
+  renderIconButton() {
+    if (this.disabled) {
+      return super.renderIconButton();
+    }
     return html`
-      <div class="container">
-        <section class="input">
-          ${super.render()}
-        </section>
-        <div>
-          ${this.label
-            ? html`
-                <div class="label">
-                  &nbsp;
-                </div>
-              `
-            : ''
-          }
-          <span class="icon-container">
-            ${this.disabled 
-              ? html`<dile-icon class="trigger-disabled" .icon="${calendarIcon}"></dile-icon>`
-              : html`
-                <dile-menu-overlay moveTop="${this.moveTop}" moveLeft="${this.moveLeft}" verticalAlign="${this.verticalAlign}" horizontalAlign="${this.horizontalAlign}" id="menu">
-                  ${this.iconTemplate}
-                  <div slot="content" class="calendar">
-                    ${this.contentTemplate}
-                  </div>
-                </dile-menu-overlay>
-              `
-            }
-          </span>
+      <dile-menu-overlay 
+        moveTop="${this.moveTop}" 
+        moveLeft="${this.moveLeft}" 
+        verticalAlign="${this.verticalAlign}" 
+        horizontalAlign="${this.horizontalAlign}" 
+        id="menu"
+      >
+        <div slot="trigger" class="trigger-container">
+          ${super.renderIconButton()}
         </div>
-      </div>
+        <div slot="content" class="calendar">
+          ${this.contentTemplate}
+        </div>
+      </dile-menu-overlay>
     `;
   }
 
@@ -124,10 +105,6 @@ export class DileDatepicker extends DileInput {
     this.shadowRoot.getElementById('menu').close();
   }  
 
-  get iconTemplate() {
-    return html`<dile-icon .icon="${calendarIcon}" slot="trigger"></dile-icon>`
-  }
-
   get contentTemplate() {
     return html`
       <dile-calendar 
@@ -135,6 +112,6 @@ export class DileDatepicker extends DileInput {
         .firstDayOfWeek="${this.firstDayOfWeek}"
         @user-selected-date-changed=${this.showDate} 
       ></dile-calendar>
-    `
+    `;
   }
 }

@@ -145,8 +145,9 @@ The icon button can be customized using CSS custom properties:
 | `--dile-input-icon-padding` | Button padding | Inherits from `--dile-input-padding` |
 | `--dile-input-icon-margin` | Button margin | 0 5px |
 | `--dile-input-icon-color` | Icon color | Inherits from `--dile-input-color` |
-| `--dile-input-icon-width` | Button width | 32px |
-| `--dile-input-icon-height` | Button height | 32px |
+| `--dile-input-icon-background-color` | Button background color | transparent |
+| `--dile-input-icon-width` | Button width | auto (min 32px) |
+| `--dile-input-icon-height` | Button height | auto (min 32px) |
 | `--dile-input-icon-border-radius` | Button border radius | Inherits from `--dile-input-border-radius` |
 | `--dile-input-icon-transition` | Button transition | background-color 0.2s |
 | `--dile-input-icon-hover-bg` | Hover background color | rgba(0, 0, 0, 0.05) |

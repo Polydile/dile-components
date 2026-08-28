@@ -13,9 +13,11 @@ describe('dile-datetimepicker', () => {
     return el;
   }
 
-  it('renders the text input, calendar and time picker inside the overlay', async () => {
+  it('renders the text input, trigger icon, calendar and time picker inside the overlay', async () => {
     const el = await renderDatetimepicker('<dile-datetimepicker name="appointment"></dile-datetimepicker>');
     expect(el.shadowRoot.querySelector('input')).toBeTruthy();
+    expect(el.shadowRoot.querySelector('dile-iconlib')).toBeTruthy();
+    expect(el.icon).toBe('lucide.calendar-clock');
     expect(el.shadowRoot.querySelector('dile-calendar')).toBeTruthy();
     expect(el.shadowRoot.querySelector('dile-time-picker')).toBeTruthy();
   });

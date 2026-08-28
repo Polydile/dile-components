@@ -31,6 +31,12 @@
       --dile-datepicker-trigger-margin-bottom: 0.1em;
       --dile-datepicker-trigger-size: 50px;
     }
+    .custom-trigger-bg {
+      --dile-datepicker-trigger-color: #4338ca;
+      --dile-datepicker-trigger-background-color: #e0e7ff;
+      --dile-datepicker-trigger-hover-background-color: #c7d2fe;
+      --dile-input-icon-border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -43,6 +49,16 @@
         name="datepicker1" 
         id="datepicker1" 
         label="Date"
+      ></dile-datepicker>
+    </p>
+
+    <h2>Datepicker with custom trigger background & hover</h2>
+    <p>
+      <dile-datepicker 
+        name="datepicker_custom_bg" 
+        id="datepicker_custom_bg" 
+        class="custom-trigger-bg"
+        label="Booking Date"
       ></dile-datepicker>
     </p>
 
@@ -60,7 +76,7 @@
   
     <h2>Monday as first day</h2>
     <p>
-      <dile-datepicker firstDayOfWeek="1" name="datepicker2" id="datepicker2" label="Event date">Styled datepicker</dile-datepicker>
+      <dile-datepicker firstDayOfWeek="1" name="datepicker3" id="datepicker3" label="Event date">Styled datepicker</dile-datepicker>
     </p>
 
     <h2>Disabled datepicker</h2>

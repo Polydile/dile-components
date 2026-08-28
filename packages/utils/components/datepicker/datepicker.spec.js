@@ -17,7 +17,7 @@ describe('dile-datepicker', () => {
     const el = await renderDatepicker('<dile-datepicker name="birthdate" label="Birthdate"></dile-datepicker>');
     expect(el.shadowRoot.querySelector('input')).toBeTruthy();
     expect(el.shadowRoot.querySelector('dile-menu-overlay')).toBeTruthy();
-    expect(el.shadowRoot.querySelector('dile-icon')).toBeTruthy();
+    expect(el.shadowRoot.querySelector('dile-iconlib')).toBeTruthy();
   });
 
   it('updates value when a date is selected from the calendar', async () => {

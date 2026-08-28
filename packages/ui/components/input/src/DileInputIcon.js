@@ -28,7 +28,9 @@ export class DileInputIcon extends DileInput {
       ...super.styles,
       css`
         .input-icon-btn {
+          box-sizing: border-box;
           background: none;
+          background-color: var(--dile-input-icon-background-color, var(--dile-input-icon-bg, transparent));
           border: none;
           cursor: pointer;
           padding: var(--dile-input-icon-padding, var(--dile-input-padding, 5px));
@@ -37,16 +39,18 @@ export class DileInputIcon extends DileInput {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: var(--dile-input-icon-width, 32px);
-          height: var(--dile-input-icon-height, 32px);
+          width: var(--dile-input-icon-width, auto);
+          height: var(--dile-input-icon-height, auto);
+          min-width: var(--dile-input-icon-width, 32px);
+          min-height: var(--dile-input-icon-height, 32px);
           border-radius: var(--dile-input-icon-border-radius, var(--dile-input-border-radius, 5px));
           transition: var(--dile-input-icon-transition, background-color 0.2s);
         }
         .input-icon-btn:hover {
-          background-color: var(--dile-input-icon-hover-bg, rgba(0, 0, 0, 0.05));
+          background-color: var(--dile-input-icon-hover-background-color, var(--dile-input-icon-hover-bg, rgba(0, 0, 0, 0.05)));
         }
         .input-icon-btn:active {
-          background-color: var(--dile-input-icon-active-bg, rgba(0, 0, 0, 0.1));
+          background-color: var(--dile-input-icon-active-background-color, var(--dile-input-icon-active-bg, rgba(0, 0, 0, 0.1)));
         }
         .input-icon-btn:disabled {
           cursor: not-allowed;
@@ -71,42 +75,60 @@ export class DileInputIcon extends DileInput {
   }
 
   render() {
-    const inputType = this.type || 'text';
-    
     return html`
-    <div>
-      ${this.label
-        ? html`<label for="textField">${this.label}</label>`
-        : ''
-      }
-      <section class="for-input">
-        <input
-          type="${inputType}"
-          id="textField"
-          name="${this.name}"
-          placeholder="${this.placeholder}"
-          ?disabled="${this.disabled}"
-          ?readonly="${this.readonly}"
-          @keypress="${this._lookForEnter}"
-          @input="${this._input}"
-          @blur="${this.doBlur}"
-          @focus="${this.doFocus}"
-          .value="${this.value}"
-          class="${this.errored ? 'errored' : ''}"
-          autocomplete="${this.disableAutocomplete ? 'off' : 'on'}"
-          ?selectonfocus="${this.selectOnFocus}"
-        >
-        ${this.icon
-          ? this.renderIconButton()
-          : ''
-        }
-      </section>
-      ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
-        : ''
-      }
-    </div>
+      <main>
+        ${this.labelTemplate}
+        <section class="for-input">
+          ${this.inputTemplate}
+          ${this.icon ? this.renderIconButton() : ''}
+          ${this.labelRight ? html`<span class="labelright">${this.labelRight}</span>` : ''}
+        </section>
+        ${this.messageTemplate}
+      </main>
     `;
+  }
+
+  get labelTemplate() {
+    return this.label
+      ? html`<label for="textField">${this.label}</label>`
+      : '';
+  }
+
+  get inputTemplate() {
+    return html`
+      <input
+        type="${this.availableType(this.type)}"
+        id="textField"
+        name="${this.name}"
+        placeholder="${this.placeholder}"
+        ?disabled="${this.disabled}"
+        ?readonly="${this.readonly}"
+        autocomplete="${this.disableAutocomplete ? 'off' : 'on'}"
+        .value="${this.computeValue(this.value)}"
+        class="${this.errored ? 'errored' : ''}"
+        @keypress="${this._lookForEnter}"
+        @input="${this._input}"
+        @blur="${this.doBlur}"
+        @focus="${this.doFocus}"
+        ?selectonfocus="${this.selectOnFocus}"
+      >
+    `;
+  }
+
+  get iconTemplate() {
+    return this.renderIconlibIcon(this.icon);
+  }
+
+  get buttonTemplate() {
+    return html`<button
+      class="input-icon-btn"
+      type="button"
+      @click="${this._handleIconClick}"
+      ?disabled="${this.disabled}"
+      aria-label="Icon action button"
+    >
+      ${this.iconTemplate}
+    </button>`;
   }
 
   /**
@@ -137,15 +159,7 @@ export class DileInputIcon extends DileInput {
    * @returns {TemplateResult}
    */
   renderIconButton() {
-    const button = html`<button
-      class="input-icon-btn"
-      type="button"
-      @click="${this._handleIconClick}"
-      ?disabled="${this.disabled}"
-      aria-label="Icon action button"
-    >
-      ${this.renderIconlibIcon(this.icon)}
-    </button>`;
+    const button = this.buttonTemplate;
 
     // If tooltip is defined, wrap button with dile-tooltip
     if (this.tooltip) {

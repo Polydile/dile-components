@@ -20,6 +20,7 @@
   },
   "homepage": "https://dile-components.com/",
   "dependencies": {
+    "@dile/iconlib": "^1.8.1",
     "@dile/ui": "^3.6.4",
     "@lion/ui": "^0.11.2",
     "linkify-string": "^4.1.3",

@@ -1,7 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import { html, css } from 'lit';
 import { DileDatepicker } from './DileDatepicker.js';
-import { dateTimeIcon } from '@dile/icons';
+import '@dile/iconlib/lucide-icons/calendar-clock.js';
 import '@dile/ui/components/time-picker/time-picker.js';
+import '@dile/ui/components/icon/icon.js';
 import { doneIcon } from '@dile/icons';
 
 function formatToIsoOnlyDate(date) {
@@ -61,8 +62,10 @@ export class DileDatetimepicker extends DileDatepicker {
         }
     `];
   }
-  get iconTemplate() {
-    return html`<dile-icon .icon="${dateTimeIcon}" slot="trigger"></dile-icon>`
+
+  constructor() {
+    super();
+    this.icon = 'lucide.calendar-clock';
   }
 
   get contentTemplate() {
@@ -80,7 +83,7 @@ export class DileDatetimepicker extends DileDatepicker {
           <dile-icon rounded .icon=${doneIcon} @click=${this.acceptTime}></dile-icon>
         </div>
       </div>
-    `
+    `;
   }
 
   get eltime() {
@@ -92,7 +95,7 @@ export class DileDatetimepicker extends DileDatepicker {
   }
 
   showDateHandler(e) {
-    this.showDate(e.detail.selectedDate)
+    this.showDate(e.detail.selectedDate);
   }
 
   showDate(selectedDate) {
@@ -101,6 +104,7 @@ export class DileDatetimepicker extends DileDatepicker {
     this.value = `${date} ${time}`;
     this.elmenu.close();
   }
+
   acceptTime() {
     let date = this.shadowRoot.querySelector('dile-calendar').selectedDate;
     if(!date) {
