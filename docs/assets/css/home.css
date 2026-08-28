@@ -133,14 +133,7 @@ h1.homeh1 span {
   display: none;
 }
 
-.dark-theme .hero {
-  background: transparent;
-  border: none;
-}
 
-.dark-theme .hero::before {
-  display: none;
-}
 
 
 .hero-image img {
@@ -239,18 +232,6 @@ h1.homeh1 span {
     pointer-events: none;
   }
 
-  .dark-theme .hero {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
-    background-image: url('../../images/croco-cool-transparente.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 280px auto;
-    border: 2px solid rgba(34, 197, 94, 0.3);
-    border-radius: 1.5rem;
-    overflow: hidden;
-    min-height: 200px;
-  }
-
   .dark-theme .hero::before {
     display: block;
     background: radial-gradient(circle, rgba(132, 204, 22, 0.12) 0%, transparent 70%);
@@ -303,17 +284,7 @@ h1.homeh1 span {
     min-height: 200px;
   }
 
-  .dark-theme .hero {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
-    background-image: url('../../images/croco-cool-transparente.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 350px auto;
-    border: 2px solid rgba(34, 197, 94, 0.3);
-    border-radius: 1.5rem;
-    overflow: hidden;
-    min-height: 200px;
-  }
+
 
   h1.homeh1 span {
     font-size: 4.5rem;
@@ -401,17 +372,9 @@ background-position: right 100px center;
 background-position: right 150px center;
   }
 }
-@media(min-width: 450px) {
-  .dark-theme .hero {
-    background-image: url('../../images/croco-cool-transparente.svg');
-  }
-}
 
-@media(min-width: 680px) {
-  .dark-theme .hero {
-    background-image: url('../../images/croco-cool-transparente.svg');
-  }
-}
+
+
 
 @media(min-width: 1200px) {
 
