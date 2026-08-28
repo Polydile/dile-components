@@ -5,6 +5,7 @@ const MODAL_DEFAULT_MESSAGE = {
   icon: null,
   iconClass: null,
   label: 'Close',
+  items: [],
 }
 
 export const feedbackSlice = createSlice({

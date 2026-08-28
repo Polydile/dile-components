@@ -87,7 +87,14 @@ export const DileAppModalFeedback = (store) => class extends DileState(store)(Li
               : ''
             }
             
-            <div class="message">${this.incomingMsg?.message}</div>
+            <div class="message">
+              ${this.incomingMsg?.message}
+              ${this.incomingMsg?.items?.length
+                ? html`<ul class="items">
+                    ${this.incomingMsg.items.map(item => html`<li>${item}</li>`)}
+                  </ul>`
+                : ''}
+            </div>
           </div>
           <div class="actions">
             <dile-button class="cancel" @click="${this.close}">${this.incomingMsg?.label}</dile-button>

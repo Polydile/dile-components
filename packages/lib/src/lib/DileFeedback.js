@@ -49,13 +49,14 @@ export const DileFeedback = (store) => (Superclass) => class extends Superclass 
   stopLoading() {
     store.dispatch(stopLoading());
   }
-  modalFeedback(msg, label = "Close", icon = null) {
+  modalFeedback(msg, label = "Close", icon = null, items = []) {
     let selectedIcon = AVAILABLE_ICONS.find(item => item.name == icon);
     store.dispatch(modalMessage({
       message: msg,
       label,
       icon: selectedIcon?.icon,
-      iconClass: selectedIcon?.iconClass
+      iconClass: selectedIcon?.iconClass,
+      items,
     }));
   }
 

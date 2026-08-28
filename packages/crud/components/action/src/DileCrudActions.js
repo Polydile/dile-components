@@ -210,7 +210,8 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       bubbles: true,
       composed: true,
       detail: {
-        msg:this.responseAdapter.getActionResponseValidationErrorMessage(),
+        msg: this.responseAdapter.getActionResponseValidationErrorMessage(),
+        errors: this.responseAdapter.getValidationErrors(),
       }
     }));
   }
