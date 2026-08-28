@@ -37,6 +37,11 @@ export class DileConfirm extends LitElement {
         white-space: nowrap;
         display: inline-block;
       }
+      .actions a.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
     `;
   }
 
@@ -56,6 +61,7 @@ export class DileConfirm extends LitElement {
     this.cancelLabel = "Cancell";
     this.opened = false;
     this.blocking = false;
+    this._isProcessing = false;
   }
 
   render() {
@@ -68,10 +74,10 @@ export class DileConfirm extends LitElement {
       >
         <slot></slot>
         <div class="actions">
-          <a href="#" class="button cancel" @click="${this._cancelHandler}"
+          <a href="#" class="button cancel ${this._isProcessing ? 'disabled' : ''}" @click="${this._cancelHandler}"
             >${this.cancelLabel}</a
           >
-          <a href="#" class="button accept" @click="${this._acceptHandler}"
+          <a href="#" class="button accept ${this._isProcessing ? 'disabled' : ''}" @click="${this._acceptHandler}"
             >${this.acceptLabel}</a
           >
         </div>
@@ -81,10 +87,14 @@ export class DileConfirm extends LitElement {
 
   _cancelHandler(e) {
     e.preventDefault();
+    if (this._isProcessing) return;
+    this._isProcessing = true;
     this.cancel();
   }
   _acceptHandler(e) {
     e.preventDefault();
+    if (this._isProcessing) return;
+    this._isProcessing = true;
     this.accept();
   }
 
@@ -94,6 +104,7 @@ export class DileConfirm extends LitElement {
 
   close() {
     this.modal.close();
+    this._isProcessing = false;
   }
 
   firstUpdated() {
