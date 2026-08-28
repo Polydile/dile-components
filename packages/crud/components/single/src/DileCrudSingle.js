@@ -36,6 +36,17 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       .action-controller {
           margin-left: 0.5rem;
       }
+      dile-button.action-controller {
+        --dile-button-background-color: var(--dile-crud-direct-action-background-color, var(--dile-button-background-color, var(--dile-primary-color, #7BB93D)));
+        --dile-button-text-color: var(--dile-crud-direct-action-text-color, var(--dile-button-text-color, var(--dile-on-primary-color, #fff)));
+        --dile-button-border-color: var(--dile-crud-direct-action-border-color, var(--dile-button-border-color, var(--dile-primary-dark-color, #12354d)));
+        --dile-button-hover-background-color: var(--dile-crud-direct-action-hover-background-color, var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae)));
+        --dile-button-hover-text-color: var(--dile-crud-direct-action-hover-text-color, var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030)));
+        --dile-button-hover-border-color: var(--dile-crud-direct-action-hover-border-color, var(--dile-button-hover-border-color, var(--dile-primary-color, #666666)));
+        --dile-button-font-size: var(--dile-crud-direct-action-font-size, var(--dile-button-font-size, 1rem));
+        --dile-button-text-transform: var(--dile-crud-direct-action-text-transform, var(--dile-button-text-transform, none));
+        --dile-button-font-weight: var(--dile-crud-direct-action-font-weight, var(--dile-button-font-weight, bold));
+      }
       .statscontainer {
           margin: 0 1rem;
       }

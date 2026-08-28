@@ -98,6 +98,15 @@ Custom property | Description | Default
 --dile-crud-single-action-hover-background-color | Background color of the single action dispatcher button on hover | var(--dile-primary-light-color, #f3f3ae)
 --dile-crud-single-action-hover-text-color | Text color of the single action dispatcher button on hover | var(--dile-on-primary-light-color, #303030)
 --dile-crud-single-action-hover-border-color | Border color of the single action dispatcher button on hover | var(--dile-primary-color, #666666)
+--dile-crud-direct-action-background-color | Background color of direct single action buttons | var(--dile-button-background-color, var(--dile-primary-color, #7BB93D))
+--dile-crud-direct-action-text-color | Text color of direct single action buttons | var(--dile-button-text-color, var(--dile-on-primary-color, #fff))
+--dile-crud-direct-action-border-color | Border color of direct single action buttons | var(--dile-button-border-color, var(--dile-primary-dark-color, #12354d))
+--dile-crud-direct-action-hover-background-color | Background color of direct single action buttons on hover | var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae))
+--dile-crud-direct-action-hover-text-color | Text color of direct single action buttons on hover | var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030))
+--dile-crud-direct-action-hover-border-color | Border color of direct single action buttons on hover | var(--dile-button-hover-border-color, var(--dile-primary-color, #666666))
+--dile-crud-direct-action-font-size | Font size of direct single action buttons | var(--dile-button-font-size, 1rem)
+--dile-crud-direct-action-text-transform | Text transform of direct single action buttons | var(--dile-button-text-transform, none)
+--dile-crud-direct-action-font-weight | Font weight of direct single action buttons | var(--dile-button-font-weight, bold)
 
 
 ## Generating CRUD Components for Entities with the CLI
