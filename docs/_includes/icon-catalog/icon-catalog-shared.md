@@ -106,17 +106,64 @@ class DemoIconUsageModal extends LitElement {
       --dile-modal-width: 90%;
       --dile-modal-max-width: 690px;
     }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
     .icon-preview svg {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       color: #444;
+      display: block;
+    }
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .header-info h2 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+    .quick-copy {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .copy-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #f0f4f8;
+      border: 1px solid #d0dbe5;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #24292f;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .copy-chip code {
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .copy-chip:hover {
+      background: #e1ebf5;
+      border-color: #b0c4de;
+    }
+    .copy-chip .copy-icon {
+      --dile-icon-size: 14px;
+      --dile-icon-color: #555;
+    }
+    .copy-chip:hover .copy-icon {
+      --dile-icon-color: #0066cc;
     }
     .usage-content {
       font-size: 0.85rem;
-    }
-    .usage-content h2 {
-      font-size: 1.15rem;
-      margin: 0.4rem 0;
     }
     .usage-content h3 {
       font-size: 0.95rem;
@@ -129,6 +176,9 @@ class DemoIconUsageModal extends LitElement {
       display: block;
       --dile-copy-text-hover-color: inherit;
       --dile-copy-text-hover-text-decoration: none;
+    }
+    .quick-copy dile-copy-text {
+      display: inline-block;
     }
     .code-block {
       display: flex;
@@ -185,14 +235,33 @@ class DemoIconUsageModal extends LitElement {
 
   usageTemplate(icon) {
     const libraryDocsUrl = LIBRARY_DOCS_URL[icon.library];
+    const fullName = `${icon.library}.${icon.name}`;
     const installCommand = 'npm install @dile/iconlib';
     const importStatement = `import '${icon.import}';`;
     const specificTag = `<${icon.tag}></${icon.tag}>`;
-    const genericTag = `<dile-iconlib icon="${icon.library}.${icon.name}"></dile-iconlib>`;
+    const genericTag = `<dile-iconlib icon="${fullName}"></dile-iconlib>`;
     return html`
       <div class="usage-content">
-        <span class="icon-preview">${unsafeSVG(icon.svg)}</span>
-        <h2>${icon.name} icon</h2>
+        <div class="header">
+          <span class="icon-preview">${unsafeSVG(icon.svg)}</span>
+          <div class="header-info">
+            <h2>${icon.name} icon</h2>
+            <div class="quick-copy">
+              <dile-copy-text content="${icon.name}" feedbackText="Copied icon name!">
+                <span class="copy-chip" title="Copy icon name">
+                  <dile-icon class="copy-icon" .icon="${contentCopyIcon}"></dile-icon>
+                  <code>${icon.name}</code>
+                </span>
+              </dile-copy-text>
+              <dile-copy-text content="${fullName}" feedbackText="Copied full icon identifier!">
+                <span class="copy-chip" title="Copy full identifier (${icon.library}.${icon.name})">
+                  <dile-icon class="copy-icon" .icon="${contentCopyIcon}"></dile-icon>
+                  <code>${fullName}</code>
+                </span>
+              </dile-copy-text>
+            </div>
+          </div>
+        </div>
 
         <h3>1. Install the package</h3>
         <dile-copy-text content="${installCommand}">
