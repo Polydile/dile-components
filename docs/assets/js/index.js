@@ -2,6 +2,12 @@ import './prism.js'
 import './theme-builder/theme-builder.js';
 import '@dile/iconlib/lucide-icons/copy.js';
 import '@dile/iconlib/lucide-icons/arrow-big-right.js';
+import '@dile/iconlib/lucide-icons/globe.js';
+import '@dile/iconlib/lucide-icons/palette.js';
+import '@dile/iconlib/lucide-icons/feather.js';
+import '@dile/iconlib/lucide-icons/check-check.js';
+import '@dile/iconlib/lucide-icons/layers.js';
+import '@dile/iconlib/lucide-icons/book-open.js';
 import '@dile/ui/components/card/card.js';
 import '@dile/ui/components/avatar/avatar';
 import '@dile/ui/components/menu-hamburger/menu-hamburger';
