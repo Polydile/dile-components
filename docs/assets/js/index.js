@@ -44,6 +44,8 @@ import '@dile/ui/components/select/select.js';
 import '@dile/ui/components/copy-text/copy-text.js';
 import '@dile/ui/components/copy-markdown-url/copy-markdown-url.js';
 import '@dile/ui/components/color-picker/color-picker.js';
+import '@dile/iconlib/dile-fontawesome-badge.js';
+import '@dile/iconlib/fontawesome-icons/github.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {
