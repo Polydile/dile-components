@@ -29,4 +29,29 @@ describe('dile-confirm', () => {
 
     expect(accepted).toBe(true);
   });
+
+  it('handles dontCloseOnAccept and can be reset with resetProcessing()', async () => {
+    const el = await renderConfirm('<dile-confirm dontCloseOnAccept>Are you sure?</dile-confirm>');
+    let acceptCount = 0;
+    el.addEventListener('dile-confirm-accepted', () => { acceptCount++; });
+
+    el.shadowRoot.querySelector('.accept').click();
+    await el.updateComplete;
+    expect(acceptCount).toBe(1);
+    expect(el._isProcessing).toBe(true);
+    expect(el.shadowRoot.querySelector('.accept').classList.contains('disabled')).toBe(true);
+
+    // Clicking again while processing should not trigger accept
+    el.shadowRoot.querySelector('.accept').click();
+    expect(acceptCount).toBe(1);
+
+    // Calling resetProcessing should unlock the buttons
+    el.resetProcessing();
+    await el.updateComplete;
+    expect(el._isProcessing).toBe(false);
+    expect(el.shadowRoot.querySelector('.accept').classList.contains('disabled')).toBe(false);
+
+    el.shadowRoot.querySelector('.accept').click();
+    expect(acceptCount).toBe(2);
+  });
 });

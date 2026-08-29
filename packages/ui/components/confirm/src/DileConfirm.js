@@ -52,6 +52,7 @@ export class DileConfirm extends LitElement {
       cancelLabel: { type: String },
       blocking: { type: Boolean },
       dontCloseOnAccept: { type: Boolean },
+      _isProcessing: { state: true },
     };
   }
 
@@ -61,6 +62,7 @@ export class DileConfirm extends LitElement {
     this.cancelLabel = "Cancell";
     this.opened = false;
     this.blocking = false;
+    this.dontCloseOnAccept = false;
     this._isProcessing = false;
   }
 
@@ -100,10 +102,15 @@ export class DileConfirm extends LitElement {
 
   open() {
     this.modal.open();
+    this._isProcessing = false;
   }
 
   close() {
     this.modal.close();
+    this._isProcessing = false;
+  }
+
+  resetProcessing() {
     this._isProcessing = false;
   }
 

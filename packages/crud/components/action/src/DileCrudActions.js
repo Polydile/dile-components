@@ -219,6 +219,9 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   doErrorAction(e) {
     this.loading = false;
+    if (this.confirmElement) {
+      this.confirmElement.resetProcessing();
+    }
     this.responseAdapter.setResponse(e.detail);
     this.selectedActionForm.showErrors(e.detail.errors);  
     this.dispatchEvent(new CustomEvent('crud-action-error', {
@@ -238,6 +241,9 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   cancelAction() {
     this.loading = false;
+    if (this.confirmElement) {
+      this.confirmElement.resetProcessing();
+    }
     this.selectedActionForm.clearErrors();
     this.selectedActionForm.resetData();
   }
