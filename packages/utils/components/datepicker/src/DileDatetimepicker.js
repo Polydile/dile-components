@@ -51,6 +51,22 @@ export class DileDatetimepicker extends DileDatepicker {
           display: flex;
           align-items: center;
         }
+        .accept-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: none;
+          padding: 0;
+          margin: 0;
+          cursor: pointer;
+          border-radius: 50%;
+          outline: none;
+        }
+        .accept-button:focus-visible {
+          outline: 2px solid var(--dile-datetimepicker-accept-focus-ring-color, var(--dile-primary-color, #2563eb));
+          outline-offset: 2px;
+        }
         .time-area dile-icon {
           --dile-icon-size: var(--dile-datetimepicker-accept-icon-size, 24px);
           --dile-icon-color: var(--dile-datetimepicker-accept-icon-color, var(--dile-on-primary-color, #888));
@@ -63,9 +79,17 @@ export class DileDatetimepicker extends DileDatepicker {
     `];
   }
 
+  static get properties() {
+    return {
+      ...super.properties,
+      acceptLabel: { type: String },
+    };
+  }
+
   constructor() {
     super();
     this.icon = 'lucide.calendar-clock';
+    this.acceptLabel = 'Accept date and time';
   }
 
   get contentTemplate() {
@@ -80,7 +104,15 @@ export class DileDatetimepicker extends DileDatepicker {
           <span>
             <dile-time-picker></dile-time-picker>
           </span>
-          <dile-icon rounded .icon=${doneIcon} @click=${this.acceptTime}></dile-icon>
+          <button 
+            type="button" 
+            class="accept-button" 
+            aria-label="${this.acceptLabel}" 
+            title="${this.acceptLabel}"
+            @click=${this.acceptTime}
+          >
+            <dile-icon rounded .icon=${doneIcon}></dile-icon>
+          </button>
         </div>
       </div>
     `;

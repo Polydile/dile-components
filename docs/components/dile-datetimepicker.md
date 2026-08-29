@@ -32,6 +32,10 @@ Use the component:
 This component inherits all properties from [`dile-datepicker`](/components/dile-datepicker/).
 In addition, the selected value will have the format `"YYYY-MM-DD HH:mm:ss"`.
 
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `acceptLabel` | `String` | `'Accept date and time'` | Accessible label (`aria-label` and `title`) for the confirmation button |
+
 ## Methods
 
 Inherits all methods from [`dile-datepicker`](/components/dile-datepicker/).
@@ -49,6 +53,7 @@ In addition to all CSS Custom Properties from [`dile-datepicker`](/components/di
 | --dile-datetimepicker-accept-icon-size             | Size of the accept icon                     | 24px                               |
 | --dile-datetimepicker-accept-icon-color            | Color of the accept icon                    | var(--dile-on-primary-color, #888) |
 | --dile-datetimepicker-accept-icon-background-color | Background color of the rounded accept icon | var(--dile-primary-color, #f4f4f4) |
+| --dile-datetimepicker-accept-focus-ring-color      | Focus outline color for the accept button   | var(--dile-primary-color, #2563eb) |
 
 ## Examples
 
