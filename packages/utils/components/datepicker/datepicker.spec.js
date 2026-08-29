@@ -20,14 +20,26 @@ describe('dile-datepicker', () => {
     expect(el.shadowRoot.querySelector('dile-iconlib')).toBeTruthy();
   });
 
-  it('updates value when a date is selected from the calendar', async () => {
+  it('updates value when a date is selected from the calendar and closes overlay', async () => {
     const el = await renderDatepicker('<dile-datepicker name="birthdate"></dile-datepicker>');
     const calendar = el.shadowRoot.querySelector('dile-calendar');
+    const menu = el.shadowRoot.getElementById('menu');
+
     calendar.dispatchEvent(new CustomEvent('user-selected-date-changed', {
       detail: { selectedDate: new Date(2024, 0, 15) },
+      bubbles: true,
+      composed: true,
     }));
     await el.updateComplete;
 
     expect(el.value).toBeTruthy();
+    expect(menu._overlayClass).toBe('');
+  });
+
+  it('passes firstDayOfWeek to the dile-calendar child', async () => {
+    const el = await renderDatepicker('<dile-datepicker name="birthdate" firstDayOfWeek="1"></dile-datepicker>');
+    await el.updateComplete;
+    const calendar = el.shadowRoot.querySelector('dile-calendar');
+    expect(calendar.firstDayOfWeek).toBe(1);
   });
 });

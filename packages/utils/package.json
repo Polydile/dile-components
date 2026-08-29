@@ -22,7 +22,7 @@
   "dependencies": {
     "@dile/iconlib": "^1.8.1",
     "@dile/ui": "^3.6.6",
-    "@lion/ui": "^0.11.2",
+    "@lion/ui": "^0.21.0",
     "linkify-string": "^4.1.3",
     "linkifyjs": "^4.1.3",
     "lit": "^2.7.0 || ^3.0.0"
