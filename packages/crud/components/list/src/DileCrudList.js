@@ -41,6 +41,20 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 padding: var(--dile-crud-list-empty-padding, 3rem 1rem);
                 text-align: var(--dile-crud-list-empty-text-align, center);
             }
+
+            .error {
+                padding: var(--dile-crud-list-error-padding, 3rem 1rem);
+                text-align: var(--dile-crud-list-error-text-align, center);
+                background-color: var(--dile-crud-list-error-background-color, #fff3cd);
+                border: var(--dile-crud-list-error-border, 1px solid #ffc107);
+                border-radius: var(--dile-crud-list-error-border-radius, 4px);
+                color: var(--dile-crud-list-error-color, #333);
+            }
+
+            .error p {
+                margin: 0 0 1rem 0;
+                font-size: var(--dile-crud-list-error-font-size, 1rem);
+            }
             
             @media(min-width: 500px) {
                 .prev-summary {
@@ -74,6 +88,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         belongsTo: { type: String },
         relationId: { type: String },
         disableLoadOnStart: { type: Boolean },
+        listError: { type: Object },
       };
     }
 
@@ -90,6 +105,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.isSelectAllActive = false;
         this.loading = true;
         this.disableLoadOnStart = false;
+        this.listError = null;
     }
 
     firstUpdated() {
@@ -109,14 +125,16 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
             ${this.filterListTemplate}
 
-            ${this.loading 
-                ? this.loadingTemplate 
-                : this.elements.length == 0
-                    ? this.emptyTemplate
-                    : html`
-                        ${this.elementsTemplate}
-                        ${this.config.customization?.hidePageReport ? '' : this.paginationTemplate}
-                    `
+            ${this.listError
+                ? this.errorTemplate
+                : this.loading 
+                    ? this.loadingTemplate 
+                    : this.elements.length == 0
+                        ? this.emptyTemplate
+                        : html`
+                            ${this.elementsTemplate}
+                            ${this.config.customization?.hidePageReport ? '' : this.paginationTemplate}
+                        `
             }
         `;
     }
@@ -170,6 +188,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 belongsTo=${this.belongsTo}
                 relationId=${this.relationId}
                 @crud-list-get-success=${this.getSuccess}
+                @crud-list-data-error=${this.onListError}
                 language="${this.language}"
             ></dile-crud-list-service>
             <dile-ajax
@@ -196,6 +215,19 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         </p>
                       `
                 }
+            </div>
+        `;
+    }
+
+    get errorTemplate() {
+        return html`
+            <div class="error">
+                <p>${this.translations.list_load_error}</p>
+                <p>
+                    <dile-button @click=${this.retryLoadList}>
+                        ${this.translations.retry_label}
+                    </dile-button>
+                </p>
             </div>
         `;
     }
@@ -371,5 +403,15 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             this.shadowRoot.querySelector('dile-crud-select-all').resetWithoutDispatch();
         }
         
+    }
+
+    onListError(e) {
+        this.loading = false;
+        this.listError = e.detail;
+    }
+
+    retryLoadList() {
+        this.listError = null;
+        this.refresh();
     }
 }

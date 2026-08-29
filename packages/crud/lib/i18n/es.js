@@ -70,4 +70,6 @@ export const translations = {
   confirm_submit_text: "¿Estás seguro de que deseas enviar este formulario?",
   add_relation_label: "Añadir",
   select_relation_placeholder: "Selecciona...",
+  list_load_error: "Error al cargar la lista. Por favor, intenta de nuevo.",
+  retry_label: "Reintentar",
 };

@@ -70,4 +70,6 @@ export const translations = {
   confirm_submit_text: "Are you sure you want to submit this form?",
   add_relation_label: "Add",
   select_relation_placeholder: "Select...",
+  list_load_error: "Error loading the list. Please try again.",
+  retry_label: "Retry",
 };
