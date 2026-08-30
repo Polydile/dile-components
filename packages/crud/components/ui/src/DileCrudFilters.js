@@ -35,30 +35,46 @@ export class DileCrudFilters extends DileI18nMixin(LitElement) {
     }
 
     removeFilter(filterName) {
-        this.shadowRoot.getElementById('elform').resetField(filterName);
-    }
+        const form = this.shadowRoot.getElementById('elform');
+        if (form) {
+            form.clearField(filterName);
+        }
 
-    filtersChanged(e) {
-        let data = e.detail.data;
         this.filters = this.filters.map(filter => {
-            if (filter.name in data) {
-                switch(filter.type) {
-                    case 'select':
-                    case 'select_ajax':
-                        if(data[filter.name] === '') {
-                            filter.active = false;
-                        } else {
-                            filter.active = true;
-                            filter.value = data[filter.name];
-                        }
-                        break;
-                    default:
-                        filter.active = data[filter.name];
-                        filter.value = data[filter.name];
-                }
+            if (filter.name === filterName) {
+                const isSelectType = filter.type === 'select' || filter.type === 'select_ajax';
+                this.setFilterValue(filter, isSelectType ? '' : false);
             }
             return filter;
         });
+        this.dispatchFiltersChanged();
+    }
+
+    filtersChanged(e) {
+        const data = e.detail.data;
+        this.filters = this.filters.map(filter => {
+            if (filter.name in data) {
+                this.setFilterValue(filter, data[filter.name]);
+            }
+            return filter;
+        });
+        this.dispatchFiltersChanged();
+    }
+
+    setFilterValue(filter, value) {
+        switch (filter.type) {
+            case 'select':
+            case 'select_ajax':
+                filter.active = value !== '';
+                filter.value = value;
+                break;
+            default:
+                filter.active = value;
+                filter.value = value;
+        }
+    }
+
+    dispatchFiltersChanged() {
         this.dispatchEvent(new CustomEvent('filters-changed', {
             bubbles: true,
             composed: true,

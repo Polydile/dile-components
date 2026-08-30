@@ -137,6 +137,17 @@ export const DileForm = (superclass) => class extends superclass {
     }
   }
 
+  clearField(name) {
+    const node = this.getNodeElement(name);
+    if (node) {
+      if (typeof node.clear === "function") {
+        node.clear();
+      } else {
+        node.value = '';
+      }
+    }
+  }
+
   showError(name, error) {
     const parts = name.split('.');
     

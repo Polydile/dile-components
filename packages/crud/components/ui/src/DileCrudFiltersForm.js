@@ -43,11 +43,11 @@ export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElemen
     switch (filter.type) {
       case 'select':
         return html`
-            <dile-select label="${filter.label}" name="${filter.name}" value="">
+            <dile-select label="${filter.label}" name="${filter.name}" value="${filter.value ?? ''}">
                 <select slot="select">
                     <option value="">-</option>
                     ${filter.options.map(option => html`
-                        <option value="${option.value}">${option.label}</option>
+                        <option value="${option.value}" ?selected=${filter.value === option.value}>${option.label}</option>
                     `)}
                 </select>
             </dile-select>

@@ -112,6 +112,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.pageSize = this.config.pageSize?.initial ?? this.pageSize;
         this.elservice = this.shadowRoot.getElementById('elservice');
         this.ajaxgetallids = this.shadowRoot.getElementById('ajaxgetallids');
+
+        const activeFilters = (this.config?.availableFilters || []).filter(filter => filter.active);
+        if (activeFilters.length > 0) {
+            this.filters = activeFilters;
+        }
+
         if(!this.disableLoadOnStart) {
             this.updateComplete.then( () => this.refresh()); 
         }
