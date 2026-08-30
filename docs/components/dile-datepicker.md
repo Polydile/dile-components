@@ -55,6 +55,16 @@ In addition, the datepicker has this extra properties:
 - **moveTop**: position distance to top (see [dile-menu-overlay](/components/dile-menu-overlay) component)
 - **moveLeft**: position distance to left (see [dile-menu-overlay](/components/dile-menu-overlay) component)
 
+## Methods
+
+- **openDatepicker()**: Opens the datepicker overlay programmatically.
+- **closeDatepicker()**: Closes the datepicker overlay programmatically.
+- **close()**: Closes the datepicker overlay. Also used internally when pressing the Esc key.
+
+## Keyboard Support
+
+The datepicker automatically closes when the user presses the **Esc** key while the calendar overlay is open.
+
 ## CSS Custom Properties
 
 For dile-datepicker:

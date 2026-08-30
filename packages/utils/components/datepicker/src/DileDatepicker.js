@@ -1,5 +1,6 @@
 import { html, css } from "lit";
 import { DileInputIcon } from '@dile/ui/components/input/index.js';
+import { DileCloseOnEscPressed } from '@dile/ui/mixins/close-on-esc-pressed';
 import '@dile/iconlib/lucide-icons/calendar.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
 
@@ -7,7 +8,7 @@ import {
   formatDate,
 } from '@lion/ui/localize.js';
 
-export class DileDatepicker extends DileInputIcon {
+export class DileDatepicker extends DileCloseOnEscPressed(DileInputIcon) {
   static get styles() {
     return [
       super.styles,
@@ -64,6 +65,7 @@ export class DileDatepicker extends DileInputIcon {
       verticalAlign: { type: String },
       moveTop: { type: Number },
       moveLeft: { type: Number },
+      opened: { type: Boolean },
     };
   }
 
@@ -75,6 +77,7 @@ export class DileDatepicker extends DileInputIcon {
     this.verticalAlign = 'center';
     this.moveTop = 0;
     this.moveLeft = 0;
+    this.opened = false;
   }
 
   renderIconButton() {
@@ -88,6 +91,8 @@ export class DileDatepicker extends DileInputIcon {
         verticalAlign="${this.verticalAlign}" 
         horizontalAlign="${this.horizontalAlign}" 
         id="menu"
+        @overlay-opened="${this.overlayOpenedHandler}"
+        @overlay-closed="${this.overlayClosedHandler}"
       >
         <div slot="trigger" class="trigger-container">
           ${super.renderIconButton()}
@@ -99,11 +104,40 @@ export class DileDatepicker extends DileInputIcon {
     `;
   }
 
+  overlayOpenedHandler() {
+    this.opened = true;
+  }
+
+  overlayClosedHandler() {
+    this.opened = false;
+  }
+
   showDate(e) {
     let date = formatDate(e.detail.selectedDate);
     this.value = date;
-    this.shadowRoot.getElementById('menu').close();
-  }  
+    const menu = this.shadowRoot.getElementById('menu');
+    if (menu) {
+      menu.close();
+    }
+  }
+  
+  close() {
+    const menu = this.shadowRoot.getElementById('menu');
+    if (menu) {
+      menu.close();
+    }
+  }
+  
+  openDatepicker() {
+    const menu = this.shadowRoot.getElementById('menu');
+    if (menu) {
+      menu.open();
+    }
+  }
+  
+  closeDatepicker() {
+    this.close();
+  }
 
   get contentTemplate() {
     return html`

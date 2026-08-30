@@ -82,10 +82,6 @@ export const DileOverlay = function(superClass) {
     * closes the overlay
     */
     close() {
-      this.dispatchEvent(new CustomEvent('overlay-closed', {
-        bubbles: true,
-        composed: true,
-      }));
       if(!this._opening && this._overlayClass=='opened') {
         this._overlayClass = '';
         this._removePositionListeners();
@@ -93,6 +89,10 @@ export const DileOverlay = function(superClass) {
         this.delayId = setTimeout(() => {
           this.overlay.style.display = 'none'
         }, 500);
+        this.dispatchEvent(new CustomEvent('overlay-closed', {
+        bubbles: true,
+        composed: true,
+      }));
       }
     }
     /**
