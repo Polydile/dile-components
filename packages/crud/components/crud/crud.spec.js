@@ -90,4 +90,45 @@ describe('dile-crud initial filters', () => {
     expect(el.listElement.filters[0].active).toBe(false);
     expect(el.listElement.filters[0].value).toBe('');
   });
+
+  it('keeps an inactive select filter inactive when config uses the false sentinel', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/countries', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch: true,
+        disableSort: true,
+        disableFilter: false,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+      availableFilters: [
+        {
+          name: 'continent',
+          label: 'Continent',
+          active: false,
+          value: false,
+          type: 'select',
+          options: [
+            { value: 'Europe', label: 'Europe' },
+            { value: 'Asia', label: 'Asia' },
+          ],
+        },
+      ],
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+    await Promise.resolve();
+
+    expect(el.listElement.filters).toHaveLength(0);
+
+    const filtersForm = el.shadowRoot
+      .querySelector('dile-crud-filters')
+      .shadowRoot.querySelector('dile-crud-filters-form');
+    const select = filtersForm.shadowRoot.querySelector('dile-select');
+    expect(select.value).toBe('');
+  });
 });
