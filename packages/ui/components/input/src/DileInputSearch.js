@@ -19,21 +19,51 @@ export class DileInputSearch extends LitElement {
             }
             div:focus-within {
                 border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
+                /* Outline adicional para mayor visibilidad */
+                outline: 2px solid var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
+                outline-offset: 2px;
             }
             input {
                 flex-grow: 1;
                 border: none;
-                outline: none;
                 color: var(--dile-input-color, #303030);
                 font-size: var(--dile-input-font-size, 1em);
                 line-height: var(--dile-input-line-height, 1.5em);
                 background-color: var(--dile-input-background-color, #fff);
+                padding: 2px 4px;
+            }
+            input:focus {
+                outline: none;
             }
             input::placeholder {
-              color: var(--dile-input-placeholder-color, #ccc);
+              /* WCAG AA contrast: #666 sobre #fff = 7.5:1 */
+              color: var(--dile-input-placeholder-color, #666);
+            }
+            .icon-button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 4px;
+                margin-left: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 3px;
+                color: var(--dile-input-color, #303030);
+                font-size: 1em;
+            }
+            .icon-button:focus {
+                outline: 2px solid var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
+                outline-offset: 1px;
+            }
+            .icon-button:hover:not(:disabled) {
+                background-color: var(--dile-input-hover-background, rgba(0,0,0,0.05));
+            }
+            .icon-button:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
             }
             dile-icon {
-                margin-left: 1px;
                 display: flex;
             }
             :host([disabled]) {
@@ -41,6 +71,12 @@ export class DileInputSearch extends LitElement {
             }
             .errored {
                 border-color: var(--dile-input-error-border-color, #c00);
+            }
+            .error-message {
+                color: var(--dile-input-error-border-color, #c00);
+                font-size: 0.875em;
+                margin-top: 4px;
+                padding: 4px 0;
             }
         `
     ];
@@ -72,6 +108,10 @@ export class DileInputSearch extends LitElement {
     }
 
     render() {
+        const iconLabel = this.value.length 
+            ? 'Limpiar búsqueda'
+            : 'Buscar';
+        
         return html`
         <div class="${this.errored ? "errored" : ""}">
             <input 
@@ -83,12 +123,29 @@ export class DileInputSearch extends LitElement {
                 .value="${this.value}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readOnly}"
+                aria-label="${this.name || 'Búsqueda'}"
+                ?aria-invalid="${this.errored}"
+                aria-describedby="${this.errored ? 'error-msg' : null}"
             >
-            <dile-icon 
+            <button
               @click=${this.iconClick}
-              .icon="${this.value.length ? clearIcon : searchIcon}"
-            ></dile-icon>
+              @keydown=${this.iconKeydown}
+              class="icon-button"
+              aria-label="${iconLabel}"
+              type="button"
+              ?disabled="${this.disabled}"
+            >
+              <dile-icon 
+                .icon="${this.value.length ? clearIcon : searchIcon}"
+                aria-hidden="true"
+              ></dile-icon>
+            </button>
         </div>
+        ${this.errored ? html`
+          <div id="error-msg" class="error-message" role="alert">
+            <slot name="error"></slot>
+          </div>
+        ` : ''}
         `;
     }
 
@@ -105,6 +162,15 @@ export class DileInputSearch extends LitElement {
     iconClick(e) {
         this.clear();
         this.input.focus();
+    }
+
+    iconKeydown(e) {
+        // Permitir Space y Enter para activar el icono
+        if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            this.clear();
+            this.input.focus();
+        }
     }
 
     dispatchSearch(key) {
