@@ -13,6 +13,8 @@
     "test:components": "vitest run",
     "test:components:watch": "vitest",
     "lerna": "lerna",
+    "yalc:publish:all": "lerna exec --concurrency 1 --stream -- yalc publish",
+    "yalc:push:all": "lerna exec --concurrency 1 --stream -- yalc publish --push",
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy && node llm/generate-llms_txt.js",
     "generate:lucide-icons": "node icons-generators/generate-lucide-icon-components.js",

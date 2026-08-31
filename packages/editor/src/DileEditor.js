@@ -310,27 +310,24 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
     if (!this.editor || !this.textarea) {
       return;
     }
+
+    this._pendingEditorValue = value;
+
     if (this.initialized) {
-      this.editor.updateEditorContent(value);
-      this.textarea.value = value;
-    } else {
-      const pendingValue = value;
-      const retry = () => {
-        if (this.initialized && this.editor && this.textarea) {
-          this.editor.updateEditorContent(pendingValue);
-          this.textarea.value = pendingValue;
-          return;
-        }
-        if (this._editorUpdateRetry) {
-          clearTimeout(this._editorUpdateRetry);
-        }
-        this._editorUpdateRetry = setTimeout(retry, 100);
-      };
-      if (this._editorUpdateRetry) {
-        clearTimeout(this._editorUpdateRetry);
-      }
-      this._editorUpdateRetry = setTimeout(retry, 100);
+      this.flushPendingEditorValue();
+      return;
     }
+  }
+
+  flushPendingEditorValue() {
+    if (!this.editor || !this.textarea || this._pendingEditorValue === undefined) {
+      return;
+    }
+
+    const value = this._pendingEditorValue;
+    this.editor.updateEditorContent(value);
+    this.textarea.value = value;
+    this._pendingEditorValue = undefined;
   }
 
   get isValueExternalyUpdated() {
@@ -358,6 +355,7 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
 
   setInitialized() {
     this.initialized = true;
+    this.flushPendingEditorValue();
   }
 
   focus() {

@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import './editor.js';
 
 describe('dile-editor', () => {
@@ -52,5 +52,21 @@ describe('dile-editor', () => {
     await el.updateComplete;
 
     expect(el.value).toBe('Hello world');
+  });
+
+  it('applies only the latest external value when initialization finishes', async () => {
+    const el = await renderEditor();
+    const calls = [];
+
+    el.editor = { updateEditorContent: (value) => calls.push(value) };
+    el.textarea = { value: '' };
+    el.initialized = false;
+
+    el.updateEditorContent('first draft');
+    el.updateEditorContent('final draft');
+    el.setInitialized();
+
+    expect(calls).toEqual(['final draft']);
+    expect(el.textarea.value).toBe('final draft');
   });
 });
