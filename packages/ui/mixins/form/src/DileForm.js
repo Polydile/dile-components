@@ -20,11 +20,11 @@ export const DileForm = (superclass) => class extends superclass {
     };
   }
 
-  firstUpdated() {
+  async firstUpdated() {
     super.firstUpdated();
     this.firstValue = this.getData();
     if(this.setOnInit) {
-      this.setData(this.setOnInit);
+      await this.setData(this.setOnInit);
     }
   }
 
@@ -32,6 +32,7 @@ export const DileForm = (superclass) => class extends superclass {
     let data = {};
     this.allNodeElements.forEach(node => {
       const name = node.getAttribute('name');
+      if (!name) return;
       const isArray = name.endsWith('[]');
       const fieldName = isArray ? name.slice(0, -2) : name;
       
@@ -47,16 +48,18 @@ export const DileForm = (superclass) => class extends superclass {
     return this.adaptDataOut(data);
   }
 
-  setData(data) {
+  async setData(data) {
+    await this.updateComplete;
     const adaptedData = this.adaptDataIn(data);
-    this.allNodeElements.forEach(node => {
+    const allNodeElements = this.allNodeElements;
+    allNodeElements.forEach(node => {
       const name = node.getAttribute('name');
+      if (!name) return;
       const isArray = name.endsWith('[]');
       const fieldName = isArray ? name.slice(0, -2) : name;
       
       if (isArray && Array.isArray(adaptedData[fieldName])) {
-        // with arrays, the index is the element order in the DOM
-        const arrayElements = Array.from(this.allNodeElements).filter(el => el.getAttribute('name') === name);
+        const arrayElements = Array.from(allNodeElements).filter(el => el.getAttribute('name') === name);
         const elementIndex = arrayElements.indexOf(node);
         if (elementIndex >= 0 && elementIndex < adaptedData[fieldName].length) {
           const value = adaptedData[fieldName][elementIndex];
@@ -104,7 +107,7 @@ export const DileForm = (superclass) => class extends superclass {
   }
 
   resetData() {
-    this.setData(this.firstValue);
+    return this.setData(this.firstValue);
   }
 
   resetField(name) {
@@ -189,7 +192,7 @@ export const DileForm = (superclass) => class extends superclass {
 
   isDirty() {
     const currentData = this.getData();
-    const originProperties = Object.keys(this.firstValue);
+    const originProperties = Object.keys(this.firstValue || {});
     const currentProperties = Object.keys(currentData);
     if (originProperties.length !== currentProperties.length) {
       return true;
