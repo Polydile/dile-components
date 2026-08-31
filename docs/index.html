@@ -2,126 +2,137 @@
 layout: layout.html
 isHome: true
 ---
-<section class="hero">
-  <div class="hero-explain">
-    <h1 class="homeh1"><span>dile</span>components</h1>
-    <div class="subtitle">
-      <section class="subtitle-text">
-        <p>
-          Custom elements designed for any project or framework
-        </p>
-        <div class="options">
-          <a href="how-to-use"><dile-button>How to use</dile-button></a>
-          <a href="components/"><dile-button>Components catalog</dile-button></a>
-        </div>
-        <p>
-            <a href="https://github.com/Polydile/dile-components"><dile-fontawesome-badge icon="github">GitHub</dile-fontawesome-badge></a>
-        </p>
-      </section>
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="home-hero__content">
+    <p class="home-hero__badge">Production Ready</p>
+    <h1 id="home-title">
+      Build polished products faster with a modern Web Components system.
+    </h1>
+    <p class="home-hero__description">
+      Dile Components helps teams ship consistent interfaces across frameworks with accessible primitives,
+      polished design tokens, and documentation focused on real implementation.
+    </p>
+    <div class="home-hero__actions">
+      <a href="/how-to-use/"><dile-button>Start in minutes</dile-button></a>
+      <a href="/components/"><dile-button class="home-secondary-button">Explore components</dile-button></a>
+      <a class="home-hero__github" href="https://github.com/Polydile/dile-components">
+        <dile-fontawesome-badge icon="github">Open source on GitHub</dile-fontawesome-badge>
+      </a>
     </div>
+    <div class="home-hero__signals" aria-label="Key value propositions">
+      <div>
+        <strong>Framework agnostic</strong>
+        <span>Use in Vanilla JS, Lit, React, Vue, Angular, and more.</span>
+      </div>
+      <div>
+        <strong>Designed for scale</strong>
+        <span>Reusable patterns, shared tokens, and long-term consistency.</span>
+      </div>
+      <div>
+        <strong>Ready to customize</strong>
+        <span>Light and dark theming with first-class CSS custom properties.</span>
+      </div>
+    </div>
+  </div>
+  <picture class="home-mascot-wrap" aria-hidden="true">
+    <source media="(min-width: 760px)" srcset="/images/croco-cool-transparente.svg">
+    <img class="home-mascot" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" loading="lazy" decoding="async">
+  </picture>
+</section>
+
+<section class="home-capabilities" aria-labelledby="capabilities-title">
+  <div class="home-capabilities__heading">
+    <h2 id="capabilities-title">Everything your design system rollout needs</h2>
+    <p>
+      From UI building blocks to CRUD workflows, editor tools, AI skills, and CLI automation, Dile Components gives
+      product teams a complete toolkit without locking them into a single framework.
+    </p>
+  </div>
+  <div class="home-featured-grid">
+    <a href="/how-to-use/" class="home-feature-card">
+      <dile-lucide-icon-globe></dile-lucide-icon-globe>
+      <h3>Use it anywhere</h3>
+      <p>Ship the same components across projects and stacks with native Web Components.</p>
+    </a>
+    <a href="/theming/" class="home-feature-card">
+      <dile-lucide-icon-palette></dile-lucide-icon-palette>
+      <h3>Professional theming</h3>
+      <p>Create a branded light and dark experience with coherent color tokens.</p>
+    </a>
+    <a href="/components/" class="home-feature-card">
+      <dile-lucide-icon-feather></dile-lucide-icon-feather>
+      <h3>Lightweight by default</h3>
+      <p>Keep performance budgets healthy with focused, composable components.</p>
+    </a>
+    <a href="/components/" class="home-feature-card">
+      <dile-lucide-icon-check-check></dile-lucide-icon-check-check>
+      <h3>Broad component coverage</h3>
+      <p>Build onboarding flows, forms, dashboards, and admin features faster.</p>
+    </a>
+    <a href="/mixins/" class="home-feature-card">
+      <dile-lucide-icon-layers></dile-lucide-icon-layers>
+      <h3>Utilities and mixins</h3>
+      <p>Reuse behavior patterns to keep your codebase clean and predictable.</p>
+    </a>
+    <a href="/contribute/" class="home-feature-card">
+      <dile-lucide-icon-book-open></dile-lucide-icon-book-open>
+      <h3>Documentation that guides</h3>
+      <p>Clear examples and references make adoption easy for every team member.</p>
+    </a>
+    <a href="/ai-skill/" class="home-feature-card">
+      <dile-lucide-icon-bot></dile-lucide-icon-bot>
+      <h3>AI skills included</h3>
+      <p>Use curated skills to speed up repetitive tasks and improve implementation workflows.</p>
+    </a>
+    <a href="/cli/" class="home-feature-card">
+      <dile-lucide-icon-terminal></dile-lucide-icon-terminal>
+      <h3>CLI for automation</h3>
+      <p>Scaffold, maintain, and scale your setup with practical command-line tooling.</p>
+    </a>
   </div>
 </section>
 
-  <div class="Featured">
-    <a href="/how-to-use">
-      <div class="Featured-item">
-
-        <dile-lucide-icon-globe></dile-lucide-icon-globe>
-
-        <h2>Use it anywhere</h2>
-        <p>
-          Use this catalog of Web Components anywhere, as they work with Vanilla JS or any framework you prefer.
-        </p>
-      </div>
-    </a>
-    <a href="/how-to-use">
-      <div class="Featured-item">
-
-        <dile-lucide-icon-palette></dile-lucide-icon-palette>
-
-        <h2>Customizable design</h2>
-        <p>
-          Each component has a base design and is fully customizable using CSS custom properties.
-        </p>
-      </div>
-    </a>
-    <a href="/how-to-use">
-      <div class="Featured-item">
-
-        <dile-lucide-icon-feather></dile-lucide-icon-feather>
-
-        <h2>Lightweight</h2>
-        <p>
-          Just a few KB per component! Always lightweight, perfect for optimized projects.
-        </p>
-      </div>
-    </a>
-    <a href="/components/">
-      <div class="Featured-item">
-        <dile-lucide-icon-check-check></dile-lucide-icon-check-check>
-
-        <h2>Multiple purposes</h2>
-        <p>
-          Components for common (and not-so-common) purposes. Use just one… or all of them!
-        </p>
-      </div>
-    </a>
-    <a href="/mixins/">
-      <div class="Featured-item">
-        <dile-lucide-icon-layers></dile-lucide-icon-layers>
-
-        <h2>Generic mixins</h2>
-        <p>
-          There are components, but also mixins for many generic use cases in UI development.
-        </p>
-      </div>
-    </a>
-    <a href="/contribute">
-      <div class="Featured-item">
-
-        <dile-lucide-icon-book-open></dile-lucide-icon-book-open>
-
-        <h2>Easy to understand</h2>
-        <p>
-          The components are easy for any developer to understand, so you can expand them and contribute with us.
-        </p>
-      </div>
-    </a>
+<section class="home-quickstart" aria-labelledby="quickstart-title">
+  <div class="home-quickstart__header">
+    <h2 id="quickstart-title">Quick start</h2>
+    <p>Install a package, import a component, and ship your first production-ready screen today.</p>
   </div>
-  <div class="moreinfo">
-    <h2>Quick start</h2>
 
-    <p>To use the Dile Components catalog, install the package for the component you need. You can find the installation command on the component’s documentation page. For example:</p>
-    <pre><code class="language-bash">npm install @dile/ui</code></pre>
-    <blockquote>
-    <p><code>@dile/ui</code> is the main package containing the User Interface components. Other packages include <code>@dile/crud</code>, <code>@dile/editor</code>, <code>@dile/icons</code> and <code>@dile/utils</code>.</p>
-    </blockquote>
-    <p>After installing the package, import the component you want to use in your JavaScript code:</p>
-    <pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+  <div class="home-quickstart__layout">
+    <article class="home-panel">
+      <h3>1) Install what you need</h3>
+      <p>Start with the UI package, then extend with CRUD, editor, icon libraries, app helpers, PDF tools, and utilities as your product evolves.</p>
+      <pre><code class="language-bash">npm install @dile/ui</code></pre>
+      <p class="home-note">Also available: <code>@dile/crud</code>, <code>@dile/editor</code>, <code>@dile/iconlib</code>, <code>@dile/icons</code>, <code>@dile/lib</code>, <code>@dile/pdf-viewer</code>, and <code>@dile/utils</code>.</p>
+    </article>
+
+    <article class="home-panel">
+      <h3>2) Import and use</h3>
+      <p>Import only the components your page needs and use them as native HTML tags.</p>
+      <pre><code class="language-html">&lt;script type="module"&gt;
   import '@dile/ui/components/card/card.js';
-&lt;/script&gt;</code></pre>
-    <blockquote>
-    <p>Note: Standard ES6 modules must be imported using relative paths. To import modules by their npm package names, use a frontend tool like Vite or Webpack. These tools resolve package names to their corresponding paths inside the <code>node_modules</code> directory. For more details, check the <a href='/how-to-use/'>setup page</a>.</p>
-    </blockquote>
-    <p>Finally, you can use the component just like any other HTML element:</p>
-    <pre><code class="language-html">&lt;dile-card shadow-lg title=&quot;Welcome to dile-components&quot;&gt;
-  &lt;p&gt;Hi everybody!&lt;/p&gt;
+&lt;/script&gt;
+
+&lt;dile-card title="Welcome" shadow-lg&gt;
+  &lt;p&gt;Your interface is ready.&lt;/p&gt;
 &lt;/dile-card&gt;</code></pre>
-    <p>Check the component’s documentation page for more markup examples and details on available properties, methods, and configurations. For example, see the <a href='/components/dile-card/'>dile-card component docs</a>. All components, mixins, and utilities are well-documented, with examples demonstrating how they work in different scenarios.</p>
-
-    <div class="sections">
-      <a href="/components"><dile-button>UI Components</dile-button></a>
-      <a href="/mixins"><dile-button>Mixins</dile-button></a>
-      <a href="/crud"><dile-button>Crud</dile-button></a>
-      <a href="/lib"><dile-button>App library</dile-button></a>
-      <a href="/icons"><dile-button>Icons</dile-button></a>
-    </div>
-
-    <h2>Browser support</h2>
-    <p>
-      Since Dile Components are built on top of the Web Components JavaScript standard, they will work in any browser that supports it.
-    </p>
-    <p>
-      All modern browsers fully support Web Components, so this is a great time to join the Web Components movement.
-    </p>
+      <p class="home-note">Using Vite or Webpack lets you import directly from npm package names.</p>
+    </article>
   </div>
+
+  <div class="home-sections">
+    <a href="/components/"><dile-button>UI Components</dile-button></a>
+    <a href="/mixins/"><dile-button>Mixins</dile-button></a>
+    <a href="/crud/"><dile-button>CRUD</dile-button></a>
+    <a href="/lib/"><dile-button>App Library</dile-button></a>
+    <a href="/icons/"><dile-button>Icons</dile-button></a>
+  </div>
+</section>
+
+<section class="home-support" aria-labelledby="support-title">
+  <h2 id="support-title">Built on web standards, compatible with modern browsers</h2>
+  <p>
+    Dile Components are based on the Web Components standard and work in all major modern browsers.
+    If your product targets modern platforms, you can adopt the library with confidence.
+  </p>
+</section>

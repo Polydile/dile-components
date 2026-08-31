@@ -1,40 +1,177 @@
 footer {
-  background-color: var(--dile-secondary-color);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(236, 253, 245, 0.26), transparent 34%),
+    radial-gradient(circle at 82% 105%, rgba(16, 185, 129, 0.2), transparent 42%),
+    linear-gradient(132deg, #1d5e35 0%, #218447 46%, #1f7a43 64%, #1b5f36 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
+
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  column-gap: 2rem;
-  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  font-size: 1rem;
 }
+
 .footer b, .footer a {
   color: #fff;
 }
-.footer ul {
-  margin: 0.5rem 0 1rem;
+
+footer .footer p {
+  color: #fff;
 }
+
+.footer a {
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2rem;
+}
+
+.footer a:hover {
+  opacity: 0.9;
+}
+
+.footer-brand h2 {
+  margin: 0.25rem 0 0.5rem;
+  color: #fff;
+  font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  max-width: 28ch;
+}
+
+.footer-brand p {
+  margin: 0;
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.97);
+  line-height: 1.5;
+}
+
+.footer-kicker {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background-color: rgba(0, 0, 0, 0.24);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-keywords {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-keywords span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background-color: rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.footer-links b {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.2);
+  color: #ecfdf5;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.footer-links b::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.footer ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.footer-links ul {
+  margin-left: 0.3rem;
+}
+
 .footer li {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.35rem;
   padding: 0;
   list-style-type: none;
 }
-@media(min-width: 500px) {
+
+@media(min-width: 620px) {
   footer {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
+
   .footer {
-    flex-direction: row;
-    row-gap: 2rem;
+    grid-template-columns: minmax(0, 1.45fr) repeat(2, minmax(160px, 1fr));
+    align-items: start;
+    gap: 1.4rem;
   }
-  .footer section {
-    min-width: 200px;
+
+  .footer-links {
+    min-width: 0;
   }
-  .footer ul {
-    padding: 0;
+
+  .footer-keywords {
+    max-width: 540px;
+  }
+}
+
+html.dark-theme footer {
+  background:
+    radial-gradient(circle at 16% -12%, rgba(190, 237, 142, 0.16), transparent 34%),
+    radial-gradient(circle at 88% 112%, rgba(96, 165, 250, 0.16), transparent 46%),
+    linear-gradient(132deg, #1a3a30 0%, #12515f 58%, #1b2738 100%);
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+
+html.dark-theme .footer-brand p,
+html.dark-theme .footer-keywords span,
+html.dark-theme .footer-kicker {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+html.dark-theme .footer-kicker,
+html.dark-theme .footer-keywords span {
+  background-color: rgba(0, 0, 0, 0.24);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+html.dark-theme .footer-links b {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #f8fafc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer a {
+    transition: none;
   }
 }
 

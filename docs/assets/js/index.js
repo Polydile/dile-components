@@ -8,6 +8,8 @@ import '@dile/iconlib/lucide-icons/feather.js';
 import '@dile/iconlib/lucide-icons/check-check.js';
 import '@dile/iconlib/lucide-icons/layers.js';
 import '@dile/iconlib/lucide-icons/book-open.js';
+import '@dile/iconlib/lucide-icons/bot.js';
+import '@dile/iconlib/lucide-icons/terminal.js';
 import '@dile/ui/components/card/card.js';
 import '@dile/ui/components/avatar/avatar';
 import '@dile/ui/components/menu-hamburger/menu-hamburger';

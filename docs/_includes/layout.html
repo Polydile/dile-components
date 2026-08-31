@@ -12,8 +12,8 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
   <script>
     const storedMode = localStorage.getItem("dile_light_mode_switch_state");
     if(storedMode == "dark") {
@@ -63,15 +63,34 @@
 
   <footer>
     <div class="footer">
-      <section>
-        <b>Information</b>
+      <section class="footer-brand">
+        <p class="footer-kicker">Dile Components</p>
+        <h2>Open source Web Components for modern design systems</h2>
+        <p>
+          Build accessible and high-performance interfaces with reusable UI components, CRUD modules,
+          icon libraries, AI skills, and CLI tooling. Dile Components is framework agnostic and ready
+          for production teams shipping modern web apps.
+        </p>
+        <div class="footer-keywords" aria-label="Technology keywords">
+          <span>Open source</span>
+          <span>Web Components</span>
+          <span>Design system</span>
+          <span>Accessibility</span>
+          <span>Theming</span>
+          <span>CLI</span>
+          <span>AI skills</span>
+        </div>
+      </section>
+      <section class="footer-links">
+        <b>Documentation</b>
         <ul>
           <li><a href="/how-to-use">How to use</a></li>
           <li><a href="/contribute">Contribute</a></li>
           <li><a href="/attribution">Attribution</a></li>
+          <li><a href="/theming/">Theming</a></li>
         </ul>
       </section>
-      <section>
+      <section class="footer-links">
         <b>Sections</b>
         <ul>
           <li><a href="/components/">UI Components</a></li>
@@ -79,6 +98,7 @@
           <li><a href="/crud/">Crud</a></li>
           <li><a href="/icons/">Icons</a></li>
           <li><a href="/cli/">CLI</a></li>
+          <li><a href="/ai-skill/">AI Skill</a></li>
         </ul>
       </section>
     </div>
