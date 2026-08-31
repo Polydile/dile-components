@@ -212,10 +212,10 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
   }
 
   updated(changedProperties) {
-    if(changedProperties.has('value') && this.isValueExternalyUpdated) {
-      this.updateEditorContent(this.value);
-    }
     if(changedProperties.has('value')) {
+      if (this.isValueExternalyUpdated) {
+        this.updateEditorContent(this.value);
+      }
       this.emmitChange();
       this.internals.setFormValue(this.value);
     }
@@ -307,11 +307,29 @@ export class DileEditor extends DileI18nMixin(DileEmmitChange(LitElement)) {
   }
 
   updateEditorContent(value) {
-    if(this.initialized) {
+    if (!this.editor || !this.textarea) {
+      return;
+    }
+    if (this.initialized) {
       this.editor.updateEditorContent(value);
       this.textarea.value = value;
     } else {
-      setTimeout(() => this.updateEditorContent(value), 100);
+      const pendingValue = value;
+      const retry = () => {
+        if (this.initialized && this.editor && this.textarea) {
+          this.editor.updateEditorContent(pendingValue);
+          this.textarea.value = pendingValue;
+          return;
+        }
+        if (this._editorUpdateRetry) {
+          clearTimeout(this._editorUpdateRetry);
+        }
+        this._editorUpdateRetry = setTimeout(retry, 100);
+      };
+      if (this._editorUpdateRetry) {
+        clearTimeout(this._editorUpdateRetry);
+      }
+      this._editorUpdateRetry = setTimeout(retry, 100);
     }
   }
 
