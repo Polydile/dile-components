@@ -17,6 +17,7 @@ There are some components in this package based on the dile-input functionality 
 
 - [dile-input-integer](/components/dile-input-integer): make transformations to the input in order to ensure the value is an integer
 - [dile-input-money](/components/dile-input-money): to use on money input (always float values with two decimals)
+- [dile-input-number](/components/dile-input-number): to normalize decimal separators while keeping a numeric input behavior
 - [dile-input-percentage](/components/dile-input-percentage): to place a "%" character besides the input and ensure the values are float
 
 ## Install

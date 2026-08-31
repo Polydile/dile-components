@@ -3,6 +3,7 @@ export { DileInputIcon } from './src/DileInputIcon.js';
 export { DileInputInteger } from './src/DileInputInteger.js';
 export { DileInputMessage } from './src/DileInputMessage.js';
 export { DileInputMoney } from './src/DileInputMoney.js';
+export { DileInputNumber } from './src/DileInputNumber.js';
 export { DileInputNumberMask } from './src/DileInputNumberMask.js';
 export { DileInputPercentage } from './src/DileInputPercentage.js';
 export { DileInputSearch } from './src/DileInputSearch.js';

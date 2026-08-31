@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-number component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/input/input-number.js"
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-number component</h1>
+
+    <h2>Regular number input</h2>
+    <p>
+      <dile-input-number name="amount" label="Amount" placeholder="12.75"></dile-input-number>
+    </p>
+
+    <h2>Decimal separator ","</h2>
+    <p>
+      <dile-input-number decimalSeparator="," name="amount_eu" label="Importe" placeholder="12,75"></dile-input-number>
+    </p>
+
+    <h2>Constraints: min, max, step and decimals</h2>
+    <p>
+      <dile-input-number min="1" max="10" step="0.25" decimals="2" name="range_amount" label="Range amount" placeholder="1.00 - 10.00"></dile-input-number>
+    </p>
+
+    <h2>Normalize separator on blur</h2>
+    <p>
+      <dile-input-number decimalSeparator="," normalizeOn="blur" name="lazy_amount" label="Amount" placeholder="Write 12.75"></dile-input-number>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
