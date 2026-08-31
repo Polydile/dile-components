@@ -37,6 +37,8 @@ export class DileInputNumber extends DileInput {
         this.decimals = null;
         this.normalizeOn = 'input';
         this.changed = false;
+        this.viewValueOnFocus = null;
+        this.isInputFocused = false;
     }
 
     firstUpdated() {
@@ -88,14 +90,21 @@ export class DileInputNumber extends DileInput {
         return sanitized;
     }
 
+    normalizeToCanonical(value) {
+        return this.sanitizeValue(value, { normalizeSeparator: false }).replace(',', '.');
+    }
+
+    sanitizeForView(value) {
+        return this.sanitizeValue(value, { normalizeSeparator: false });
+    }
+
     normalizeForForm(value) {
         if (!value) {
             return '';
         }
         return value
             .toString()
-            .replace(this.safeDecimalSeparator, '.')
-            .replace(this.alternateDecimalSeparator, '.');
+            .replace(',', '.');
     }
 
     get normalizeOnBlur() {
@@ -160,13 +169,13 @@ export class DileInputNumber extends DileInput {
 
     formatNumber(number) {
         if (this.hasDecimalsConstraint()) {
-            return number.toFixed(this.decimals).replace('.', this.safeDecimalSeparator);
+            return number.toFixed(this.decimals);
         }
-        return number.toString().replace('.', this.safeDecimalSeparator);
+        return number.toString();
     }
 
     normalizeAndConstrain(value) {
-        const sanitized = this.sanitizeValue(value);
+        const sanitized = this.normalizeToCanonical(value);
         const parsed = this.toNumber(sanitized);
 
         if (isNaN(parsed)) {
@@ -211,13 +220,20 @@ export class DileInputNumber extends DileInput {
     }
 
     _input(e) {
-        const sanitized = this.sanitizeValue(e.target.value, {
-            normalizeSeparator: !this.normalizeOnBlur,
-        });
-        if (sanitized !== e.target.value) {
-            e.target.value = sanitized;
+        const sanitizedForView = this.sanitizeForView(e.target.value);
+        if (sanitizedForView !== e.target.value) {
+            e.target.value = sanitizedForView;
         }
-        this.value = sanitized;
+        this.viewValueOnFocus = sanitizedForView;
+        this.value = this.normalizeToCanonical(sanitizedForView);
+
+        if (!this.normalizeOnBlur) {
+            const formatted = this.computeValue(this.value);
+            if (e.target.value !== formatted) {
+                e.target.value = formatted;
+                this.viewValueOnFocus = formatted;
+            }
+        }
 
         if (this.hideErrorOnInput && this.errored) {
           this.clearError();
@@ -225,6 +241,8 @@ export class DileInputNumber extends DileInput {
     }
 
     doBlur(e) {
+        this.isInputFocused = false;
+        this.viewValueOnFocus = null;
         const num = this.normalizeAndConstrain(e.target.value);
 
         if (num !== e.target.value || this.changed) {
@@ -232,6 +250,15 @@ export class DileInputNumber extends DileInput {
             this.emmitChange();
             this.changed = false;
         }
+
+        if (this.normalizeOnBlur) {
+            this.el.value = this.computeValue(this.value);
+        }
+    }
+
+    doFocus() {
+        this.isInputFocused = true;
+        super.doFocus();
     }
 
     updated(changedProperties) {
@@ -240,14 +267,6 @@ export class DileInputNumber extends DileInput {
         if (changedProperties.has('normalizeOn') && this.normalizeOn !== this.safeNormalizeOn) {
             this.normalizeOn = this.safeNormalizeOn;
             return;
-        }
-
-        if (changedProperties.has('decimalSeparator') && this.value) {
-            const sanitized = this.sanitizeValue(this.value);
-            if (sanitized !== this.value) {
-                this.value = sanitized;
-                return;
-            }
         }
 
         if (changedProperties.has('value') && this.value) {
@@ -275,8 +294,10 @@ export class DileInputNumber extends DileInput {
     }
 
     computeValue(value) {
-        return this.sanitizeValue(value, {
-            normalizeSeparator: !this.normalizeOnBlur,
-        });
+        if (this.normalizeOnBlur && this.isInputFocused && this.viewValueOnFocus !== null) {
+            return this.viewValueOnFocus;
+        }
+        const canonical = this.normalizeToCanonical(value);
+        return canonical.replace('.', this.safeDecimalSeparator);
     }
 }

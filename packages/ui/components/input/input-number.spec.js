@@ -33,7 +33,7 @@ describe('dile-input-number', () => {
     input.dispatchEvent(new Event('input'));
     await el.updateComplete;
 
-    expect(el.value).toBe('12,75');
+    expect(el.value).toBe('12.75');
     expect(input.value).toBe('12,75');
   });
 
@@ -57,7 +57,7 @@ describe('dile-input-number', () => {
     input.dispatchEvent(new Event('blur'));
     await el.updateComplete;
 
-    expect(el.value).toBe('1,25');
+    expect(el.value).toBe('1.25');
     expect(input.value).toBe('1,25');
   });
 
@@ -65,6 +65,7 @@ describe('dile-input-number', () => {
     const el = await renderInputNumber('<dile-input-number name="amount" decimalSeparator="," normalizeOn="blur"></dile-input-number>');
     const input = el.shadowRoot.querySelector('input');
 
+    input.dispatchEvent(new Event('focus'));
     input.value = '12.75';
     input.dispatchEvent(new Event('input'));
     await el.updateComplete;
@@ -75,7 +76,7 @@ describe('dile-input-number', () => {
     input.dispatchEvent(new Event('blur'));
     await el.updateComplete;
 
-    expect(el.value).toBe('12,75');
+    expect(el.value).toBe('12.75');
     expect(input.value).toBe('12,75');
   });
 
@@ -90,7 +91,19 @@ describe('dile-input-number', () => {
     input.dispatchEvent(new Event('input'));
     await el.updateComplete;
 
-    expect(el.value).toBe('12,75');
+    expect(el.value).toBe('12.75');
     expect(input.value).toBe('12,75');
+  });
+
+  it('keeps canonical value when normalizeOn fallback applies', async () => {
+    const el = await renderInputNumber('<dile-input-number name="amount" decimalSeparator="," normalizeOn="foo"></dile-input-number>');
+    const input = el.shadowRoot.querySelector('input');
+
+    input.value = '8,5';
+    input.dispatchEvent(new Event('input'));
+    await el.updateComplete;
+
+    expect(el.value).toBe('8.5');
+    expect(input.value).toBe('8,5');
   });
 });

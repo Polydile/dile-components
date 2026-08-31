@@ -9,6 +9,8 @@ This component extends from [dile-input](/components/dile-input).
 
 This component is customized to introduce numeric values while normalizing decimal separators. You can choose which separator you want to use and if the user types the alternative one, the component transforms it automatically.
 
+`value` is always stored in canonical format using `.` as decimal separator. The `decimalSeparator` property only affects what users see in the input field.
+
 ## Install
 
 ```bash
