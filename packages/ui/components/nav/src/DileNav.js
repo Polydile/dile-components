@@ -38,9 +38,18 @@ export class DileNav extends LitElement {
           grid-column-end: 3;
         }
 
+        .menu {
+          margin: var(--dile-nav-menu-margin, 0);
+        }
+
         .title {
           overflow: var(--dile-nav-title-overflow, hidden);
           min-width: 0;
+          margin: var(--dile-nav-title-margin, 0);
+        }
+
+        .actions {
+          margin: var(--dile-nav-actions-margin, 0);
         }
       `
   }

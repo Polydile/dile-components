@@ -56,6 +56,9 @@ Custom property | Description | Default
 --dile-nav-column-gap | Nav column gap (display grid property)| 1rem
 --dile-nav-padding-x | Nav padding horizontal | 0.6rem
 --dile-nav-padding-y | Nav padding vertical | 0.8rem
+--dile-nav-menu-margin | Menu slot margin | 0
+--dile-nav-title-margin | Title slot margin | 0
+--dile-nav-actions-margin | Actions slot margin | 0
 
 ## dile-nav demos
 
