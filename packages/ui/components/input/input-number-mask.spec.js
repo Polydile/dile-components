@@ -22,9 +22,25 @@ describe('dile-input-number-mask', () => {
     const el = await renderInputNumberMask('<dile-input-number-mask name="code" mask="00-00"></dile-input-number-mask>');
     const input = el.shadowRoot.querySelector('input');
 
+    // Simular el usuario escribiendo números: keydown + input event
     ['1', '2', '3'].forEach((key) => {
-      input.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+      // El navegador primero dispara keydown
+      const keydownEvent = new KeyboardEvent('keydown', { 
+        key, 
+        bubbles: true, 
+        cancelable: true 
+      });
+      input.dispatchEvent(keydownEvent);
+      
+      // Simular que el navegador actualiza el value del input
+      input.value += key;
+      
+      // Luego dispara input event
+      const inputEvent = new Event('input', { bubbles: true });
+      input.dispatchEvent(inputEvent);
     });
+    
+    // Esperar a que Lit procese los cambios
     await el.updateComplete;
 
     expect(el.maskedValue).toBe('12-3');

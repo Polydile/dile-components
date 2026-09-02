@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-mask component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/input/input-mask.js"
+  </script>
+  <style>
+    .iban-field {
+      --dile-input-label-font-size: 1.1rem;
+      --dile-input-label-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-mask component</h1>
+    
+    <p>
+      Generic input mask component that supports letters and numbers with automatic formatting and validation.
+    </p>
+
+    <h2>IBAN Format</h2>
+    <p>
+      <dile-input-mask 
+        class="iban-field"
+        name="iban" 
+        label="IBAN (International Bank Account Number)" 
+        placeholder="e.g., ES9121 2345 6789 0123 4567" 
+        mask="AA00 0000 0000 0000 0000"
+        message="Format: Country code (2 letters) + IBAN number (22 digits)"
+      ></dile-input-mask>
+    </p>
+
+    <h2>IBAN with Spanish error messages</h2>
+    <p>
+      <dile-input-mask 
+        class="iban-field"
+        name="iban-es" 
+        label="IBAN (Mensajes en español)" 
+        placeholder="e.g., ES91 2221 2345 6789 0123 4567" 
+        mask="AA00 0000 0000 0000 0000 0000"
+        language="es"
+        message="Formato: Código de país (2 letras) + Número IBAN (22 dígitos)"
+      ></dile-input-mask>
+    </p>
+
+    <h2>IBAN with French error messages</h2>
+    <p>
+      <dile-input-mask 
+        class="iban-field"
+        name="iban-fr" 
+        label="IBAN (Messages en français)" 
+        placeholder="e.g., ES9121 2345 6789 0123 4567" 
+        mask="AA00 0000 0000 0000 0000"
+        language="fr"
+        message="Format : Code pays (2 lettres) + Numéro IBAN (24 chiffres)"
+      ></dile-input-mask>
+    </p>
+
+    <h2>IBAN with Catalan error messages</h2>
+    <p>
+      <dile-input-mask 
+        class="iban-field"
+        name="iban-cat" 
+        label="IBAN (Missatges en català)" 
+        placeholder="e.g., ES9121 2345 6789 0123 4567" 
+        mask="AA00 0000 0000 0000 0000"
+        language="cat"
+        message="Format: Codi de país (2 lletres) + Número IBAN (24 dígits)"
+      ></dile-input-mask>
+    </p>
+    <p>
+      <dile-input-mask 
+        class="iban-field"
+        name="iban-prefilled" 
+        label="IBAN (Pre-filled)" 
+        value="ES9121"
+        mask="AA00 0000 0000 0000 0000"
+      ></dile-input-mask>
+    </p>
+
+    <h2>Case Transformation Examples</h2>
+    <p>
+      <dile-input-mask 
+        name="uppercase-code" 
+        label="Product Code (Uppercase letters)" 
+        placeholder="e.g., ab-1234-xy" 
+        mask="AA-0000-AA"
+        message="Format: 2 uppercase letters, 4 digits, 2 uppercase letters"
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="lowercase-code" 
+        label="Reference Code (Lowercase letters)" 
+        placeholder="e.g., AB-1234-XY" 
+        mask="aa-0000-aa"
+        message="Format: 2 lowercase letters, 4 digits, 2 lowercase letters"
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="mixed-case" 
+        label="Serial Number (Mixed case)" 
+        placeholder="e.g., ab-CD-1234" 
+        mask="aa-AA-0000"
+        message="Format: 2 lowercase, 2 uppercase, 4 digits"
+      ></dile-input-mask>
+    </p>
+
+    <h2>Other mask examples</h2>
+    <p>
+      <dile-input-mask 
+        name="uk-postcode" 
+        label="UK Postcode (Simplified)" 
+        placeholder="e.g., SW1A 1AA" 
+        mask="AA0 0AA"
+        message="Format: 2 letters, digit, digit, letter, letter"
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="code" 
+        label="Product Code" 
+        placeholder="e.g., AB-1234-XY" 
+        mask="AA-0000-AA"
+        message="Format: 2 letters, 4 digits, 2 letters"
+      ></dile-input-mask>
+    </p>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

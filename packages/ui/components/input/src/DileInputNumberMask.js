@@ -1,4 +1,3 @@
-import { LitElement, html } from 'lit';
 import { DileInput } from '../../input/index.js';
 import { Mask } from './Mask.js';
 
@@ -6,6 +5,7 @@ export class DileInputNumberMask extends DileInput {
 
   static get properties() {
     return {
+      ...super.properties,
       mask: { type: String },
       maskedValue: { type: String },
     };
@@ -14,12 +14,17 @@ export class DileInputNumberMask extends DileInput {
   constructor() {
     super();
     this.mask = ''; 
+    this.maskedValue = '';
+    this.content = '';
+    this._keyDownHandler = this.handleKeyDown.bind(this);
   }
 
   firstUpdated() {
-    this.content = '';
-    this.maskedValue = '';
+    super.firstUpdated();
     this.createMaskController(this.mask);
+    if (this.el) {
+      this.el.addEventListener('keydown', this._keyDownHandler);
+    }
   }
 
   createMaskController(mask) {
@@ -31,50 +36,88 @@ export class DileInputNumberMask extends DileInput {
     super.updated(changedProperties);
     if (changedProperties.has('mask')) {
       this.maskController.setPattern(this.mask);
-      this.updateValue();
+      this.updateMaskedValue();
     }
     if (changedProperties.has('value')) {
       this.content = this.value.slice(0, this.maxChars);
-      this.updateValue();
+      this.updateMaskedValue();
     }
   }
 
-  updateValue() {
+  disconnectedCallback() {
+    if (this.el) {
+      this.el.removeEventListener('keydown', this._keyDownHandler);
+    }
+    super.disconnectedCallback();
+  }
+
+  updateMaskedValue() {
     this.maskedValue = this.maskController.maskIt(this.content);
   }
 
-  render() {
-    return html`
-    <div>
-      ${this.label
-        ? html`<label for="textField">${this.label}</label>`
-        : ''
-      }
-      <input
-        type="text"
-        id="textField"
-        name="${this.name}"
-        placeholder="${this.placeholder}"
-        ?disabled="${this.disabled}"
-        @keypress="${this._lookForEnter}"
-        @keydown="${this.doKeyDown}"
-        .value="${this.maskedValue}"
-        class="${ this.errored ? 'errored' : '' }">
-    </div>
-    `;
+  computeValue(value) {
+    return this.maskedValue;
   }
 
-  doKeyDown(e) {
-    e.preventDefault();
-    if (this.isNumeric(e.key) && this.content.length < this.maxChars) {
-      this.content += e.key;
+  _input(e) {
+    const inputElement = e.target;
+    const cursorPos = inputElement.selectionStart;
+    
+    const inputValue = inputElement.value;
+    const numericOnly = inputValue.replace(/\D/g, '').slice(0, this.maxChars);
+    
+    this.content = numericOnly;
+    this.updateMaskedValue();
+    this.value = numericOnly;
+    
+    inputElement.value = this.maskedValue;
+    
+    this.restoreCursorPosition(inputElement, inputValue, cursorPos);
+    
+    if (this.hideErrorOnInput && this.errored) {
+      this.clearError();
     }
-    if (e.keyCode == 8) {
-      if (this.content.length > 0) {
-        this.content = this.content.substr(0, this.content.length - 1);
+  }
+
+  /**
+   * Restores cursor position after formatting the value.
+   * Counts how many numeric digits were before the cursor and positions it at the same count in the masked value.
+   */
+  restoreCursorPosition(inputElement, oldValue, oldCursorPos) {
+    const beforeCursor = oldValue.substring(0, oldCursorPos);
+    const numericBeforeCursor = beforeCursor.replace(/\D/g, '').length;
+    
+    let numbersFound = 0;
+    let newCursorPos = 0;
+    
+    for (let i = 0; i < this.maskedValue.length; i++) {
+      if (this.isNumeric(this.maskedValue[i])) {
+        if (numbersFound === numericBeforeCursor) {
+          newCursorPos = i;
+          break;
+        }
+        numbersFound++;
       }
+      newCursorPos = i + 1;
     }
-    this.updateValue();
+    
+    inputElement.setSelectionRange(newCursorPos, newCursorPos);
+  }
+
+  handleKeyDown(e) {
+    const inputElement = this.el;
+    if (e.target !== inputElement) return;
+    
+    const key = e.key;
+    
+    if (this.isNumeric(key)) return;
+    
+    const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Tab', 'Enter'];
+    if (allowedKeys.includes(key)) return;
+    
+    if (e.ctrlKey || e.metaKey) return;
+    
+    e.preventDefault();
   }
 
   isNumeric(char) {

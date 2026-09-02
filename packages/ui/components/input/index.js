@@ -1,6 +1,7 @@
 export { DileInput } from './src/DileInput.js';
 export { DileInputIcon } from './src/DileInputIcon.js';
 export { DileInputInteger } from './src/DileInputInteger.js';
+export { DileInputMask } from './src/DileInputMask.js';
 export { DileInputMessage } from './src/DileInputMessage.js';
 export { DileInputMoney } from './src/DileInputMoney.js';
 export { DileInputNumber } from './src/DileInputNumber.js';
@@ -10,3 +11,4 @@ export { DileInputSearch } from './src/DileInputSearch.js';
 export { labelStyles } from './src/label-styles.js';
 export { messageStyles } from './src/message-styles.js';
 export { Mask } from './src/Mask.js';
+export { MaskPattern } from './src/MaskPattern.js';
