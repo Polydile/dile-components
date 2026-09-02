@@ -2,7 +2,7 @@
 title: Input Icon
 tags: input
 excerpt: "Input with configurable icon button"
-familyIcon: "lucide.message-circle"
+familyIcon: "lucide.book-open"
 ---
 
 # dile-input-icon
