@@ -176,6 +176,9 @@ input.addEventListener('blur', () => {
 ### IBAN Input
 
 ```html:preview
+<script type="module">
+import '@dile/ui/components/input/input-mask.js';
+</script>
 <dile-input-mask 
   name="iban"
   label="International Bank Account Number (IBAN)"

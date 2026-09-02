@@ -123,6 +123,9 @@ Only numeric characters (0-9) are allowed:
 ### Basic Phone Input with Validation
 
 ```html:preview
+<script type="module">
+import '@dile/ui/components/input/input-number-mask.js';
+</script>
 <dile-input-number-mask 
   name="phone"
   label="Phone Number" 
