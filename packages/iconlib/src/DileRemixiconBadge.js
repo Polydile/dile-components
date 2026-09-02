@@ -1,4 +1,4 @@
-import { badgeStyles } from "./remixiconBadgeStyles.js";
+import { badgeStyles } from "./badgeStyles.js";
 import '../dile-remixicon-icon.js';
 
 export class DileRemixiconBadge extends HTMLElement {
@@ -13,8 +13,9 @@ export class DileRemixiconBadge extends HTMLElement {
   }
 
   render() {
+    const variantClass = this.variant ? `variant-${this.variant}` : '';
     this.shadowRoot.innerHTML = `
-      <div class="badge-container">
+      <div class="badge-container ${variantClass}">
         <div class="icon-wrapper">
           <dile-remixicon-icon icon="${this.icon}"></dile-remixicon-icon>
         </div>
@@ -34,8 +35,9 @@ export class DileRemixiconBadge extends HTMLElement {
       this.icon = newValue;
       this.render();
     }
-    if (name === 'variant' && newValue !== null) {
-      this.variant = newValue;
+    if (name === 'variant') {
+      this.variant = newValue !== null ? newValue : null;
+      this.render();
     }
     if (name === 'rounded') {
       this.rounded = newValue !== null;

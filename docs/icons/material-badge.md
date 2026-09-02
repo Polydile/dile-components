@@ -6,7 +6,9 @@ tags: material
 
 # Material Badge Web Component
 
-The `dile-material-badge` Custom Element displays an icon combined with text inside a pill-shaped badge container. It's perfect for status indicators, labels, and other badge-like UI elements.
+The `dile-material-badge` Custom Element is a Material-specific specialization of the generic `dile-icon-badge` component. It keeps the same normalized badge API and CSS variables, but it is limited to Material icons and a single icon family.
+
+> Use `dile-icon-badge` when you want one markup pattern that can switch between icon libraries; use `dile-material-badge` when you explicitly want the badge tied to the Material family.
 
 ```html
 <dile-material-badge icon="hourglass-empty">Waiting</dile-material-badge>
@@ -79,40 +81,40 @@ The text content of the badge is passed as the element's text content (slot). Th
 
 ## CSS Custom Properties
 
-You can customize it using CSS Custom Properties.
+The badge API has been normalized to a single set of CSS custom properties. The family-specific variables used previously are no longer the active contract.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-material-badge-color | Badge background color | --dile-primary-color or #f3f3ae
---dile-material-badge-on-color | Text and icon color | --dile-on-primary-color or #303030
---dile-material-badge-font-size | Text size | 0.8rem
---dile-material-badge-font-weight | Text weight | 500
---dile-material-badge-gap | Space between icon and text | 0.5rem
---dile-material-badge-padding | Inner spacing | 0.375rem 0.75rem
---dile-material-badge-border-radius | Border radius (pill shape) | 9999px
---dile-material-badge-border-width | Border thickness | 0px
---dile-material-badge-border-color | Border color | transparent
---dile-material-badge-transition-duration | Animation duration | 0.3s
---dile-material-badge-icon-size | Icon size | 18px
+--dile-badge-color | Badge background color | --dile-primary-color or #f3f3ae
+--dile-badge-on-color | Text and icon color | --dile-on-primary-color or #303030
+--dile-badge-font-size | Text size | 0.8rem
+--dile-badge-font-weight | Text weight | 500
+--dile-badge-gap | Space between icon and text | 0.5rem
+--dile-badge-padding | Inner spacing | 0.375rem 0.75rem
+--dile-badge-border-radius | Border radius (pill shape) | 9999px
+--dile-badge-border-width | Border thickness | 0px
+--dile-badge-border-color | Border color | transparent
+--dile-badge-transition-duration | Animation duration | 0.3s
+--dile-badge-icon-size | Icon size | 18px
 
 ### Variant-Specific Properties
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-material-badge-primary | Primary variant background | --dile-primary-color
---dile-material-badge-on-primary | Primary variant text/icon color | --dile-on-primary-color
---dile-material-badge-secondary | Secondary variant background | --dile-secondary-color
---dile-material-badge-on-secondary | Secondary variant text/icon color | --dile-on-secondary-color
---dile-material-badge-success | Success variant background | --dile-alert-success-color
---dile-material-badge-on-success | Success variant text/icon color | --dile-on-alert-color
---dile-material-badge-warning | Warning variant background | --dile-alert-warning-color
---dile-material-badge-on-warning | Warning variant text/icon color | --dile-on-alert-color
---dile-material-badge-error | Error variant background | --dile-alert-error-color
---dile-material-badge-on-error | Error variant text/icon color | --dile-on-alert-color
---dile-material-badge-danger | Danger variant background | --dile-danger-color
---dile-material-badge-on-danger | Danger variant text/icon color | --dile-on-danger-color
---dile-material-badge-soft | Soft variant background | #2a7a9f
---dile-material-badge-on-soft | Soft variant text/icon color | #ffffff
+--dile-badge-primary | Primary variant background | --dile-primary-color
+--dile-badge-on-primary | Primary variant text/icon color | --dile-on-primary-color
+--dile-badge-secondary | Secondary variant background | --dile-secondary-color
+--dile-badge-on-secondary | Secondary variant text/icon color | --dile-on-secondary-color
+--dile-badge-success | Success variant background | --dile-alert-success-color
+--dile-badge-on-success | Success variant text/icon color | --dile-on-alert-color
+--dile-badge-warning | Warning variant background | --dile-alert-warning-color
+--dile-badge-on-warning | Warning variant text/icon color | --dile-on-alert-color
+--dile-badge-error | Error variant background | --dile-alert-error-color
+--dile-badge-on-error | Error variant text/icon color | --dile-on-alert-color
+--dile-badge-danger | Danger variant background | --dile-danger-color
+--dile-badge-on-danger | Danger variant text/icon color | --dile-on-danger-color
+--dile-badge-soft | Soft variant background | #2a7a9f
+--dile-badge-on-soft | Soft variant text/icon color | #ffffff
 
 ## Examples
 
