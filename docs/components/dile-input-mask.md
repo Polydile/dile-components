@@ -255,7 +255,20 @@ document.getElementById('myForm').addEventListener('submit', (e) => {
   console.log('Sending to backend:', cleanIBAN);
   // Output: "ES9121234567890123456" (no spaces)
   
-  /Internationalization
+  // Get formatted version for display
+  console.log('User sees:', ibanInput.maskedValue);
+  // Output: "ES91 2123 4567 8901 2345 6" (with spaces)
+  
+  // Submit the clean value
+  fetch('/api/account', {
+    method: 'POST',
+    body: JSON.stringify({ iban: cleanIBAN })
+  });
+});
+</script>
+```
+
+## Internationalization
 
 The component supports multiple languages for validation error messages:
 
