@@ -29,7 +29,7 @@
       <dile-input-mask 
         class="iban-field"
         name="iban" 
-        label="IBAN (International Bank Account Number)" 
+        label="IBAN (International Bank Account Number) - Pattern: AA00 0000 0000 0000 0000" 
         placeholder="e.g., ES9121 2345 6789 0123 4567" 
         mask="AA00 0000 0000 0000 0000"
         message="Format: Country code (2 letters) + IBAN number (22 digits)"
@@ -41,7 +41,7 @@
       <dile-input-mask 
         class="iban-field"
         name="iban-es" 
-        label="IBAN (Mensajes en español)" 
+        label="IBAN (Mensajes en español) - Patrón: AA00 0000 0000 0000 0000 0000" 
         placeholder="e.g., ES91 2221 2345 6789 0123 4567" 
         mask="AA00 0000 0000 0000 0000 0000"
         language="es"
@@ -54,7 +54,7 @@
       <dile-input-mask 
         class="iban-field"
         name="iban-fr" 
-        label="IBAN (Messages en français)" 
+        label="IBAN (Messages en français) - Motif: AA00 0000 0000 0000 0000" 
         placeholder="e.g., ES9121 2345 6789 0123 4567" 
         mask="AA00 0000 0000 0000 0000"
         language="fr"
@@ -67,7 +67,7 @@
       <dile-input-mask 
         class="iban-field"
         name="iban-cat" 
-        label="IBAN (Missatges en català)" 
+        label="IBAN (Missatges en català) - Patró: AA00 0000 0000 0000 0000" 
         placeholder="e.g., ES9121 2345 6789 0123 4567" 
         mask="AA00 0000 0000 0000 0000"
         language="cat"
@@ -78,7 +78,7 @@
       <dile-input-mask 
         class="iban-field"
         name="iban-prefilled" 
-        label="IBAN (Pre-filled)" 
+        label="IBAN (Pre-filled) - Pattern: AA00 0000 0000 0000 0000" 
         value="ES9121"
         mask="AA00 0000 0000 0000 0000"
       ></dile-input-mask>
@@ -88,7 +88,7 @@
     <p>
       <dile-input-mask 
         name="uppercase-code" 
-        label="Product Code (Uppercase letters)" 
+        label="Product Code (Uppercase letters) - Pattern: AA-0000-AA" 
         placeholder="e.g., ab-1234-xy" 
         mask="AA-0000-AA"
         message="Format: 2 uppercase letters, 4 digits, 2 uppercase letters"
@@ -98,7 +98,7 @@
     <p>
       <dile-input-mask 
         name="lowercase-code" 
-        label="Reference Code (Lowercase letters)" 
+        label="Reference Code (Lowercase letters) - Pattern: aa-0000-aa" 
         placeholder="e.g., AB-1234-XY" 
         mask="aa-0000-aa"
         message="Format: 2 lowercase letters, 4 digits, 2 lowercase letters"
@@ -108,10 +108,41 @@
     <p>
       <dile-input-mask 
         name="mixed-case" 
-        label="Serial Number (Mixed case)" 
+        label="Serial Number (Mixed case) - Pattern: aa-AA-0000" 
         placeholder="e.g., ab-CD-1234" 
         mask="aa-AA-0000"
         message="Format: 2 lowercase, 2 uppercase, 4 digits"
+      ></dile-input-mask>
+    </p>
+
+    <h2>Alphanumeric Pattern Examples (Letters or Digits)</h2>
+    <p>
+      <dile-input-mask 
+        name="alphanumeric-upper" 
+        label="Flexible Product Code (Uppercase if letter) - Pattern: XX-0000-XX" 
+        placeholder="e.g., ab12cd56" 
+        mask="XX-0000-XX"
+        message="Format: 2 alphanumeric (uppercase letters), 4 digits, 2 alphanumeric"
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="alphanumeric-lower" 
+        label="Flexible Reference Code (Lowercase if letter) - Pattern: xx-0000-xx" 
+        placeholder="e.g., AB12CD56" 
+        mask="xx-0000-xx"
+        message="Format: 2 alphanumeric (lowercase letters), 4 digits, 2 alphanumeric"
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="iban-variable" 
+        label="IBAN Variable (Lazy Separators) - Pattern: AA-XXXX-0000-0000" 
+        placeholder="e.g., ESWSWQ0000" 
+        mask="AA-XXXX-0000-0000"
+        message="Country code (2 letters) + Mixed alphanumeric (4 chars) + Digits (8 chars). Separators appear only when next block is filled."
       ></dile-input-mask>
     </p>
 
@@ -119,7 +150,7 @@
     <p>
       <dile-input-mask 
         name="uk-postcode" 
-        label="UK Postcode (Simplified)" 
+        label="UK Postcode (Simplified) - Pattern: AA0 0AA" 
         placeholder="e.g., SW1A 1AA" 
         mask="AA0 0AA"
         message="Format: 2 letters, digit, digit, letter, letter"
@@ -129,7 +160,7 @@
     <p>
       <dile-input-mask 
         name="code" 
-        label="Product Code" 
+        label="Product Code - Pattern: AA-0000-AA" 
         placeholder="e.g., AB-1234-XY" 
         mask="AA-0000-AA"
         message="Format: 2 letters, 4 digits, 2 letters"

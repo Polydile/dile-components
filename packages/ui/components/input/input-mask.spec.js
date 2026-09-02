@@ -183,4 +183,78 @@ describe('dile-input-mask', () => {
     expect(el.maskedValue).toBe('AB-cd-12');
     expect(el.value).toBe('ABcd12');
   });
+
+  it('supports X pattern for alphanumeric uppercase', async () => {
+    const el = await renderInputMask('<dile-input-mask name="test" mask="XX-0000"></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // X accepts both letters and digits
+    const chars = ['a', 'B', '1', '2', '3', '4'];
+    chars.forEach((char) => {
+      input.value += char;
+      const inputEvent = new Event('input', { bubbles: true });
+      input.dispatchEvent(inputEvent);
+    });
+
+    await el.updateComplete;
+
+    // Letters should be uppercase, digits unchanged
+    expect(el.maskedValue).toBe('AB-1234');
+    expect(el.value).toBe('AB1234');
+  });
+
+  it('supports x pattern for alphanumeric lowercase', async () => {
+    const el = await renderInputMask('<dile-input-mask name="test" mask="xx-0000"></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // x accepts both letters and digits
+    const chars = ['A', 'b', '1', '2', '3', '4'];
+    chars.forEach((char) => {
+      input.value += char;
+      const inputEvent = new Event('input', { bubbles: true });
+      input.dispatchEvent(inputEvent);
+    });
+
+    await el.updateComplete;
+
+    // Letters should be lowercase, digits unchanged
+    expect(el.maskedValue).toBe('ab-1234');
+    expect(el.value).toBe('ab1234');
+  });
+
+  it('applies lazy separators only when next block is filled', async () => {
+    const el = await renderInputMask('<dile-input-mask name="iban" mask="AA-XXXX-0000"></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // Type 'ES' - should show 'ES' without trailing separator
+    input.value = 'ES';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES');
+
+    // Type 'ESW' - should show 'ES-W' (separator added when next block starts)
+    input.value = 'ESW';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-W');
+
+    // Type 'ESWSWQ' - should show 'ES-WSWQ'
+    input.value = 'ESWSWQ';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-WSWQ');
+
+    // Type 'ESWSWQ0' - should show 'ES-WSWQ-0' (separator added when digits block starts)
+    input.value = 'ESWSWQ0';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-WSWQ-0');
+
+    // Type complete 'ESWSWQ0000' - should show 'ES-WSWQ-0000'
+    input.value = 'ESWSWQ0000';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-WSWQ-0000');
+  });
 });
+

@@ -44,39 +44,57 @@ Use it in your HTML:
 
 The mask pattern defines which characters are expected at each position:
 
-- **`A`** (uppercase letter): Accepts any letter (a-z, A-Z) and transforms to UPPERCASE
-- **`a`** (lowercase letter): Accepts any letter (a-z, A-Z) and transforms to lowercase  
-- **`0`** (digit): Accepts any digit (0-9)
-- **Other characters**: Fixed literal characters that appear automatically in the formatted display (spaces, hyphens, etc.)
+- **`A`** (uppercase letter): Accepts only letters (a-z, A-Z) and transforms to UPPERCASE
+- **`a`** (lowercase letter): Accepts only letters (a-z, A-Z) and transforms to lowercase
+- **`X`** (uppercase alphanumeric): Accepts letters or digits; letters transform to UPPERCASE
+- **`x`** (lowercase alphanumeric): Accepts letters or digits; letters transform to lowercase
+- **`0`** (digit): Accepts only digits (0-9)
+- **Other characters**: Fixed literal characters (separators like spaces, hyphens) added "lazily" - only when the next block is being filled
 
-### Case Transformation
+### Lazy Separator Behavior
 
-The component automatically transforms letters to the case specified by the mask pattern:
+Separators (like `-`, `/`, or spaces) are only added when the user begins typing the next block, not immediately. This is especially useful for **variable-length formats** like IBANs:
 
 ```html
-<!-- Will transform all letters to uppercase -->
-<dile-input-mask mask="AA00 0000"></dile-input-mask>
-
-<!-- Will transform all letters to lowercase -->
-<dile-input-mask mask="aa00 0000"></dile-input-mask>
-
-<!-- Mixed case: first two uppercase, next two lowercase -->
-<dile-input-mask mask="AA-aa-00"></dile-input-mask>
+<!-- Pattern with lazy separators -->
+<dile-input-mask mask="AA-XXXX-0000"></dile-input-mask>
 ```
 
-When a user types "ab12cd" with mask "AA-aa-00", the component:
-1. Validates that each position receives the correct type (letter or digit)
-2. Transforms the case: "AB-cd-12"
-3. Stores the transformed value: "ABcd12"
+Typing behavior:
+- User types `ES` → Displays: `ES` (no separator yet)
+- User types `ESW` → Displays: `ES-W` (separator added when next block starts)
+- User types `ESWSWQ` → Displays: `ES-WSWQ`
+- User types `ESWSWQ0` → Displays: `ES-WSWQ-0` (second separator added)
+
+This prevents confusing separators when the user is done entering data, since they control the length.
+
+### Case Transformation Examples
+
+```html
+<!-- Uppercase letters only -->
+<dile-input-mask mask="AA00 0000"></dile-input-mask>
+<!-- User types: ab12cd56 → Display: AB12 CD56, Value: AB12CD56 -->
+
+<!-- Lowercase letters only -->
+<dile-input-mask mask="aa00 aa"></dile-input-mask>
+<!-- User types: AB12CD → Display: ab12 cd, Value: ab12cd -->
+
+<!-- Flexible alphanumeric with lazy separators -->
+<dile-input-mask mask="AA-XXXX-0000"></dile-input-mask>
+<!-- User types: ES1234AB5678 → Display: ES-1234-AB78, Value: ES1234AB5678 -->
+<!-- User types: ESWSWQ0000 → Display: ES-WSWQ-0000, Value: ESWSWQ0000 -->
+```
 
 ### Mask Examples
 
 | Mask | Format | Use Case | Max Input |
 |------|--------|----------|-----------|
 | `AA00 0000 0000 0000 0000` | ES91 0000 0000 0000 0000 | IBAN (Spain) | 26 chars |
+| `AA-XXXX-0000-0000` | ES-AB12-0000-0000 | IBAN (Variable) with lazy separators | 14 chars |
 | `AA0 0AA` | SW1 1AA | UK Postcode | 6 chars |
 | `(000) 000-0000` | (555) 123-4567 | US Phone | 10 chars |
-| `AA-0000-AA` | AB-1234-XY | Product Code | 8 chars |
+| `AA-0000-AA` | AB-1234-XY | Product Code (letters only) | 8 chars |
+| `Xx-0000-Xx` | Ab-1234-Xy | Product Code (flexible alphanumeric) | 8 chars |
 | `0000-AA-AA` | 2024-EX-PI | License Plate | 8 chars |
 
 ## Properties
@@ -194,8 +212,8 @@ import '@dile/ui/components/input/input-mask.js';
 <dile-input-mask 
   name="iban-es"
   label="IBAN (con mensajes en español)"
-  placeholder="e.g., ES9121 2345 6789 0123 4567"
-  mask="AA00 0000 0000 0000 0000"
+  placeholder="e.g., ES91 2221 2345 6789 0123 4567"
+  mask="AA00 0000 0000 0000 0000 0000"
   language="es"
   message="Código de país (2 letras) + Dígitos de control (2) + IBAN (22 dígitos)"
 ></dile-input-mask>
