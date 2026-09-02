@@ -1,6 +1,8 @@
 ---
 title: Input Integer
-tags: forms
+tags: input
+excerpt: "Input restricted to whole numbers"
+familyIcon: "lucide.hash"
 ---
 
 # dile-input-integer

@@ -1,6 +1,8 @@
 ---
 title: Input Money
-tags: forms
+tags: input
+excerpt: "Input for monetary values with cents"
+familyIcon: "lucide.badge-dollar-sign"
 ---
 
 # dile-input-money

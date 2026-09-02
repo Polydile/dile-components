@@ -1,0 +1,24 @@
+<div class="input-family-grid">
+  <h2>Derived components</h2>
+  <p>
+    A comprehensive family of input components extends dile-input with specialized functionality for different use cases:
+  </p>
+<div class="home-featured-grid">
+  {% for component in collections.input | sort: "data.title" -%}
+    {% if component.data.hideLink != true -%}
+      <a href="{{ component.url }}" class="home-feature-card">
+        {% if component.data.familyIcon -%}
+          {% assign iconParts = component.data.familyIcon | split: "." -%}
+          {% assign iconLibrary = iconParts[0] -%}
+          {% assign iconName = iconParts[1] -%}
+          <dile-{{ iconLibrary }}-icon-{{ iconName }} class="iconfeaturedcard"></dile-{{ iconLibrary }}-icon-{{ iconName }}>
+        {% endif -%}
+        <h3>{{ component.data.title }}</h3>
+        {% if component.data.excerpt -%}
+          <p>{{ component.data.excerpt }}</p>
+        {% endif -%}
+      </a>
+    {% endif -%}
+  {% endfor %}
+</div>
+</div>

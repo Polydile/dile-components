@@ -1,6 +1,8 @@
 ---
 title: Input Search
 tags: forms
+excerpt: "Search input with clear functionality"
+familyIcon: "lucide.search"
 ---
 
 # dile-input-search

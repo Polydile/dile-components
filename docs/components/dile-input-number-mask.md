@@ -1,6 +1,8 @@
 ---
 title: Input Number Mask
-tags: forms
+tags: input
+excerpt: "Numeric input with mask formatting"
+familyIcon: "lucide.phone"
 ---
 
 # dile-input-number-mask

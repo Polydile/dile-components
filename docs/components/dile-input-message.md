@@ -1,6 +1,8 @@
 ---
 title: Input Message
-tags: forms
+tags: input
+excerpt: "Message display field with validation"
+familyIcon: "lucide.message-circle"
 ---
 
 # dile-input-message

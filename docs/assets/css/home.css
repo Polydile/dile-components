@@ -1,4 +1,4 @@
-html.is-home {
+html {
   --home-surface: #f7f9fc;
   --home-surface-strong: #eef3fb;
   --home-border: rgba(23, 37, 84, 0.14);
@@ -233,6 +233,15 @@ html.dark-theme.is-home .home-mascot {
   margin-bottom: 1.1rem;
 }
 
+.input-family-grid {
+  border-radius: 20px;
+  border: 1px solid var(--home-border);
+  background: linear-gradient(145deg, var(--home-surface) 0%, var(--home-surface-strong) 100%);
+  box-shadow: var(--home-shadow);
+  padding: 0 1.3rem 1.3rem;
+  margin: 1.5rem 0;
+}
+
 .home-capabilities__heading h2,
 .home-quickstart h2,
 .home-support h2 {
@@ -272,7 +281,7 @@ html.dark-theme.is-home .home-mascot {
   border: 1px solid var(--home-border);
   border-radius: 16px;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.48);
+  background-color: var(--dile-gray-very-light-color);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   display: grid;
   gap: 0.55rem;
@@ -288,14 +297,7 @@ html.dark-theme.is-home .home-feature-card {
   border-color: rgba(56, 189, 248, 0.6);
 }
 
-.home-feature-card dile-lucide-icon-globe,
-.home-feature-card dile-lucide-icon-palette,
-.home-feature-card dile-lucide-icon-feather,
-.home-feature-card dile-lucide-icon-check-check,
-.home-feature-card dile-lucide-icon-layers,
-.home-feature-card dile-lucide-icon-book-open,
-.home-feature-card dile-lucide-icon-bot,
-.home-feature-card dile-lucide-icon-terminal {
+.home-feature-card .iconfeaturedcard {
   --dile-icon-size: 30px;
   --dile-icon-color: var(--home-headline);
   opacity: 0.88;

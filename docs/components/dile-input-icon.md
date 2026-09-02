@@ -1,6 +1,8 @@
 ---
 title: Input Icon
-tags: forms
+tags: input
+excerpt: "Input with configurable icon button"
+familyIcon: "lucide.message-circle"
 ---
 
 # dile-input-icon

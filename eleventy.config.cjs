@@ -33,6 +33,7 @@ module.exports = async function(eleventyConfig) {
     return collectionApi.getFilteredByTag("components")
         .filter(item => 
           !componentTagsList.some(tag => item.data.tags.includes(tag)) &&
+          !item.data.tags.includes("input") &&
           item.url !== '/components/' &&
           item.data.hideLink !== true
         );

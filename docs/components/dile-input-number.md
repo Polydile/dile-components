@@ -1,6 +1,8 @@
 ---
 title: Input Number
-tags: forms
+tags: input
+excerpt: "Numeric input with decimal separator normalization"
+familyIcon: "lucide.calculator"
 ---
 
 # dile-input-number

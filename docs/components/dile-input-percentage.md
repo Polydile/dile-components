@@ -1,6 +1,8 @@
 ---
 title: Input Percentage
-tags: forms
+tags: input
+excerpt: "Input for percentage values"
+familyIcon: "lucide.badge-percent"
 ---
 
 # dile-input-percentage

@@ -1,6 +1,8 @@
 ---
 title: Input Mask
-tags: forms
+tags: input
+excerpt: "Input with customizable mask patterns"
+familyIcon: "lucide.book-type"
 ---
 
 # dile-input-mask
