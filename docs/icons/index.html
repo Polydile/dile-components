@@ -1,72 +1,112 @@
 ---
 layout: layout.html
-title: Icon libraries Web Components catalog
+title: Icon libraries as Web Components
 hasMarkdown: false
+iconLibraries:
+  - key: lucide
+    name: Lucide
+    logo: logo.lucide.svg
+    comment: "Community fork of Feather: 1,000+ clean icons on a strict 24×24 grid with a consistent 2px stroke."
+  - key: fontawesome
+    name: Font Awesome
+    logo: fontawesome.svg
+    comment: "One of the most widely used icon toolkits on the web, with thousands of icons in its free tier."
+  - key: material
+    name: Material Icons
+    logo: material-design.svg
+    comment: "Google's Material Design set: 2,000+ pixel-perfect “filled” symbols used across web and mobile UIs."
+  - key: phosphor
+    name: Phosphor
+    logo: phosphor.svg
+    comment: "1,500+ icons, each available in six weights: thin, light, regular, bold, fill and duotone."
+  - key: tabler
+    name: Tabler
+    logo: tabler-logo.svg
+    comment: "5,800+ pixel-perfect icons on a 24×24 grid, in outline and filled variants."
+  - key: remixicon
+    name: Remix Icon
+    logo: remix-icons.svg
+    comment: "Neutral-style system of 3,000+ icons, most available in both line and fill variants."
 ---
 
 <script type="module">
-import "@dile/ui/components/accordion/accordion.js"
-import '@dile/ui/components/accordion/accordion-item.js';
-
 import { CrudConfigBuilder } from '@dile/crud/lib/CrudConfigBuilder';
 import '@dile/crud/components/crud/crud.js';
 
+// Icons used by the live examples in the "universal components" block below.
+import '@dile/iconlib/lucide-icons/house.js';
+import '@dile/iconlib/material-icons/check-circle.js';
+import '@dile/iconlib/phosphor-icons/check-circle.js';
+import '@dile/iconlib/tabler-icons/heart-filled.js';
+import '@dile/iconlib/dile-iconlib.js';
+import '@dile/iconlib/dile-icon-badge.js';
+
 {% include "icon-catalog/icon-catalog-shared.md" %}
 
-// Builds a crud config scoped to a single icon library. The "library" filter from the
-// full catalog is deliberately left out here: scoping already happens through the
-// belongsTo="byLibrary"/relationId restriction on <dile-crud>, so re-exposing it as a
-// filter would just let users pick a library that contradicts the restriction.
-function buildLibraryCrudConfig(library) {
-  return new CrudConfigBuilder('https://api-icons.dile-components.com/api/icons', {
-    customization: {
-      disablePagination: false,
-      disableKeywordSearch: false,
-      disableSort: false,
-      disableFilter: true,
-      hideCheckboxSelection: true,
-      disableInsert: true,
-      disableEdit: true,
-      disableUpdate: true,
-      disableDelete: true,
-      disableRestore: true,
-      disableHelp: true,
+// Full combined catalog: the same CRUD-backed list that lives on the standalone
+// /icons/icon-catalog/ page, embedded here as the closing section of the landing page.
+const iconsConfig = new CrudConfigBuilder('https://api-icons.dile-components.com/api/icons', {
+  customization: {
+    disablePagination: false,
+    disableKeywordSearch: false,
+    disableSort: false,
+    disableFilter: false,
+    hideCheckboxSelection: true,
+    disableInsert: true,
+    disableEdit: true,
+    disableUpdate: true,
+    disableDelete: true,
+    disableRestore: true,
+    disableHelp: true,
+  },
+  pageSize: {
+    available: [24, 48],
+    initial: 24,
+  },
+  responseAdapter: new IconResponseApiAdapter(),
+  templates: {
+    item: (icon) => html`<demo-icon-catalog-item .icon=${icon}></demo-icon-catalog-item>`,
+  },
+  sort: {
+    options: [{ name: 'name', label: 'Name', direction: 'asc' }],
+    initialSortField: 'name',
+  },
+  availableFilters: [
+    {
+      name: 'library',
+      label: 'Library',
+      active: false,
+      value: false,
+      type: 'select',
+      options: [
+        { value: 'lucide', label: 'Lucide' },
+        { value: 'material', label: 'Material' },
+        { value: 'fontawesome', label: 'FontAwesome' },
+        { value: 'phosphor', label: 'Phosphor' },
+        { value: 'tabler', label: 'Tabler' },
+        { value: 'remixicon', label: 'Remix Icon' },
+      ],
     },
-    pageSize: {
-      available: [12, 24, 48],
-      initial: 12,
+    {
+      name: 'is_brand',
+      label: 'Only brands',
+      active: false,
+      value: false,
+      type: 'boolean',
     },
-    responseAdapter: new IconResponseApiAdapter(),
-    templates: {
-      item: (icon) => html`<demo-icon-catalog-item .icon=${icon}></demo-icon-catalog-item>`,
-    },
-    sort: {
-      options: [{ name: 'name', label: 'Name', direction: 'asc' }],
-      initialSortField: 'name',
-    },
-    availableFilters: [
+  ],
+});
 
-    ],
-  }).getConfig();
-}
-
-class DemoIconFamilyList extends LitElement {
+class DemoIconCatalogList extends LitElement {
   static styles = css`
     :host {
       display: block;
-      margin-top: 1rem;
-    }
-    dile-crud {
-        margin-top: 1.5rem;
-        --dile-crud-h1-font-size: 1.2rem;
-        --dile-crud-h1-font-weight: 300;
     }
     @media(min-width: 420px) {
       :host {
         --dile-crud-list-item-display: flex;
         --dile-crud-list-elements-container-template-columns: 1fr 1fr;
         --dile-crud-list-item-line-separator: none;
-
       }
     }
     @media(min-width: 700px) {
@@ -82,199 +122,118 @@ class DemoIconFamilyList extends LitElement {
   `;
 
   static get properties() {
-    return { library: { type: String }, config: { type: Object } };
+    return { config: { type: Object } };
   }
 
   constructor() {
     super();
-    this.library = this.getAttribute('library');
-    this.config = buildLibraryCrudConfig(this.library);
+    this.config = iconsConfig.getConfig();
   }
 
   render() {
-    return html`
-      <dile-crud
-        title="Catálogo de ${this.library}"
-        belongsTo="byLibrary"
-        relationId="${this.library}"
-        .config="${this.config}"
-      ></dile-crud>
-    `;
+    return html`<dile-crud title="Icon Catalog" .config="${this.config}"></dile-crud>`;
   }
 }
-customElements.define('demo-icon-family-list', DemoIconFamilyList);
+customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
 </script>
 
-<h1>Icon libraries Web Components catalog</h1>
-<p>
-  Here we have native components based on the Web Components standard that let you use popular icon libraries in a convenient and developer-friendly way.
+<h1>Icon libraries as Web Components</h1>
+
+<p class="iconlib-lead">
+  <strong>dile-components</strong> takes the most popular open-source icon libraries &mdash; Lucide,
+  Font Awesome, Material Icons, Phosphor, Tabler and Remix Icon &mdash; and repackages every icon as a
+  native Web Component. No icon fonts, no framework-specific wrappers, no copy-pasting SVG markup:
+  install one package and drop a custom element on the page.
 </p>
-<p>
-  Through these components, you can easily integrate icon libraries like <a href="https://fonts.google.com/icons">Material icons</a>, <a href="https://lucide.dev/">Lucide Icons</a>, <a href="https://fontawesome.com/">FontAwesome</a>, <a href="https://phosphoricons.com/">Phosphor Icons</a>, <a href="https://tabler.io/icons">Tabler Icons</a> or <a href="https://remixicon.com/">Remix Icon</a> using simple HTML tags that wrap the SVGs. This allows you to style the icons (color, size, etc.) comfortably with CSS custom properties.
+<p class="iconlib-lead">
+  Because each icon is a standalone Custom Element built on web standards, it works the same in React,
+  Vue, Angular, Astro, plain HTML or any other stack. Imports are tree-shakeable &mdash; you ship only
+  the icons you actually use &mdash; and every icon styles itself through CSS custom properties such as
+  <code>--dile-icon-size</code> and <code>--dile-icon-color</code>, defaulting to <code>currentColor</code>
+  so it behaves just like text.
 </p>
-<blockquote>
-  Check the <a href="/icons/icon-catalog/">Icon Catalog</a> to search and browse the full icon set from all libraries.
-</blockquote>
 
-<dile-accordion>
-  <dile-accordion-item title="Lucide icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://lucide.dev/">Lucide Icons</a> is an open-source icon library offering over 1,000 lightweight, scalable vector graphics (SVGs) designed for consistent style and readability across digital projects. Originating as a community-driven fork of Feather Icons, it emphasizes strict design rules—like a 24x24 pixel canvas, 2-pixel stroke width, and 1-2 pixel spacing—to ensure recognizability and optical balance at any size.
-      </p>
-      <p>
-        Here you will find an <a href="/icons/lucide-icons/">implementation of Lucide Icons as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
-      </p>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/lucide-icons/">Lucide icons web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/lucide-icon/">Generic Lucide icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/lucide-badge/">Lucide badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
-      </div>
-      <demo-icon-family-list library="lucide"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-  <dile-accordion-item title="FontAwesome icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://fontawesome.com/">Font Awesome</a> is a widely-used icon toolkit that provides thousands of scalable vector icons as web fonts, SVGs, and React/Vue/Angular components.  Font Awesome offers a robust icon library with a free tier for most projects, alongside a Pro subscription that unlocks premium icon sets.
-      </p>
-      <p>
-        Dile Components offers an <a href="/icons/fontawesome-icons/">implementation of FontAwesome Icons as native Web Components</a> that makes them easier to implement across any project, providing a lightweight, framework-agnostic solution.
-      </p>
+<h2>Available icon libraries</h2>
+<p>
+  Each library ships as its own set of tagged components, plus a generic single-icon component and a
+  badge component. Follow the links for full documentation, styling options and the per-library icon
+  browser.
+</p>
 
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/fontawesome-icons/">Fontawesome icons web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/fontawesome-icon/">Generic Fontawesome icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/fontawesome-badge/">Fontawesome badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
+<section class="iconlib-card-grid">
+  {% for lib in iconLibraries %}
+  <article class="iconlib-card">
+    <div class="iconlib-card__head">
+      <span class="iconlib-card__logo">
+        <img src="/images/iconlib-logos/{{ lib.logo }}" alt="{{ lib.name }} logo" width="44" height="44" loading="lazy">
+      </span>
+      <h3 class="iconlib-card__title">{{ lib.name }}</h3>
+    </div>
+    <p class="iconlib-card__text">{{ lib.comment }}</p>
+    <div class="iconlib-card__links">
+      <a href="/icons/{{ lib.key }}-icons/">Web components</a>
+      <a href="/icons/{{ lib.key }}-icon/">Generic icon</a>
+      <a href="/icons/{{ lib.key }}-badge/">Badge</a>
+    </div>
+  </article>
+  {% endfor %}
+</section>
 
-      <demo-icon-family-list library="fontawesome"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-  <dile-accordion-item title="Material icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://fonts.google.com/icons">Material Icons</a> is Google's open-source icon collection featuring over 2,500 minimalist, pixel-perfect symbols designed specifically for Material Design, available as SVGs, web fonts, and framework-specific packages for seamless integration across Android, iOS, web, and Flutter applications.
-      </p>
-      <p>
-        Here you will find an <a href="/icons/material-icons/">implementation of Material Icons as native Web Components</a>, covering the whole "filled" Material Icons style (2000+ icons) as framework-agnostic Custom Elements, following the same pattern as the Lucide and FontAwesome implementations above.
-      </p>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-icons/">Material icons web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-icon/">Generic Material icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/material-badge/">Material badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
-      </div>
-      <p>
-        Dile Components previously offered a <a href="/icons/material-icons-legacy/">partial implementation of Material Icons</a>, featuring a curated selection of icons built with Lit templates. This <strong>legacy</strong> implementation is kept for backward compatibility with existing components, but new projects should use the Web Components implementation above.
-      </p>
-      <demo-icon-family-list library="material"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-  <dile-accordion-item title="Phosphor icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://phosphoricons.com/">Phosphor Icons</a> is a flexible open-source icon family with over 1,500 icons, each available in 6 weights: regular, thin, light, bold, fill and duotone.
-      </p>
-      <p>
-        Here you will find an <a href="/icons/phosphor-icons/">implementation of Phosphor Icons as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
-      </p>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/phosphor-icons/">Phosphor icons web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/phosphor-icon/">Generic Phosphor icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/phosphor-badge/">Phosphor badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
-      </div>
-      <demo-icon-family-list library="phosphor"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-  <dile-accordion-item title="Tabler icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://tabler.io/icons">Tabler Icons</a> is a free and open-source icon set with over 5,800 pixel-perfect icons, each available in outline and filled variants, all designed on a consistent 24x24 grid.
-      </p>
-      <p>
-        Here you will find an <a href="/icons/tabler-icons/">implementation of Tabler Icons as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
-      </p>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-icons/">Tabler icons web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-icon/">Generic Tabler icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/tabler-badge/">Tabler badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-icon-badge/">Universal icon badge (all libraries)</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
-      </div>
-      <demo-icon-family-list library="tabler"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-  <dile-accordion-item title="Remix Icon icons">
-    <div slot="accordion-item-content">
-      <p>
-        <a href="https://remixicon.com/">Remix Icon</a> is a free, open-source, neutral-style icon system with over 3,000 icons, most of them available in both "line" (outline) and "fill" (solid) variants.
-      </p>
-      <p>
-        Here you will find an <a href="/icons/remixicon-icons/">implementation of Remix Icon as native Web Components</a>, providing a lightweight, framework-agnostic solution that leverages standard web technologies like custom elements and Shadow DOM for optimal encapsulation and reusability.
-      </p>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/remixicon-icons/">Remix Icon web components</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/remixicon-icon/">Generic Remix Icon</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/remixicon-badge/">Remix Icon badge</a>
-      </div>
-      <div class="flex-items-center icons-on-background gap-3 mb-2">
-        <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right> <a href="/icons/dile-iconlib/">Universal icon (all libraries)</a>
-      </div>
-      <demo-icon-family-list library="remixicon"></demo-icon-family-list>
-    </div>
-  </dile-accordion-item>
-</dile-accordion>
+<section class="iconlib-universal">
+  <h2>One tag for every library: <code>dile-iconlib</code> and <code>dile-icon-badge</code></h2>
+  <p>
+    When you don't want to commit to a single library &mdash; or you need to switch icons at runtime
+    &mdash; reach for the two universal components. Both take a single <code>icon</code> string in the
+    <code>family.name</code> format (for example <code>lucide.house</code> or
+    <code>material.receipt</code>) and resolve the right element for you.
+  </p>
 
+  <div class="iconlib-universal__pair">
+    <div class="iconlib-universal__col">
+      <h3><a href="/icons/dile-iconlib/">Universal icon &mdash; <code>dile-iconlib</code></a></h3>
+      <p class="iconlib-card__text">
+        A single icon tag for any supported library. Ideal for data-driven lists and conditional
+        rendering where the icon &mdash; or even the library &mdash; changes dynamically.
+      </p>
+      <div class="iconlib-universal__demos">
+        <dile-iconlib icon="lucide.house"></dile-iconlib>
+        <dile-iconlib icon="material.check-circle"></dile-iconlib>
+        <dile-iconlib icon="phosphor.check-circle"></dile-iconlib>
+      </div>
+<pre><code>import '@dile/iconlib/dile-iconlib.js';
+import '@dile/iconlib/lucide-icons/house.js';
+
+&lt;dile-iconlib icon="lucide.house"&gt;&lt;/dile-iconlib&gt;</code></pre>
+      <p><a href="/icons/dile-iconlib/">Read the dile-iconlib documentation &rarr;</a></p>
+    </div>
+
+    <div class="iconlib-universal__col">
+      <h3><a href="/icons/dile-icon-badge/">Universal badge &mdash; <code>dile-icon-badge</code></a></h3>
+      <p class="iconlib-card__text">
+        The same idea for labelled badges, with shared <code>variant</code> states
+        (<code>success</code>, <code>warning</code>, <code>danger</code>, <code>soft</code>&hellip;) and
+        one unified set of CSS variables across every family.
+      </p>
+      <div class="iconlib-universal__demos">
+        <dile-icon-badge icon="lucide.house">Lucide</dile-icon-badge>
+        <dile-icon-badge icon="material.check-circle" variant="success">Ready</dile-icon-badge>
+        <dile-icon-badge icon="tabler.heart-filled" variant="soft">Tabler</dile-icon-badge>
+      </div>
+<pre><code>import '@dile/iconlib/dile-icon-badge.js';
+import '@dile/iconlib/material-icons/check-circle.js';
+
+&lt;dile-icon-badge icon="material.check-circle" variant="success"&gt;Ready&lt;/dile-icon-badge&gt;</code></pre>
+      <p><a href="/icons/dile-icon-badge/">Read the dile-icon-badge documentation &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<h2 id="icon-catalog">Full icon catalog</h2>
+<p>
+  Browse and search every icon from all six libraries at once. Filter by library or narrow down to
+  brand icons, then click any icon to get the exact install command, import statement and tag you need
+  to use it. This same catalog is also available on its own <a href="/icons/icon-catalog/">Icon Catalog</a> page.
+</p>
+
+<demo-icon-catalog-list></demo-icon-catalog-list>
 <demo-icon-usage-modal></demo-icon-usage-modal>

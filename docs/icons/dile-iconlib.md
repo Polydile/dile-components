@@ -1,7 +1,7 @@
 ---
 layout: layout.html
-title: Universal Generic
-tags: icons
+title: Iconlib
+tags: 'universal icons'
 ---
 
 # Universal Icon Web Component

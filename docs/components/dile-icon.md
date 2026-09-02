@@ -5,7 +5,15 @@ tags: icons
 
 # dile-icon
 
-Web Component to create a container to display an icon.
+`dile-icon` is the original, **legacy** icon component of dile-components: a lightweight container that renders whatever icon you hand it through its `icon` property.
+
+> **Legacy component — still relevant, but no longer the default choice.**
+>
+> What makes `dile-icon` different from the other icon components is that it doesn't tie you to any icon set: the `icon` property accepts any Lit template, raw SVG or `<img>`, so you can drop in your own artwork. The trade-off is that the ready-made catalog it draws from — the [`@dile/icons`](/icons/material-icons-legacy/) package — is a small, curated selection of Material icons, not a full library.
+>
+> It stays important because a large part of the dile-components design system depends on it internally: many UI components (buttons, chips, menus, feedback, CRUD, …) use `dile-icon` to paint their icons, so it isn't going away.
+>
+> For new application code, prefer the modern icon components: [`dile-iconlib`](/icons/dile-iconlib/) and [`dile-icon-badge`](/icons/dile-icon-badge/). They port the most popular open-source icon libraries — [Lucide](/icons/lucide-icons/), [Material Icons](/icons/material-icons/), [Font Awesome](/icons/fontawesome-icons/), [Phosphor](/icons/phosphor-icons/), [Tabler](/icons/tabler-icons/) and [Remix Icon](/icons/remixicon-icons/) — to Web Components, with thousands of tree-shakeable icons and a shared theming API. See the [icons overview](/icons/) for the full picture.
 
 ## Installation
 

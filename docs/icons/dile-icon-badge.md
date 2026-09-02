@@ -1,7 +1,7 @@
 ---
 layout: layout.html
-title: Universal Badge
-tags: icons
+title: Icon Badge
+tags: 'universal icons'
 ---
 
 # Universal Icon Badge Web Component

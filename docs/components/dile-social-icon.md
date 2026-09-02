@@ -5,7 +5,9 @@ tags: icons
 
 # dile-social-icon
 
-Web component to display icons from the main social networks and communities, based on Lit.
+Lit-based Web Component that displays icons for the main social networks and communities.
+
+> **Legacy social icon set.** It ships a short, curated list of social network icons. If you need a much wider social icon library — plus logos of many other brands — use the [Font Awesome icon components](/icons/fontawesome-icons/), or [`dile-iconlib`](/icons/dile-iconlib/), which brings the icons of several open-source libraries together in a single component.
 
 ## Installation
 

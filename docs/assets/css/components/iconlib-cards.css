@@ -1,0 +1,143 @@
+/* Icons landing page: library summary cards + universal (all libraries) block */
+
+.iconlib-lead {
+  max-width: 74ch;
+}
+
+/* ---- Library cards -------------------------------------------------------- */
+
+.iconlib-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+@media (min-width: 560px) {
+  .iconlib-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .iconlib-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.iconlib-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border: 1px solid var(--dile-primary-color);
+  border-radius: 14px;
+  padding: 1.1rem;
+  background-color: var(--dile-gray-very-light-color);
+  color: var(--dile-on-gray-very-light-color);
+}
+
+.iconlib-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconlib-card__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  border-radius: 10px;
+  /* Always keep a light chip so dark/monochrome brand logos stay legible in both themes */
+  background-color: #ffffff;
+  color: #303030;
+}
+
+.iconlib-card__logo img,
+.iconlib-card__logo svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.iconlib-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: 1;
+}
+
+.iconlib-card__text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.iconlib-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin-top: auto;
+  padding-top: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.iconlib-card__links a {
+  text-decoration: none;
+  color: var(--dile-link-color);
+  white-space: nowrap;
+}
+
+.iconlib-card__links a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Universal (all libraries) block ------------------------------------- */
+
+.iconlib-universal {
+  border: 1px solid var(--dile-primary-color);
+  border-left: 7px solid var(--dile-primary-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  margin: 1.5rem 0 2.5rem;
+  background-color: var(--dile-gray-very-light-color);
+  color: var(--dile-on-gray-very-light-color);
+}
+
+.iconlib-universal > h2 {
+  margin-top: 0;
+}
+
+.iconlib-universal__pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.iconlib-universal__col {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.iconlib-universal__col h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+.iconlib-universal__col h3 a {
+  text-decoration: none;
+}
+
+.iconlib-universal__demos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.75rem 0;
+  --dile-icon-size: 30px;
+}
