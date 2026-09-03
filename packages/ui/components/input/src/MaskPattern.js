@@ -14,9 +14,10 @@
  *   '(000) 000-0000' = US phone format
  */
 export class MaskPattern {
-  constructor(pattern, language = 'en') {
+  constructor(pattern, language = 'en', lazySeparators = false) {
     this.pattern = pattern;
     this.language = language;
+    this.lazySeparators = lazySeparators;
     this.parsePattern();
   }
 
@@ -50,6 +51,10 @@ export class MaskPattern {
     this.language = language;
   }
 
+  setLazySeparators(lazy) {
+    this.lazySeparators = lazy;
+  }
+
   getTotalCharactersExpected() {
     return this.patternMap.filter(p => p.type !== 'literal').length;
   }
@@ -62,8 +67,13 @@ export class MaskPattern {
       const patternInfo = this.patternMap[i];
       
       if (patternInfo.type === 'literal') {
-        // Lazy literals: only add if there are more input characters to fill slots after this literal
-        if (slotIndex < value.length) {
+        if (this.lazySeparators) {
+          // Lazy literals: only add if there are more input characters to fill slots after this literal
+          if (slotIndex < value.length) {
+            masked += patternInfo.char;
+          }
+        } else {
+          // Normal behavior: always add the literal
           masked += patternInfo.char;
         }
       } else {

@@ -223,7 +223,7 @@ describe('dile-input-mask', () => {
   });
 
   it('applies lazy separators only when next block is filled', async () => {
-    const el = await renderInputMask('<dile-input-mask name="iban" mask="AA-XXXX-0000"></dile-input-mask>');
+    const el = await renderInputMask('<dile-input-mask name="iban" mask="AA-XXXX-0000" lazySeparators></dile-input-mask>');
     const input = el.shadowRoot.querySelector('input');
 
     // Type 'ES' - should show 'ES' without trailing separator
@@ -256,5 +256,59 @@ describe('dile-input-mask', () => {
     await el.updateComplete;
     expect(el.maskedValue).toBe('ES-WSWQ-0000');
   });
+
+  it('uses normal separators by default (lazySeparators=false)', async () => {
+    const el = await renderInputMask('<dile-input-mask name="test" mask="AA-XXXX-0000"></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // Type 'ES' - should show 'ES-' (separator added immediately)
+    input.value = 'ES';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-');
+
+    // Type 'ESWSWQ0000' - separators already included
+    input.value = 'ESWSWQ0000';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-WSWQ-0000');
+  });
+
+  it('supports lazySeparators property', async () => {
+    const el = await renderInputMask('<dile-input-mask name="test" mask="AA-XXXX-0000" lazySeparators></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // Type 'ES' - should show 'ES' without separator (lazy behavior)
+    input.value = 'ES';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES');
+
+    // Type 'ESW' - should show 'ES-W' (separator added when next block starts)
+    input.value = 'ESW';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-W');
+  });
+
+  it('can toggle lazySeparators property dynamically', async () => {
+    const el = await renderInputMask('<dile-input-mask name="test" mask="AA-XXXX-0000"></dile-input-mask>');
+    const input = el.shadowRoot.querySelector('input');
+
+    // Initially with normal separators
+    input.value = 'ES';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES-');
+
+    // Toggle to lazy separators
+    el.lazySeparators = true;
+    await el.updateComplete;
+    input.value = 'ES';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('ES');
+  });
 });
+
 

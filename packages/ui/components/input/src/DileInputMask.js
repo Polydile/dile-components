@@ -9,6 +9,7 @@ export class DileInputMask extends DileInput {
       mask: { type: String },
       maskedValue: { type: String },
       language: { type: String },
+      lazySeparators: { type: Boolean },
     };
   }
 
@@ -18,6 +19,7 @@ export class DileInputMask extends DileInput {
     this.maskedValue = '';
     this.content = '';
     this.language = 'en';
+    this.lazySeparators = false;
     this._keyDownHandler = this.handleKeyDown.bind(this);
     this._blurHandler = this.handleBlur.bind(this);
   }
@@ -32,7 +34,7 @@ export class DileInputMask extends DileInput {
   }
 
   createMaskController(mask) {
-    this.maskController = new MaskPattern(mask, this.language);
+    this.maskController = new MaskPattern(mask, this.language, this.lazySeparators);
     this.maxChars = this.maskController.getTotalCharactersExpected();
   }
 
@@ -45,6 +47,10 @@ export class DileInputMask extends DileInput {
     }
     if (changedProperties.has('language')) {
       this.maskController.setLanguage(this.language);
+    }
+    if (changedProperties.has('lazySeparators')) {
+      this.maskController.setLazySeparators(this.lazySeparators);
+      this.updateMaskedValue();
     }
     if (changedProperties.has('value')) {
       const transformedValue = this.maskController.transformValue(this.value.slice(0, this.maxChars));

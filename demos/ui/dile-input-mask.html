@@ -142,7 +142,18 @@
         label="IBAN Variable (Lazy Separators) - Pattern: AA-XXXX-0000-0000" 
         placeholder="e.g., ESWSWQ0000" 
         mask="AA-XXXX-0000-0000"
+        lazySeparators
         message="Country code (2 letters) + Mixed alphanumeric (4 chars) + Digits (8 chars). Separators appear only when next block is filled."
+      ></dile-input-mask>
+    </p>
+
+    <p>
+      <dile-input-mask 
+        name="iban-variable-normal" 
+        label="IBAN Variable (Normal Separators) - Pattern: AA-XXXX-0000-0000" 
+        placeholder="e.g., ESWSWQ0000" 
+        mask="AA-XXXX-0000-0000"
+        message="Same format but separators appear immediately (default behavior)"
       ></dile-input-mask>
     </p>
 

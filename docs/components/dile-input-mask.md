@@ -117,6 +117,14 @@ This prevents confusing separators when the user is done entering data, since th
   - Supported languages: `"en"` (English), `"es"` (Spanish), `"fr"` (French), `"de"` (German), `"cat"` (Catalan)
   - Error messages adapt automatically based on this setting
 
+- **lazySeparators** (Boolean, default `false`): Controls when separators are displayed
+  - When `false` (default): Separators appear immediately as the mask structure fills
+    - Example: Type `ES` with mask `"AA-XXXX-0000"` → displays `"ES-"`
+  - When `true`: Separators only appear when the next input block starts filling
+    - Example: Type `ES` with mask `"AA-XXXX-0000"` → displays `"ES"` (no separator yet)
+    - Type `ESW` → displays `"ES-W"` (separator added when next block starts)
+  - Useful for variable-length input formats where trailing separators can be confusing
+
 ### Standard Input Properties
 
 - **label** (String): Text displayed above the input field
@@ -254,6 +262,28 @@ import '@dile/ui/components/input/input-mask.js';
   mask="0000-AA-AA"
 ></dile-input-mask>
 ```
+
+### Variable-Length Input with Lazy Separators
+
+For inputs where users may enter variable amounts of data, use `lazySeparators` to avoid showing trailing separators:
+
+```html:preview
+<dile-input-mask 
+  name="flexible-code"
+  label="Flexible Product Code (with lazy separators)"
+  placeholder="e.g., ES-WSWQ-0000 or ES-W"
+  mask="AA-XXXX-0000"
+  lazySeparators
+  message="Format: 2 letters - up to 4 alphanumeric - up to 4 digits"
+></dile-input-mask>
+```
+
+With `lazySeparators`, the separators only appear when the next block starts:
+- Type `ES` → displays `ES`
+- Type `ESW` → displays `ES-W` (separator appears)
+- Type `ESWSWQ0000` → displays `ES-WSWQ-0000`
+
+Compare this to the default behavior where separators appear immediately (`ES-` when typing just `ES`).
 
 ## Form Submission Example
 
