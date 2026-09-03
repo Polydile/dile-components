@@ -1,6 +1,6 @@
 {
   "name": "@dile/pdf-viewer",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Web Component for PDF viewing with zoom and navigation controls, powered by PDF.js",
   "keywords": [
     "pdf",
@@ -29,7 +29,7 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/iconlib": "^1.8.1",
+    "@dile/iconlib": "^2.0.0",
     "lit": "^2.7.0 || ^3.0.0",
     "pdfjs-dist": "^4.0.0"
   },
