@@ -26,7 +26,7 @@
           label="{{ tag.label }}" 
           {% if isOpened %}opened{% endif %}
         >
-        {% for component in collections[tag] %}
+        {% for component in collections[tag.key] %}
           {% include "layout-partials/nav-item.html" %}
         {% endfor %}
         </dile-slide-menu>
