@@ -1,6 +1,9 @@
 ---
 title: Toast
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-toast&gt;'
+status: stable
+summary: Feedback notification component inspired by Material Design toast. Supports success, error, neutral status with customizable duration display.
 ---
 
 # dile-toast

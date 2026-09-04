@@ -1,6 +1,9 @@
 ---
 title: Chip Tooltip
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-chip-tooltip&gt;'
+status: stable
+summary: Chip component that opens a tooltip on interaction. Supports customizable message, position, icons, and fade-in animations.
 ---
 
 # dile-chip-tooltip

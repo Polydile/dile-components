@@ -1,6 +1,9 @@
 ---
 title: Confirm Text
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-confirm-text&gt;'
+status: stable
+summary: Modal confirm dialog requiring text input for confirmation. Extends dile-confirm for high-risk operations requiring user intent verification.
 ---
 
 # dile-confirm-text

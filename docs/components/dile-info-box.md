@@ -1,6 +1,9 @@
 ---
 title: Info Box
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-info-box&gt;'
+status: stable
+summary: Information display box component with optional title, close button, and error state. Supports custom icons for different message types.
 ---
 
 # dile-info-box

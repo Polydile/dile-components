@@ -1,6 +1,9 @@
 ---
 title: PDF Viewer
-tags: utils, pdf
+package: '@dile/pdf-viewer'
+element: '&lt;dile-pdf-viewer&gt;'
+status: stable
+summary: PDF viewer component with zoom, navigation, and download controls. Built with PDF.js for responsive accessible viewing.
 ---
 
 # dile-pdf-viewer

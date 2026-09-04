@@ -1,5 +1,9 @@
 ---
 title: Web visor
+package: '@dile/ui'
+element: '&lt;dile-web-visor&gt;'
+status: stable
+summary: iframe viewer component with zoom controls and full screen functionality. Customizable toolbar with zoom in, out, full screen options.
 ---
 
 # dile-web-visor

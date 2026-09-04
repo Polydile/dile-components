@@ -1,6 +1,9 @@
 ---
 title: Local Time
-tags: utils
+package: '@dile/utils'
+element: '&lt;dile-local-time&gt;'
+status: stable
+summary: Local time display component from ISO 8601 dates. Supports 12/24 hour format, seconds, timezone, and multiple language displays.
 ---
 
 # dile-local-time

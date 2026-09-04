@@ -1,5 +1,9 @@
 ---
 title: Breadcrumbs
+package: '@dile/ui'
+element: '&lt;dile-breadcrumbs&gt;'
+status: stable
+summary: Navigation breadcrumbs component supporting array-based and HTML markup approaches. Customizable separators and links for hierarchical navigation.
 ---
 
 # dile-breadcrumbs

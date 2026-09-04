@@ -1,6 +1,9 @@
 ---
 title: Number Picker
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-number-picker&gt;'
+status: stable
+summary: Integer selection component with increment/decrement buttons. Supports step, min, max, leading zeros, and digit display configuration.
 ---
 
 # dile-number-picker

@@ -1,8 +1,9 @@
 ---
 title: Input Number Mask
-tags: input
-excerpt: "Numeric input with mask formatting"
-familyIcon: "lucide.phone"
+package: '@dile/ui'
+element: '&lt;dile-input-number-mask&gt;'
+status: stable
+summary: Numeric input with automatic formatting via mask patterns. Separates user editable values from formatted display values.
 ---
 
 # dile-input-number-mask

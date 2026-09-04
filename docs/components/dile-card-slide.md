@@ -1,5 +1,9 @@
 ---
 title: Card Slide
+package: '@dile/ui'
+element: '&lt;dile-card-slide&gt;'
+status: stable
+summary: Collapsible card component with smooth slide-down and slide-up animation. Extends dile-card with toggle behavior and chevron icon.
 ---
 
 # dile-card-slide

@@ -1,6 +1,9 @@
 ---
 title: Network
-tags: utils
+package: '@dile/utils'
+element: '&lt;dile-network&gt;'
+status: stable
+summary: Network status monitoring component for online/offline detection. Displays customizable offline message with close functionality.
 ---
 
 # dile-network

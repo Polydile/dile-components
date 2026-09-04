@@ -1,6 +1,9 @@
 ---
 title: Icon
-tags: icons
+package: '@dile/ui'
+element: '&lt;dile-icon&gt;'
+status: stable
+summary: Legacy icon component accepting any Lit template, raw SVG, or image. Lightweight container for custom icon implementations.
 ---
 
 # dile-icon

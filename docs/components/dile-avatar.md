@@ -1,6 +1,9 @@
 ---
-layout: layout.html
 title: Avatar
+package: '@dile/ui'
+element: '&lt;dile-avatar&gt;'
+status: stable
+summary: User avatar component displaying images, initials, or default icon. Highly customizable with CSS variables for sizing and colors.
 ---
 
 # dile-avatar

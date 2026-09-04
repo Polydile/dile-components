@@ -1,6 +1,9 @@
 ---
 title: Countdown Time
-hideLink: true
+package: '@dile/ui'
+element: '&lt;dile-countdown-time&gt;'
+status: deprecated
+summary: Component no longer maintained. Check previous version documentation if you need countdown timer functionality for your application.
 ---
 
 # dile-countdown-time

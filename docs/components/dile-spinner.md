@@ -1,6 +1,9 @@
 ---
 title: Spinner
-tags: spinner
+package: '@dile/ui'
+element: '&lt;dile-spinner&gt;'
+status: stable
+summary: Loading spinner component for indicating background processing. Inline display with customizable colors and dot sizes.
 ---
 
 # dile-spinner

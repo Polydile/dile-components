@@ -1,8 +1,9 @@
 ---
 title: Input Number
-tags: input
-excerpt: "Numeric input with decimal separator normalization"
-familyIcon: "lucide.calculator"
+package: '@dile/ui'
+element: '&lt;dile-input-number&gt;'
+status: stable
+summary: Numeric input component with decimal separator normalization. Supports min, max, step, and decimal positioning configuration.
 ---
 
 # dile-input-number

@@ -1,5 +1,9 @@
 ---
 title: Accordion
+package: '@dile/ui'
+element: '&lt;dile-accordion&gt;'
+status: stable
+summary: Web component for creating expandable accordion sections with keyboard navigation and full WCAG 2.1/2.2 Level AA accessibility support.
 ---
 
 

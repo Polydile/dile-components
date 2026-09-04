@@ -1,6 +1,9 @@
 ---
 title: Select Ajax
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-select-ajax&gt;'
+status: stable
+summary: Dynamic select component fetching options from JSON API endpoints. Includes search capability with configurable request delay.
 ---
 
 # dile-select-ajax

@@ -1,8 +1,9 @@
 ---
 title: Input Search
-tags: forms
-excerpt: "Search input with clear functionality"
-familyIcon: "lucide.search"
+package: '@dile/ui'
+element: '&lt;dile-input-search&gt;'
+status: stable
+summary: Search input component with icon and clear functionality. Emits search events with configurable delay between keystrokes.
 ---
 
 # dile-input-search

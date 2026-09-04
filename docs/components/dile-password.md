@@ -1,6 +1,9 @@
 ---
 title: Password
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-password&gt;'
+status: stable
+summary: Password input component extending dile-input. Includes optional show/hide password toggle for improved user experience.
 ---
 
 # dile-password

@@ -1,5 +1,9 @@
 ---
 title: Nav
+package: '@dile/ui'
+element: '&lt;dile-nav&gt;'
+status: stable
+summary: Navigation bar component with title, menu, and actions slots. Supports flexible content organization and customizable styling.
 ---
 
 # dile-nav

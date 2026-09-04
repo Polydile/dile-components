@@ -1,6 +1,9 @@
 ---
 title: Input
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-input&gt;'
+status: stable
+summary: Text input field component with customizable design. Base component for many specialized input types in dile-components.
 ---
 
 # dile-input

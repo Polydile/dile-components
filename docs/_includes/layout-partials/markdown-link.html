@@ -1,3 +1,26 @@
+{% if package or element or status %}
+  <aside class="DocMeta" aria-label="Component metadata">
+    {% if element %}
+      <div class="DocMeta-item">
+        <span class="DocMeta-label">Element:</span>
+        <span class="DocMeta-value">{{ element }}</span>
+      </div>
+    {% endif %}
+    {% if package %}
+      <div class="DocMeta-item">
+        <span class="DocMeta-label">Package:</span>
+        <span class="DocMeta-value">{{ package }}</span>
+      </div>
+    {% endif %}
+    {% if status %}
+      <div class="DocMeta-item">
+        <span class="DocMeta-label">Status:</span>
+        <span class="DocMeta-value DocMeta-value--status DocMeta-value--{{ status }}">{{ status }}</span>
+      </div>
+    {% endif %}
+  </aside>
+{% endif %}
+
 {% if hasMarkdown %}
   {% assign mdFileName = page.inputPath | split: "/" | last | replace: ".md", "" %}
   <div class="MarkdownLink">

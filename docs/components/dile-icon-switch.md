@@ -1,6 +1,9 @@
 ---
 title: Icon Switch
-tags: icons
+package: '@dile/ui'
+element: '&lt;dile-icon-switch&gt;'
+status: stable
+summary: Switch component based on icons. Provides binary toggle functionality with custom icon display and change event dispatch.
 ---
 
 # dile-icon-switch

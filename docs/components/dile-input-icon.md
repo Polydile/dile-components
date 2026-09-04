@@ -1,8 +1,9 @@
 ---
 title: Input Icon
-tags: input
-excerpt: "Input with configurable icon button"
-familyIcon: "lucide.book-open"
+package: '@dile/ui'
+element: '&lt;dile-input-icon&gt;'
+status: stable
+summary: Input field with customizable icon button using dile-iconlib icons. Supports callback functions and custom event listeners.
 ---
 
 # dile-input-icon

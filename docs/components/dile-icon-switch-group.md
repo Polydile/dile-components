@@ -1,6 +1,9 @@
 ---
 title: Icon Switch Group
-tags: icons
+package: '@dile/ui'
+element: '&lt;dile-icon-switch-group&gt;'
+status: stable
+summary: Group container for multiple icon switches. Enables organized icon-based selection with shared styling and event handling.
 ---
 
 # dile-icon-switch-group

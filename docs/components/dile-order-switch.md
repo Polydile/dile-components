@@ -1,5 +1,9 @@
 ---
 title: Order Switch
+package: '@dile/ui'
+element: '&lt;dile-order-switch&gt;'
+status: stable
+summary: Order filter component toggling between ascending and descending. Useful for search result listings with order switching.
 ---
 
 # dile-order-switch

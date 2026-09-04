@@ -1,6 +1,9 @@
 ---
-layout: layout.html
 title: Chip
+package: '@dile/ui'
+element: '&lt;dile-chip&gt;'
+status: stable
+summary: Small chip component with customizable icon. Dispatches events on icon click and supports flexible CSS styling properties.
 ---
 
 # dile-chip

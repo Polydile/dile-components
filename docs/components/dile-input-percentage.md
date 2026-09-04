@@ -1,8 +1,9 @@
 ---
 title: Input Percentage
-tags: input
-excerpt: "Input for percentage values"
-familyIcon: "lucide.badge-percent"
+package: '@dile/ui'
+element: '&lt;dile-input-percentage&gt;'
+status: stable
+summary: Percentage value input component extending dile-input. Validates and formats values with percentage symbol display.
 ---
 
 # dile-input-percentage

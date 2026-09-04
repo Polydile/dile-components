@@ -1,6 +1,9 @@
 ---
 title: Toast Persistent
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-toast-persistent&gt;'
+status: stable
+summary: Always visible toast message component with smooth animation. Supports relative/fixed positioning with open/close/toggle methods.
 ---
 
 # dile-toast-persistent

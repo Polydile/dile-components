@@ -1,6 +1,9 @@
 ---
 title: Menu Overlay
-tags: menu
+package: '@dile/ui'
+element: '&lt;dile-menu-overlay&gt;'
+status: stable
+summary: Overlay menu component with trigger and content slots. Closes on outside clicks and manages multiple menus on same page.
 ---
 
 # dile-menu-overlay

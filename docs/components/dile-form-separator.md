@@ -1,6 +1,9 @@
 ---
 title: Form Separator
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-form-separator&gt;'
+status: stable
+summary: Form section separator component with optional label. Customizable appearance with CSS properties for form organization.
 ---
 
 # dile-form-separator

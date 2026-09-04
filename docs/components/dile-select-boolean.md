@@ -1,6 +1,9 @@
 ---
 title: Select Boolean
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-select-boolean&gt;'
+status: stable
+summary: Boolean select component wrapping dile-select with true/false options. Provides proper boolean value handling for form fields.
 ---
 
 # dile-select-boolean

@@ -1,6 +1,9 @@
 ---
 title: Pages
-tags: utils
+package: '@dile/ui'
+element: '&lt;dile-pages&gt;'
+status: stable
+summary: Page switching component displaying selected child element. Supports index or attribute-based selection with animation transitions.
 ---
 
 # dile-pages

@@ -1,8 +1,9 @@
 ---
 title: Input Mask
-tags: input
-excerpt: "Input with customizable mask patterns"
-familyIcon: "lucide.book-type"
+package: '@dile/ui'
+element: '&lt;dile-input-mask&gt;'
+status: stable
+summary: Masked input component supporting letter and number patterns. Automatically formats input according to defined mask patterns.
 ---
 
 # dile-input-mask

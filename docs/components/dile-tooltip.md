@@ -1,6 +1,9 @@
 ---
 title: Tooltip
-tags: feedback
+package: '@dile/ui'
+element: '&lt;dile-tooltip&gt;'
+status: stable
+summary: Customizable tooltip component displaying message on hover or focus. Supports positioning options, arrows, and fade-in animations.
 ---
 
 # dile-tooltip

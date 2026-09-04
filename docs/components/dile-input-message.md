@@ -1,8 +1,9 @@
 ---
 title: Input Message
-tags: input
-excerpt: "Message display field with validation"
-familyIcon: "lucide.message-circle"
+package: '@dile/ui'
+element: '&lt;dile-input-message&gt;'
+status: stable
+summary: Message display component inheriting from dile-input. Designed for showing validation messages within form components.
 ---
 
 # dile-input-message

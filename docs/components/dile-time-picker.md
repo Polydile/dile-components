@@ -1,6 +1,9 @@
 ---
 title: Time Picker
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-time-picker&gt;'
+status: stable
+summary: Time selection component using numeric pickers for hours, minutes, seconds. Form-integrated with validation and error message support.
 ---
 
 # dile-time-picker

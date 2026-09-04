@@ -1,6 +1,9 @@
 ---
 title: Select Overlay
-tags: forms
+package: '@dile/ui'
+element: '&lt;dile-select-overlay&gt;'
+status: stable
+summary: Accessible select alternative using custom overlay popup instead of native dropdown. Implements WAI-ARIA combobox pattern for styling control.
 ---
 
 # dile-select-overlay

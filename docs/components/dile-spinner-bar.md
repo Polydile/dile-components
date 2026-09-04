@@ -1,6 +1,9 @@
 ---
 title: Spinner Bar
-tags: spinner
+package: '@dile/ui'
+element: '&lt;dile-spinner-bar&gt;'
+status: stable
+summary: Full-width horizontal loading bar component with moving gradient animation. Customizable height, colors, and animation timing.
 ---
 
 # dile-spinner-bar

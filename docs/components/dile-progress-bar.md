@@ -1,5 +1,9 @@
 ---
 title: Progress Bar
+package: '@dile/ui'
+element: '&lt;dile-progress-bar&gt;'
+status: stable
+summary: Progress bar component showing completion percentage. Supports optional title and animated display with CSS customization.
 ---
 
 # dile-progress-bar

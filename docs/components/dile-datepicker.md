@@ -1,6 +1,9 @@
 ---
 title: Datepicker
-tags: forms
+package: '@dile/utils'
+element: '&lt;dile-datepicker&gt;'
+status: stable
+summary: Date input component with integrated calendar picker. Based on lion-calendar with automatic localization and calendar navigation.
 ---
 
 # dile-datepicker

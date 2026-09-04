@@ -1,6 +1,9 @@
 ---
 title: Editor
-tags: utils, markdown
+package: '@dile/editor'
+element: '&lt;dile-editor&gt;'
+status: stable
+summary: Rich markdown editor component with WYSIWYG and plain markdown editing modes. Customizable toolbar and language support for interfaces.
 ---
 
 # dile-editor

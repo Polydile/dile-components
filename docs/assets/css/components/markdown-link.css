@@ -1,3 +1,61 @@
+.DocMeta {
+  margin: 0 0 1rem;
+  display: grid;
+  font-size: 0.85rem;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.4rem;
+  background-color: var(--dile-gray-very-light-color);
+  color: var(--dile-on-gray-very-light-color);
+}
+
+.DocMeta-item {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  min-width: 0;
+  align-items: center;
+}
+
+.DocMeta-label {
+  font-weight: 700;
+}
+
+.DocMeta-value {
+  white-space: nowrap;
+}
+
+.DocMeta-value--status {
+  display: inline-flex;
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 0.8rem;
+}
+
+.DocMeta-value--stable {
+  background-color: #169033;
+  color: #D4EDDA;
+}
+
+.DocMeta-value--experimental {
+  background-color: #937819;
+  color: #FFF3CD;
+}
+
+.DocMeta-value--beta {
+  background-color: #185ea8;
+  color: #E7F3FF;
+}
+
+.DocMeta-value--deprecated {
+  background-color: #8b1a25;
+  color: #F8D7DA;
+}
+
 .MarkdownLink {
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
@@ -56,5 +114,13 @@
   }
   .MarkdownLink-tags {
     margin-bottom: 0;
+  }
+}
+
+@media(min-width: 600px) {
+  .DocMeta {
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    display: flex;
   }
 }
