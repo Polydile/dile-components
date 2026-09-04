@@ -1,6 +1,7 @@
 ---
 layout: layout.html
 title: Dile Components Theming
+tags: theming
 ---
 
 # Theming

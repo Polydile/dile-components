@@ -347,7 +347,7 @@ export class DileThemePaletteBar extends LitElement {
             <span class="theme-name" @dblclick="${this._startRename}">${this._activeName}</span>
           `}
           <span class="status-badge ${dirty ? 'dirty' : 'clean'}">
-            <span class="status-dot"></span>${dirty ? 'Sin guardar' : 'Guardado'}
+            <span class="status-dot"></span>${dirty ? 'Unsaved' : 'Saved'}
           </span>
           <span class="chevron ${this._menuOpen ? 'open' : ''}">
             <dile-lucide-icon-chevron-down></dile-lucide-icon-chevron-down>
@@ -358,15 +358,15 @@ export class DileThemePaletteBar extends LitElement {
           class="save-button ${dirty ? 'active' : ''}"
           ?disabled="${!dirty}"
           @click="${this._saveChanges}"
-        >${dirty ? 'Guardar cambios' : 'Guardado'}</dile-button>
+        >${dirty ? 'Save changes' : 'Saved'}</dile-button>
 
-        <dile-button @click="${this._createNewTheme}">+ Nuevo tema</dile-button>
+        <dile-button @click="${this._createNewTheme}">+ New theme</dile-button>
 
         <div class="options-wrapper">
           <button
             type="button"
             class="icon-button"
-            aria-label="Opciones"
+            aria-label="Options"
             @click="${this._onOptionsClick}"
           >
             <dile-lucide-icon-ellipsis-vertical></dile-lucide-icon-ellipsis-vertical>
@@ -374,10 +374,10 @@ export class DileThemePaletteBar extends LitElement {
           ${this._optionsMenuOpen ? html`
             <div class="options-menu">
               <button type="button" @click="${this._startRename}">
-                <dile-lucide-icon-pencil></dile-lucide-icon-pencil> Renombrar
+                <dile-lucide-icon-pencil></dile-lucide-icon-pencil> Rename
               </button>
               <button type="button" @click="${this._duplicateActive}">
-                <dile-lucide-icon-copy></dile-lucide-icon-copy> Duplicar tema
+                <dile-lucide-icon-copy></dile-lucide-icon-copy> Duplicate theme
               </button>
             </div>
           ` : ''}
@@ -392,7 +392,7 @@ export class DileThemePaletteBar extends LitElement {
         @dile-confirm-accepted="${this._confirmDelete}"
         @dile-confirm-cancelled="${this._cancelDelete}"
       >
-        <p>¿Eliminar el tema "${this._pendingDeleteName}"?</p>
+        <p>Delete the theme "${this._pendingDeleteName}"?</p>
       </dile-confirm>
     `;
   }
@@ -405,7 +405,7 @@ export class DileThemePaletteBar extends LitElement {
           <input
             class="search-input"
             type="text"
-            placeholder="Buscar tema..."
+            placeholder="Search theme..."
             .value="${this._search}"
             @input="${this._onSearchInput}"
           />
@@ -420,12 +420,12 @@ export class DileThemePaletteBar extends LitElement {
                   <span style="background-color: ${palette.light?.['--dile-terciary-color']}"></span>
                 </span>
                 <span class="palette-row-name">${palette.name}</span>
-                ${palette.name === this._activeName ? html`<span class="in-use">En uso</span>` : ''}
+                ${palette.name === this._activeName ? html`<span class="in-use">In use</span>` : ''}
               </button>
               <button
                 type="button"
                 class="icon-button danger"
-                aria-label="Eliminar"
+                aria-label="Delete"
                 ?disabled="${palettes.length <= 1}"
                 @click="${() => this._requestDelete(palette.name)}"
               >
@@ -433,7 +433,7 @@ export class DileThemePaletteBar extends LitElement {
               </button>
             </li>
           `)}
-          ${palettes.length === 0 ? html`<li class="empty">No hay temas que coincidan.</li>` : ''}
+          ${palettes.length === 0 ? html`<li class="empty">No matching themes.</li>` : ''}
         </ul>
       </div>
     `;
@@ -443,11 +443,11 @@ export class DileThemePaletteBar extends LitElement {
     return html`
       <dile-modal opened blocking>
         <div class="guard-modal">
-          <p>Tienes cambios sin guardar en <strong>${this._activeName}</strong>. ¿Qué quieres hacer?</p>
+          <p>You have unsaved changes in <strong>${this._activeName}</strong>. What would you like to do?</p>
           <div class="guard-actions">
-            <dile-button @click="${this._cancelPendingAction}">Cancelar</dile-button>
-            <dile-button @click="${this._discardAndContinue}">Descartar cambios</dile-button>
-            <dile-button @click="${this._saveAndContinue}">Guardar y cambiar</dile-button>
+            <dile-button @click="${this._cancelPendingAction}">Cancel</dile-button>
+            <dile-button @click="${this._discardAndContinue}">Discard changes</dile-button>
+            <dile-button @click="${this._saveAndContinue}">Save and switch</dile-button>
           </div>
         </div>
       </dile-modal>
@@ -527,7 +527,7 @@ export class DileThemePaletteBar extends LitElement {
   }
 
   _actuallyCreateNewTheme() {
-    const name = this._generateUniqueName('Nuevo tema');
+    const name = this._generateUniqueName('New theme');
     const theme = {
       light: getDefaultValues('light'),
       dark: getDefaultValues('dark'),
@@ -543,7 +543,7 @@ export class DileThemePaletteBar extends LitElement {
   _duplicateActive() {
     this._optionsMenuOpen = false;
     if (!this.currentTheme) return;
-    const name = this._generateUniqueName(`${this._activeName} copia`);
+    const name = this._generateUniqueName(`${this._activeName} copy`);
     savePalette(name, this.currentTheme);
     this._palettes = listPalettes();
     this._activeName = name;
@@ -587,7 +587,7 @@ export class DileThemePaletteBar extends LitElement {
     const newName = this._renameValue.trim();
     if (!newName || newName === this._activeName) return;
     if (this._palettes.some(p => p.name === newName)) {
-      window.alert(`Ya existe un tema llamado "${newName}".`);
+      window.alert(`A theme with the name "${newName}" already exists.`);
       return;
     }
     renamePalette(this._activeName, newName);

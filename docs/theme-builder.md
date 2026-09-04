@@ -1,6 +1,7 @@
 ---
 layout: layout.html
 title: Theme Builder
+tags: theming
 ---
 
 # Theme Builder

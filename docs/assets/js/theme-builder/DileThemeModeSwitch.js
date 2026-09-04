@@ -49,13 +49,13 @@ export class DileThemeModeSwitch extends LitElement {
 
   render() {
     return html`
-      <span class="${!this.checked ? 'active' : ''}">Usar solo tema claro</span>
+      <span class="${!this.checked ? 'active' : ''}">Use only light theme</span>
       <dile-switch
         name="${this.name}"
         ?checked="${this.checked}"
         @element-changed="${this._onSwitchChange}"
       ></dile-switch>
-      <span class="${this.checked ? 'active' : ''}">Usar tema claro y oscuro</span>
+      <span class="${this.checked ? 'active' : ''}">Use light and dark theme</span>
     `;
   }
 

@@ -5,9 +5,9 @@ Title: How to use dile-components
 
 # How to use dile-components
 
-Here you can find some information about using this component catalog on your own site. Since this catalog is developed as standard web components, you can use it in any JavaScript project, whether you're using Vanilla JS or any framework.
+This guide will help you integrate dile-components into your projects. Since these are standard web components built with [Lit](https://lit.dev/), they work seamlessly with any JavaScript framework or vanilla JavaScript—no framework dependency required.
 
-In the documentation for each component, you will find specific instructions on how to use it. This guide provides general information about package organization and usage.
+Each component has its own detailed documentation with specific usage instructions, properties, and examples. This section covers the general workflow: package organization, installation, and basic setup steps.
 
 ## Package organization
 
@@ -80,6 +80,6 @@ In addition to the components, we offer tools for creating complete applications
 
 ### Create a complete application scaffolding
 
-With the dile-components CLI, you can scaffold a complete frontend application with built-in utilities, including a responsive layout, authentication system, and user feedback components.
+With the dile-components CLI, you can scaffold a complete frontend application with built-in utilities, including a responsive layout, authentication system, state management, and user feedback components.
 
 You can find the documentation for the [dile-components CLI](https://cli.dile-components.com/).
