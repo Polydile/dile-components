@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-radio-group&gt;'
 status: stable
 summary: Radio button group component ensuring single selection. Includes dile-radio subcomponent with customizable labels and values.
+tags: forms
 ---
 
 # dile-radio-group

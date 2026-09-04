@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-integer&gt;'
 status: stable
 summary: Integer-only input component extending dile-input. Validates and formats values to ensure only whole numbers are accepted.
+tags: input
 ---
 
 # dile-input-integer

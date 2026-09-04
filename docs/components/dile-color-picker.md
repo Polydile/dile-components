@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-color-picker&gt;'
 status: stable
 summary: Color picker component with saturation/brightness square, hue slider, and hex input field. Form-integrated with validation support.
+tags: forms
 ---
 
 # dile-color-picker

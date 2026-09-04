@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-media-query&gt;'
 status: stable
 summary: Media query monitoring component that dispatches events on breakpoint changes. Enables responsive component behavior without CSS media queries.
+tags: utils
 ---
 
 # dile-media-query

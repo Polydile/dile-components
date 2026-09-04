@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-smooth-scroll&gt;'
 status: stable
 summary: Smooth scrolling API component for document and element sections. Provides methods for smooth scroll to top, bottom, or position.
+tags: utils
 ---
 
 # dile-smooth-scroll

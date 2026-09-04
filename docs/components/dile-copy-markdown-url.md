@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-copy-markdown-url&gt;'
 status: stable
 summary: Component that fetches URL content and provides clickable link to copy to clipboard with visual feedback notification.
+tags: utils
 ---
 
 # dile-copy-markdown-url

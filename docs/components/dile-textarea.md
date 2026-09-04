@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-textarea&gt;'
 status: stable
 summary: Text area input component with customizable design and sizing. Supports row configuration, labels, and message display.
+tags: forms
 ---
 
 # dile-textarea

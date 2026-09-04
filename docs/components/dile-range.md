@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-range&gt;'
 status: stable
 summary: Range slider input component extending standard input range. Adds labels, messages, error states, and CSS customization support.
+tags: forms
 ---
 
 # dile-range

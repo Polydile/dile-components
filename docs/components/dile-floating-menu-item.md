@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-floating-menu-item&gt;'
 status: stable
 summary: Navigation link component for floating menus. Declarative way to build menu items with customizable colors and hover effects.
+tags: menu
 ---
 
 # dile-floating-menu-item

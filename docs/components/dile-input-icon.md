@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-icon&gt;'
 status: stable
 summary: Input field with customizable icon button using dile-iconlib icons. Supports callback functions and custom event listeners.
+tags: input
 ---
 
 # dile-input-icon

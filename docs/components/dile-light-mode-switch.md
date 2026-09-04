@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-light-mode-switch&gt;'
 status: stable
 summary: Light and dark theme toggle component with synchronization support. Updates HTML element class for theme switching functionality.
+tags: utils
 ---
 
 # dile-light-mode-switch

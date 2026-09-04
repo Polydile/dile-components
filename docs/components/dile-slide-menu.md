@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-slide-menu&gt;'
 status: stable
 summary: Menu component with smooth slide animation for show/hide. Includes open, close, toggle methods with customizable label.
+tags: menu
 ---
 
 # dile-slide-menu

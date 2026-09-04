@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-floating-menu&gt;'
 status: stable
 summary: Absolute positioned button with floating menu container. Displays navigation links with configurable positioning and customizable styling.
+tags: menu
 ---
 
 # dile-floating-menu

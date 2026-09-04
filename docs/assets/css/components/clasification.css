@@ -1,7 +1,14 @@
-.Clasification {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+.Clasification h3 {
+  display: flex;
+  align-items: center;
+ border-bottom: 1px solid #666;
+ text-transform: uppercase;
+ padding-bottom: 0.45rem;
+ font-size: 1.5rem;
+ color: #303030;
+ --dile-icon-color: #303030;
+ gap: 0.5rem;
+ opacity: 1;
 }
 
 html.dark-theme .Clasification {
@@ -9,20 +16,50 @@ html.dark-theme .Clasification {
   --dile-card-title-color: #fff;
 }
 
-@media(min-width: 450px) {
-  .Clasification {
-    grid-template-columns: 1fr 1fr;
-  }
+.components-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  --dile-card-title-font-size: 1.25rem;
+  margin-bottom: 2rem;
 }
 
-@media(min-width: 650px) {
-  .Clasification {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.components-grid dile-card {
+  font-size: 0.9rem;
 }
 
-@media(min-width: 1200px) {
-  .Clasification {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.component-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: stretch;
+}
+.component-card-element {
+  margin: -0.5rem 0 0.35rem;
+}
+.component-card-footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.component-card-footer code {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  --dile-icon-size: 20px;
+  --dile-icon-color: #303030;
+  background-color: var(--dile-primary-color);
+  border-radius: 1rem;
+  padding: 0.15rem 0.7rem;
+}
+.component-summary {
+  margin-bottom: 0;
+}
+
+@media(min-width: 500px) {
+  .components-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: stretch;
   }
 }

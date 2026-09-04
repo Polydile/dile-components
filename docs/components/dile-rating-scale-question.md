@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-rating-scale-question&gt;'
 status: stable
 summary: Semantic-differential rating scale component for opinion measurement. Provides bipolar adjectival scale with customizable labels.
+tags: feedback
 ---
 
 # dile-rating-scale-question

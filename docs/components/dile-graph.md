@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-graph&gt;'
 status: stable
 summary: Chart component based on Chart.js library. Supports line, bar, doughnut charts with customizable labels, datasets, and options.
+tags: utils
 ---
 
 # dile-graph

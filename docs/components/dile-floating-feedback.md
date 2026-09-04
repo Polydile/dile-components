@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-floating-feedback&gt;'
 status: stable
 summary: Floating feedback message component appearing above trigger element. Supports customizable message, duration, and optional icon display.
+tags: feedback
 ---
 
 # dile-floating-feedback

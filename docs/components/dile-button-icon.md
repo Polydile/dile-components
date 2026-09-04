@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-button-icon&gt;'
 status: stable
 summary: Button component with integrated icon support using Lit templates or SVG. Extends dile-button with icon positioning features.
+tags: forms
 ---
 
 # dile-button-icon

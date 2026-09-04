@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-tabs&gt;'
 status: stable
 summary: Tab navigation component with index or attribute-based selection. Supports URL hash linking and integration with page components.
+tags: menu
 ---
 
 # dile-tabs

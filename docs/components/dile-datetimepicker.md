@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-datetimepicker&gt;'
 status: stable
 summary: Date and time selection component extending dile-datepicker. Adds hours, minutes, seconds selection with combined YYYY-MM-DD HH:mm:ss format.
+tags: forms
 ---
 
 # dile-datetimepicker

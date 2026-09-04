@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-select-ajax-overlay&gt;'
 status: stable
 summary: Select component with API search results appearing in floating popup. Combines dile-select-ajax and dile-select-overlay functionality.
+tags: forms
 ---
 
 # dile-select-ajax-overlay

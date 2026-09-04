@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-modal-help&gt;'
 status: stable
 summary: Help dialog component based on dile-modal with pre-built interface. Quick way to provide help messages triggered by button or icon.
+tags: feedback
 ---
 
 # dile-modal-help

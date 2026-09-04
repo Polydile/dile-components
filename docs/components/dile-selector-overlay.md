@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-selector-overlay&gt;'
 status: stable
 summary: Selector component hidden behind capsule trigger button. Shows options in overlay menu combining dile-menu-overlay and dile-selector.
+tags: menu
 ---
 
 # dile-selector-overlay

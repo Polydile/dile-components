@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-confirm&gt;'
 status: stable
 summary: Modal confirm dialog based on dile-modal. Displays custom content with cancel and accept buttons dispatching confirmation events.
+tags: feedback
 ---
 
 # dile-confirm

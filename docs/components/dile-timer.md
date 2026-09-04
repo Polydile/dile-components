@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-timer&gt;'
 status: stable
 summary: Countdown timer component with optional start, pause, reset controls. Emits events on tick and completion with customizable formatting.
+tags: ui
 ---
 
 # dile-timer

@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-number&gt;'
 status: stable
 summary: Numeric input component with decimal separator normalization. Supports min, max, step, and decimal positioning configuration.
+tags: input
 ---
 
 # dile-input-number

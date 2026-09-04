@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-selector&gt;'
 status: stable
 summary: Generic selector interface component for value selection between options. Supports index or attribute-based selection with URL hash linking.
+tags: menu
 ---
 
 # dile-selector

@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-menu-hamburger&gt;'
 status: stable
 summary: Complete hamburger menu combining dile-hamburger and dile-app-drawer components. Provides full menu implementation with open/close/toggle methods.
+tags: menu
 ---
 
 # dile-menu-hamburger

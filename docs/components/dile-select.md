@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-select&gt;'
 status: stable
 summary: Dropdown select component using native HTML select element. Adds styling, labels, error states, and custom change events.
+tags: forms
 ---
 
 # dile-select

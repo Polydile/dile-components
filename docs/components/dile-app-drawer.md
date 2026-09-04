@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-app-drawer&gt;'
 status: stable
 summary: Animated drawer menu component with Material Design appearance. Provides smooth slide animations from top or left viewport sides.
+tags: menu
 ---
 
 

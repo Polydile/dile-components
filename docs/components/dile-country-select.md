@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-country-select&gt;'
 status: stable
 summary: Country selection component with multiple language support. Pre-configured country list with priority countries for quick access.
+tags: forms
 ---
 
 # dile-country-select

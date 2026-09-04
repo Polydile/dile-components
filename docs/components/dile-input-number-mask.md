@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-number-mask&gt;'
 status: stable
 summary: Numeric input with automatic formatting via mask patterns. Separates user editable values from formatted display values.
+tags: input
 ---
 
 # dile-input-number-mask

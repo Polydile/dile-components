@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-copy-text&gt;'
 status: stable
 summary: Clickable component for copying text to clipboard with visual feedback. Supports customizable feedback text and duration display.
+tags: utils
 ---
 
 # dile-copy-text

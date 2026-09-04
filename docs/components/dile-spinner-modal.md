@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-spinner-modal&gt;'
 status: stable
 summary: Modal spinner component blocking page interface during loading. Extends dile-spinner with modal overlay and customizable background colors.
+tags: spinner
 ---
 
 # dile-spinner-modal

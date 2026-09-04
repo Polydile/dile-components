@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-spinner-block&gt;'
 status: stable
 summary: Block-style spinner component for section loading states. Always active display useful for page section loading indication.
+tags: spinner
 ---
 
 # dile-spinner-block

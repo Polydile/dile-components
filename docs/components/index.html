@@ -17,27 +17,71 @@ hasMarkdown: false
 </section>
 
 <div class="Clasification">
-  {% for tag in componentTagsList %}        
-    <dile-card 
-     title="{{ tag | capitalize }}" 
-    >
-      <dile-selector>
+  {% for tag in componentTagsList %}
+    <div class="components-group">
+      <h3><dile-lucide-icon-form></dile-lucide-icon-form> {{ tag | capitalize }}</h3>
+      <div class="components-grid">
         {% for component in collections[tag] %}
-          {% include "layout-partials/nav-item.html" %}
+          <a href="{{ component.url }}" class="component-card-link">
+            <dile-card 
+              shadow-md
+              title="{{ component.data.title }}"
+              class="component-card"
+            >
+                <p class="component-card-element"><code>{{ component.data.element }}</code></p>
+                <p class="component-summary">{{ component.data.summary }}</p>
+        
+              <div slot="footer" class="component-card-footer">
+                {% if component.data.package %}
+                    <code><dile-phosphor-icon-package></dile-phosphor-icon-package> {{ component.data.package }}</code>
+                {% endif %}
+                {% if component.data.status %}
+                  <span class="DocMeta-value--status DocMeta-value--{{ component.data.status | downcase }}">{{ component.data.status }}</span>
+                {% endif %}
+              </div>
+            </dile-card>
+          </a>
         {% endfor %}
-  
-      </dile-selector>
-    </dile-card>
+      </div>
+    </div>
   {% endfor %}
 
   {% if collections.uncategorizedComponents.size > 0 %}
-    <dile-card 
-     title="Other components" 
-    >
-      {% for component in collections.uncategorizedComponents %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-card>
+    <div class="components-group">
+      <h3>Other components</h3>
+      <div class="components-grid">
+        {% for component in collections.uncategorizedComponents %}
+          <a href="{{ component.url }}" class="component-card-link">
+            <dile-card 
+              shadow-md
+              title="{{ component.data.title }}"
+              class="component-card"
+            >
+              <div class="component-card-content">
+                <p class="component-card-element"><code>{{ component.data.element }}</code></p>
+                <p class="component-summary">{{ component.data.summary }}</p>
+                <div class="component-meta">
+                  {% if component.data.package %}
+                    <div class="meta-item">
+                      <span class="meta-label">Package:</span>
+                      <code>{{ component.data.package }}</code>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div slot="footer">
+                {% if component.data.package %}
+                  <code>{{ component.data.package }}</code>
+                {% endif %}
+                {% if component.data.status %}
+                  <span class="DocMeta-value--status DocMeta-value--{{ component.data.status | downcase }}">{{ component.data.status }}</span>
+                {% endif %}
+              </div>
+            </dile-card>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
   {% endif %}
 </div>
 

@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-switch&gt;'
 status: stable
 summary: Customizable switch input component for boolean values. Supports reactive labels, disabled state, and form integration.
+tags: forms
 ---
 
 # dile-switch

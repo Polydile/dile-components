@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-selector-box&gt;'
 status: stable
 summary: Specialized selector component with box-based design for selection items. Useful for presenting available actions in flexible interface.
+tags: menu
 ---
 
 # dile-selector-box

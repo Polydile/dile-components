@@ -4,6 +4,7 @@ package: '@dile/utils'
 element: '&lt;dile-html-transform&gt;'
 status: stable
 summary: Text transformation component that converts newlines to breaks and URLs to links. Uses Linkify-string for URL detection conversion.
+tags: utils
 ---
 
 # dile-html-transform

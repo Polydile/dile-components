@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-inline-feedback&gt;'
 status: stable
 summary: Feedback message component for user notifications. Supports positive, negative, neutral messages with optional auto-clear delays.
+tags: feedback
 ---
 
 # dile-inline-feedback

@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-rating&gt;'
 status: stable
 summary: Star rating component with 1-5 star display and selection. Supports float values with half-star display and disable changes option.
+tags: feedback
 ---
 
 # dile-rating

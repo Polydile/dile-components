@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-message&gt;'
 status: stable
 summary: Custom message component with close icon and animation. Supports property-based and method-based message display with auto-open options.
+tags: feedback
 ---
 
 # dile-message

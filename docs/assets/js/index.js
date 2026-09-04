@@ -57,6 +57,8 @@ import '@dile/ui/components/color-picker/color-picker.js';
 import '@dile/iconlib/dile-fontawesome-badge.js';
 import '@dile/iconlib/fontawesome-icons/github.js';
 import '@dile/iconlib/lucide-icons/book-open.js';
+import '@dile/iconlib/phosphor-icons/package.js';
+import '@dile/iconlib/lucide-icons/form.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {

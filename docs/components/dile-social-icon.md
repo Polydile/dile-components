@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-social-icon&gt;'
 status: stable
 summary: Social network icon component displaying curated social media icons. Legacy component with limited icon set available.
+tags: icons
 ---
 
 # dile-social-icon

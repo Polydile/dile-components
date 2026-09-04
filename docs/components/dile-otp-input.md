@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-otp-input&gt;'
 status: stable
 summary: One-time-password input component with automatic focus movement. Shows one box per character for 2FA code entry.
+tags: forms
 ---
 
 # dile-otp-input

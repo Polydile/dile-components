@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-spinner-horizontal&gt;'
 status: stable
 summary: Horizontal loading animation component with animated lines. Customizable height, colors, and animation timing for loading states.
+tags: spinner
 ---
 
 # dile-spinner-horizontal

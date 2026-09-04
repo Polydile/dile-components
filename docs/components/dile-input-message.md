@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-message&gt;'
 status: stable
 summary: Message display component inheriting from dile-input. Designed for showing validation messages within form components.
+tags: input
 ---
 
 # dile-input-message

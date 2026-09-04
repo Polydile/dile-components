@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-hamburger&gt;'
 status: stable
 summary: Hamburger menu icon component with smooth CSS animation between open and closed states. Controlled via boolean active property.
+tags: menu
 ---
 
 # dile-hamburger

@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-modal&gt;'
 status: stable
 summary: Dialog box component with customizable appearance and behavior. Supports blocking mode, close icon, and programmatic open/close control.
+tags: feedback
 ---
 
 # dile-modal

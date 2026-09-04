@@ -7,7 +7,8 @@ export class DileCard extends LitElement {
           box-sizing: border-box;
         }
         :host {
-          display: block;
+          display: flex;
+          flex-direction: column;
           border: var(--dile-card-border, 1px solid #ccc);
           border-radius: var(--dile-card-border-radius, 0.5rem);
           background-color: var(--dile-card-background-color, #fff);
@@ -35,6 +36,7 @@ export class DileCard extends LitElement {
         main {
           padding-top: var(--dile-card-padding-y, 1rem);
           padding-bottom: var(--dile-card-padding-y, 1rem);
+          flex-grow: 1;
         }
         footer {
           border-top: var(--dile-card-footer-border-separator, 1px solid #ccc);

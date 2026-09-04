@@ -38,22 +38,22 @@
 
 .DocMeta-value--stable {
   background-color: #169033;
-  color: #D4EDDA;
+  color: #fff;
 }
 
 .DocMeta-value--experimental {
   background-color: #937819;
-  color: #FFF3CD;
+  color: #fff;
 }
 
 .DocMeta-value--beta {
   background-color: #185ea8;
-  color: #E7F3FF;
+  color: #fff;
 }
 
 .DocMeta-value--deprecated {
   background-color: #8b1a25;
-  color: #F8D7DA;
+  color: #fff;
 }
 
 .MarkdownLink {

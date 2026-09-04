@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-money&gt;'
 status: stable
 summary: Currency input component extending dile-input. Validates and formats monetary values with customizable decimal separator support.
+tags: input
 ---
 
 # dile-input-money

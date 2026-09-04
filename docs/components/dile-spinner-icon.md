@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-spinner-icon&gt;'
 status: stable
 summary: Spinning loader-circle icon component from Lucide Icons library. Displays rotating icon for content loading indication.
+tags: spinner
 ---
 
 # dile-spinner-icon

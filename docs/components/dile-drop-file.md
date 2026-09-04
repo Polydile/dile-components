@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-drop-file&gt;'
 status: stable
 summary: File upload component with drag-and-drop support, preview, and extension validation. Includes manual file selection and clear functionality.
+tags: forms
 ---
 
 # dile-drop-file

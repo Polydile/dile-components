@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-checkbox&gt;'
 status: stable
 summary: Customizable checkbox input element with disabled and error states. Supports validation messages and form integration with change events.
+tags: forms
 ---
 
 # dile-checkbox

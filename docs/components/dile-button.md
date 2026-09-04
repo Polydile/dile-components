@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-button&gt;'
 status: stable
 summary: Customizable button component with disabled and loading states. Supports form integration and extensive CSS property customization.
+tags: forms
 ---
 
 # dile-button

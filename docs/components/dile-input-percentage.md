@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-input-percentage&gt;'
 status: stable
 summary: Percentage value input component extending dile-input. Validates and formats values with percentage symbol display.
+tags: input
 ---
 
 # dile-input-percentage
