@@ -1,5 +1,6 @@
 import './prism.js'
 import './theme-builder/theme-builder.js';
+import '@dile/iconlib/dile-iconlib.js';
 import '@dile/iconlib/lucide-icons/copy.js';
 import '@dile/iconlib/lucide-icons/arrow-big-right.js';
 import '@dile/iconlib/lucide-icons/globe.js';
@@ -59,6 +60,11 @@ import '@dile/iconlib/fontawesome-icons/github.js';
 import '@dile/iconlib/lucide-icons/book-open.js';
 import '@dile/iconlib/phosphor-icons/package.js';
 import '@dile/iconlib/lucide-icons/form.js';
+import '@dile/iconlib/tabler-icons/icons.js';
+import '@dile/iconlib/material-icons/feedback.js';
+import '@dile/iconlib/phosphor-icons/app-window.js';
+import '@dile/iconlib/remixicon-icons/menu-fill.js';
+import '@dile/iconlib/phosphor-icons/spinner.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {

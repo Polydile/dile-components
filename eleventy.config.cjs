@@ -27,12 +27,19 @@ module.exports = async function(eleventyConfig) {
     return content;
   });
 
-  const componentTagsList = ["forms", "feedback", "icons", "utils", "menu", "spinner"];
+  const componentTagsList = [
+    { key: "forms", label: "Forms", icon: "lucide.form" },
+    { key: "feedback", label: "Feedback", icon: "material.feedback" },
+    { key: "icons", label: "Icons", icon: "tabler.icons" },
+    { key: "utils", label: "Utils", icon: "phosphor.app-window" },
+    { key: "menu", label: "Menu", icon: "remixicon.menu-fill" },
+    { key: "spinner", label: "Spinner", icon: "phosphor.spinner" },
+  ];
 
   eleventyConfig.addCollection("uncategorizedComponents", function(collectionApi) {
     return collectionApi.getFilteredByTag("components")
         .filter(item => 
-          !componentTagsList.some(tag => item.data.tags.includes(tag)) &&
+          !componentTagsList.some(tag => item.data.tags.includes(tag.key)) &&
           !item.data.tags.includes("input") &&
           item.url !== '/components/' &&
           item.data.hideLink !== true

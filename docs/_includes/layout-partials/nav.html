@@ -16,14 +16,14 @@
       <dile-selector-item icon="navigate_next" class="general_link"><a href="/components/">UI Components</a></dile-selector-item>
       {% for tag in componentTagsList %}
         {% assign isOpened = false %}
-        {% for component in collections[tag] %}
+        {% for component in collections[tag.key] %}
           {% if component.url == page.url %}
             {% assign isOpened = true %}
           {% endif %}
         {% endfor %}
         <dile-slide-menu 
           class="collection-nav" 
-          label="{{ tag | capitalize }}" 
+          label="{{ tag.label }}" 
           {% if isOpened %}opened{% endif %}
         >
         {% for component in collections[tag] %}

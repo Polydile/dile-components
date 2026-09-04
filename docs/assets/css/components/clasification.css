@@ -1,20 +1,16 @@
 .Clasification h3 {
   display: flex;
   align-items: center;
- border-bottom: 1px solid #666;
+ border-bottom: 2px solid var(--dile-secondary-color);
  text-transform: uppercase;
  padding-bottom: 0.45rem;
  font-size: 1.5rem;
- color: #303030;
- --dile-icon-color: #303030;
+ color: var(--dile-on-background-color);
+ --dile-icon-color: var(--dile-secondary-color);
  gap: 0.5rem;
  opacity: 1;
 }
 
-html.dark-theme .Clasification {
-  --dile-card-background-color: #666;
-  --dile-card-title-color: #fff;
-}
 
 .components-grid {
   display: grid;
@@ -48,9 +44,10 @@ html.dark-theme .Clasification {
   align-items: center;
   gap: 0.25rem;
   --dile-icon-size: 20px;
-  --dile-icon-color: #303030;
+  --dile-icon-color: var(--dile-on-primary-color);
   background-color: var(--dile-primary-color);
-  border-radius: 1rem;
+  color: var(--dile-on-primary-color);
+  border-radius: 0.5rem;
   padding: 0.15rem 0.7rem;
 }
 .component-summary {
@@ -62,4 +59,41 @@ html.dark-theme .Clasification {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     align-items: stretch;
   }
+}
+
+.components-categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--dile-primary-color);
+  color: #303030;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  --dile-icon-size: 20px;
+  --dile-icon-color: var(--dile-secondary-color);
+}
+
+.category-link:hover {
+  background-color: var(--dile-secondary-color);
+  color: white;
+  --dile-icon-color: white;
+}
+
+html.dark-theme .category-link {
+  background-color: #444;
+  color: #fff;
+}
+
+html.dark-theme .category-link:hover {
+  background-color: var(--dile-secondary-color);
 }

@@ -3,25 +3,43 @@ layout: layout.html
 title: Components
 hasMarkdown: false
 ---
-
+<h1>UI Components</h1>
 <section class="catalog-hero">
+  
   <div class="catalog-hero-explain">
-    <h1>Components</h1>
+    
     <p>
-      These are the components available in the dile-components catalog, categorized by type.
+      These are the UI components available in the dile-components catalog, categorized by type.
     </p>
+
+    <div class="components-categories-list">
+      {% for tag in componentTagsList %}
+        <a href="#{{ tag.key }}" class="category-link">
+          <dile-iconlib icon="{{ tag.icon }}"></dile-iconlib>
+          <span>{{ tag.label }}</span>
+        </a>
+      {% endfor %}
+    </div>
   </div>
-  <div class="catalog-hero-image">
-    <img src="/images/ui-component-catalog-examples.jpg">
-  </div>
+  <aside class="catalog-hero-aside">
+    <h3>Other packages</h3>
+    <p>
+      In addition to the UI components we have other packages that provide additional functionality, such as CRUD or App components.
+    </p>
+    <p>
+      <a href="/crud/">CRUD</a>
+      <a href="/lib/">App lib</a>
+      <a href="/icons/">Icon Lib</a>
+    </p>
+  </aside>
 </section>
 
 <div class="Clasification">
   {% for tag in componentTagsList %}
-    <div class="components-group">
-      <h3><dile-lucide-icon-form></dile-lucide-icon-form> {{ tag | capitalize }}</h3>
+    <div class="components-group" id="{{ tag.key }}">
+      <h3><dile-iconlib icon="{{ tag.icon }}"></dile-iconlib> {{ tag.label }}</h3>
       <div class="components-grid">
-        {% for component in collections[tag] %}
+        {% for component in collections[tag.key] %}
           <a href="{{ component.url }}" class="component-card-link">
             <dile-card 
               shadow-md
@@ -69,9 +87,9 @@ hasMarkdown: false
                   {% endif %}
                 </div>
               </div>
-              <div slot="footer">
+              <div slot="footer" class="component-card-footer">
                 {% if component.data.package %}
-                  <code>{{ component.data.package }}</code>
+                  <code><dile-phosphor-icon-package></dile-phosphor-icon-package> {{ component.data.package }}</code>
                 {% endif %}
                 {% if component.data.status %}
                   <span class="DocMeta-value--status DocMeta-value--{{ component.data.status | downcase }}">{{ component.data.status }}</span>

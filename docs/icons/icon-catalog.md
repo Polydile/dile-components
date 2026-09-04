@@ -1,7 +1,6 @@
 ---
 layout: layout.html
 title: Icon Catalog
-tags: icons
 ---
 
 # Icon Catalog

@@ -3,21 +3,31 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  margin-bottom: 2rem;
+}
+.catalog-hero-explain {
   margin-bottom: 1rem;
 }
+.catalog-hero-aside h3 {
+  margin-top: 0;
+}
 
-.catalog-hero img {
-  max-width: 100%;
+.catalog-hero-aside a {
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 @media(min-width: 680px) {
   .catalog-hero {
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     flex-direction: row;
-    gap: 1.25rem;
+    gap: 2rem;
   }
 
-  .catalog-hero-explain {
-    padding: 1rem 0;
-  }
+  
 }
