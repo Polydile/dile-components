@@ -1,0 +1,390 @@
+.howto-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 12%, transparent);
+  background:
+    radial-gradient(circle at 12% -10%, color-mix(in srgb, var(--dile-secondary-color) 22%, transparent), transparent 45%),
+    linear-gradient(135deg, var(--dile-gray-very-light-color) 0%, color-mix(in srgb, var(--dile-gray-very-light-color) 65%, var(--dile-background-color)) 100%);
+  padding: 1.75rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.howto-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.9rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+  --dile-icon-size: 16px;
+  --dile-icon-color: var(--dile-on-secondary-color);
+}
+
+.howto-hero h1 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.75rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  max-width: 20ch;
+}
+
+.howto-hero__lede {
+  max-width: 64ch;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.howto-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.3rem 0 1.6rem;
+  --dile-icon-color: var(--dile-on-background-color);
+}
+
+.howto-hero__actions dile-button span,
+.howto-cta-band__actions dile-button span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  --dile-icon-size: 18px;
+}
+
+.howto-hero__actions dile-button {
+  --dile-button-padding: 0.75rem 1.1rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.howto-cta-secondary {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-on-background-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: color-mix(in srgb, var(--dile-on-background-color) 30%, transparent);
+}
+
+.howto-hero__signals {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.howto-hero__signals > div {
+  border-left: 3px solid var(--dile-secondary-color);
+  padding-left: 0.75rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.howto-hero__signals strong {
+  font-size: 0.95rem;
+}
+
+.howto-hero__signals span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 680px) {
+  .howto-hero {
+    padding: 2.4rem;
+  }
+  .howto-hero__signals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Section eyebrow */
+
+.howto-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dile-secondary-color);
+  --dile-icon-size: 18px;
+  --dile-icon-color: var(--dile-secondary-color);
+}
+
+/* Package grid */
+
+.howto-package-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1rem 0 2rem;
+}
+
+.howto-package-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 10%, transparent);
+  border-radius: 14px;
+  padding: 1rem;
+  background-color: var(--dile-gray-very-light-color);
+}
+
+.howto-package-card__icon {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background-color: var(--dile-secondary-color);
+  --dile-icon-size: 18px;
+  --dile-icon-color: var(--dile-on-secondary-color);
+}
+
+.howto-package-card code {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.howto-package-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+@media (min-width: 620px) {
+  .howto-package-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .howto-package-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Numbered steps */
+
+.howto-steps {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.howto-step {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 0.9rem;
+}
+
+.howto-step__index {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+  --dile-icon-size: 18px;
+  --dile-icon-color: var(--dile-on-secondary-color);
+}
+
+.howto-step__body h3 {
+  margin: 0.25rem 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.howto-step__body p {
+  margin: 0 0 0.75rem;
+}
+
+.howto-step__body p:last-child {
+  margin-bottom: 0;
+}
+
+.howto-inline-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  border: 1px dashed color-mix(in srgb, var(--dile-secondary-color) 45%, transparent);
+  --dile-icon-color: var(--dile-secondary-color);
+}
+
+.howto-inline-cta p {
+  margin: 0;
+  max-width: 46ch;
+}
+
+.howto-inline-cta dile-button {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-secondary-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: var(--dile-secondary-color);
+  white-space: nowrap;
+}
+
+.howto-inline-cta dile-button span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  --dile-icon-size: 18px;
+}
+
+/* Content panels (code) */
+
+.howto-panel {
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 12%, transparent);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  background-color: var(--dile-gray-very-light-color);
+  color: var(--dile-on-gray-very-light-color);
+  margin: 0 0 0.75rem;
+}
+
+.howto-panel pre {
+  margin: 0;
+}
+
+/* CLI spotlight */
+
+.howto-cli {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dile-terciary-color) 35%, transparent);
+  background:
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--dile-terciary-color) 18%, transparent), transparent 50%),
+    var(--dile-background-color);
+  padding: 1.5rem 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.howto-cli__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dile-terciary-color);
+  --dile-icon-size: 18px;
+  --dile-icon-color: var(--dile-terciary-color);
+}
+
+.howto-cli h2 {
+  margin: 0.5rem 0 0.6rem;
+  opacity: 1;
+}
+
+.howto-cli p {
+  max-width: 62ch;
+}
+
+.howto-cli__cta {
+  --dile-icon-color: var(--dile-on-terciary-color);
+}
+
+.howto-cli__cta dile-button {
+  --dile-button-background-color: var(--dile-terciary-color);
+  --dile-button-text-color: var(--dile-on-terciary-color);
+  --dile-button-padding: 0.8rem 1.2rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.howto-cli__cta dile-button span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  --dile-icon-size: 18px;
+}
+
+@media (min-width: 760px) {
+  .howto-cli {
+    padding: 2.2rem;
+  }
+}
+
+/* Closing CTA band */
+
+.howto-cta-band {
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  margin-top: 2.5rem;
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+}
+
+.howto-cta-band h2 {
+  margin: 0 0 0.5rem;
+  opacity: 1;
+  color: inherit;
+}
+
+.howto-cta-band p {
+  margin: 0 0 1.2rem;
+  max-width: 56ch;
+  opacity: 0.92;
+}
+
+.howto-cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.howto-cta-band__actions dile-button {
+  --dile-button-padding: 0.75rem 1.1rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.howto-cta-band__actions a:first-child dile-button {
+  --dile-button-background-color: var(--dile-on-secondary-color);
+  --dile-button-text-color: var(--dile-secondary-color);
+}
+
+.howto-cta-band__actions a:first-child span {
+  --dile-icon-color: var(--dile-secondary-color);
+}
+
+.howto-cta-band__actions a:last-child dile-button {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-on-secondary-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: var(--dile-on-secondary-color);
+}
+
+.howto-cta-band__actions a:last-child span {
+  --dile-icon-color: var(--dile-on-secondary-color);
+}
+
+@media (min-width: 680px) {
+  .howto-cta-band {
+    padding: 2.2rem 2.4rem;
+  }
+}

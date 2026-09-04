@@ -1,0 +1,329 @@
+.theming-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 12%, transparent);
+  background:
+    radial-gradient(circle at 12% -10%, color-mix(in srgb, var(--dile-secondary-color) 22%, transparent), transparent 45%),
+    linear-gradient(135deg, var(--dile-gray-very-light-color) 0%, color-mix(in srgb, var(--dile-gray-very-light-color) 65%, var(--dile-background-color)) 100%);
+  padding: 1.75rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.theming-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 0.9rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+}
+
+.theming-hero h1 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.75rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  max-width: 18ch;
+}
+
+.theming-hero__lede {
+  max-width: 62ch;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.theming-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.3rem 0 1.6rem;
+  --dile-icon-color: var(--dile-on-background-color);
+}
+
+.theming-hero__actions dile-button span,
+.theming-spotlight__cta dile-button span,
+.theming-cta-band__actions dile-button span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  --dile-icon-size: 18px;
+}
+
+.theming-hero__actions dile-button {
+  --dile-button-padding: 0.75rem 1.1rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.theming-cta-secondary {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-on-background-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: color-mix(in srgb, var(--dile-on-background-color) 30%, transparent);
+}
+
+.theming-hero__signals {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.theming-hero__signals > div {
+  border-left: 3px solid var(--dile-secondary-color);
+  padding-left: 0.75rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.theming-hero__signals strong {
+  font-size: 0.95rem;
+}
+
+.theming-hero__signals span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 680px) {
+  .theming-hero {
+    padding: 2.4rem;
+  }
+  .theming-hero__signals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Theme Builder spotlight */
+
+.theming-spotlight {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dile-terciary-color) 35%, transparent);
+  background:
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--dile-terciary-color) 18%, transparent), transparent 50%),
+    var(--dile-background-color);
+  padding: 1.75rem 1.25rem;
+  margin: 2.5rem 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.theming-spotlight__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dile-terciary-color);
+  --dile-icon-size: 18px;
+  --dile-icon-color: var(--dile-terciary-color);
+}
+
+.theming-spotlight h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+  opacity: 1;
+  line-height: 2rem;
+}
+
+.theming-spotlight__body p {
+  max-width: 62ch;
+}
+
+.theming-spotlight__steps {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.1rem 0 1.3rem;
+}
+
+.theming-spotlight__step {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.theming-spotlight__step-index {
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background-color: var(--dile-terciary-color);
+  color: var(--dile-on-terciary-color);
+}
+
+.theming-spotlight__step strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.theming-spotlight__step span {
+  font-size: 0.88rem;
+  opacity: 0.8;
+}
+
+.theming-spotlight__swatches {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1.3rem;
+}
+
+.theming-spotlight__swatches span {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid var(--dile-background-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--dile-on-background-color) 15%, transparent);
+}
+
+.theming-spotlight__swatches span:not(:first-child) {
+  margin-left: -0.8rem;
+}
+
+.theming-spotlight__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.theming-spotlight__cta dile-button {
+  --dile-button-background-color: var(--dile-terciary-color);
+  --dile-button-text-color: var(--dile-on-terciary-color);
+  --dile-button-padding: 0.8rem 1.2rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.theming-spotlight__note {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+@media (min-width: 760px) {
+  .theming-spotlight {
+    padding: 2.4rem;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+  }
+  .theming-spotlight__aside {
+    border-left: 1px solid color-mix(in srgb, var(--dile-terciary-color) 30%, transparent);
+    padding-left: 2rem;
+  }
+}
+
+/* Content panels */
+
+.theming-panel {
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 12%, transparent);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  background-color: var(--dile-gray-very-light-color);
+  color: var(--dile-on-gray-very-light-color);
+  margin: 1rem 0 1.5rem;
+}
+
+.theming-panel pre {
+  margin: 0;
+}
+
+.theming-panel :not(pre) > code {
+  background-color: color-mix(in srgb, var(--dile-on-gray-very-light-color) 8%, transparent);
+  color: inherit;
+}
+
+.theming-inline-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  border: 1px dashed color-mix(in srgb, var(--dile-terciary-color) 45%, transparent);
+}
+
+.theming-inline-cta p {
+  margin: 0;
+  max-width: 46ch;
+}
+
+.theming-inline-cta dile-button {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-terciary-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: var(--dile-terciary-color);
+  white-space: nowrap;
+}
+
+.theming-cta-band {
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  margin-top: 2.5rem;
+  background-color: var(--dile-secondary-color);
+  color: var(--dile-on-secondary-color);
+}
+
+.theming-cta-band h2 {
+  margin: 0 0 0.5rem;
+  opacity: 1;
+  color: inherit;
+}
+
+.theming-cta-band p {
+  margin: 0 0 1.2rem;
+  max-width: 56ch;
+  opacity: 0.92;
+}
+
+.theming-cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  --dile-icon-color: var(--dile-on-background-color);
+}
+
+.theming-cta-band__actions dile-button {
+  --dile-button-padding: 0.75rem 1.1rem;
+  --dile-button-font-weight: 700;
+  --dile-button-border-radius: 10px;
+  --dile-button-height: auto;
+}
+
+.theming-cta-band__actions a:first-child dile-button {
+  --dile-button-background-color: var(--dile-on-secondary-color);
+  --dile-button-text-color: var(--dile-secondary-color);
+}
+
+.theming-cta-band__actions a:last-child dile-button {
+  --dile-button-background-color: transparent;
+  --dile-button-text-color: var(--dile-on-secondary-color);
+  --dile-button-border-width: 1px;
+  --dile-button-border-color: var(--dile-on-secondary-color);
+}
+
+.colors-secondary-button {
+  --dile-icon-color: var(--dile-on-secondary-color);
+}
+
+@media (min-width: 680px) {
+  .theming-cta-band {
+    padding: 2.2rem 2.4rem;
+  }
+}

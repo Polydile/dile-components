@@ -1,0 +1,273 @@
+---
+layout: layout.html
+title: How to use Dile Components
+hasMarkdown: false
+---
+
+<section class="howto-hero">
+  <div class="howto-hero__content">
+    <p class="howto-hero__badge">
+      <dile-lucide-icon-rocket></dile-lucide-icon-rocket>
+      Getting started
+    </p>
+    <h1>Ship your first component in minutes</h1>
+    <p class="howto-hero__lede">
+      Dile Components are standard Web Components built with <a href="https://lit.dev/">Lit</a>, so they work
+      seamlessly with any JavaScript framework — or with no framework at all. Install a package, import what
+      you need, and drop native HTML tags straight into your markup.
+    </p>
+    <div class="howto-hero__actions">
+      <a href="/components/">
+        <dile-button>
+          <span>
+            <dile-lucide-icon-package></dile-lucide-icon-package>
+            Browse components
+          </span>
+        </dile-button>
+      </a>
+      <a href="/theming/">
+        <dile-button class="howto-cta-secondary">
+          <span>
+            <dile-lucide-icon-palette></dile-lucide-icon-palette>
+            Customize the look
+          </span>
+        </dile-button>
+      </a>
+    </div>
+    <div class="howto-hero__signals">
+      <div>
+        <strong>Any framework</strong>
+        <span>Use them in Vanilla JS, Lit, React, Vue, Angular, and more.</span>
+      </div>
+      <div>
+        <strong>ES modules</strong>
+        <span>Import exactly what you need from scoped, tree-shakeable npm packages.</span>
+      </div>
+      <div>
+        <strong>Zero lock-in</strong>
+        <span>Standard Web Components — no proprietary runtime or compiler.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p class="howto-eyebrow">
+  <dile-lucide-icon-blocks></dile-lucide-icon-blocks>
+  Package organization
+</p>
+<h2>Pick only the packages you need</h2>
+<p>
+  Dile components are split into focused npm packages, so your bundle only grows with what you actually use.
+</p>
+
+<div class="howto-package-grid">
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/ui</code>
+      <p>User interface web components.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/editor</code>
+      <p>WYSIWYG editor to create Markdown contents.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/utils</code>
+      <p>General utility components.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/crud</code>
+      <p>Generic and customizable CRUD components.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/lib</code>
+      <p>Components and utilities for easily creating apps.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/iconlib</code>
+      <p>Popular open-source icon catalogs provided as custom elements.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/icons</code>
+      <p>A sub-set of Material Icons as Lit-html templates.</p>
+    </div>
+  </div>
+  <div class="howto-package-card">
+    <span class="howto-package-card__icon"><dile-lucide-icon-package></dile-lucide-icon-package></span>
+    <div>
+      <code>@dile/pdf-viewer</code>
+      <p>PDF viewer web component.</p>
+    </div>
+  </div>
+</div>
+
+<p class="howto-eyebrow">
+  <dile-lucide-icon-code-xml></dile-lucide-icon-code-xml>
+  Step by step
+</p>
+<h2>From install to production</h2>
+<p>
+  Each component has its own detailed documentation with specific usage instructions, properties, and
+  examples. This is the general workflow that applies to all of them.
+</p>
+
+<div class="howto-steps">
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-download></dile-lucide-icon-download></span>
+    <div class="howto-step__body">
+      <h3>1. Install the package you need</h3>
+      <p>
+        Install the package that contains the component you're after. For example, to use
+        <code>dile-input</code> you'd install <code>@dile/ui</code> via npm:
+      </p>
+      <div class="howto-panel">
+<pre><code class="language-bash">npm install @dile/ui</code></pre>
+      </div>
+      <p>Each component's documentation page lists its own specific installation instructions.</p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-import></dile-lucide-icon-import></span>
+    <div class="howto-step__body">
+      <h3>2. Import the component</h3>
+      <p>Use an ES modules import in your JavaScript code, referencing the npm package name.</p>
+      <div class="howto-panel">
+<pre><code class="language-javascript">import '@dile/ui/components/input/input.js';</code></pre>
+      </div>
+      <p>
+        To resolve imports by npm package name in the browser, you'll need a module bundler such as
+        Vite, Webpack, or Rollup.
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-code-xml></dile-lucide-icon-code-xml></span>
+    <div class="howto-step__body">
+      <h3>3. Use the component</h3>
+      <p>Drop the custom element into your HTML like any other native tag.</p>
+      <div class="howto-panel">
+<pre><code class="language-html">&lt;dile-input
+  name="name"
+  label="Name"
+  value="John"
+&gt;&lt;/dile-input&gt;</code></pre>
+      </div>
+      <div class="howto-inline-cta">
+        <p>
+          Every component ships with CSS Custom Properties for colors, spacing, borders, and more — so you
+          can match your own design system.
+        </p>
+        <a href="/theming/">
+          <dile-button>
+            <span>
+              <dile-lucide-icon-palette></dile-lucide-icon-palette>
+              Read the theming guide
+            </span>
+          </dile-button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-book-open></dile-lucide-icon-book-open></span>
+    <div class="howto-step__body">
+      <h3>4. Read the docs</h3>
+      <p>
+        Each component's documentation page covers its properties, CSS Custom Properties, API methods,
+        and custom events in detail.
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-server></dile-lucide-icon-server></span>
+    <div class="howto-step__body">
+      <h3>5. Serve your project</h3>
+      <p>
+        Several development servers work well here. We recommend <a href="https://vitejs.dev/">Vite</a> or
+        <a href="https://modern-web.dev/docs/dev-server/overview/">web-dev-server</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-step">
+    <span class="howto-step__index"><dile-lucide-icon-hammer></dile-lucide-icon-hammer></span>
+    <div class="howto-step__body">
+      <h3>6. Build your project</h3>
+      <p>
+        Building requires a bundler such as Webpack, Rollup, or similar. <a href="https://vite.dev/">Vite</a>
+        is currently the easiest option.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="howto-cli">
+  <p class="howto-cli__eyebrow">
+    <dile-lucide-icon-terminal></dile-lucide-icon-terminal>
+    Scaffolding
+  </p>
+  <h2>Creating apps? Let the CLI do the heavy lifting</h2>
+  <p>
+    Beyond individual components, the <code>@dile/lib</code> package and the Dile Components CLI can
+    scaffold a complete frontend application for you — responsive layout, authentication, state
+    management, and user feedback components included.
+  </p>
+  <div class="howto-cli__cta">
+    <a href="https://cli.dile-components.com/">
+      <dile-button>
+        <span>
+          <dile-lucide-icon-terminal></dile-lucide-icon-terminal>
+          Read the CLI docs
+        </span>
+      </dile-button>
+    </a>
+  </div>
+</section>
+
+<section class="howto-cta-band">
+  <h2>Ready to start building?</h2>
+  <p>
+    Browse the full catalog to find the components you need, then make them yours with a couple of CSS
+    Custom Properties.
+  </p>
+  <div class="howto-cta-band__actions">
+    <a href="/components/">
+      <dile-button>
+        <span>
+          <dile-lucide-icon-package></dile-lucide-icon-package>
+          Browse components
+        </span>
+      </dile-button>
+    </a>
+    <a href="/theming/">
+      <dile-button>
+        <span>
+          <dile-lucide-icon-palette></dile-lucide-icon-palette>
+          Customize the look
+        </span>
+      </dile-button>
+    </a>
+  </div>
+</section>

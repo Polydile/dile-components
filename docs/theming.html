@@ -1,0 +1,230 @@
+---
+layout: layout.html
+title: Dile Components Theming
+tags: theming
+hasMarkdown: false
+---
+
+<section class="theming-hero">
+  <div class="theming-hero__content">
+    <p class="theming-hero__badge">Design system</p>
+    <h1>Make every component look like yours</h1>
+    <p class="theming-hero__lede">
+      Every component in the catalog reads its colors from the same shared set of CSS Custom
+      Properties. Override a handful of tokens once, on your own stylesheet, and the change ripples
+      across the whole catalog — no per-component overrides, no build step, no theming API to learn.
+    </p>
+    <div class="theming-hero__actions">
+      <a href="/theme-builder/">
+        <dile-button>
+          <span>
+            <dile-lucide-icon-wand-sparkles></dile-lucide-icon-wand-sparkles>
+            Open the Theme Builder
+          </span>
+        </dile-button>
+      </a>
+      <a href="/colors/">
+        <dile-button class="theming-cta-secondary">
+          <span>
+            <dile-lucide-icon-swatch-book></dile-lucide-icon-swatch-book>
+            Browse color tokens
+          </span>
+        </dile-button>
+      </a>
+    </div>
+    <div class="theming-hero__signals">
+      <div>
+        <strong>Shared tokens</strong>
+        <span>One set of CSS variables drives color across every component.</span>
+      </div>
+      <div>
+        <strong>Light &amp; dark ready</strong>
+        <span>Ship both themes with a single class toggle and two <code>:root</code> blocks.</span>
+      </div>
+      <div>
+        <strong>Just CSS</strong>
+        <span>No compiler and no runtime theming API — override variables and you're done.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theming-spotlight" aria-labelledby="theme-builder-spotlight">
+  <div class="theming-spotlight__body">
+    <p class="theming-spotlight__eyebrow">
+      <dile-lucide-icon-palette></dile-lucide-icon-palette>
+      Theme Builder
+    </p>
+    <h2 id="theme-builder-spotlight">Design your theme visually, skip the CSS trial and error</h2>
+    <p>
+      Not a fan of tweaking hex codes blind? The <a href="/theme-builder/">Theme Builder</a> lets you pick a color
+      for every shared token and see the result applied live, on real Dile components, before you write a single
+      line of CSS.
+    </p>
+
+    <div class="theming-spotlight__steps">
+      <div class="theming-spotlight__step">
+        <span class="theming-spotlight__step-index">1</span>
+        <div>
+          <strong>Pick your colors</strong>
+          <span>Choose a value for each main token — primary, secondary, background, and more.</span>
+        </div>
+      </div>
+      <div class="theming-spotlight__step">
+        <span class="theming-spotlight__step-index">2</span>
+        <div>
+          <strong>Preview it live</strong>
+          <span>Buttons, cards, inputs and other components update instantly so you can judge contrast and feel.</span>
+        </div>
+      </div>
+      <div class="theming-spotlight__step">
+        <span class="theming-spotlight__step-index">3</span>
+        <div>
+          <strong>Export your CSS</strong>
+          <span>Download a ready-to-use <code>theme.css</code> file and drop it straight into your project.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theming-spotlight__aside">
+    <div class="theming-spotlight__swatches" aria-hidden="true">
+      <span style="background-color: var(--dile-primary-color)"></span>
+      <span style="background-color: var(--dile-secondary-color)"></span>
+      <span style="background-color: var(--dile-terciary-color)"></span>
+      <span style="background-color: var(--dile-danger-color)"></span>
+      <span style="background-color: var(--dile-gray-dark-color)"></span>
+    </div>
+    <div class="theming-spotlight__cta">
+      <a href="/theme-builder/">
+        <dile-button>
+          <span>
+            Open the Theme Builder
+            <dile-lucide-icon-arrow-big-right></dile-lucide-icon-arrow-big-right>
+          </span>
+        </dile-button>
+      </a>
+    </div>
+    <p class="theming-spotlight__note">
+      Everything runs in your browser — nothing is uploaded, and your choices are saved locally so you
+      won't lose them if you reload the page.
+    </p>
+  </div>
+</section>
+
+<h2>How to create a design theme</h2>
+
+<p>
+  The most common way to create a theme is by defining your custom properties on the root element,
+  typically with the <code>:root</code> selector.
+</p>
+
+<dile-info-box>
+  You can also use the <code>html</code> tag selector, which is practically equivalent. The only
+  difference is specificity, as <code>:root</code> has slightly higher specificity than <code>html</code>.
+</dile-info-box>
+
+<div class="theming-panel">
+<pre><code class="language-css">:root {
+  --dile-hamburger-active-color: #000;
+  --dile-primary-color: #f3f3ae;
+  --dile-on-primary-color: #303030;
+}</code></pre>
+</div>
+
+<p>
+  Define as many custom properties as you need to personalize your design in the <code>:root</code>
+  selector. Every component ships with sensible defaults, so if you don't specify anything, it will
+  simply look like the light theme used across this site.
+</p>
+
+<h2>Which CSS Custom Properties we use</h2>
+
+<p>
+  The custom properties used across components are deliberately consistent, built on a shared set of
+  variables. That consistency is what makes a single set of overrides ripple through the whole catalog.
+</p>
+
+<dile-info-box style="margin-bottom: 1rem;">
+  Reusing these same shared variables across your own project — not just for Dile components — keeps
+  your whole design cohesive and gives it a more professional finish.
+</dile-info-box>
+
+<p>
+  Each component also documents its own specific CSS variables on its own documentation page. The most
+  common theme adaptations, however, are color related — most of the shared variables across the catalog
+  exist to define color.
+</p>
+
+<div class="theming-inline-cta">
+  <p>
+    You can browse the complete set of color tokens in
+    <a href="https://github.com/Polydile/dile-components/blob/master/packages/ui/styles/colors.css">colors.css</a>,
+    inside the UI package, or see them rendered with live swatches on the <a href="/colors/">Colors</a> page.
+  </p>
+  <a href="/theme-builder/">
+    <dile-button>
+      <span>
+        <dile-lucide-icon-eye></dile-lucide-icon-eye>
+        Preview them instead
+      </span>
+    </dile-button>
+  </a>
+</div>
+
+<h2>Defining a light and dark theme</h2>
+
+<p>
+  Use the <a href="/components/dile-light-mode-switch/"><code>dile-light-mode-switch</code></a> component
+  to let visitors toggle between light and dark mode.
+</p>
+
+<p>
+  It's essentially a switch that adds a <code>dark-theme</code> CSS class to the page's <code>html</code>
+  tag when dark mode is active. As developers, we're responsible for defining the values our color
+  variables should take in each mode:
+</p>
+
+<div class="theming-panel">
+<pre><code class="language-css">:root {
+  /* Light colors */
+  --dile-background-color: #ffffff;
+  --dile-on-background-color: #303030;
+  --dile-primary-color: #f3f3ae;
+  --dile-on-primary-color: #303030;
+}
+
+:root.dark-theme {
+  /* Dark colors */
+  --dile-background-color: #1e1e1e;
+  --dile-on-background-color: #ffffff;
+  --dile-primary-color: #e1e181;
+  --dile-on-primary-color: #1e1e1e;
+}</code></pre>
+</div>
+
+<section class="theming-cta-band">
+  <h2>Ready to make it yours?</h2>
+  <p>
+    Pick your palette visually and export production-ready CSS in a couple of minutes — no design
+    background required.
+  </p>
+  <div class="theming-cta-band__actions">
+    <a href="/theme-builder/">
+      <dile-button>
+        <span>
+          <dile-lucide-icon-wand-sparkles></dile-lucide-icon-wand-sparkles>
+          Open the Theme Builder
+        </span>
+      </dile-button>
+    </a>
+    <a href="/colors/">
+      <dile-button class="colors-secondary-button">
+        <span>
+          <dile-lucide-icon-swatch-book></dile-lucide-icon-swatch-book>
+          Browse color tokens
+        </span>
+      </dile-button>
+    </a>
+  </div>
+</section>
