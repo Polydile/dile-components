@@ -1,6 +1,9 @@
 ---
 title: CloseDocumentClick
 tags: effects
+element: DileCloseDocumentClick
+package: '@dile/ui'
+summary: Closes a custom element when the user clicks anywhere in the document.
 ---
 
 # DileCloseDocumentClick

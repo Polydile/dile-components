@@ -1,6 +1,9 @@
 ---
 title: SmoothScrollElement
 tags: scroll
+element: DileSmoothScrollElement
+package: '@dile/utils'
+summary: Smoothly scrolls the content of an element with its own scrolling area.
 ---
 
 # DileSmoothScrollElement

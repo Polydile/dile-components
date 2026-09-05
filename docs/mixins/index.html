@@ -3,38 +3,109 @@ layout: layout.html
 title: Mixins
 hasMarkdown: false
 ---
-
 <h1>Mixins</h1>
 
-<p>
-  Here you can find the dile-components mixin catalog.
-</p>
-
+<section class="catalog-hero">
+  <div class="catalog-hero-explain">
+    <p>
+      Mixins are reusable JavaScript functions that add shared behavior — form handling, overlays,
+      or scroll effects — to your own Lit-based custom elements, so you don't duplicate that logic
+      in every component you build.
+    </p>
+    <div class="components-categories-list">
+      {% for tag in mixinTagsList %}
+        {% assign tagIcon = "lucide.blocks" %}
+        {% assign tagLabel = tag | capitalize %}
+        {% if tag == "formData" %}
+          {% assign tagIcon = "lucide.form" %}
+          {% assign tagLabel = "Form Data" %}
+        {% elsif tag == "effects" %}
+          {% assign tagIcon = "lucide.wand-sparkles" %}
+          {% assign tagLabel = "Effects" %}
+        {% elsif tag == "scroll" %}
+          {% assign tagIcon = "lucide.scroll" %}
+          {% assign tagLabel = "Scroll" %}
+        {% endif %}
+        <a href="#{{ tag }}" class="category-link">
+          <dile-iconlib icon="{{ tagIcon }}"></dile-iconlib>
+          <span>{{ tagLabel }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <aside class="catalog-hero-aside">
+    <h3>Pairs well with</h3>
+    <p>
+      Mixins add behavior; UI Components add the markup and styles. Combine both to build your own
+      custom elements faster.
+    </p>
+    <p>
+      <a href="/components/">UI Components</a>
+      <a href="/how-to-use/">How to use</a>
+    </p>
+  </aside>
+</section>
 
 <div class="Clasification">
-  {% for tag in mixinTagsList %}        
-    <dile-card 
-     title="{{ tag | capitalize }}" 
-    >
-      <dile-selector>
+  {% for tag in mixinTagsList %}
+    {% assign tagIcon = "lucide.blocks" %}
+    {% assign tagLabel = tag | capitalize %}
+    {% if tag == "formData" %}
+      {% assign tagIcon = "lucide.form" %}
+      {% assign tagLabel = "Form Data" %}
+    {% elsif tag == "effects" %}
+      {% assign tagIcon = "lucide.wand-sparkles" %}
+      {% assign tagLabel = "Effects" %}
+    {% elsif tag == "scroll" %}
+      {% assign tagIcon = "lucide.scroll" %}
+      {% assign tagLabel = "Scroll" %}
+    {% endif %}
+    <div class="components-group" id="{{ tag }}">
+      <h3><dile-iconlib icon="{{ tagIcon }}"></dile-iconlib> {{ tagLabel }}</h3>
+      <div class="components-grid">
         {% for component in collections[tag] %}
-          {% include "layout-partials/nav-item.html" %}
+          <a href="{{ component.url }}" class="component-card-link">
+            <dile-card
+              shadow-md
+              title="{{ component.data.title }}"
+              class="component-card"
+            >
+              <p class="component-card-element"><code>{{ component.data.element }}</code></p>
+              <p class="component-summary">{{ component.data.summary }}</p>
+              <div slot="footer" class="component-card-footer">
+                {% if component.data.package %}
+                  <code><dile-phosphor-icon-package></dile-phosphor-icon-package> {{ component.data.package }}</code>
+                {% endif %}
+              </div>
+            </dile-card>
+          </a>
         {% endfor %}
-  
-      </dile-selector>
-    </dile-card>
+      </div>
+    </div>
   {% endfor %}
 
   {% if collections.uncategorizedMixins.size > 0 %}
-    <dile-card 
-     title="Other components" 
-    >
-      {% for component in collections.uncategorizedComponents %}
-        {% include "layout-partials/nav-item.html" %}
-      {% endfor %}
-    </dile-card>
+    <div class="components-group">
+      <h3>Other mixins</h3>
+      <div class="components-grid">
+        {% for component in collections.uncategorizedMixins %}
+          <a href="{{ component.url }}" class="component-card-link">
+            <dile-card
+              shadow-md
+              title="{{ component.data.title }}"
+              class="component-card"
+            >
+              <p class="component-card-element"><code>{{ component.data.element }}</code></p>
+              <p class="component-summary">{{ component.data.summary }}</p>
+              <div slot="footer" class="component-card-footer">
+                {% if component.data.package %}
+                  <code><dile-phosphor-icon-package></dile-phosphor-icon-package> {{ component.data.package }}</code>
+                {% endif %}
+              </div>
+            </dile-card>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
   {% endif %}
 </div>
-
-
-

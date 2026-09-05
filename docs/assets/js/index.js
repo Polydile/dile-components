@@ -16,6 +16,7 @@ import '@dile/iconlib/lucide-icons/server.js';
 import '@dile/iconlib/lucide-icons/hammer.js';
 import '@dile/iconlib/lucide-icons/package.js';
 import '@dile/iconlib/lucide-icons/blocks.js';
+import '@dile/iconlib/lucide-icons/scroll.js';
 import '@dile/iconlib/lucide-icons/feather.js';
 import '@dile/iconlib/lucide-icons/check-check.js';
 import '@dile/iconlib/lucide-icons/layers.js';

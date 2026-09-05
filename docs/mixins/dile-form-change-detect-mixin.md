@@ -1,6 +1,9 @@
 ---
 title: FormChangeDetect
 tags: formData
+element: DileFormChangeDetect
+package: '@dile/ui'
+summary: Detects changes across a form's fields and emits a single dile-form-changed event.
 ---
 
 # DileFormChangeDetect

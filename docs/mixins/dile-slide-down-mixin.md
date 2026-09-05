@@ -1,6 +1,9 @@
 ---
 title: SlideDown
 tags: effects
+element: DileSlideDown
+package: '@dile/ui'
+summary: Adds slideShow and slideHide methods to smoothly reveal or hide elements.
 ---
 
 # DileSlideDown

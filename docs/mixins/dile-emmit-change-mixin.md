@@ -1,6 +1,9 @@
 ---
 title: EmmitChange
 tags: formData
+element: DileEmmitChange
+package: '@dile/ui'
+summary: Emits a standard element-changed event so form elements plug into the Form mixin's automations.
 ---
 
 # DileEmmitChange

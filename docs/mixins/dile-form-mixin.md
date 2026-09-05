@@ -1,6 +1,9 @@
 ---
 title: Form
 tags: formData
+element: DileForm
+package: '@dile/ui'
+summary: Adds getData, setData, validation and other form automations to your custom elements.
 ---
 
 # DileForm

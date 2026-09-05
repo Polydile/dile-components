@@ -1,6 +1,9 @@
 ---
 title: SmoothScroll
 tags: scroll
+element: DileSmoothScroll
+package: '@dile/utils'
+summary: Smoothly scrolls the whole document to a position or element.
 ---
 
 ## DileSmoothScroll

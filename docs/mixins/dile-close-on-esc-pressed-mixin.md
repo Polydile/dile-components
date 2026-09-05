@@ -1,6 +1,9 @@
 ---
 title: CloseOnEscPressed
 tags: effects
+element: DileCloseOnEscPressed
+package: '@dile/ui'
+summary: Closes a custom element automatically when the user presses the Esc key.
 ---
 
 # DileCloseOnEscPressed

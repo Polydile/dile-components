@@ -1,6 +1,9 @@
 ---
 title: Selectable
 tags: effects
+element: DileSelectable
+package: '@dile/ui'
+summary: Adds the properties and events needed to select one item from a list.
 ---
 
 # DileSelectable

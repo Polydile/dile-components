@@ -1,6 +1,9 @@
 ---
 title: Overlay
 tags: effects
+element: DileOverlay
+package: '@dile/ui'
+summary: Positions and toggles overlay elements with a smooth open and close animation.
 ---
 
 # DileOverlay
