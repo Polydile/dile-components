@@ -99,7 +99,7 @@ export class DileThemeBuilder extends LitElement {
         gap: 0.5rem;
       }
       .group-header h3 {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
       }
       .fields {
         display: grid;
@@ -112,13 +112,14 @@ export class DileThemeBuilder extends LitElement {
         gap: 0.5rem;
       }
       .color-block {
-        border: 1px solid rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--dile-secondary-color);
         border-radius: 8px;
         padding: 0.2rem 0.5rem 0.2rem;
-        background-color: #fff;
+        background-color: var(--dile-gray-very-light-color);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
       }
       .color-block h4 {
+          color: var(--dile-on-gray-very-light-color);
         margin: 0 0 0.05rem;
         font-size: 0.95em;
       }
