@@ -12,7 +12,13 @@
   margin-top: 0;
 }
 
-.catalog-hero-aside a {
+.pill-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill-links a {
   background-color: var(--dile-secondary-color);
   color: var(--dile-on-secondary-color);
   padding: 0.25rem 0.5rem;

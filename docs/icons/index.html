@@ -139,12 +139,42 @@ customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
 
 <h1>Icon libraries as Web Components</h1>
 
-<p class="iconlib-lead">
-  <strong>dile-components</strong> takes the most popular open-source icon libraries &mdash; Lucide,
-  Font Awesome, Material Icons, Phosphor, Tabler and Remix Icon &mdash; and repackages every icon as a
-  native Web Component. No icon fonts, no framework-specific wrappers, no copy-pasting SVG markup:
-  install one package and drop a custom element on the page.
-</p>
+<section class="catalog-hero">
+  <div class="catalog-hero-explain">
+    <p>
+      <strong>dile-components</strong> takes the most popular open-source icon libraries &mdash; Lucide,
+      Font Awesome, Material Icons, Phosphor, Tabler and Remix Icon &mdash; and repackages every icon as
+      a native Web Component. No icon fonts, no framework-specific wrappers, no copy-pasting SVG markup:
+      install one package and drop a custom element on the page.
+    </p>
+    <div class="components-categories-list">
+      <a href="#icon-libraries" class="category-link">
+        <dile-iconlib icon="lucide.blocks"></dile-iconlib>
+        <span>Icon libraries</span>
+      </a>
+      <a href="#universal" class="category-link">
+        <dile-iconlib icon="lucide.wand-sparkles"></dile-iconlib>
+        <span>Universal tags</span>
+      </a>
+      <a href="#icon-catalog" class="category-link">
+        <dile-iconlib icon="lucide.search"></dile-iconlib>
+        <span>Full catalog</span>
+      </a>
+    </div>
+  </div>
+  <aside class="catalog-hero-aside">
+    <h3>Just need one icon?</h3>
+    <p>
+      Skip picking a library up front &mdash; the universal tags resolve any icon from any family at
+      runtime, from a single <code>family.name</code> string.
+    </p>
+    <p class="pill-links">
+      <a href="/icons/dile-iconlib/">Universal icon</a>
+      <a href="/icons/dile-icon-badge/">Universal badge</a>
+    </p>
+  </aside>
+</section>
+
 <p class="iconlib-lead">
   Because each icon is a standalone Custom Element built on web standards, it works the same in React,
   Vue, Angular, Astro, plain HTML or any other stack. Imports are tree-shakeable &mdash; you ship only
@@ -153,7 +183,7 @@ customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
   so it behaves just like text.
 </p>
 
-<h2>Available icon libraries</h2>
+<h2 id="icon-libraries">Available icon libraries</h2>
 <p>
   Each library ships as its own set of tagged components, plus a generic single-icon component and a
   badge component. Follow the links for full documentation, styling options and the per-library icon
@@ -179,7 +209,7 @@ customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
   {% endfor %}
 </section>
 
-<section class="iconlib-universal">
+<section class="iconlib-universal" id="universal">
   <h2>One tag for every library: <code>dile-iconlib</code> and <code>dile-icon-badge</code></h2>
   <p>
     When you don't want to commit to a single library &mdash; or you need to switch icons at runtime
@@ -189,7 +219,7 @@ customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
   </p>
 
   <div class="iconlib-universal__pair">
-    <div class="iconlib-universal__col">
+    <div class="iconlib-universal__col" id="universal-icon">
       <h3><a href="/icons/dile-iconlib/">Universal icon &mdash; <code>dile-iconlib</code></a></h3>
       <p class="iconlib-card__text">
         A single icon tag for any supported library. Ideal for data-driven lists and conditional
@@ -204,7 +234,7 @@ customElements.define('demo-icon-catalog-list', DemoIconCatalogList);
       <p><a href="/icons/dile-iconlib/">Read the dile-iconlib documentation &rarr;</a></p>
     </div>
 
-    <div class="iconlib-universal__col">
+    <div class="iconlib-universal__col" id="universal-badge">
       <h3><a href="/icons/dile-icon-badge/">Universal badge &mdash; <code>dile-icon-badge</code></a></h3>
       <p class="iconlib-card__text">
         The same idea for labelled badges, with shared <code>variant</code> states
