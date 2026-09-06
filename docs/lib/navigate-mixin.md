@@ -3,6 +3,9 @@ layout: layout.html
 title: DileAppNavigate Mixin
 tags: routing
 order: 3
+element: DileAppNavigate
+package: '@dile/lib'
+summary: Adds a method to trigger navigation programmatically from any component.
 ---
 
 # DileAppNavigate Mixin

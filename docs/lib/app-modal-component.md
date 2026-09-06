@@ -3,6 +3,9 @@ layout: layout.html
 title: App Modal
 tags: 'app components'
 order: 2
+element: DileAppModalFeedback
+package: '@dile/lib'
+summary: A factory for a modal component that displays Redux-driven feedback messages.
 ---
 
 # App Modal Component

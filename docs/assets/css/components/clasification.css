@@ -18,6 +18,7 @@
   gap: 1rem;
   --dile-card-title-font-size: 1.25rem;
   margin-bottom: 2rem;
+  --dile-icon-color: var(--dile-secondary-color);
 }
 
 .components-grid dile-card {
@@ -59,6 +60,43 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     align-items: stretch;
   }
+}
+
+.guide-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--dile-on-background-color) 12%, transparent);
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.guide-list li + li {
+  border-top: 1px solid color-mix(in srgb, var(--dile-on-background-color) 10%, transparent);
+}
+
+.guide-list a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem 0.7rem 0.25rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.guide-list-icon {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  --dile-icon-size: 16px;
+  --dile-icon-color: var(--dile-secondary-color);
+}
+
+.guide-list-summary {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  font-weight: normal;
 }
 
 .components-categories-list {

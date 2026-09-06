@@ -1,6 +1,9 @@
 ---
 title: Ajax Select Crud Overlay
 tags: 'Crud extras'
+element: dile-ajax-select-crud-overlay
+package: '@dile/crud'
+summary: Ajax-powered select with results shown in a floating popup for one-click picking.
 ---
 
 # dile-ajax-select-crud-overlay

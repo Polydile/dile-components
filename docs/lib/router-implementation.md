@@ -3,6 +3,8 @@ layout: layout.html
 title: Route library implementation 
 tags: routing
 order: 1
+package: '@dile/lib'
+summary: Set up routing with lit-labs/router and the browser's URLPattern API.
 ---
 
 # Route Library Implementation

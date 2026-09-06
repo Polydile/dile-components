@@ -2,6 +2,8 @@
 title: General information
 tags: introduction
 order: 0
+package: '@dile/crud'
+summary: 'Start here: what the CRUD package includes and how its components fit together.'
 ---
 
 # Crud Components

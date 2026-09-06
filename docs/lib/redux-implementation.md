@@ -3,6 +3,8 @@ layout: layout.html
 title: Redux implementation
 tags: 'state management'
 order: 1
+package: '@dile/lib'
+summary: Configure the Redux store and slices that power @dile/lib's shared state.
 ---
 
 # Redux Implementation in @dile/lib

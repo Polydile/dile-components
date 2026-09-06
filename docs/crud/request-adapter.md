@@ -2,6 +2,8 @@
 title: Request Adapter
 tags: configuration
 order: 3
+package: '@dile/crud'
+summary: Transforms outgoing request payloads to match the format your backend expects.
 ---
 
 # Request Adapter Object

@@ -1,6 +1,9 @@
 ---
 title: File uploader
 tags: 'Crud extras'
+element: dile-file-uploader
+package: '@dile/crud'
+summary: Lightweight component for uploading files to your API via Ajax.
 ---
 
 # dile-file-uploader

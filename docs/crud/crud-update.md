@@ -1,6 +1,9 @@
 ---
 title: Update
 tags: operations
+element: dile-crud-update
+package: '@dile/crud'
+summary: A ready-made form wrapper for updating an existing record in a REST API resource.
 ---
 
 # dile-crud-update

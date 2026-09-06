@@ -1,6 +1,9 @@
 ---
 title: Item restore
 tags: operations
+element: dile-crud-item-restore
+package: '@dile/crud'
+summary: Restores a soft-deleted record through a confirmable API request.
 ---
 
 # dile-crud-item-restore

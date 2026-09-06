@@ -2,6 +2,8 @@
 title: Response Adapter
 tags: configuration
 order: 2
+package: '@dile/crud'
+summary: Adapts API response shapes so CRUD components can read the data they need.
 ---
 
 # Response Adapter Object

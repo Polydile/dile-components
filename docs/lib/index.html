@@ -1,0 +1,161 @@
+---
+layout: layout.html
+title: Lib Components and mixins
+hasMarkdown: false
+---
+<h1>App Library</h1>
+
+<section class="catalog-hero">
+  <div class="catalog-hero-explain">
+    <p>
+      <code>@dile/lib</code> is a package of components and mixins for building complete
+      applications with minimal effort — covering feedback messages, user session state, and the
+      routing system, so you don't wire up the same app-level plumbing every time.
+    </p>
+    <div class="components-categories-list">
+      {% for tag in libTagList %}
+        {% assign tagIcon = "lucide.puzzle" %}
+        {% if tag == "state management" %}
+          {% assign tagIcon = "lucide.database" %}
+        {% elsif tag == "routing" %}
+          {% assign tagIcon = "lucide.route" %}
+        {% elsif tag == "app components" %}
+          {% assign tagIcon = "lucide.layout-panel-top" %}
+        {% endif %}
+        <a href="#{{ tag | slugify }}" class="category-link">
+          <dile-iconlib icon="{{ tagIcon }}"></dile-iconlib>
+          <span>{{ tag | capitalize }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <aside class="catalog-hero-aside">
+    <h3>Getting started</h3>
+    <p>
+      Install <code>@dile/lib</code>, then follow the Redux and routing guides below. Or skip the
+      setup entirely and scaffold a starter app with the CLI.
+    </p>
+    <p>
+      <a href="/lib/redux-implementation/">Redux implementation</a>
+      <a href="/lib/router-implementation/">Routing guide</a>
+      <a href="/cli/">CLI</a>
+    </p>
+  </aside>
+</section>
+
+<h2>What does @dile/lib offer?</h2>
+<p>This package provides a set of core features for applications, including:</p>
+
+<div class="components-grid">
+  <dile-card shadow-md title="Redux slices" class="component-card">
+    <p class="component-card-element"><dile-iconlib icon="lucide.database"></dile-iconlib></p>
+    <p class="component-summary">Ready-made slices for managing basic application features:</p>
+    <ul>
+      <li><code>UserSlice</code>, for user management</li>
+      <li><code>FeedbackSlice</code>, for feedback messages and loading states</li>
+    </ul>
+  </dile-card>
+  <dile-card shadow-md title="Store-connected components" class="component-card">
+    <p class="component-card-element"><dile-iconlib icon="lucide.bell"></dile-iconlib></p>
+    <p class="component-summary">Components that work directly with the Redux store:</p>
+    <ul>
+      <li>Components for displaying feedback messages</li>
+      <li>Components for showing loading indicators</li>
+    </ul>
+  </dile-card>
+  <dile-card shadow-md title="Routing helpers" class="component-card">
+    <p class="component-card-element"><dile-iconlib icon="lucide.route"></dile-iconlib></p>
+    <p class="component-summary">Components that help with routing system features:</p>
+    <ul>
+      <li>A route guard that redirects unauthorized or unauthenticated users</li>
+      <li>Link components that trigger the routing system when clicked</li>
+    </ul>
+  </dile-card>
+  <dile-card shadow-md title="Utility mixins" class="component-card">
+    <p class="component-card-element"><dile-iconlib icon="lucide.puzzle"></dile-iconlib></p>
+    <p class="component-summary">Mixins that remove boilerplate from common app tasks:</p>
+    <ul>
+      <li>Navigation using the routing system</li>
+      <li>Sending feedback messages and loading states</li>
+      <li>Syncing components with the Redux store</li>
+    </ul>
+  </dile-card>
+</div>
+
+<dile-info-box title="Key dependencies">
+  Unlike most Dile Components, which work independently of any stack beyond Web Components and
+  Lit, <code>@dile/lib</code> requires <strong>Redux and Redux Toolkit</strong> and
+  <strong>Lit Router</strong> to unlock its full potential. Starting a new app with these modules,
+  components, and mixins is still much faster than building the equivalent from scratch — the
+  benefits easily justify the extra dependencies.
+</dile-info-box>
+
+<h2>Modules and components in this package</h2>
+
+<div class="Clasification">
+  {% for tag in libTagList %}
+    {% assign tagIcon = "lucide.puzzle" %}
+    {% if tag == "state management" %}
+      {% assign tagIcon = "lucide.database" %}
+    {% elsif tag == "routing" %}
+      {% assign tagIcon = "lucide.route" %}
+    {% elsif tag == "app components" %}
+      {% assign tagIcon = "lucide.layout-panel-top" %}
+    {% endif %}
+    {% assign sortedComponents = collections[tag] | sort: "data.order" %}
+    {% assign componentCount = 0 %}
+    {% assign guideCount = 0 %}
+    {% for component in sortedComponents %}
+      {% if component.url contains "/lib/" %}
+        {% if component.data.element %}
+          {% assign componentCount = componentCount | plus: 1 %}
+        {% else %}
+          {% assign guideCount = guideCount | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <div class="components-group" id="{{ tag | slugify }}">
+      <h3><dile-iconlib icon="{{ tagIcon }}"></dile-iconlib> {{ tag | capitalize }}</h3>
+      {% if guideCount > 0 %}
+        <ul class="guide-list">
+          {% for component in sortedComponents %}
+            {% if component.url contains "/lib/" and component.data.element == nil %}
+              <li>
+                <a href="{{ component.url }}">
+                  <dile-lucide-icon-chevron-right class="guide-list-icon"></dile-lucide-icon-chevron-right>
+                  <span>
+                    <strong>{{ component.data.title }}</strong>
+                    <span class="guide-list-summary">{{ component.data.summary }}</span>
+                  </span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if componentCount > 0 %}
+        <div class="components-grid">
+          {% for component in sortedComponents %}
+            {% if component.url contains "/lib/" and component.data.element %}
+              <a href="{{ component.url }}" class="component-card-link">
+                <dile-card
+                  shadow-md
+                  title="{{ component.data.title }}"
+                  class="component-card"
+                >
+                  <p class="component-card-element"><code>{{ component.data.element }}</code></p>
+                  <p class="component-summary">{{ component.data.summary }}</p>
+                  <div slot="footer" class="component-card-footer">
+                    {% if component.data.package %}
+                      <code><dile-phosphor-icon-package></dile-phosphor-icon-package> {{ component.data.package }}</code>
+                    {% endif %}
+                  </div>
+                </dile-card>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

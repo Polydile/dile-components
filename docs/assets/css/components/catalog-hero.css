@@ -19,6 +19,7 @@
   font-size: 0.875rem;
   border-radius: 4px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 @media(min-width: 680px) {

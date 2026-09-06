@@ -1,6 +1,8 @@
 ---
-title: Item list
+title: List item components
 tags: operations
+package: '@dile/crud'
+summary: How to template each item rendered inside a dile-crud-list.
 ---
 
 # Item for lists

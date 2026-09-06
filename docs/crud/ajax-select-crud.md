@@ -1,6 +1,9 @@
 ---
 title: Ajax Select Crud
 tags: 'Crud extras'
+element: dile-ajax-select-crud
+package: '@dile/crud'
+summary: Searches and selects records from a REST API through Axios-powered Ajax requests.
 ---
 
 # dile-ajax-select-crud

@@ -1,6 +1,9 @@
 ---
 title: Ajax Switch
 tags: 'Crud extras'
+element: dile-ajax-switch
+package: '@dile/crud'
+summary: Toggles a boolean property on a resource with a single Ajax request.
 ---
 
 # dile-ajax-switch

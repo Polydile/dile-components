@@ -1,6 +1,9 @@
 ---
 title: Insert
 tags: operations
+element: dile-crud-insert
+package: '@dile/crud'
+summary: A ready-made form wrapper for inserting new records into a REST API resource.
 ---
 
 # dile-crud-insert

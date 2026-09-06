@@ -3,6 +3,9 @@ layout: layout.html
 title: App Loading
 tags: 'app components'
 order: 3
+element: DileAppLoading
+package: '@dile/lib'
+summary: A factory for a loading indicator connected to the Redux store.
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: Item delete
 tags: operations
+element: dile-crud-item-delete
+package: '@dile/crud'
+summary: Deletes a specific record from a resource, with a confirmation dialog first.
 ---
 
 # dile-crud-item-delete

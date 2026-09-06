@@ -1,6 +1,9 @@
 ---
 title: Detail
 tags: operations
+element: dile-crud-detail
+package: '@dile/crud'
+summary: Displays the details of a single resource item using your own template.
 ---
 
 # dile-crud-detail

@@ -1,6 +1,9 @@
 ---
 title: Select Ajax Simple
 tags: 'Crud extras'
+element: dile-select-ajax-simple
+package: '@dile/crud'
+summary: A lightweight select that loads all its options from an API endpoint in one request.
 ---
 
 # dile-select-ajax-simple

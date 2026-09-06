@@ -1,6 +1,9 @@
 ---
 title: Actions
 tags: operations
+element: dile-crud-actions
+package: '@dile/crud'
+summary: Displays and processes the batch actions available for a CRUD list.
 ---
 
 # dile-crud-actions

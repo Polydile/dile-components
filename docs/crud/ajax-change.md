@@ -1,6 +1,9 @@
 ---
 title: Ajax Change
 tags: 'Crud extras'
+element: dile-ajax-change
+package: '@dile/crud'
+summary: Wraps any component and fires an Ajax request automatically when its value changes.
 ---
 
 # dile-ajax-change

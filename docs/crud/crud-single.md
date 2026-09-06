@@ -1,6 +1,9 @@
 ---
 title: Crud Single
 tags: main
+element: dile-crud-single
+package: '@dile/crud'
+summary: Displays a single record's details along with its available actions and relations.
 ---
 
 # dile-crud-single

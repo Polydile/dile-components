@@ -3,6 +3,9 @@ layout: layout.html
 title: App Toast
 tags: 'app components'
 order: 1
+element: DileAppFeedback
+package: '@dile/lib'
+summary: A factory for a toast component that displays Redux-driven feedback messages.
 ---
 
 # App Toast Component

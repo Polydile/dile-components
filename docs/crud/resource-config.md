@@ -2,6 +2,8 @@
 title: Resource config
 tags: configuration
 order: 4
+package: '@dile/crud'
+summary: The configuration object that powers the advanced CRUD components for one API resource.
 ---
 
 # Resource Configuration Object

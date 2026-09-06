@@ -3,6 +3,9 @@ layout: layout.html
 title: Feedback Mixin
 tags: 'state management'
 order: 4
+element: DileFeedback
+package: '@dile/lib'
+summary: Adds methods to show toast messages, modals, and loading states from any component.
 ---
 
 # Feedback Mixin

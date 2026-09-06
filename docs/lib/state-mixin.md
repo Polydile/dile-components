@@ -3,6 +3,9 @@ layout: layout.html
 title: State Mixin
 tags: 'state management'
 order: 5
+element: DileState
+package: '@dile/lib'
+summary: Subscribes a component to Redux store changes so it reacts automatically.
 ---
 
 # State Mixin

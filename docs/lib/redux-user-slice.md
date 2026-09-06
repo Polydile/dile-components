@@ -3,6 +3,9 @@ layout: layout.html
 title: User slice
 tags: 'state management'
 order: 3
+element: userSlice
+package: '@dile/lib'
+summary: Manages the logged-in user's data and authentication state in the Redux store.
 ---
 
 # Redux user slice

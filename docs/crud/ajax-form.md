@@ -1,6 +1,9 @@
 ---
 title: Ajax Form
 tags: ajax
+element: dile-ajax-form
+package: '@dile/crud'
+summary: Builds a form that submits itself via Ajax, without writing the HTTP request code.
 ---
 
 # dile-ajax-form

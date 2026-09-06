@@ -3,6 +3,9 @@ layout: layout.html
 title: App Router Mixin 
 tags: routing
 order: 2
+element: DileAppRouter
+package: '@dile/lib'
+summary: Registers your application's routes and handles navigation in the root component.
 ---
 
 # DileAppRouter Mixin

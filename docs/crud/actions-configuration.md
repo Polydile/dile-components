@@ -2,6 +2,8 @@
 title: Actions configuration
 tags: configuration
 order: 5
+package: '@dile/crud'
+summary: Configure batch actions on lists and individual actions on single-item views.
 ---
 
 # Actions configuration

@@ -3,6 +3,9 @@ layout: layout.html
 title: Router link
 tags: 'app components'
 order: 4
+element: DileRouterLink
+package: '@dile/lib'
+summary: A link component that navigates through the routing system instead of the browser.
 ---
 
 # Router Link Component

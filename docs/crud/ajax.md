@@ -1,6 +1,9 @@
 ---
 title: Ajax
 tags: ajax
+element: dile-ajax
+package: '@dile/crud'
+summary: Declares Ajax connections with attributes, without writing HTTP request code.
 ---
 
 # dile-ajax

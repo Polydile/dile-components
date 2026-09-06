@@ -1,6 +1,9 @@
 ---
 title: Relation Checker
 tags: 'Crud extras'
+element: dile-relation-checker
+package: '@dile/crud'
+summary: Checks or unchecks items in a searchable list to manage their relation to an entity.
 ---
 
 # dile-relation-checker

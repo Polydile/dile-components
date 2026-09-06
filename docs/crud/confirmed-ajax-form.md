@@ -1,6 +1,9 @@
 ---
 title: Confirmed Ajax Form
 tags: ajax
+element: dile-confirmed-ajax-form
+package: '@dile/crud'
+summary: Adds a confirmation dialog before an Ajax form submits its data.
 ---
 
 # dile-confirmed-ajax-form

@@ -1,6 +1,9 @@
 ---
 title: Image uploader
 tags: 'Crud extras'
+element: dile-image-uploader
+package: '@dile/crud'
+summary: Lightweight component to upload images to your API via Ajax.
 ---
 
 # dile-image-uploader

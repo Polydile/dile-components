@@ -1,6 +1,9 @@
 ---
 title: List
 tags: operations
+element: dile-crud-list
+package: '@dile/crud'
+summary: Lists resource records with pagination, filters, sorting, and per-item actions.
 ---
 
 # dile-crud-list

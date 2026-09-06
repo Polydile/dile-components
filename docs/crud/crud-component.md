@@ -1,6 +1,9 @@
 ---
 title: Crud component
 tags: main
+element: dile-crud
+package: '@dile/crud'
+summary: The main building block that combines list, insert, update and delete into a full CRUD system.
 ---
 
 # dile-crud

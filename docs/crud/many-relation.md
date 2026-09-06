@@ -1,6 +1,9 @@
 ---
 title: Many Relation
 tags: 'Crud extras'
+element: dile-many-relation
+package: '@dile/crud'
+summary: Adds and removes items in a many-to-many relationship backed by a REST API.
 ---
 
 # dile-many-relation

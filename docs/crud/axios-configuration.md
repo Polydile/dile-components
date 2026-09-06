@@ -2,6 +2,8 @@
 title: Axios configuration
 tags: configuration
 order: 1
+package: '@dile/crud'
+summary: Sets up a shared Axios instance so every CRUD component connects the way your API expects.
 ---
 
 # Axios configuration

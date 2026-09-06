@@ -1,6 +1,9 @@
 ---
 title: Modal Crud Update
 tags: 'Crud extras'
+element: dile-modal-crud-update
+package: '@dile/crud'
+summary: Opens a dile-crud-update form inside a modal dialog.
 ---
 
 # dile-modal-crud-update

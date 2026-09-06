@@ -1,6 +1,9 @@
 ---
 title: Modal Crud Insert
 tags: 'Crud extras'
+element: dile-modal-crud-insert
+package: '@dile/crud'
+summary: Opens a dile-crud-insert form inside a modal dialog.
 ---
 
 # dile-modal-crud-insert

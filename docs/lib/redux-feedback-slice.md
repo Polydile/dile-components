@@ -3,6 +3,9 @@ layout: layout.html
 title: Feedback Slice
 tags: 'state management'
 order: 2
+element: feedbackSlice
+package: '@dile/lib'
+summary: Centralizes feedback messages and loading state in the Redux store.
 ---
 
 # Redux Feedback Slice

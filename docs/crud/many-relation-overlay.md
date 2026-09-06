@@ -1,6 +1,9 @@
 ---
 title: Many Relation Overlay
 tags: 'Crud extras'
+element: dile-many-relation-overlay
+package: '@dile/crud'
+summary: Manages a many-to-many relationship with search results shown in a floating popup.
 ---
 
 # dile-many-relation-overlay
