@@ -28,12 +28,41 @@ export class DileThemeBuilder extends LitElement {
     return css`
       :host {
         display: block;
+        color: var(--dile-on-background-color, #232323);
+
+        /* One shared visual language for the whole tool. Every panel,
+           swatch and menu below is built from these tokens so the editor,
+           the preview and the palette bar read as a single surface —
+           in light and dark mode alike. */
+        --tb-radius-lg: 16px;
+        --tb-radius-md: 12px;
+        --tb-radius-sm: 9px;
+        --tb-border-color: color-mix(in srgb, var(--dile-on-background-color, #232323) 12%, transparent);
+        --tb-border-strong-color: color-mix(in srgb, var(--dile-on-background-color, #232323) 24%, transparent);
+        --tb-surface: var(--dile-background-color, #fff);
+        --tb-surface-sunken: color-mix(in srgb, var(--dile-on-background-color, #232323) 4%, var(--dile-background-color, #fff));
+        --tb-hover-tint: color-mix(in srgb, currentColor 8%, transparent);
+        --tb-shadow-sm: 0 1px 2px color-mix(in srgb, var(--dile-on-background-color, #232323) 10%, transparent);
+        --tb-shadow-md: 0 8px 28px color-mix(in srgb, var(--dile-on-background-color, #232323) 14%, transparent);
+
         --dile-nav-column-gap: 1rem;
         --dile-nav-padding-x: 1rem;
-        --dile-input-label-font-size: 0.8rem;
-        --dile-input-label-margin-bottom: 2px;
+        --dile-input-label-font-size: 0.78rem;
+        --dile-input-label-margin-bottom: 3px;
+        --dile-button-border-radius: 8px;
+
+        /* Keep the color pickers on-theme in light and dark mode */
+        --dile-color-picker-swatch-size: 2.35em;
+        --dile-color-picker-swatch-border-radius: 6px;
+        --dile-color-picker-swatch-border-color: var(--tb-border-strong-color);
+        --dile-color-picker-panel-border-radius: var(--tb-radius-md);
+        --dile-color-picker-panel-box-shadow: var(--tb-shadow-md);
+        --dile-color-picker-panel-background-color: var(--tb-surface);
+        --dile-color-picker-hex-input-background-color: var(--tb-surface);
+        --dile-color-picker-hex-input-color: var(--dile-on-background-color, #232323);
+        --dile-color-picker-hex-input-border-color: var(--tb-border-strong-color);
         --dile-tab-background-color: transparent;
-        --dile-tab-text-color: #767676;
+        --dile-tab-text-color: color-mix(in srgb, var(--dile-on-background-color, #232323) 55%, transparent);
         --dile-tab-selected-background-color: transparent;
         --dile-tab-selected-text-color: var(--dile-on-background-color, #232323);
         --dile-tab-selected-line-color: var(--dile-primary-dark-color);
@@ -44,19 +73,27 @@ export class DileThemeBuilder extends LitElement {
         --dile-tab-padding: 0.6rem 1rem 0.5rem;
       }
       dile-color-picker {margin-bottom: 0.2rem;}
+
+      .ghost-button {
+        --dile-button-background-color: transparent;
+        --dile-button-text-color: var(--dile-on-background-color, #232323);
+        --dile-button-border-width: 1px;
+        --dile-button-border-color: var(--tb-border-strong-color);
+      }
+
+      /* ---- Top command panel ---- */
       .control-panel {
-        margin-bottom: 2rem;
-        border: 1px solid var(--dile-gray-very-light-color, #f5f5f5);
-        border-radius: 10px;
-        background-color: var(--dile-background-color, #fff);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-        overflow: hidden;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-lg);
+        background-color: var(--tb-surface);
+        box-shadow: var(--tb-shadow-sm);
       }
       .control-row {
         padding: 1rem 1.25rem;
       }
       .control-row + .control-row {
-        border-top: 1px solid var(--dile-very-light-color, #f5f5f5);
+        border-top: 1px solid var(--tb-border-color);
       }
       .control-row--split {
         display: flex;
@@ -64,89 +101,158 @@ export class DileThemeBuilder extends LitElement {
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 1rem;
+        background-color: var(--tb-surface-sunken);
+        border-radius: 0 0 calc(var(--tb-radius-lg) - 1px) calc(var(--tb-radius-lg) - 1px);
       }
-      .toolbar {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+      .control-row--split dile-button {
+        --dile-button-font-weight: 700;
       }
+
       .mode-selector {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
       }
-      .layout {
-        display: grid;
-        grid-template-columns: 2fr 3fr;
-        gap: 2rem;
-        align-items: start;
+
+      /* ---- Editor + preview workspace ---- */
+      .workspace {
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-lg);
+        background-color: var(--tb-surface);
+        box-shadow: var(--tb-shadow-sm);
       }
-      @media (max-width: 750px) {
-        .layout {
-          grid-template-columns: 1fr;
-        }
-      }
-      h3 {
-        margin-bottom: 0.5rem;
-      }
-      .group {
-        margin-bottom: 1.5rem;
-      }
-      .group-header {
+      .workspace__bar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 1rem;
+        padding: 0.8rem 1.25rem;
+        background-color: var(--tb-surface-sunken);
+        border-bottom: 1px solid var(--tb-border-color);
+        border-radius: calc(var(--tb-radius-lg) - 1px) calc(var(--tb-radius-lg) - 1px) 0 0;
       }
-      .group-header h3 {
-        margin-bottom: 0.5rem;
+      .workspace__mode {
+        font-size: 0.9rem;
+        opacity: 0.75;
+      }
+      .workspace__mode strong {
+        opacity: 1;
+        text-transform: capitalize;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        align-items: stretch;
+      }
+      .editor {
+        padding: 1.5rem;
+        min-width: 0;
+      }
+      .preview {
+        padding: 1.5rem;
+        min-width: 0;
+        background-color: var(--tb-surface-sunken);
+        border-left: 1px solid var(--tb-border-color);
+        border-radius: 0 0 calc(var(--tb-radius-lg) - 1px) 0;
+      }
+      .preview__inner {
+        position: sticky;
+        top: 1rem;
+      }
+      @media (max-width: 820px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .preview {
+          border-left: none;
+          border-top: 1px solid var(--tb-border-color);
+          border-radius: 0 0 calc(var(--tb-radius-lg) - 1px) calc(var(--tb-radius-lg) - 1px);
+        }
+        .preview__inner {
+          position: static;
+        }
+      }
+
+      /* ---- Editor groups ---- */
+      .group + .group {
+        margin-top: 1.75rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--tb-border-color);
+      }
+      .group-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.9rem;
+      }
+      .eyebrow,
+      .group-header h3,
+      .swatch-section > h3 {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.6;
       }
       .fields {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 0.5rem 1rem;
       }
       .color-blocks {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
       .color-block {
-        border: 1px solid var(--dile-secondary-color);
-        border-radius: 8px;
-        padding: 0.2rem 0.5rem 0.2rem;
-        background-color: var(--dile-gray-very-light-color);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-sm);
+        padding: 0.6rem 0.75rem 0.7rem;
+        background-color: var(--tb-surface);
       }
       .color-block h4 {
-          color: var(--dile-on-gray-very-light-color);
-        margin: 0 0 0.05rem;
-        font-size: 0.95em;
+        margin: 0 0 0.55rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        opacity: 0.65;
       }
       .color-block-fields {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.15rem 1rem;
+        gap: 0.7rem 1.1rem;
+        align-items: flex-start;
       }
-      .swatch-section {
-        margin-bottom: 1.5rem;
+      .color-block-fields dile-color-picker,
+      .fields dile-color-picker {
+        margin-bottom: 0;
+      }
+
+      /* ---- Preview swatches ---- */
+      .swatch-section + .swatch-section {
+        margin-top: 1.5rem;
+      }
+      .swatch-section > h3 {
+        margin-bottom: 0.75rem;
       }
       .swatch {
         position: relative;
         display: flex;
         flex-direction: column;
         gap: 0.15rem;
-        padding: 0.35rem 0.65rem;
-        border-radius: 8px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        padding: 0.4rem 0.7rem;
+        border-radius: var(--tb-radius-sm);
+        border: 1px solid color-mix(in srgb, var(--dile-on-background-color, #232323) 10%, transparent);
+        box-shadow: var(--tb-shadow-sm);
       }
       .swatch.copyable {
         cursor: pointer;
-        transition: box-shadow 0.15s ease;
+        transition: box-shadow 0.15s ease, transform 0.15s ease;
       }
       .swatch.copyable:hover {
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+        box-shadow: var(--tb-shadow-md);
+        transform: translateY(-1px);
       }
       .swatch.copyable:focus-visible {
         outline: 2px solid currentColor;
@@ -176,6 +282,7 @@ export class DileThemeBuilder extends LitElement {
       .background-swatch {
         padding: 1.5rem;
         gap: 1rem;
+        border-radius: var(--tb-radius-md);
       }
       .nested-swatch-grid {
         display: flex;
@@ -184,7 +291,7 @@ export class DileThemeBuilder extends LitElement {
       }
       .compact-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 0.5rem;
       }
       .swatch.compact {
@@ -256,28 +363,31 @@ export class DileThemeBuilder extends LitElement {
 
   _renderThemeLayout(values, mode) {
     return html`
-      <div @element-changed="${(e) => this._onColorChange(e, mode)}">
-        <div class="toolbar">
-          <dile-button @click="${() => this._reset(mode)}">Reset to defaults</dile-button>
+      <div class="workspace" @element-changed="${(e) => this._onColorChange(e, mode)}">
+        <div class="workspace__bar">
+          <span class="workspace__mode">Editing <strong>${mode} theme</strong></span>
+          <dile-button class="ghost-button" @click="${() => this._reset(mode)}">Reset to defaults</dile-button>
         </div>
         <div class="layout">
           <section class="editor">
             ${variableGroups.map(group => this._renderGroup(group, values, mode))}
           </section>
           <section class="preview">
-            <dile-tabs attrForSelected="name" selectorId="theme-builder-preview-${mode}" selected="palette">
-              <dile-tab name="palette">Palette preview</dile-tab>
-              <dile-tab name="components">Components preview</dile-tab>
-            </dile-tabs>
-            <dile-pages attrForSelected="name" selectorId="theme-builder-preview-${mode}" selected="palette">
-              <div name="palette">
-                ${this._renderMainPreview(values)}
-                ${this._renderVariationsPreview(values)}
-              </div>
-              <div name="components">
-                <dile-theme-components-preview .values="${values}"></dile-theme-components-preview>
-              </div>
-            </dile-pages>
+            <div class="preview__inner">
+              <dile-tabs attrForSelected="name" selectorId="theme-builder-preview-${mode}" selected="palette">
+                <dile-tab name="palette">Palette preview</dile-tab>
+                <dile-tab name="components">Components preview</dile-tab>
+              </dile-tabs>
+              <dile-pages attrForSelected="name" selectorId="theme-builder-preview-${mode}" selected="palette">
+                <div name="palette">
+                  ${this._renderMainPreview(values)}
+                  ${this._renderVariationsPreview(values)}
+                </div>
+                <div name="components">
+                  <dile-theme-components-preview .values="${values}"></dile-theme-components-preview>
+                </div>
+              </dile-pages>
+            </div>
           </section>
         </div>
       </div>
@@ -291,7 +401,7 @@ export class DileThemeBuilder extends LitElement {
         <div class="group-header">
           <h3>${group.title}</h3>
           ${group.id === 'variations' ? html`
-            <dile-button style="margin-bottom: 0.5rem;" @click="${() => this._autoCalculateVariations(mode)}">Calculate automatically</dile-button>
+            <dile-button class="ghost-button" @click="${() => this._autoCalculateVariations(mode)}">Calculate automatically</dile-button>
           ` : ''}
         </div>
         ${blocks ? this._renderColorBlocks(blocks, values) : this._renderFields(group.variables, values)}
@@ -345,6 +455,7 @@ export class DileThemeBuilder extends LitElement {
     const compactPairs = otherPairs.filter(pair => !highlightedBgs.includes(pair.bg));
     return html`
       <div class="swatch-section main">
+        <h3>Main colors</h3>
         <div
           class="swatch background-swatch"
           style="background-color: ${values[backgroundPair.bg]}; color: ${values[backgroundPair.text]}"
@@ -414,7 +525,7 @@ export class DileThemeBuilder extends LitElement {
 
     return html`
       <div class="swatch-section variations">
-        <h3>Variations preview</h3>
+        <h3>Variations</h3>
         <div
           class="swatch background-swatch"
           style="background-color: ${values[backgroundPair.bg]}; color: ${values[backgroundPair.text]}"

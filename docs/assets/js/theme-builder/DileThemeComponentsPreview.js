@@ -25,12 +25,21 @@ export class DileThemeComponentsPreview extends LitElement {
         display: block;
         margin-bottom: 1.5rem;
       }
+      h3 {
+        margin: 0 0 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.6;
+      }
       .components-preview {
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        padding: 1rem;
+        border: 1px solid var(--tb-border-color, color-mix(in srgb, var(--dile-on-background-color, #232323) 12%, transparent));
+        border-radius: var(--tb-radius-md, 12px);
+        padding: 1.25rem;
         background-color: var(--dile-background-color);
         color: var(--dile-on-background-color);
+        box-shadow: var(--tb-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.1));
       }
       .components-row {
         display: flex;
@@ -84,7 +93,7 @@ export class DileThemeComponentsPreview extends LitElement {
       .map(([name, value]) => `${name}: ${value}`)
       .join('; ');
     return html`
-      <h3>Components preview</h3>
+      <h3>Live components</h3>
       <div class="components-preview" style="${styleVars}">
         <dile-nav>
           <span slot="title">Sample nav</span>

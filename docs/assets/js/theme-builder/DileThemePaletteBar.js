@@ -66,6 +66,18 @@ export class DileThemePaletteBar extends LitElement {
       :host {
         display: block;
         position: relative;
+        color: var(--dile-on-background-color, #232323);
+
+        /* Fall back to local values when rendered outside the theme
+           builder host; otherwise inherit its shared tokens. */
+        --tb-radius-md: 12px;
+        --tb-radius-sm: 9px;
+        --tb-border-color: color-mix(in srgb, var(--dile-on-background-color, #232323) 12%, transparent);
+        --tb-border-strong-color: color-mix(in srgb, var(--dile-on-background-color, #232323) 24%, transparent);
+        --tb-surface: var(--dile-background-color, #fff);
+        --tb-hover-tint: color-mix(in srgb, currentColor 8%, transparent);
+        --tb-shadow-sm: 0 1px 2px color-mix(in srgb, var(--dile-on-background-color, #232323) 10%, transparent);
+        --tb-shadow-md: 0 8px 28px color-mix(in srgb, var(--dile-on-background-color, #232323) 16%, transparent);
       }
       .bar {
         display: flex;
@@ -79,15 +91,15 @@ export class DileThemePaletteBar extends LitElement {
         gap: 0.5rem;
         cursor: pointer;
         padding: 0.4rem 0.7rem;
-        border-radius: 6px;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        background-color: var(--dile-on-background-color, #fff);
-        color: var(--dile-background-color, #232323);
+        border-radius: var(--tb-radius-sm);
+        border: 1px solid var(--tb-border-strong-color);
+        background-color: var(--tb-surface);
+        color: inherit;
         transition: border-color 0.15s ease, box-shadow 0.15s ease;
       }
       .active-theme:hover {
-        border-color: rgba(0, 0, 0, 0.25);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-color: var(--dile-on-background-color, #232323);
+        box-shadow: var(--tb-shadow-sm);
       }
       .theme-name {
         font-weight: bold;
@@ -95,6 +107,8 @@ export class DileThemePaletteBar extends LitElement {
       .rename-input {
         font: inherit;
         font-weight: bold;
+        color: inherit;
+        background-color: var(--tb-surface);
         border: 1px solid var(--dile-input-focus-border-color, #6af);
         border-radius: 4px;
         padding: 0.1rem 0.3rem;
@@ -106,6 +120,7 @@ export class DileThemePaletteBar extends LitElement {
         gap: 0.3rem;
         font-size: 0.8em;
         white-space: nowrap;
+        opacity: 0.85;
       }
       .status-dot {
         width: 8px;
@@ -113,10 +128,10 @@ export class DileThemePaletteBar extends LitElement {
         border-radius: 50%;
       }
       .status-badge.clean .status-dot {
-        background-color: #1a9c4a;
+        background-color: var(--dile-alert-success-color, #1a9c4a);
       }
       .status-badge.dirty .status-dot {
-        background-color: #e08b1f;
+        background-color: var(--dile-alert-warning-color, #e08b1f);
       }
       .chevron {
         display: inline-flex;
@@ -142,19 +157,19 @@ export class DileThemePaletteBar extends LitElement {
         width: 2.1rem;
         height: 2.1rem;
         padding: 0;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-radius: 6px;
-        background: #fff;
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-sm);
+        background: var(--tb-surface);
         cursor: pointer;
-        color: #303030;
+        color: inherit;
         transition: background-color 0.15s ease, border-color 0.15s ease;
       }
       .icon-button:hover:not(:disabled) {
-        background-color: rgba(0, 0, 0, 0.05);
-        border-color: rgba(0, 0, 0, 0.25);
+        background-color: var(--tb-hover-tint);
+        border-color: var(--tb-border-strong-color);
       }
       .icon-button.danger {
-        color: #c0392b;
+        color: var(--dile-danger-color, #c0392b);
       }
       .icon-button:disabled {
         opacity: 0.4;
@@ -168,10 +183,10 @@ export class DileThemePaletteBar extends LitElement {
         display: flex;
         flex-direction: column;
         min-width: 10rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 6px;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-sm);
+        background: var(--tb-surface);
+        box-shadow: var(--tb-shadow-md);
         overflow: hidden;
       }
       .options-menu button {
@@ -181,19 +196,20 @@ export class DileThemePaletteBar extends LitElement {
         padding: 0.5rem 0.75rem;
         border: none;
         background: none;
+        color: inherit;
         text-align: left;
         cursor: pointer;
         font-size: 0.9em;
       }
       .options-menu button:hover {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: var(--tb-hover-tint);
       }
       .dropdown {
         margin-top: 0.75rem;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-radius: 8px;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--tb-border-color);
+        border-radius: var(--tb-radius-md);
+        background: var(--tb-surface);
+        box-shadow: var(--tb-shadow-md);
         overflow: hidden;
       }
       .search-row {
@@ -201,12 +217,14 @@ export class DileThemePaletteBar extends LitElement {
         align-items: center;
         gap: 0.5rem;
         padding: 0.5rem 0.75rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid var(--tb-border-color);
       }
       .search-input {
         flex-grow: 1;
         border: none;
         outline: none;
+        color: inherit;
+        background: transparent;
         font: inherit;
       }
       .palette-list {
@@ -221,10 +239,13 @@ export class DileThemePaletteBar extends LitElement {
         align-items: center;
         gap: 0.5rem;
         padding: 0.4rem 0.75rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid var(--tb-border-color);
+      }
+      .palette-row:last-child {
+        border-bottom: none;
       }
       .palette-row.active {
-        background-color: rgba(0, 122, 255, 0.08);
+        background-color: color-mix(in srgb, var(--dile-primary-dark-color, #3399ff) 16%, transparent);
       }
       .palette-row-main {
         display: flex;
@@ -233,6 +254,7 @@ export class DileThemePaletteBar extends LitElement {
         flex-grow: 1;
         border: none;
         background: none;
+        color: inherit;
         padding: 0.2rem 0;
         cursor: pointer;
         text-align: left;
@@ -247,7 +269,7 @@ export class DileThemePaletteBar extends LitElement {
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--tb-border-strong-color);
         margin-left: -5px;
       }
       .mini-swatches span:first-child {
