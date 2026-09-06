@@ -13,6 +13,16 @@ Web Component to create smooth scrolls on the page document or in a element scro
 
 This package also provides a mixin to implement scrollin API functions to any component you create.
 
+<dile-info-box title="Just need a smooth-scrolling anchor link?">
+  For a plain <code>&lt;a href="#section"&gt;</code> you don't need this component at all — add
+  <code>scroll-behavior: smooth</code> to your CSS (ideally inside
+  <code>@media (prefers-reduced-motion: no-preference)</code> so it respects that accessibility
+  setting) and the browser animates the jump natively, with no JavaScript. Reach for
+  <code>dile-smooth-scroll</code> when you need to trigger a scroll <strong>programmatically</strong>
+  from code instead — after a button click, a form validation error, scrolling a section that has
+  its own scrolling area, or chaining it with other logic.
+</dile-info-box>
+
 ## Installation
 
 ```bash

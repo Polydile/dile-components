@@ -16,6 +16,15 @@ This Mixin includes all methods related to scroll the entire document area. Thes
 - smoothScrollBy(top, left)
 - smoothScrollElementIntoView(element)
 
+<dile-info-box title="Just need a smooth-scrolling anchor link?">
+  For a plain <code>&lt;a href="#section"&gt;</code> you don't need this mixin at all — add
+  <code>scroll-behavior: smooth</code> to your CSS (ideally inside
+  <code>@media (prefers-reduced-motion: no-preference)</code> so it respects that accessibility
+  setting) and the browser animates the jump natively, with no JavaScript. This mixin is for
+  triggering a scroll <strong>programmatically</strong> from your component's own code instead —
+  after a button click, a form validation error, or as part of other logic.
+</dile-info-box>
+
 ## Installation
 
 ```bash
