@@ -13,7 +13,7 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         border-top-left-radius: var(--dile-tab-border-radius, 4px);
         border-top-right-radius: var(--dile-tab-border-radius, 4px);
         transition: all 0.3s ease;
-        color: var(--dile-tab-text-color, #666);
+        color: var(--dile-tab-text-color, var(--dile-on-background-color, #666));
         background-color: var(--dile-tab-background-color, transparent);
         cursor: pointer;
         border: var(--dile-tab-border, none);
@@ -26,15 +26,15 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         white-space: nowrap;
       }
       .selected {
-        background-color: var(--dile-tab-selected-background-color, #039be5);
-        color: var(--dile-tab-selected-text-color, #fff);
+        background-color: var(--dile-tab-selected-background-color, var(--dile-primary-color, #039be5));
+        color: var(--dile-tab-selected-text-color, var(--dile-on-primary-color, #fff));
         border: var(--dile-tab-selected-border, none);
       }
       span {
         display: block;
         height: var(--dile-tab-selected-line-height, 5px);
         width: 0;
-        background-color: var(--dile-tab-selected-line-color, #0070c0);
+        background-color: var(--dile-tab-selected-line-color, var(--dile-secondary-color, #0070c0));
         transition: width 0.3s ease;
       }
       .markselected {

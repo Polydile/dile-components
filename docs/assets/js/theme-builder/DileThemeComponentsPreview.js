@@ -85,6 +85,19 @@ export class DileThemeComponentsPreview extends LitElement {
           --dile-icon-color: var(--dile-terciary-color);
           --dile-icon-rounded-background-color: var(--dile-on-terciary-color);
       }
+      .tabs-preview {
+          /* Reset inherited tab CSS custom properties from parent theme-builder */
+          --dile-tab-background-color: initial;
+          --dile-tab-text-color: initial;
+          --dile-tab-selected-background-color: initial;
+          --dile-tab-selected-text-color: initial;
+          --dile-tab-selected-line-color: initial;
+          --dile-tab-selected-line-height: initial;
+          --dile-tab-border-radius: initial;
+          --dile-tab-text-transform: initial;
+          --dile-tab-font-weight: initial;
+          --dile-tab-padding: initial;
+      }
     `;
   }
 
@@ -122,6 +135,14 @@ export class DileThemeComponentsPreview extends LitElement {
             <option value="3">Option 3</option>
           </select>
         </dile-select>
+        <div class="tabs-preview">
+          <dile-tabs selected="2">
+            <dile-tab>One</dile-tab>
+            <dile-tab>Two</dile-tab>
+            <dile-tab>Three</dile-tab>
+            <dile-tab>Four</dile-tab>
+          </dile-tabs>
+        </div>
       </div>
     `;
   }
