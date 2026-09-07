@@ -63,7 +63,15 @@ This component is based on elements such as `dile-crud-list`, `dile-crud-insert`
 **Specific events of `dile-crud`:**
 
 - **crud-item-insert**: Dispatched when the system shows the insert form.
-- **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties `msg` with a message from the server response, `action` with the name of the action being responded to, and `data` with any additional data that the backend may have sent as a response. Of course, the backend shoul be developed to send all this data.
+
+**Events from `dile-crud-actions`:**
+
+The `dile-crud` component includes batch actions functionality via `dile-crud-actions`. The following events are dispatched by the actions system and propagate through the component hierarchy:
+
+- **crud-action-requested**: Dispatched when the user requests to open an action form (clicking the "Run action" button). The event detail includes the `action` property with the name of the action requested.
+- **crud-action-start**: Dispatched when an action is about to be sent to the server. The event detail includes `action` (the name of the action) and `actionIds` (the IDs of items to which the action will be applied).
+- **crud-action-success**: Dispatched when an action succeeds. The event detail includes `msg` (message from the server response), `action` (name of the action being responded to), and `data` (any additional data that the backend may have sent as a response).
+- **crud-action-error**: Dispatched when an action encounters an error. The event detail includes `msg` (message from the server response) and `errors` (validation errors if any).
 
 ### CRUD component CSS Custom Properties {#crud-component-css-custom-properties}
 

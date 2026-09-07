@@ -170,6 +170,13 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
   }
 
   showAction() {
+    this.dispatchEvent(new CustomEvent('crud-action-requested', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        action: this.selection,
+      }
+    }));
     this.confirmElement.open();
     let listOptions = this.shadowRoot.querySelector('dile-crud-list-options');
     if (listOptions) {

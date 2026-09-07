@@ -49,13 +49,19 @@ Use the component.
 
 This component is built on multiple components from the `@dile/crud` catalog. As a result, it can dispatch a large number of events, such as those detailed in `dile-crud`, `dile-crud-update`, `dile-crud-item-delete`, and others.
 
-Particularly useful events include:
+**Action events:**
 
-- **crud-action-success**: Dispached when an action succeed. The detail of this event includes the properties: 
+The `dile-crud-single` component includes actions functionality via `dile-crud-single-actions`. The following events are dispatched by the actions system and propagate through the component hierarchy:
+
+- **crud-action-requested**: Dispatched when the user requests to open an action form. The event detail includes the `action` property with the name of the action requested.
+- **crud-action-start**: Dispatched when an action is about to be sent to the server. The event detail includes `action` (the name of the action) and `actionIds` (the ID of the item).
+- **crud-action-success**: Dispatched when an action succeeds. The detail of this event includes: 
   - `action` name of the action
   - `msg` message sent from the backend
   - `data` with any additional data that the backend may have sent as a response.
-- **crud-action-errors**: Dispatched when an action encounters an error. The event detail includes the msg property from the response. The error messages will appear next to their corresponding elements in the action form.
+- **crud-action-error**: Dispatched when an action encounters an error. The event detail includes `msg` (message from the server response) and `errors` (validation errors). The error messages will appear next to their corresponding elements in the action form.
+
+**Other useful events:**
 - **crud-item-detail-loaded**: This event is dispatched when the item details have been successfully loaded from the API. The event detail includes the loaded data.
 - **crud-item-detail-load-error**: This event is dispatched when the item details can't be loaded.
 - **crud-update-success**: Dispatched when an update operation is successfully completed. It sends the same detail that is received from the `dile-ajax-form` component.

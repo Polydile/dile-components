@@ -14,6 +14,14 @@ Normally, you don't need to use this component on its own, as it is used interna
 
 ### Custom Events
 
+- **crud-action-requested**: This custom event is dispatched when the user requests to open an action form. It fires when clicking on the "Run action" button. The event detail includes the following data:
+
+```json
+{
+    action, // The name of the action that was requested to be opened.
+}
+```
+
 - **crud-action-success**: This custom event is dispatched after receiving a positive response from the server when processing an action. The event detail includes the following data:
 
 ```json
