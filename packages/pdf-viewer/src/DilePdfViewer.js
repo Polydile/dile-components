@@ -167,18 +167,58 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
   }
 
   handleKeyPress(e) {
-    // Only handle keys if component has focus
+    // Only handle keys if component has focus or is hovered
     if (!this.isComponentFocused) {
       return;
     }
 
-    // Left Arrow, Page Up -> Previous page
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-      this.previousPage();
+    const path = typeof e.composedPath === 'function' ? e.composedPath() : [e.target];
+    const realTarget = path[0] || e.target;
+
+    // Never intercept typing inside form fields (e.g. a future "go to page" input)
+    const isFormField = path.some((node) => {
+      const tag = node && node.tagName ? node.tagName.toLowerCase() : '';
+      return tag === 'input' || tag === 'textarea' || tag === 'select';
+    });
+    if (isFormField) {
+      return;
     }
-    // Right Arrow, Page Down -> Next page
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+
+    const isSpace = e.key === ' ' || e.key === 'Spacebar';
+
+    // Space while a toolbar button of this component is focused: let the button's
+    // own activation handle it and skip the page change to avoid a double action.
+    if (
+      isSpace &&
+      realTarget &&
+      realTarget.tagName === 'BUTTON' &&
+      this.shadowRoot &&
+      this.shadowRoot.contains(realTarget)
+    ) {
+      return;
+    }
+
+    // Previous page: Left/Up Arrow, Page Up, Shift + Space
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp' || (isSpace && e.shiftKey)) {
+      e.preventDefault();
+      this.previousPage();
+      return;
+    }
+    // Next page: Right/Down Arrow, Page Down, Space (without Shift)
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || (isSpace && !e.shiftKey)) {
+      e.preventDefault();
       this.nextPage();
+      return;
+    }
+    // Home -> first page, End -> last page
+    if (e.key === 'Home') {
+      e.preventDefault();
+      this.firstPage();
+      return;
+    }
+    if (e.key === 'End') {
+      e.preventDefault();
+      this.lastPage();
     }
   }
 
@@ -247,7 +287,7 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
   }
 
   render() {
-    const keyboardShortcuts = `Keyboard shortcuts: Arrow Left or Page Up for previous page, Arrow Right or Page Down for next page`;
+    const keyboardShortcuts = this.translations.keyboard_shortcuts || '';
     return html`
       <div role="region" aria-label="PDF Viewer" aria-description="${keyboardShortcuts}" class="Toolbar">
         <button @click="${this.previousPage}" ?disabled=${this.page <= 1} aria-label="${this.translations.previous_page}">
@@ -286,6 +326,20 @@ export class DilePdfViewer extends DileI18nMixin(LitElement) {
   nextPage() {
     if (this.page < this.numPages) {
       this.page += 1;
+      this.dispatchPageChanged();
+    }
+  }
+
+  firstPage() {
+    if (this.page > 1) {
+      this.page = 1;
+      this.dispatchPageChanged();
+    }
+  }
+
+  lastPage() {
+    if (this.numPages && this.page < this.numPages) {
+      this.page = this.numPages;
       this.dispatchPageChanged();
     }
   }

@@ -259,6 +259,134 @@ describe('dile-pdf-viewer', () => {
     expect(el.page).toBe(1);
   });
 
+  it('advances to the next page when pressing Space and goes back with Shift+Space', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
+    expect(el.page).toBe(2);
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', shiftKey: true }));
+    expect(el.page).toBe(1);
+  });
+
+  it('navigates with ArrowUp and ArrowDown as previous/next page', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+    expect(el.page).toBe(2);
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+    expect(el.page).toBe(1);
+  });
+
+  it('jumps to the first and last page with Home and End', async () => {
+    mockSuccessfulLoad({ numPages: 5 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    const detail = [];
+    el.addEventListener('dile-pdf-viewer-page-changed', (e) => detail.push(e.detail));
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }));
+    expect(el.page).toBe(5);
+    expect(detail.at(-1)).toEqual({ page: 5, numPages: 5 });
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }));
+    expect(el.page).toBe(1);
+    expect(detail.at(-1)).toEqual({ page: 1, numPages: 5 });
+  });
+
+  it('respects page bounds for Home and End without emitting redundant events', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    let changes = 0;
+    el.addEventListener('dile-pdf-viewer-page-changed', () => { changes += 1; });
+
+    // Already on the first page -> Home is a no-op
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }));
+    expect(el.page).toBe(1);
+    expect(changes).toBe(0);
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }));
+    expect(el.page).toBe(3);
+    expect(changes).toBe(1);
+
+    // Already on the last page -> End is a no-op
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }));
+    expect(el.page).toBe(3);
+    expect(changes).toBe(1);
+  });
+
+  it('calls preventDefault for handled keys and leaves unrelated keys untouched', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    const handled = new KeyboardEvent('keydown', { key: ' ', cancelable: true });
+    document.dispatchEvent(handled);
+    expect(handled.defaultPrevented).toBe(true);
+
+    const ignored = new KeyboardEvent('keydown', { key: 'a', cancelable: true });
+    document.dispatchEvent(ignored);
+    expect(ignored.defaultPrevented).toBe(false);
+  });
+
+  it('does not act on keyboard shortcuts coming from a form field', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    const input = document.createElement('input');
+    document.body.appendChild(input);
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, composed: true }));
+
+    expect(el.page).toBe(1);
+    input.remove();
+  });
+
+  it('does not trigger an extra page change when Space is pressed on a toolbar button', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+    el.dispatchEvent(new MouseEvent('mouseenter'));
+
+    nextButton(el).dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true, composed: true }));
+
+    expect(el.page).toBe(1);
+  });
+
+  it('ignores Space and End shortcuts while the component is neither focused nor hovered', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+
+    expect(el.isComponentFocused).toBe(false);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }));
+    expect(el.page).toBe(1);
+  });
+
+  it('exposes the keyboard shortcut list through aria-description, translated per language', async () => {
+    mockSuccessfulLoad({ numPages: 3 });
+    const el = await renderViewer();
+
+    const description = el.shadowRoot.querySelector('[role="region"]').getAttribute('aria-description');
+    expect(description).toContain('Shift+Space');
+    expect(description).toContain('Home');
+    expect(description).toContain('End');
+
+    mockSuccessfulLoad({ numPages: 3 });
+    const elEs = await renderViewer('src="fake.pdf" language="es"');
+    const descriptionEs = elEs.shadowRoot.querySelector('[role="region"]').getAttribute('aria-description');
+    expect(descriptionEs).toContain('Mayús+Espacio');
+    expect(descriptionEs).toContain('Inicio');
+    expect(descriptionEs).toContain('Fin');
+  });
+
   it('triggers a browser download with the configured filename and dispatches lifecycle events', async () => {
     const el = await renderViewer('src="fake.pdf" filename="report.pdf"');
 

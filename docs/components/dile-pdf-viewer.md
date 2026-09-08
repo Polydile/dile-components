@@ -62,9 +62,16 @@ None. Use property bindings to control the viewer.
 
 ### Keyboard Navigation
 
-- **Arrow Left** or **Page Up**: Go to previous page
-- **Arrow Right** or **Page Down**: Go to next page
-- Keyboard shortcuts are active only when the component has focus or mouse is over it
+| Shortcut | Action |
+|---|---|
+| **Arrow Left**, **Arrow Up**, **Page Up**, **Shift + Space** | Go to previous page |
+| **Arrow Right**, **Arrow Down**, **Page Down**, **Space** | Go to next page |
+| **Home** | Go to first page |
+| **End** | Go to last page |
+
+- Handled keys call `preventDefault()` so the host page does not scroll (especially with **Space**).
+- Keyboard shortcuts are active only when the component has focus or the mouse is over it.
+- Shortcuts are ignored when the event originates from an `input`, `textarea` or `select`.
 
 ### Accessibility Features
 
