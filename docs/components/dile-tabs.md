@@ -105,13 +105,13 @@ You can customize the tabs using the CSS custom properties bellow.
 
 Custom property | Description | Default
 ----------------|-------------|---------
---dile-tab-text-color | The tab text color | var(--dile-on-background-color)
---dile-tab-background-color | The tab background color | Transparent
---dile-tab-selected-text-color | The selected tab text color | var(--dile-on-primary-color)
---dile-tab-selected-background-color | The selected tab background color | var(--dile-primary-color)
+--dile-tab-text-color | The tab text color | var(--dile-on-primary-color) fallback to #666
+--dile-tab-background-color | The tab background color | var(--dile-primary-color) fallback to #eee
+--dile-tab-selected-text-color | The selected tab text color | var(--dile-on-primary-dark-color) fallback to #000
+--dile-tab-selected-background-color | The selected tab background color | var(--dile-primary-dark-color) fallback to #888
 --dile-tab-padding | Content padding of the tab | 8px 12px 6px 12px
 --dile-tab-selected-line-height | Defines selected tab line height | 5px
---dile-tab-selected-line-color | Defines selected tab line color | var(--dile-secondary-color)
+--dile-tab-selected-line-color | Defines selected tab line color | var(--dile-secondary-color) fallback to #333
 --dile-tab-border-radius | Tab top-left & top-right border radius | 4px
 --dile-tab-border | Unselected tab border | none
 --dile-tab-selected-border | Selected tab border | none
