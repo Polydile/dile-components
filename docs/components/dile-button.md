@@ -35,8 +35,7 @@ Use the component.
 
 `dile-button` can display an icon next to (or instead of) its label, using the same
 `"family.name"` string format as [dile-iconlib](/icons/dile-iconlib/). If you don't
-set the `icon` property the component behaves exactly as before, so it is fully
-backwards compatible.
+set the `icon` property the component renders a plain text button with no icon.
 
 The icon glyph is imported separately, just like with `dile-iconlib`:
 
@@ -70,13 +69,8 @@ Supported icon families are the ones documented in [dile-iconlib](/icons/dile-ic
 
 When ```type="submit"```, clicking the button submits its closest ancestor ```<form>``` and includes its ```name```/```value``` pair in the submitted data — only for the button that was actually clicked, so you can safely use several submit buttons with different ```name```/```value``` pairs in the same form to distinguish which action was triggered.
 
-### Layout and accessibility notes
+### Accessibility notes
 
-- A button with **only an icon** (no slotted text) is rendered with the icon
-  perfectly centered — the icon-to-text separation is only applied when there is
-  actually a label, so there is no dead space beside the icon.
-- A button with **only text** (no `icon`) keeps a clean layout with no extra
-  icon spacing.
 - The inner `dile-iconlib` icon is marked `aria-hidden="true"` because it is
   decorative; the accessible name comes from the slotted text or from the
   `label` property.
@@ -191,8 +185,7 @@ The icon glyph is imported separately, exactly like with `dile-iconlib`.
 
 ### Icon-only button
 
-An icon-only button needs a `label` for its accessible name. There is no dead
-space next to the icon.
+An icon-only button needs a `label` for its accessible name. 
 
 ```html:preview
 <dile-button icon="lucide.settings" label="Open settings"></dile-button>
