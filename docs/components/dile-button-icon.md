@@ -17,7 +17,10 @@ Web Component to create a customizable button with an icon.
 npm i @dile/ui
 ```
 
-This component extends [dile-button](/components/dile-button/), so you can use the component in a similar way. The main diference is that the componente can display an icon. 
+This component extends [dile-button](/components/dile-button/), so you can use the component in a similar way. The main difference is that this component allows you to pass icons as Lit templates, SVG templates, or image elements.
+
+> The `dile-button` component can already display an icon by itself by passing the icon name to the `icon` property as a string (e.g., `"lucide.rocket"`).
+> Use `dile-button-icon` when you want to pass the icon as a Lit template, an SVG template, or an `<img>` element instead.
 
 ## Usage
 
@@ -27,13 +30,13 @@ Import the component.
 import '@dile/ui/components/button/button-icon.js';
 ```
 
-The icon is assigned via ```icon``` property.
+The icon is assigned via the `icon` property.
 
 ```javascript
 html`<dile-button-icon .icon="${someIconHtmlTemplate}">Button Label</dile-button-icon>`
 ```
 
-> Usualy the provided icon will be a lit-html template, so, when you use it on a lit component is necesary to bind the property value using a dot in the component attribute.
+> Usually, the provided icon will be a Lit template, so when you use it on a Lit component, it is necessary to bind the property value using a dot notation in the component attribute.
 
 ### Using a custom icon
 
@@ -62,7 +65,7 @@ html`<dile-button-icon .icon="${closeIcon}">Button Label</dile-button-icon>`
 
 ### Using an image
 
-It is also possible to use any image or SVG you have binding a template with a ```<img>``` tag.
+It is also possible to use any custom image or SVG by creating a template with an `<img>` tag.
 
 ```javascript
 let imageIcon = html`<img src="./images/loto.png">`;
@@ -74,7 +77,22 @@ html`<dile-button-icon .icon=${imageIcon}>Yoga practice</dile-button-icon>`
 Same as dile-button, but also:
 
 - **icon**: Lit-html template with the content to display the icon
+
+Inherited from [dile-button](/components/dile-button/) and also useful here:
+
+- **iconPosition**: `"left"` (default) or `"right"` (attribute `icon-position`).
 - **no-wrap**: Apply the necessary CSS style so that the button's text does not break into multiple lines.
+- **label**: String used as the accessible name (`aria-label`). Required when the button shows only the icon.
+
+### Icon-only buttons
+
+When the button has no slotted text, the icon is centered with no dead space
+beside it (previously a leftover margin made icon-only buttons look misaligned).
+Remember to set a `label` so the button has an accessible name.
+
+```javascript
+html`<dile-button-icon .icon=${closeIcon} label="Close"></dile-button-icon>`
+```
 
 ## CSS Custom Properties
 

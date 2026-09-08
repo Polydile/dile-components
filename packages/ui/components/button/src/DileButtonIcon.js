@@ -1,7 +1,16 @@
-import { html, css, LitElement } from "lit";
+import { html, css } from "lit";
 import { DileButton } from './DileButton.js';
 import '../../icon/icon.js';
 
+/**
+ * dile-button-icon renders an icon supplied as a lit-html template (or any HTML
+ * template, e.g. an `<img>`). If you want string-based icons with icon-family
+ * support ("lucide.rocket", "material.home", ...), use `<dile-button>` together
+ * with its `icon` property instead.
+ *
+ * It inherits every feature from dile-button: `iconPosition`, `no-wrap`,
+ * `label`, loading spinner and form integration.
+ */
 export class DileButtonIcon extends DileButton {
   static get properties() {
     return {
@@ -14,30 +23,23 @@ export class DileButtonIcon extends DileButton {
       super.styles,
       css`
         button {
-          display: flex;
-          align-items: center;
           --dile-icon-color: var(--dile-button-icon-color, var(--dile-on-primary-color, #ffffff));
-        }
-        dile-icon {
-          --dile-icon-size: var(--dile-button-icon-size, calc(var(--dile-button-font-size, 1rem) * 1.125));
-          margin-right: var(--dile-button-icon-separation, 0.3rem);
         }
         button:hover {
           --dile-icon-color: var(--dile-button-icon-hover-color, var(--dile-on-primary-light-color, #888));
-        }
-        :host([no-wrap]) {
-          white-space: nowrap;
         }
       `
     ];
   }
 
-  render() {
+  get iconTemplate() {
+    const side = this.iconPosition === 'right' ? 'icon-right' : 'icon-left';
     return html`
-      <button @click="${this.doClick}">
-          <dile-icon .icon=${this.icon}></dile-icon>
-          <slot></slot>
-      </button>
+      <dile-icon
+        class="button-icon ${side}"
+        .icon=${this.icon}
+        aria-hidden="true"
+      ></dile-icon>
     `;
   }
 }

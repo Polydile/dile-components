@@ -56,7 +56,18 @@
             <h2>Using a png icon</h2>
             <p>
               <dile-button-icon class="yoga" .icon=${html`<img src="../images/loto.png">`}>Yoga practice</dile-button-icon>
-            </p>  
+            </p>
+
+            <h2>Icon-only button (no dead space next to the icon)</h2>
+            <p>
+              <dile-button-icon .icon=${appsIcon} label="Open control panel"></dile-button-icon>
+              <dile-button-icon .icon=${favoriteIcon} label="Add to favorites"></dile-button-icon>
+            </p>
+
+            <h2>Icon on the right</h2>
+            <p>
+              <dile-button-icon .icon=${appsIcon} icon-position="right">Control Panel</dile-button-icon>
+            </p>
             `,
             document.querySelector('#buttons')
 

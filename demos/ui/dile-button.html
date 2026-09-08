@@ -8,20 +8,28 @@
   <link rel="stylesheet" href="../css/style.css">
   <script type="module">
     import "@dile/ui/components/button/button.js"
+    // Icons are imported separately, exactly like with dile-iconlib.
+    import "@dile/iconlib/lucide-icons/rocket.js";
+    import "@dile/iconlib/lucide-icons/download.js";
+    import "@dile/iconlib/lucide-icons/arrow-right.js";
+    import "@dile/iconlib/lucide-icons/heart.js";
+    import "@dile/iconlib/lucide-icons/settings.js";
+    import "@dile/iconlib/material-icons/star.js";
   </script>
   <style>
     .styled {
-      --dile-button-border-color: #0f010f; 
-      --dile-button-background-color: #491449;
+      --dile-button-border-color: #0f010f;
+      --dile-button-background-color: #693459;
       --dile-button-hover-background-color: #f3c6f3;
-      --dile-button-text-color:  #fff; 
-      --dile-button-hover-text-color:  #000; 
+      --dile-button-text-color:  #fff;
+      --dile-button-hover-text-color:  #000;
       --dile-button-font-weight: bold;
       --dile-button-ring-color: #cc5099;
       --dile-button-ring-offset-width: 2px;
       --dile-button-border-radius: 2rem;
       --dile-button-text-transform: uppercase;
       --dile-button-letter-spacing: 0.1rem;
+      --dile-button-border-radius: 3px;
     }
     .shadow {
       --dile-button-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -31,7 +39,7 @@
 <body>
   <div class="container">
     <h1>dile-button component</h1>
-    
+
     <h2>Regular button</h2>
     <p>
       <dile-button name="button1" id="button1">Regular button</dile-button>
@@ -41,7 +49,35 @@
     <p>
       <dile-button name="button2" id="button2" class="styled">Styled button</dile-button>
     </p>
-  
+
+    <h2>Button with icon (dile-iconlib string, "family.name")</h2>
+    <p>
+      <dile-button icon="lucide.rocket">Launch app</dile-button>
+      <dile-button icon="material.star" class="styled">Add to favorites</dile-button>
+    </p>
+
+    <h2>Icon on the right</h2>
+    <p>
+      <dile-button icon="lucide.arrow-right" icon-position="right">Continue</dile-button>
+      <dile-button icon="lucide.download" icon-position="right">Download report</dile-button>
+    </p>
+
+    <h2>Icon-only button (well laid out, no dead space)</h2>
+    <p>
+      <dile-button icon="lucide.settings" label="Open settings"></dile-button>
+      <dile-button icon="lucide.heart" label="Add to favorites"></dile-button>
+    </p>
+
+    <h2>Text-only button keeps a clean layout (no extra icon margin)</h2>
+    <p>
+      <dile-button>Just text</dile-button>
+    </p>
+
+    <h2>Icon button with loading state</h2>
+    <p>
+      <dile-button icon="lucide.download" loading>Downloading...</dile-button>
+    </p>
+
     <h2>Disabled button</h2>
     <p>
       <dile-button name="disabeldbutton" disabled id="disabeldbutton">Disabled button</dile-button>
@@ -68,7 +104,7 @@
           console.log('button click', e.target.name);
         });
       })
-      
+
       // Interactive loading demo
       const interactiveLoadingBtn = document.getElementById('interactiveloading');
       interactiveLoadingBtn.addEventListener('click', function() {
