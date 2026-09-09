@@ -1,4 +1,6 @@
 import { html, css, LitElement } from "lit";
+import '@dile/iconlib/dile-iconlib.js';
+import '@dile/iconlib/lucide-icons/timer.js';
 
 export class DileTimeDuration extends LitElement {
   static properties = {
@@ -26,22 +28,6 @@ export class DileTimeDuration extends LitElement {
     this.extended = false;
     this.language = "en";
     this.icon = "lucide.timer";
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    // Dynamically import dile-iconlib when component connects
-    if (this.icon) {
-      import('@dile/iconlib/dile-iconlib.js').catch(() => {
-        // Icon library not available, component will still work without icons
-      });
-      // Import the default lucide.timer icon
-      if (this.icon === 'lucide.timer') {
-        import('@dile/iconlib/lucide-icons/timer.js').catch(() => {
-          // Icon not available, will render empty
-        });
-      }
-    }
   }
 
   static get styles() {
