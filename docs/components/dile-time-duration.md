@@ -45,6 +45,7 @@ You can customize the component using the CSS custom properties below.
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-time-duration-gap | The gap between the icon and the text | 0.25rem
 --dile-time-duration-font-size | The text font size | 0.875rem
 --dile-time-duration-color | The text color | var(--dile-on-background-color) fallback to #303030
 --dile-time-duration-font-weight | The text font weight | normal

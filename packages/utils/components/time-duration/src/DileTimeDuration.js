@@ -35,7 +35,7 @@ export class DileTimeDuration extends LitElement {
       :host {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--dile-time-duration-gap, 0.25rem);
         font-size: var(--dile-time-duration-font-size, 0.875rem);
         color: var(--dile-time-duration-color, var(--dile-on-background-color, #303030));
       }
