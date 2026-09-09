@@ -40,7 +40,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
             display: none;
         }
         .modalcontainer {
-            color: #303030;
+            color: var(--dile-on-background-color, #303030);
         }
         @media(min-width: 400px) {
             :host {
