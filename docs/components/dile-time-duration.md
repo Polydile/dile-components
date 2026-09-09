@@ -47,12 +47,12 @@ Custom property | Description | Default
 ----------------|-------------|---------
 --dile-time-duration-gap | The gap between the icon and the text | 0.25rem
 --dile-time-duration-font-size | The text font size | 0.875rem
---dile-time-duration-color | The text color | var(--dile-on-background-color) fallback to #303030
+--dile-time-duration-color | The text color | var(--dile-on-background-color, #303030)
 --dile-time-duration-font-weight | The text font weight | normal
 --dile-time-duration-font-family | The text font family | inherit
 --dile-time-duration-letter-spacing | The text letter spacing | 0
 --dile-time-duration-icon-size | The icon size | 20px
---dile-primary-color | The icon color | #888
+--dile-time-duration-icon-color | The icon color | var(--dile-primary-color, #888)
 
 ## Examples
 

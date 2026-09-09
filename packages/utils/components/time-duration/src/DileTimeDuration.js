@@ -43,7 +43,7 @@ export class DileTimeDuration extends LitElement {
       .icon {
         display: flex;
         align-items: center;
-        --dile-icon-color: var(--dile-primary-color, #888);
+        --dile-icon-color: var(--dile-time-duration-icon-color, var(--dile-primary-color, #888));
         --dile-icon-size: var(--dile-time-duration-icon-size, 20px);
       }
 
