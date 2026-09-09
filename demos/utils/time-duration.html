@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dile Time Duration Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+    .demo-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .example {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      border-left: 4px solid #7BB93D;
+    }
+    .example-label {
+      min-width: 150px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .example-output {
+      flex: 1;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+    .note {
+      background-color: #fffbf0;
+      padding: 1rem;
+      border-radius: 4px;
+      border-left: 4px solid #ff9500;
+      color: #666;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dile Time Duration Component</h1>
+  
+  <div class="demo-container">
+    <h2>Basic Usage</h2>
+    <div class="example">
+      <div class="example-label">80 seconds:</div>
+      <div class="example-output">
+        <script type="module">
+          import '@dile/utils/components/time-duration/time-duration.js';
+        </script>
+        <dile-time-duration seconds="80"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">3665 seconds:</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">90061 seconds (1d 1h 1m):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="90061"></dile-time-duration>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <h2>Extended Format</h2>
+    <div class="example">
+      <div class="example-label">80 seconds (extended):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="80" extended></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">3665 seconds (extended):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" extended></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">90061 seconds (extended):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="90061" extended></dile-time-duration>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <h2>Language Support</h2>
+    <div class="example">
+      <div class="example-label">Spanish (es):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" extended language="es"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">English (en):</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" extended language="en"></dile-time-duration>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <h2>Precision Levels</h2>
+    <div class="example">
+      <div class="example-label">Precision: seconds (default)</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" precision="seconds"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">Precision: minutes</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" precision="minutes"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">Precision: hours</div>
+      <div class="example-output">
+        <dile-time-duration seconds="3665" precision="hours"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">Precision: days</div>
+      <div class="example-output">
+        <dile-time-duration seconds="90061" precision="days"></dile-time-duration>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <h2>Custom Icon</h2>
+    <div class="example">
+      <div class="example-label">Material icon:</div>
+      <div class="example-output">
+        <script type="module">
+          import '@dile/iconlib/material-icons/timer.js';
+        </script>
+        <dile-time-duration seconds="3665" icon="material.timer"></dile-time-duration>
+      </div>
+    </div>
+    <div class="example">
+      <div class="example-label">No icon (with custom CSS):</div>
+      <div class="example-output">
+        <style>
+          .no-icon {
+            --dile-time-duration-color: #c41e3a;
+            --dile-time-duration-font-weight: bold;
+          }
+        </style>
+        <dile-time-duration class="no-icon" seconds="3665" icon=""></dile-time-duration>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-container">
+    <h2>CSS Customization</h2>
+    <style>
+      .custom-styled {
+        --dile-time-duration-font-size: 1.5rem;
+        --dile-time-duration-color: #0066cc;
+        --dile-time-duration-font-weight: bold;
+        --dile-time-duration-icon-size: 28px;
+        --dile-primary-color: #ff6b6b;
+      }
+    </style>
+    <div class="example">
+      <div class="example-label">Custom styling:</div>
+      <div class="example-output">
+        <dile-time-duration class="custom-styled" seconds="3665"></dile-time-duration>
+      </div>
+    </div>
+    <div class="note">
+      <strong>CSS Variables Available:</strong>
+      <ul>
+        <li><code>--dile-time-duration-font-size</code> — default: 0.875rem</li>
+        <li><code>--dile-time-duration-color</code> — fallback to var(--dile-on-background-color, #303030)</li>
+        <li><code>--dile-time-duration-font-weight</code> — default: normal</li>
+        <li><code>--dile-time-duration-font-family</code> — default: inherit</li>
+        <li><code>--dile-time-duration-letter-spacing</code> — default: 0</li>
+        <li><code>--dile-time-duration-icon-size</code> — default: 20px</li>
+        <li><code>--dile-primary-color</code> — default: #888 (for icon color)</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
