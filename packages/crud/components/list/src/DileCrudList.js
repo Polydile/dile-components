@@ -67,7 +67,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             }
             .elements-container {
                 display: grid;
-                grid-template-columns: var(--dile-crud-list-elements-container-template-columns, 1fr);
+                grid-template-columns: var(--dile-crud-list-elements-container-template-columns,  minmax(0, 1fr));
                 gap: var(--dile-crud-list-elements-container-gap, 0);
             }
         `
