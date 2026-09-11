@@ -127,9 +127,20 @@ The item component accepts the following CSS custom properties to customize its 
 | `--dile-crud-list-item-padding` | Padding for list items | `0.5rem 0.5rem` (mobile) / `0.5rem 1rem` (550px+) |
 | `--dile-crud-list-item-line-separator` | Border style between items | `1px solid #ddd` |
 | `--dile-checkbox-unchecked-color` | Color of unchecked checkboxes | `#888` |
+| `--dile-crud-list-item-action-button-background-color` | Background color for action buttons | `transparent` |
+| `--dile-crud-list-item-action-button-border-color` | Border color for action buttons | `transparent` |
+| `--dile-crud-list-item-action-button-hover-background-color` | Hover background color for action buttons | `var(--dile-neutral-color)` fallback to `transparent` |
+| `--dile-crud-list-item-action-button-hover-border-color` | Hover border color for action buttons | `transparent` |
+| `--dile-crud-list-item-action-button-padding-y` | Vertical padding for action buttons | `0.25rem` |
+| `--dile-crud-list-item-action-button-padding-x` | Horizontal padding for action buttons | `0.25rem` |
+| `--dile-crud-list-item-action-button-icon-size` | Icon size for action buttons | `24px` |
+| `--dile-crud-list-item-action-button-border-radius` | Border radius for action buttons | `2rem` |
 | `--edit-icon-color` | Color of the edit action button icon | `var(--dile-alert-neutral-color)` fallback to `#2889a7` |
+| `--dile-crud-list-item-edit-icon-hover-color` | Hover color of the edit action button icon | same as `--edit-icon-color` |
 | `--delete-icon-color` | Color of the delete action button icon | `var(--dile-danger-color)` fallback to `#e33` |
+| `--dile-crud-list-item-delete-icon-hover-color` | Hover color of the delete action button icon | same as `--delete-icon-color` |
 | `--restore-icon-color` | Color of the restore action button icon | `var(--dile-alert-success-color)` fallback to `#00900f` |
+| `--dile-crud-list-item-restore-icon-hover-color` | Hover color of the restore action button icon | same as `--restore-icon-color` |
 
 You can customize these properties in your CSS to match your design:
 
@@ -138,8 +149,19 @@ dile-crud-list-item {
   --dile-crud-list-item-line-separator: 2px solid #ccc;
   --dile-crud-list-item-padding: 0.75rem;
   --dile-checkbox-unchecked-color: #666;
+  --dile-crud-list-item-action-button-background-color: #f0f0f0;
+  --dile-crud-list-item-action-button-border-color: #ddd;
+  --dile-crud-list-item-action-button-hover-background-color: #e0e0e0;
+  --dile-crud-list-item-action-button-hover-border-color: #ccc;
+  --dile-crud-list-item-action-button-padding-y: 0.5rem;
+  --dile-crud-list-item-action-button-padding-x: 0.5rem;
+  --dile-crud-list-item-action-button-icon-size: 20px;
+  --dile-crud-list-item-action-button-border-radius: 4px;
   --edit-icon-color: #0066cc;
+  --dile-crud-list-item-edit-icon-hover-color: #0052a3;
   --delete-icon-color: #cc0000;
+  --dile-crud-list-item-delete-icon-hover-color: #990000;
   --restore-icon-color: #00aa00;
+  --dile-crud-list-item-restore-icon-hover-color: #008800;
 }
 ```

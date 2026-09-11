@@ -36,20 +36,26 @@ export class DileCrudListItem extends LitElement {
             text-align: right;
         }
         dile-button.action-button {
-            --dile-button-background-color: transparent;
-            --dile-button-border-color: transparent;
-            --dile-button-hover-background-color: var(--dile-neutral-color, transparent);
-            --dile-button-hover-border-color: transparent;
+            --dile-button-background-color: var(--dile-crud-list-item-action-button-background-color, transparent);
+            --dile-button-border-color: var(--dile-crud-list-item-action-button-border-color, transparent);
+            --dile-button-hover-background-color: var(--dile-crud-list-item-action-button-hover-background-color, var(--dile-neutral-color, transparent));
+            --dile-button-hover-border-color: var(--dile-crud-list-item-action-button-hover-border-color, transparent);
+            --dile-button-padding-y: var(--dile-crud-list-item-action-button-padding-y, 0.25rem);
+            --dile-button-padding-x: var(--dile-crud-list-item-action-button-padding-x, 0.25rem);
+            --dile-button-icon-size: var(--dile-crud-list-item-action-button-icon-size, 24px);
+            --dile-button-border-radius: var(--dile-crud-list-item-action-button-border-radius, 2rem);
+        }
+        dile-button.action-button.edit {
             --dile-button-icon-color: var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7));
-            --dile-button-padding-y: 0.25rem;
-            --dile-button-padding-x: 0.25rem;
-            --dile-button-icon-size: 24px;
+            --dile-button-hover-text-color: var(--dile-crud-list-item-edit-icon-hover-color, var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7)));
         }
-        dile-button.delete {
+        dile-button.action-button.delete {
             --dile-button-icon-color: var(--delete-icon-color, var(--dile-danger-color, #e33));
+            --dile-button-hover-text-color: var(--dile-crud-list-item-delete-icon-hover-color, var(--delete-icon-color, var(--dile-danger-color, #e33)));
         }
-        dile-button.restore {
+        dile-button.action-button.restore {
             --dile-button-icon-color: var(--restore-icon-color, var(--dile-alert-success-color, #00900f));
+            --dile-button-hover-text-color: var(--dile-crud-list-item-restore-icon-hover-color, var(--restore-icon-color, var(--dile-alert-success-color, #00900f)));
         }
         @media(min-width: 550px) {
             section {
@@ -105,7 +111,7 @@ export class DileCrudListItem extends LitElement {
     return html`
       ${this.disableEdit
         ? ''
-        : html`<dile-button class="action-button" icon="material.edit" label="Edit" @click=${this.editClick}></dile-button>`
+        : html`<dile-button class="action-button edit" icon="material.edit" label="Edit" @click=${this.editClick}></dile-button>`
       }
       ${this.disableDelete
         ? ''
