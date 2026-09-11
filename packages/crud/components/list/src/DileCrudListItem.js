@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/checkbox/checkbox.js';
-import '@dile/ui/components/icon/icon.js';
-import { deleteIcon, editIcon, restoreFromTrashIcon } from '@dile/icons';
+import '@dile/ui/components/button/button.js';
+import '@dile/iconlib/material-icons/edit.js';
+import '@dile/iconlib/material-icons/delete.js';
+import '@dile/iconlib/material-icons/restore-from-trash.js';
 
 export class DileCrudListItem extends LitElement {
   static styles = [
@@ -32,15 +34,16 @@ export class DileCrudListItem extends LitElement {
             display: flex;
             align-items: center;
             text-align: right;
-            --dile-icon-size: 24px;
-            --dile-icon-color: var(--edit-icon-color, #33ad67);
         }
-        dile-icon {
-            cursor: pointer;
+        dile-button {
             margin: 0 0.2rem;
+            --dile-button-icon-color: var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7));
         }
-        dile-icon.delete {
-            --dile-icon-color: var(--delete-icon-color, #e33);
+        dile-button.delete {
+            --dile-button-icon-color: var(--delete-icon-color, var(--dile-danger-color, #e33));
+        }
+        dile-button.restore {
+            --dile-button-icon-color: var(--restore-icon-color, var(--dile-alert-success-color, #00900f));
         }
         @media(min-width: 550px) {
             section {
@@ -96,11 +99,11 @@ export class DileCrudListItem extends LitElement {
     return html`
       ${this.disableEdit
         ? ''
-        : html`<dile-icon .icon="${editIcon}" @click=${this.editClick}></dile-icon>`
+        : html`<dile-button icon="material.edit" label="Edit" @click=${this.editClick}></dile-button>`
       }
       ${this.disableDelete
         ? ''
-        : html`<dile-icon class="delete" .icon="${deleteIcon}" @click=${this.deleteClick}></dile-icon>`
+        : html`<dile-button class="delete" icon="material.delete" label="Delete" @click=${this.deleteClick}></dile-button>`
       }
     `
   }
@@ -109,7 +112,7 @@ export class DileCrudListItem extends LitElement {
     return html`
       ${this.disableRestore
         ? ''
-        : html`<dile-icon .icon="${restoreFromTrashIcon}" @click=${this.restoreClick}></dile-icon>`
+        : html`<dile-button class="restore" icon="material.restore-from-trash" label="Restore" @click=${this.restoreClick}></dile-button>`
       }
     `
   }

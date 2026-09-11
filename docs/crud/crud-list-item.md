@@ -119,18 +119,17 @@ The `dile-crud-list-item` component dispatches the following events:
 
 The item component accepts the following CSS custom properties to customize its appearance:
 
-| Custom Property | Default Value | Description |
+| Custom Property | Description | Fallback |
 |---|---|---|
-| `--dile-crud-list-item-display` | `block` | Display property for the item container |
-| `--dile-crud-list-item-max-width` | `100%` | Maximum width for the item container |
-| `--dile-crud-list-item-width` | `100%` | Width for the item container |
-| `--dile-crud-list-item-padding` | `0.5rem 0.5rem` (mobile) / `0.5rem 1rem` (550px+) | Padding for list items |
-| `--dile-crud-list-item-line-separator` | `1px solid #ddd` | Border style between items |
-| `--dile-checkbox-unchecked-color` | `#888` | Color of unchecked checkboxes |
-| `--dile-icon-size` | `24px` | Size of action icons |
-| `--dile-icon-color` | `#33ad67` | Color of edit icon |
-| `--edit-icon-color` | `#33ad67` | Color of the edit action icon |
-| `--delete-icon-color` | `#e33` | Color of the delete action icon |
+| `--dile-crud-list-item-display` | Display property for the item container | `block` |
+| `--dile-crud-list-item-max-width` | Maximum width for the item container | `100%` |
+| `--dile-crud-list-item-width` | Width for the item container | `100%` |
+| `--dile-crud-list-item-padding` | Padding for list items | `0.5rem 0.5rem` (mobile) / `0.5rem 1rem` (550px+) |
+| `--dile-crud-list-item-line-separator` | Border style between items | `1px solid #ddd` |
+| `--dile-checkbox-unchecked-color` | Color of unchecked checkboxes | `#888` |
+| `--edit-icon-color` | Color of the edit action button icon | `var(--dile-alert-neutral-color)` fallback to `#2889a7` |
+| `--delete-icon-color` | Color of the delete action button icon | `var(--dile-danger-color)` fallback to `#e33` |
+| `--restore-icon-color` | Color of the restore action button icon | `var(--dile-alert-success-color)` fallback to `#00900f` |
 
 You can customize these properties in your CSS to match your design:
 
@@ -139,8 +138,8 @@ dile-crud-list-item {
   --dile-crud-list-item-line-separator: 2px solid #ccc;
   --dile-crud-list-item-padding: 0.75rem;
   --dile-checkbox-unchecked-color: #666;
-  --dile-icon-size: 20px;
   --edit-icon-color: #0066cc;
   --delete-icon-color: #cc0000;
+  --restore-icon-color: #00aa00;
 }
 ```
