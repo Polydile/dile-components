@@ -210,14 +210,6 @@ export class DileButton extends LitElement {
     );
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('icon') || changedProperties.has('label') || changedProperties.has('_hasText')) {
-      if (this.icon && !this._hasText && !this.label) {
-        console.warn('dile-button: an icon-only button should set the "label" property so it has an accessible name.');
-      }
-    }
-  }
-
   _onClick(e) {
     if (this.disabled || this.loading) {
       e.preventDefault();
