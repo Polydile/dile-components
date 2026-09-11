@@ -47,15 +47,15 @@ export class DileCrudListItem extends LitElement {
         }
         dile-button.action-button.edit {
             --dile-button-icon-color: var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7));
-            --dile-button-hover-text-color: var(--dile-crud-list-item-edit-icon-hover-color, var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7)));
+            --dile-button-icon-hover-color: var(--dile-crud-list-item-edit-icon-hover-color, var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7)));
         }
         dile-button.action-button.delete {
             --dile-button-icon-color: var(--delete-icon-color, var(--dile-danger-color, #e33));
-            --dile-button-hover-text-color: var(--dile-crud-list-item-delete-icon-hover-color, var(--delete-icon-color, var(--dile-danger-color, #e33)));
+            --dile-button-icon-hover-color: var(--dile-crud-list-item-delete-icon-hover-color, var(--delete-icon-color, var(--dile-danger-color, #e33)));
         }
         dile-button.action-button.restore {
             --dile-button-icon-color: var(--restore-icon-color, var(--dile-alert-success-color, #00900f));
-            --dile-button-hover-text-color: var(--dile-crud-list-item-restore-icon-hover-color, var(--restore-icon-color, var(--dile-alert-success-color, #00900f)));
+            --dile-button-icon-hover-color: var(--dile-crud-list-item-restore-icon-hover-color, var(--restore-icon-color, var(--dile-alert-success-color, #00900f)));
         }
         @media(min-width: 550px) {
             section {
