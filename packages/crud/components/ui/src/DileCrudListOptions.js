@@ -48,7 +48,7 @@ export class DileCrudListOptions extends LitElement {
             <dile-menu-overlay horizontalAlign="under_right" verticalAlign="bottom">
                 <div slot="trigger">
                     <dile-icon rounded .icon="${this.icon}"></dile-icon>
-                    <dile-button-icon .icon="${this.icon}" gray>${this.label}</dile-button-icon>
+                    <dile-button-icon label="${this.label}" .icon="${this.icon}" gray>${this.label}</dile-button-icon>
                 </div>
                 <div class="content" slot="content">
                     <slot></slot>
