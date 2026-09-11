@@ -35,9 +35,15 @@ export class DileCrudListItem extends LitElement {
             align-items: center;
             text-align: right;
         }
-        dile-button {
-            margin: 0 0.2rem;
+        dile-button.action-button {
+            --dile-button-background-color: transparent;
+            --dile-button-border-color: transparent;
+            --dile-button-hover-background-color: var(--dile-neutral-color, transparent);
+            --dile-button-hover-border-color: transparent;
             --dile-button-icon-color: var(--edit-icon-color, var(--dile-alert-neutral-color, #2889a7));
+            --dile-button-padding-y: 0.25rem;
+            --dile-button-padding-x: 0.25rem;
+            --dile-button-icon-size: 24px;
         }
         dile-button.delete {
             --dile-button-icon-color: var(--delete-icon-color, var(--dile-danger-color, #e33));
@@ -99,11 +105,11 @@ export class DileCrudListItem extends LitElement {
     return html`
       ${this.disableEdit
         ? ''
-        : html`<dile-button icon="material.edit" label="Edit" @click=${this.editClick}></dile-button>`
+        : html`<dile-button class="action-button" icon="material.edit" label="Edit" @click=${this.editClick}></dile-button>`
       }
       ${this.disableDelete
         ? ''
-        : html`<dile-button class="delete" icon="material.delete" label="Delete" @click=${this.deleteClick}></dile-button>`
+        : html`<dile-button class="action-button delete" icon="material.delete" label="Delete" @click=${this.deleteClick}></dile-button>`
       }
     `
   }
@@ -112,7 +118,7 @@ export class DileCrudListItem extends LitElement {
     return html`
       ${this.disableRestore
         ? ''
-        : html`<dile-button class="restore" icon="material.restore-from-trash" label="Restore" @click=${this.restoreClick}></dile-button>`
+        : html`<dile-button class="action-button restore" icon="material.restore-from-trash" label="Restore" @click=${this.restoreClick}></dile-button>`
       }
     `
   }

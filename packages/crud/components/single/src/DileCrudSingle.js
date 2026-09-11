@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { formStyles } from '../../../styles/form-styles.js';
 import '@dile/ui/components/button/button.js';
+import '@dile/ui/components/button/button-icon.js';
 import '@dile/ui/components/select/select.js';
 import '@dile/ui/components/modal/modal.js';
 import '@dile/ui/components/pages/pages.js';
@@ -102,9 +103,9 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
         ${this.showActionsBar ? html`
           <div class="actions" @action-success=${this.actionSuccess}>
               ${!this.config?.customization?.disableEdit ? html`
-                <dile-button .icon="${editIcon}" @click=${this.edit}>
+                <dile-button-icon .icon="${editIcon}" @click=${this.edit}>
                   ${this.startUpdateLabelComputed(this.config.labels.startUpdateAction, this.translations)}
-                </dile-button>
+                </dile-button-icon>
               ` : ''}
               ${this.directActionsTemplate}
               ${this.config?.customization?.disableListActionsOnSingleComponent ? '' : this.actionsTemplate}
