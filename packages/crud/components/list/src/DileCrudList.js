@@ -322,12 +322,17 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     refresh() {
+        this.dispatchEvent(new CustomEvent('crud-list-refresh', {
+            bubbles: true,
+            composed: true,
+        }));
         this.loading = true;
         this.numItems = undefined;
         if (this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
         }
         this.elservice.refresh();
+        
     }    
 
     setKeyword(keyword) {

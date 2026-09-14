@@ -63,6 +63,7 @@ Use the component.
 ### Events
 
 - **insert-requested**: This event is dispatched when the list component requests to open the insertion form. This can happen when there are no items in the list, either because the resource is empty or the filtering yields no results, in which case a button may appear to insert new items.
+- **crud-list-refresh**: This event is dispatched when the list component is about to refresh its data. This happens when the `refresh()` method is called, either programmatically or through user interaction.
 - **crud-item-edit**: This event is dispatched when the user clicks on the edit icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be edited.
 - **crud-item-delete**: This event is dispatched when the user clicks on the delete icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be deleted.
 - **crud-list-all-ids-selected**: This event is dispatched when one of the controls for selecting multiple items has been activated (either all items on a page or all items in the resource). The event detail contains the list of selected IDs.

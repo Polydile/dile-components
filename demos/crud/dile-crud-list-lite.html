@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-crud-list-lite component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+  <script type="module">
+    import '@dile/crud/components/list-lite/crud-list-lite.js'
+    import '@dile/iconlib/material-icons/flag.js'
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-crud-list-lite component</h1>
+
+    <p>
+      In this page you will find several demos:
+    </p>
+    <ul>
+      <li><a href="#default">Default rendering</a></li>
+      <li><a href="#max-items">maxItems + moreLinkLabel (progressive reveal)</a></li>
+      <li><a href="#footer-link">footerLinkLabel + footerLinkUrl</a></li>
+      <li><a href="#actions">Action buttons</a></li>
+      <li><a href="#item-template">Custom itemTemplate</a></li>
+      <li><a href="#disable-load-on-start">disableLoadOnStart</a></li>
+    </ul>
+
+    <h2 id="default">Default rendering</h2>
+    <p>Uses the default icon + label rendering. The API response has no ready-made URL field, so <code>getResultList</code> builds one from each country's <code>slug</code>, and <code>linkProperty</code> turns the label into a link to it.</p>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteDefault extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <dile-crud-list-lite
+              endpoint="https://timer.escuelait.com/api/countries"
+              labelProperty="name"
+              icon="material.flag"
+              linkProperty="url"
+              .getResultList=${(json) => json.data.map(country => ({ ...country, url: `#${country.slug}` }))}
+            ></dile-crud-list-lite>
+          `;
+        }
+      }
+      customElements.define('demo-crud-list-lite-default', DemoCrudListLiteDefault);
+    </script>
+    <demo-crud-list-lite-default></demo-crud-list-lite-default>
+
+    <h2 id="max-items">maxItems + moreLinkLabel (progressive reveal)</h2>
+    <p>Only 5 items are rendered at first (<code>maxItems="5"</code>), with a "Show more" link below. Each click reveals 5 more already-fetched items, until all of them are shown, at which point the link disappears.</p>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteMax extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <dile-crud-list-lite
+              endpoint="https://timer.escuelait.com/api/countries"
+              labelProperty="name"
+              maxItems="5"
+              moreLinkLabel="Show more"
+            ></dile-crud-list-lite>
+          `;
+        }
+      }
+      customElements.define('demo-crud-list-lite-max', DemoCrudListLiteMax);
+    </script>
+    <demo-crud-list-lite-max></demo-crud-list-lite-max>
+
+    <h2 id="footer-link">footerLinkLabel + footerLinkUrl</h2>
+    <p>A plain, always-visible footer link, e.g. pointing to a full listing page. Unlike <code>moreLinkLabel</code>, it doesn't depend on <code>maxItems</code> or reveal anything — it's just navigation.</p>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteFooter extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <dile-crud-list-lite
+              endpoint="https://timer.escuelait.com/api/countries"
+              labelProperty="name"
+              maxItems="5"
+              footerLinkLabel="See all countries"
+              footerLinkUrl="#"
+            ></dile-crud-list-lite>
+          `;
+        }
+      }
+      customElements.define('demo-crud-list-lite-footer', DemoCrudListLiteFooter);
+    </script>
+    <demo-crud-list-lite-footer></demo-crud-list-lite-footer>
+
+    <h2 id="actions">Action buttons</h2>
+    <p>Edit and delete buttons are shown. Clicking them logs <code>crud-item-edit</code> / <code>crud-item-delete</code> to the console.</p>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteActions extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <dile-crud-list-lite
+              endpoint="https://timer.escuelait.com/api/countries"
+              labelProperty="name"
+              maxItems="8"
+              showEditAction
+              showDeleteAction
+              @crud-item-edit=${this.showOnConsole}
+              @crud-item-delete=${this.showOnConsole}
+            ></dile-crud-list-lite>
+          `;
+        }
+        showOnConsole(e) {
+          console.log(e.type, e.detail);
+        }
+      }
+      customElements.define('demo-crud-list-lite-actions', DemoCrudListLiteActions);
+    </script>
+    <demo-crud-list-lite-actions></demo-crud-list-lite-actions>
+
+    <h2 id="item-template">Custom itemTemplate</h2>
+    <p>Uses <code>itemTemplate</code> to render each item with the existing <code>demo-country-item</code> component.</p>
+    <script type="module">
+      import './components/country/demo-country-item.js';
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteTemplate extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <dile-crud-list-lite
+              endpoint="https://timer.escuelait.com/api/countries"
+              .itemTemplate=${(country) => html`<demo-country-item .country=${country}></demo-country-item>`}
+              @continent-event=${this.showOnConsole}
+            ></dile-crud-list-lite>
+          `;
+        }
+        showOnConsole(e) {
+          console.log(e.type, e.detail);
+        }
+      }
+      customElements.define('demo-crud-list-lite-template', DemoCrudListLiteTemplate);
+    </script>
+    <demo-crud-list-lite-template></demo-crud-list-lite-template>
+
+    <h2 id="disable-load-on-start">disableLoadOnStart</h2>
+    <p>With <code>disableLoadOnStart</code>, nothing is fetched until <code>start()</code> is called (here, via a button). Calling <code>refresh()</code> before that would also start it.</p>
+    <script type="module">
+      import { LitElement, html, css } from 'lit';
+
+      class DemoCrudListLiteQuiet extends LitElement {
+        static styles = [css`:host { display: block; }`];
+        render() {
+          return html`
+            <button @click=${this.onStart}>Start list</button>
+            <dile-crud-list-lite
+              id="quietList"
+              endpoint="https://timer.escuelait.com/api/countries"
+              labelProperty="name"
+              maxItems="5"
+              disableLoadOnStart
+            ></dile-crud-list-lite>
+          `;
+        }
+        onStart() {
+          this.shadowRoot.getElementById('quietList').start();
+        }
+      }
+      customElements.define('demo-crud-list-lite-quiet', DemoCrudListLiteQuiet);
+    </script>
+    <demo-crud-list-lite-quiet></demo-crud-list-lite-quiet>
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+
+</html>
