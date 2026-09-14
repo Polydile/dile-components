@@ -1,7 +1,10 @@
 import { html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileRadioGroup } from './DileRadioGroup.js';
 import '../../card/card.js';
 import '../radio.js';
+
+const NAVIGATION_KEYS = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'];
 
 export class DileRadioGroupDialog extends DileRadioGroup {
   static styles = [
@@ -55,6 +58,11 @@ export class DileRadioGroupDialog extends DileRadioGroup {
         grid-template-rows: auto auto;
         gap: var(--dile-radio-group-dialog-item-gap, 0.5rem 0.75rem);
         cursor: pointer;
+      }
+
+      .radio-item-wrapper:focus-visible {
+        outline: var(--dile-radio-group-dialog-item-focus-outline, 2px solid #4A90E2);
+        outline-offset: 2px;
       }
 
       .radio-item-wrapper dile-radio {
@@ -125,40 +133,91 @@ export class DileRadioGroupDialog extends DileRadioGroup {
     return html`
       <dile-card>
         ${this.title
-          ? html`<h2 class="dialog-title">${this.title}</h2>`
+          ? html`<h2 class="dialog-title" id="${this._id}-title">${this.title}</h2>`
           : ''
         }
         ${this.description
-          ? html`<p class="dialog-description">${this.description}</p>`
+          ? html`<p class="dialog-description" id="${this._id}-description">${this.description}</p>`
           : ''
         }
-        <div class="radio-items">
-          ${this.dialogItems.map((item, index) =>
-            html`
-              <div 
+        <div
+          class="radio-items"
+          role="radiogroup"
+          aria-labelledby="${ifDefined(this.title ? `${this._id}-title` : undefined)}"
+          aria-describedby="${ifDefined(this.getGroupDescribedBy())}"
+          aria-invalid="${this.errored ? 'true' : 'false'}"
+          aria-disabled="${this.disabled ? 'true' : 'false'}"
+          @keydown=${this.handleItemsKeydown}
+        >
+          ${this.dialogItems.map((item, index) => {
+            const labelId = `${this._id}-item-${index}-label`;
+            const descriptionId = `${this._id}-item-${index}-description`;
+            const selected = this.value === item.value;
+            return html`
+              <div
                 class="radio-item-wrapper"
+                role="radio"
+                aria-checked="${selected}"
+                aria-disabled="${this.disabled}"
+                aria-labelledby="${labelId}"
+                aria-describedby="${ifDefined(item.description ? descriptionId : undefined)}"
+                tabindex="${this.disabled ? -1 : (this.getTabbableIndex() === index ? 0 : -1)}"
                 @click="${() => this.selectItem(index)}"
               >
                 <dile-radio
                   value="${item.value}"
-                  ?selected=${this.value === item.value}
+                  ?selected=${selected}
                   ?disabled=${this.disabled}
+                  decorative
                 ></dile-radio>
-                <label class="item-label">${item.label}</label>
+                <span class="item-label" id="${labelId}">${item.label}</span>
                 ${item.description
-                  ? html`<p class="item-description">${item.description}</p>`
+                  ? html`<p class="item-description" id="${descriptionId}">${item.description}</p>`
                   : ''
                 }
               </div>
-            `
-          )}
+            `;
+          })}
         </div>
         ${this.message
-          ? html`<dile-input-message message="${this.message}" ?errored=${this.errored}></dile-input-message>`
+          ? html`<dile-input-message id="${this._id}-message" message="${this.message}" ?errored=${this.errored}></dile-input-message>`
           : ''
         }
       </dile-card>
     `;
+  }
+
+  getGroupDescribedBy() {
+    const ids = [];
+    if (this.description) ids.push(`${this._id}-description`);
+    if (this.message) ids.push(`${this._id}-message`);
+    return ids.length ? ids.join(' ') : undefined;
+  }
+
+  getTabbableIndex() {
+    const selectedIndex = this.dialogItems.findIndex(item => item.value === this.value);
+    return selectedIndex !== -1 ? selectedIndex : 0;
+  }
+
+  handleItemsKeydown(e) {
+    if (this.disabled) return;
+    const wrapper = e.target.closest('.radio-item-wrapper');
+    if (!wrapper) return;
+    const wrappers = Array.from(this.shadowRoot.querySelectorAll('.radio-item-wrapper'));
+    const currentIndex = wrappers.indexOf(wrapper);
+
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      this.selectItem(currentIndex);
+      return;
+    }
+
+    if (!NAVIGATION_KEYS.includes(e.key)) return;
+    e.preventDefault();
+    const nextIndex = this.getFocusableIndex(wrappers, e.key, currentIndex);
+    if (nextIndex === -1) return;
+    wrappers[nextIndex].focus();
+    this.selectItem(nextIndex);
   }
 
   selectItem(index) {
