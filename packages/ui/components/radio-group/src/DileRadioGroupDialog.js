@@ -11,6 +11,7 @@ export class DileRadioGroupDialog extends DileRadioGroup {
     ...DileRadioGroup.styles,
     css`
       :host {
+        --dile-radio-group-dialog-background-color: var(--dile-background-color, #fff);
         --dile-radio-group-dialog-title-color: var(--dile-on-background-color, #303030);
         --dile-radio-group-dialog-title-font-size: 1.25rem;
         --dile-radio-group-dialog-title-font-weight: 600;
@@ -29,6 +30,7 @@ export class DileRadioGroupDialog extends DileRadioGroup {
 
       dile-card {
         width: 100%;
+        --dile-card-background-color: var(--dile-radio-group-dialog-background-color);
       }
 
       .dialog-title {

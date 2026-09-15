@@ -85,6 +85,7 @@ This component inherits all behavior from `dile-radio-group`, including:
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-radio-group-dialog-background-color | Dialog card background color | var(--dile-background-color, #fff)
 --dile-radio-group-dialog-title-color | Title text color | var(--dile-on-background-color, #303030)
 --dile-radio-group-dialog-title-font-size | Title font size | 1.25rem
 --dile-radio-group-dialog-title-font-weight | Title font weight | 600
