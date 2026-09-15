@@ -1,12 +1,43 @@
 import { badgeStyles } from './badgeStyles.js';
 
 export class DileIconBadge extends HTMLElement {
+  #_icon = 'lucide.dot';
+  #_variant = null;
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.adoptedStyleSheets = [badgeStyles];
-    this.icon = 'lucide.dot';
-    this.variant = null;
+    this.render();
+  }
+
+  get icon() {
+    return this.#_icon;
+  }
+
+  set icon(value) {
+    if (this.#_icon === value) return;
+    this.#_icon = value;
+    if (value === null) {
+      this.removeAttribute('icon');
+    } else {
+      this.setAttribute('icon', value);
+    }
+    this.render();
+  }
+
+  get variant() {
+    return this.#_variant;
+  }
+
+  set variant(value) {
+    if (this.#_variant === value) return;
+    this.#_variant = value;
+    if (value === null) {
+      this.removeAttribute('variant');
+    } else {
+      this.setAttribute('variant', value);
+    }
     this.render();
   }
 
@@ -29,12 +60,6 @@ export class DileIconBadge extends HTMLElement {
     const tag = this.getTagName();
     const variantClass = this.variant ? `variant-${this.variant}` : '';
 
-    if (this.variant) {
-      this.setAttribute('variant', this.variant);
-    } else {
-      this.removeAttribute('variant');
-    }
-
     this.shadowRoot.innerHTML = `
       <div class="badge-container ${variantClass}">
         <div class="icon-wrapper">
@@ -52,13 +77,14 @@ export class DileIconBadge extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'icon' && newValue !== null) {
-      this.icon = newValue;
+    // Update internal properties directly to avoid re-triggering setters
+    if (name === 'icon') {
+      this.#_icon = newValue !== null ? newValue : 'lucide.dot';
       this.render();
     }
 
-    if (name === 'variant' && newValue !== null) {
-      this.variant = newValue;
+    if (name === 'variant') {
+      this.#_variant = newValue;
       this.render();
     }
   }
