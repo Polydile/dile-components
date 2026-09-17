@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="../css/style.css">
   <script type="module">
   import "@dile/ui/components/card/card.js";
+  import "@dile/iconlib/tabler-icons/activity-heartbeat.js";
+  import "@dile/iconlib/phosphor-icons/balloon.js";
+  import "@dile/iconlib/material-icons/add-box.js";
+  import "@dile/iconlib/material-icons/soup-kitchen.js";
   </script>
   <style>
     .dile-card {
@@ -100,6 +104,37 @@
     <h2>Responsive card</h2>
     <p>
       <dile-card class="responsive-card" title="Shadow responsive">The shadow of this card has a responsive change.</dile-card>
+    </p>
+
+    <h2>Card with icon</h2>
+    <p>
+      <dile-card shadow-md icon="tabler.activity-heartbeat" title="Health Stats">Card with icon above title</dile-card>
+    </p>
+
+    <h2>Card with icon and footer</h2>
+    <p>
+      <dile-card shadow-md icon="phosphor.balloon" title="Special Offer">
+        This card displays an icon above the title
+        <div slot="footer">
+          <a href="#">Learn more</a>
+        </div>
+      </dile-card>
+    </p>
+
+    <h2>Card with icon styled</h2>
+    <style>
+      .icon-styled {
+        --dile-card-border: 2px solid #2d5f4f;
+        --dile-card-background-color: #e8f4f0;
+        --dile-card-title-color: #2d5f4f;
+        --dile-icon-size: 40px;
+        --dile-card-icon-color: #2d9f4f;
+      }
+    </style>
+    <p>
+      <dile-card shadow-lg icon="material.add-box" title="Add Item" class="icon-styled">
+        You can style the icon using the dile-iconlib CSS variables
+      </dile-card>
     </p>
 
     <script>

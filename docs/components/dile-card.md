@@ -47,6 +47,8 @@ This component has two slots.
 ## Properties
 
 - **title**: Card title, string (optional).
+- **titleLevel**: Heading level for the title (default: 2), number (optional).
+- **icon**: Icon to display above the title in format "family.icon" (e.g., "heart.heart"). Requires the icon component to be imported by the consumer, string (optional).
 
 ## Styling Attributes
 
@@ -98,6 +100,8 @@ Custom property | Description | Default
 --dile-card-title-color | Title text color | --dile-card-text-color or #303030
 --dile-card-title-font-weight | Title font weight | 300
 --dile-card-title-margin-bottom | Aditional margin-bottom for the title | 0
+--dile-card-title-padding-top-with-icon | Title padding-top when icon is present | 0.5rem
+--dile-card-icon-color | Icon color | var(--dile-on-background-color, #888) or var(--dile-card-grey-text-color, #303030) if grey
 --dile-card-footer-border-separator | Footer border separator | 1px solid #ccc
 --dile-card-footer-background-color | Footer background color | transparent
 --dile-card-footer-padding-top | Footer padding top | 0.75rem
@@ -221,34 +225,56 @@ Custom property | Description | Default
 </dile-card>
 ```
 
-### Responsive card
+### Card with icon
 
 ```html:preview
+<script type="module">
+  import '@dile/iconlib/tabler-icons/activity-heartbeat.js';
+</script>
 <style>
-  .responsive-card {
-    --dile-card-box-shadow: 0 0 #0000;
-    --dile-card-border-radius: 1px;
-  }
-  @media (min-width: 400px) {
-    .responsive-card {
-      --dile-card-border-radius: 5px;
-      --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    }
-  }
-  @media (min-width: 600px) {
-    .responsive-card {
-      --dile-card-border-radius: 10px;
-      --dile-card-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    }
-  }
-  @media (min-width: 800px) {
-    .responsive-card {
-      --dile-card-border-radius: 15px;
-      --dile-card-box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    }
+  dile-card {
+    margin: 1.2rem;
   }
 </style>
-<dile-card class="responsive-card" title="Shadow responsive">
-  The shadow of this card has a responsive change.
+<dile-card shadow-md icon="tabler.activity-heartbeat" title="Health Stats">
+  Card with icon above the title, aligned to the left.
+</dile-card>
+```
+
+### Card with icon and footer
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/phosphor-icons/balloon.js';
+</script>
+<style>
+  dile-card {
+    margin: 1.2rem;
+  }
+</style>
+<dile-card shadow-md icon="phosphor.balloon" title="Special Offer">
+  This card displays an icon above the title with footer content
+  <div slot="footer">
+    <a href="#">Learn more</a>
+  </div>
+</dile-card>
+```
+
+### Card with styled icon
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/material-icons/add-box.js';
+</script>
+<style>
+  .icon-styled {
+    --dile-card-border: 2px solid #2d5f4f;
+    --dile-card-background-color: #e8f4f0;
+    --dile-card-title-color: #2d5f4f;
+    margin: 1.2rem;
+  }
+</style>
+<dile-card shadow-lg icon="material.add-box" title="Add Item" class="icon-styled">
+  The icon appearance can be customized using dile-iconlib CSS variables. The consumer is responsible for importing the icon component.
 </dile-card>
 ```

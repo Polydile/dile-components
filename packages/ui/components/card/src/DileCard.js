@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import '@dile/iconlib/dile-iconlib.js';
 
 export class DileCard extends LitElement {
     static styles = [
@@ -21,6 +22,18 @@ export class DileCard extends LitElement {
           background-color: var(--dile-card-grey-background-color, #f4f4f4);
           color: var(--dile-card-grey-text-color, #303030);
         }
+        .card-icon {
+          display: flex;
+          padding-right: var(--dile-card-padding-x, 1rem);
+          padding-left: var(--dile-card-padding-x, 1rem);
+          padding-top: var(--dile-card-padding-y, 1rem);
+          --dile-icon-color: var(--dile-card-icon-color, var(--dile-on-background-color, #888));
+        }
+
+        :host([grey]) .card-icon {
+          --dile-icon-color: var(--dile-card-icon-color, var(--dile-card-grey-text-color, #303030));
+        }
+
         .card-title, main, footer {
           padding-right: var(--dile-card-padding-x, 1rem);
           padding-left: var(--dile-card-padding-x, 1rem);
@@ -32,6 +45,9 @@ export class DileCard extends LitElement {
           color: var(--dile-card-title-color, var(--dile-card-text-color, #303030));
           margin: 0;
           margin-bottom: var(--dile-card-title-margin-bottom, 0);
+        }
+        .card-title-with-icon {
+          padding-top: var(--dile-card-title-padding-top-with-icon, 0.5rem);
         }
         main {
           padding-top: var(--dile-card-padding-y, 1rem);
@@ -72,7 +88,8 @@ export class DileCard extends LitElement {
     static get properties() {
       return {
         title: { type: String },
-        titleLevel: { type: Number }
+        titleLevel: { type: Number },
+        icon: { type: String }
       };
     }
 
@@ -83,6 +100,7 @@ export class DileCard extends LitElement {
 
     render() {
       return html`
+        ${this.iconTemplate}
         ${this.titleTemplate}
         <main>
           <slot></slot>
@@ -91,15 +109,24 @@ export class DileCard extends LitElement {
       `;
     }
 
+    get iconTemplate() {
+      return this.icon
+          ? html`<div class="card-icon"><dile-iconlib icon="${this.icon}"></dile-iconlib></div>`
+          : '';
+    }
+
     get titleTemplate() {
       // Allow consumers to provide a custom title slot (e.g. an h2/h3) to control heading semantics
       if (this.hasSlot('title')) {
-        return html`<div class="card-title"><slot name="title"></slot></div>`;
+        const titleClass = this.icon ? 'card-title card-title-with-icon' : 'card-title';
+        return html`<div class="${titleClass}"><slot name="title"></slot></div>`;
       }
 
-      return this.title
-          ? html`<div class="card-title" role="heading" aria-level="${this.titleLevel}">${this.title}</div>`
-          : '';
+      if (this.title) {
+        const titleClass = this.icon ? 'card-title card-title-with-icon' : 'card-title';
+        return html`<div class="${titleClass}" role="heading" aria-level="${this.titleLevel}">${this.title}</div>`;
+      }
+      return '';
     }
 
 
