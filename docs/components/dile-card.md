@@ -100,7 +100,7 @@ Custom property | Description | Default
 --dile-card-title-color | Title text color | --dile-card-text-color or #303030
 --dile-card-title-font-weight | Title font weight | 300
 --dile-card-title-margin-bottom | Aditional margin-bottom for the title | 0
---dile-card-title-padding-top-with-icon | Title padding-top when icon is present | 0.5rem
+--dile-card-title-padding-top-with-icon | Title padding-top when icon is present | 0.75rem
 --dile-card-icon-color | Icon color | var(--dile-on-background-color, #888) or var(--dile-card-grey-text-color, #303030) if grey
 --dile-card-footer-border-separator | Footer border separator | 1px solid #ccc
 --dile-card-footer-background-color | Footer background color | transparent

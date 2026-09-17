@@ -47,7 +47,7 @@ export class DileCard extends LitElement {
           margin-bottom: var(--dile-card-title-margin-bottom, 0);
         }
         .card-title-with-icon {
-          padding-top: var(--dile-card-title-padding-top-with-icon, 0.5rem);
+          padding-top: var(--dile-card-title-padding-top-with-icon, 0.75rem);
         }
         main {
           padding-top: var(--dile-card-padding-y, 1rem);
