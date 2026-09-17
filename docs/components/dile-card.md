@@ -48,7 +48,7 @@ This component has two slots.
 
 - **title**: Card title, string (optional).
 - **titleLevel**: Heading level for the title (default: 2), number (optional).
-- **icon**: Icon to display above the title in format "family.icon" (e.g., "heart.heart"). Requires the icon component to be imported by the consumer, string (optional).
+- **icon**: Icon to display above the title. Icon naming and import follows [dile-iconlib](../icons/dile-iconlib.md) conventions with format "family.icon" (e.g., "tabler.activity-heartbeat", "phosphor.balloon"). The icon component must be imported by the consumer, string (optional).
 
 ## Styling Attributes
 
@@ -272,6 +272,8 @@ Custom property | Description | Default
     --dile-card-background-color: #e8f4f0;
     --dile-card-title-color: #2d5f4f;
     margin: 1.2rem;
+    --dile-icon-size: 40px;
+        --dile-card-icon-color: #2d9f4f;
   }
 </style>
 <dile-card shadow-lg icon="material.add-box" title="Add Item" class="icon-styled">
