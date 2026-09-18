@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-data-grid component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/ui/components/data-grid/data-grid.js';
+    import '@dile/ui/components/button/button.js';
+    import '@dile/ui/components/chip/chip.js';
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-active {
+      background-color: #dcfce7;
+      color: #15803d;
+    }
+
+    .badge-inactive {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-pending {
+      background-color: #fef3c7;
+      color: #b45309;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .actions button {
+      background-color: #3b82f6;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .actions button:hover {
+      background-color: #2563eb;
+    }
+
+    .custom-styled {
+      --dile-data-grid-border: 1px solid #cbd5e1;
+      --dile-data-grid-border-radius: 8px;
+      --dile-data-grid-header-background-color: #1e293b;
+      --dile-data-grid-header-color: #f8fafc;
+      --dile-data-grid-header-hover-background-color: #334155;
+      --dile-data-grid-sort-icon-color: #94a3b8;
+      --dile-data-grid-sort-icon-active-color: #38bdf8;
+      --dile-data-grid-row-striped-background-color: #f1f5f9;
+      --dile-data-grid-row-hover-background-color: #e2e8f0;
+    }
+
+    .log {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      min-height: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-data-grid component</h1>
+
+    <h2>1. Interactive Grid with Custom Renderers & Client Sorting</h2>
+    <p>Click column headers to sort, or click rows to trigger events.</p>
+
+    <script type="module">
+      import { html } from 'lit';
+
+      const grid = document.getElementById('mainGrid');
+      const log = document.getElementById('eventLog');
+
+      grid.columns = [
+        { field: 'id', header: 'ID', sortable: true, width: '70px', align: 'center' },
+        { field: 'name', header: 'Name', sortable: true },
+        { field: 'email', header: 'Email', sortable: true },
+        { field: 'role', header: 'Role', sortable: true },
+        {
+          field: 'status',
+          header: 'Status',
+          sortable: true,
+          align: 'center',
+          render: (row) => {
+            const statusClass = row.status === 'Active' ? 'badge-active' : (row.status === 'Inactive' ? 'badge-inactive' : 'badge-pending');
+            return html`<span class="badge ${statusClass}">${row.status}</span>`;
+          }
+        },
+        {
+          field: 'salary',
+          header: 'Salary',
+          sortable: true,
+          align: 'right',
+          render: (row) => `$${row.salary.toLocaleString()}`
+        },
+        {
+          header: 'Actions',
+          align: 'right',
+          render: (row) => html`
+            <div class="actions">
+              <button @click=${(e) => {
+                e.stopPropagation();
+                alert(`Editing: ${row.name}`);
+              }}>Edit</button>
+            </div>
+          `
+        }
+      ];
+
+      grid.items = [
+        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Frontend Engineer', status: 'Active', salary: 75000 },
+        { id: 2, name: 'Bob Martinez', email: 'bob@example.com', role: 'Product Manager', status: 'Inactive', salary: 90000 },
+        { id: 3, name: 'Carlos Díaz', email: 'carlos@example.com', role: 'DevOps Specialist', status: 'Active', salary: 85000 },
+        { id: 4, name: 'Diana Prince', email: 'diana@example.com', role: 'UX Designer', status: 'Pending', salary: 72000 },
+        { id: 5, name: 'Eduardo Silva', email: 'eduardo@example.com', role: 'Backend Developer', status: 'Active', salary: 80000 },
+      ];
+
+      grid.addEventListener('dile-data-grid-sort', (e) => {
+        log.textContent = `Sort event: field="${e.detail.field}", direction="${e.detail.direction}"`;
+      });
+
+      grid.addEventListener('dile-data-grid-row-click', (e) => {
+        log.textContent = `Row click: id=${e.detail.row.id}, name="${e.detail.row.name}"`;
+      });
+    </script>
+
+    <dile-data-grid id="mainGrid"></dile-data-grid>
+    <div id="eventLog" class="log">Waiting for user interactions...</div>
+
+    <h2>2. Striped Rows & Dark Header Theme</h2>
+    <script type="module">
+      const styledGrid = document.getElementById('styledGrid');
+      styledGrid.columns = [
+        { field: 'code', header: 'Product Code', sortable: true, width: '130px' },
+        { field: 'title', header: 'Product Title', sortable: true },
+        { field: 'stock', header: 'Stock Units', sortable: true, align: 'right' },
+        { field: 'price', header: 'Price', sortable: true, align: 'right', render: (row) => `€${row.price.toFixed(2)}` },
+      ];
+      styledGrid.items = [
+        { code: 'PRD-001', title: 'Wireless Keyboard', stock: 120, price: 49.99 },
+        { code: 'PRD-002', title: 'Ergonomic Mouse', stock: 85, price: 34.50 },
+        { code: 'PRD-003', title: '4K Monitor 27"', stock: 14, price: 320.00 },
+        { code: 'PRD-004', title: 'USB-C Hub Multiport', stock: 240, price: 28.00 },
+        { code: 'PRD-005', title: 'Noise-Cancelling Headset', stock: 45, price: 110.00 },
+      ];
+    </script>
+    <dile-data-grid id="styledGrid" class="custom-styled" striped></dile-data-grid>
+
+    <h2>3. Empty State</h2>
+    <script type="module">
+      const emptyGrid = document.getElementById('emptyGrid');
+      emptyGrid.columns = [
+        { field: 'id', header: 'ID' },
+        { field: 'name', header: 'User' },
+        { field: 'score', header: 'Score' },
+      ];
+      emptyGrid.items = [];
+      emptyGrid.emptyMessage = 'No matching records found.';
+    </script>
+    <dile-data-grid id="emptyGrid"></dile-data-grid>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
