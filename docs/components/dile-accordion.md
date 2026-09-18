@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-accordion&gt;'
 status: stable
 summary: Web component for creating a fully accessible UI for expandable accordion sections with keyboard navigation.
+tags: menu
 ---
 
 
