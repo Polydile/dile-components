@@ -114,6 +114,9 @@ Precision: days (shows only days)
 ### Custom icon
 
 ```html:preview
+<script type="module">
+  import '@dile/iconlib/material-icons/timer.js';
+</script>
 <dile-time-duration seconds="3665" icon="material.timer"></dile-time-duration>
 ```
 
