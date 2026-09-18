@@ -71,6 +71,8 @@
       --dile-data-grid-sort-icon-active-color: #38bdf8;
       --dile-data-grid-row-striped-background-color: #f1f5f9;
       --dile-data-grid-row-hover-background-color: #e2e8f0;
+      --dile-data-grid-card-border: 1px solid #cbd5e1;
+      --dile-data-grid-card-border-radius: 8px;
     }
 
     .log {
@@ -83,20 +85,71 @@
       border-radius: 6px;
       min-height: 1.5rem;
     }
+
+    .resizable-container {
+      border: 2px dashed #94a3b8;
+      padding: 1rem;
+      resize: horizontal;
+      overflow: hidden;
+      min-width: 280px;
+      max-width: 100%;
+      width: 100%;
+      background: #fdfdfd;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .control-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .control-row select {
+      padding: 0.4rem 0.8rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>dile-data-grid component</h1>
 
-    <h2>1. Interactive Grid with Custom Renderers & Client Sorting</h2>
-    <p>Click column headers to sort, or click rows to trigger events.</p>
+    <h2>1. Interactive Grid (with Container Queries Responsive Cards)</h2>
+    <p>
+      Resize the box below using the handle in the bottom-right corner to see how <strong>Container Queries</strong> automatically transform rows into cards when container width &le; 600px.
+    </p>
+
+    <div class="control-row">
+      <label for="responsiveModeSelect"><strong>Responsive Mode:</strong></label>
+      <select id="responsiveModeSelect">
+        <option value="auto">auto (Container Query &le; 600px)</option>
+        <option value="cards">cards (Forced Card view)</option>
+        <option value="scroll">scroll (Forced Horizontal Table scroll)</option>
+      </select>
+    </div>
+
+    <div class="resizable-container">
+      <dile-data-grid id="mainGrid"></dile-data-grid>
+    </div>
+
+    <div id="eventLog" class="log">Waiting for user interactions...</div>
 
     <script type="module">
       import { html } from 'lit';
 
       const grid = document.getElementById('mainGrid');
       const log = document.getElementById('eventLog');
+      const modeSelect = document.getElementById('responsiveModeSelect');
+
+      modeSelect.addEventListener('change', (e) => {
+        grid.responsiveMode = e.target.value;
+      });
 
       grid.columns = [
         { field: 'id', header: 'ID', sortable: true, width: '70px', align: 'center' },
@@ -121,8 +174,9 @@
           render: (row) => `$${row.salary.toLocaleString()}`
         },
         {
-          header: 'Actions',
+          header: '',
           align: 'right',
+          hideCardLabel: true,
           render: (row) => html`
             <div class="actions">
               <button @click=${(e) => {
@@ -151,10 +205,41 @@
       });
     </script>
 
-    <dile-data-grid id="mainGrid"></dile-data-grid>
-    <div id="eventLog" class="log">Waiting for user interactions...</div>
+    <h2>2. Horizontal Scroll with Sticky First & Last Columns</h2>
+    <p>
+      In this wide table, <code>responsive-mode="scroll"</code> keeps the table layout and <code>sticky: true</code> / <code>sticky: 'right'</code> fixes the identifier column on the left and actions on the right as you scroll horizontally.
+    </p>
 
-    <h2>2. Striped Rows & Dark Header Theme</h2>
+    <script type="module">
+      import { html } from 'lit';
+      const stickyGrid = document.getElementById('stickyGrid');
+      stickyGrid.columns = [
+        { field: 'employee', header: 'Employee', sticky: true, width: '160px' },
+        { field: 'department', header: 'Department', width: '150px' },
+        { field: 'location', header: 'Location', width: '140px' },
+        { field: 'q1', header: 'Q1 Sales', width: '120px', align: 'right', render: (r) => `€${r.q1.toLocaleString()}` },
+        { field: 'q2', header: 'Q2 Sales', width: '120px', align: 'right', render: (r) => `€${r.q2.toLocaleString()}` },
+        { field: 'q3', header: 'Q3 Sales', width: '120px', align: 'right', render: (r) => `€${r.q3.toLocaleString()}` },
+        { field: 'q4', header: 'Q4 Sales', width: '120px', align: 'right', render: (r) => `€${r.q4.toLocaleString()}` },
+        { field: 'total', header: 'Total Year', width: '140px', align: 'right', render: (r) => `€${(r.q1 + r.q2 + r.q3 + r.q4).toLocaleString()}` },
+        {
+          header: 'Actions',
+          sticky: 'right',
+          width: '100px',
+          align: 'center',
+          render: (r) => html`<button @click=${() => alert(`Details of ${r.employee}`)} style="cursor:pointer;padding:0.25rem 0.5rem;font-size:0.75rem;">View</button>`
+        }
+      ];
+      stickyGrid.items = [
+        { employee: 'Laura Gómez', department: 'Enterprise Sales', location: 'Madrid', q1: 42000, q2: 51000, q3: 48000, q4: 63000 },
+        { employee: 'Michael Scott', department: 'Direct Sales', location: 'Scranton', q1: 31000, q2: 29000, q3: 35000, q4: 41000 },
+        { employee: 'Sara Connor', department: 'Operations', location: 'Los Angeles', q1: 58000, q2: 62000, q3: 71000, q4: 85000 },
+        { employee: 'David Miller', department: 'Marketing', location: 'London', q1: 22000, q2: 27000, q3: 31000, q4: 39000 },
+      ];
+    </script>
+    <dile-data-grid id="stickyGrid" responsive-mode="scroll" striped></dile-data-grid>
+
+    <h2>3. Striped Rows & Dark Header Theme</h2>
     <script type="module">
       const styledGrid = document.getElementById('styledGrid');
       styledGrid.columns = [
@@ -173,7 +258,7 @@
     </script>
     <dile-data-grid id="styledGrid" class="custom-styled" striped></dile-data-grid>
 
-    <h2>3. Empty State</h2>
+    <h2>4. Empty State</h2>
     <script type="module">
       const emptyGrid = document.getElementById('emptyGrid');
       emptyGrid.columns = [

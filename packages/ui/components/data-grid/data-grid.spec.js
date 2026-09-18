@@ -225,4 +225,69 @@ describe('dile-data-grid', () => {
     expect(rows[1].querySelectorAll('td')[1].textContent.trim()).toBe('Ana');
     expect(rows[2].querySelectorAll('td')[1].textContent.trim()).toBe('Beatriz');
   });
+
+  it('sets data-label attribute for responsive card mode', async () => {
+    const el = await createDataGrid({
+      columns: [
+        { field: 'name', header: 'Full Name' },
+        { field: 'role', header: 'Role', hideCardLabel: true },
+        { field: 'notes', header: 'Notes', hideOnCard: true },
+      ],
+      items: [{ name: 'Elena', role: 'Dev', notes: 'Secret' }],
+    });
+
+    const cells = el.shadowRoot.querySelectorAll('tbody tr td');
+    expect(cells[0].getAttribute('data-label')).toBe('Full Name');
+    expect(cells[1].getAttribute('data-label')).toBe('');
+    expect(cells[1].classList.contains('no-card-label')).toBe(true);
+    expect(cells[2].classList.contains('hide-on-card')).toBe(true);
+  });
+
+  it('reflects responsiveMode attribute', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: sampleItems,
+      responsiveMode: 'cards',
+    });
+
+    expect(el.getAttribute('responsive-mode')).toBe('cards');
+  });
+
+  it('applies sticky-left class when stickyFirstColumn is true or column.sticky is set', async () => {
+    const el = await createDataGrid({
+      columns: [
+        { field: 'name', header: 'Name', sticky: true },
+        { field: 'city', header: 'City' },
+        { field: 'action', header: 'Action', sticky: 'right' },
+      ],
+      items: [{ name: 'Carlos', city: 'Madrid', action: 'Edit' }],
+    });
+
+    const ths = el.shadowRoot.querySelectorAll('th');
+    const tds = el.shadowRoot.querySelectorAll('tbody tr td');
+
+    expect(ths[0].classList.contains('sticky-left')).toBe(true);
+    expect(tds[0].classList.contains('sticky-left')).toBe(true);
+
+    expect(ths[1].classList.contains('sticky-left')).toBe(false);
+    expect(tds[1].classList.contains('sticky-left')).toBe(false);
+
+    expect(ths[2].classList.contains('sticky-right')).toBe(true);
+    expect(tds[2].classList.contains('sticky-right')).toBe(true);
+  });
+
+  it('applies sticky-left to the first column when stickyFirstColumn property is set', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: sampleItems,
+      stickyFirstColumn: true,
+    });
+
+    const ths = el.shadowRoot.querySelectorAll('th');
+    const tds = el.shadowRoot.querySelectorAll('tbody tr td');
+
+    expect(ths[0].classList.contains('sticky-left')).toBe(true);
+    expect(tds[0].classList.contains('sticky-left')).toBe(true);
+    expect(ths[1].classList.contains('sticky-left')).toBe(false);
+  });
 });
