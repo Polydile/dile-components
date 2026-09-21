@@ -16,6 +16,7 @@ export const defaultConfig = {
     initial: 25,
   },
   maxBatchActionItems: 100,
+  grid: null,
   customization: {
     disableKeywordSearch: true,
     hideCountSummary: false,
@@ -26,6 +27,7 @@ export const defaultConfig = {
     disableEdit: false,
     disableDelete: false,
     disableRestore: false,
+    disableListActions: false,
     disablePagination: true,
     disableSort: true,
     disableFilter: true,
@@ -62,6 +64,7 @@ export const defaultConfig = {
   },
   templates: {
     item: () => templatePlaceholder('item'),
+    grid: null,
     insertForm: (belongsTo, relationId) => templatePlaceholder('insertForm'),
     updateForm: () => templatePlaceholder('updateForm'),
     help: () => templatePlaceholder('help'),

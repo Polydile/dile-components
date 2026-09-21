@@ -2,7 +2,7 @@
 title: List item components
 tags: operations
 package: '@dile/crud'
-summary: How to template each item rendered inside a dile-crud-list.
+summary: How to template each item rendered inside a dile-crud-list, and how to use dile-crud-item-actions.
 ---
 
 # Item for lists
@@ -83,7 +83,105 @@ customElements.define('user-list-item', userListItem);
 
 This component only displays the name and email of a user, with a very rudimentary style, but you could display it with any other style and add more detailed information, as well as functionality if necessary.
 
-## Properties
+---
+
+# dile-crud-item-actions
+
+The `<dile-crud-item-actions>` component centralizes and standardizes item actions (Edit, Delete, and Restore) for both traditional list items (`dile-crud-list-item`) and custom DataGrids (`dile-data-grid`).
+
+## Installation and Import
+
+```javascript
+import '@dile/crud/components/list/crud-item-actions.js';
+import { DileCrudItemActions } from '@dile/crud/components/list/src/DileCrudItemActions.js';
+```
+
+## Usage
+
+### 1. Automatic configuration with `.config` (Recommended)
+
+When passing the CRUD `config` object, `<dile-crud-item-actions>` automatically handles:
+- Global disables (`config.customization.disableListActions`, `disableEdit`, `disableDelete`, `disableRestore`).
+- Row-level conditions (`config.isItemEditable(item)`, `config.isItemDeletable(item)`).
+- Custom ID computation (`config.computeItemId(item)`).
+- Soft-delete detection (`item.deleted_at`).
+
+```html
+<dile-crud-item-actions
+  .item=${this.item}
+  .config=${this.config}
+></dile-crud-item-actions>
+```
+
+### 2. Manual properties
+
+You can also control each aspect manually or override config defaults:
+
+```html
+<dile-crud-item-actions
+  .item=${this.item}
+  itemId="${this.item.id}"
+  ?disableEdit=${false}
+  ?disableDelete=${false}
+  ?disableRestore=${false}
+  ?isDeleted=${false}
+></dile-crud-item-actions>
+```
+
+### 3. Conditional Column in DataGrids with `hasActions(config)`
+
+You can use the static method `DileCrudItemActions.hasActions(config)` to avoid rendering the `Actions` column when all actions are disabled:
+
+```javascript
+get columns() {
+  const cols = [
+    { field: 'id', header: 'ID', sortable: true },
+    { field: 'name', header: 'Name', sortable: true },
+  ];
+
+  if (DileCrudItemActions.hasActions(this.config)) {
+    cols.push({
+      header: 'Actions',
+      align: 'right',
+      width: '110px',
+      render: (item) => html`
+        <dile-crud-item-actions
+          .item=${item}
+          .config=${this.config}
+        ></dile-crud-item-actions>
+      `,
+    });
+  }
+
+  return cols;
+}
+```
+
+> See also the [Rendering Modes](/crud/crud-list/#rendering-modes) section in `dile-crud-list` for how this pattern integrates with both the declarative `config.grid.columns` and the custom `config.templates.grid` rendering paths.
+
+### Static Methods
+
+- **`DileCrudItemActions.hasActions(config)`**: Returns `false` if `config.customization.disableListActions` is `true`, or if `disableEdit`, `disableDelete`, and `disableRestore` are all `true`. Otherwise returns `true`.
+
+### Properties
+
+- **item**: Object. The complete item data object.
+- **config**: Object. Optional CRUD configuration object. When provided, automatically resolves edit/delete/restore permissions and item IDs.
+- **itemId**: String / Number. The identifier of the item. Defaults to `config.computeItemId(item)` or `item.id`.
+- **disableEdit**: Boolean. When `true`, hides the edit action button. Defaults to `false`.
+- **disableDelete**: Boolean. When `true`, hides the delete action button. Defaults to `false`.
+- **disableRestore**: Boolean. When `true`, hides the restore action button. Defaults to `false`.
+- **isDeleted**: Boolean. When `true`, renders the restore button instead of the regular edit/delete buttons. Automatically inferred if `item.deleted_at` is set.
+
+### Dispatched Events
+
+- **crud-item-edit**: Dispatched when clicking the Edit button. Detail: `{ item, itemId }` (bubbles, composed).
+- **crud-item-delete**: Dispatched when clicking the Delete button. Detail: `{ item, itemId }` (bubbles, composed).
+- **crud-item-restore**: Dispatched when clicking the Restore button. Detail: `{ item, itemId }` (bubbles, composed).
+
+---
+
+# dile-crud-list-item
 
 The `dile-crud-list-item` component accepts the following properties:
 
@@ -92,6 +190,7 @@ The `dile-crud-list-item` component accepts the following properties:
 - **actionIds**: Array. Array of item IDs that are currently selected.
 - **disableEdit**: Boolean. When `true`, hides the edit action icon. Defaults to `false`.
 - **disableDelete**: Boolean. When `true`, hides the delete action icon. Defaults to `false`.
+- **disableRestore**: Boolean. When `true`, hides the restore action icon. Defaults to `false`.
 - **hideCheckboxSelection**: Boolean. When `true`, hides the checkbox for item selection. Defaults to `false`.
 - **isDeleted**: Boolean. When `true`, shows the restore action instead of edit/delete actions. Defaults to `false`.
 
@@ -103,17 +202,9 @@ The `dile-crud-list-item` component dispatches the following events:
   - `checked`: Boolean indicating if the checkbox is now checked.
   - `itemId`: String with the item ID.
 
-- **crud-item-edit**: Dispatched when the edit icon is clicked. The event detail contains:
-  - `item`: Object with the complete item data.
-  - `itemId`: String with the item ID.
-
-- **crud-item-delete**: Dispatched when the delete icon is clicked. The event detail contains:
-  - `item`: Object with the complete item data.
-  - `itemId`: String with the item ID.
-
-- **crud-item-restore**: Dispatched when the restore icon is clicked. The event detail contains:
-  - `item`: Object with the complete item data.
-  - `itemId`: String with the item ID.
+- **crud-item-edit**: Dispatched when the edit icon is clicked via `<dile-crud-item-actions>`. Detail: `{ item, itemId }`.
+- **crud-item-delete**: Dispatched when the delete icon is clicked via `<dile-crud-item-actions>`. Detail: `{ item, itemId }`.
+- **crud-item-restore**: Dispatched when the restore icon is clicked via `<dile-crud-item-actions>`. Detail: `{ item, itemId }`.
 
 ## CSS Custom Properties
 
@@ -129,7 +220,7 @@ The item component accepts the following CSS custom properties to customize its 
 | `--dile-checkbox-unchecked-color` | Color of unchecked checkboxes | `#888` |
 | `--dile-crud-list-item-action-button-background-color` | Background color for action buttons | `transparent` |
 | `--dile-crud-list-item-action-button-border-color` | Border color for action buttons | `transparent` |
-| `--dile-crud-list-item-action-button-hover-background-color` | Hover background color for action buttons | `var(--dile-neutral-color)` fallback to `transparent` |
+| `--dile-crud-list-item-action-button-hover-background-color` | Hover background color for action buttons | `var(--dile-neutral-color)` fallback to `#f1f5f9` |
 | `--dile-crud-list-item-action-button-hover-border-color` | Hover border color for action buttons | `transparent` |
 | `--dile-crud-list-item-action-button-padding-y` | Vertical padding for action buttons | `0.25rem` |
 | `--dile-crud-list-item-action-button-padding-x` | Horizontal padding for action buttons | `0.25rem` |
@@ -141,27 +232,3 @@ The item component accepts the following CSS custom properties to customize its 
 | `--dile-crud-list-item-delete-icon-hover-color` | Hover color of the delete action button icon | same as `--delete-icon-color` |
 | `--restore-icon-color` | Color of the restore action button icon | `var(--dile-alert-success-color)` fallback to `#00900f` |
 | `--dile-crud-list-item-restore-icon-hover-color` | Hover color of the restore action button icon | same as `--restore-icon-color` |
-
-You can customize these properties in your CSS to match your design:
-
-```css
-dile-crud-list-item {
-  --dile-crud-list-item-line-separator: 2px solid #ccc;
-  --dile-crud-list-item-padding: 0.75rem;
-  --dile-checkbox-unchecked-color: #666;
-  --dile-crud-list-item-action-button-background-color: #f0f0f0;
-  --dile-crud-list-item-action-button-border-color: #ddd;
-  --dile-crud-list-item-action-button-hover-background-color: #e0e0e0;
-  --dile-crud-list-item-action-button-hover-border-color: #ccc;
-  --dile-crud-list-item-action-button-padding-y: 0.5rem;
-  --dile-crud-list-item-action-button-padding-x: 0.5rem;
-  --dile-crud-list-item-action-button-icon-size: 20px;
-  --dile-crud-list-item-action-button-border-radius: 4px;
-  --edit-icon-color: #0066cc;
-  --dile-crud-list-item-edit-icon-hover-color: #0052a3;
-  --delete-icon-color: #cc0000;
-  --dile-crud-list-item-delete-icon-hover-color: #990000;
-  --restore-icon-color: #00aa00;
-  --dile-crud-list-item-restore-icon-hover-color: #008800;
-}
-```

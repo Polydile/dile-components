@@ -13,6 +13,7 @@ The `customization` property is an object containing multiple boolean flags that
 - **`disableEdit`** (boolean): When set to `true`, disables the ability to edit existing items. Can be overridden per-item using `isItemEditable()`. Default: `false`.
 - **`disableDelete`** (boolean): When set to `true`, disables the ability to delete items. Can be overridden per-item using `isItemDeletable()`. Default: `false`.
 - **`disableRestore`** (boolean): When set to `true`, disables the restore functionality for soft-deleted items. Default: `false`.
+- **`disableListActions`** (boolean): When set to `true`, disables all row-level actions (Edit, Delete, Restore) across lists and DataGrids at once. Default: `false`.
 - **`disablePagination`** (boolean): When set to `true`, disables pagination controls. Default: `true`.
 - **`disableSort`** (boolean): When set to `true`, disables sorting functionality. Default: `true`.
 - **`disableFilter`** (boolean): When set to `true`, disables filtering functionality. Default: `true`.
@@ -33,6 +34,7 @@ customization: {
   disableHelp: false,           // Show help
   disableEdit: false,           // Enable editing
   disableDelete: false,         // Enable deletion
+  disableListActions: false,    // Disable all list-item actions at once
   disableListActionsOnSingleComponent: false,  // Show list actions in single view
 },
 ```
@@ -52,6 +54,7 @@ customization: {
   disableEdit: false,
   disableDelete: false,
   disableRestore: false,
+  disableListActions: false,
   disablePagination: true,
   disableSort: true,
   disableFilter: true,

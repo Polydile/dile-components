@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { arrowDropUpIcon, arrowDropDownIcon } from '@dile/icons';
+import '../../checkbox/checkbox.js';
 
 export class DileDataGrid extends LitElement {
   static get properties() {
@@ -17,7 +18,7 @@ export class DileDataGrid extends LitElement {
       sortDirection: { type: String },
 
       /** Mode of sorting: 'client' (sorts data internally) or 'external' (only emits event) */
-      sortMode: { type: String },
+      sortMode: { type: String, attribute: 'sort-mode' },
 
       /** Responsive mode: 'auto' (container query card switch), 'cards' (always card), or 'scroll' (table scroll) */
       responsiveMode: { type: String, attribute: 'responsive-mode', reflect: true },
@@ -26,13 +27,25 @@ export class DileDataGrid extends LitElement {
       stickyFirstColumn: { type: Boolean, attribute: 'sticky-first-column' },
 
       /** Message to display when there are no items */
-      emptyMessage: { type: String },
+      emptyMessage: { type: String, attribute: 'empty-message' },
 
       /** Unique property name for identifying rows */
       rowIdField: { type: String },
 
       /** Enables striped rows styling */
       striped: { type: Boolean },
+
+      /** Enables selection checkboxes column for batch operations */
+      selectable: { type: Boolean },
+
+      /** Array of selected row IDs */
+      selectedIds: { type: Array },
+
+      /** Optional function to compute row ID from a row object: (row) => string|number */
+      computeRowId: { type: Function },
+
+      /** Optional function to compute custom CSS class for a row: (row, index) => string */
+      rowClass: { type: Function },
     };
   }
 
@@ -48,6 +61,10 @@ export class DileDataGrid extends LitElement {
     this.emptyMessage = 'No data available';
     this.rowIdField = 'id';
     this.striped = false;
+    this.selectable = false;
+    this.selectedIds = [];
+    this.computeRowId = null;
+    this.rowClass = null;
   }
 
   static get styles() {
@@ -149,6 +166,12 @@ export class DileDataGrid extends LitElement {
         background-color: var(--dile-data-grid-row-hover-background-color, #f8fafc);
       }
 
+      tbody tr.is-deleted,
+      tbody tr.deleted {
+        opacity: var(--dile-data-grid-deleted-opacity, 0.6);
+        background-color: var(--dile-data-grid-deleted-background-color, rgba(239, 68, 68, 0.04));
+      }
+
       td {
         padding: var(--dile-data-grid-row-padding, 0.75rem 1rem);
         color: var(--dile-data-grid-row-color, #1e293b);
@@ -175,7 +198,42 @@ export class DileDataGrid extends LitElement {
         font-size: var(--dile-data-grid-empty-font-size, 0.875rem);
       }
 
+      /* Selection Checkbox Cell */
+      th.selection-cell,
+      td.selection-cell {
+        width: var(--dile-data-grid-selection-width, 44px);
+        min-width: var(--dile-data-grid-selection-width, 44px);
+        max-width: var(--dile-data-grid-selection-width, 44px);
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      td.selection-cell dile-checkbox {
+        display: inline-flex;
+        vertical-align: middle;
+        --dile-checkbox-unchecked-color: var(--dile-data-grid-checkbox-unchecked-color, #888);
+      }
+
       /* Sticky Columns */
+      th.selection-cell.sticky-left,
+      td.selection-cell.sticky-left {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background-color: var(--dile-data-grid-sticky-background-color, var(--dile-data-grid-background-color, #ffffff));
+      }
+
+      th.selection-cell.sticky-left {
+        z-index: 3;
+        background-color: var(--dile-data-grid-sticky-header-background-color, var(--dile-data-grid-header-background-color, #f8fafc));
+      }
+
+      th.selection-cell.sticky-left.has-shadow,
+      td.selection-cell.sticky-left.has-shadow {
+        box-shadow: var(--dile-data-grid-sticky-shadow, 2px 0 5px -2px rgba(0, 0, 0, 0.12));
+      }
+
       th.sticky-left,
       td.sticky-left {
         position: sticky;
@@ -186,6 +244,20 @@ export class DileDataGrid extends LitElement {
       }
 
       th.sticky-left {
+        z-index: 3;
+        background-color: var(--dile-data-grid-sticky-header-background-color, var(--dile-data-grid-header-background-color, #f8fafc));
+      }
+
+      th.sticky-left-after-selection,
+      td.sticky-left-after-selection {
+        position: sticky;
+        left: var(--dile-data-grid-selection-width, 44px);
+        z-index: 2;
+        background-color: var(--dile-data-grid-sticky-background-color, var(--dile-data-grid-background-color, #ffffff));
+        box-shadow: var(--dile-data-grid-sticky-shadow, 2px 0 5px -2px rgba(0, 0, 0, 0.12));
+      }
+
+      th.sticky-left-after-selection {
         z-index: 3;
         background-color: var(--dile-data-grid-sticky-header-background-color, var(--dile-data-grid-header-background-color, #f8fafc));
       }
@@ -206,12 +278,18 @@ export class DileDataGrid extends LitElement {
 
       :host([striped]) tbody tr:nth-child(even) td.sticky-left,
       .striped tbody tr:nth-child(even) td.sticky-left,
+      :host([striped]) tbody tr:nth-child(even) td.sticky-left-after-selection,
+      .striped tbody tr:nth-child(even) td.sticky-left-after-selection,
+      :host([striped]) tbody tr:nth-child(even) td.selection-cell.sticky-left,
+      .striped tbody tr:nth-child(even) td.selection-cell.sticky-left,
       :host([striped]) tbody tr:nth-child(even) td.sticky-right,
       .striped tbody tr:nth-child(even) td.sticky-right {
         background-color: var(--dile-data-grid-sticky-striped-background-color, var(--dile-data-grid-row-striped-background-color, #fcfdfe));
       }
 
       tbody tr:hover td.sticky-left,
+      tbody tr:hover td.sticky-left-after-selection,
+      tbody tr:hover td.selection-cell.sticky-left,
       tbody tr:hover td.sticky-right {
         background-color: var(--dile-data-grid-row-hover-background-color, #f8fafc);
       }
@@ -262,6 +340,20 @@ export class DileDataGrid extends LitElement {
         text-align: right;
         position: static;
         box-shadow: none;
+      }
+
+      :host([responsive-mode="cards"]) td.selection-cell,
+      :host([responsive-mode="card"]) td.selection-cell {
+        justify-content: flex-start;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      :host([responsive-mode="cards"]) td.selection-cell::before,
+      :host([responsive-mode="card"]) td.selection-cell::before {
+        display: none !important;
       }
 
       :host([responsive-mode="cards"]) td:last-child,
@@ -352,6 +444,18 @@ export class DileDataGrid extends LitElement {
           box-shadow: none;
         }
 
+        :host(:not([responsive-mode="scroll"]):not([responsive-mode="cards"]):not([responsive-mode="card"])) td.selection-cell {
+          justify-content: flex-start;
+          padding-top: 0.35rem;
+          padding-bottom: 0.35rem;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        :host(:not([responsive-mode="scroll"]):not([responsive-mode="cards"]):not([responsive-mode="card"])) td.selection-cell::before {
+          display: none !important;
+        }
+
         :host(:not([responsive-mode="scroll"]):not([responsive-mode="cards"]):not([responsive-mode="card"])) td:last-child {
           border-bottom: none;
         }
@@ -430,8 +534,32 @@ export class DileDataGrid extends LitElement {
     });
   }
 
-  _isStickyLeft(column, colIndex) {
-    return column.sticky === true || column.sticky === 'left' || (this.stickyFirstColumn && colIndex === 0);
+  _getRowId(row) {
+    if (!row) return undefined;
+    if (typeof this.computeRowId === 'function') {
+      return this.computeRowId(row);
+    }
+    return row[this.rowIdField];
+  }
+
+  _isRowSelected(row) {
+    if (!this.selectedIds || !Array.isArray(this.selectedIds)) {
+      return false;
+    }
+    const rowId = this._getRowId(row);
+    const stringIds = this.selectedIds.map(String);
+    return stringIds.includes(String(rowId));
+  }
+
+  _getStickyLeftClass(column, colIndex) {
+    const isSticky = column.sticky === true || column.sticky === 'left' || (this.stickyFirstColumn && colIndex === 0);
+    if (!isSticky) {
+      return '';
+    }
+    if (this.selectable) {
+      return 'sticky-left-after-selection';
+    }
+    return 'sticky-left';
   }
 
   _isStickyRight(column) {
@@ -441,12 +569,14 @@ export class DileDataGrid extends LitElement {
   render() {
     const items = this.displayedItems;
     const cols = this.columns || [];
+    const totalCols = (cols.length || 1) + (this.selectable ? 1 : 0);
 
     return html`
       <div class="table-container ${this.striped ? 'striped' : ''}">
         <table>
           <thead>
             <tr>
+              ${this.selectable ? this._renderSelectionHeaderCell() : ''}
               ${cols.map((col, colIndex) => this._renderHeaderCell(col, colIndex))}
             </tr>
           </thead>
@@ -454,7 +584,7 @@ export class DileDataGrid extends LitElement {
             ${items.length === 0
               ? html`
                   <tr class="empty-row">
-                    <td class="empty-cell" colspan="${cols.length || 1}" data-label="">
+                    <td class="empty-cell" colspan="${totalCols}" data-label="">
                       ${this.emptyMessage}
                     </td>
                   </tr>
@@ -466,15 +596,23 @@ export class DileDataGrid extends LitElement {
     `;
   }
 
+  _renderSelectionHeaderCell() {
+    const isSticky = this.stickyFirstColumn;
+    const hasShadow = !this.columns.some((col, idx) => (col.sticky === true || col.sticky === 'left' || (this.stickyFirstColumn && idx === 0)));
+    const stickyClass = isSticky ? `sticky-left ${hasShadow ? 'has-shadow' : ''}` : '';
+
+    return html`
+      <th class="selection-cell ${stickyClass}" aria-label="Select"></th>
+    `;
+  }
+
   _renderHeaderCell(column, colIndex) {
     const isSorted = this.sortField === column.field && !!this.sortDirection;
     const alignClass = column.align ? `align-${column.align}` : 'align-left';
     const sortableClass = column.sortable ? 'sortable' : '';
-    const stickyClass = this._isStickyLeft(column, colIndex)
-      ? 'sticky-left'
-      : this._isStickyRight(column)
-      ? 'sticky-right'
-      : '';
+    const stickyLeftClass = this._getStickyLeftClass(column, colIndex);
+    const stickyRightClass = this._isStickyRight(column) ? 'sticky-right' : '';
+    const stickyClass = `${stickyLeftClass} ${stickyRightClass}`.trim();
     const styleWidth = column.width ? `width: ${column.width};` : '';
 
     return html`
@@ -508,22 +646,77 @@ export class DileDataGrid extends LitElement {
   }
 
   _renderRow(row, rowIndex, columns) {
+    let rowClassName = '';
+    if (typeof this.rowClass === 'function') {
+      rowClassName = this.rowClass(row, rowIndex) || '';
+    }
+
     return html`
-      <tr @click=${(e) => this._handleRowClick(row, rowIndex, e)}>
+      <tr class="${rowClassName}" @click=${(e) => this._handleRowClick(row, rowIndex, e)}>
+        ${this.selectable ? this._renderSelectionCell(row, rowIndex) : ''}
         ${columns.map((col, colIndex) => this._renderCell(row, rowIndex, col, colIndex))}
       </tr>
     `;
+  }
+
+  _renderSelectionCell(row, rowIndex) {
+    const isSticky = this.stickyFirstColumn;
+    const hasShadow = !this.columns.some((col, idx) => (col.sticky === true || col.sticky === 'left' || (this.stickyFirstColumn && idx === 0)));
+    const stickyClass = isSticky ? `sticky-left ${hasShadow ? 'has-shadow' : ''}` : '';
+    const isSelected = this._isRowSelected(row);
+
+    return html`
+      <td
+        class="selection-cell ${stickyClass}"
+        data-label=""
+        @click=${(e) => e.stopPropagation()}
+      >
+        <dile-checkbox
+          ?checked=${isSelected}
+          @dile-checkbox-changed=${(e) => this._handleCheckboxChange(row, rowIndex, e)}
+        ></dile-checkbox>
+      </td>
+    `;
+  }
+
+  _handleCheckboxChange(row, rowIndex, event) {
+    const itemId = this._getRowId(row);
+    const checked = Boolean(event.detail.checked);
+
+    this.dispatchEvent(
+      new CustomEvent('item-checkbox-changed', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          checked,
+          itemId,
+          row,
+          index: rowIndex,
+        },
+      })
+    );
+
+    this.dispatchEvent(
+      new CustomEvent('dile-data-grid-item-selected', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          checked,
+          itemId,
+          row,
+          index: rowIndex,
+        },
+      })
+    );
   }
 
   _renderCell(row, rowIndex, column, colIndex) {
     const alignClass = column.align ? `align-${column.align}` : 'align-left';
     const hideOnCardClass = column.hideOnCard ? 'hide-on-card' : '';
     const noCardLabelClass = column.hideCardLabel ? 'no-card-label' : '';
-    const stickyClass = this._isStickyLeft(column, colIndex)
-      ? 'sticky-left'
-      : this._isStickyRight(column)
-      ? 'sticky-right'
-      : '';
+    const stickyLeftClass = this._getStickyLeftClass(column, colIndex);
+    const stickyRightClass = this._isStickyRight(column) ? 'sticky-right' : '';
+    const stickyClass = `${stickyLeftClass} ${stickyRightClass}`.trim();
     const label = column.hideCardLabel ? '' : (column.header || column.field || '');
 
     let content;

@@ -3,14 +3,14 @@ title: List
 tags: operations
 element: dile-crud-list
 package: '@dile/crud'
-summary: Lists resource records with pagination, filters, sorting, and per-item actions.
+summary: Lists resource records with pagination, filters, sorting, per-item actions, and optional DataGrid support.
 ---
 
 # dile-crud-list
 
 The `dile-crud-list` component is designed to list existing elements in a REST API resource. It is a sophisticated component with multiple customization options to adapt to various needs and web service configurations.
 
-The component allows you to create lists of resource elements, with or without pagination, provide various controls on the items, such as edit and delete buttons, as well as apply filters and different sorting options, among other features.
+The component allows you to create lists of resource elements, with or without pagination, provide various controls on the items, such as edit and delete buttons, as well as apply filters, different sorting options, and **render using either traditional list items or a full DataGrid component**.
 
 ## Installation
 
@@ -110,6 +110,230 @@ This component requires a configuration object with numerous properties, methods
 Complete information on how to configure it easily can be found on the [general CRUD guides page](/crud/). Also, you can find implementation examples below.
 
 > To simplify the use of CRUD components, the configuration object required is the same for all the various CRUD components, such as lists, fully functional CRUD pages, or detail pages for a record.
+
+## Rendering Modes
+
+`dile-crud-list` decides how to render each element with the following precedence, evaluated in this order:
+
+1. **`config.templates.grid`** (a function) — if defined, it wins over everything else.
+2. **`config.grid.columns`** (a declarative array) — if defined and `templates.grid` isn't, the list renders the built-in `<dile-crud-data-grid>` component.
+3. **Default** — if neither is configured, the list renders each element via `config.templates.item`, exactly as described above under [Usage](#usage) and [Configuration](#configuration).
+
+For most tabular listings, you don't need to write any DataGrid component yourself: configure **Option A** below. Only reach for **Option B** when the declarative columns aren't expressive enough for what you need.
+
+### Option A (Recommended): Declarative Data Grid via `config.grid`
+
+Setting `config.grid.columns` renders the built-in `<dile-crud-data-grid>` component for you. It automatically builds an `Actions` column (using `DileCrudItemActions.hasActions(config)` and `<dile-crud-item-actions>` internally — see [dile-crud-item-actions](/crud/crud-list-item/#dile-crud-item-actions)) and forwards grid-level options to the underlying `@dile/ui` `<dile-data-grid>` primitive. No custom component is required.
+
+#### Column definition reference
+
+Each entry in `config.grid.columns` accepts:
+
+Property | Type | Description
+---------|------|------------
+`field` | String | Property name read from each row when no `render` is given.
+`header` | String | Column header text. Falls back to `field` if omitted.
+`width` | String (CSS value) | Sets a fixed column width, e.g. `'110px'`.
+`align` | `'left' \| 'center' \| 'right'` | Cell/header text alignment. Default `'left'`.
+`sortable` | Boolean | Enables the clickable sort header and sort icon for this column.
+`render(item, rowIndex, column)` | Function | Custom cell content; overrides the `field` lookup.
+`hideOnCard` | Boolean | Hides this column in the responsive card layout.
+`hideCardLabel` | Boolean | Hides the auto-generated field label in card layout.
+`sticky` | `true \| 'left' \| 'right'` | Pins the column.
+
+#### Grid-level options reference
+
+All of the following live under `config.grid`:
+
+Property | Type | Default | Description
+---------|------|---------|------------
+`columns` | Array | — | Required to activate this rendering mode.
+`stickyFirstColumn` | Boolean | `true` | Pins the first column while scrolling horizontally.
+`striped` | Boolean | `true` | Alternates row background colors.
+`responsiveMode` | `'auto' \| 'cards' \| 'scroll'` | `'auto'` | Controls how the grid degrades on small containers.
+`emptyMessage` | String | `'No data available'` | Message shown when there are no rows.
+`selectable` | Boolean | `!config.customization.hideCheckboxSelection` | Overrides the global checkbox-selection setting for this grid specifically.
+`hideActionsColumn` | Boolean | `false` | Suppresses the automatic `Actions` column entirely.
+`actionsColumnHeader` | String | `config.labels.actionsHeader` or `'Actions'` | Header text for the auto-injected `Actions` column.
+`actionsColumnWidth` | String | `'110px'` | Width of the auto-injected `Actions` column.
+`actionsColumnAlign` | `'left' \| 'center' \| 'right'` | `'right'` | Alignment of the auto-injected `Actions` column.
+
+#### Example
+
+This is the configuration used by the Countries DataGrid demo:
+
+```javascript
+grid: {
+  columns: [
+    {
+      field: 'id',
+      header: 'ID',
+      width: '70px',
+      align: 'center',
+      sortable: true,
+    },
+    {
+      field: 'name',
+      header: 'Name',
+      sortable: true,
+    },
+    {
+      field: 'continent',
+      header: 'Continent',
+      sortable: true,
+      render: (country) => html`
+        <span style="display: inline-block; padding: 0.2rem 0.5rem; border-radius: 12px; background-color: var(--dile-primary-light-color, #e0f2fe); color: var(--dile-primary-dark-color, #0369a1); font-size: 0.8rem; font-weight: 600;">
+          ${country.continent || 'N/A'}
+        </span>
+      `,
+    },
+  ],
+  stickyFirstColumn: true,
+  striped: true,
+},
+```
+
+No `templates.grid` function and no custom component are needed — `<dile-crud-data-grid>` and its automatic `Actions` column handle the rest.
+
+### Option B (Escape Hatch): Fully Custom Component via `config.templates.grid`
+
+Use this only when `config.grid.columns` isn't expressive enough — for example, if you need full control over the grid wrapper, multiple grids on the same page, non-`<dile-data-grid>` markup, or client-side sorting (see [Sort Mode](#sort-mode-one-real-capability-difference) below). Instead of rendering individual items via `templates.item`, you render the entire listing yourself by configuring `templates.grid(elements, actionIds, config)`:
+
+```javascript
+templates: {
+  grid: (elements, actionIds, config) => html`
+    <customers-data-grid
+      .items=${elements}
+      .selectedIds=${actionIds}
+      .config=${config}
+    ></customers-data-grid>
+  `,
+}
+```
+
+When `templates.grid` is defined:
+1. `DileCrudList` delegates the rendering of all rows and selection check states to your DataGrid component.
+2. The `config` object is passed as the third parameter to the template, allowing your DataGrid (and its internal `<dile-crud-item-actions .item=${item} .config=${this.config}>`) to automatically respect global and per-item edit/delete/restore permissions without manual configuration.
+3. Clicking a column header emits `dile-data-grid-sort`, which is automatically captured by `DileCrudList` to trigger backend sorting via `setSort({ sortField, sortDirection })`.
+4. Checkbox changes emit `item-checkbox-changed`, synchronizing `actionIds` across both the list and batch actions toolbar.
+
+Unlike `config.grid.columns`, this path does **not** auto-inject an `Actions` column — you are responsible for adding one yourself using `DileCrudItemActions.hasActions(config)` and `<dile-crud-item-actions>`, exactly as shown in the example below and as documented in [dile-crud-item-actions](/crud/crud-list-item/#dile-crud-item-actions).
+
+#### Implementing a CRUD DataGrid Component
+
+Here is a complete, real-world example of a custom DataGrid component tailored for a CRUD resource. Notice how:
+- It declares `items`, `selectedIds`, and `config` properties.
+- It uses `DileCrudItemActions.hasActions(this.config)` to conditionally include the `Actions` column.
+- Inside the `Actions` column `render` method, `<dile-crud-item-actions .item=${item} .config=${this.config}>` automatically takes care of edit/delete/restore permissions and events.
+- Custom cell elements use `part="..."` in their render template, allowing the host component to easily style them with `dile-data-grid::part(...)` across the Shadow DOM boundary.
+- `selectable` is derived from `config.customization.hideCheckboxSelection`, matching the behavior of the built-in `<dile-crud-data-grid>` from Option A, instead of being hardcoded.
+
+```javascript
+import { LitElement, html, css } from 'lit';
+import '@dile/ui/components/data-grid/data-grid.js';
+import { DileCrudItemActions } from '@dile/crud/components/list/src/DileCrudItemActions.js';
+import '@dile/crud/components/list/crud-item-actions.js';
+
+export class CustomersDataGrid extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+      dile-data-grid::part(country-badge) {
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        border-radius: 12px;
+        background-color: var(--dile-primary-light-color, #e0f2fe);
+        color: var(--dile-primary-dark-color, #0369a1);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      items: { type: Array },
+      selectedIds: { type: Array },
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.items = [];
+    this.selectedIds = [];
+    this.config = null;
+  }
+
+  get columns() {
+    const cols = [
+      {
+        field: 'id',
+        header: 'ID',
+        width: '70px',
+        align: 'center',
+        sortable: true,
+      },
+      {
+        field: 'name',
+        header: 'Customer Name',
+        sortable: true,
+      },
+      {
+        field: 'country',
+        header: 'Country',
+        sortable: true,
+        render: (customer) => html`
+          <span part="country-badge">${customer.country || 'N/A'}</span>
+        `,
+      },
+    ];
+
+    // Conditionally include Actions column only if actions are enabled
+    if (DileCrudItemActions.hasActions(this.config)) {
+      cols.push({
+        header: 'Actions',
+        align: 'right',
+        width: '110px',
+        hideCardLabel: true,
+        render: (customer) => html`
+          <dile-crud-item-actions
+            .item=${customer}
+            .config=${this.config}
+          ></dile-crud-item-actions>
+        `,
+      });
+    }
+
+    return cols;
+  }
+
+  render() {
+    return html`
+      <dile-data-grid
+        .items=${this.items}
+        .columns=${this.columns}
+        .selectedIds=${this.selectedIds}
+        ?selectable=${!this.config?.customization?.hideCheckboxSelection}
+        sticky-first-column
+        striped
+      ></dile-data-grid>
+    `;
+  }
+}
+
+customElements.define('customers-data-grid', CustomersDataGrid);
+```
+
+### Shared Behavior Between Both Grid Modes
+
+Both Option A and Option B render inside the same `.grid-container` wrapper inside `dile-crud-list`, which listens for `item-checkbox-changed` (syncing `actionIds`/selection) and `dile-data-grid-sort` (calling `setSort({ sortField, sortDirection })`). Selection sync and server-driven sort behave identically regardless of which option you use.
+
+### Sort Mode: One Real Capability Difference
+
+`config.grid.columns` always uses `sort-mode="external"` on the underlying `<dile-data-grid>`, meaning every column sort click triggers a new server request via `setSort`. A hand-written `templates.grid` component (Option B) can instead set `sort-mode="client"` to sort a small/unpaginated dataset entirely client-side, without hitting the server — something the declarative path cannot currently do.
 
 ## Unpaginated List Example
 

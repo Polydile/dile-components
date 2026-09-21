@@ -8,7 +8,7 @@ summary: Reactive and accessible data grid component with Container Queries resp
 
 # dile-data-grid
 
-`dile-data-grid` is a reactive and customizable data grid web component for displaying tabular data. It leverages **CSS Container Queries** (`@container`) to adapt dynamically to its container's width (switching to an accessible Card layout when narrow), supports **Horizontal Scroll with Sticky Columns** (`position: sticky; left: 0 / right: 0`), custom cell render callbacks, client/external sorting, and CSS theming.
+`dile-data-grid` is a reactive and customizable data grid web component for displaying tabular data. It leverages **CSS Container Queries** (`@container`) to adapt dynamically to its container's width (switching to an accessible Card layout when narrow), supports **Horizontal Scroll with Sticky Columns** (`position: sticky; left: 0 / right: 0`), custom cell render callbacks, client/external sorting, selection checkboxes, and CSS theming.
 
 ## Installation
 
@@ -53,6 +53,11 @@ grid.items = [
 
 - **items** (`Array`, default: `[]`): Array of data objects to display.
 - **columns** (`Array`, default: `[]`): Array of column configuration objects.
+- **selectable** (`Boolean`, default: `false`): Enables the checkbox selection column in the header and rows.
+- **selectedIds** (`Array`, default: `[]`): Array of IDs of currently selected items.
+- **rowIdField** (`String`, default: `'id'`): Property key to uniquely identify rows (used with `selectedIds`).
+- **computeRowId** (`Function`, default: `(row) => row[this.rowIdField]`): Custom callback to compute unique ID for a row.
+- **rowClass** (`Function`, default: `null`): Callback `(row, index) => string` returning additional CSS class names for each `<tr>`.
 - **sortField** (`String`, default: `''`): The field currently used to sort the data.
 - **sortDirection** (`String`, default: `''`): Direction of the sort (`'asc'`, `'desc'`, or `''`).
 - **sortMode** (`String`, default: `'client'`): Sorting mode. Set to `'client'` to sort items internally, or `'external'` when sorting is handled by a parent component/server.
@@ -60,9 +65,8 @@ grid.items = [
   - `'auto'`: Uses Container Queries (`@container (max-width: 600px)`) to automatically switch from standard table to Card layout when container is narrow.
   - `'cards'`: Forces Card layout at any container size.
   - `'scroll'`: Forces traditional table layout with horizontal scroll.
-- **stickyFirstColumn** (`Boolean`, default: `false`): Fixes the first column to the left while scrolling horizontally.
+- **stickyFirstColumn** (`Boolean`, default: `false`): Fixes the first data column (and selection column if present) to the left while scrolling horizontally.
 - **emptyMessage** (`String`, default: `'No data available'`): Message displayed when the items list is empty.
-- **rowIdField** (`String`, default: `'id'`): Property key to uniquely identify rows.
 - **striped** (`Boolean`, default: `false`): Applies alternating background colors to rows.
 
 ## Column Configuration
@@ -84,6 +88,8 @@ Each item in the `columns` array can have the following properties:
 
 - **dile-data-grid-sort**: Dispatched when a sortable column header is clicked. Detail contains `{ field, direction, column }`.
 - **dile-data-grid-row-click**: Dispatched when a table row is clicked. Detail contains `{ row, index, event }`.
+- **dile-data-grid-item-selected**: Dispatched when a row checkbox is toggled. Detail contains `{ checked, itemId, row, index }`.
+- **item-checkbox-changed**: Dispatched when a row checkbox is toggled (compatible with CRUD components). Detail contains `{ checked, itemId, row, index }`.
 
 ## CSS Custom Properties
 
@@ -102,6 +108,7 @@ Each item in the `columns` array can have the following properties:
 | `--dile-data-grid-header-hover-background-color` | Sortable header hover color | `#f1f5f9` |
 | `--dile-data-grid-sort-icon-color` | Inactive sort icon color | `#94a3b8` |
 | `--dile-data-grid-sort-icon-active-color` | Active sort icon color | `#2563eb` |
+| `--dile-data-grid-selection-width` | Width of selection column | `44px` |
 | `--dile-data-grid-row-border-bottom` | Row bottom border | `1px solid #f1f5f9` |
 | `--dile-data-grid-row-padding` | Body cell padding | `0.75rem 1rem` |
 | `--dile-data-grid-row-color` | Body cell text color | `#1e293b` |

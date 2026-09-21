@@ -45,6 +45,7 @@ describe('dile-data-grid', () => {
       emptyMessage: 'Nothing found',
     });
     const emptyCell = el.shadowRoot.querySelector('.empty-cell');
+    expect(emptyCell).toBeTruthy();
     expect(emptyCell.textContent.trim()).toBe('Nothing found');
   });
 
@@ -276,7 +277,7 @@ describe('dile-data-grid', () => {
     expect(tds[2].classList.contains('sticky-right')).toBe(true);
   });
 
-  it('applies sticky-left to the first column when stickyFirstColumn property is set', async () => {
+  it('applies sticky-left to the first column when stickyFirstColumn property is set without selection', async () => {
     const el = await createDataGrid({
       columns: sampleColumns,
       items: sampleItems,
@@ -289,5 +290,132 @@ describe('dile-data-grid', () => {
     expect(ths[0].classList.contains('sticky-left')).toBe(true);
     expect(tds[0].classList.contains('sticky-left')).toBe(true);
     expect(ths[1].classList.contains('sticky-left')).toBe(false);
+  });
+
+  it('handles sticky columns properly when selectable is true and stickyFirstColumn is true', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: sampleItems,
+      selectable: true,
+      stickyFirstColumn: true,
+    });
+
+    const ths = el.shadowRoot.querySelectorAll('th');
+    const tds = el.shadowRoot.querySelectorAll('tbody tr td');
+
+    // th[0] is selection cell -> sticky-left
+    expect(ths[0].classList.contains('selection-cell')).toBe(true);
+    expect(ths[0].classList.contains('sticky-left')).toBe(true);
+    expect(tds[0].classList.contains('selection-cell')).toBe(true);
+    expect(tds[0].classList.contains('sticky-left')).toBe(true);
+
+    // th[1] is first data column -> sticky-left-after-selection
+    expect(ths[1].classList.contains('sticky-left-after-selection')).toBe(true);
+    expect(tds[1].classList.contains('sticky-left-after-selection')).toBe(true);
+  });
+
+  it('renders selection column when selectable is true and checks items matching selectedIds', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: sampleItems,
+      selectable: true,
+      selectedIds: [2],
+    });
+
+    const ths = el.shadowRoot.querySelectorAll('th');
+    expect(ths.length).toBe(5);
+    expect(ths[0].classList.contains('selection-cell')).toBe(true);
+
+    const rows = el.shadowRoot.querySelectorAll('tbody tr');
+    expect(rows.length).toBe(3);
+
+    const checkboxes = el.shadowRoot.querySelectorAll('dile-checkbox');
+    expect(checkboxes.length).toBe(3);
+    expect(checkboxes[0].checked).toBe(false);
+    expect(checkboxes[1].checked).toBe(true);
+    expect(checkboxes[2].checked).toBe(false);
+  });
+
+  it('dispatches item-checkbox-changed and dile-data-grid-item-selected when a checkbox is toggled', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: sampleItems,
+      selectable: true,
+      selectedIds: [],
+    });
+
+    let itemCheckboxDetail = null;
+    let gridItemSelectedDetail = null;
+
+    el.addEventListener('item-checkbox-changed', (e) => {
+      itemCheckboxDetail = e.detail;
+    });
+    el.addEventListener('dile-data-grid-item-selected', (e) => {
+      gridItemSelectedDetail = e.detail;
+    });
+
+    const firstCheckbox = el.shadowRoot.querySelectorAll('dile-checkbox')[0];
+    await firstCheckbox.updateComplete;
+    const clickTarget = firstCheckbox.shadowRoot?.querySelector('div') || firstCheckbox;
+    clickTarget.click();
+    await el.updateComplete;
+
+    expect(itemCheckboxDetail).toBeTruthy();
+    expect(itemCheckboxDetail.checked).toBe(true);
+    expect(itemCheckboxDetail.itemId).toBe(1);
+    expect(itemCheckboxDetail.index).toBe(0);
+
+    expect(gridItemSelectedDetail).toBeTruthy();
+    expect(gridItemSelectedDetail.checked).toBe(true);
+    expect(gridItemSelectedDetail.itemId).toBe(1);
+  });
+
+  it('applies rowClass custom class to table rows', async () => {
+    const el = await createDataGrid({
+      columns: sampleColumns,
+      items: [
+        { id: 1, name: 'Carlos', deleted_at: null },
+        { id: 2, name: 'Ana', deleted_at: '2026-01-01' },
+      ],
+      rowClass: (row) => (row.deleted_at ? 'is-deleted' : ''),
+    });
+
+    const rows = el.shadowRoot.querySelectorAll('tbody tr');
+    expect(rows[0].classList.contains('is-deleted')).toBe(false);
+    expect(rows[1].classList.contains('is-deleted')).toBe(true);
+  });
+
+  it('supports custom computeRowId function', async () => {
+    const customItems = [
+      { uuid: 'abc-1', name: 'Carlos' },
+      { uuid: 'xyz-2', name: 'Ana' },
+    ];
+    const el = await createDataGrid({
+      columns: [{ field: 'name', header: 'Name' }],
+      items: customItems,
+      selectable: true,
+      computeRowId: (row) => row.uuid,
+      selectedIds: ['xyz-2'],
+    });
+
+    const checkboxes = el.shadowRoot.querySelectorAll('dile-checkbox');
+    expect(checkboxes[0].checked).toBe(false);
+    expect(checkboxes[1].checked).toBe(true);
+  });
+
+  it('reads sortMode and emptyMessage from their kebab-case HTML attributes', async () => {
+    document.body.innerHTML = `
+      <dile-data-grid sort-mode="external" empty-message="Nothing here"></dile-data-grid>
+    `;
+    const el = document.body.querySelector('dile-data-grid');
+    await el.updateComplete;
+
+    expect(el.sortMode).toBe('external');
+    expect(el.emptyMessage).toBe('Nothing here');
+
+    el.items = [];
+    await el.updateComplete;
+    const emptyCell = el.shadowRoot.querySelector('.empty-cell');
+    expect(emptyCell.textContent.trim()).toBe('Nothing here');
   });
 });

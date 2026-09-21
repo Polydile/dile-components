@@ -7,6 +7,7 @@ import '../../list/crud-list-pagination-links.js';
 import '../crud-list-item.js';
 import '../crud-select-all.js';
 import '../crud-list-service.js';
+import '../crud-data-grid.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
 
 export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
@@ -67,8 +68,13 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             }
             .elements-container {
                 display: grid;
-                grid-template-columns: var(--dile-crud-list-elements-container-template-columns,  minmax(0, 1fr));
+                grid-template-columns: var(--dile-crud-list-elements-container-template-columns, minmax(0, 1fr));
                 gap: var(--dile-crud-list-elements-container-gap, 0);
+            }
+            .grid-container {
+                display: block;
+                width: 100%;
+                margin: var(--dile-crud-list-grid-container-margin, 0 0 1rem 0);
             }
         `
     ];
@@ -94,7 +100,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
     constructor() {
         super();
-        this.paginationData = {}
+        this.paginationData = {};
         this.elements = [];
         this.pageSize = 10;
         this.keyword = '';
@@ -207,6 +213,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             ></dile-ajax>
         `;
     }
+
     get emptyTemplate() {
         return html`
             <div class="empty">
@@ -243,6 +250,32 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     get elementsTemplate() {
+        if (this.config?.templates?.grid && typeof this.config.templates.grid === 'function') {
+            return html`
+                <div
+                    class="grid-container"
+                    @item-checkbox-changed=${this.onItemsCheckboxChanged}
+                    @dile-data-grid-sort=${this.onGridSort}
+                >
+                    ${this.config.templates.grid(this.elements, this.actionIds, this.config)}
+                </div>
+            `;
+        }
+        if (this.config?.grid?.columns && Array.isArray(this.config.grid.columns)) {
+            return html`
+                <div
+                    class="grid-container"
+                    @item-checkbox-changed=${this.onItemsCheckboxChanged}
+                    @dile-data-grid-sort=${this.onGridSort}
+                >
+                    <dile-crud-data-grid
+                        .items=${this.elements}
+                        .selectedIds=${this.actionIds}
+                        .config=${this.config}
+                    ></dile-crud-data-grid>
+                </div>
+            `;
+        }
         return html`
             <div class="elements-container">
                 ${this.elements.map(element => html`
@@ -252,7 +285,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         .actionIds="${this.actionIds}"
                         ?disableEdit=${!this.isItemEditable(element)}
                         ?disableDelete=${!this.isItemDeletable(element)}
-                        ?disableRestore=${this.config?.customization?.disableRestore}
+                        ?disableRestore=${this.config?.customization?.disableRestore || this.config?.customization?.disableListActions}
                         ?hideCheckboxSelection="${this.config?.customization?.hideCheckboxSelection}"
                         @item-checkbox-changed=${this.onItemsCheckboxChanged}
                         ?isDeleted=${element.deleted_at}
@@ -276,13 +309,13 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     isItemEditable(element) {
-        const isGloballyDisabled = this.config?.customization?.disableEdit;
+        const isGloballyDisabled = this.config?.customization?.disableListActions || this.config?.customization?.disableEdit;
         const isItemEditable = this.config?.isItemEditable(element) ?? true;
         return !isGloballyDisabled && isItemEditable;
     }
 
     isItemDeletable(element) {
-        const isGloballyDisabled = this.config?.customization?.disableDelete;
+        const isGloballyDisabled = this.config?.customization?.disableListActions || this.config?.customization?.disableDelete;
         const isItemDeletable = this.config?.isItemDeletable(element) ?? true;
         return !isGloballyDisabled && isItemDeletable;
     }
@@ -314,11 +347,11 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     goNext() {
-        this.elservice.goNext()
+        this.elservice.goNext();
     }
 
     goPrev() {
-        this.elservice.goPrev()
+        this.elservice.goPrev();
     }
 
     refresh() {
@@ -332,7 +365,6 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
         }
         this.elservice.refresh();
-        
     }    
 
     setKeyword(keyword) {
@@ -346,6 +378,20 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.sort = sortObject;
         this.elservice.setSort(sortObject);
     }  
+
+    onGridSort(e) {
+        if (e.detail?.field) {
+            this.setSort({
+                sortField: e.detail.field,
+                sortDirection: e.detail.direction || 'asc',
+            });
+        } else {
+            this.setSort({
+                sortField: null,
+                sortDirection: null,
+            });
+        }
+    }
 
     setPageSize(size) {
         this.loading = true;
@@ -389,7 +435,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
       if(this.config.customization?.disablePagination) {
         let ids = this.elements.map(item => this.config.computeItemId(item));
         this.dispactSelectAll(ids);
-      } else{
+      } else {
         let data = {
             keyword: this.keyword,
             filters: this.filters,
@@ -413,7 +459,6 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         if (!e.detail.checked && this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').resetWithoutDispatch();
         }
-        
     }
 
     onListError(e) {
