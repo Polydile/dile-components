@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-slide-show&gt;'
 status: stable
 summary: Content toggle component with smooth slide animation. Supports customizable open/close labels and target height configuration.
+tags: utils
 ---
 
 # dile-slide-show

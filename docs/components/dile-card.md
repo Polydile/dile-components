@@ -4,6 +4,7 @@ package: '@dile/ui'
 element: '&lt;dile-card&gt;'
 status: stable
 summary: Container component for card-based layouts with optional title and footer slots. Supports shadow styling and flexible content organization.
+tags: layout
 ---
 
 # dile-card

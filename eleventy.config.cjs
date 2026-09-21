@@ -34,6 +34,7 @@ module.exports = async function(eleventyConfig) {
     { key: "utils", label: "Utils", icon: "phosphor.app-window" },
     { key: "menu", label: "Menu", icon: "remixicon.menu-fill" },
     { key: "spinner", label: "Spinner", icon: "phosphor.spinner" },
+    { key: "layout", label: "Layout", icon: "phosphor.layout" },
   ];
 
   eleventyConfig.addCollection("uncategorizedComponents", function(collectionApi) {
@@ -42,11 +43,26 @@ module.exports = async function(eleventyConfig) {
           !componentTagsList.some(tag => item.data.tags.includes(tag.key)) &&
           !item.data.tags.includes("input") &&
           item.url !== '/components/' &&
-          item.data.hideLink !== true
+          item.data.hideLink !== true &&
+          item.data.status !== 'deprecated'
         );
   });
 
   eleventyConfig.addGlobalData("componentTagsList", componentTagsList);
+
+  // Crear colecciones filtradas para cada tag de componentes
+  componentTagsList.forEach(tag => {
+    eleventyConfig.addCollection(tag.key, function(collectionApi) {
+      return collectionApi.getFilteredByTag(tag.key)
+          .filter(item => item.data.status !== 'deprecated');
+    });
+  });
+
+  // Crear colección para componentes con input tag
+  eleventyConfig.addCollection("input", function(collectionApi) {
+    return collectionApi.getFilteredByTag("input")
+        .filter(item => item.data.status !== 'deprecated');
+  });
 
   const mixinTagsList = ["formData", "effects", "scroll"];
 
@@ -55,11 +71,20 @@ module.exports = async function(eleventyConfig) {
         .filter(item => 
           !mixinTagsList.some(tag => item.data.tags.includes(tag)) &&
           item.url !== '/mixins/' &&
-          item.data.hideLink !== true
+          item.data.hideLink !== true &&
+          item.data.status !== 'deprecated'
         );
   });
 
   eleventyConfig.addGlobalData("mixinTagsList", mixinTagsList);
+
+  // Crear colecciones filtradas para cada tag de mixins
+  mixinTagsList.forEach(tag => {
+    eleventyConfig.addCollection(tag, function(collectionApi) {
+      return collectionApi.getFilteredByTag(tag)
+          .filter(item => item.data.status !== 'deprecated');
+    });
+  });
 
   const crudTagsList = ["introduction", "configuration", "ajax", "operations", "main", "Crud extras"];
 
@@ -68,21 +93,44 @@ module.exports = async function(eleventyConfig) {
       .filter(item =>
         !crudTagsList.some(tag => item.data.tags.includes(tag)) &&
         item.url !== '/crud/' &&
-        item.data.hideLink !== true
+        item.data.hideLink !== true &&
+        item.data.status !== 'deprecated'
       );
   });
 
   // Añadir variable global con los crud tags
   eleventyConfig.addGlobalData("crudTagsList", crudTagsList);
 
+  // Crear colecciones filtradas para cada tag de CRUD
+  crudTagsList.forEach(tag => {
+    eleventyConfig.addCollection(tag, function(collectionApi) {
+      return collectionApi.getFilteredByTag(tag)
+          .filter(item => item.data.status !== 'deprecated');
+    });
+  });
 
   const iconsTagsList = ["lucide", "fontawesome", "material", "phosphor", "tabler", "remixicon", "universal icons"];
 
   eleventyConfig.addGlobalData("iconsTagsList", iconsTagsList);
 
+  // Crear colecciones filtradas para cada tag de icons
+  iconsTagsList.forEach(tag => {
+    eleventyConfig.addCollection(tag, function(collectionApi) {
+      return collectionApi.getFilteredByTag(tag)
+          .filter(item => item.data.status !== 'deprecated');
+    });
+  });
 
 const libTagList = ["state management", "routing", "app components"];
-eleventyConfig.addGlobalData("libTagList", libTagList)
+eleventyConfig.addGlobalData("libTagList", libTagList);
+
+// Crear colecciones filtradas para cada tag de lib
+libTagList.forEach(tag => {
+  eleventyConfig.addCollection(tag, function(collectionApi) {
+    return collectionApi.getFilteredByTag(tag)
+        .filter(item => item.data.status !== 'deprecated');
+  });
+});
 
 
   eleventyConfig.on('eleventy.after', () => {
