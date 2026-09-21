@@ -1,10 +1,7 @@
-49 error ExitPromptError: User force closed the prompt with SIGINT
-49 error     at Interface.sigint (file:///Users/midesweb/sites/polydile/dile-components/node_modules/@inquirer/core/dist/esm/lib/create-prompt.js:62:37)
-49 error     at Interface.emit (node:events:508:28)
-49 error     at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1315:18)
-49 error     at ReadStream.onkeypress (node:internal/readline/interface:284:20)
-49 error     at ReadStream.emit (node:events:520:35)
-49 error     at emitKeys (node:internal/readline/utils:371:14)
-49 error     at emitKeys.next (<anonymous>)
-49 error     at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
-49 error     at ReadStream.emit (node:events:508:28)
+87 error Error: Command failed with exit code 128: git push --follow-tags --no-verify --atomic origin master
+87 error failed to get: -25293
+87 error remote: No anonymous write access.
+87 error fatal: Authentication failed for 'https://github.com/Polydile/dile-components.git/'
+87 error     at makeError (/Users/midesweb/sites/polydile/dile-components/node_modules/execa/lib/error.js:59:11)
+87 error     at handlePromise (/Users/midesweb/sites/polydile/dile-components/node_modules/execa/index.js:114:26)
+87 error     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
