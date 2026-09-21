@@ -111,7 +111,7 @@ Complete information on how to configure it easily can be found on the [general 
 
 > To simplify the use of CRUD components, the configuration object required is the same for all the various CRUD components, such as lists, fully functional CRUD pages, or detail pages for a record.
 
-## Rendering Modes
+## Rendering Modes {#rendering-modes}
 
 `dile-crud-list` decides how to render each element with the following precedence, evaluated in this order:
 
@@ -121,7 +121,7 @@ Complete information on how to configure it easily can be found on the [general 
 
 For most tabular listings, you don't need to write any DataGrid component yourself: configure **Option A** below. Only reach for **Option B** when the declarative columns aren't expressive enough for what you need.
 
-### Option A (Recommended): Declarative Data Grid via `config.grid`
+### Option A (Recommended): Declarative Data Grid via `config.grid` {#option-a}
 
 Setting `config.grid.columns` renders the built-in `<dile-crud-data-grid>` component for you. It automatically builds an `Actions` column (using `DileCrudItemActions.hasActions(config)` and `<dile-crud-item-actions>` internally — see [dile-crud-item-actions](/crud/crud-list-item/#dile-crud-item-actions)) and forwards grid-level options to the underlying `@dile/ui` `<dile-data-grid>` primitive. No custom component is required.
 
@@ -195,9 +195,9 @@ grid: {
 
 No `templates.grid` function and no custom component are needed — `<dile-crud-data-grid>` and its automatic `Actions` column handle the rest.
 
-### Option B (Escape Hatch): Fully Custom Component via `config.templates.grid`
+### Option B (Escape Hatch): Fully Custom Component via `config.templates.grid` {#option-b}
 
-Use this only when `config.grid.columns` isn't expressive enough — for example, if you need full control over the grid wrapper, multiple grids on the same page, non-`<dile-data-grid>` markup, or client-side sorting (see [Sort Mode](#sort-mode-one-real-capability-difference) below). Instead of rendering individual items via `templates.item`, you render the entire listing yourself by configuring `templates.grid(elements, actionIds, config)`:
+Use this only when `config.grid.columns` isn't expressive enough — for example, if you need full control over the grid wrapper, multiple grids on the same page, non-`<dile-data-grid>` markup, or client-side sorting (see [Sort Mode](#sort-mode) below). Instead of rendering individual items via `templates.item`, you render the entire listing yourself by configuring `templates.grid(elements, actionIds, config)`:
 
 ```javascript
 templates: {
@@ -331,7 +331,7 @@ customElements.define('customers-data-grid', CustomersDataGrid);
 
 Both Option A and Option B render inside the same `.grid-container` wrapper inside `dile-crud-list`, which listens for `item-checkbox-changed` (syncing `actionIds`/selection) and `dile-data-grid-sort` (calling `setSort({ sortField, sortDirection })`). Selection sync and server-driven sort behave identically regardless of which option you use.
 
-### Sort Mode: One Real Capability Difference
+### Sort Mode: One Real Capability Difference {#sort-mode}
 
 `config.grid.columns` always uses `sort-mode="external"` on the underlying `<dile-data-grid>`, meaning every column sort click triggers a new server request via `setSort`. A hand-written `templates.grid` component (Option B) can instead set `sort-mode="client"` to sort a small/unpaginated dataset entirely client-side, without hitting the server — something the declarative path cannot currently do.
 

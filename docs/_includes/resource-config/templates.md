@@ -7,6 +7,7 @@ This property is an object that contains template functions for rendering differ
 ```javascript
 templates: {
   item: () => templatePlaceholder('item'),
+  grid: null,
   insertForm: (belongsTo, relationId) => templatePlaceholder('insertForm'),
   updateForm: () => templatePlaceholder('updateForm'),
   help: () => templatePlaceholder('help'),
@@ -30,6 +31,18 @@ Renders each individual item in the list view.
 - `item` (Object): The resource element to render
 
 **Returns:** Lit `html` template result
+
+### `grid`
+Optional. When defined, it overrides the default per-item rendering to render the whole listing as a fully custom DataGrid component instead — an escape hatch for when the declarative [`grid`](#grid) property isn't expressive enough for your needs.
+
+**Parameters:**
+- `elements` (Array): The elements to display
+- `actionIds` (Array): The currently selected item ids, for batch actions
+- `config` (Object): The full resource configuration object, so your component can resolve permissions (`isItemEditable`, `isItemDeletable`), compute ids (`computeItemId`), etc.
+
+**Returns:** Lit `html` template result, or `null`/`undefined` when not used (the list falls back to `grid.columns` or `item`)
+
+See [Rendering Modes → Option B](/crud/crud-list/#option-b) on the `dile-crud-list` page for a complete worked example and details on how this integrates with sorting and selection.
 
 ### `insertForm`
 Renders the form for creating new items.

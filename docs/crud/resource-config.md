@@ -149,6 +149,7 @@ Here is a complete list of the configuration object properties that can be suppl
 | [`updateOperation`](#updateOperation) | Object | Customize the behavior of the edit/update operation |
 | [`actions`](#actions) | Object | Define batch actions for lists and individual actions for single items |
 | [`maxBatchActionItems`](#maxBatchActionItems) | Number | Set the maximum number of items for batch actions |
+| [`grid`](#grid) | Object | Render the list as a DataGrid using a declarative list of columns |
 | [`customization`](#customization) | Object | Customize the behavior and visibility of UI elements |
 | [`templates`](#templates) | Object | Define template functions for rendering different parts of the CRUD interface |
 | [`labels`](#labels) | Object | Customize labels for buttons, titles, and other UI text |
@@ -203,6 +204,12 @@ Here is a complete list of the configuration object properties that can be suppl
 ### Property `maxBatchActionItems` {#maxBatchActionItems}
 
 {% include "resource-config/maxBatchActionItems.md" %}
+
+---
+
+### Property `grid` {#grid}
+
+{% include "resource-config/grid.md" %}
 
 ---
 

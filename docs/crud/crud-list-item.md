@@ -85,7 +85,7 @@ This component only displays the name and email of a user, with a very rudimenta
 
 ---
 
-# dile-crud-item-actions
+# dile-crud-item-actions {#dile-crud-item-actions}
 
 The `<dile-crud-item-actions>` component centralizes and standardizes item actions (Edit, Delete, and Restore) for both traditional list items (`dile-crud-list-item`) and custom DataGrids (`dile-data-grid`).
 
