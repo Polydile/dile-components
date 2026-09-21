@@ -26,6 +26,6 @@ export const DileCloseOnEscPressed = (SuperClass) =>
     }
 
     close() {
-      console.log('You need to implement a close method!');
+      console.log('You need to implement a close method. Read docs to find more information.');
     }
   };
