@@ -160,6 +160,7 @@ Property | Type | Default | Description
 `actionsColumnHeader` | String | `config.labels.actionsHeader` or `'Actions'` | Header text for the auto-injected `Actions` column.
 `actionsColumnWidth` | String | `'110px'` | Width of the auto-injected `Actions` column.
 `actionsColumnAlign` | `'left' \| 'center' \| 'right'` | `'right'` | Alignment of the auto-injected `Actions` column.
+`actionsColumnSticky` | `true \| 'left' \| 'right'` | — | Pins the auto-injected `Actions` column, same semantics as a column's `sticky` property above.
 
 #### Example
 

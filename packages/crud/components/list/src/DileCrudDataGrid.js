@@ -39,12 +39,14 @@ export class DileCrudDataGrid extends LitElement {
       const customActionsHeader = this.config?.grid?.actionsColumnHeader || this.config?.labels?.actionsHeader || 'Actions';
       const customActionsWidth = this.config?.grid?.actionsColumnWidth || '110px';
       const customActionsAlign = this.config?.grid?.actionsColumnAlign || 'right';
+      const customActionsSticky = this.config?.grid?.actionsColumnSticky;
 
       cols.push({
         header: customActionsHeader,
         align: customActionsAlign,
         width: customActionsWidth,
         hideCardLabel: true,
+        sticky: customActionsSticky,
         render: (item) => html`
           <dile-crud-item-actions
             .item=${item}

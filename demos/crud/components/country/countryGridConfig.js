@@ -6,16 +6,17 @@ export const countryGridConfig = new CrudConfigBuilder('https://timer.escuelait.
   maxBatchActionItems: 100,
   grid: {
     columns: [
+
+      {
+        field: 'name',
+        header: 'Name',
+        sortable: true,
+      },
       {
         field: 'id',
         header: 'ID',
         width: '70px',
         align: 'center',
-        sortable: true,
-      },
-      {
-        field: 'name',
-        header: 'Name',
         sortable: true,
       },
       {
@@ -32,6 +33,9 @@ export const countryGridConfig = new CrudConfigBuilder('https://timer.escuelait.
     ],
     stickyFirstColumn: true,
     striped: true,
+    responsiveMode: 'scroll',
+    actionsColumnSticky: 'right',
+    actionsColumnHeader: ' ',
   },
   templates: {
     insertForm: () => html`<demo-country-form id="insertform"></demo-country-form>`,
