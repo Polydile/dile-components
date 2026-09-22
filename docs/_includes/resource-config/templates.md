@@ -45,6 +45,8 @@ Optional. When defined, it overrides the default per-item rendering to render th
 
 See [Rendering Modes → Option B](/crud/crud-list/#option-b) on the `dile-crud-list` page for a complete worked example and details on how this integrates with sorting and selection.
 
+> If `item` is also explicitly configured alongside a grid (`grid.columns` or this `templates.grid`), both views coexist: `dile-crud-list` shows the item view by default and switches based on its `viewMode` property, normally driven by a toggle button that `dile-crud` renders automatically. See [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch).
+
 ### `insertForm`
 Renders the form for creating new items.
 

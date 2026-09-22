@@ -55,6 +55,7 @@ Use the component.
 - **removeActionItems(idsArray)**: Removes the items with the specified IDs in `idsArray` from the CRUD system.
 - **refresh()**: Refreshes the data or content of the CRUD system, reloading the items from the server.
 - **setCustomizationOption(optionName, value)**: Dynamically sets a customization option in the CRUD configuration. Receives the option name (e.g., `hideCheckboxSelection`, `disableInsert`) and the value to set.
+- **toggleListView()**: Switches the list between the item view and the grid view. Called automatically when the [List/Grid View Switch](#list-grid-view-switch) button is clicked; only has a visible effect when both views are configured for the resource.
 
 ### Events
 
@@ -118,6 +119,9 @@ Custom property | Description | Default
 --dile-crud-direct-action-font-size | Font size of direct single action buttons | var(--dile-button-font-size, 1rem)
 --dile-crud-direct-action-text-transform | Text transform of direct single action buttons | var(--dile-button-text-transform, none)
 --dile-crud-direct-action-font-weight | Font weight of direct single action buttons | var(--dile-button-font-weight, bold)
+--dile-crud-view-switch-background-color | Background color of the list/grid view-switch button — both the full button (≥605px) and the round icon-only button (<605px) | var(--dile-primary-color, #7BB93D) for the full button, var(--dile-crud-action-color, #888) for the round icon
+--dile-crud-view-switch-text-color | Text/icon color of the list/grid view-switch button | var(--dile-on-primary-color, #fff) for the full button, var(--dile-on-crud-action-color, #fff) for the round icon
+--dile-crud-view-switch-border-color | Border color of the full list/grid view-switch button. Has no visible effect on the round icon-only button, which has no border | var(--dile-primary-dark-color, #12354d)
 
 
 ## Generating CRUD Components for Entities with the CLI
@@ -390,3 +394,69 @@ customElements.define('demo-board-game-crud-single-action', DemoBoardGameCrudSin
 > Note that `config.templates.formActions` is reused as-is for the single action dispatcher (it receives the action name and the array of selected item ids, just like batch actions do). Only the action metadata (`label`, `destructive`) is sourced from `actions.single` instead of `actions.list`.
 
 You can customize the button's colors, including its hover state, with the `--dile-crud-single-action-*` custom properties documented in the [CSS Custom Properties](#crud-component-css-custom-properties) table above.
+
+## List/Grid View Switch {#list-grid-view-switch}
+
+When a resource config defines **both** an item template and a grid — that is, an explicit `templates.item` alongside `grid.columns` and/or `templates.grid` — `dile-crud` shows a toggle button (rendered in `navActionsTemplate()`, alongside Filters and Sort) that lets users switch the list between the two views. This applies to both DataGrid options described in [Rendering Modes](/crud/crud-list/#rendering-modes) on the `dile-crud-list` page: the declarative `grid.columns` and the fully custom `templates.grid`.
+
+The item view is shown **by default**. Clicking the button switches to the grid and back; `dile-crud` tracks this internally and forwards it to `dile-crud-list` via its `viewMode` property.
+
+If only one of the two views is configured for a resource, the switch button never appears — there's nothing to switch between, and that single view always renders, exactly as before this feature existed.
+
+Set `customization.disableListWiewSwitch` to `true` to suppress the button even when both views are configured, for example if you want to force one view and drive `viewMode` some other way.
+
+### Responsive behavior
+
+Like the `dile-crud-list-options` component, the button collapses to a round icon-only button below a 605px viewport width, showing the full button with its label from 605px up. The icon-only button remains fully keyboard accessible: it's part of the tab order and responds to `Enter`/`Space`, in addition to a pointer click.
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class DemoCountryCrudViewSwitch extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    // Reuses the same countryConfig defined earlier on this page, extended with a
+    // declarative grid — see Option A on the dile-crud-list page. Any resource config
+    // that combines a grid with an explicit templates.item gets the switch button.
+    this.config = window.countryConfig.getConfig();
+    this.config.grid = {
+      columns: [
+        { field: 'name', header: 'Name', sortable: true },
+        { field: 'id', header: 'ID', width: '70px', align: 'center', sortable: true },
+        { field: 'continent', header: 'Continent' },
+      ],
+      stickyFirstColumn: true,
+      striped: true,
+    };
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        title="Countries with view switch"
+        .config="${this.config}"
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('demo-country-crud-view-switch', DemoCountryCrudViewSwitch);
+</script>
+<demo-country-crud-view-switch></demo-country-crud-view-switch>
+```
+
+You can customize the button's background, text and border colors, for both the full button and the round icon-only button, with the `--dile-crud-view-switch-*` custom properties documented in the [CSS Custom Properties](#crud-component-css-custom-properties) table above.

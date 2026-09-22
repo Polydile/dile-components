@@ -47,6 +47,7 @@ Use the component.
 - **filters**: Array, the filters applied to the list to refine the displayed items.
 - **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
 - **disableLoadOnStart**: Boolean, controls whether the component should automatically load elements when it initializes. When set to true, the component will not trigger the initial loading of data on startup, allowing for manual data loading to be managed as needed.
+- **viewMode**: String, `'item'` or `'grid'`. Only meaningful when **both** a grid (`config.grid.columns` or `config.templates.grid`) and an explicit `config.templates.item` are configured — in that case it decides which one renders. Ignored otherwise: with only one view configured, that one always renders regardless of `viewMode`. Default `'item'`. Normally set automatically by `dile-crud`'s [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch) button; see [Rendering Modes](#rendering-modes) below.
 
 ### Methods
 
@@ -115,11 +116,11 @@ Complete information on how to configure it easily can be found on the [general 
 
 ## Rendering Modes {#rendering-modes}
 
-`dile-crud-list` decides how to render each element with the following precedence, evaluated in this order:
+`dile-crud-list` decides how to render each element with the following logic:
 
-1. **`config.templates.grid`** (a function) — if defined, it wins over everything else.
-2. **`config.grid.columns`** (a declarative array) — if defined and `templates.grid` isn't, the list renders the built-in `<dile-crud-data-grid>` component.
-3. **Default** — if neither is configured, the list renders each element via `config.templates.item`, exactly as described above under [Usage](#usage) and [Configuration](#configuration).
+1. **Is a grid configured?** A grid is considered configured when either `config.templates.grid` (a function) or `config.grid.columns` (a declarative array) is set. If neither is set, the list always renders each element via `config.templates.item`, exactly as described above under [Usage](#usage) and [Configuration](#configuration).
+2. **Is `config.templates.item` also explicitly configured?** If a grid is configured but no explicit item template is, the grid always renders — there's nothing to switch between. Within the grid itself, `config.templates.grid` wins over `config.grid.columns` when both happen to be set.
+3. **Both configured?** When a grid *and* an explicit `config.templates.item` are both present, the `viewMode` property decides which one renders: `'item'` (the default) shows the item template, `'grid'` shows the grid (again preferring `config.templates.grid` over `config.grid.columns`). `dile-crud` drives `viewMode` automatically with a toggle button — see [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch) — but it's a plain reactive property, so you can also set it directly if you're using `dile-crud-list` on its own.
 
 For most tabular listings, you don't need to write any DataGrid component yourself: configure **Option A** below. Only reach for **Option B** when the declarative columns aren't expressive enough for what you need.
 

@@ -19,6 +19,7 @@ The `customization` property is an object containing multiple boolean flags that
 - **`disableFilter`** (boolean): When set to `true`, disables filtering functionality. Default: `true`.
 - **`disableHelp`** (boolean): When set to `true`, hides the help information. Default: `true`.
 - **`disableListActionsOnSingleComponent`** (boolean): When set to `true`, hides list actions (batch actions menu) in the `dile-crud-single` component. Useful when you only want single-item actions or direct actions visible. Default: `false`.
+- **`disableListWiewSwitch`** (boolean): When set to `true`, hides the list/grid view-switch button that `dile-crud` shows automatically whenever both `templates.item` and a grid (`grid.columns` or `templates.grid`) are configured for the same resource. Has no effect when only one of the two views is configured — the switch button never appears in that case. Default: `false`. See [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch).
 
 #### Example usage
 
@@ -36,6 +37,7 @@ customization: {
   disableDelete: false,         // Enable deletion
   disableListActions: false,    // Disable all list-item actions at once
   disableListActionsOnSingleComponent: false,  // Show list actions in single view
+  disableListWiewSwitch: false, // Show the list/grid view-switch button when both views are configured
 },
 ```
 
@@ -60,5 +62,6 @@ customization: {
   disableFilter: true,
   disableHelp: true,
   disableListActionsOnSingleComponent: false,
+  disableListWiewSwitch: false,
 },
 ```

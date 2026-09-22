@@ -74,11 +74,14 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             }
             .view-switch dile-button-icon {
                 display: none;
+                --dile-button-background-color: var(--dile-crud-view-switch-background-color, var(--dile-primary-color, #7BB93D));
+                --dile-button-text-color: var(--dile-crud-view-switch-text-color, var(--dile-on-primary-color, #fff));
+                --dile-button-border-color: var(--dile-crud-view-switch-border-color, var(--dile-primary-dark-color, #12354d));
             }
             .view-switch dile-icon {
                 cursor: pointer;
-                --dile-icon-color: var(--dile-on-crud-action-color, #fff);
-                --dile-icon-rounded-background-color: var(--dile-crud-action-color, #888);
+                --dile-icon-color: var(--dile-crud-view-switch-text-color, var(--dile-on-crud-action-color, #fff));
+                --dile-icon-rounded-background-color: var(--dile-crud-view-switch-background-color, var(--dile-crud-action-color, #888));
             }
             .view-switch dile-icon:focus-visible {
                 outline: 2px solid var(--dile-crud-action-focus-color, #12354d);
