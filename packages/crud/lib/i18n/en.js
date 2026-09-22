@@ -72,4 +72,6 @@ export const translations = {
   select_relation_placeholder: "Select...",
   list_load_error: "Error loading the list. Please try again.",
   retry_label: "Retry",
+  list_view_label: "List view",
+  grid_view_label: "Grid view",
 };

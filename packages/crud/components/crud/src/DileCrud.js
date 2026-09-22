@@ -4,6 +4,7 @@ import '@dile/ui/components/nav/nav.js';
 import '@dile/ui/components/select/select.js';
 import '@dile/ui/components/modal/modal.js';
 import '@dile/ui/components/modal/modal-help.js';
+import '@dile/ui/components/icon/icon.js';
 import '../../item-delete/crud-item-delete.js';
 import '../../item-restore/crud-item-restore.js';
 import '../../list/crud-list.js';
@@ -19,8 +20,9 @@ import '../../action/crud-single-action-dispatcher.js';
 import { formStyles } from '../../../styles/form-styles.js';
 import { DileCrudMixin } from '../../../lib/DileCrudMixin.js';
 import { crudStyles } from '../../../styles/crud-styles.js';
-import { addIcon } from '@dile/icons';
+import { addIcon, appsIcon, listIcon } from '@dile/icons';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
+import { canSwitchListView } from '../../../lib/listViewMode.js';
 
 export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     static styles = [
@@ -70,6 +72,26 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 --dile-icon-size: var(--dile-crud-insert-icon-size, 24px);
                 --dile-button-icon-separation: var(--dile-crud-insert-icon-separation, 0.3rem);
             }
+            .view-switch dile-button-icon {
+                display: none;
+            }
+            .view-switch dile-icon {
+                cursor: pointer;
+                --dile-icon-color: var(--dile-on-crud-action-color, #fff);
+                --dile-icon-rounded-background-color: var(--dile-crud-action-color, #888);
+            }
+            .view-switch dile-icon:focus-visible {
+                outline: 2px solid var(--dile-crud-action-focus-color, #12354d);
+                outline-offset: 2px;
+            }
+            @media (min-width: 605px) {
+                .view-switch dile-button-icon {
+                    display: block;
+                }
+                .view-switch dile-icon {
+                    display: none;
+                }
+            }
             @media(min-width: 400px) {
                 .simplecard {
                     --dile-card-border: none;
@@ -99,6 +121,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         relationId: { type: String },
         filtersAlwaysVisible: { type: Boolean },
         singleActionDispatcher: { type: String },
+        _viewMode: { state: true },
       };
     }
 
@@ -106,6 +129,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         super();
         this.actionIds = [];
         this.filtersAlwaysVisible = false;
+        this._viewMode = 'item';
     }
 
     // GETTERS ELEMENTOS
@@ -216,6 +240,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 @crud-item-restore=${this.itemRestoreRequest}
                 @insert-requested=${this.openInsert}
                 .actionIds=${this.actionIds}
+                .viewMode=${this._viewMode}
                 belongsTo=${this.belongsTo}
                 relationId=${this.relationId}
                 language="${this.language}"
@@ -241,6 +266,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                         : html`<div slot="menu">${this.helpTemplate}</div>`
                     }
                     <div class="actions" slot="actions">
+                        ${this.canSwitchListView ? this.listViewSwitchTemplate : ''}
                         ${this.actionsTemplate}
                         ${this.config.customization.disableFilter || this.filtersAlwaysVisible
                             ? ''
@@ -287,6 +313,37 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         `
     }
 
+    get canSwitchListView() {
+        return canSwitchListView(this.config);
+    }
+
+    get listViewSwitchTemplate() {
+        const label = this._viewMode === 'grid'
+            ? this.listViewLabelComputed(this.config.labels.listViewAction, this.translations)
+            : this.gridViewLabelComputed(this.config.labels.gridViewAction, this.translations);
+        const icon = this._viewMode === 'grid' ? listIcon : appsIcon;
+        return html`
+            <div class="view-switch action-controller">
+                <dile-icon
+                    rounded
+                    tabindex="0"
+                    role="button"
+                    aria-label="${label}"
+                    title="${label}"
+                    .icon=${icon}
+                    @click=${this.toggleListView}
+                    @keydown=${this.viewSwitchIconKeydown}
+                ></dile-icon>
+                <dile-button-icon
+                    @click=${this.toggleListView}
+                    .icon=${icon}
+                >
+                    ${label}
+                </dile-button-icon>
+            </div>
+        `
+    }
+
     get filtersAlwaysVisibleTemplate() {
         return html`
             <dile-crud-filters-inline
@@ -304,9 +361,29 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             && (customization.disableFilter || this.filtersAlwaysVisible)
             && customization.disablePagination
             && customization.disableSort
-            && customization.hideCheckboxSelection;
+            && customization.hideCheckboxSelection
+            && !this.canSwitchListView;
     }
     // BEHAVIOURS
+
+    toggleListView() {
+        this._viewMode = this._viewMode === 'grid' ? 'item' : 'grid';
+    }
+
+    viewSwitchIconKeydown(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggleListView();
+        }
+    }
+
+    listViewLabelComputed(label, translations) {
+        return label ? label : translations?.list_view_label ? translations.list_view_label : 'List view';
+    }
+
+    gridViewLabelComputed(label, translations) {
+        return label ? label : translations?.grid_view_label ? translations.grid_view_label : 'Grid view';
+    }
 
     openInsert() {
         this.dispatchEvent(new CustomEvent('crud-item-insert', { bubbles: true, composed: true }));

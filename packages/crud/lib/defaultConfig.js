@@ -33,6 +33,7 @@ export const defaultConfig = {
     disableFilter: true,
     disableHelp: true,
     disableListActionsOnSingleComponent: false,
+    disableListWiewSwitch: false,
   },
   responseAdapter: new ResponseApiAdapter(),
   requestAdapter: new RequestApiAdapter(),

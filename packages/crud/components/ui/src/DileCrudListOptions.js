@@ -25,6 +25,10 @@ export class DileCrudListOptions extends LitElement {
                 cursor: pointer;
                 --dile-icon-rounded-background-color: var(--dile-crud-action-color, #888);
             }
+            dile-icon:focus-visible {
+                outline: 2px solid var(--dile-crud-action-focus-color, #12354d);
+                outline-offset: 2px;
+            }
             @media (min-width: 605px) {
                 dile-button-icon {
                     display: block;
@@ -47,7 +51,15 @@ export class DileCrudListOptions extends LitElement {
         return html`
             <dile-menu-overlay horizontalAlign="under_right" verticalAlign="bottom">
                 <div slot="trigger">
-                    <dile-icon rounded .icon="${this.icon}"></dile-icon>
+                    <dile-icon
+                        rounded
+                        tabindex="0"
+                        role="button"
+                        aria-label="${this.label}"
+                        title="${this.label}"
+                        .icon="${this.icon}"
+                        @keydown=${this.iconKeydown}
+                    ></dile-icon>
                     <dile-button-icon label="${this.label}" .icon="${this.icon}" gray>${this.label}</dile-button-icon>
                 </div>
                 <div class="content" slot="content">
@@ -57,8 +69,18 @@ export class DileCrudListOptions extends LitElement {
         `;
     }
 
+    // The small-screen dile-icon has no native focus/activation support, unlike the
+    // real <button> inside dile-button-icon shown at wider widths, so it needs its
+    // own keyboard handling; the resulting click bubbles up to dile-menu-overlay's
+    // trigger listener the same way a pointer click already does.
+    iconKeydown(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.target.click();
+        }
+    }
 
     close() {
-        this.shadowRoot.querySelector('dile-menu-overlay').close();  
-    } 
+        this.shadowRoot.querySelector('dile-menu-overlay').close();
+    }
 }

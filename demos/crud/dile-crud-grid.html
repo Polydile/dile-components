@@ -12,6 +12,7 @@
   <script type="module">
     import '@dile/crud/components/crud/crud.js';
     import './components/country/demo-country-grid-crud.js';
+    import './components/country/demo-country-switch-crud.js';
     import './components/board-game/demo-board-game-grid-crud.js';
   </script>
 </head>
@@ -26,6 +27,7 @@
     <ul>
       <li><a href="#unpaginated">Unpaginated crud demo (Countries)</a> — uses the declarative <code>config.grid.columns</code> API</li>
       <li><a href="#paginated">Paginated crud demo (Board Games)</a> — uses a fully custom component via <code>config.templates.grid</code></li>
+      <li><a href="#switch">List/Grid view switch demo (Countries)</a> — both <code>templates.item</code> and <code>grid.columns</code> configured at once</li>
     </ul>
 
     <h2 id="unpaginated">Unpaginated crud (Countries DataGrid)</h2>
@@ -33,6 +35,9 @@
 
     <h2 id="paginated">Paginated crud (Board Games DataGrid)</h2>
     <demo-board-game-grid-crud></demo-board-game-grid-crud>
+
+    <h2 id="switch">List/Grid view switch (Countries)</h2>
+    <demo-countries-switch-crud></demo-countries-switch-crud>
 
     <footer><a href="./index.html">Back</a></footer>
   </div>

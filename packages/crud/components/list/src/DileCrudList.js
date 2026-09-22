@@ -9,6 +9,7 @@ import '../crud-select-all.js';
 import '../crud-list-service.js';
 import '../crud-data-grid.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
+import { hasGridView, hasItemView } from '../../../lib/listViewMode.js';
 
 export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     static styles = [
@@ -95,6 +96,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         relationId: { type: String },
         disableLoadOnStart: { type: Boolean },
         listError: { type: Object },
+        viewMode: { type: String },
       };
     }
 
@@ -112,6 +114,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.loading = true;
         this.disableLoadOnStart = false;
         this.listError = null;
+        this.viewMode = 'item';
     }
 
     firstUpdated() {
@@ -250,7 +253,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
     }
 
     get elementsTemplate() {
-        if (this.config?.templates?.grid && typeof this.config.templates.grid === 'function') {
+        // When both a grid and an item view are configured, the item template is
+        // shown by default and the grid is only rendered once the user switches
+        // view via dile-crud's navActionsTemplate (see listViewMode.js).
+        const showGrid = hasGridView(this.config) && (!hasItemView(this.config) || this.viewMode === 'grid');
+
+        if (showGrid && this.config?.templates?.grid && typeof this.config.templates.grid === 'function') {
             return html`
                 <div
                     class="grid-container"
@@ -261,7 +269,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 </div>
             `;
         }
-        if (this.config?.grid?.columns && Array.isArray(this.config.grid.columns)) {
+        if (showGrid && this.config?.grid?.columns && Array.isArray(this.config.grid.columns)) {
             return html`
                 <div
                     class="grid-container"

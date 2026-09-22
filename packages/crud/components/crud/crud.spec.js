@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { html } from 'lit';
 import { CrudConfigBuilder } from '../../lib/CrudConfigBuilder.js';
 import './crud.js';
 
@@ -272,5 +273,90 @@ describe('dile-crud sort synchronization', () => {
     expect(el.sortFormElement.sortDirection).toBe('asc');
     // The echo must not have triggered a second, corrupting setSort() call.
     expect(lastSetSort).toBeNull();
+  });
+});
+
+describe('dile-crud list/grid view switch', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const baseCustomization = {
+    disableInsert: true,
+    disableHelp: true,
+    disableKeywordSearch: true,
+    disableSort: true,
+    disableFilter: true,
+    disablePagination: true,
+    hideCheckboxSelection: true,
+  };
+
+  function buildConfig(overrides = {}) {
+    return new CrudConfigBuilder('https://example.test/api/countries', {
+      customization: { ...baseCustomization, ...(overrides.customization || {}) },
+      grid: { columns: [{ field: 'name', header: 'Name' }] },
+      templates: { item: (item) => html`<span>${item.name}</span>` },
+      ...overrides,
+    }).getConfig();
+  }
+
+  it('shows the item template by default and renders no switch button when only one view is configured', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/countries', {
+      customization: baseCustomization,
+      templates: { item: (item) => html`<span>${item.name}</span>` },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    const switchButtons = [...el.shadowRoot.querySelectorAll('dile-button-icon')]
+      .filter((btn) => /view/i.test(btn.textContent));
+    expect(switchButtons.length).toBe(0);
+  });
+
+  it('defaults to the item view and toggles to the grid on click when both views are configured', async () => {
+    // Rendering per view mode (item vs. grid DOM) is covered in crud-list.spec.js;
+    // here we only verify dile-crud's own state, wiring and button behavior, since
+    // driving dile-crud-list's real data load would race its own network refresh.
+    const config = buildConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    expect(el._viewMode).toBe('item');
+    expect(el.listElement.viewMode).toBe('item');
+
+    const switchButton = [...el.shadowRoot.querySelectorAll('dile-button-icon')]
+      .find((btn) => /view/i.test(btn.textContent));
+    expect(switchButton).toBeTruthy();
+    expect(switchButton.textContent.trim()).toBe('Grid view');
+
+    switchButton.click();
+    await el.updateComplete;
+
+    expect(el._viewMode).toBe('grid');
+    expect(el.listElement.viewMode).toBe('grid');
+
+    const switchButtonAfter = [...el.shadowRoot.querySelectorAll('dile-button-icon')]
+      .find((btn) => /view/i.test(btn.textContent));
+    expect(switchButtonAfter.textContent.trim()).toBe('List view');
+  });
+
+  it('does not render the switch button when customization.disableListWiewSwitch is true', async () => {
+    const config = buildConfig({ customization: { disableListWiewSwitch: true } });
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    const switchButtons = [...el.shadowRoot.querySelectorAll('dile-button-icon')]
+      .filter((btn) => /view/i.test(btn.textContent));
+    expect(switchButtons.length).toBe(0);
+    expect(el.listElement.viewMode).toBe('item');
   });
 });

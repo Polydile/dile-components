@@ -72,4 +72,6 @@ export const translations = {
   select_relation_placeholder: "Selecciona...",
   list_load_error: "Error al cargar la lista. Por favor, intenta de nuevo.",
   retry_label: "Reintentar",
+  list_view_label: "Vista de lista",
+  grid_view_label: "Vista de cuadrícula",
 };

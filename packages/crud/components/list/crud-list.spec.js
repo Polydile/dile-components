@@ -316,4 +316,58 @@ describe('dile-crud-list grid template integration', () => {
     expect(innerGrid.sortField).toBe('name');
     expect(innerGrid.sortDirection).toBe('asc');
   });
+
+  it('shows the item template by default when both templates.item and grid.columns are configured', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      grid: { columns: [{ field: 'name', header: 'Name' }] },
+      templates: { item: (item) => html`<span class="item-name">${item.name}</span>` },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.elements = sampleElements;
+    el.loading = false;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    expect(el.shadowRoot.querySelectorAll('dile-crud-list-item').length).toBe(2);
+    expect(el.shadowRoot.querySelector('.grid-container')).toBeNull();
+  });
+
+  it('shows the grid when viewMode is "grid" and both templates.item and grid.columns are configured', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      grid: { columns: [{ field: 'name', header: 'Name' }] },
+      templates: { item: (item) => html`<span class="item-name">${item.name}</span>` },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.elements = sampleElements;
+    el.loading = false;
+    el.viewMode = 'grid';
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    expect(el.shadowRoot.querySelectorAll('dile-crud-list-item').length).toBe(0);
+    expect(el.shadowRoot.querySelector('.grid-container')).toBeTruthy();
+    expect(el.shadowRoot.querySelector('dile-crud-data-grid')).toBeTruthy();
+  });
+
+  it('still shows the grid when only grid.columns is configured, regardless of viewMode', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      grid: { columns: [{ field: 'name', header: 'Name' }] },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.elements = sampleElements;
+    el.loading = false;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    expect(el.shadowRoot.querySelector('dile-crud-data-grid')).toBeTruthy();
+  });
 });
