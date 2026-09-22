@@ -1,7 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import { switchLeftIcon } from '@dile/icons/index.js';
-import '../../icon/icon.js';
+import '../../button/button-icon.js'
 
 
 export class DileOrderSwitch extends DileEmmitChange(LitElement) {
@@ -29,16 +29,23 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
       :host {
         display: block;
         margin-bottom: 10px;
+        --dile-button-border-radius: 2rem;
+        --dile-button-padding-x: 0.15rem;
+        --dile-button-padding-y: 0.15rem;
+        --dile-button-background-color: transparent;
+        --dile-button-icon-color: var(--dile-order-switch-icon-color, var(--dile-link-color, #3399ff));
+        --dile-button-icon-size: var(--dile-order-switch-icon-size, 1.5rem);
+        --dile-button-border-width: 0;
       }
       div {
         align-items: center;
         display: flex;
       }
-      span {
-        cursor: pointer;
+      a {
+        color: inherit;
+        text-decoration: var(--dile-order-switch-text-decoration, none);
       }
-      dile-icon {
-        cursor: pointer;
+      dile-button-icon {
         transform: rotate(-90deg);
         margin-right: 0.4rem;
         transition: transform 0.3s ease-in-out;
@@ -46,20 +53,24 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
       .desc {
         transform: rotate(90deg);
       }
+
+      .text-selected {
+        font-weight: bold;
+      }
     `;
   }
 
   render() {
     return html`
       <div>
-        <dile-icon 
+        <dile-button-icon 
           .icon="${switchLeftIcon}" 
           class="${this.value}"
-           @click=${this.toggle}
-        ></dile-icon>
-        <span @click=${this.onlyChange}>
+          @click=${this.toggle}
+        ></dile-button-icon>
+        <a class="${this.selected ? 'text-selected' : ''}" href="#" @click=${this.onlyChange}>
           ${this.label}
-        </span>
+        </a>
       </div>
     `;
   }
@@ -74,7 +85,8 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
     }
   }
 
-  onlyChange() {
+  onlyChange(e) {
+    e.preventDefault();
     if (this.selected) {
       this.toggle();
     } else {
