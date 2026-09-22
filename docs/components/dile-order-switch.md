@@ -57,9 +57,15 @@ This component implements the DileEmmitChangeMixin mixin, so it dispached a cust
 }
 ```
 
-### CSS Custom Properties
+## CSS custom properties
 
-You can customize the icon color and size using [dile-icon](https://github.com/Polydile/dile-components/tree/master/packages/dile-icon) CSS Custom Properties.
+You can customize the component using the CSS custom properties below.
+
+Custom property | Description | Default
+----------------|-------------|---------
+--dile-order-switch-icon-color | Icon color | var(--dile-link-color) fallback to #3399ff
+--dile-order-switch-icon-size | Icon size | 1.5rem
+--dile-order-switch-text-decoration | Label text decoration | none
 
 ## dile-order-switch demos
 
