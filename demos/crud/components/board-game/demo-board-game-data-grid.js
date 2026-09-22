@@ -30,6 +30,7 @@ export class DemoBoardGameDataGrid extends LitElement {
       items: { type: Array },
       selectedIds: { type: Array },
       config: { type: Object },
+      sort: { type: Object },
     };
   }
 
@@ -38,6 +39,7 @@ export class DemoBoardGameDataGrid extends LitElement {
     this.items = [];
     this.selectedIds = [];
     this.config = null;
+    this.sort = null;
   }
 
   get columns() {
@@ -98,9 +100,12 @@ export class DemoBoardGameDataGrid extends LitElement {
         .items=${this.items}
         .columns=${this.columns}
         .selectedIds=${this.selectedIds}
+        .sortField=${this.sort?.sortField || ''}
+        .sortDirection=${this.sort?.sortDirection || ''}
         ?selectable=${!this.config?.customization?.hideCheckboxSelection}
         sticky-first-column
         striped
+        sort-mode="external"
       ></dile-data-grid>
     `;
   }

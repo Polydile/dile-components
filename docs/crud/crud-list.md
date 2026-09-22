@@ -68,6 +68,7 @@ Use the component.
 - **crud-item-delete**: This event is dispatched when the user clicks on the delete icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be deleted.
 - **crud-list-all-ids-selected**: This event is dispatched when one of the controls for selecting multiple items has been activated (either all items on a page or all items in the resource). The event detail contains the list of selected IDs.
 - **crud-list-get-success**: This event is dispatched when the list component has received a set of records from the API server that it will display.
+- **crud-list-sort-changed**: This event is dispatched every time `setSort()` is called, whether from a grid column header, the `dile-crud-sort-form` control, or programmatically. The event detail is `{ sortField, sortDirection }`. `dile-crud` listens for this to keep `dile-crud-sort-form` in sync with sorting done from a DataGrid.
 - **crud-pagination-prev**: Dispatched when the previous page button is clicked.
 - **crud-pagination-next**: Dispatched when the next page button is clicked.
 
@@ -141,6 +142,8 @@ Property | Type | Description
 `hideCardLabel` | Boolean | Hides the auto-generated field label in card layout.
 `sticky` | `true \| 'left' \| 'right'` | Pins the column.
 
+> **Only mark a column `sortable` if the backend can actually order by it.** `dile-crud-data-grid` always sorts externally (see [Sort Mode](#sort-mode) below) — clicking the header just asks the backend to sort by `field`, with no client-side fallback. If the backend can't honor it (e.g. `field` is resolved from a joined/derived table), the request still goes out, and whatever order the backend falls back to will look like an unrelated re-shuffle of the list rather than a real sort. If you also expose [`sort.options`](/crud/resource-config/#sort) via `dile-crud-sort-form`, keep both lists in sync: a sortable grid column whose `field` isn't in `sort.options` is silently ignored by the sort-form sync described below, rather than erroring — see [Shared Behavior](#shared-behavior-between-both-grid-modes).
+
 #### Grid-level options reference
 
 All of the following live under `config.grid`:
@@ -197,15 +200,16 @@ No `templates.grid` function and no custom component are needed — `<dile-crud-
 
 ### Option B (Escape Hatch): Fully Custom Component via `config.templates.grid` {#option-b}
 
-Use this only when `config.grid.columns` isn't expressive enough — for example, if you need full control over the grid wrapper, multiple grids on the same page, non-`<dile-data-grid>` markup, or client-side sorting (see [Sort Mode](#sort-mode) below). Instead of rendering individual items via `templates.item`, you render the entire listing yourself by configuring `templates.grid(elements, actionIds, config)`:
+Use this only when `config.grid.columns` isn't expressive enough — for example, if you need full control over the grid wrapper, multiple grids on the same page, non-`<dile-data-grid>` markup, or client-side sorting (see [Sort Mode](#sort-mode) below). Instead of rendering individual items via `templates.item`, you render the entire listing yourself by configuring `templates.grid(elements, actionIds, config, sort)`:
 
 ```javascript
 templates: {
-  grid: (elements, actionIds, config) => html`
+  grid: (elements, actionIds, config, sort) => html`
     <customers-data-grid
       .items=${elements}
       .selectedIds=${actionIds}
       .config=${config}
+      .sort=${sort}
     ></customers-data-grid>
   `,
 }
@@ -216,6 +220,7 @@ When `templates.grid` is defined:
 2. The `config` object is passed as the third parameter to the template, allowing your DataGrid (and its internal `<dile-crud-item-actions .item=${item} .config=${this.config}>`) to automatically respect global and per-item edit/delete/restore permissions without manual configuration.
 3. Clicking a column header emits `dile-data-grid-sort`, which is automatically captured by `DileCrudList` to trigger backend sorting via `setSort({ sortField, sortDirection })`.
 4. Checkbox changes emit `item-checkbox-changed`, synchronizing `actionIds` across both the list and batch actions toolbar.
+5. The `sort` object (`{ sortField, sortDirection }`, or `null` before any sort is applied) is passed as the **fourth** parameter, reflecting the sort currently confirmed by the backend. **You must forward it back into `<dile-data-grid>` as `.sortField`/`.sortDirection`** (see the example below) when using `sort-mode="external"`. `DileCrudList` re-renders its content behind a loading indicator on every sort request, which unmounts and remounts your grid component — without feeding `sort` back in, the grid loses track of the current column/direction on every round-trip, the sort icon disappears, and clicking the same header again restarts at ascending instead of toggling to descending.
 
 Unlike `config.grid.columns`, this path does **not** auto-inject an `Actions` column — you are responsible for adding one yourself using `DileCrudItemActions.hasActions(config)` and `<dile-crud-item-actions>`, exactly as shown in the example below and as documented in [dile-crud-item-actions](/crud/crud-list-item/#dile-crud-item-actions).
 
@@ -227,6 +232,7 @@ Here is a complete, real-world example of a custom DataGrid component tailored f
 - Inside the `Actions` column `render` method, `<dile-crud-item-actions .item=${item} .config=${this.config}>` automatically takes care of edit/delete/restore permissions and events.
 - Custom cell elements use `part="..."` in their render template, allowing the host component to easily style them with `dile-data-grid::part(...)` across the Shadow DOM boundary.
 - `selectable` is derived from `config.customization.hideCheckboxSelection`, matching the behavior of the built-in `<dile-crud-data-grid>` from Option A, instead of being hardcoded.
+- It declares `sort-mode="external"` explicitly and forwards the `sort` parameter back into `<dile-data-grid>` as `.sortField`/`.sortDirection`, so the sort icon and asc/desc toggle keep working correctly across the server round-trips triggered by `setSort`.
 
 ```javascript
 import { LitElement, html, css } from 'lit';
@@ -257,6 +263,7 @@ export class CustomersDataGrid extends LitElement {
       items: { type: Array },
       selectedIds: { type: Array },
       config: { type: Object },
+      sort: { type: Object },
     };
   }
 
@@ -265,6 +272,7 @@ export class CustomersDataGrid extends LitElement {
     this.items = [];
     this.selectedIds = [];
     this.config = null;
+    this.sort = null;
   }
 
   get columns() {
@@ -316,9 +324,12 @@ export class CustomersDataGrid extends LitElement {
         .items=${this.items}
         .columns=${this.columns}
         .selectedIds=${this.selectedIds}
+        .sortField=${this.sort?.sortField || ''}
+        .sortDirection=${this.sort?.sortDirection || ''}
         ?selectable=${!this.config?.customization?.hideCheckboxSelection}
         sticky-first-column
         striped
+        sort-mode="external"
       ></dile-data-grid>
     `;
   }
@@ -327,9 +338,11 @@ export class CustomersDataGrid extends LitElement {
 customElements.define('customers-data-grid', CustomersDataGrid);
 ```
 
-### Shared Behavior Between Both Grid Modes
+### Shared Behavior Between Both Grid Modes {#shared-behavior-between-both-grid-modes}
 
 Both Option A and Option B render inside the same `.grid-container` wrapper inside `dile-crud-list`, which listens for `item-checkbox-changed` (syncing `actionIds`/selection) and `dile-data-grid-sort` (calling `setSort({ sortField, sortDirection })`). Selection sync and server-driven sort behave identically regardless of which option you use.
+
+Every call to `setSort()` — whether triggered by a grid header click or by any other sort control — also makes `dile-crud-list` dispatch a bubbling `crud-list-sort-changed` event (`detail: { sortField, sortDirection }`). Inside `dile-crud`, this keeps the `dile-crud-sort-form` control (the sort dropdown in the toolbar) in sync: sorting from the grid updates which option the form shows as selected, and vice versa. If the incoming `sortField` isn't one of `config.sort.options` — for example a grid column that's `sortable` but has no equivalent entry in `sort.options` — `dile-crud` leaves the form's current selection untouched rather than pointing it at an option it has no control for.
 
 ### Sort Mode: One Real Capability Difference {#sort-mode}
 

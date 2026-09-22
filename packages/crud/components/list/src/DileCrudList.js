@@ -257,7 +257,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                     @item-checkbox-changed=${this.onItemsCheckboxChanged}
                     @dile-data-grid-sort=${this.onGridSort}
                 >
-                    ${this.config.templates.grid(this.elements, this.actionIds, this.config)}
+                    ${this.config.templates.grid(this.elements, this.actionIds, this.config, this.sort)}
                 </div>
             `;
         }
@@ -272,6 +272,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         .items=${this.elements}
                         .selectedIds=${this.actionIds}
                         .config=${this.config}
+                        .sort=${this.sort}
                     ></dile-crud-data-grid>
                 </div>
             `;
@@ -377,7 +378,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.loading = true;
         this.sort = sortObject;
         this.elservice.setSort(sortObject);
-    }  
+        this.dispatchEvent(new CustomEvent('crud-list-sort-changed', {
+            bubbles: true,
+            composed: true,
+            detail: sortObject,
+        }));
+    }
 
     onGridSort(e) {
         if (e.detail?.field) {

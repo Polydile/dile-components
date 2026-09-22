@@ -52,6 +52,7 @@ describe('dile-crud-list grid template integration', () => {
     el.disableLoadOnStart = true;
     el.config = config;
     el.elements = sampleElements;
+    el.sort = { sortField: 'name', sortDirection: 'desc' };
     el.loading = false;
     document.body.appendChild(el);
     await el.updateComplete;
@@ -64,6 +65,7 @@ describe('dile-crud-list grid template integration', () => {
     expect(crudDataGrid.items).toEqual(sampleElements);
     expect(crudDataGrid.columns.length).toBe(3); // id, name + automatically injected Actions
     expect(crudDataGrid.columns[2].header).toBe('Actions');
+    expect(crudDataGrid.sort).toEqual({ sortField: 'name', sortDirection: 'desc' });
   });
 
   it('hides actions in traditional list items when disableListActions is true', async () => {
@@ -96,12 +98,14 @@ describe('dile-crud-list grid template integration', () => {
   it('renders custom grid template when templates.grid is configured', async () => {
     let receivedElements = null;
     let receivedActionIds = null;
+    let receivedSort = null;
 
     const config = new CrudConfigBuilder('https://example.test/api/customers', {
       templates: {
-        grid: (elements, actionIds) => {
+        grid: (elements, actionIds, config, sort) => {
           receivedElements = elements;
           receivedActionIds = actionIds;
+          receivedSort = sort;
           return html`
             <dile-data-grid
               .items="${elements}"
@@ -122,6 +126,7 @@ describe('dile-crud-list grid template integration', () => {
     el.config = config;
     el.elements = sampleElements;
     el.actionIds = [2];
+    el.sort = { sortField: 'name', sortDirection: 'asc' };
     el.loading = false;
     document.body.appendChild(el);
     await el.updateComplete;
@@ -136,6 +141,7 @@ describe('dile-crud-list grid template integration', () => {
     expect(dataGrid).toBeTruthy();
     expect(receivedElements).toEqual(sampleElements);
     expect(receivedActionIds).toEqual([2]);
+    expect(receivedSort).toEqual({ sortField: 'name', sortDirection: 'asc' });
   });
 
   it('updates sort when dile-data-grid-sort is dispatched', async () => {
@@ -251,5 +257,63 @@ describe('dile-crud-list grid template integration', () => {
 
     expect(el.shadowRoot.querySelector('dile-crud-data-grid')).toBeNull();
     expect(el.shadowRoot.querySelector('dile-data-grid')).toBeTruthy();
+  });
+
+  it('dispatches crud-list-sort-changed with the new sort whenever setSort is called', async () => {
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      grid: { columns: [{ field: 'name', header: 'Name', sortable: true }] },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.elements = sampleElements;
+    el.loading = false;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    let receivedDetail = null;
+    el.addEventListener('crud-list-sort-changed', (e) => {
+      receivedDetail = e.detail;
+    });
+
+    el.setSort({ sortField: 'name', sortDirection: 'desc' });
+
+    expect(receivedDetail).toEqual({ sortField: 'name', sortDirection: 'desc' });
+  });
+
+  it('keeps reporting the correct sort state to a freshly remounted grid after a loading round-trip', async () => {
+    // Reproduces the real scenario: setSort() sets loading=true, which unmounts
+    // elementsTemplate (and therefore <dile-crud-data-grid>/<dile-data-grid>) while
+    // the request is in flight, then getSuccess() remounts it from scratch.
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      grid: { columns: [{ field: 'name', header: 'Name', sortable: true }] },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.elements = sampleElements;
+    el.loading = false;
+    document.body.appendChild(el);
+    await el.updateComplete;
+
+    el.elservice.setSort = () => {}; // avoid a real network round-trip
+    el.setSort({ sortField: 'name', sortDirection: 'asc' });
+    await el.updateComplete;
+
+    expect(el.shadowRoot.querySelector('.grid-container')).toBeNull(); // unmounted while loading
+
+    el.getSuccess({ detail: { elements: sampleElements, numItems: 2, paginationData: {} } });
+    await el.updateComplete;
+
+    const freshDataGrid = el.shadowRoot.querySelector('dile-crud-data-grid');
+    expect(freshDataGrid).toBeTruthy();
+    expect(freshDataGrid.sort).toEqual({ sortField: 'name', sortDirection: 'asc' });
+
+    const innerGrid = freshDataGrid.shadowRoot.querySelector('dile-data-grid');
+    await innerGrid.updateComplete;
+    expect(innerGrid.sortField).toBe('name');
+    expect(innerGrid.sortDirection).toBe('asc');
   });
 });

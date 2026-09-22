@@ -124,6 +124,9 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     get filtersElement() {
         return this.shadowRoot.getElementById('elfilters');
     }
+    get sortFormElement() {
+        return this.shadowRoot.getElementById('elsort');
+    }
 
     // TEMPLATES
 
@@ -145,6 +148,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                     @item-checkbox-changed=${this.itemCheckboxChanged}
                     @dile-chip-icon-click=${this.removeFilter}
                     @crud-list-all-ids-selected=${this.crudSelectAll}
+                    @crud-list-sort-changed=${this.listSortChanged}
                 >
                     ${this.listTemplate}
                 </div>
@@ -265,14 +269,15 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                         ${this.config.customization.disableSort
                             ? ''
                             : html`
-                                <dile-crud-sort-form 
+                                <dile-crud-sort-form
+                                    id="elsort"
                                     class="action-controller"
-                                    .sortOptions=${this.config.sort.options || []} 
+                                    .sortOptions=${this.config.sort.options || []}
                                     sortField="${this.config.sort.initialSortField}"
                                     sortDirection="${this.config.sort.initialSortDirection || 'desc'}"
                                     @sort-changed=${this.sortFormChanged}
                                     language="${this.language}"
-                                ></dile-crud-sort-form>  
+                                ></dile-crud-sort-form>
                             `
                         }
                     </div>   
@@ -341,6 +346,21 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
     sortFormChanged(e) {
         this.listElement.setSort(e.detail);
+    }
+
+    listSortChanged(e) {
+        if (!this.sortFormElement) {
+            return;
+        }
+        const sortField = e.detail?.sortField;
+        const isKnownSortOption = !sortField || (this.config.sort?.options || []).some(option => option.name === sortField);
+        if (!isKnownSortOption) {
+            // The sort came from a source the sort-form doesn't know about (e.g. a DataGrid
+            // column not listed in config.sort.options) — leave the form's selection as-is
+            // instead of pointing it at an option it can't render.
+            return;
+        }
+        this.sortFormElement.syncSort(sortField, e.detail?.sortDirection);
     }
 
     pageSizeChanged(e) {

@@ -21,7 +21,8 @@ export const countryGridConfig = new CrudConfigBuilder('https://timer.escuelait.
       {
         field: 'continent',
         header: 'Continent',
-        sortable: true,
+        // Not sortable: continent is resolved from a related table by the backend,
+        // which has no support for ordering by it — see docs/crud/crud-list.md#option-a.
         render: (country) => html`
           <span style="display: inline-block; padding: 0.2rem 0.5rem; border-radius: 12px; background-color: var(--dile-primary-light-color, #e0f2fe); color: var(--dile-primary-dark-color, #0369a1); font-size: 0.8rem; font-weight: 600;">
             ${country.continent || 'N/A'}
@@ -79,7 +80,12 @@ export const countryGridConfig = new CrudConfigBuilder('https://timer.escuelait.
       {
         name: 'name',
         label: 'Name',
-        direction: 'desc'
+        direction: 'asc'
+      },
+      {
+        name: 'id',
+        label: 'Id',
+        direction: 'asc'
       },
     ],
     initialSortField: 'name',

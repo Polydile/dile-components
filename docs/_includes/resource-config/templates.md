@@ -39,6 +39,7 @@ Optional. When defined, it overrides the default per-item rendering to render th
 - `elements` (Array): The elements to display
 - `actionIds` (Array): The currently selected item ids, for batch actions
 - `config` (Object): The full resource configuration object, so your component can resolve permissions (`isItemEditable`, `isItemDeletable`), compute ids (`computeItemId`), etc.
+- `sort` (Object): The current `{ sortField, sortDirection }`, or `null` before any sort is applied. If your component sorts server-side (`sort-mode="external"`), forward this into `<dile-data-grid>` as `.sortField`/`.sortDirection` so the sort icon and asc/desc toggle survive the server round-trip triggered by `setSort`.
 
 **Returns:** Lit `html` template result, or `null`/`undefined` when not used (the list falls back to `grid.columns` or `item`)
 

@@ -24,6 +24,9 @@ describe('dile-crud-data-grid', () => {
     el.config = config;
     el.items = props.items ?? sampleItems;
     el.selectedIds = props.selectedIds ?? [];
+    if (props.sort !== undefined) {
+      el.sort = props.sort;
+    }
     document.body.appendChild(el);
     await el.updateComplete;
     return el;
@@ -145,6 +148,18 @@ describe('dile-crud-data-grid', () => {
   it('always forces sort-mode to external regardless of config', async () => {
     const el = await createGrid({ grid: { columns: sampleColumns } });
     expect(innerGrid(el).sortMode).toBe('external');
+  });
+
+  it('forwards the sort property as sortField/sortDirection so the header keeps its sorted state', async () => {
+    const el = await createGrid({ grid: { columns: sampleColumns } }, { sort: { sortField: 'name', sortDirection: 'desc' } });
+    expect(innerGrid(el).sortField).toBe('name');
+    expect(innerGrid(el).sortDirection).toBe('desc');
+  });
+
+  it('defaults sortField/sortDirection to empty strings when sort is not set', async () => {
+    const el = await createGrid({ grid: { columns: sampleColumns } });
+    expect(innerGrid(el).sortField).toBe('');
+    expect(innerGrid(el).sortDirection).toBe('');
   });
 
   it('wires computeRowId from config.computeItemId so selection matches custom ids', async () => {

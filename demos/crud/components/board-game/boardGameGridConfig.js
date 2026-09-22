@@ -33,6 +33,11 @@ export const boardGameGridConfig = new CrudConfigBuilder('https://timer.escuelai
         label: 'Year',
         direction: 'desc'
       },
+      {
+        name: 'id',
+        label: 'Id',
+        direction: 'asc'
+      },
     ],
     initialSortField: 'year',
   },
@@ -81,11 +86,12 @@ export const boardGameGridConfig = new CrudConfigBuilder('https://timer.escuelai
     ],
   },
   templates: {
-    grid: (elements, actionIds, config) => html`
+    grid: (elements, actionIds, config, sort) => html`
       <demo-board-game-data-grid
         .items=${elements}
         .selectedIds=${actionIds}
         .config=${config}
+        .sort=${sort}
       ></demo-board-game-data-grid>
     `,
     insertForm: (belongsTo, relationId) => html`<demo-board-game-form id="insertform" belongsTo="${belongsTo}" relationId="${relationId}"></demo-board-game-form>`,

@@ -45,6 +45,19 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
   constructor() {
     super();
     this.sortOptions = [];
+    this._suppressChangeEcho = false;
+  }
+
+  // Reflects a sort that was already applied elsewhere (e.g. a DataGrid column header
+  // click) without re-dispatching sort-changed. Setting `sortField` below causes the
+  // inner <dile-radio-group> to echo a "changed" event on its own (it can't tell a
+  // programmatic update from a user click), which radioGroupChanged() would otherwise
+  // treat as a real selection and re-derive sortDirection from the option's *static*
+  // configured default — silently overriding whichever direction was actually requested.
+  syncSort(sortField, sortDirection) {
+    this._suppressChangeEcho = true;
+    this.sortField = sortField;
+    this.sortDirection = sortDirection;
   }
 
   render() {
@@ -63,10 +76,11 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
                             ?checked=${this.sortField === option.name}
                             value="${option.name}"
                         ></dile-radio>
-                        <dile-order-switch 
-                            label="${option.label}" 
-                            name="${option.name}" 
-                            value="${option.direction}" 
+                        <dile-order-switch
+                            label="${option.label}"
+                            name="${option.name}"
+                            value="${option.direction}"
+                            ?selected=${this.sortField === option.name}
                             @element-changed=${this.elementChanged}
                         ></dile-order-switch>
                     </div>
@@ -83,6 +97,10 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
   }
 
   radioGroupChanged(e) {
+    if (this._suppressChangeEcho) {
+      this._suppressChangeEcho = false;
+      return;
+    }
     this.sortField = e.detail.value;
     this.sortDirection = this.getDirection(this.sortField);
     this.dispatchChanged();
@@ -90,7 +108,8 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
 
   getDirection(field) {
     if(field) {
-      return this.shadowRoot.querySelector(`dile-order-switch[name="${field}"]`).value;
+      const orderSwitch = this.shadowRoot.querySelector(`dile-order-switch[name="${field}"]`);
+      return orderSwitch ? orderSwitch.value : undefined;
     }
   }
 

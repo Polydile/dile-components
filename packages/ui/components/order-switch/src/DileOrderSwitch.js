@@ -10,12 +10,18 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
       value: { type: String },
       name: { type: String },
       label: { type: String },
+      /** Marks this switch as the one currently in effect, e.g. inside a group of
+       * order options where only one applies at a time. When true, clicking the
+       * label toggles the order (same as clicking the icon) instead of just
+       * re-announcing the current value. */
+      selected: { type: Boolean },
     };
   }
 
   constructor() {
     super();
     this.value = "asc";
+    this.selected = false;
   }
 
   static get styles() {
@@ -69,8 +75,11 @@ export class DileOrderSwitch extends DileEmmitChange(LitElement) {
   }
 
   onlyChange() {
-    console.log('this.onlyChange');
-    this.emmitChange();
+    if (this.selected) {
+      this.toggle();
+    } else {
+      this.emmitChange();
+    }
   }
 
   toggle() {

@@ -17,6 +17,7 @@ export class DileCrudDataGrid extends LitElement {
       items: { type: Array },
       selectedIds: { type: Array },
       config: { type: Object },
+      sort: { type: Object },
     };
   }
 
@@ -25,6 +26,7 @@ export class DileCrudDataGrid extends LitElement {
     this.items = [];
     this.selectedIds = [];
     this.config = null;
+    this.sort = null;
   }
 
   get columns() {
@@ -77,6 +79,8 @@ export class DileCrudDataGrid extends LitElement {
         .selectedIds=${this.selectedIds}
         .computeRowId=${this.computeRowId}
         .rowClass=${this.rowClass}
+        .sortField=${this.sort?.sortField || ''}
+        .sortDirection=${this.sort?.sortDirection || ''}
         ?selectable=${gridConfig.selectable !== undefined ? gridConfig.selectable : !this.config?.customization?.hideCheckboxSelection}
         ?sticky-first-column=${gridConfig.stickyFirstColumn !== undefined ? gridConfig.stickyFirstColumn : true}
         ?striped=${gridConfig.striped !== undefined ? gridConfig.striped : true}

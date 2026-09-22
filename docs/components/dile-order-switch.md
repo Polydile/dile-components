@@ -38,6 +38,7 @@ This component does not to order anything bi itself. Yo can use to create a swit
 - **name**: for identification pourposes, like "name" on the form input elements.
 - **value**: the value (will be "asc" or "desc")
 - **label**: the label
+- **selected**: Boolean, default `false`. Marks this switch as the one currently in effect, e.g. inside a group where only one order option applies at a time (like `dile-crud-sort-form`). When `false`, clicking the label just re-announces the current `value` (useful to switch which option is active without changing its direction). When `true`, clicking the label toggles the order, same as clicking the icon — otherwise a click on an already-active label would look like it does nothing.
 
 ## Methods
 
