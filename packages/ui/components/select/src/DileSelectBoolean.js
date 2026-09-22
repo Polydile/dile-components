@@ -38,6 +38,7 @@ export class DileSelectBoolean extends DileEmmitChange(LitElement) {
     this.hideErrorOnInput = false;
     this.quiet = false;
     this.internals = this.attachInternals();
+    this.value = false;
   }
 
   render() {

@@ -23,21 +23,41 @@
       });
     </script>
 
+    <h2>Simple usage with initial value (true)</h2>
+    <dile-select-boolean id="bs1b" name="active" label="Active" value="true"></dile-select-boolean>
+    <p id="msg1b"></p>
+    <script>
+      document.getElementById('bs1b').addEventListener('element-changed', (e) => {
+        document.getElementById('msg1b').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
+    </script>
+
     <h2>Custom option labels</h2>
     <dile-select-boolean
+      id="bs2"
       name="published"
       label="Published"
       trueOption="Published"
       falseOption="Draft"
     ></dile-select-boolean>
+    <p id="msg2"></p>
+    <script>
+      document.getElementById('bs2').addEventListener('element-changed', (e) => {
+        document.getElementById('msg2').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
+    </script>
 
     <h2>Set boolean value programmatically</h2>
     <dile-select-boolean id="bs3" name="enabled" label="Enabled"></dile-select-boolean>
+    <p id="msg3"></p>
     <p>
       <button id="setTrue">Set true</button>
       <button id="setFalse">Set false</button>
     </p>
     <script>
+      document.getElementById('bs3').addEventListener('element-changed', (e) => {
+        document.getElementById('msg3').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
       document.getElementById('setTrue').addEventListener('click', () => {
         document.getElementById('bs3').value = true;
       });
@@ -55,10 +75,14 @@
       errored
       message="This field is required"
     ></dile-select-boolean>
+    <p id="msg4"></p>
     <p>
       <button id="toggleErrored">Toggle errored</button>
     </p>
     <script>
+      document.getElementById('bs4').addEventListener('element-changed', (e) => {
+        document.getElementById('msg4').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
       document.getElementById('toggleErrored').addEventListener('click', () => {
         const el = document.getElementById('bs4');
         el.errored = !el.errored;
@@ -66,7 +90,13 @@
     </script>
 
     <h2>Disabled</h2>
-    <dile-select-boolean name="status" label="Status" disabled></dile-select-boolean>
+    <dile-select-boolean id="bs5" name="status" label="Status" disabled></dile-select-boolean>
+    <p id="msg5"></p>
+    <script>
+      document.getElementById('bs5').addEventListener('element-changed', (e) => {
+        document.getElementById('msg5').innerText = 'Value: ' + e.detail.value + ' (type: ' + typeof e.detail.value + ')';
+      });
+    </script>
 
     <footer><a href="../index.html">Back</a></footer>
   </div>
