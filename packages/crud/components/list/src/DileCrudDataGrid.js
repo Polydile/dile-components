@@ -9,6 +9,10 @@ export class DileCrudDataGrid extends LitElement {
       :host {
         display: block;
       }
+
+      dile-data-grid {
+        margin-top: var(--dile-crud-data-grid-margin-top: 0.25rem);
+      }
     `
   ];
 

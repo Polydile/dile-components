@@ -101,6 +101,7 @@ Custom property | Description | Default
 --dile-crud-select-all-checkbox-color | Checkbox icon color in select all button | #303030
 --dile-crud-select-all-checkbox-size | Checkbox icon size in select all | 1.5rem
 --dile-crud-select-all-overlay-checkbox-color | Checkbox icon color in select all overlay menu | #303030
+--dile-crud-data-grid-margin-top | Data grid component margin top | 0.25rem
 
 To customize the appearance of the listings, check other CRUD system components such as [dile-list-item](/crud/crud-list-item/) or [dile-chip](/dile-chip/).
 
