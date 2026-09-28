@@ -35,6 +35,12 @@ export class DileInputSearch extends LitElement {
             input:focus {
                 outline: none;
             }
+            input::-webkit-search-cancel-button,
+            input::-webkit-search-decoration {
+                -webkit-appearance: none;
+                appearance: none;
+                display: none;
+            }
             input::placeholder {
               /* WCAG AA contrast: #666 sobre #fff = 7.5:1 */
               color: var(--dile-input-placeholder-color, #666);
@@ -116,10 +122,13 @@ export class DileInputSearch extends LitElement {
         <div class="${this.errored ? "errored" : ""}">
             <input 
                 id="elinput"
-                type="text" 
+                type="search"
                 placeholder="${this.placeholder}" 
                 @input=${this.inputHandler}
                 autocomplete="off"
+                data-1p-ignore
+                data-lpignore="true"
+                data-form-type="other"
                 .value="${this.value}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readOnly}"
