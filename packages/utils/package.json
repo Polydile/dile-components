@@ -25,7 +25,8 @@
     "@lion/ui": "^0.21.0",
     "linkify-string": "^4.1.3",
     "linkifyjs": "^4.1.3",
-    "lit": "^2.7.0 || ^3.0.0"
+    "lit": "^2.7.0 || ^3.0.0",
+    "qr-creator": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"

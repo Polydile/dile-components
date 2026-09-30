@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-qr-code component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/utils/components/qr-code/qr-code.js";
+  </script>
+  <style>
+    .demo-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: #fafafa;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .demo-item span {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .pattern-bg {
+      background: repeating-conic-gradient(#e0e0e0 0% 25%, #ffffff 0% 50%) 50% / 20px 20px;
+    }
+    .interactive-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .controls-panel {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .control-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .control-group input[type="text"],
+    .control-group select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .control-row input[type="range"] {
+      flex: 1;
+    }
+    .control-row input[type="color"] {
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .preview-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 260px;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    code {
+      background-color: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-qr-code component</h1>
+    <p>
+      A lightweight and reactive Web Component to render customizable QR codes on HTML5 Canvas using <code>qr-creator</code>, with support for embedded company logos.
+    </p>
+
+    <div class="demo-section">
+      <h2>Interactive Playground</h2>
+      <div class="interactive-card">
+        <div class="controls-panel">
+          <div class="control-group">
+            <label for="input-value">Text or URL (value):</label>
+            <input type="text" id="input-value" value="https://dile-components.com">
+          </div>
+
+          <div class="control-group">
+            <label for="input-size">Size (px): <span id="size-val">180</span>px</label>
+            <div class="control-row">
+              <input type="range" id="input-size" min="64" max="320" step="16" value="180">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Colors (Fill & Background):</label>
+            <div class="control-row">
+              <label><input type="color" id="input-fill" value="#1e293b"> Fill</label>
+              <label><input type="color" id="input-bg" value="#ffffff"> Background</label>
+              <label><input type="checkbox" id="check-transparent"> Transparent</label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="input-radius">Corner Radius: <span id="radius-val">0.3</span></label>
+            <div class="control-row">
+              <input type="range" id="input-radius" min="0" max="0.5" step="0.05" value="0.3">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="select-logo">Embedded Logo:</label>
+            <select id="select-logo">
+              <option value="/utils/logo-polydile.png" selected>Polydile PNG (/utils/logo-polydile.png)</option>
+              <option value="dile">Dile SVG (Data URI)</option>
+              <option value="star">Star SVG (Data URI)</option>
+              <option value="">None</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="input-logo-radius">Logo Badge Radius: <span id="logo-radius-val">8</span>px</label>
+            <div class="control-row">
+              <input type="range" id="input-logo-radius" min="0" max="24" step="1" value="8">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="input-logo-padding">Logo Badge Padding: <span id="logo-padding-val">4</span>px</label>
+            <div class="control-row">
+              <input type="range" id="input-logo-padding" min="0" max="12" step="1" value="4">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="select-ec">Error Correction Level:</label>
+            <select id="select-ec">
+              <option value="L">L - Low (~7%)</option>
+              <option value="M">M - Medium (~15%)</option>
+              <option value="Q">Q - Quartile (~25%)</option>
+              <option value="H" selected>H - High (~30%, recommended for logos)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="input-label">Accessibility Label:</label>
+            <input type="text" id="input-label" placeholder="Optional custom aria-label" value="Dile Components Web Site">
+          </div>
+        </div>
+
+        <div class="preview-panel" id="preview-box">
+          <dile-qr-code
+            id="interactive-qr"
+            value="https://dile-components.com"
+            logo="/utils/logo-polydile.png"
+            size="180"
+            fill="#1e293b"
+            background="#ffffff"
+            radius="0.3"
+            error-correction="H"
+            label="Dile Components Web Site"
+          ></dile-qr-code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Embedded Company Logos</h2>
+      <p>
+        The component automatically handles protective badge backgrounds, error correction level compensation (`H` level), and centered positioning.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <dile-qr-code
+            value="https://dile-components.com"
+            logo="/utils/logo-polydile.png"
+            size="160"
+            radius="0.3"
+            fill="#0f172a"
+            logo-radius="8"
+          ></dile-qr-code>
+          <span>Declarative logo (<code>/utils/logo-polydile.png</code>)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code
+            value="https://dile-components.com"
+            logo="/utils/logo-polydile.png"
+            size="160"
+            radius="0.4"
+            fill="#2563eb"
+            logo-radius="99"
+            logo-padding="6"
+          ></dile-qr-code>
+          <span>Circular badge (<code>logo-radius="99"</code>)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code
+            value="https://dile-components.com"
+            logo="/utils/logo-polydile.png"
+            size="160"
+            fill="#16a34a"
+            background="#f0fdf4"
+            logo-background="#ffffff"
+            logo-radius="6"
+          ></dile-qr-code>
+          <span>Custom colors & logo background</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Various Sizes</h2>
+      <div class="demo-row">
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" size="64"></dile-qr-code>
+          <span>64px</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" size="128"></dile-qr-code>
+          <span>128px (default)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" size="192"></dile-qr-code>
+          <span>192px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Custom Colors & Rounded Modules</h2>
+      <div class="demo-row">
+        <div class="demo-item">
+          <dile-qr-code
+            value="tel:+123456789"
+            fill="#0284c7"
+            background="#e0f2fe"
+            radius="0.4"
+            size="140"
+          ></dile-qr-code>
+          <span>Cyan / Light Blue (radius 0.4)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code
+            value="mailto:info@example.com"
+            fill="#059669"
+            background="#d1fae5"
+            radius="0.5"
+            size="140"
+          ></dile-qr-code>
+          <span>Emerald rounded (radius 0.5)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code
+            value="WIFI:S:MyNetwork;T:WPA;P:password;;"
+            fill="#e11d48"
+            background="#ffe4e6"
+            radius="0.2"
+            size="140"
+          ></dile-qr-code>
+          <span>Rose soft radius (0.2)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Transparent Background</h2>
+      <p>Using <code>background="transparent"</code> allows placing the QR code over backgrounds or pattern textures.</p>
+      <div class="demo-row">
+        <div class="demo-item pattern-bg">
+          <dile-qr-code
+            value="https://dile-components.com"
+            background="transparent"
+            fill="#4338ca"
+            radius="0.3"
+            size="140"
+          ></dile-qr-code>
+          <span>Pattern background</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Error Correction Levels</h2>
+      <div class="demo-row">
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" error-correction="L" size="130"></dile-qr-code>
+          <span>Level L (~7%)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" error-correction="M" size="130"></dile-qr-code>
+          <span>Level M (~15%, default)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" error-correction="Q" size="130"></dile-qr-code>
+          <span>Level Q (~25%)</span>
+        </div>
+        <div class="demo-item">
+          <dile-qr-code value="https://dile-components.com" error-correction="H" size="130"></dile-qr-code>
+          <span>Level H (~30%)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer><a href="../index.html">Back to demos</a></footer>
+  </div>
+
+  <script>
+    const dileLogoSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="%232563eb"/><path d="M30 25 h20 a25 25 0 0 1 0 50 h-20 z" fill="white"/><path d="M40 37 h10 a13 13 0 0 1 0 26 h-10 z" fill="%232563eb"/></svg>`;
+    const starLogoSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,5 64,35 97,38 72,60 79,93 50,76 21,93 28,60 3,38 36,35" fill="%23f59e0b"/></svg>`;
+
+    const qr = document.getElementById('interactive-qr');
+    const inVal = document.getElementById('input-value');
+    const inSize = document.getElementById('input-size');
+    const sizeVal = document.getElementById('size-val');
+    const inFill = document.getElementById('input-fill');
+    const inBg = document.getElementById('input-bg');
+    const checkTrans = document.getElementById('check-transparent');
+    const inRadius = document.getElementById('input-radius');
+    const radiusVal = document.getElementById('radius-val');
+    const selectLogo = document.getElementById('select-logo');
+    const inLogoRadius = document.getElementById('input-logo-radius');
+    const logoRadiusVal = document.getElementById('logo-radius-val');
+    const inLogoPadding = document.getElementById('input-logo-padding');
+    const logoPaddingVal = document.getElementById('logo-padding-val');
+    const selectEc = document.getElementById('select-ec');
+    const inLabel = document.getElementById('input-label');
+    const previewBox = document.getElementById('preview-box');
+
+    inVal.addEventListener('input', (e) => {
+      qr.value = e.target.value;
+    });
+
+    inSize.addEventListener('input', (e) => {
+      const val = Number(e.target.value);
+      sizeVal.textContent = val;
+      qr.size = val;
+    });
+
+    inFill.addEventListener('input', (e) => {
+      qr.fill = e.target.value;
+    });
+
+    function updateBg() {
+      if (checkTrans.checked) {
+        qr.background = 'transparent';
+        previewBox.classList.add('pattern-bg');
+      } else {
+        qr.background = inBg.value;
+        previewBox.classList.remove('pattern-bg');
+      }
+    }
+
+    inBg.addEventListener('input', updateBg);
+    checkTrans.addEventListener('change', updateBg);
+
+    inRadius.addEventListener('input', (e) => {
+      const val = Number(e.target.value);
+      radiusVal.textContent = val;
+      qr.radius = val;
+    });
+
+    selectLogo.addEventListener('change', (e) => {
+      if (e.target.value === 'dile') {
+        qr.logo = dileLogoSvg;
+      } else if (e.target.value === 'star') {
+        qr.logo = starLogoSvg;
+      } else {
+        qr.logo = e.target.value;
+      }
+    });
+
+    inLogoRadius.addEventListener('input', (e) => {
+      const val = Number(e.target.value);
+      logoRadiusVal.textContent = val;
+      qr.logoRadius = val;
+    });
+
+    inLogoPadding.addEventListener('input', (e) => {
+      const val = Number(e.target.value);
+      logoPaddingVal.textContent = val;
+      qr.logoPadding = val;
+    });
+
+    selectEc.addEventListener('change', (e) => {
+      qr.errorCorrection = e.target.value;
+    });
+
+    inLabel.addEventListener('input', (e) => {
+      qr.label = e.target.value;
+    });
+  </script>
+</body>
+</html>
