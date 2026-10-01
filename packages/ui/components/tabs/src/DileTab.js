@@ -1,7 +1,15 @@
 import { html, css, LitElement } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { DileSelectableItem } from "../../../mixins/selectable/index.js";
 
 export class DileTab  extends DileSelectableItem(LitElement) {
+
+  static get properties() {
+    return {
+      href: { type: String },
+      target: { type: String },
+    };
+  }
 
   static get styles() {
     return css`
@@ -40,6 +48,11 @@ export class DileTab  extends DileSelectableItem(LitElement) {
       .markselected {
         width: 100%;
       }
+      a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
       .line {
         display: flex;
         justify-content: center;
@@ -48,6 +61,15 @@ export class DileTab  extends DileSelectableItem(LitElement) {
   }
 
   render() {
+    if (this.href) {
+      return html`
+        <a href="${this.href}" target="${ifDefined(this.target)}">${this.tabTemplate}</a>
+      `;
+    }
+    return this.tabTemplate;
+  }
+
+  get tabTemplate() {
     return html`
       <article @click='${this.select}' class="${this.selected ? 'selected' : ''}">
         <div class="label"><slot></slot></div>

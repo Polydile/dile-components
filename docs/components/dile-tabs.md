@@ -47,6 +47,11 @@ Use the component
 - **selectorId** (optional): A property to link this component to a dile-pages component and change automaticaly the page when this component updates. The dile-pages component also needs to have a selectorId attribute with the same value.
 - **hashSelection**: Boolean property. Connects the tabs component with the URL hash. When the component detects changes in the URL hash, it automatically changes its selected tab. Additionally, when a tab is selected, the component updates the URL hash.
 
+### dile-tab properties
+
+- **href**: Optional. When set, the tab renders a native link (`<a>`) pointing to this URL, so clicking it performs a classic browser navigation. The tab keeps exactly the same look as any other tab.
+- **target**: Optional. The `target` attribute for the link (e.g. `_blank`). Only used when `href` is set.
+
 ## More complex example
 
 The next example show how to use the attrForSelected property.
@@ -58,6 +63,18 @@ The next example show how to use the attrForSelected property.
   <dile-tab name="articles">Articles</dile-tab>
   <dile-tab name="faq">FAQ</dile-tab>
   <dile-tab name="contact">Contact</dile-tab>
+</dile-tabs>
+```
+
+## Tabs as links
+
+Set the `href` attribute on each `dile-tab` to use the tabs as a navigation menu with regular links. Set `selected` on `dile-tabs` to mark the tab of the current page.
+
+```html
+<dile-tabs attrForSelected="name" selected="posts">
+  <dile-tab name="users" href="/users">Users</dile-tab>
+  <dile-tab name="posts" href="/posts">Posts</dile-tab>
+  <dile-tab name="docs" href="https://example.com/docs" target="_blank">Docs</dile-tab>
 </dile-tabs>
 ```
 
@@ -249,4 +266,16 @@ main.selectionlayout dile-pages h2 {
     </div>
   </dile-pages>
 </main>
+```
+
+### Tabs as links
+
+Each tab navigates to its `href` like a regular link, keeping the tab styles.
+
+```html:preview
+<dile-tabs attrForSelected="name" selected="tabs">
+  <dile-tab name="tabs" href="#tabs-as-links">Tabs</dile-tab>
+  <dile-tab name="lit" href="https://lit.dev" target="_blank">Lit</dile-tab>
+  <dile-tab name="mdn" href="https://developer.mozilla.org" target="_blank">MDN</dile-tab>
+</dile-tabs>
 ```
