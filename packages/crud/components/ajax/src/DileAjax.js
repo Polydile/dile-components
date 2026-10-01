@@ -107,6 +107,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         }
       }
       this.dispatchResponse(res);
+      this.dispatchRawError(err, res);
       
       const status = res.status;
       switch (status) {
@@ -144,6 +145,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
           this.dispatchError(res.data.message || this.translations.http_other_error, res.data);
       }
     } else {
+      this.dispatchRawError(err, null);
       this.dispatchError(this.translations.http_no_response, {});
     }
   }
@@ -155,6 +157,18 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         data,
         errors
       } 
+    }));
+  }
+
+  dispatchRawError(error, response = null) {
+    this.dispatchEvent(new CustomEvent('dile-ajax-raw-error', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        error,
+        response,
+        status: response?.status || null,
+      }
     }));
   }
 

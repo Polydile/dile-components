@@ -91,9 +91,25 @@ The component dispatches custom events to notify the lifecycle of the HTTP reque
     - `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
     - `data` is the complete server response JSON content.
 
-> The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag. However, `dile-ajax-request-start` and `dile-ajax-request-end` are configured with `bubbles: true` and `composed: true`, allowing them to be listened to on parent elements.
+> The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag. However, `dile-ajax-request-start`, `dile-ajax-request-end`, and `dile-ajax-raw-error` are configured with `bubbles: true` and `composed: true`, allowing them to be listened to on parent elements.
 
 - **ajax-response**: Dispatched when the response is received, in both cases (error and success). The detail of this custom event has a `response` property with the entire Axios response object.
+
+- **dile-ajax-raw-error**: Dispatched when an error occurs, either from the server response or from a connection failure. Unlike `ajax-error`, this event includes the complete raw error object from Axios without any processing or translation. The detail of this custom event has these properties:
+
+    ```json
+    {
+      error,
+      response,
+      status
+    }
+    ```
+
+    - `error` is the complete Axios error object, containing all the error details before any processing.
+    - `response` is the HTTP response object from Axios (if available), or `null` if the error occurred before receiving a response (e.g., network failure).
+    - `status` is the HTTP status code (if available), or `null` if there was no response.
+
+    This event is configured with `bubbles: true` and `composed: true`, allowing it to be listened to on parent elements. This is useful for parent components that need to handle raw errors at a higher level without humanized messages.
 
 
 ## Customize the HTTP request
