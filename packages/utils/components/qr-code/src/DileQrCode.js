@@ -221,6 +221,90 @@ export class DileQrCode extends LitElement {
     img.src = this.logo;
   }
 
+  /**
+   * Downloads the QR code as a PNG image.
+   * @param {string} filename - Optional filename for the download. Defaults to 'qr-code.png'.
+   */
+  download(filename = 'qr-code.png') {
+    const canvas = this.#getCanvas();
+    if (!canvas) {
+      console.warn('dile-qr-code: Canvas not found');
+      return;
+    }
+
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        console.warn('dile-qr-code: Failed to create blob from canvas');
+        return;
+      }
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      this.dispatchEvent(
+        new CustomEvent('dile-qr-code-downloaded', {
+          bubbles: true,
+          composed: true,
+          detail: { filename },
+        })
+      );
+    });
+  }
+
+  /**
+   * Copies the QR code as an image to the clipboard.
+   * Allows pasting the QR code directly into any application that accepts images.
+   */
+  async copy() {
+    const canvas = this.#getCanvas();
+    if (!canvas) {
+      console.warn('dile-qr-code: Canvas not found');
+      this.dispatchEvent(
+        new CustomEvent('dile-qr-code-copy-error', {
+          bubbles: true,
+          composed: true,
+          detail: { error: 'Canvas not found' },
+        })
+      );
+      return;
+    }
+
+    try {
+      const blob = await new Promise((resolve) => {
+        canvas.toBlob(resolve);
+      });
+
+      if (!blob) {
+        throw new Error('Failed to create blob from canvas');
+      }
+
+      const item = new ClipboardItem({ 'image/png': blob });
+      await navigator.clipboard.write([item]);
+
+      this.dispatchEvent(
+        new CustomEvent('dile-qr-code-copied', {
+          bubbles: true,
+          composed: true,
+        })
+      );
+    } catch (error) {
+      console.warn('dile-qr-code: Error copying to clipboard', error);
+      this.dispatchEvent(
+        new CustomEvent('dile-qr-code-copy-error', {
+          bubbles: true,
+          composed: true,
+          detail: { error: error.message },
+        })
+      );
+    }
+  }
+
   render() {
     return html`
       <canvas

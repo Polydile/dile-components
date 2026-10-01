@@ -2,7 +2,7 @@
 title: QR Code
 package: '@dile/utils'
 element: '&lt;dile-qr-code&gt;'
-status: ready
+status: experimental
 summary: Lightweight Web Component to generate and render customizable QR codes on HTML5 Canvas using qr-creator.
 tags: utils
 ---
@@ -62,6 +62,11 @@ canvas {
   height: auto;
 }
 ```
+
+## Methods
+
+- **download(filename)**: Downloads the QR code as a PNG image. The `filename` parameter is optional and defaults to `"qr-code.png"`. Dispatches a `dile-qr-code-downloaded` event when the download completes.
+- **copy()**: Copies the QR code as a PNG image to the clipboard. This allows you to paste the QR code directly into any application that accepts images (Figma, Photoshop, Word, email clients, etc.). Dispatches a `dile-qr-code-copied` event on success or `dile-qr-code-copy-error` on failure. Returns a Promise.
 
 ## Examples
 
@@ -190,3 +195,108 @@ Embed a brand logo or icon into the center of the QR code. The component automat
 </div>
 ```
 
+### Downloading the QR Code
+
+Use the `download()` method to allow users to save the QR code as a PNG image:
+
+```html:preview
+<script type="module">
+  import { LitElement, html } from 'lit';
+  import '@dile/utils/components/qr-code/qr-code.js';
+
+  class DownloadQrDemo extends LitElement {
+    render() {
+      return html`
+        <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+          <dile-qr-code
+            id="qrCode"
+            value="https://dile-components.com"
+            size="160"
+            radius="0.3"
+          ></dile-qr-code>
+          <button
+            style="padding: 0.5rem 1rem; background: #7BB93D; color: white; border: none; border-radius: 4px; cursor: pointer;"
+            @click=${() => this.downloadQR()}
+          >
+            Download as PNG
+          </button>
+          <button
+            style="padding: 0.5rem 1rem; background: #0284c7; color: white; border: none; border-radius: 4px; cursor: pointer;"
+            @click=${() => this.downloadWithCustomName()}
+          >
+            Download with Custom Name
+          </button>
+        </div>
+      `;
+    }
+
+    downloadQR() {
+      const qrCode = this.renderRoot.getElementById('qrCode');
+      if (qrCode) {
+        qrCode.download();
+      }
+    }
+
+    downloadWithCustomName() {
+      const qrCode = this.renderRoot.getElementById('qrCode');
+      if (qrCode) {
+        qrCode.download('my-qr-code.png');
+      }
+    }
+  }
+  customElements.define('download-qr-demo', DownloadQrDemo);
+</script>
+<download-qr-demo></download-qr-demo>
+```
+
+### Copying QR Code to Clipboard
+
+Use the `copy()` method to copy the QR code as an image to the clipboard. This allows users to paste the QR code directly into any application (Figma, Photoshop, Word, email clients, etc.):
+
+```html:preview
+<script type="module">
+  import { LitElement, html } from 'lit';
+  import '@dile/utils/components/qr-code/qr-code.js';
+
+  class CopyQrDemo extends LitElement {
+    static properties = { copied: { type: Boolean } };
+
+    constructor() {
+      super();
+      this.copied = false;
+    }
+
+    render() {
+      return html`
+        <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+          <dile-qr-code
+            id="qrCode"
+            value="https://dile-components.com"
+            size="160"
+            radius="0.3"
+          ></dile-qr-code>
+          <button
+            style="padding: 0.5rem 1rem; background: ${this.copied ? '#059669' : '#2563eb'}; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s;"
+            @click=${() => this.copyQR()}
+          >
+            ${this.copied ? '✓ Copied to Clipboard' : '📋 Copy to Clipboard'}
+          </button>
+        </div>
+      `;
+    }
+
+    async copyQR() {
+      const qrCode = this.renderRoot.getElementById('qrCode');
+      if (qrCode) {
+        await qrCode.copy();
+        this.copied = true;
+        setTimeout(() => {
+          this.copied = false;
+        }, 2000);
+      }
+    }
+  }
+  customElements.define('copy-qr-demo', CopyQrDemo);
+</script>
+<copy-qr-demo></copy-qr-demo>
+```

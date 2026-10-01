@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <script type="module">
     import "@dile/utils/components/qr-code/qr-code.js";
+    import "@dile/ui/components/floating-feedback/floating-feedback.js";
   </script>
   <style>
     .demo-section {
@@ -185,6 +186,31 @@
             <label for="input-label">Accessibility Label:</label>
             <input type="text" id="input-label" placeholder="Optional custom aria-label" value="Dile Components Web Site">
           </div>
+
+          <button 
+            id="btn-download" 
+            style="padding: 0.75rem 1rem; background: #7BB93D; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: background 0.3s;"
+            @mouseenter="this.style.background='#6ba02c'"
+            @mouseleave="this.style.background='#7BB93D'"
+          >
+            Download QR as PNG
+          </button>
+
+          <dile-floating-feedback 
+            id="feedback-copy-playground" 
+            feedback="✓ Copied to clipboard!" 
+            duration="2000"
+            style="width: 100%;"
+          >
+            <button 
+              id="btn-copy" 
+              style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: background 0.3s; width: 100%;"
+              @mouseenter="this.style.background='#1d4ed8'"
+              @mouseleave="this.style.background='#2563eb'"
+            >
+              Copy QR to Clipboard
+            </button>
+          </dile-floating-feedback>
         </div>
 
         <div class="preview-panel" id="preview-box">
@@ -340,6 +366,58 @@
       </div>
     </div>
 
+    <div class="demo-section">
+      <h2>Download QR Code</h2>
+      <p>Use the <code>download()</code> method to save the QR code as a PNG image, or use <code>copy()</code> to copy it to the clipboard for pasting anywhere.</p>
+      <div class="interactive-card" style="flex-direction: column; align-items: center; gap: 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; width: 100%;">
+          <div class="preview-panel" style="min-width: auto;">
+            <dile-qr-code
+              id="downloadable-qr"
+              value="https://dile-components.com"
+              logo="/utils/logo-polydile.png"
+              size="180"
+              radius="0.3"
+              fill="#1e293b"
+              background="#ffffff"
+              error-correction="H"
+              label="Dile Components Website"
+            ></dile-qr-code>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center;">
+            <button 
+              id="btn-download-default"
+              style="padding: 0.75rem 1.5rem; background: #7BB93D; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; white-space: nowrap; transition: background 0.3s;"
+            >
+              📥 Download (default)
+            </button>
+            <button 
+              id="btn-download-custom"
+              style="padding: 0.75rem 1.5rem; background: #7BB93D; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; white-space: nowrap; transition: background 0.3s;"
+            >
+              📥 Download (custom name)
+            </button>
+            <dile-floating-feedback 
+              id="feedback-copy-section" 
+              feedback="✓ Copied to clipboard!" 
+              duration="2000"
+              style="width: 100%;"
+            >
+              <button 
+                id="btn-copy-qr"
+                style="padding: 0.75rem 1.5rem; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; white-space: nowrap; transition: background 0.3s; width: 100%;"
+              >
+                📋 Copy to Clipboard
+              </button>
+            </dile-floating-feedback>
+          </div>
+        </div>
+        <div id="download-status" style="text-align: center; font-size: 0.9rem; color: #666; display: none;">
+          ✓ Downloaded: <strong id="status-filename">qr-code.png</strong>
+        </div>
+      </div>
+    </div>
+
     <footer><a href="../index.html">Back to demos</a></footer>
   </div>
 
@@ -426,6 +504,75 @@
 
     inLabel.addEventListener('input', (e) => {
       qr.label = e.target.value;
+    });
+
+    // Download button in interactive playground
+    const btnDownload = document.getElementById('btn-download');
+    btnDownload.addEventListener('click', () => {
+      const filename = `qr-code-${new Date().getTime()}.png`;
+      qr.download(filename);
+    });
+
+    // Copy button in interactive playground
+    const btnCopy = document.getElementById('btn-copy');
+    const feedbackPlayground = document.getElementById('feedback-copy-playground');
+    btnCopy.addEventListener('click', async () => {
+      await qr.copy();
+    });
+
+    // Listen for download events
+    qr.addEventListener('dile-qr-code-downloaded', (e) => {
+      console.log('QR downloaded:', e.detail.filename);
+    });
+
+    qr.addEventListener('dile-qr-code-copied', () => {
+      console.log('QR copied to clipboard');
+      feedbackPlayground.show();
+    });
+
+    // Download section buttons
+    const btnDownloadDefault = document.getElementById('btn-download-default');
+    const btnDownloadCustom = document.getElementById('btn-download-custom');
+    const btnCopyQr = document.getElementById('btn-copy-qr');
+    const downloadableQr = document.getElementById('downloadable-qr');
+    const downloadStatus = document.getElementById('download-status');
+    const statusFilename = document.getElementById('status-filename');
+    const feedbackSection = document.getElementById('feedback-copy-section');
+
+    btnDownloadDefault.addEventListener('click', () => {
+      downloadableQr.download();
+      statusFilename.textContent = 'qr-code.png';
+      downloadStatus.style.display = 'block';
+      setTimeout(() => {
+        downloadStatus.style.display = 'none';
+      }, 3000);
+    });
+
+    btnDownloadCustom.addEventListener('click', () => {
+      const filename = `dile-qr-${new Date().getTime()}.png`;
+      downloadableQr.download(filename);
+      statusFilename.textContent = filename;
+      downloadStatus.style.display = 'block';
+      setTimeout(() => {
+        downloadStatus.style.display = 'none';
+      }, 3000);
+    });
+
+    btnCopyQr.addEventListener('click', async () => {
+      await downloadableQr.copy();
+    });
+
+    downloadableQr.addEventListener('dile-qr-code-downloaded', (e) => {
+      console.log('Download completed:', e.detail.filename);
+    });
+
+    downloadableQr.addEventListener('dile-qr-code-copied', () => {
+      feedbackSection.show();
+    });
+
+    downloadableQr.addEventListener('dile-qr-code-copy-error', (e) => {
+      console.error('Copy failed:', e.detail.error);
+      feedbackSection.show(`❌ Copy failed: ${e.detail.error}`);
     });
   </script>
 </body>
