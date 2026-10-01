@@ -113,3 +113,26 @@ export const routes = [
 This mixin also declares two `dile-lib-navigate` event handlers in the component where it’s implemented. These detect programmatic navigation requests from other components.
 
 These handlers are essential so components like [**DileRouterLink**](/lib/router-link-component/) and the [**DileAppNavigate**](/lib/navigate-mixin/) mixin from **@dile/lib** can trigger the routing system and navigate to other pages.
+
+### dile-lib-route-changed event
+
+Every time the active route changes, the mixin dispatches a `dile-lib-route-changed` custom event on `document`. It is fired for any kind of navigation:
+
+- Programmatic navigation with `goToUrl()` (`dile-lib-navigate` events).
+- Clicks on regular `<a href>` links, including links inside the shadow DOM of other components (for example, `dile-tab` with `href`).
+- The browser's back and forward buttons.
+- The initial page load.
+
+The event is dispatched after the route's `enter()` callback has finished, so lazy-loaded components are already imported when it arrives. The event detail contains the full current path:
+
+| Detail property | Type | Description |
+|---|---|---|
+| `pathname` | `String` | The full path of the new location (`window.location.pathname`). |
+
+```javascript
+document.addEventListener('dile-lib-route-changed', (e) => {
+  console.log('Route changed to', e.detail.pathname);
+});
+```
+
+> If an `enter()` callback cancels the navigation by returning `false`, the event is still dispatched with the URL that was requested. If the guard redirects with `goToUrl()`, the redirection fires its own event afterwards with the final URL.

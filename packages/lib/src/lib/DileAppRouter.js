@@ -1,5 +1,16 @@
 import { Routes, Router } from '@lit-labs/router';
 
+class DileRoutes extends Routes {
+  async goto(pathname) {
+    await super.goto(pathname);
+    document.dispatchEvent(new CustomEvent('dile-lib-route-changed', {
+      detail: {
+        pathname: window.location.pathname,
+      }
+    }));
+  }
+}
+
 export const DileAppRouter = (superclass) => class extends superclass {
 
   static get properties() {
@@ -40,6 +51,6 @@ export const DileAppRouter = (superclass) => class extends superclass {
   createRoutes(routes) {
     new Router(this, []);
 
-    this._routes = new Routes(this, routes);
+    this._routes = new DileRoutes(this, routes);
   }
 }
