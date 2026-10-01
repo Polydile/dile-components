@@ -57,15 +57,17 @@ Supported icon families are the ones documented in [dile-iconlib](/icons/dile-ic
 
 ### Properties
 
-- **disabled**: Boolean, mark button as disabled.
-- **loading**: Boolean, shows a loading spinner and prevents interaction while loading.
-- **name**: The name of the button. It reflects to the ```name``` attribute, so it is sent correctly on native ```<form>``` submission, even if you set it from JavaScript instead of markup.
-- **value**: The value submitted for this button's ```name``` when it is the button that triggers the form submission, mirroring a native ```<button type="submit" name="..." value="...">```.
-- **type**: Use this attribute to create a submit or reset buttom, ie: `type="submit"`
-- **icon**: String in `"family.name"` format (e.g. `"lucide.rocket"`, `"material.star"`). When empty, no icon is rendered and the button works like a plain text button.
-- **iconPosition**: `"left"` (default) or `"right"` (attribute `icon-position`). Sets where the icon appears relative to the label.
-- **no-wrap**: Boolean, prevents the label from wrapping into several lines.
-- **label**: String used as the button's accessible name (`aria-label`). **Required for icon-only buttons** (no slotted text), otherwise the button has no accessible name.
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `disabled` | Boolean | `false` | Mark button as disabled. |
+| `loading` | Boolean | `false` | Shows a loading spinner and prevents interaction while loading. |
+| `name` | String | `""` | The name of the button. It reflects to the `name` attribute, so it is sent correctly on native `<form>` submission, even if you set it from JavaScript instead of markup. |
+| `value` | String | `""` | The value submitted for this button's `name` when it is the button that triggers the form submission, mirroring a native `<button type="submit" name="..." value="...">`. |
+| `type` | String | `"button"` | The button type: `"button"` (default), `"submit"`, or `"reset"`. |
+| `icon` | String | `""` | Icon to display, in the `"family.name"` format (e.g. `"lucide.rocket"`, `"material.star"`). When empty, no icon is rendered and the button works like a plain text button. |
+| `iconPosition` | String | `"left"` | Icon placement relative to the label: `"left"` (default) or `"right"`. Exposed via `icon-position` attribute. |
+| `noWrap` | Boolean | `false` | Prevents the label from wrapping into several lines. Exposed via `no-wrap` attribute. |
+| `label` | String | `""` | Accessible name for the button (`aria-label`). **Required for icon-only buttons** (no slotted text), otherwise the button has no accessible name. |
 
 When ```type="submit"```, clicking the button submits its closest ancestor ```<form>``` and includes its ```name```/```value``` pair in the submitted data — only for the button that was actually clicked, so you can safely use several submit buttons with different ```name```/```value``` pairs in the same form to distinguish which action was triggered.
 

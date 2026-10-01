@@ -1,6 +1,7 @@
 const { JSDOM } = require('jsdom');
 const codePreviews = require('./docs/_utilities/code-previews.cjs');
 const colorBox = require('./docs/_utilities/color-box-transform.cjs');
+const propertiesTableTransform = require('./docs/_utilities/properties-table-transform.cjs');
 const path = require('path');
 const fs = require('fs-extra');
 const markdownIt = require('markdown-it');
@@ -22,6 +23,7 @@ module.exports = async function(eleventyConfig) {
     }).window.document;
 
     codePreviews(doc);
+    propertiesTableTransform(doc);
     // Serialize the Document object to an HTML string and prepend the doctype
     content = `<!DOCTYPE html>\n${doc.documentElement.outerHTML}`;
     return content;

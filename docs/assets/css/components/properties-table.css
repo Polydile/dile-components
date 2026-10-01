@@ -1,0 +1,223 @@
+/**
+ * Styles for .properties-table — responsive API properties tables
+ * 
+ * Only applies to tables with class="properties-table"
+ * Does NOT affect other tables (like CSS Custom Properties tables)
+ */
+
+/* Mobile-first: Card layout for each property */
+@media (max-width: 639px) {
+  table.properties-table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-collapse: separate;
+    border-spacing: 0.75rem;
+  }
+
+  table.properties-table thead {
+    display: none;
+  }
+
+  table.properties-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  table.properties-table tr {
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  table.properties-table tr:nth-child(even),
+  table.properties-table tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  table.properties-table td {
+    display: block;
+    padding: 0.5rem 0;
+    border: none;
+    font-size: 0.9rem;
+  }
+
+  /* Show column labels before each cell value */
+  table.properties-table td:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    color: var(--dile-primary-dark-color, #0284c7);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Property name gets special treatment: full width, larger */
+  table.properties-table td:nth-child(1) {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0 0 0.75rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 0.75rem;  
+  }
+
+   table.properties-table td:nth-child(1) code {
+    background-color: transparent;
+    color: var(--dile-primary-dark-color, #0284c7);
+   }
+
+  table.properties-table td:nth-child(1):before {
+    display: none;
+  }
+
+  /* Type, Default, Description in a 2-column layout */
+  table.properties-table td:nth-child(2),
+  table.properties-table td:nth-child(3),
+  table.properties-table td:nth-child(4) {
+    font-size: 0.85rem;
+  }
+
+  /* Allow card to scroll horizontally if a single word is too long */
+  table.properties-table td {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Dark theme mobile cards */
+  html.dark-theme table.properties-table tr {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  html.dark-theme table.properties-table td:nth-child(1) {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Tablet and larger: standard table layout */
+@media (min-width: 640px) {
+  table.properties-table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  table.properties-table thead {
+    background-color: var(--dile-primary-color, #0284c7);
+    color: var(--dile-on-primary-color, #ffffff);
+  }
+
+  table.properties-table th {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  table.properties-table tbody {
+    display: table-row-group;
+  }
+
+  table.properties-table tr {
+    display: table-row;
+  }
+
+  table.properties-table td {
+    display: table-cell;
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  table.properties-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+
+  table.properties-table tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  /* First column (Property name) slightly bolder */
+  table.properties-table td:first-child {
+    font-weight: 500;
+  }
+}
+
+/* Shared styles across all viewports */
+.properties-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+
+.properties-table-wrapper > table.properties-table {
+  margin-bottom: 0;
+}
+
+table.properties-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Code may wrap at spaces, but never inside a word */
+table.properties-table code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+table.properties-table a {
+  text-decoration: none;
+}
+
+table.properties-table a code {
+  color: var(--dile-link-color, #0284c7);
+}
+
+/* Dark theme support */
+html.dark-theme table.properties-table {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+html.dark-theme table.properties-table thead {
+  background-color: var(--dile-primary-color, #0284c7);
+  color: var(--dile-on-primary-color, #ffffff);
+}
+
+html.dark-theme table.properties-table th {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  color: var(--dile-on-primary-color, #ffffff);
+}
+
+html.dark-theme table.properties-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+html.dark-theme table.properties-table tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+html.dark-theme table.properties-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark-theme table.properties-table {
+  --dile-primary-dark-color:  #f1f3a6;
+}
+
+html.dark-theme table.properties-table code {
+  background-color: transparent;
+  color: var(--dile-on-background-color, #ffffff);
+}
