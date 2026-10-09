@@ -32,7 +32,7 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
         display: flex;
         align-items: center;
         margin-bottom: 0.5rem;
-        --dile-icon-size: 36px;
+        --dile-icon-size: var(--dile-info-box-icon-size, 36px);
       }
       main {
         flex-grow: 1;
@@ -61,7 +61,7 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
         }
         .info {
           margin: 0 1rem 0 0;
-          --dile-icon-size: 28px;
+          --dile-icon-size: var(--dile-info-box-icon-size, 28px);
         }
         .close {
           padding-top: 0;
@@ -69,7 +69,7 @@ export class DileInfoBox  extends DileSlideDown(LitElement) {
       }
       @media(min-width: 500px) {
         .info {
-          --dile-icon-size: 36px;
+          --dile-icon-size: var(--dile-info-box-icon-size, 36px);
         }
       }
     `];

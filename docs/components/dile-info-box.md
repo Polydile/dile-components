@@ -31,29 +31,32 @@ Use the component.
 <dile-info-box showCloseButton>Information message...</dile-info-box>
 ```
 
-### Properties
+## Properties
 
-- **title**: String. Configure a title for the info box.
-- **showCloseButton**: Boolean. When true the box will display a close icon.
-- **isError**: Boolean. When true the box icon will be a warning icon.
-- **icon**: Object. Custom icon to display instead of the default info or warning icon.
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `String` | `""` | Configure a title for the info box. |
+| `showCloseButton` | `Boolean` | `false` | When true the box will display a close icon. |
+| `isError` | `Boolean` | `false` | When true the box icon will be a warning icon. |
+| `icon` | `Object` | `null` | Custom icon to display instead of the default info or warning icon. |
 
-### CSS Custom Properties
+## CSS Custom Properties
 
 You can customize it using CSS Custom Properties.
 
-Custom property | Description | Default
-----------------|-------------|---------
---dile-info-box-background-color | Background color | #ddd
---dile-info-box-border-radius | Box border radius | 0.8rem
---dile-info-box-padding | Box padding | 1rem
---dile-info-box-text-color | Text color | #303030
---dile-icon-color | Info icon color | #888
---dile-info-box-close-icon-color | Close icon color | #f33
---dile-info-box-title-margin-bottom | Title margin bottom | 0.5rem
---dile-info-box-title-font-size | Title font size | 1.3rem
---dile-info-box-title-font-weight | Title font weight | bold
---dile-info-box-title-text-color | Title text color | inherit
+| Property | Description | Default |
+| :--- | :--- | :--- |
+| `--dile-info-box-background-color` | Background color | `#ddd` |
+| `--dile-info-box-border-radius` | Box border radius | `0.8rem` |
+| `--dile-info-box-padding` | Box padding | `1rem` |
+| `--dile-info-box-text-color` | Text color | `#303030` |
+| `--dile-icon-color` | Info icon color | `#888` |
+| `--dile-info-box-icon-size` | Icon size | `36px` |
+| `--dile-info-box-close-icon-color` | Close icon color | `#f33` |
+| `--dile-info-box-title-margin-bottom` | Title margin bottom | `0.5rem` |
+| `--dile-info-box-title-font-size` | Title font size | `1.3rem` |
+| `--dile-info-box-title-font-weight` | Title font weight | `bold` |
+| `--dile-info-box-title-text-color` | Title text color | `inherit` |
 
 # dile-info-box demos
 
