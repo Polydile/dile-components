@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Form Data - Debug</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dile/ui/styles/colors.css">
+</head>
+<body style="font-family: Arial; padding: 20px;">
+  <h1>Test Form Data Loading</h1>
+  
+  <div id="log" style="background-color: #f0f0f0; padding: 10px; margin: 20px 0; border: 1px solid #ccc; border-radius: 5px; max-height: 400px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+  
+  <button id="testBtn" style="padding: 10px 20px; font-size: 16px;">Test triggerAction with Data</button>
+  
+  <script type="module">
+    import './components/trigger-action-demo/demo-trigger-action.js';
+    
+    const log = document.getElementById('log');
+    const testBtn = document.getElementById('testBtn');
+    
+    function logMessage(msg, type = 'info') {
+      const timestamp = new Date().toLocaleTimeString();
+      const line = document.createElement('div');
+      line.style.color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+      line.textContent = `[${timestamp}] ${msg}`;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
+    }
+    
+    testBtn.addEventListener('click', async () => {
+      try {
+        logMessage('=== Starting test ===', 'info');
+        
+        const demoEl = document.querySelector('demo-trigger-action');
+        if (!demoEl) {
+          logMessage('ERROR: demo-trigger-action not found', 'error');
+          return;
+        }
+        logMessage('✓ Found demo-trigger-action');
+        
+        // Wait for firstUpdated
+        await demoEl.updateComplete;
+        logMessage('✓ Demo element updated');
+        
+        const crudSingle = demoEl.shadowRoot.querySelector('dile-crud-single');
+        if (!crudSingle) {
+          logMessage('ERROR: dile-crud-single not found', 'error');
+          return;
+        }
+        logMessage('✓ Found dile-crud-single');
+        
+        const testData = {
+          client_name: 'DEBUG Corp',
+          client_email: 'debug@corp.com',
+          items: [
+            { product_name: 'Test Product 1', quantity: 5, price: 99.99 },
+            { product_name: 'Test Product 2', quantity: 2, price: 49.99 }
+          ],
+          notes: 'Debug test data'
+        };
+        
+        logMessage('Triggering action with data...');
+        await crudSingle.triggerAction('CreateInvoiceAction', testData);
+        logMessage('✓ triggerAction completed');
+        
+        // Wait for form to render
+        await new Promise(r => setTimeout(r, 1000));
+        
+        // Get the form
+        const singleActions = crudSingle.shadowRoot.querySelector('dile-crud-single-actions');
+        if (!singleActions) {
+          logMessage('ERROR: singleActions not found', 'error');
+          return;
+        }
+        
+        const form = singleActions.shadowRoot.querySelector('[action="CreateInvoiceAction"]');
+        if (!form) {
+          logMessage('ERROR: form not found', 'error');
+          return;
+        }
+        logMessage('✓ Form found');
+        
+        // Check values
+        const inputs = form.shadowRoot.querySelectorAll('[name]');
+        logMessage(`✓ Found ${inputs.length} inputs with name attribute`);
+        
+        logMessage('\nForm values:');
+        let missingCount = 0;
+        inputs.forEach(input => {
+          if (input.value) {
+            logMessage(`  ${input.name} = "${input.value}"`, 'success');
+          } else {
+            logMessage(`  ${input.name} = (empty)`, 'error');
+            missingCount++;
+          }
+        });
+        
+        if (missingCount > 0) {
+          logMessage(`\n⚠ WARNING: ${missingCount} fields are empty!`, 'error');
+        } else {
+          logMessage('\n✓ All fields populated successfully!', 'success');
+        }
+        
+      } catch (err) {
+        logMessage(`ERROR: ${err.message}`, 'error');
+        console.error(err);
+      }
+    });
+    
+    logMessage('Test page loaded. Click the button to run test.');
+  </script>
+  
+  <h2>Instructions:</h2>
+  <ol>
+    <li>Click the "Test triggerAction with Data" button</li>
+    <li>Watch the log for messages</li>
+    <li>Check the browser console (F12) for detailed debug logs from the form component</li>
+    <li>Verify that all form fields show values (especially product_name_0, quantity_0, price_0, etc.)</li>
+  </ol>
+  
+  <div id="demo-container" style="margin-top: 30px; border: 2px solid #ddd; padding: 20px;">
+    <h2>Demo Component</h2>
+    <p>The demo component is loaded above in the test script. You don't need another instance here.</p>
+  </div>
+</body>
+</html>

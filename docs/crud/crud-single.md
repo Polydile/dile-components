@@ -44,6 +44,23 @@ Use the component.
 
 - **refresh()**: Reloads the current data for the record being displayed. This method is used to update the view after changes have been made to the record.
 - **edit()**: Opens the form to edit the current record being displayed by the `dile-crud-single` component.
+- **triggerAction(actionName, initialData)**: Programmatically triggers an action. The optional `initialData` parameter allows you to pre-populate the action's form with initial values. This is useful when you need to open an action with some data already filled in. The data will only be applied for that particular opening; after the action is completed or cancelled, the form will be reset on the next opening.
+- **triggerDirectAction(actionName, initialData)**: An alias for `triggerAction()` that triggers direct actions defined in the configuration.
+
+### Triggering Actions with Initial Data
+
+You can programmatically trigger an action and pre-populate its form with initial data. This is particularly useful when an action needs to create something related to the current item.
+
+For example, if you have a "Create Invoice" button next to each habitual product, you can open the action with the product already selected:
+
+```javascript
+const crudSingle = document.querySelector('dile-crud-single');
+crudSingle.triggerAction('CreateInvoiceDraftFromHabitualProductsAction', {
+  products: [{ product_uuid: uuid, units: 1 }],
+});
+```
+
+The form will be populated with the provided data and displayed to the user. After the action completes (either successfully or via cancellation), the form will reset on the next opening, ensuring a clean state for new operations.
 
 ### Events
 

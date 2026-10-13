@@ -47,6 +47,7 @@ export class DileCrudSingleActions extends DileCrudActions {
     super();
     this.actions = [];
     this.directSingleActions = [];
+    this._initialData = null;
   }
 
   get actionListTemplate() {
@@ -94,14 +95,41 @@ export class DileCrudSingleActions extends DileCrudActions {
     }
   }
 
-  triggerAction(actionName) {
+  async showAction() {
+    super.showAction();
+    // Wait for the form to be rendered after the confirm opens
+    let form = this.selectedActionForm;
+    let attempts = 0;
+    while (!form && attempts < 50) {
+      await this.updateComplete;
+      await new Promise(r => setTimeout(r, 10));
+      form = this.selectedActionForm;
+      attempts++;
+    }
+    
+    if (form) {
+      if (this._initialData) {
+        await form.setData(this._initialData);
+        this._initialData = null;
+      } else {
+        // Reset form if no initial data
+        await form.resetData();
+      }
+    }
+  }
+
+  async triggerAction(actionName, initialData) {
     this.selection = actionName;
     this.computeDestructive();
     const action = this.actions.find(a => a.name === actionName);
     if (action && action.onClick) {
       action.onClick(this.element);
     } else {
-      this.showAction();
+      // Store initial data for showAction to apply
+      if (initialData) {
+        this._initialData = initialData;
+      }
+      await this.showAction();
     }
   }
 }

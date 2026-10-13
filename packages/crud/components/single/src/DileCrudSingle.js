@@ -174,8 +174,12 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     this.detailElement.refresh();
   }
 
-  triggerDirectAction(actionName) {
-    this.singleActionsElement.triggerAction(actionName);
+  triggerDirectAction(actionName, initialData) {
+    this.singleActionsElement.triggerAction(actionName, initialData);
+  }
+
+  triggerAction(actionName, initialData) {
+    this.singleActionsElement.triggerAction(actionName, initialData);
   }
 
   elementLoaded(e) {
