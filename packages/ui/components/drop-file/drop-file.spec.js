@@ -30,4 +30,52 @@ describe('dile-drop-file', () => {
 
     expect(el.fileName).toBe('');
   });
+
+  it('renders accept attribute when accept property is defined', async () => {
+    const el = await renderDropFile('<dile-drop-file accept="application/pdf,image/*"></dile-drop-file>');
+    const fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('accept')).toBe('application/pdf,image/*');
+  });
+
+  it('does not render accept attribute when accept property is empty', async () => {
+    const el = await renderDropFile('<dile-drop-file accept=""></dile-drop-file>');
+    const fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('accept')).toBeNull();
+  });
+
+  it('renders capture attribute when capture property is defined', async () => {
+    const el = await renderDropFile('<dile-drop-file capture="environment"></dile-drop-file>');
+    const fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('capture')).toBe('environment');
+  });
+
+  it('does not render capture attribute when capture property is empty', async () => {
+    const el = await renderDropFile('<dile-drop-file capture=""></dile-drop-file>');
+    const fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('capture')).toBeNull();
+  });
+
+  it('updates accept attribute when property changes after render', async () => {
+    const el = await renderDropFile('<dile-drop-file></dile-drop-file>');
+    let fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('accept')).toBeNull();
+    
+    el.accept = 'image/*';
+    await el.updateComplete;
+    
+    fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('accept')).toBe('image/*');
+  });
+
+  it('updates capture attribute when property changes after render', async () => {
+    const el = await renderDropFile('<dile-drop-file></dile-drop-file>');
+    let fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('capture')).toBeNull();
+    
+    el.capture = 'user';
+    await el.updateComplete;
+    
+    fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    expect(fileInput.getAttribute('capture')).toBe('user');
+  });
 });

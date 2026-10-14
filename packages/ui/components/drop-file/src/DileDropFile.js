@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../file-preview.js';
 import '../../button/button.js';
 import { labelStyles } from '../../input/src/label-styles.js';
@@ -61,6 +62,8 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       allowedExtensions: { type: Array },
       extensionErrorMessage: { type: String },
       name: { type: String, reflect: true },
+      accept: { type: String },
+      capture: { type: String },
     };
   }
 
@@ -78,6 +81,8 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     this.selectedFileLabel = "Selected file";
     this.extensionErrorMessage = "Only this file extensions are allowed: "
     this.allowedExtensions = [];
+    this.accept = '';
+    this.capture = '';
     this.internals = this.attachInternals();
   } 
 
@@ -104,7 +109,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
         ${this.dropLabelTemplate}
       </div>
       ${this.messageTemplate}
-      <input type="file" id="fileInput" @change=${this._handleFileInput}>
+      <input type="file" id="fileInput" @change=${this._handleFileInput} accept=${ifDefined(this.accept || undefined)} capture=${ifDefined(this.capture || undefined)}>
       <dile-file-preview 
         fileName="${this.fileName}"
         selectedFileLabel="${this.selectedFileLabel}"

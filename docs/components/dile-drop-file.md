@@ -49,6 +49,8 @@ Use the component
 - **selectedFileLabel**: String, label shown when a file is selected.
 - **allowedExtensions**: Array, specifies the allowed file extensions for validation. Use `['*']` to allow any file extension without validation. Example: `['pdf', 'doc', 'docx']` or `['*']`.
 - **extensionErrorMessage**: String, error message displayed when the selected file does not match the allowed extensions.
+- **accept**: String, specifies the types of files allowed. This filters the file selection dialog. Example: `"application/pdf,image/*"` or `"image/*"`. When empty (default), no filtering is applied.
+- **capture**: String, on mobile devices, enables direct capture from camera or microphone. Valid values: `"user"` (front camera) or `"environment"` (rear camera). Only has effect on mobile devices; on desktop it is ignored. Example: `"environment"` to open the rear camera.
 
 ### Methods
 
@@ -85,4 +87,40 @@ Custom property | Description | Default
 import "@dile/ui/components/drop-file/drop-file.js"
 </script>
 <dile-drop-file label="Upload your file" dropLabel="Drop your file here"></dile-drop-file>
+```
+
+### Document Upload with Type Filtering
+
+This example demonstrates a document upload field that filters for PDF and image files on the file picker:
+
+```html:preview
+<script type="module">
+import "@dile/ui/components/drop-file/drop-file.js"
+</script>
+<dile-drop-file 
+  label="Upload Document or Photo" 
+  dropLabel="Drop PDF or image here"
+  buttonLabel="Select Document or Photo"
+  accept="application/pdf,image/*"
+  allowedExtensions=${JSON.stringify(['pdf', 'jpg', 'jpeg', 'png', 'webp'])}
+  extensionErrorMessage="Only PDF and image files (jpg, jpeg, png, webp) are allowed"
+></dile-drop-file>
+```
+
+### Camera Capture on Mobile
+
+This example shows how to take a photo directly from the device camera on mobile devices:
+
+```html:preview
+<script type="module">
+import "@dile/ui/components/drop-file/drop-file.js"
+</script>
+<dile-drop-file 
+  label="Take a Photo" 
+  dropLabel="Drop image here or tap to take photo"
+  buttonLabel="Take Photo"
+  accept="image/*"
+  capture="environment"
+  allowedExtensions=${JSON.stringify(['jpg', 'jpeg', 'png', 'webp'])}
+></dile-drop-file>
 ```
