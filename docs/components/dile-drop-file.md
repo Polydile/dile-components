@@ -40,17 +40,19 @@ Use the component
 
 ### Properties
 
-- **name**: String, name of the input element
-- **label**: String, label text displayed above the drop zone.
-- **message**: String, message displayed below the drop zone, tipically used for help or error messages.
-- **errored**: Boolean, indicates whether there is an error in the drop zone.
-- **dropLabel**: String, label displayed inside the drop zone, instructing the user to drop a file.
-- **buttonLabel**: String, label of the button shown in the drop zone.
-- **selectedFileLabel**: String, label shown when a file is selected.
-- **allowedExtensions**: Array, specifies the allowed file extensions for validation. Use `['*']` to allow any file extension without validation. Example: `['pdf', 'doc', 'docx']` or `['*']`.
-- **extensionErrorMessage**: String, error message displayed when the selected file does not match the allowed extensions.
-- **accept**: String, specifies the types of files allowed. This filters the file selection dialog. Example: `"application/pdf,image/*"` or `"image/*"`. When empty (default), no filtering is applied.
-- **capture**: String, on mobile devices, enables direct capture from camera or microphone. Valid values: `"user"` (front camera) or `"environment"` (rear camera). Only has effect on mobile devices; on desktop it is ignored. Example: `"environment"` to open the rear camera.
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `String` | `""` | Name of the input element. |
+| `label` | `String` | `""` | Label text displayed above the drop zone. |
+| `message` | `String` | `""` | Message displayed below the drop zone, typically used for help or error messages. |
+| `errored` | `Boolean` | `false` | Indicates whether there is an error in the drop zone. |
+| `dropLabel` | `String` | `"Drop here your file"` | Label displayed inside the drop zone, instructing the user to drop a file. |
+| `buttonLabel` | `String` | `"Select file"` | Label of the button shown in the drop zone. |
+| `selectedFileLabel` | `String` | `"Selected file"` | Label shown when a file is selected. |
+| `allowedExtensions` | `Array` | `[]` | Specifies the allowed file extensions for validation. Use `['*']` to allow any file extension. Example: `['pdf', 'doc', 'docx']`. |
+| `extensionErrorMessage` | `String` | `"Only this file extensions are allowed: "` | Error message displayed when the selected file does not match the allowed extensions. |
+| `accept` | `String` | `""` | Specifies the types of files allowed, filtering the native file picker. Example: `"application/pdf,image/*"` or `"image/*"`. When empty (default), no filtering is applied. |
+| `capture` | `String` | `""` | On mobile devices, enables direct capture from camera or microphone. Valid values: `"user"` (front camera) or `"environment"` (rear camera). Only has effect on mobile devices; on desktop it is ignored. |
 
 ### Methods
 
