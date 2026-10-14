@@ -171,6 +171,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     if (files.length > 0) {
       this.fileName = files[0].name;
       this.emmitChange();
+      this._emitDropFileChanged(files[0]);
       if(this._isValidExtension(this.fileName)) {
         this.message = this.firstMessage || '';
         this.errored = false;
@@ -210,6 +211,16 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     }
   }
 
+  _emitDropFileChanged(file) {
+    this.dispatchEvent(new CustomEvent('dile-drop-file-changed', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        file: file
+      }
+    }));
+  }
+
   openFileDialog() {
     this.fileInput.click();
   }
@@ -218,6 +229,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     this.fileInput.value = "";
     this.fileName = "";
     this.internals.setFormValue(null);
+    this._emitDropFileChanged(null);
     this.emmitChange();
   }
 

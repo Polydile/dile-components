@@ -78,4 +78,35 @@ describe('dile-drop-file', () => {
     fileInput = el.shadowRoot.querySelector('input[type="file"]');
     expect(fileInput.getAttribute('capture')).toBe('user');
   });
+
+  it('emits dile-drop-file-changed event when file is selected', async () => {
+    const el = await renderDropFile('<dile-drop-file></dile-drop-file>');
+    let eventDetail = null;
+    el.addEventListener('dile-drop-file-changed', (e) => { eventDetail = e.detail; });
+
+    const fileInput = el.shadowRoot.querySelector('input[type="file"]');
+    const file = new File(['content'], 'test.pdf', { type: 'application/pdf' });
+    Object.defineProperty(fileInput, 'files', {
+      value: [file],
+      writable: false,
+    });
+    
+    fileInput.dispatchEvent(new Event('change', { bubbles: true }));
+    await el.updateComplete;
+
+    expect(eventDetail).toBeTruthy();
+    expect(eventDetail.file).toEqual(file);
+  });
+
+  it('emits dile-drop-file-changed event with null when file is cleared', async () => {
+    const el = await renderDropFile('<dile-drop-file></dile-drop-file>');
+    let eventDetail = null;
+    el.addEventListener('dile-drop-file-changed', (e) => { eventDetail = e.detail; });
+
+    el.clear();
+    await el.updateComplete;
+
+    expect(eventDetail).toBeTruthy();
+    expect(eventDetail.file).toBeNull();
+  });
 });
