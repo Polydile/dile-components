@@ -80,7 +80,7 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
         }
         this.dispatchEvent(new CustomEvent('ajax-success', { detail }));
       } else {
-        this.dispatchError(this.translations.http_unhandled_success, response.data);
+        this.dispatchError(this.translations.http_unhandled_success, response.data, [], response.status);
       }
     })
     .catch(async err => {
@@ -112,50 +112,51 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
       const status = res.status;
       switch (status) {
         case 422: 
-          this.dispatchError(res.data.message || this.translations.http_422, res.data, this.getValidationErrors(res.data));
+          this.dispatchError(res.data.message || this.translations.http_422, res.data, this.getValidationErrors(res.data), status);
           break;
         case 400: 
-          this.dispatchError(res.data.message || this.translations.http_400, res.data, this.getValidationErrors(res.data));
+          this.dispatchError(res.data.message || this.translations.http_400, res.data, this.getValidationErrors(res.data), status);
           break;
         case 404:
-          this.dispatchError(res.data.message || this.translations.http_404, res.data);
+          this.dispatchError(res.data.message || this.translations.http_404, res.data, [], status);
           break;
         case 401:
-          this.dispatchError(res.data.message || this.translations.http_401, res.data);
+          this.dispatchError(res.data.message || this.translations.http_401, res.data, [], status);
           break;
         case 403:
-          this.dispatchError(res.data.message || this.translations.http_403, res.data);
+          this.dispatchError(res.data.message || this.translations.http_403, res.data, [], status);
           break;
         case 405:
-          this.dispatchError(res.data.message || this.translations.http_405, res.data);
+          this.dispatchError(res.data.message || this.translations.http_405, res.data, [], status);
           break;
         case 413:
-          this.dispatchError(res.data.message || this.translations.http_413, res.data);
+          this.dispatchError(res.data.message || this.translations.http_413, res.data, [], status);
           break;
         case 419:
-          this.dispatchError(res.data.message || this.translations.http_419, res.data);
+          this.dispatchError(res.data.message || this.translations.http_419, res.data, [], status);
           break;
         case 502:
-          this.dispatchError(res.data.message || this.translations.http_502, res.data);
+          this.dispatchError(res.data.message || this.translations.http_502, res.data, [], status);
           break;
         case 504:
-          this.dispatchError(res.data.message || this.translations.http_504, res.data);
+          this.dispatchError(res.data.message || this.translations.http_504, res.data, [], status);
           break;
         default:
-          this.dispatchError(res.data.message || this.translations.http_other_error, res.data);
+          this.dispatchError(res.data.message || this.translations.http_other_error, res.data, [], status);
       }
     } else {
       this.dispatchRawError(err, null);
-      this.dispatchError(this.translations.http_no_response, {});
+      this.dispatchError(this.translations.http_no_response, {}, [], null);
     }
   }
 
-  dispatchError(message, data, errors = []) {
+  dispatchError(message, data, errors = [], status = null) {
     this.dispatchEvent(new CustomEvent('ajax-error', {
       detail: {
         message,
         data,
-        errors
+        errors,
+        status
       } 
     }));
   }

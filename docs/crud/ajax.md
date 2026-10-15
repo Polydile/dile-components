@@ -83,13 +83,15 @@ The component dispatches custom events to notify the lifecycle of the HTTP reque
     {
       message, 
       errors,
-      data
+      data,
+      status
     }
     ```
 
     - `message` is an human readable description of the error. To make the description the component try to reach a `message` property on the server response. If this property exists, then the component will use it as the message. If this property does not exists, then the component creates a standar descripcion based on the HTTP status code.
     - `errors` is an array of errors, generally usable for validation purpouses. `data` is the entire JSON response. 
     - `data` is the complete server response JSON content.
+    - `status` is the HTTP status code from the error response (e.g., 400, 404, 500), or `null` if there was no response.
 
 > The `ajax-success` and `ajax-error` custom events are not configured with `bubbles: true`, so they must be listened to directly on the `dile-ajax` component tag. However, `dile-ajax-request-start`, `dile-ajax-request-end`, and `dile-ajax-raw-error` are configured with `bubbles: true` and `composed: true`, allowing them to be listened to on parent elements.
 
