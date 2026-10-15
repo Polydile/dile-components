@@ -96,7 +96,7 @@ describe('dile-crud-sort-form', () => {
     let receivedDetail = null;
     el.addEventListener('sort-changed', (e) => { receivedDetail = e.detail; });
 
-    el.shadowRoot.querySelector('dile-order-switch[name="year"]').shadowRoot.querySelector('span').click();
+    el.shadowRoot.querySelector('dile-order-switch[name="year"]').shadowRoot.querySelector('a').click();
     await el.updateComplete;
 
     expect(el.sortField).toBe('year');
@@ -117,7 +117,7 @@ describe('dile-crud-sort-form', () => {
     let receivedDetail = null;
     el.addEventListener('sort-changed', (e) => { receivedDetail = e.detail; });
 
-    const label = () => el.shadowRoot.querySelector('dile-order-switch[name="name"]').shadowRoot.querySelector('span');
+    const label = () => el.shadowRoot.querySelector('dile-order-switch[name="name"]').shadowRoot.querySelector('a');
 
     label().click();
     await el.updateComplete;

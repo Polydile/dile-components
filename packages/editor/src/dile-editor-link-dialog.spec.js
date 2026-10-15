@@ -29,6 +29,8 @@ describe('dile-editor-link-dialog', () => {
     el.open();
     expect(opened).toBe(true);
 
+    // The overlay only becomes closable once its opening delay has finished.
+    await new Promise((resolve) => setTimeout(resolve, 100));
     el.close();
     expect(closed).toBe(true);
   });

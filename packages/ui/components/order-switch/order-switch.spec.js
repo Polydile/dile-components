@@ -17,8 +17,8 @@ describe('dile-order-switch', () => {
     const el = await renderOrderSwitch('<dile-order-switch label="Name"></dile-order-switch>');
 
     expect(el.value).toBe('asc');
-    expect(el.shadowRoot.querySelector('dile-icon')).toBeTruthy();
-    expect(el.shadowRoot.querySelector('span').textContent.trim()).toBe('Name');
+    expect(el.shadowRoot.querySelector('dile-button-icon')).toBeTruthy();
+    expect(el.shadowRoot.querySelector('a').textContent.trim()).toBe('Name');
   });
 
   it('toggles between asc and desc', async () => {
@@ -35,7 +35,7 @@ describe('dile-order-switch', () => {
     let receivedDetail = null;
     el.addEventListener('element-changed', (e) => { receivedDetail = e.detail; });
 
-    el.shadowRoot.querySelector('span').click();
+    el.shadowRoot.querySelector('a').click();
     await el.updateComplete;
 
     expect(el.value).toBe('asc'); // unchanged
@@ -48,7 +48,7 @@ describe('dile-order-switch', () => {
     let receivedDetail = null;
     el.addEventListener('element-changed', (e) => { receivedDetail = e.detail; });
 
-    el.shadowRoot.querySelector('span').click();
+    el.shadowRoot.querySelector('a').click();
     await el.updateComplete;
 
     expect(el.value).toBe('desc'); // toggled
