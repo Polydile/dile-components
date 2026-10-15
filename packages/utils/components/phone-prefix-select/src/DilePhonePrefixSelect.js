@@ -10,10 +10,14 @@ const TEXTS = {
   es: {
     placeholder: 'Busca un país o prefijo...',
     emptyMessage: 'No se encontraron resultados',
+    clearSelectionLabel: 'Borrar selección',
+    clearSearchLabel: 'Borrar búsqueda',
   },
   en: {
     placeholder: 'Search a country or prefix...',
     emptyMessage: 'No results found',
+    clearSelectionLabel: 'Clear selection',
+    clearSearchLabel: 'Clear search',
   },
 };
 
@@ -50,6 +54,8 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
     this.compact = false;
     this.placeholder = undefined;
     this.emptyMessage = undefined;
+    this.clearSelectionLabel = undefined;
+    this.clearSearchLabel = undefined;
   }
 
   get selectedTextChangedEventName() {
@@ -155,12 +161,11 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
   applyLanguageTexts(previousLanguage) {
     const texts = TEXTS[this.language] || TEXTS.en;
     const previousTexts = TEXTS[previousLanguage] || {};
-    if (this.placeholder === undefined || this.placeholder === previousTexts.placeholder) {
-      this.placeholder = texts.placeholder;
-    }
-    if (this.emptyMessage === undefined || this.emptyMessage === previousTexts.emptyMessage) {
-      this.emptyMessage = texts.emptyMessage;
-    }
+    Object.keys(texts).forEach(key => {
+      if (this[key] === undefined || this[key] === previousTexts[key]) {
+        this[key] = texts[key];
+      }
+    });
   }
 
   /** The country for a prefix: the current one if it has that prefix, the main one otherwise. */

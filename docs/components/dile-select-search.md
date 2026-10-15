@@ -60,6 +60,8 @@ The slotted `<select>` is never displayed: it's only read as the data source. Op
 | `errored` | `Boolean` | `false` | Shows the field in the error state. |
 | `message` | `String` | `undefined` | Message displayed below the field. |
 | `hideErrorOnInput` | `Boolean` | `false` | Clears the error state and message when the user interacts with the field. |
+| `clearSelectionLabel` | `String` | `"Clear selection"` | Accessible name of the button that clears the selected option, read by screen readers. |
+| `clearSearchLabel` | `String` | `"Clear search"` | Accessible name of the button that clears the text typed in the search field. |
 | `selectedText` | `String` | `undefined` | Text of the selected option. Assigned automatically, read it rather than setting it. |
 | `isSelected` | `Boolean` | `false` | Read-only state, `true` when an option is selected. |
 
@@ -105,6 +107,8 @@ The search field uses the same custom properties as [dile-select-ajax-overlay](/
 ## Accessibility
 
 Same pattern as [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/#accessibility): the search field is a `role="combobox"`, keyboard navigation (`ArrowUp`/`ArrowDown`/`Home`/`End`/`Enter`/`Escape`) is forwarded to the popup and a visually-hidden live region announces the highlighted option. Once an option is selected, the read-only field uses the `label` as its accessible name.
+
+While there is text in the search field, the clear icon is a real button (reachable with `Tab`, activated with `Enter` or `Space`) named by `clearSearchLabel`. With an empty field, the search icon is only decorative and hidden from screen readers.
 
 ## dile-select-search demos
 

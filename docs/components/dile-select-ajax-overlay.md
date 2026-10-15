@@ -75,6 +75,8 @@ Same set as [dile-select-ajax](/components/dile-select-ajax/#properties), except
 - **message**: A custom message to display.
 - **hideErrorOnInput**: Hide error messages and error state if the user interacts with this component.
 - **additionalQueryString**: Object with additional query string data to be placed in the request url.
+- **clearSelectionLabel**: String, accessible name of the button that clears the selected option, read by screen readers. Defaults to `"Clear selection"`.
+- **clearSearchLabel**: String, accessible name of the button that clears the text typed in the search field. Defaults to `"Clear search"`.
 
 ## Methods
 

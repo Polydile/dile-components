@@ -100,8 +100,12 @@ export class DileInputSearch extends LitElement {
         name: { type: String },
         /** Whether there is content in the "error" slot */
         _hasErrorContent: { state: true },
-        /** Accessible name of the input field, read by screen readers. Defaults to name. */
+        /** Accessible name of the input field, read by screen readers. Defaults to name, or to searchButtonLabel. */
         accessibleLabel: { type: String },
+        /** Accessible name of the button when the field is empty */
+        searchButtonLabel: { type: String },
+        /** Accessible name of the button that clears the field */
+        clearButtonLabel: { type: String },
       };
     }
 
@@ -113,6 +117,8 @@ export class DileInputSearch extends LitElement {
         this.readOnly = false;
         this.errored = false;
         this._hasErrorContent = false;
+        this.searchButtonLabel = 'Search';
+        this.clearButtonLabel = 'Clear search';
     }
 
     firstUpdated() {
@@ -120,9 +126,9 @@ export class DileInputSearch extends LitElement {
     }
 
     render() {
-        const iconLabel = this.value.length 
-            ? 'Limpiar búsqueda'
-            : 'Buscar';
+        const iconLabel = this.value.length
+            ? this.clearButtonLabel
+            : this.searchButtonLabel;
         
         return html`
         <div class="search-box ${this.errored ? "errored" : ""}">
@@ -138,7 +144,7 @@ export class DileInputSearch extends LitElement {
                 .value="${this.value}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readOnly}"
-                aria-label="${this.accessibleLabel || this.name || 'Búsqueda'}"
+                aria-label="${this.accessibleLabel || this.name || this.searchButtonLabel}"
                 ?aria-invalid="${this.errored}"
                 aria-describedby="${this.showErrorMessage ? 'error-msg' : null}"
             >

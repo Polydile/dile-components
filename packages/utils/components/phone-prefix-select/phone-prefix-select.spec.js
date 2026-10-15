@@ -56,6 +56,16 @@ describe('dile-phone-prefix-select', () => {
       expect(es.shadowRoot.getElementById('search').placeholder).toBe('Busca un país o prefijo...');
     });
 
+    it('labels the clear button of the selected country in the component language', async () => {
+      for (const [language, expected] of [['en', 'Clear selection'], ['es', 'Borrar selección']]) {
+        const el = await render(`language="${language}" value="+34"`);
+        await el.updateComplete;
+        const result = el.shadowRoot.getElementById('result');
+        await result.updateComplete;
+        expect(result.shadowRoot.querySelector('button').getAttribute('aria-label')).toBe(expected);
+      }
+    });
+
     it('keeps a custom placeholder', async () => {
       const el = await render('language="es" placeholder="Prefijo"');
       expect(el.shadowRoot.getElementById('search').placeholder).toBe('Prefijo');

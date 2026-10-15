@@ -74,6 +74,8 @@ The value can also be set without the `+` (`value="34"`), which is useful if the
 | `label` | `String` | `undefined` | Label text for the field. |
 | `placeholder` | `String` | Depends on `language` | Placeholder of the search field. |
 | `emptyMessage` | `String` | Depends on `language` | Message shown when the search doesn't match any country. |
+| `clearSelectionLabel` | `String` | Depends on `language` | Accessible name of the button that clears the selected country. |
+| `clearSearchLabel` | `String` | Depends on `language` | Accessible name of the button that clears the text typed in the search field. |
 | `showAllOnFocus` | `Boolean` | `false` | Shows every country as soon as the search field gets the focus. |
 | `disabled` | `Boolean` | `false` | Disables the field. |
 | `errored` | `Boolean` | `false` | Shows the field in the error state. |

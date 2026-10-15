@@ -50,6 +50,21 @@ describe('dile-input-search', () => {
     expect(el.shadowRoot.querySelector('input').getAttribute('aria-describedby')).toBe('error-msg');
   });
 
+  it('labels the button in English by default, with configurable texts', async () => {
+    const el = await renderInputSearch('<dile-input-search></dile-input-search>');
+    const button = el.shadowRoot.querySelector('button');
+    expect(button.getAttribute('aria-label')).toBe('Search');
+    expect(el.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Search');
+
+    el.value = 'lit';
+    await el.updateComplete;
+    expect(button.getAttribute('aria-label')).toBe('Clear search');
+
+    el.clearButtonLabel = 'Limpiar búsqueda';
+    await el.updateComplete;
+    expect(button.getAttribute('aria-label')).toBe('Limpiar búsqueda');
+  });
+
   it('uses accessibleLabel as aria-label, falling back to name', async () => {
     const named = await renderInputSearch('<dile-input-search name="Products"></dile-input-search>');
     expect(named.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Products');

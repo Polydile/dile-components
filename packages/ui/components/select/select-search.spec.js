@@ -134,6 +134,37 @@ describe('dile-select-search', () => {
     });
   });
 
+  describe('Search field icon', () => {
+    it('shows a decorative search icon, not a button, while the field is empty', async () => {
+      const el = await renderSelectSearch();
+
+      expect(el.shadowRoot.querySelector('.clear-button')).toBeNull();
+      expect(el.shadowRoot.querySelector('.search-wrapper dile-icon').getAttribute('aria-hidden')).toBe('true');
+    });
+
+    it('shows a real, labelled clear button once there is text', async () => {
+      const el = await renderSelectSearch('clearSearchLabel="Borrar búsqueda"');
+      await typeKeyword(el, 'esp');
+
+      const button = el.shadowRoot.querySelector('.clear-button');
+      expect(button.tagName).toBe('BUTTON');
+      expect(button.type).toBe('button');
+      expect(button.getAttribute('aria-label')).toBe('Borrar búsqueda');
+    });
+
+    it('the clear button empties the search and returns the focus to the field', async () => {
+      const el = await renderSelectSearch();
+      await typeKeyword(el, 'esp');
+
+      el.shadowRoot.querySelector('.clear-button').click();
+      await el.updateComplete;
+
+      expect(el.keyword).toBe('');
+      expect(el.shadowRoot.activeElement).toBe(el.shadowRoot.getElementById('search'));
+      expect(el.shadowRoot.querySelector('.clear-button')).toBeNull();
+    });
+  });
+
   describe('showAllOnFocus', () => {
     it('shows every option on focus when set', async () => {
       const el = await renderSelectSearch('showAllOnFocus');

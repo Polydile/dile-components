@@ -74,7 +74,22 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
       dile-icon {
         margin-left: 1px;
         display: flex;
+      }
+      .clear-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 3px;
+        background: none;
+        color: inherit;
         cursor: pointer;
+      }
+      .clear-button:focus-visible {
+        outline: 2px solid var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
+        outline-offset: 1px;
       }
       dile-spinner-icon {
         margin-left: 1px;
@@ -156,6 +171,10 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
         type: Boolean,
         state: true,
       },
+      /** Accessible name of the button that clears the selected option */
+      clearSelectionLabel: { type: String },
+      /** Accessible name of the button that clears the text typed in the search field */
+      clearSearchLabel: { type: String },
       /** Message Displayed */
       message: { type: String },
       /** Hide errors on input */
@@ -196,6 +215,8 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
     super();
     this.placeholder = "Search to choose...";
     this.emptyMessage = "No results found";
+    this.clearSelectionLabel = "Clear selection";
+    this.clearSearchLabel = "Clear search";
     this.data = [];
     this.keyword = '';
     this.loading = false;
@@ -291,6 +312,7 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
         value="${this.selectedText}"
         readOnly
         .accessibleLabel=${this.selectedAccessibleLabel}
+        .clearButtonLabel=${this.clearSelectionLabel}
         @dile-input-search-cleared=${this.onClearSelected}
         @dile-input-search=${this.hideErrorOnInteraction}
       ></dile-input-search>
@@ -322,12 +344,17 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
         >
         ${this.loading
           ? html`<dile-spinner-icon active aria-hidden="true"></dile-spinner-icon>`
-          : html`
-            <dile-icon
-              @click=${this.onIconClick}
-              .icon="${this.keyword.length ? clearIcon : searchIcon}"
-            ></dile-icon>
-          `
+          : this.keyword.length
+            ? html`
+              <button
+                type="button"
+                class="clear-button"
+                aria-label="${this.clearSearchLabel}"
+                ?disabled=${this.disabled}
+                @click=${this.onIconClick}
+              ><dile-icon .icon="${clearIcon}" aria-hidden="true"></dile-icon></button>
+            `
+            : html`<dile-icon .icon="${searchIcon}" aria-hidden="true"></dile-icon>`
         }
       </div>
       <div class="visually-hidden" role="status" aria-live="polite">${this._liveAnnouncement}</div>

@@ -41,7 +41,11 @@ Use the component.
 - **disabled**: The component is disabled
 - **name**: Name for this input search field
 - **errored**: Shows the field in the error state. The content of the `error` slot, if any, is displayed below it.
-- **accessibleLabel**: Accessible name of the input, read by screen readers (`aria-label`). When not set, `name` is used.
+- **accessibleLabel**: Accessible name of the input, read by screen readers (`aria-label`). When not set, `name` is used, or `searchButtonLabel` if there is no `name`.
+- **searchButtonLabel**: Accessible name of the button while the field is empty. Defaults to `"Search"`.
+- **clearButtonLabel**: Accessible name of the button that clears the field. Defaults to `"Clear search"`.
+
+> **Note:** these accessible texts used to be fixed in Spanish ("Buscar", "Limpiar búsqueda", "Búsqueda"). Now they default to English: set `searchButtonLabel` and `clearButtonLabel` to translate them.
 
 ## Methods
 
