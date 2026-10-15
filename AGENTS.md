@@ -54,6 +54,11 @@ When implementing a new component, follow these conventions:
 - Prefer small, focused components that follow the conventions already used in this repository.
 - Keep demos and documentation in sync with the implementation.
 - When adding a new component, make sure it is easy to discover through its demo and its documentation page.
+- **When modifying existing components**: Always update the corresponding documentation pages (`docs/components/*.md`, `docs/crud/*.md`, etc.) to reflect any changes to:
+  - Public API (properties, methods, attributes)
+  - Custom events and their detail structures
+  - Default values or behavior changes
+  - Error handling or validation
 
 ## Component tests (Vitest + Playwright)
 
@@ -65,3 +70,11 @@ There is no requirement to have tests for every component in the catalog. Instea
 - Focus tests on the component's public contract: rendered output, reactive properties/attributes, dispatched custom events, and slotted content — not implementation details.
 - Plain unit tests for framework-agnostic helper functions (e.g. `packages/crud/lib/image/*.test.js`, `packages/ui/lib/otp/*.test.js`) continue to use Node's built-in `node:test` runner and are unaffected by this setup.
 - Run component tests with `npm run test:components` (or `npm run test:components:watch` while iterating). See `packages/ui/components/button/button.spec.js` for a reference example.
+
+## AI Agent workflow
+
+When using AI agents for development tasks:
+
+- **No automatic commits**: AI agents should not make commits without explicit human confirmation. All commits must be reviewed and approved by a team member before being pushed to the repository.
+- Agents can make code changes and propose modifications, but the decision to commit remains with the human developer.
+- This ensures code quality, proper commit messages, and maintains control over the repository history.
