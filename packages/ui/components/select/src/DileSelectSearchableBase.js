@@ -443,11 +443,16 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
     // unlike the original dile-select, it's kept mounted from the start so its MutationObserver
     // is ready to pick up results as soon as they load. Ignore that non-interaction here.
     if(e.detail.name === 'generated-select-field' && value !== '') {
-      this.selectedText = this.select.getOptionByValue(value).innerText;
-      this.value = value;
-      this.isSelected = true;
+      this.selectOptionValue(value);
       this.hideErrorOnInteraction();
     }
+  }
+
+  /** Applies the option picked by the user in the results popup. */
+  selectOptionValue(value) {
+    this.selectedText = this.select.getOptionByValue(value).innerText;
+    this.value = value;
+    this.isSelected = true;
   }
 
   clearError() {

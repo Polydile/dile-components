@@ -25,6 +25,11 @@ export class DileSelectSearch extends DileSelectSearchableBase {
 
   connectedCallback() {
     super.connectedCallback();
+    this.connectSource();
+  }
+
+  /** Sets up `sourceOptions`. By default they are read from the light DOM select. */
+  connectSource() {
     if (!this.elselectSource) {
       throw new Error('Use dile-select-search with a select element in the slot "select"');
     }
@@ -33,11 +38,7 @@ export class DileSelectSearch extends DileSelectSearchableBase {
     // options added, removed or edited later are picked up by the search.
     this._sourceObserver = new MutationObserver(() => {
       this.readSourceOptions();
-      if (this.isSelected) {
-        this.resolveSelectedText();
-      } else if (this.keyword.length > 0 || this.data.length > 0) {
-        this.loadData();
-      }
+      this.refreshFromSource();
     });
     this._sourceObserver.observe(this.elselectSource, { childList: true, subtree: true, characterData: true, attributes: true });
   }
@@ -46,6 +47,15 @@ export class DileSelectSearch extends DileSelectSearchableBase {
     super.disconnectedCallback();
     if (this._sourceObserver) {
       this._sourceObserver.disconnect();
+    }
+  }
+
+  /** Updates the selected text and the current results after `sourceOptions` change. */
+  refreshFromSource() {
+    if (this.isSelected) {
+      this.resolveSelectedText();
+    } else if (this.keyword.length > 0 || this.data.length > 0) {
+      this.loadData();
     }
   }
 
@@ -86,7 +96,15 @@ export class DileSelectSearch extends DileSelectSearchableBase {
    * @returns {boolean}
    */
   filterOption(option, keyword) {
-    return normalize(option.text).includes(normalize(keyword));
+    return this.normalizeSearchText(option.text).includes(this.normalizeSearchText(keyword));
+  }
+
+  /** Lowercases the text and removes accents, to compare texts in searches. */
+  normalizeSearchText(text) {
+    return String(text ?? '')
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLowerCase();
   }
 
   resolveSelectedText() {
@@ -108,11 +126,4 @@ export class DileSelectSearch extends DileSelectSearchableBase {
       this.loadData();
     }
   }
-}
-
-function normalize(text) {
-  return String(text ?? '')
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .toLowerCase();
 }

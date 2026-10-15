@@ -152,8 +152,8 @@ console.log(countrySelect.value);
 
 The component includes a comprehensive list of countries in both Spanish and English:
 
-- **Spanish version**: 245 countries with Spanish names
-- **English version**: 245 countries with English names
+- **Spanish version**: more than 240 countries and territories with Spanish names
+- **English version**: more than 240 countries and territories with English names
 
 Countries are identified by their ISO 3166-1 alpha-2 code.
 
