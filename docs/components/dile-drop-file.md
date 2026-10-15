@@ -104,9 +104,12 @@ import "@dile/ui/components/drop-file/drop-file.js"
   dropLabel="Drop PDF or image here"
   buttonLabel="Select Document or Photo"
   accept="application/pdf,image/*"
-  allowedExtensions=${JSON.stringify(['pdf', 'jpg', 'jpeg', 'png', 'webp'])}
   extensionErrorMessage="Only PDF and image files (jpg, jpeg, png, webp) are allowed"
 ></dile-drop-file>
+<script>
+const dropFile = document.querySelector('dile-drop-file');
+dropFile.allowedExtensions = ['pdf', 'jpg', 'jpeg', 'png', 'webp'];
+</script>
 ```
 
 ### Camera Capture on Mobile
@@ -123,6 +126,9 @@ import "@dile/ui/components/drop-file/drop-file.js"
   buttonLabel="Take Photo"
   accept="image/*"
   capture="environment"
-  allowedExtensions=${JSON.stringify(['jpg', 'jpeg', 'png', 'webp'])}
 ></dile-drop-file>
+<script>
+const dropFile = document.querySelector('dile-drop-file');
+dropFile.allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+</script>
 ```
