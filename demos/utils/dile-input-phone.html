@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-phone component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/utils/components/input-phone/input-phone.js";
+    import "@dile/ui/components/input/input.js";
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .result {
+      margin: 10px 0 30px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+    dile-input-phone.styled {
+      --dile-input-phone-prefix-width: 8rem;
+      --dile-input-phone-list-width: 20rem;
+      --dile-input-border-color: #39c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-phone component</h1>
+    <p>
+      Phone number input with a searchable selector of international prefixes. The value is the
+      number in E.164 format (<code>+34600123456</code>).
+    </p>
+
+    <h2>With prefix and default country</h2>
+    <dile-input-phone id="phone1" name="phone" label="Phone" country="ES" placeholder="600 12 34 56"></dile-input-phone>
+    <div class="result" id="result1">value: -</div>
+    <script>
+      document.querySelector('#phone1').addEventListener('element-changed', (e) => {
+        const el = e.target;
+        document.querySelector('#result1').textContent =
+          `value: ${e.detail.value} / prefix: ${el.prefix} / number: ${el.number} / country: ${el.country} / valid: ${el.isValid()}`;
+      });
+    </script>
+
+    <h2>Spanish, priority countries, no default country</h2>
+    <dile-input-phone language="es" priority-countries="ES|MX|AR" label="Teléfono"></dile-input-phone>
+
+    <h2>Initialized via value</h2>
+    <dile-input-phone value="+447700900123" label="Phone"></dile-input-phone>
+
+    <h2>Without prefix</h2>
+    <dile-input-phone noPrefix label="Phone (national)" placeholder="600 12 34 56"></dile-input-phone>
+
+    <h2>Alongside a dile-input</h2>
+    <dile-input label="Name"></dile-input>
+    <dile-input-phone label="Phone" country="ES"></dile-input-phone>
+
+    <h2>Styled</h2>
+    <dile-input-phone class="styled" label="Phone" country="MX"></dile-input-phone>
+
+    <h2>Errored</h2>
+    <dile-input-phone errored message="Invalid phone number" hideErrorOnInput label="Phone" country="ES"></dile-input-phone>
+
+    <h2>Disabled</h2>
+    <dile-input-phone disabled label="Phone" value="+34600123456"></dile-input-phone>
+
+    <!-- Spacer so the popups above have room to open downward. -->
+    <div style="height: 300px;"></div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>

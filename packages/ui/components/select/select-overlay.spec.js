@@ -321,6 +321,22 @@ describe('dile-select-overlay', () => {
   });
 
   describe('Positioning', () => {
+    it('can open a popup wider than a narrow trigger with --dile-select-overlay-min-width', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay style="width: 80px; --dile-select-overlay-min-width: 200px;">
+          <select slot="select">
+            <option value="1">A long option text</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      await open(el);
+
+      const overlay = el.shadowRoot.getElementById('overlay');
+      expect(overlay.getBoundingClientRect().width).toBe(200);
+      expect(el.shadowRoot.getElementById('trigger').getBoundingClientRect().width).toBe(80);
+    });
+
     it('keeps the same moveTop-tightened gap when flipping above the trigger as when sitting below it', async () => {
       // Regression test: moveTop used to only tighten the gap for the normal (below) position.
       // The flip-to-above fallback used a fixed 10px margin unrelated to moveTop, so a popup

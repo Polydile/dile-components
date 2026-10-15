@@ -8,7 +8,7 @@ export class DileInputSearch extends LitElement {
             :host {
                 display: block;
             }
-            div {
+            .search-box {
                 display: flex;
                 box-sizing: border-box;
                 border-radius: var(--dile-input-border-radius, 5px);
@@ -17,7 +17,7 @@ export class DileInputSearch extends LitElement {
                 width: var(--dile-input-width, 100%);
                 background-color: var(--dile-input-background-color, #fff);
             }
-            div:focus-within {
+            .search-box:focus-within {
                 border-color: var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
                 /* Outline adicional para mayor visibilidad */
                 outline: 2px solid var(--dile-input-focus-border-color, var(--dile-link-color, #6af));
@@ -25,6 +25,7 @@ export class DileInputSearch extends LitElement {
             }
             input {
                 flex-grow: 1;
+                min-width: 0;
                 border: none;
                 color: var(--dile-input-color, #303030);
                 font-size: var(--dile-input-font-size, 1em);
@@ -97,6 +98,10 @@ export class DileInputSearch extends LitElement {
         errored: { type: Boolean },
         /** Name for this input field */
         name: { type: String },
+        /** Whether there is content in the "error" slot */
+        _hasErrorContent: { state: true },
+        /** Accessible name of the input field, read by screen readers. Defaults to name. */
+        accessibleLabel: { type: String },
       };
     }
 
@@ -107,6 +112,7 @@ export class DileInputSearch extends LitElement {
         this.value = '';
         this.readOnly = false;
         this.errored = false;
+        this._hasErrorContent = false;
     }
 
     firstUpdated() {
@@ -119,7 +125,7 @@ export class DileInputSearch extends LitElement {
             : 'Buscar';
         
         return html`
-        <div class="${this.errored ? "errored" : ""}">
+        <div class="search-box ${this.errored ? "errored" : ""}">
             <input 
                 id="elinput"
                 type="search"
@@ -132,9 +138,9 @@ export class DileInputSearch extends LitElement {
                 .value="${this.value}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readOnly}"
-                aria-label="${this.name || 'Búsqueda'}"
+                aria-label="${this.accessibleLabel || this.name || 'Búsqueda'}"
                 ?aria-invalid="${this.errored}"
-                aria-describedby="${this.errored ? 'error-msg' : null}"
+                aria-describedby="${this.showErrorMessage ? 'error-msg' : null}"
             >
             <button
               @click=${this.iconClick}
@@ -150,12 +156,19 @@ export class DileInputSearch extends LitElement {
               ></dile-icon>
             </button>
         </div>
-        ${this.errored ? html`
-          <div id="error-msg" class="error-message" role="alert">
-            <slot name="error"></slot>
-          </div>
-        ` : ''}
+        <div id="error-msg" class="error-message" role="alert" ?hidden=${!this.showErrorMessage}>
+          <slot name="error" @slotchange=${this.errorSlotChanged}></slot>
+        </div>
         `;
+    }
+
+    /** The error message is only shown in the errored state, when there is an "error" slot content */
+    get showErrorMessage() {
+        return this.errored && this._hasErrorContent;
+    }
+
+    errorSlotChanged(e) {
+        this._hasErrorContent = e.target.assignedNodes({ flatten: true }).length > 0;
     }
 
     inputHandler(e) {

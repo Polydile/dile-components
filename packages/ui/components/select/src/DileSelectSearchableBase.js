@@ -38,9 +38,6 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
         position: relative;
         margin-bottom: 10px;
       }
-      #result {
-        margin-bottom: 0.5rem;
-      }
       .search-wrapper {
         position: relative;
         display: flex;
@@ -253,6 +250,11 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
     return this.keyword.length > 0 && this.data.length > 0;
   }
 
+  /** Accessible name of the read-only field shown once an option is selected. */
+  get selectedAccessibleLabel() {
+    return this.label || undefined;
+  }
+
   get search() {
     return this.shadowRoot.getElementById('search');
   }
@@ -288,6 +290,7 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
         ?disabled=${this.disabled}
         value="${this.selectedText}"
         readOnly
+        .accessibleLabel=${this.selectedAccessibleLabel}
         @dile-input-search-cleared=${this.onClearSelected}
         @dile-input-search=${this.hideErrorOnInteraction}
       ></dile-input-search>

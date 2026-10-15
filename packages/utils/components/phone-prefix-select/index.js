@@ -6,4 +6,5 @@ export {
   getPhonePrefixCountries,
   getMainCountryForPrefix,
   normalizePhonePrefix,
+  splitPhoneNumber,
 } from './src/phonePrefixesData.js';

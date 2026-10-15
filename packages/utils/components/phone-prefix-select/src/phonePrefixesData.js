@@ -102,3 +102,27 @@ export const getPhonePrefixCountries = (language = 'en') => {
   });
   return Array.from(byIso.values());
 };
+
+const KNOWN_PREFIXES = new Set(Object.values(PHONE_PREFIXES));
+
+/**
+ * Splits an international phone number ("+34600123456", "0034 600 123 456") into its prefix
+ * and national number: { prefix: '+34', number: '600123456' }. International calling codes
+ * are designed so that none of them is the beginning of another, so the split is unambiguous.
+ * Returns undefined when the number is not international or its prefix is unknown.
+ */
+export const splitPhoneNumber = (phone) => {
+  const raw = String(phone ?? '').trim();
+  if (!/^(\+|00)/.test(raw)) {
+    return undefined;
+  }
+  const allDigits = raw.replace(/\D/g, '');
+  const digits = raw.startsWith('+') ? allDigits : allDigits.slice(2);
+  for (let length = 1; length <= 3; length++) {
+    const prefix = '+' + digits.slice(0, length);
+    if (KNOWN_PREFIXES.has(prefix)) {
+      return { prefix, number: digits.slice(length) };
+    }
+  }
+  return undefined;
+};

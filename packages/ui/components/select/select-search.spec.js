@@ -230,6 +230,16 @@ describe('dile-select-search', () => {
       expect(el.shadowRoot.getElementById('result').value).toBe('Portugal (+351)');
     });
 
+    it('uses the label as accessible name of the selected field', async () => {
+      const el = await renderSelectSearch('value="PT" label="Country"');
+      await el.updateComplete;
+      const result = el.shadowRoot.getElementById('result');
+      await result.updateComplete;
+      const input = result.shadowRoot.querySelector('input');
+
+      expect(input.getAttribute('aria-label')).toBe('Country');
+    });
+
     it('set() selects a value and resolves its text synchronously', async () => {
       const el = await renderSelectSearch();
 

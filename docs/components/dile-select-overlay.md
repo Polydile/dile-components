@@ -163,6 +163,7 @@ Custom property | Description | Default
 --dile-select-overlay-color | Options popup text color | #303030
 --dile-select-overlay-border-radius | Options popup border radius | 5px
 --dile-select-overlay-max-height | Options popup max height before scrolling | 260px
+--dile-select-overlay-min-width | Options popup minimum width. The popup takes the trigger width, use it to open a wider popup from a narrow trigger (never wider than the viewport) | 0px
 --dile-select-overlay-box-shadow | Options popup box shadow | 0 4px 10px rgba(0, 0, 0, 0.15)
 --dile-select-overlay-highlighted-background-color | Background color of the highlighted option | #eef6ff
 --dile-select-overlay-option-icon-size | Size of an option's `dile-iconlib` icon (trigger and popup) | 16px

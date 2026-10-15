@@ -68,6 +68,8 @@ The value can also be set without the `+` (`value="34"`), which is useful if the
 | `country` | `String` | `undefined` | ISO 3166-1 alpha-2 code of the selected country, like `"ES"`. |
 | `language` | `String` | `"en"` | Language of the country names and default texts: `"es"` or `"en"`. |
 | `priorityCountries` | `String` | `""` | ISO codes of the countries listed first, separated by `\|`. Example: `"ES\|MX\|AR"`. Exposed via `priority-countries`. |
+| `prefixFirst` | `Boolean` | `false` | Shows the prefix before the country name (`"+34 Spain"` instead of `"Spain (+34)"`). Useful in narrow fields, where the end of the text gets cut. |
+| `compact` | `Boolean` | `false` | Once a country is selected, shows only its prefix (`"+34"`) instead of the full text. The list keeps the full texts. Useful in narrow layouts. Screen readers still get the full text (`"Spain (+34)"`) as the accessible name of the field. |
 | `name` | `String` | `undefined` | Name of the field, used in forms. |
 | `label` | `String` | `undefined` | Label text for the field. |
 | `placeholder` | `String` | Depends on `language` | Placeholder of the search field. |
@@ -81,7 +83,7 @@ The value can also be set without the `+` (`value="34"`), which is useful if the
 
 ## Customization
 
-Extend the component to change how the countries are displayed, overriding `formatOptionText(country)`. It receives `{ iso, name, prefix, aliases }`.
+Extend the component to change how the countries are displayed, overriding `formatOptionText(country)` for the list (it receives `{ iso, name, prefix, aliases }`) or `formatSelectedText(option)` for the selected country (it receives `{ value, text, prefix, names }`).
 
 ```javascript
 import { DilePhonePrefixSelect } from '@dile/utils/components/phone-prefix-select/index.js';
@@ -94,7 +96,7 @@ class CompactPrefixSelect extends DilePhonePrefixSelect {
 customElements.define('compact-prefix-select', CompactPrefixSelect);
 ```
 
-The prefix data is also exported, for other uses: `PHONE_PREFIXES` (prefix by ISO code), `getPhonePrefix(iso)`, `getMainCountryForPrefix(prefix)`, `getPhonePrefixCountries(language)` and `normalizePhonePrefix(prefix)`.
+The prefix data is also exported, for other uses: `PHONE_PREFIXES` (prefix by ISO code), `getPhonePrefix(iso)`, `getMainCountryForPrefix(prefix)`, `getPhonePrefixCountries(language)`, `normalizePhonePrefix(prefix)` and `splitPhoneNumber(phone)`, which splits an international number into `{ prefix, number }`.
 
 ## Methods
 
@@ -116,7 +118,11 @@ document.querySelector('dile-phone-prefix-select').addEventListener('dile-phone-
 
 ## CSS Custom Properties
 
-Same as [dile-select-search](/components/dile-select-search/#css-custom-properties).
+Same as [dile-select-search](/components/dile-select-search/#css-custom-properties). With `compact`, the field can be narrow while the list stays readable using `--dile-select-overlay-min-width`:
+
+```html
+<dile-phone-prefix-select compact prefixFirst style="width: 7rem; --dile-select-overlay-min-width: 16rem;"></dile-phone-prefix-select>
+```
 
 ## dile-phone-prefix-select demos
 

@@ -35,6 +35,10 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
       language: { type: String },
       /** ISO codes of the countries listed first, separated by "|". Example: "ES|MX|AR" */
       priorityCountries: { type: String, attribute: 'priority-countries' },
+      /** Shows the prefix before the country name ("+34 Spain"), so it is still visible when the text is cut in narrow fields */
+      prefixFirst: { type: Boolean },
+      /** Once selected, shows only the prefix ("+34") instead of the full text, to save space */
+      compact: { type: Boolean },
     };
   }
 
@@ -42,6 +46,8 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
     super();
     this.language = 'en';
     this.priorityCountries = '';
+    this.prefixFirst = false;
+    this.compact = false;
     this.placeholder = undefined;
     this.emptyMessage = undefined;
   }
@@ -77,7 +83,26 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
    * @param {{iso: string, name: string, prefix: string, aliases: string[]}} country
    */
   formatOptionText(country) {
+    if (this.prefixFirst) {
+      return `${country.prefix} ${country.name}`;
+    }
     return `${country.name} (${country.prefix})`;
+  }
+
+  /**
+   * Template method: text displayed once a country is selected.
+   * @param {{value: string, text: string, prefix: string, names: string[]}} option
+   */
+  formatSelectedText(option) {
+    return this.compact ? option.prefix : option.text;
+  }
+
+  /** With compact, the visible text is only the prefix: screen readers also get the country. */
+  get selectedAccessibleLabel() {
+    if (this.compact && this.selectedFullText) {
+      return [this.label, this.selectedFullText].filter(Boolean).join(', ');
+    }
+    return super.selectedAccessibleLabel;
   }
 
   /**
@@ -95,7 +120,7 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
 
   willUpdate(changedProperties) {
     super.willUpdate?.(changedProperties);
-    if (changedProperties.has('language') || changedProperties.has('priorityCountries')) {
+    if (changedProperties.has('language') || changedProperties.has('priorityCountries') || changedProperties.has('prefixFirst') || changedProperties.has('compact')) {
       this.applyLanguageTexts(changedProperties.get('language'));
       this.readSourceOptions();
       this.refreshFromSource();
@@ -153,7 +178,8 @@ export class DilePhonePrefixSelect extends DileSelectSearch {
   resolveSelectedText() {
     this.country = this.countryForPrefix(this.value);
     const option = this.sourceOptions.find(o => o.value === this.country);
-    this.selectedText = option ? option.text : this.value;
+    this.selectedText = option ? this.formatSelectedText(option) : this.value;
+    this.selectedFullText = option ? option.text : this.value;
   }
 
   selectOptionValue(iso) {

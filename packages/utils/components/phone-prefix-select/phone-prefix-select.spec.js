@@ -98,6 +98,32 @@ describe('dile-phone-prefix-select', () => {
       expect(visibleOptionTexts(el)).toEqual(['Birmania (+95)']);
     });
 
+    it('prefixFirst shows the prefix before the country name', async () => {
+      const el = await render('prefixFirst');
+
+      await typeKeyword(el, '+34');
+
+      expect(visibleOptionTexts(el)).toEqual(['+34 Spain']);
+    });
+
+    it('compact shows only the prefix once selected, keeping full texts in the list', async () => {
+      const el = await render('compact value="+44"');
+
+      expect(el.selectedText).toBe('+44');
+      expect(el.sourceOptions.find(o => o.value === 'GB').text).toBe('United Kingdom (+44)');
+    });
+
+    it('compact gives the selected field an accessible name with the country', async () => {
+      const el = await render('compact label="Prefix" value="+44"');
+      await el.updateComplete;
+      const result = el.shadowRoot.getElementById('result');
+      await result.updateComplete;
+      const input = result.shadowRoot.querySelector('input');
+
+      expect(input.value).toBe('+44');
+      expect(input.getAttribute('aria-label')).toBe('Prefix, United Kingdom (+44)');
+    });
+
     it('lists priority countries first', async () => {
       const el = await render('priority-countries="US|CA"');
 

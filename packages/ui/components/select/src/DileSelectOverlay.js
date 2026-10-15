@@ -121,6 +121,9 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         color: var(--dile-select-overlay-color, #303030);
         background-color: var(--dile-select-overlay-background-color, #fff);
         border-radius: var(--dile-select-overlay-border-radius, 5px);
+        /* The popup takes the trigger width (set in updatePosition()), but it can be wider
+           in compositions with a narrow trigger. Never wider than the viewport. */
+        min-width: min(var(--dile-select-overlay-min-width, 0px), calc(100vw - 25px));
         max-height: var(--dile-select-overlay-max-height, 260px);
         overflow-y: auto;
         box-shadow: var(--dile-select-overlay-box-shadow, 0 4px 10px rgba(0, 0, 0, 0.15));

@@ -104,7 +104,7 @@ The search field uses the same custom properties as [dile-select-ajax-overlay](/
 
 ## Accessibility
 
-Same pattern as [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/#accessibility): the search field is a `role="combobox"`, keyboard navigation (`ArrowUp`/`ArrowDown`/`Home`/`End`/`Enter`/`Escape`) is forwarded to the popup and a visually-hidden live region announces the highlighted option.
+Same pattern as [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/#accessibility): the search field is a `role="combobox"`, keyboard navigation (`ArrowUp`/`ArrowDown`/`Home`/`End`/`Enter`/`Escape`) is forwarded to the popup and a visually-hidden live region announces the highlighted option. Once an option is selected, the read-only field uses the `label` as its accessible name.
 
 ## dile-select-search demos
 

@@ -40,6 +40,8 @@ Use the component.
 - **keyword**: The text typed into the input search component
 - **disabled**: The component is disabled
 - **name**: Name for this input search field
+- **errored**: Shows the field in the error state. The content of the `error` slot, if any, is displayed below it.
+- **accessibleLabel**: Accessible name of the input, read by screen readers (`aria-label`). When not set, `name` is used.
 
 ## Methods
 
@@ -59,6 +61,10 @@ Use the component.
 
 - **dile-input-search-cleared**: The search element is cleared because the user has clicked on the clear icon or `clear()` method has called. 
 - **dile-input-search**: The user changes the input content. In the event detail will emmit the input element content as the ```keyword``` property.
+
+## Slots
+
+- **error**: error message displayed below the field, only in the `errored` state. When the slot has no content, nothing is shown.
 
 ## CSS Custom Properties
 

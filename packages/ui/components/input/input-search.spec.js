@@ -31,6 +31,33 @@ describe('dile-input-search', () => {
     expect(input.getAttribute('data-form-type')).toBe('other');
   });
 
+  it('does not show an empty error box when errored without error slot content', async () => {
+    const el = await renderInputSearch('<dile-input-search errored></dile-input-search>');
+
+    const errorMessage = el.shadowRoot.getElementById('error-msg');
+    expect(errorMessage.hidden).toBe(true);
+    expect(errorMessage.getBoundingClientRect().height).toBe(0);
+    // Only the search box itself gets the bordered box styles
+    expect(getComputedStyle(errorMessage).borderTopStyle).toBe('none');
+  });
+
+  it('shows the error slot content when errored', async () => {
+    const el = await renderInputSearch('<dile-input-search errored><span slot="error">Wrong search</span></dile-input-search>');
+    await el.updateComplete;
+
+    const errorMessage = el.shadowRoot.getElementById('error-msg');
+    expect(errorMessage.hidden).toBe(false);
+    expect(el.shadowRoot.querySelector('input').getAttribute('aria-describedby')).toBe('error-msg');
+  });
+
+  it('uses accessibleLabel as aria-label, falling back to name', async () => {
+    const named = await renderInputSearch('<dile-input-search name="Products"></dile-input-search>');
+    expect(named.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Products');
+
+    const labelled = await renderInputSearch('<dile-input-search name="Products" accessibleLabel="Search products"></dile-input-search>');
+    expect(labelled.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Search products');
+  });
+
   it('updates the value on input and dispatches dile-input-search after the delay', async () => {
     const el = await renderInputSearch('<dile-input-search delay="10"></dile-input-search>');
     const input = el.shadowRoot.querySelector('input');
