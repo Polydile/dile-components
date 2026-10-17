@@ -64,6 +64,8 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       name: { type: String, reflect: true },
       accept: { type: String },
       capture: { type: String },
+      multiple: { type: Boolean, reflect: true },
+      files: { state: true },
     };
   }
 
@@ -83,6 +85,8 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
     this.allowedExtensions = [];
     this.accept = '';
     this.capture = '';
+    this.multiple = false;
+    this.files = [];
     this.internals = this.attachInternals();
   } 
 
@@ -109,12 +113,23 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
         ${this.dropLabelTemplate}
       </div>
       ${this.messageTemplate}
-      <input type="file" id="fileInput" @change=${this._handleFileInput} accept=${ifDefined(this.accept || undefined)} capture=${ifDefined(this.capture || undefined)}>
-      <dile-file-preview 
-        fileName="${this.fileName}"
-        selectedFileLabel="${this.selectedFileLabel}"
-        @dile-file-clear=${this.clear}
-      ></dile-file-preview>
+      <input type="file" id="fileInput" ?multiple=${this.multiple} @change=${this._handleFileInput} accept=${ifDefined(this.accept || undefined)} capture=${ifDefined(this.capture || undefined)}>
+      ${this.multiple
+        ? this.files.map((file, index) => html`
+          <dile-file-preview
+            fileName="${file.name}"
+            selectedFileLabel="${this.selectedFileLabel}"
+            @dile-file-clear=${() => this.removeFile(index)}
+          ></dile-file-preview>
+        `)
+        : html`
+          <dile-file-preview 
+            fileName="${this.fileName}"
+            selectedFileLabel="${this.selectedFileLabel}"
+            @dile-file-clear=${this.clear}
+          ></dile-file-preview>
+        `
+      }
     `;
   }
 
@@ -167,6 +182,10 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   }
 
   _processFile(files) {
+    if (this.multiple) {
+      this._processMultipleFiles(files);
+      return;
+    }
     this.internals.setFormValue(files.length > 0 ? files[0] : null);
     if (files.length > 0) {
       this.fileName = files[0].name;
@@ -181,6 +200,56 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
         this.errored = true;
       }
     }
+  }
+
+  _processMultipleFiles(files) {
+    const incoming = Array.from(files);
+    if (incoming.length === 0) {
+      // Restore the input files, as a canceled dialog empties it
+      this._syncFileInput();
+      return;
+    }
+    const validFiles = incoming.filter(file => this._isValidExtension(file.name));
+    const newFiles = validFiles.filter(file => !this.files.some(current => this._isSameFile(current, file)));
+    this.files = [...this.files, ...newFiles];
+    if (validFiles.length < incoming.length) {
+      this.message = `${this.extensionErrorMessage} ${this.allowedExtensions.join(', ')}`;
+      this.errored = true;
+    } else {
+      this.message = this.firstMessage || '';
+      this.errored = false;
+    }
+    this._syncFiles();
+  }
+
+  _isSameFile(a, b) {
+    return a.name === b.name && a.size === b.size && a.lastModified === b.lastModified;
+  }
+
+  _syncFileInput() {
+    if (!this.fileInput) return;
+    const dataTransfer = new DataTransfer();
+    this.files.forEach(file => dataTransfer.items.add(file));
+    this.fileInput.files = dataTransfer.files;
+  }
+
+  _syncFiles() {
+    this._syncFileInput();
+    if (this.files.length > 0) {
+      const formData = new FormData();
+      this.files.forEach(file => formData.append(this.name || 'files', file));
+      this.internals.setFormValue(formData);
+    } else {
+      this.internals.setFormValue(null);
+    }
+    this.emmitChange();
+    this._emitDropFileChanged(this.files[0] || null);
+  }
+
+  removeFile(index) {
+    if (index < 0 || index >= this.files.length) return;
+    this.files = this.files.filter((_, i) => i !== index);
+    this._syncFiles();
   }
 
   _isValidExtension(fileName) {
@@ -216,7 +285,8 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
       bubbles: true,
       composed: true,
       detail: {
-        file: file
+        file: file,
+        files: this.multiple ? [...this.files] : (file ? [file] : []),
       }
     }));
   }
@@ -228,16 +298,23 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   clear() {
     this.fileInput.value = "";
     this.fileName = "";
+    this.files = [];
     this.internals.setFormValue(null);
     this._emitDropFileChanged(null);
     this.emmitChange();
   }
 
   getFiles() {
+    if (this.multiple) {
+      return [...this.files];
+    }
     return this.fileInput.files;
   }
 
   get value() {
+    if (this.multiple) {
+      return [...this.files];
+    }
     if(this.fileInput) {
       return this.fileInput.files[0];
     } else {

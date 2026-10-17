@@ -71,6 +71,24 @@
       }
     </script>
 
+    <h2>Multiple files</h2>
+
+    <dile-drop-file 
+      id="myMultipleFileInput" 
+      label="Files to upload" 
+      dropLabel="Drop here your files"
+      buttonLabel="Select files"
+      multiple
+    ></dile-drop-file>
+    <p>Selected files: <span id="selectedFiles">none</span></p>
+
+    <script>
+      document.getElementById('myMultipleFileInput').addEventListener('dile-drop-file-changed', (e) => {
+        const names = e.detail.files.map(file => file.name);
+        document.getElementById('selectedFiles').textContent = names.length ? names.join(', ') : 'none';
+      });
+    </script>
+
     <footer><a href="../index.html">Back</a></footer>
   </div>
 </body>

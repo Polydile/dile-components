@@ -54,7 +54,7 @@ Once the method is invoked, the response will be received in one of the two cust
 - **url**: String, the URL for the conection.
 - **statusSuccessCodes**: Array, the list of http response codes handled as success by this component. By default is [200, 201, 202].
 - **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
-- **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax` component will send a formData object instead of a JSON object.
+- **sendDataAsFormData**: Boolean, default false. If sendDataAsFormData property is set to true, the `dile-ajax` component will send a formData object instead of a JSON object. Arrays of files are appended as multiple `key[]` entries (for example, `{ files: [file1, file2] }` is sent as two `files[]` entries). Other array values are sent as a single entry.
 - **getValidationErrors**: Object, a function that receives the full response data and returns the validation errors. See the explanation below on providing validation errors.
 - **responseType**: String, default empty. When set to `'blob'`, the response is treated as binary data instead of JSON. See the [File downloads (blob)](#file-downloads-blob) section below.
 

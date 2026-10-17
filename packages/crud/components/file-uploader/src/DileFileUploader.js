@@ -20,6 +20,7 @@ export class DileFileUploader extends DileI18nMixin(LitElement) {
       saveLabel: { type: String },
       allowedExtensions: { type: Array },
       responseAdapter: { type: Object },
+      multiple: { type: Boolean },
     };
   }
   
@@ -27,6 +28,7 @@ export class DileFileUploader extends DileI18nMixin(LitElement) {
     super();
     this.responseAdapter = new ResponseApiAdapter();
     this.allowedExtensions = ['*'];
+    this.multiple = false;
   }
 
   render() {
@@ -45,6 +47,7 @@ export class DileFileUploader extends DileI18nMixin(LitElement) {
           id="form"
           label="${this.selectLabelComputed(this.selectFileLabel, this.translations)}"
           .allowedExtensions=${this.allowedExtensions}
+          ?multiple=${this.multiple}
           .translations=${this.translations}
         ></dile-file-uploader-form>
       </dile-ajax-form>
@@ -52,7 +55,13 @@ export class DileFileUploader extends DileI18nMixin(LitElement) {
   }
 
   selectLabelComputed(label, translations) {
-    return label ? label : translations?.select_file_label ? translations.select_file_label : 'Select a file';
+    if (label) {
+      return label;
+    }
+    if (this.multiple) {
+      return translations?.select_files_label ? translations.select_files_label : 'Select files';
+    }
+    return translations?.select_file_label ? translations.select_file_label : 'Select a file';
   }
 
   saveLabelComputed(label, translations) {

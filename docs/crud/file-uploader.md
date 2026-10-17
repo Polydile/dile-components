@@ -42,7 +42,21 @@ Use the component.
 - **selectFileLabel**: String, the label text for the file selection field. If not provided, a translated text will be used based on the `language` property value.
 - **saveLabel**: String, the label text for the save action button. If not provided, a translated text will be used based on the `language` property value.
 - **allowedExtensions**: Array, defines the permitted file extensions for the uploaded file. Defaults to `['*']` which allows any file extension. Use an array with specific extensions like `['pdf', 'doc', 'docx']` to restrict file types.
+- **multiple**: Boolean, default `false`. Allows the user to select and upload several files at once. See [Multiple files upload](#multiple-files-upload).
 - **responseAdapter**: Object, optional. API adapter object. See the [responseAdapter page](/crud/response-adapter/)) page for more information.
+
+### Multiple files upload
+
+Set the `multiple` attribute to upload several files in the same request:
+
+```html
+<dile-file-uploader 
+  endpoint="/api/documents/upload-many"
+  multiple
+></dile-file-uploader>
+```
+
+In single mode the file is sent in the `file` field. In multiple mode the files are sent as `files[]` entries in the form data, so in Laravel you can get them with `$request->file('files')`.
 
 ### Custom Events
 

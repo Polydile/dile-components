@@ -192,12 +192,22 @@ export class DileAjax extends DileAxios(DileI18nMixin(LitElement)) {
     this.formData = new FormData();
   }
 
+  _isFileArray(value) {
+    return Array.isArray(value) && value.some(item => item instanceof Blob);
+  }
+
   _addObjectToFormData(data) {
     if (!this.formData) {
-      this.createFormData();
+      this._createFormData();
     }
     for (const key in data) {
-      if (data[key] !== null && data[key] !== undefined) {
+      if (this._isFileArray(data[key])) {
+        data[key].forEach(item => {
+          if (item !== null && item !== undefined) {
+            this.formData.append(`${key}[]`, item);
+          }
+        });
+      } else if (data[key] !== null && data[key] !== undefined) {
         this.formData.append(key, data[key]);
       }
     }
