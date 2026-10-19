@@ -27,10 +27,11 @@ export function preloadEngine() {
 // cluttered backgrounds, low contrast or strong perspective. It goes first,
 // not as a retry, because on hard photos the classical detector does not
 // always fail: it can return a wrong shape (e.g. a line of text) as if it
-// were the document. The neural detector downloads about 2 MB (model + ONNX
-// runtime) the first time, from jsDelivr unless mlAssetsUrl points to a
-// self-hosted copy of the "scanic-ml" package files. When it finds nothing
-// or fails (e.g. no network), the classical detector is used.
+// were the document. The neural detector downloads about 2.2 MB with gzip
+// (3.5 MB uncompressed: model + ONNX runtime) the first time, from jsDelivr
+// unless mlAssetsUrl points to a self-hosted copy of the "scanic-ml" package
+// files. When it finds nothing or fails (e.g. no network), the classical
+// detector is used.
 export async function detectCorners(canvas, { ml = false, mlAssetsUrl = "" } = {}) {
   const { Scanner } = await loadScanic();
   scanner ??= new Scanner();

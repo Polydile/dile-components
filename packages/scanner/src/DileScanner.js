@@ -49,8 +49,9 @@ const SIZE_FALLBACKS = [
 // returns the result as a PDF (output="pdf", default) or as JPEG images
 // (output="images"). With "multipage" the user can add several pages, reorder
 // them, rotate them, adjust them again and remove them. With "ml-detector"
-// the edges are detected with scanic's neural detector (about 2 MB downloaded
-// the first time) instead of the classical one; off by default.
+// the edges are detected with scanic's neural detector (about 2.2 MB
+// downloaded with gzip the first time) instead of the classical one; off by
+// default.
 //
 // It does not upload anything: when the user saves, it dispatches
 // "dile-document-scanned" with the files and closes. Closing it without saving
@@ -228,7 +229,8 @@ export class DileScanner extends LitElement {
       /**
        * Detects the edges with scanic's neural detector (more robust on hard
        * photos), falling back to the classical one when it finds nothing.
-       * Downloads about 2 MB the first time it is used.
+       * Downloads about 2.2 MB with gzip (3.5 MB uncompressed) the first
+       * time it is used.
        */
       mlDetector: { type: Boolean, attribute: "ml-detector" },
       /**

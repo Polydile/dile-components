@@ -22,7 +22,9 @@ Read the docs and find demos on the [dile-components site](https://dile-componen
 
 ## ML detector files
 
-With `ml-detector` the component uses scanic's neural detector (about 2.2 MB, only downloaded when the first photo is processed). By default the files come from jsDelivr. The package installs the matching `scanic-ml` version, so you can serve your own copy with the included Vite plugin:
+The ML detector is optional and off by default. Without `ml-detector` your users download nothing of it. With `ml-detector` the component uses scanic's neural detector, and the browser downloads its files (3.5 MB, about 2.2 MB with gzip) the first time a photo is processed.
+
+By default the files come from jsDelivr. The package installs the matching `scanic-ml` version (3.5 MB in `node_modules`, only disk space in your project), so you can serve your own copy with the included Vite plugin:
 
 ```javascript
 // vite.config.js

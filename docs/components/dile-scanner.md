@@ -21,7 +21,9 @@ Edge detection and perspective correction are powered by [scanic](https://www.np
 npm i @dile/scanner
 ```
 
-It is a separate package so `@dile/ui` users don't install scanic or jsPDF. Both are loaded with dynamic `import()`, so bundlers like Vite put them in separate chunks (scanic ~43 KB gzip, jsPDF ~126 KB gzip) that are only downloaded when the scanner is opened or the PDF is built.
+It is a separate package so `@dile/ui` users don't install scanic or jsPDF. Both are loaded with dynamic `import()`, so bundlers like Vite put them in separate chunks (scanic ~43 KB gzip, jsPDF ~129 KB gzip) that are only downloaded when the scanner is opened or the PDF is built.
+
+> **Note:** The [ML detector](#ml-detector) is optional and off by default. The package also installs its files (`scanic-ml`, 3.5 MB in `node_modules`) so you can serve your own copy if you enable it, but they never reach your users unless you use `ml-detector`: they are not part of your JavaScript bundle and the browser does not download them.
 
 ## Usage
 
@@ -101,7 +103,7 @@ scanner.addEventListener('dile-document-scanned', async (e) => {
 });
 ```
 
-## Labels
+## Labels {#labels}
 
 The component has more than 30 texts, so instead of a property per text there is a single `labels` object. Pass only the texts you want to change; the rest keep their English defaults.
 
@@ -123,21 +125,29 @@ Available keys: `title`, `captureHint`, `takePhoto`, `chooseImage`, `addPhoto`, 
 
 The corner labels are used as the `aria-label` of the editor handles.
 
-## ML detector
+## ML detector {#ml-detector}
 
 With `ml-detector`, the edges are detected first with scanic's neural detector and, when it finds nothing or fails (no network, missing files), with the classical one. It goes first, not as a retry, because on hard photos (cluttered or light backgrounds, low contrast, strong perspective) the classical detector does not always fail: it can return a wrong shape, like a line of text, as if it were the document.
 
-The ML files are only downloaded when the detector is actually used: nothing is requested without `ml-detector`, and with it nothing is requested until the first photo is processed. They weigh about 2.2 MB:
+The ML detector is **optional and off by default**. Its weight depends on whether you use it:
 
-File | Size
------|-----
-`doccornernet_lean.ort` | Model, 1.84 MB (it barely compresses)
-`ort-wasm-simd-threaded.wasm` | ONNX runtime, 1.45 MB (529 KB gzip)
-`ort-wasm-simd-threaded.mjs` | Runtime loader, 19 KB
+- **Without `ml-detector`** (default): your users download nothing of the ML detector. Its code is in separate chunks of scanic that are never requested.
+- **With `ml-detector`**: the browser downloads about 2.2 MB the first time a photo is processed (not when the scanner opens).
+- **In `node_modules`**: 3.5 MB always, because `@dile/scanner` installs `scanic-ml` as a dependency so you can self-host the files. It is only disk space in your project.
+- **In your build**: nothing, unless you add the [Vite plugin](#self-hosting-the-ml-files-with-vite), which copies the 3.5 MB of files to the output folder (not to your JavaScript bundle).
+
+The files take 3.5 MB uncompressed and about 2.2 MB to download when the server compresses them with gzip (jsDelivr does):
+
+File | Content | Size | Gzip
+-----|---------|------|-----
+`doccornernet_lean.ort` | Model (it barely compresses) | 1.93 MB | 1.67 MB
+`ort-wasm-simd-threaded.wasm` | ONNX runtime | 1.52 MB | 0.54 MB
+`ort-wasm-simd-threaded.mjs` | Runtime loader | 20 KB | 8 KB
+Total | | 3.47 MB | 2.22 MB
 
 By default they come from jsDelivr (`scanic-ml@0.2.0`, the version scanic 1.7.1 expects). `@dile/scanner` also installs that exact version of `scanic-ml` as a dependency, so you can serve your own copy, always compatible with the scanic version of the component. That avoids depending on the CDN: intranets, privacy, Content Security Policy or availability.
 
-### Self-hosting the ML files with Vite
+### Self-hosting the ML files with Vite {#self-hosting-the-ml-files-with-vite}
 
 Add the `scannerMlAssets()` plugin. It serves the files in the dev server and copies them to the build, with their original names, in the `dile-scanner-ml/` folder:
 
@@ -157,7 +167,7 @@ Then point the component to that folder:
 <dile-scanner ml-detector ml-assets-url="/dile-scanner-ml/"></dile-scanner>
 ```
 
-The folder can be changed with `scannerMlAssets({ path: 'assets/ml' })`. The plugin adds the files (3.4 MB) to the build output, but browsers only download them when the ML detector is used. Only add the plugin if you use `ml-detector`.
+The folder can be changed with `scannerMlAssets({ path: 'assets/ml' })`. The plugin adds the files (3.5 MB uncompressed) to the build output, but browsers only download them when the ML detector is used. Only add the plugin if you use `ml-detector`.
 
 ### Self-hosting the ML files without Vite
 
@@ -170,6 +180,8 @@ cp node_modules/scanic-ml/dist/* public/dile-scanner-ml/
 If npm installed it nested, the files are in `node_modules/@dile/scanner/node_modules/scanic-ml/dist/`.
 
 The server must send the `.mjs` file with a JavaScript content type (`text/javascript`); `application/wasm` for the `.wasm` file is recommended.
+
+> **Note:** Whatever the way you serve them, enable gzip or brotli compression for these files (many servers don't compress `.wasm` or unknown extensions like `.ort` by default). Without it, the first use of the ML detector downloads 3.5 MB instead of about 2.2 MB.
 
 > **Note:** When building with Vite you will see the warning `new URL("ort.wasm.min.mjs", import.meta.url) doesn't exist at build time`. It is harmless: it comes from scanic's ML loader, which resolves that path at runtime.
 
@@ -188,10 +200,9 @@ Custom property | Description | Default
 
 On screens up to 600 px wide the modal takes the whole screen. The buttons are [dile-button](/components/dile-button/) elements, so they also follow its custom properties.
 
-## Tips and known issues
+## Tips
 
 - **Testing on a phone**: don't use Vite's dev server. When the camera opens, the browser goes to the background, Vite's websocket is cut and Vite reloads the page in the middle of the scan. Use a build instead (`vite build` + `vite preview --host`) and, for HTTPS, a tunnel.
-- After closing, `dile-modal` keeps a transparent layer for about 300 ms (the exit animation) that blocks clicks on the page. It goes unnoticed in normal use, but automated tests should wait before clicking again.
 
 ## dile-scanner demos
 
