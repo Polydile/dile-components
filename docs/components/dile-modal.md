@@ -43,22 +43,35 @@ When needed, you may use the ```open()``` method to open the modal box interface
 document.getElementById("myModal").open();
 ```
 
-Other posibility in order to open or close the modal box is to set the boolean ```opened``` attribute.
+Another possibility in order to open or close the modal box is to set the boolean ```opened``` property or attribute. It behaves exactly like ```open()``` and ```close()```: the opacity animation runs and the ```dile-modal-closed``` event is dispatched.
 
 ## Properties
 
-- **opened**: Bolean property used to change the modal state, false is closed / true means open.
+- **opened**: Boolean property used to change the modal state, false is closed / true means open. It is reflected to the `opened` attribute.
 - **showCloseIcon**: Boolean property to tell the modal box you want a close icon to be displayed.
-- **blocking**: Boolean property to configure the modal box as a bloking interface. If true the modal box blocks the screen. That is, when you click in the background layer, the modal box do not close.
+- **blocking**: Boolean property to configure the modal box as a blocking interface. If true the modal box blocks the screen. That is, when you click in the background layer, the modal box does not close. The Esc key still closes it.
+- **label**: String with the accessible name of the modal box, announced by screen readers when it opens.
+- **closeLabel**: String with the accessible label of the close icon button. Defaults to `Close`.
+
+## Accessibility
+
+The modal box is exposed as a dialog (`role="dialog"` and `aria-modal="true"`), named by the `label` property. The close icon is a native button, so it can be used with the keyboard.
+
+When the modal opens, the focus moves into it (unless an element of the content already took the focus) and when it closes the focus returns to the element that had it before. The focus is not trapped inside the modal box.
 
 ## Methods
 
 - **open**: Use it to open the modal box
-- **close**: Use it to close the modal box
+- **close**: Use it to close the modal box. While the fade-out animation runs the background layer no longer captures pointer events, and it is removed when the animation ends (immediately if `--dile-modal-animation-duration` is `0s`).
 
 ## Events
 
-- **dile-modal-closed**: Dispatched when the modal box becomes closed on any reason: by calling the close() method, by a click in the background modal, Esc key pressed or by a click on the close icon.
+- **dile-modal-opened**: Dispatched when the modal box becomes opened, by calling the open() method or by setting the `opened` property or attribute to true.
+- **dile-modal-closed**: Dispatched when the modal box becomes closed on any reason: by calling the close() method, by setting the `opened` property or attribute to false, by a click in the background modal, Esc key pressed or by a click on the close icon.
+
+While any modal box is opened, the page scroll is locked. It is restored when the last modal box closes.
+
+When several modal boxes are opened at the same time, the Esc key only closes the topmost one (the last opened).
 - **dile-modal-background-closed**: Dispatched when the modal box is closed because the user clicks in the background layer.
 
 ## Style customization
@@ -70,9 +83,9 @@ Custom property | Description | Default
 --dile-modal-width | Content layer width | 280px
 --dile-modal-min-width | Content layer min width | 250px
 --dile-modal-max-width | Content layer max width | 100vw
---dile-modal-height | Conten layer height | auto
---dile-modal-min-height | Content layer max height | auto
---dile-modal-max-height | Content layer max height | 100vh
+--dile-modal-height | Content layer height | auto
+--dile-modal-min-height | Content layer min height | auto
+--dile-modal-max-height | Content layer max height | 90vh
 --dile-modal-border-radius | Content layer border radius | 15px
 --dile-modal-content-background-color | Content layer background color | #fff
 --dile-modal-content-text-color | Content text color | #303030
@@ -201,7 +214,7 @@ class ThirdComponent extends LitElement {
     return html`
       <dile-modal class="modalbox" id="elmodal4" showCloseIcon blocking>
         <h2>Blocking</h2>
-        <p>Event you click outside, the modal do not closes</p>
+        <p>Even if you click outside, the modal does not close</p>
         <p>Pariatur vero impedit repudiandae labore mod!</p>
       </dile-modal>
       <button id="open">Open blocking modal</button>
