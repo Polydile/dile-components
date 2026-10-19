@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-scanner component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/scanner/scanner.js";
+    import "@dile/ui/components/button/button.js";
+
+    function formatSize(bytes) {
+      return `${Math.round(bytes / 1024)} KB`;
+    }
+
+    function showResult(target, detail) {
+      const container = document.getElementById(target);
+      container.innerHTML = '';
+      const files = detail.file ? [detail.file] : detail.files;
+      for (const file of files) {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(file);
+        link.target = '_blank';
+        link.textContent = `${file.name} (${formatSize(file.size)})`;
+        container.append(link);
+      }
+      for (const page of detail.pages) {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(page);
+        img.alt = page.name;
+        container.append(img);
+      }
+    }
+
+    document.querySelectorAll('[data-scanner]').forEach((button) => {
+      const scanner = document.getElementById(button.dataset.scanner);
+      button.addEventListener('click', () => scanner.open());
+      scanner.addEventListener('dile-document-scanned', (e) => showResult(button.dataset.result, e.detail));
+      scanner.addEventListener('dile-document-scan-cancelled', () => {
+        document.getElementById(button.dataset.result).textContent = 'Scan cancelled.';
+      });
+    });
+
+    document.getElementById('scannerEs').labels = {
+      title: 'Escanear documento',
+      captureHint: 'Haz una foto del documento o elige una imagen. Podrás ajustar los bordes antes de guardarlo.',
+      takePhoto: 'Hacer foto',
+      chooseImage: 'Elegir imagen',
+      addPhoto: 'Añadir foto',
+      addImage: 'Añadir imagen',
+      adjustHint: 'Arrastra las esquinas hasta los bordes del documento.',
+      notDetected: 'No se han detectado los bordes. Arrastra las esquinas hasta los bordes del documento.',
+      reset: 'Restablecer',
+      useFullImage: 'Usar la imagen completa',
+      accept: 'Aceptar',
+      cancel: 'Cancelar',
+      confirm: 'Guardar documento',
+      page: 'Página',
+      processing: 'Procesando…',
+      sizeOf: 'de',
+      filenamePrefix: 'escaneo',
+    };
+  </script>
+  <style>
+    .demo-section {
+      margin: 2rem 0;
+    }
+    .result {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .result a {
+      flex-basis: 100%;
+    }
+    .result img {
+      height: 160px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .styled {
+      --dile-scanner-accent-color: #e67e22;
+      --dile-scanner-mask-color: rgba(230, 126, 34, 0.25);
+      --dile-scanner-editor-background-color: #2c3e50;
+      --dile-scanner-modal-width: min(96vw, 700px);
+      --dile-scanner-secondary-button-color: #7f8c8d;
+    }
+    .info {
+      background: #e8f4f8;
+      border-left: 4px solid #3498db;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-scanner component</h1>
+
+    <p class="info">
+      Everything happens in the browser. Choose a photo of a document (a sheet of paper on a darker surface
+      works best), adjust the corners and save. On touch devices a "Take photo" button opens the camera.
+    </p>
+
+    <div class="demo-section">
+      <h2>Single page PDF</h2>
+      <dile-button data-scanner="scannerSingle" data-result="resultSingle">Scan document</dile-button>
+      <dile-scanner id="scannerSingle"></dile-scanner>
+      <div id="resultSingle" class="result"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Multipage PDF with size limit (2 MB)</h2>
+      <p>Add several pages, rotate, reorder, adjust them again or remove them.</p>
+      <dile-button data-scanner="scannerMultipage" data-result="resultMultipage">Scan document</dile-button>
+      <dile-scanner id="scannerMultipage" multipage max-bytes="2097152" filename="multipage-doc"></dile-scanner>
+      <div id="resultMultipage" class="result"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>JPEG images output</h2>
+      <dile-button data-scanner="scannerImages" data-result="resultImages">Scan pages</dile-button>
+      <dile-scanner id="scannerImages" multipage output="images" max-side="1600" quality="0.7"></dile-scanner>
+      <div id="resultImages" class="result"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>ML detector</h2>
+      <p>Uses scanic's neural detector. Its files (about 2.2 MB) are served from this site by the <code>scannerMlAssets()</code> Vite plugin and only downloaded when the first photo is processed.</p>
+      <dile-button data-scanner="scannerMl" data-result="resultMl">Scan document</dile-button>
+      <dile-scanner id="scannerMl" ml-detector ml-assets-url="/dile-scanner-ml/"></dile-scanner>
+      <div id="resultMl" class="result"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Custom labels and styles</h2>
+      <dile-button data-scanner="scannerEs" data-result="resultEs">Escanear documento</dile-button>
+      <dile-scanner id="scannerEs" class="styled" multipage></dile-scanner>
+      <div id="resultEs" class="result"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -12,7 +12,13 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.setLibrary('md', md);
 
   const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
-  eleventyConfig.addPlugin(EleventyPluginVite);
+  // Self-hosted ML detector files for the dile-scanner demos.
+  const { scannerMlAssets } = await import('./packages/scanner/vite-plugin.js');
+  eleventyConfig.addPlugin(EleventyPluginVite, {
+    viteOptions: {
+      plugins: [scannerMlAssets()],
+    },
+  });
   eleventyConfig.addTransform("colorBoxTransform", colorBox)
   eleventyConfig.addTransform('html-transform', function (content) {
     // Parse the template and get a Document object
