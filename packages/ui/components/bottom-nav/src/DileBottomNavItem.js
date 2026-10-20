@@ -114,7 +114,7 @@ export class DileBottomNavItem extends DileOverlay(DileCloseOnEscPressed(DileSel
         --dile-icon-color: var(--dile-bottom-nav-item-color, var(--dile-on-background-color, #666));
       }
       :host([selected]) {
-        --dile-icon-color: var(--dile-bottom-nav-item-selected-color, var(--dile-primary-color, #039be5));
+        --dile-icon-color: var(--dile-bottom-nav-item-selected-color, var(--dile-secondary-color, #039be5));
       }
       .trigger {
         all: unset;
@@ -134,10 +134,10 @@ export class DileBottomNavItem extends DileOverlay(DileCloseOnEscPressed(DileSel
         transition: color 0.2s ease;
       }
       :host([selected]) .trigger {
-        color: var(--dile-bottom-nav-item-selected-color, var(--dile-primary-color, #039be5));
+        color: var(--dile-bottom-nav-item-selected-color, var(--dile-secondary-color, #039be5));
       }
       .trigger:focus-visible {
-        outline: 2px solid var(--dile-bottom-nav-item-selected-color, var(--dile-primary-color, #039be5));
+        outline: 2px solid var(--dile-bottom-nav-item-selected-color, var(--dile-secondary-color, #039be5));
         outline-offset: -2px;
         border-radius: 4px;
       }
@@ -163,7 +163,7 @@ export class DileBottomNavItem extends DileOverlay(DileCloseOnEscPressed(DileSel
         width: var(--dile-bottom-nav-close-icon-size, 44px);
         height: var(--dile-bottom-nav-close-icon-size, 44px);
         border-radius: 50%;
-        background-color: var(--dile-bottom-nav-close-icon-background-color, var(--dile-bottom-nav-item-selected-color, var(--dile-primary-color, #039be5)));
+        background-color: var(--dile-bottom-nav-close-icon-background-color, var(--dile-bottom-nav-item-selected-color, var(--dile-secondary-color, #039be5)));
         --dile-icon-color: var(--dile-bottom-nav-close-icon-color, var(--dile-bottom-nav-background-color, var(--dile-background-color, #fff)));
         animation: dile-bottom-nav-close-in 0.3s ease;
       }

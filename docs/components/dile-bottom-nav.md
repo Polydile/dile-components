@@ -133,6 +133,24 @@ The bottom sheet closes when the user:
 
 In both cases the bar stays visible while the sheet is opened, and the item that opened the sheet replaces its icon and label with a close icon.
 
+## Changing pages with dile-pages
+
+`dile-bottom-nav` works with [dile-pages](/components/dile-pages/) the same way as [dile-tabs](/components/dile-tabs/): give both components the same `selectorId` and the page changes when an item is selected. Items with a bottom sheet do not change the page, because they don't change the selection.
+
+```html
+<dile-pages selectorId="appnav" attrForSelected="name" selected="home">
+  <section name="home">Home page</section>
+  <section name="search">Search page</section>
+</dile-pages>
+
+<dile-bottom-nav selectorId="appnav" attrForSelected="name" selected="home">
+  <dile-bottom-nav-item name="home" label="Home" icon="lucide.house"></dile-bottom-nav-item>
+  <dile-bottom-nav-item name="search" label="Search" icon="lucide.search"></dile-bottom-nav-item>
+</dile-bottom-nav>
+```
+
+This also works inside other components. See the demo below with the bar in the footer of a [dile-card](/components/dile-card/).
+
 ## Methods
 
 These methods are available in `dile-bottom-nav-item`:
@@ -183,7 +201,7 @@ Custom property | Description | Default
 Custom property | Description | Default
 ----------------|-------------|---------
 --dile-bottom-nav-item-color | Icon and label color | --dile-on-background-color or #666
---dile-bottom-nav-item-selected-color | Icon and label color of the selected item | --dile-primary-color or #039be5
+--dile-bottom-nav-item-selected-color | Icon and label color of the selected item | --dile-secondary-color or #039be5
 --dile-bottom-nav-item-padding | Item padding | 4px 2px
 --dile-bottom-nav-item-gap | Space between icon and label | 2px
 --dile-bottom-nav-icon-size | Icon size | 24px
@@ -191,7 +209,7 @@ Custom property | Description | Default
 --dile-bottom-nav-label-font-weight | Label font weight | normal
 --dile-bottom-nav-label-selected-font-weight | Label font weight of the selected item | bold
 --dile-bottom-nav-close-icon-size | Size of the close icon circle displayed while the sheet is opened | 44px
---dile-bottom-nav-close-icon-background-color | Background of the close icon circle | --dile-bottom-nav-item-selected-color or --dile-primary-color or #039be5
+--dile-bottom-nav-close-icon-background-color | Background of the close icon circle | --dile-bottom-nav-item-selected-color or --dile-secondary-color or #039be5
 --dile-bottom-nav-close-icon-color | Color of the close icon | --dile-bottom-nav-background-color or --dile-background-color or #fff
 --dile-bottom-nav-overlay-background-color | Overlay color behind the sheet | rgba(0, 0, 0, 0.5)
 --dile-bottom-nav-sheet-background-color | Sheet background color | --dile-background-color or #fff
@@ -282,6 +300,74 @@ The demos use the `static` attribute so the bar is displayed inside the page, an
   customElements.define('bottom-nav-sheet-demo', BottomNavSheetDemo);
 </script>
 <bottom-nav-sheet-demo></bottom-nav-sheet-demo>
+```
+
+### Inside a dile-card with dile-pages
+
+The bar is placed in the `footer` slot of the card, with the `static` attribute, and changes the card pages through the shared `selectorId`. Some card CSS custom properties and negative margins make the bar fill the card footer edge to edge.
+
+```html:preview
+<script type="module">
+  import '@dile/ui/components/card/card.js';
+  import '@dile/ui/components/pages/pages.js';
+</script>
+<style>
+  .nav-card {
+    max-width: 380px;
+    --dile-card-footer-padding-top: 0;
+    --dile-card-footer-border-separator: none;
+  }
+  .nav-card dile-bottom-nav {
+    margin: 0 calc(-1 * var(--dile-card-padding-x, 1rem)) calc(-1 * var(--dile-card-padding-y, 1rem));
+    --dile-bottom-nav-box-shadow: none;
+    /* Same colors as the card, whatever the page theme is. */
+    --dile-bottom-nav-background-color: var(--dile-card-background-color, #fff);
+    --dile-bottom-nav-item-color: var(--dile-card-text-color, #303030);
+  }
+  .nav-card dile-pages {
+    min-height: 140px;
+  }
+  .nav-card h3 {
+    margin-top: 0;
+  }
+  .nav-card-menu a {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  .nav-card-menu a:last-child {
+    border-bottom: none;
+  }
+</style>
+<dile-card class="nav-card" title="My music">
+  <dile-pages selectorId="cardnav" attrForSelected="name" selected="home">
+    <section name="home">
+      <h3>Home</h3>
+      <p>Your recently played playlists and recommendations.</p>
+    </section>
+    <section name="search">
+      <h3>Search</h3>
+      <p>Find songs, artists and podcasts.</p>
+    </section>
+    <section name="library">
+      <h3>Your library</h3>
+      <p>Saved playlists, albums and episodes.</p>
+    </section>
+  </dile-pages>
+  <dile-bottom-nav slot="footer" static selectorId="cardnav" attrForSelected="name" selected="home" label="Card navigation">
+    <dile-bottom-nav-item name="home" icon="lucide.house" label="Home"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="search" icon="lucide.search" label="Search"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="library" icon="lucide.library" label="Library"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="create" icon="lucide.plus" label="Create" close-on-click>
+      <nav class="nav-card-menu">
+        <a href="#playlist">New playlist</a>
+        <a href="#blend">Blend</a>
+      </nav>
+    </dile-bottom-nav-item>
+  </dile-bottom-nav>
+</dile-card>
 ```
 
 ### Styled bottom nav

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <script type="module">
     import "@dile/ui/components/bottom-nav/bottom-nav.js";
+    import "@dile/ui/components/card/card.js";
+    import "@dile/ui/components/pages/pages.js";
     import "@dile/iconlib/lucide-icons/house.js";
     import "@dile/iconlib/lucide-icons/search.js";
     import "@dile/iconlib/lucide-icons/library.js";
@@ -45,6 +47,25 @@
     #navdark .sheet-menu a {
       border-bottom-color: #3a3a3a;
     }
+    .nav-card {
+      max-width: 380px;
+      /* The bar draws its own top border, and fills the card footer edge to edge. */
+      --dile-card-footer-padding-top: 0;
+      --dile-card-footer-border-separator: none;
+    }
+    .nav-card dile-bottom-nav {
+      margin: 0 calc(-1 * var(--dile-card-padding-x, 1rem)) calc(-1 * var(--dile-card-padding-y, 1rem));
+      --dile-bottom-nav-box-shadow: none;
+      /* Same colors as the card, whatever the page theme is. */
+      --dile-bottom-nav-background-color: var(--dile-card-background-color, #fff);
+      --dile-bottom-nav-item-color: var(--dile-card-text-color, #303030);
+    }
+    .nav-card dile-pages {
+      min-height: 160px;
+    }
+    .nav-card h3 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +87,36 @@
         </nav>
       </dile-bottom-nav-item>
     </dile-bottom-nav>
+
+    <h2>Bar inside a dile-card, changing a dile-pages</h2>
+    <p>The bar and the dile-pages share the same <code>selectorId</code>, so selecting an item changes the card page.</p>
+    <dile-card class="nav-card" title="My music">
+      <dile-pages selectorId="cardnav" attrForSelected="name" selected="home">
+        <section name="home">
+          <h3>Home</h3>
+          <p>Your recently played playlists and recommendations.</p>
+        </section>
+        <section name="search">
+          <h3>Search</h3>
+          <p>Find songs, artists and podcasts.</p>
+        </section>
+        <section name="library">
+          <h3>Your library</h3>
+          <p>Saved playlists, albums and episodes.</p>
+        </section>
+      </dile-pages>
+      <dile-bottom-nav slot="footer" static selectorId="cardnav" attrForSelected="name" selected="home" label="Card navigation">
+        <dile-bottom-nav-item name="home" icon="lucide.house" label="Home"></dile-bottom-nav-item>
+        <dile-bottom-nav-item name="search" icon="lucide.search" label="Search"></dile-bottom-nav-item>
+        <dile-bottom-nav-item name="library" icon="lucide.library" label="Library"></dile-bottom-nav-item>
+        <dile-bottom-nav-item name="create" icon="lucide.plus" label="Create" close-on-click>
+          <nav class="sheet-menu">
+            <a href="#playlist">New playlist</a>
+            <a href="#blend">Blend</a>
+          </nav>
+        </dile-bottom-nav-item>
+      </dile-bottom-nav>
+    </dile-card>
 
     <h2>Long content</h2>
     <p>Scroll the page to check that the bar stays at the bottom.</p>
