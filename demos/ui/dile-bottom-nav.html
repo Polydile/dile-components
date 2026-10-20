@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>dile-bottom-nav component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/bottom-nav/bottom-nav.js";
+    import "@dile/iconlib/lucide-icons/house.js";
+    import "@dile/iconlib/lucide-icons/search.js";
+    import "@dile/iconlib/lucide-icons/library.js";
+    import "@dile/iconlib/lucide-icons/heart.js";
+    import "@dile/iconlib/lucide-icons/plus.js";
+    import "@dile/iconlib/lucide-icons/settings.js";
+  </script>
+  <style>
+    body {
+      padding-bottom: 80px;
+    }
+    .sheet-menu {
+      display: flex;
+      flex-direction: column;
+    }
+    .sheet-menu a {
+      padding: 0.9rem 0.25rem;
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+    }
+    .sheet-menu a:last-child {
+      border-bottom: none;
+    }
+    #navdark {
+      --dile-bottom-nav-background-color: #121212;
+      --dile-bottom-nav-border-top: none;
+      --dile-bottom-nav-item-color: #b3b3b3;
+      --dile-bottom-nav-item-selected-color: #fff;
+      --dile-bottom-nav-sheet-background-color: #282828;
+      --dile-bottom-nav-sheet-text-color: #fff;
+      --dile-bottom-nav-close-icon-background-color: #fff;
+      --dile-bottom-nav-close-icon-color: #121212;
+    }
+    #navdark .sheet-menu a {
+      border-bottom-color: #3a3a3a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-bottom-nav component</h1>
+    <p>Resize the browser to a mobile width (or use the device mode of the dev tools). The bar is fixed at the bottom of the viewport.</p>
+    <p>Selected: <b id="msg">home</b></p>
+
+    <h2>Static bar (in the document flow)</h2>
+    <dile-bottom-nav id="navdark" static attrForSelected="name" selected="home">
+      <dile-bottom-nav-item name="home" icon="lucide.house" label="Home"></dile-bottom-nav-item>
+      <dile-bottom-nav-item name="search" icon="lucide.search" label="Search"></dile-bottom-nav-item>
+      <dile-bottom-nav-item name="library" icon="lucide.library" label="Your library"></dile-bottom-nav-item>
+      <dile-bottom-nav-item name="create" icon="lucide.plus" label="Create" close-on-click>
+        <nav class="sheet-menu">
+          <a href="#playlist">New playlist</a>
+          <a href="#blend">Blend</a>
+          <a href="#jam">Jam</a>
+        </nav>
+      </dile-bottom-nav-item>
+    </dile-bottom-nav>
+
+    <h2>Long content</h2>
+    <p>Scroll the page to check that the bar stays at the bottom.</p>
+    <div id="lorem"></div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+
+  <dile-bottom-nav id="nav" attrForSelected="name" selected="home">
+    <dile-bottom-nav-item name="home" icon="lucide.house" label="Home"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="search" icon="lucide.search" label="Search"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="favorites" icon="lucide.heart" label="Favorites" href="#favorites"></dile-bottom-nav-item>
+    <dile-bottom-nav-item name="create" icon="lucide.plus" label="Create">
+      <nav class="sheet-menu">
+        <a href="#playlist" data-close>New playlist</a>
+        <a href="#blend" data-close>Blend</a>
+      </nav>
+    </dile-bottom-nav-item>
+    <dile-bottom-nav-item name="settings" icon="lucide.settings" label="Settings">
+      <h3>Settings</h3>
+      <p>Any content can be placed in the bottom sheet.</p>
+      <label><input type="checkbox"> Notifications</label>
+      <p><button data-close>Done</button></p>
+    </dile-bottom-nav-item>
+  </dile-bottom-nav>
+
+
+  <script type="module">
+    document.getElementById('nav').addEventListener('dile-selected-changed', (e) => {
+      document.getElementById('msg').innerText = e.detail.selected;
+    });
+    document.addEventListener('dile-bottom-nav-item-click', (e) => console.log('item click', e.detail.name));
+    document.addEventListener('dile-bottom-nav-sheet-opened', (e) => console.log('sheet opened', e.detail.name));
+    document.addEventListener('dile-bottom-nav-sheet-closed', (e) => console.log('sheet closed', e.detail.name));
+
+    document.getElementById('lorem').innerHTML = Array.from({ length: 20 },
+      (_, i) => `<p>Paragraph ${i + 1}. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`
+    ).join('');
+  </script>
+</body>
+</html>
