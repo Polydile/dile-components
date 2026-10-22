@@ -525,8 +525,13 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         this.refresh();
     }
 
-    refresh() {
-        this.listElement.refresh();
+    refresh({ resetPage = false } = {}) {
+        this.listElement.refresh({ resetPage });
+    }
+
+    setScope(belongsTo = '', relationId = '') {
+        this.belongsTo = belongsTo;
+        this.relationId = relationId;
     }
 
     setCustomizationOption(optionName, value) {

@@ -360,3 +360,94 @@ describe('dile-crud list/grid view switch', () => {
     expect(el.listElement.viewMode).toBe('item');
   });
 });
+
+describe('dile-crud scope and refresh', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function createCrud() {
+    const config = new CrudConfigBuilder('https://example.test/api/invoices', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch: true,
+        disableSort: true,
+        disableFilter: true,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+      templates: { item: (item) => html`<span>${item.name}</span>` },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    el.belongsTo = 'customer';
+    el.relationId = '10';
+    document.body.appendChild(el);
+    await el.updateComplete;
+    const list = el.listElement;
+    await list.updateComplete;
+    await list.elservice.updateComplete;
+
+    // Intercept the outgoing requests instead of hitting the network,
+    // and let the initial load (fired on start) settle first.
+    const requests = [];
+    const ajax = list.elservice.ajaxget;
+    ajax.generateRequest = () => requests.push({ url: ajax.url, data: ajax.data });
+    list.elservice.delayTime = 10;
+    await wait(250);
+    requests.length = 0;
+    return { el, list, requests, ajax };
+  }
+
+  it('setScope() updates belongsTo and relationId and reloads the list once from page 1', async () => {
+    const { el, list, requests, ajax } = await createCrud();
+    ajax.url = 'https://example.test/api/invoices?page=2';
+
+    el.setScope('supplier', '20');
+    expect(el.belongsTo).toBe('supplier');
+    expect(el.relationId).toBe('20');
+    await el.updateComplete;
+    await list.updateComplete;
+    await wait(50);
+
+    expect(list.belongsTo).toBe('supplier');
+    expect(list.relationId).toBe('20');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].url).toBe('https://example.test/api/invoices');
+    expect(requests[0].data.belongsTo).toBe('supplier');
+    expect(requests[0].data.relationId).toBe('20');
+  });
+
+  it('setScope() without arguments clears the scope', async () => {
+    const { el, list, requests } = await createCrud();
+
+    el.setScope();
+    await el.updateComplete;
+    await list.updateComplete;
+    await wait(50);
+
+    expect(el.belongsTo).toBe('');
+    expect(el.relationId).toBe('');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.belongsTo).toBeUndefined();
+    expect(requests[0].data.relationId).toBeUndefined();
+  });
+
+  it('refresh() keeps the current page and refresh({ resetPage: true }) goes back to page 1', async () => {
+    const { el, requests, ajax } = await createCrud();
+    const pagedUrl = 'https://example.test/api/invoices?page=2';
+
+    ajax.url = pagedUrl;
+    el.refresh();
+    await wait(50);
+    expect(requests.at(-1).url).toBe(pagedUrl);
+
+    el.refresh({ resetPage: true });
+    await wait(50);
+    expect(requests.at(-1).url).toBe('https://example.test/api/invoices');
+  });
+});

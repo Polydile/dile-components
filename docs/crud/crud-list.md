@@ -35,25 +35,29 @@ Use the component.
 
 ### Properties
 
-- **config**: Object, the configuration object that customizes the behavior and appearance of the component.
-- **elements**: Array, the list of items to be displayed by the list component.
-- **paginationData**: Object, the data used for pagination, such as current page and total pages.
-- **numItems**: Number, the total number of items being listed.
-- **pageSize**: Number, the number of items to display per page.
-- **keyword**: String, the search keyword used to filter the items in the list.
-- **isSelectAllActive**: Boolean, indicates whether the "select all" feature is active.
-- **sort**: Object, the sorting configuration, defining how the items should be ordered.
-- **actionIds**: Array, the IDs of the selected items for batch actions.
-- **filters**: Array, the filters applied to the list to refine the displayed items.
-- **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
-- **disableLoadOnStart**: Boolean, controls whether the component should automatically load elements when it initializes. When set to true, the component will not trigger the initial loading of data on startup, allowing for manual data loading to be managed as needed.
-- **viewMode**: String, `'item'` or `'grid'`. Only meaningful when **both** a grid (`config.grid.columns` or `config.templates.grid`) and an explicit `config.templates.item` are configured — in that case it decides which one renders. Ignored otherwise: with only one view configured, that one always renders regardless of `viewMode`. Default `'item'`. Normally set automatically by `dile-crud`'s [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch) button; see [Rendering Modes](#rendering-modes) below.
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `config` | `Object` | `undefined` | The configuration object that customizes the behavior and appearance of the component. |
+| `elements` | `Array` | `[]` | The list of items to be displayed by the list component. |
+| `paginationData` | `Object` | `{}` | The data used for pagination, such as current page and total pages. |
+| `numItems` | `Number` | `undefined` | The total number of items being listed. |
+| `pageSize` | `Number` | `10` | The number of items to display per page. Overridden by `config.pageSize.initial` when it is configured. |
+| `keyword` | `String` | `""` | The search keyword used to filter the items in the list. |
+| `isSelectAllActive` | `Boolean` | `false` | Indicates whether the "select all" feature is active. |
+| `sort` | `Object` | `undefined` | The sorting configuration, defining how the items should be ordered. |
+| `actionIds` | `Array` | `[]` | The IDs of the selected items for batch actions. |
+| `filters` | `Array` | `[]` | The filters applied to the list to refine the displayed items. |
+| `belongsTo` | `String` | `undefined` | The name of the parent resource used to scope the listed records (sent to the backend together with `relationId`). It can be changed at any time: the list reloads automatically from the first page. |
+| `relationId` | `String` | `undefined` | The identifier of the parent resource used to scope the listed records. Changing it also reloads the list from the first page. |
+| `language` | `String` | `"en"` | The interface and feedback messages language. Available `"en"`, `"es"`. Fallback to `"en"`. |
+| `disableLoadOnStart` | `Boolean` | `false` | When `true`, the component does not trigger the initial loading of data on startup, allowing data loading to be managed manually. |
+| `viewMode` | `String` | `"item"` | `"item"` or `"grid"`. Only meaningful when **both** a grid (`config.grid.columns` or `config.templates.grid`) and an explicit `config.templates.item` are configured — in that case it decides which one renders. Ignored otherwise: with only one view configured, that one always renders. Normally set automatically by `dile-crud`'s [List/Grid View Switch](/crud/crud-component/#list-grid-view-switch) button; see [Rendering Modes](#rendering-modes). |
 
 ### Methods
 
 - **goNext()**: Go to the next page, in paginated lists.
 - **goPrev()**: go to the previous page, in paginated lists.  
-- **refresh()**: Refresh the list. This method makes a new request to the API server and display the elements.
+- **refresh({ resetPage = false } = {})**: Refresh the list. This method makes a new request to the API server and display the elements. By default it keeps the current page (useful after editing or deleting an item). Pass `{ resetPage: true }` to reload from the first page, for example after changing a search criterion from outside the component.
 - **setKeyword(keyword)**: Set the keyword value for filtering.
 - **setSort(sortObject)**: Set the sort object to a new value.
 - **setPageSize(size)**: Change the page size, on paginated lists.
@@ -64,7 +68,7 @@ Use the component.
 ### Events
 
 - **insert-requested**: This event is dispatched when the list component requests to open the insertion form. This can happen when there are no items in the list, either because the resource is empty or the filtering yields no results, in which case a button may appear to insert new items.
-- **crud-list-refresh**: This event is dispatched when the list component is about to refresh its data. This happens when the `refresh()` method is called, either programmatically or through user interaction.
+- **crud-list-refresh**: This event is dispatched when the list component is about to refresh its data. This happens when the `refresh()` method is called, either programmatically or through user interaction, and also when `belongsTo` or `relationId` change.
 - **crud-item-edit**: This event is dispatched when the user clicks on the edit icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be edited.
 - **crud-item-delete**: This event is dispatched when the user clicks on the delete icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be deleted.
 - **crud-list-all-ids-selected**: This event is dispatched when one of the controls for selecting multiple items has been activated (either all items on a page or all items in the resource). The event detail contains the list of selected IDs.

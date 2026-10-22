@@ -371,3 +371,85 @@ describe('dile-crud-list grid template integration', () => {
     expect(el.shadowRoot.querySelector('dile-crud-data-grid')).toBeTruthy();
   });
 });
+
+describe('dile-crud-list scope changes and page reset', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function createList({ belongsTo, relationId } = {}) {
+    const config = new CrudConfigBuilder('https://example.test/api/invoices', {
+      templates: { item: (item) => html`<span>${item.name}</span>` },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    if (belongsTo !== undefined) el.belongsTo = belongsTo;
+    if (relationId !== undefined) el.relationId = relationId;
+    document.body.appendChild(el);
+    await el.updateComplete;
+    await el.elservice.updateComplete;
+
+    // Intercept the outgoing requests instead of hitting the network.
+    const requests = [];
+    const ajax = el.elservice.ajaxget;
+    ajax.generateRequest = () => requests.push({ url: ajax.url, data: ajax.data });
+    el.elservice.delayTime = 10;
+    return { el, requests, ajax };
+  }
+
+  it('does not fire an extra request on the initial render when scope is set from the start', async () => {
+    const { requests } = await createList({ belongsTo: 'customer', relationId: '10' });
+    await wait(50);
+    expect(requests).toHaveLength(0);
+  });
+
+  it('reloads from the first page with the new scope when belongsTo and relationId change', async () => {
+    const { el, requests, ajax } = await createList({ belongsTo: 'customer', relationId: '10' });
+    ajax.url = 'https://example.test/api/invoices?page=3';
+
+    let refreshEvents = 0;
+    el.addEventListener('crud-list-refresh', () => refreshEvents++);
+
+    el.belongsTo = 'supplier';
+    el.relationId = '20';
+    await el.updateComplete;
+    expect(el.loading).toBe(true);
+
+    await wait(50);
+    expect(refreshEvents).toBe(1);
+    expect(requests).toHaveLength(1);
+    expect(requests[0].url).toBe('https://example.test/api/invoices');
+    expect(requests[0].data.belongsTo).toBe('supplier');
+    expect(requests[0].data.relationId).toBe('20');
+  });
+
+  it('reloads when only relationId changes', async () => {
+    const { el, requests } = await createList({ belongsTo: 'customer', relationId: '10' });
+
+    el.relationId = '11';
+    await el.updateComplete;
+    await wait(50);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.relationId).toBe('11');
+  });
+
+  it('keeps the current page on refresh() and goes back to page 1 on refresh({ resetPage: true })', async () => {
+    const { el, requests, ajax } = await createList();
+    const pagedUrl = 'https://example.test/api/invoices?page=3';
+
+    ajax.url = pagedUrl;
+    el.refresh();
+    await wait(50);
+    expect(requests.at(-1).url).toBe(pagedUrl);
+
+    el.refresh({ resetPage: true });
+    await wait(50);
+    expect(requests.at(-1).url).toBe('https://example.test/api/invoices');
+    expect(requests).toHaveLength(2);
+  });
+});

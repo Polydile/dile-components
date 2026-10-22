@@ -166,7 +166,7 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
   cleanAndRefresh() {
     if(this.ajaxget) {
       this.ajaxget.url = this.cleanUrl;
-      this.refresh();
     }
+    this.refresh();
   }
 }

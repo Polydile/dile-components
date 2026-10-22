@@ -35,15 +35,17 @@ Use the component.
 
 ### Properties
 
-- **title**: String, title for the crud component. Optional.
-- **config**: Object, the configuration object that customizes the behavior and functionality of the CRUD system.
-- **actionIds**: Array, the list of IDs for the items selected for batch operations.
-- **keyword**: String, the search keyword used to filter the items in the CRUD system.
-- **belongsTo**: String, indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. 
-- **relationId**: String, is the identifier that uniquely identifies the specific resource. 
-- **language**: String, the feedback messages language. Available 'en', 'es'. Fallback to 'en'.
-- **filtersAlwaysVisible**: Boolean, when `true`, renders the filters form directly below the nav actions bar instead of hiding it behind a button that opens an overlay. Default `false`. See [Always Visible Filters](#always-visible-filters).
-- **singleActionDispatcher**: String, the `name` of an action defined in `config.actions.list` to run directly on the selected items, bypassing the batch actions dropdown menu. See [Single Action Dispatcher](#single-action-dispatcher).
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `String` | `undefined` | Title for the crud component. Optional. |
+| `config` | `Object` | `undefined` | The configuration object that customizes the behavior and functionality of the CRUD system. |
+| `actionIds` | `Array` | `[]` | The list of IDs for the items selected for batch operations. |
+| `keyword` | `String` | `undefined` | The search keyword used to filter the items in the CRUD system. |
+| `belongsTo` | `String` | `undefined` | Indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. Changing it reloads the list from the first page. |
+| `relationId` | `String` | `undefined` | The identifier that uniquely identifies the specific resource. Changing it reloads the list from the first page. |
+| `language` | `String` | `"en"` | The feedback messages language. Available `"en"`, `"es"`. Fallback to `"en"`. |
+| `filtersAlwaysVisible` | `Boolean` | `false` | When `true`, renders the filters form directly below the nav actions bar instead of hiding it behind a button that opens an overlay. See [Always Visible Filters](#always-visible-filters). |
+| `singleActionDispatcher` | `String` | `undefined` | The `name` of an action defined in `config.actions.list` to run directly on the selected items, bypassing the batch actions dropdown menu. See [Single Action Dispatcher](#single-action-dispatcher). |
 
 ### Methods
 
@@ -53,7 +55,8 @@ Use the component.
 - **attachActionId(id)**: Adds the specified `id` to the list of IDs selected for batch actions.
 - **detachActionId(id)**: Removes the specified `id` from the list of IDs selected for batch actions.
 - **removeActionItems(idsArray)**: Removes the items with the specified IDs in `idsArray` from the CRUD system.
-- **refresh()**: Refreshes the data or content of the CRUD system, reloading the items from the server.
+- **refresh({ resetPage = false } = {})**: Refreshes the data or content of the CRUD system, reloading the items from the server. By default the current page is kept; pass `{ resetPage: true }` to reload from the first page.
+- **setScope(belongsTo = '', relationId = '')**: Changes `belongsTo` and `relationId` at once. The list reloads automatically from the first page with a single request. Call it without arguments to remove the scope. See [belongsTo and relationId configuration](#belongsto-and-relationid-configuration).
 - **setCustomizationOption(optionName, value)**: Dynamically sets a customization option in the CRUD configuration. Receives the option name (e.g., `hideCheckboxSelection`, `disableInsert`) and the value to set.
 - **toggleListView()**: Switches the list between the item view and the grid view. Called automatically when the [List/Grid View Switch](#list-grid-view-switch) button is clicked; only has a visible effect when both views are configured for the resource.
 
@@ -144,13 +147,27 @@ dile g-crud --help
 
 Please refer to the [general documentation on the CRUD library](/crud/) to find the established mechanisms for configuring the `dile-crud` component.
 
-## belongTo and relationId configuration
+## belongsTo and relationId configuration {#belongsto-and-relationid-configuration}
 
 These fields facilitate the implementation of a type of filtering on the items that a `dile-crud` component will allow you to manage. For example, if you are trying to view invoices for the customer with `id=10`, `belongsTo` would be set to "customer" and `relationId` would be set to "10."
 
 This is useful, for example, for managing a specific record on an admin page, like those that can be created using the [`dile-crud-single` component](/crud/crud-single/). For instance, when viewing the details of a country, you could use a `dile-crud` component configured with `belongsTo` and `relationId` to manage all the states within that country directly from the `dile-crud-single` component.
 
 > Note that these configurations must be supported by the backend. The listing component will handle sending the necessary query strings to the backend, ensuring that the records delivered for the listings in this `dile-crud` component are properly filtered.
+
+The scope is not fixed at mount time: `belongsTo` and `relationId` can change at any moment and the list reloads by itself, going back to the first page. If both properties change in the same task they are batched into a single request. The `setScope()` method is a convenient way to change both at once:
+
+```javascript
+const crud = document.querySelector('dile-crud');
+
+// Show the invoices of another customer
+crud.setScope('customer', '25');
+
+// Remove the scope and list all the invoices
+crud.setScope();
+```
+
+To reload the list from the first page after changing any other criterion from outside the component, use `refresh({ resetPage: true })`. A plain `refresh()` keeps the current page.
 
 
 ## Unpaginated Crud Example

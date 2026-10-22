@@ -132,6 +132,12 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         }
     }
 
+    willUpdate(changedProperties) {
+        if (this.hasUpdated && (changedProperties.has('belongsTo') || changedProperties.has('relationId'))) {
+            this.refresh({ resetPage: true });
+        }
+    }
+
     render() {
         return html`
             ${this.ajaxTemplate}
@@ -363,7 +369,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.elservice.goPrev();
     }
 
-    refresh() {
+    refresh({ resetPage = false } = {}) {
         this.dispatchEvent(new CustomEvent('crud-list-refresh', {
             bubbles: true,
             composed: true,
@@ -373,7 +379,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         if (this.isSelectAllActive) {
             this.shadowRoot.querySelector('dile-crud-select-all').reset();
         }
-        this.elservice.refresh();
+        resetPage ? this.elservice.cleanAndRefresh() : this.elservice.refresh();
     }    
 
     setKeyword(keyword) {
