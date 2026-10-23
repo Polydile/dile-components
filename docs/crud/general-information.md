@@ -12,6 +12,12 @@ summary: 'Start here: what the CRUD package includes and how its components fit 
 
 It is a collection of components designed generically so that adaptable CRUD systems can be created for most web services based on REST APIs.
 
+## Installation
+
+```bash
+npm i @dile/crud
+```
+
 ## How to use the Crud Components
 
 Using the CRUD components provided by this library is as simple as using web components, where you declaratively specify the functionalities you want to implement, directly in the HTML code.
