@@ -77,4 +77,9 @@ export const translations = {
   retry_label: "Reintentar",
   list_view_label: "Lista",
   grid_view_label: "Rejilla",
+  step_prev_label: "Anterior",
+  step_next_label: "Siguiente",
+  step_end_label: "Finalizar",
+  step_success: "Datos guardados",
+  step_error: "No se han podido guardar los datos",
 };

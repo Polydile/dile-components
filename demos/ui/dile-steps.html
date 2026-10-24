@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-steps component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/steps/steps.js";
+  </script>
+  <style>
+    dile-steps {
+      margin-bottom: 1.5rem;
+    }
+    .themed {
+      --dile-primary-color: #2e8b57;
+      --dile-step-active-border-color: #14532d;
+      --dile-step-size: 2rem;
+      --dile-step-font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-steps component</h1>
+
+    <h2>Navigable steps</h2>
+    <p>Click on a reached step to select it. Current: <span id="current">0</span></p>
+    <dile-steps id="navigable"></dile-steps>
+    <button id="next">Next step</button>
+
+    <h2>Free navigation</h2>
+    <dile-steps id="free" freeNavigation></dile-steps>
+
+    <h2>Vertical</h2>
+    <dile-steps id="vertical" vertical current="1" reached="1"></dile-steps>
+
+    <h2>Readonly (process status)</h2>
+    <dile-steps id="readonly" readonly current="2" reached="2"></dile-steps>
+
+    <h2>Customized with CSS custom properties</h2>
+    <dile-steps id="themed" class="themed" current="1" reached="2"></dile-steps>
+
+    <script type="module">
+      const checkout = ['Cart', 'Shipping', 'Payment', 'Confirmation'];
+      const order = ['Received', 'Preparing', 'Shipped', 'Delivered'];
+
+      document.querySelectorAll('dile-steps').forEach(steps => steps.steps = checkout);
+      document.getElementById('readonly').steps = order;
+
+      const navigable = document.getElementById('navigable');
+      const select = (steps, index) => {
+        steps.current = index;
+        steps.reached = Math.max(steps.reached, index);
+        document.getElementById('current').textContent = navigable.current;
+      };
+      navigable.addEventListener('dile-steps-select', e => select(navigable, e.detail.index));
+      document.getElementById('next').addEventListener('click', () => {
+        select(navigable, Math.min(navigable.current + 1, checkout.length - 1));
+      });
+
+      // The component does not change the current step by itself: every navigable example listens to dile-steps-select.
+      ['free', 'vertical', 'themed'].forEach(id => {
+        const steps = document.getElementById(id);
+        steps.addEventListener('dile-steps-select', e => steps.current = e.detail.index);
+      });
+    </script>
+  </div>
+</body>
+</html>

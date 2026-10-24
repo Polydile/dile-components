@@ -77,4 +77,9 @@ export const translations = {
   retry_label: "Retry",
   list_view_label: "List view",
   grid_view_label: "Grid view",
+  step_prev_label: "Previous",
+  step_next_label: "Next",
+  step_end_label: "Finish",
+  step_success: "Data saved",
+  step_error: "Data could not be saved",
 };

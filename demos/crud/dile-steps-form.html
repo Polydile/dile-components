@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-steps-form component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="components/steps-form/mock-api.js"></script>
+  <script type="module">
+    import '@dile/crud/components/steps-form/steps-form.js';
+    import '@dile/crud/components/steps-form/step-form.js';
+    import './components/steps-form/demo-step-forms.js';
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-steps-form component</h1>
+
+    <p>
+      This demo uses an in-memory API (<code>components/steps-form/mock-api.js</code>).
+      Leave a field empty to get validation errors, or use "Save as draft" in the second step to finish with the alternative exit.
+    </p>
+
+    <dile-steps-form
+      id="stepsform"
+      title="New order"
+      endpoint="/api/orders/1"
+    >
+      <dile-step-form label="Customer" endpoint="/api/orders/1/customer">
+        <demo-step-customer-form slot="form"></demo-step-customer-form>
+      </dile-step-form>
+      <dile-step-form
+        label="Shipping"
+        endpoint="/api/orders/1/shipping"
+        alternativeExit
+        alternativeExitLabel="Save as draft"
+      >
+        <demo-step-shipping-form slot="form"></demo-step-shipping-form>
+      </dile-step-form>
+      <dile-step-form
+        label="Summary"
+        endpoint="/api/orders/1/summary"
+        refreshOnSave
+        endLabel="Place order"
+      >
+        <demo-step-summary-form slot="form"></demo-step-summary-form>
+      </dile-step-form>
+    </dile-steps-form>
+
+    <h2>Events</h2>
+    <pre id="log"></pre>
+
+    <script type="module">
+      const log = document.getElementById('log');
+      const write = (text) => log.textContent = `${text}\n${log.textContent}`;
+      const stepsForm = document.getElementById('stepsform');
+      [
+        'dile-steps-form-loaded',
+        'dile-steps-form-error',
+        'dile-step-form-success',
+        'dile-step-form-error',
+        'dile-steps-form-complete',
+      ].forEach(eventName => {
+        stepsForm.addEventListener(eventName, (e) => {
+          const { data, ...detail } = e.detail;
+          write(`${eventName} ${JSON.stringify(detail)}`);
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
