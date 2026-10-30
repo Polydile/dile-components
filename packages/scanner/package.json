@@ -1,6 +1,6 @@
 {
   "name": "@dile/scanner",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Web Component to scan documents in the browser: edge detection, perspective correction and multipage PDF or JPEG output, powered by scanic and jsPDF",
   "keywords": [
     "scanner",
@@ -29,8 +29,8 @@
     "url": "https://github.com/Polydile/dile-components/issues"
   },
   "dependencies": {
-    "@dile/iconlib": "^2.0.1",
-    "@dile/ui": "^3.18.0",
+    "@dile/iconlib": "^2.0.2",
+    "@dile/ui": "^3.18.1",
     "jspdf": "^4.2.1",
     "lit": "^2.7.0 || ^3.0.0",
     "scanic": "1.7.1",
