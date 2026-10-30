@@ -73,6 +73,7 @@ Custom property | Description | Default
 --dile-toast-persistent-overflow | Toast overflow | visible
 --dile-toast-persistent-transition | Open / Close transition | 0.5s ease
 --dile-toast-persistent-gap | Space between the toast and the viewport edges | 1rem
+--dile-toast-persistent-bottom | Distance between the toast and the bottom of the viewport | value of --dile-toast-persistent-gap
 
 ## dile-toast-persistent demos
 

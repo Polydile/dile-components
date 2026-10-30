@@ -25,6 +25,16 @@ describe('dile-toast', () => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  it('applies the bottom and z-index custom properties to the fixed host', async () => {
+    const el = await renderToast(
+      '<dile-toast style="--dile-toast-bottom: 80px; --dile-toast-z-index: 500"></dile-toast>'
+    );
+    const styles = getComputedStyle(el);
+
+    expect(styles.bottom).toBe('80px');
+    expect(styles.zIndex).toBe('500');
+  });
+
   it('does not render a close icon by default', async () => {
     const el = await renderToast('<dile-toast duration="10000"></dile-toast>');
     const item = await openAndGetItem(el, 'Hello');

@@ -28,8 +28,9 @@ export class DileToast extends LitElement {
         display: flex;
         flex-direction: column-reverse;
         position: fixed;
-        bottom: 20px;
+        bottom: var(--dile-toast-bottom, 20px);
         left: 15px;
+        z-index: var(--dile-toast-z-index, 1001);
       }
     `;
   }

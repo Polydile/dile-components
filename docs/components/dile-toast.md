@@ -63,6 +63,7 @@ Custom property | Description | Default
 --dile-toast-width | With of the toast element | 280px
 --dile-toast-padding | Padding for the toasts | 10px 15px
 --dile-toast-z-index | z-index for the toasts | 1001
+--dile-toast-bottom | Distance between the toasts and the bottom of the viewport | 20px
 --dile-toast-font-weight | Messages font weight | normal
 --dile-toast-font-size | Messages font size | 1em
 --dile-toast-border-radius | Border radius | 0

@@ -6,7 +6,7 @@ export class DileToastPersistent extends LitElement {
       :host {
         display: block;
         position: fixed;
-        bottom: var(--dile-toast-persistent-gap, 1rem);
+        bottom: var(--dile-toast-persistent-bottom, var(--dile-toast-persistent-gap, 1rem));
         left: var(--dile-toast-persistent-gap, 1rem);
         z-index: var(--dile-toast-persistent-z-index, 999);
         width: var(--dile-toast-persistent-width, 300px);
