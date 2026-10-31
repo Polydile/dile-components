@@ -28,7 +28,7 @@ import "@dile/ui/components/floating-menu/floating-menu-item.js"
 ## Properties
 
 - **href**: String, navigation url.
-- **target**: Array, navigation target, like anchors.
+- **target**: String, navigation target, like anchors.
 
 ## Styling
 

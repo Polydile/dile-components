@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export class DileFloatingMenuItem extends LitElement {
     static styles = [
@@ -6,8 +7,9 @@ export class DileFloatingMenuItem extends LitElement {
             :host {
                 display: block;
             }
-            
+
             a {
+                display: block;
                 text-decoration: none;
                 color: var(--dile-floating-menu-item-color, aliceblue);
                 margin: var(--dile-floating-menu-item-margin, 0.5rem 0);
@@ -16,6 +18,11 @@ export class DileFloatingMenuItem extends LitElement {
             a:hover {
                 color: var(--dile-floating-menu-item-color-hover, lightblue);
             }
+
+            a:focus-visible {
+                outline: 2px solid currentColor;
+                outline-offset: 2px;
+            }
         `
     ];
 
@@ -23,7 +30,7 @@ export class DileFloatingMenuItem extends LitElement {
 
         href: {
             type: String,
-            reflect: true,   
+            reflect: true,
         },
 
         target: {
@@ -36,7 +43,7 @@ export class DileFloatingMenuItem extends LitElement {
         super();
         this.href = '';
         this.target = '';
-        
+
     }
 
     connectedCallback() {
@@ -46,7 +53,7 @@ export class DileFloatingMenuItem extends LitElement {
 
     render() {
         return html`
-            <a href="${this.href}" target="${this.target}" ><slot></slot></a>        
+            <a href="${ifDefined(this.href || undefined)}" target="${ifDefined(this.target || undefined)}"><slot></slot></a>
         `;
     }
 }

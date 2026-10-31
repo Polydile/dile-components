@@ -20,6 +20,13 @@ describe('dile-floating-menu-item', () => {
     expect(el.textContent.trim()).toBe('Home');
   });
 
+  it('does not render empty href and target attributes', async () => {
+    const el = await renderItem('<dile-floating-menu-item>Home</dile-floating-menu-item>');
+    const link = el.shadowRoot.querySelector('a');
+    expect(link.hasAttribute('href')).toBe(false);
+    expect(link.hasAttribute('target')).toBe(false);
+  });
+
   it('sets role listitem on the host', async () => {
     const el = await renderItem('<dile-floating-menu-item href="/home">Home</dile-floating-menu-item>');
     expect(el.getAttribute('role')).toBe('listitem');
