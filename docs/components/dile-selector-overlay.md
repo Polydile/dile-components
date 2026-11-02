@@ -56,7 +56,7 @@ Specific to `dile-selector-overlay`:
 - **label**: String, `null` by default. Text shown next to the icon in the trigger capsule. When `null` or `""`, the trigger only shows a bare rounded icon, with no visible text. By default this text stays fixed (e.g. `"Menu"` or `"Options"`); see `dynamicLabel` to have it follow the selection instead.
 - **dynamicLabel**: Boolean, `false` by default. When `true`, the trigger label automatically follows the currently selected option's text, falling back to `label` when nothing is selected. When `false` (default), the trigger always shows the `label` value as-is, regardless of the selection.
 - **icon**: String, `"ellipsis-vertical"` by default. Name of the Lucide icon shown in the trigger. Any icon name available in `@dile/iconlib` can be used.
-- **triggerAriaLabel**: String, `"Options"` by default. Accessible label (`aria-label`) used on the trigger when `label` is empty.
+- **triggerAriaLabel**: String, `"Options"` by default. Accessible text saying that the trigger opens a menu of options. It's the whole `aria-label` of the trigger when there is no visible text. When there is one, it follows that text (`"Posts, Options"`). Set it to translate it, or to an empty string to expose only the visible text.
 - **horizontalAlign**, **verticalAlign**, **moveTop**, **moveLeft**: Forwarded as-is to the internal `dile-menu-overlay`. See [dile-menu-overlay properties](/components/dile-menu-overlay#properties) for valid values.
 
 > If you set `icon` to a value other than the default `"ellipsis-vertical"`, make sure the corresponding icon module is imported somewhere in your app, e.g. `import '@dile/iconlib/lucide-icons/star.js';`, so the custom element for that icon gets registered.
@@ -90,11 +90,36 @@ Selecting an option always closes the overlay.
 - `--dile-icon-color`, `--dile-icon-size`, `--dile-icon-rounded-background-color`, `--dile-icon-rounded-padding` to style the bare rounded icon shown when `label` is empty.
 - `--dile-selector-*` to style the `dile-selector-item` options, exactly like in `dile-selector`.
 
+## Accessibility
+
+The trigger is a focusable button with `aria-haspopup` and an `aria-expanded` state in sync with the menu. The popup has the `menu` role, its options the `menuitem` role, and the selected option is marked with `aria-current`.
+
+Key | Where | Action
+----|-------|-------
+Tab | Page | Moves the focus to the trigger
+Enter / Space | Trigger | Opens the menu and moves the focus to the selected option, or to the first one if there is no selection
+Arrow Down / Arrow Up | Menu | Moves to the next / previous option, wrapping at the ends
+Home / End | Menu | Moves to the first / last option
+Enter / Space | Menu | Selects the focused option, closes the menu and returns the focus to the trigger
+Escape | Menu | Closes the menu without changing the selection and returns the focus to the trigger
+Tab / Shift + Tab | Menu | Closes the menu and moves the focus to the next / previous element of the page
+
+The default `triggerAriaLabel` is in English. In pages in other languages, set it to the language of the page:
+
+```html
+<dile-selector-overlay label="Idioma" triggerAriaLabel="Opciones">
+  <dile-selector-item>Español</dile-selector-item>
+  <dile-selector-item>English</dile-selector-item>
+</dile-selector-overlay>
+```
+
+> **Note:** when the URL fragment matches the `id` of an element of the page, the browser moves the focus away after navigating to it, so the focus doesn't stay on the trigger. It happens with an option with a `href` pointing to that element, and with `hashSelection` when a value of the options is also an `id` in the page.
+
 ## dile-selector-overlay demos
 
 ### Icon only trigger
 
-Without a `label`, the trigger only shows the rounded `ellipsis-vertical` icon.
+Without a `label`, the trigger only shows the rounded `ellipsis-vertical` icon. Try it with the keyboard: Tab to reach the trigger, Enter to open, the arrows to move, Enter to select and Escape to close.
 
 ```html:preview
 <script type="module">

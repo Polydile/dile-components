@@ -8,7 +8,14 @@ export class DileTab  extends DileSelectableItem(LitElement) {
     return {
       href: { type: String },
       target: { type: String },
+      /** If this tab is in the page tab sequence. dile-tabs keeps it true only on one of its tabs */
+      tabbable: { type: Boolean, attribute: false },
     };
+  }
+
+  constructor() {
+    super();
+    this.tabbable = true;
   }
 
   static get styles() {
@@ -17,7 +24,20 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         display: inline-block;
         margin: 0 3px;
       }
-      article {
+      .tab {
+        appearance: none;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        font: inherit;
+        letter-spacing: inherit;
+        word-spacing: inherit;
+        text-align: inherit;
+        text-transform: inherit;
+        text-decoration: none;
         border-top-left-radius: var(--dile-tab-border-radius, 4px);
         border-top-right-radius: var(--dile-tab-border-radius, 4px);
         transition: all 0.3s ease;
@@ -28,7 +48,13 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         font-weight: var(--dile-tab-font-weight, normal);
         font-size: var(--dile-tab-font-size, 1rem);
       }
-      div.label {
+      .tab:focus-visible {
+        outline: var(--dile-tab-focus-ring-width, 2px) solid var(--dile-tab-focus-ring-color, currentColor);
+        outline-offset: var(--dile-tab-focus-ring-offset, -2px);
+        transition-property: background-color, color;
+      }
+      .label {
+        display: block;
         padding: var(--dile-tab-padding, 8px 12px 6px 12px);
         text-transform: var(--dile-tab-text-transform, uppercase);
         white-space: nowrap;
@@ -38,7 +64,7 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         color: var(--dile-tab-selected-text-color, var(--dile-on-primary-dark-color, #000));
         border: var(--dile-tab-selected-border, none);
       }
-      span {
+      .mark {
         display: block;
         height: var(--dile-tab-selected-line-height, 5px);
         width: 0;
@@ -48,11 +74,6 @@ export class DileTab  extends DileSelectableItem(LitElement) {
       .markselected {
         width: 100%;
       }
-      a {
-        display: block;
-        color: inherit;
-        text-decoration: none;
-      }
       .line {
         display: flex;
         justify-content: center;
@@ -61,22 +82,55 @@ export class DileTab  extends DileSelectableItem(LitElement) {
   }
 
   render() {
+    const tabClass = `tab ${this.selected ? 'selected' : ''}`;
+    const ariaSelected = this.selected ? 'true' : 'false';
+    const tabindex = this.tabbable ? '0' : '-1';
     if (this.href) {
       return html`
-        <a href="${this.href}" target="${ifDefined(this.target)}">${this.tabTemplate}</a>
+        <a
+          href="${this.href}"
+          target="${ifDefined(this.target)}"
+          class="${tabClass}"
+          role="tab"
+          aria-selected="${ariaSelected}"
+          tabindex="${tabindex}"
+          @click="${this.select}"
+          @keydown="${this._onLinkKeydown}"
+        >${this.tabTemplate}</a>
       `;
     }
-    return this.tabTemplate;
+    return html`
+      <button
+        type="button"
+        class="${tabClass}"
+        role="tab"
+        aria-selected="${ariaSelected}"
+        tabindex="${tabindex}"
+        @click="${this.select}"
+      >${this.tabTemplate}</button>
+    `;
   }
 
   get tabTemplate() {
     return html`
-      <article @click='${this.select}' class="${this.selected ? 'selected' : ''}">
-        <div class="label"><slot></slot></div>
-        <div class="line">
-          <span class="${this.selected ? 'markselected' : ''}"></span>
-        </div>
-      </article>
+      <span class="label"><slot></slot></span>
+      <span class="line">
+        <span class="mark ${this.selected ? 'markselected' : ''}"></span>
+      </span>
     `;
+  }
+
+  // A native link is only activated with Enter
+  _onLinkKeydown(e) {
+    if (e.key === ' ') {
+      e.preventDefault();
+      if (!e.repeat) {
+        e.currentTarget.click();
+      }
+    }
+  }
+
+  focus(options) {
+    this.shadowRoot?.querySelector('.tab')?.focus(options);
   }
 }

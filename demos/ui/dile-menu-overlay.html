@@ -43,7 +43,19 @@
 <body>
   <div class="container">
     <h1>dile-menu-overlay component</h1>
-    
+
+    <h2>Keyboard accessible trigger</h2>
+    <p>With a <code>button</code> as the trigger, open with <kbd>Enter</kbd>, move with <kbd>Tab</kbd> and close with <kbd>Escape</kbd>. Escape also closes the menus below, which open with the mouse.</p>
+    <dile-menu-overlay>
+      <button slot="trigger" type="button">Open with the keyboard</button>
+      <div slot="content" class="content">
+        <ul>
+          <li><a href="#item-1">Item 1</a></li>
+          <li><a href="#item-2">Item 2</a></li>
+        </ul>
+      </div>
+    </dile-menu-overlay>
+
     <h2>
     Default menu overlay
     </h2>

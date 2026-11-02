@@ -39,6 +39,11 @@
   <div class="container">
     <h1>dile-tabs component</h1>
 
+    <p>
+      Keyboard: <kbd>Tab</kbd> to reach the selected tab, left and right arrows, <kbd>Home</kbd> and <kbd>End</kbd> to move,
+      <kbd>Enter</kbd> or <kbd>Space</kbd> to select.
+    </p>
+
     <h2>Simple implementation</h2>
     <dile-tabs id="tabs1" selected="2">
       <dile-tab>One</dile-tab>
@@ -123,7 +128,7 @@
       <a href="#three">Select three tab</a>
     </p>
     <h2>Tabs as links</h2>
-    <p>Tabs with <code>href</code> render native links.</p>
+    <p>Tabs with <code>href</code> render native links. The arrows only move the focus: <kbd>Enter</kbd> or <kbd>Space</kbd> follow the link.</p>
     <dile-tabs attrForSelected="name" selected="tabs" id="tabs5">
       <dile-tab name="tabs" href="dile-tabs.html">Tabs</dile-tab>
       <dile-tab name="index" href="../index.html">Demos index</dile-tab>

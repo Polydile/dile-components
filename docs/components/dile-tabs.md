@@ -51,6 +51,7 @@ Use the component
 
 - **href**: Optional. When set, the tab renders a native link (`<a>`) pointing to this URL, so clicking it performs a classic browser navigation. The tab keeps exactly the same look as any other tab.
 - **target**: Optional. The `target` attribute for the link (e.g. `_blank`). Only used when `href` is set.
+- **tabbable**: Boolean, `true` by default. If the tab is in the tab sequence of the page. `dile-tabs` manages it, keeping it `true` on only one of its tabs.
 
 ## More complex example
 
@@ -135,12 +136,35 @@ Custom property | Description | Default
 --dile-tab-font-weight | Tab font weight | normal
 --dile-tab-font-size | Tab font size | 1rem
 --dile-tab-text-transform | Tab text transform | uppercase
+--dile-tab-focus-ring-width | Width of the keyboard focus ring | 2px
+--dile-tab-focus-ring-color | Color of the keyboard focus ring | currentColor
+--dile-tab-focus-ring-offset | Offset of the keyboard focus ring. Negative values draw it inside the tab | -2px
+
+## Accessibility
+
+The component follows the [WAI-ARIA tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) with manual activation: `dile-tabs` has the `tablist` role, each tab the `tab` role and the selected one `aria-selected="true"`. The arrows only move the focus, so `dile-selected-changed` isn't dispatched and links aren't followed until the user activates the tab.
+
+Key | Action
+----|-------
+Tab | Moves the focus to the selected tab (or to the first one if there is no selection). The tabs are only one stop in the tab sequence, and the next Tab leaves them
+Arrow Right / Arrow Left | Moves to the next / previous tab, wrapping at the ends. They are swapped in right to left pages
+Home / End | Moves to the first / last tab
+Enter / Space | Selects the focused tab and, if it has a `href`, follows the link
+
+Give the group a name with `aria-label`. The component doesn't link the tabs with their panels, because they can be any content:
+
+```html
+<dile-tabs aria-label="Account sections" selected="0">
+  <dile-tab>Profile</dile-tab>
+  <dile-tab>Billing</dile-tab>
+</dile-tabs>
+```
 
 ## dile-tabs demo
 
 ### Simple Example 
 
-In this example we are using the selected element index.
+In this example we are using the selected element index. Try it with the keyboard: move with the arrows, Home and End, and select with Enter or Space.
 
 ```html:preview
 <script type="module">

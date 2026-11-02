@@ -1,4 +1,5 @@
 import { html, css, LitElement } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { DileSelectableItem } from "../../../mixins/selectable/index.js";
 import '@dile/iconlib/dile-iconlib.js';
 
@@ -21,7 +22,19 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
         display: block;
         cursor: pointer;
       }
-      article {
+      .item {
+        appearance: none;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        font: inherit;
+        letter-spacing: inherit;
+        word-spacing: inherit;
+        text-align: inherit;
+        text-transform: inherit;
+        cursor: inherit;
         display: flex;
         align-items: center;
         padding-top: var(--dile-selector-padding-y, 0.2rem); 
@@ -31,6 +44,11 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
         background-color: var(--dile-selector-background-color, transparent);
         color: var(--dile-selector-text-color, var(--dile-on-background-color, #303030));
         transition: all 0.3s ease-in;
+      }
+      .item:focus-visible {
+        outline: var(--dile-selector-focus-ring-width, 2px) solid var(--dile-selector-focus-ring-color, currentColor);
+        outline-offset: var(--dile-selector-focus-ring-offset, -2px);
+        transition-property: background-color, color;
       }
       .selected {
         background-color: var(--dile-selector-selected-background-color, #039be5);
@@ -59,8 +77,7 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
       .selected .icon dile-iconlib {
         --dile-icon-color: var(--dile-selector-selected-icon-color, #fff);
       }
-      a {
-        display: block;
+      a.item {
         text-decoration: var(--dile-selector-text-decoration, none);
       }
     `;
@@ -71,6 +88,8 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
       icon: { type: String },
       iconlibIcon: { type: String },
       href: { type: String },
+      /** ARIA role of the inner control. dile-selector-overlay sets it to "menuitem" */
+      itemRole: { type: String },
     };
   }
 
@@ -80,29 +99,55 @@ export class DileSelectorItem  extends DileSelectableItem(LitElement) {
   }
 
   render() {
-    return html`
-      ${this.href == '' 
-        ? this.itemTemplate
-        : html`<a href="${this.href}">${this.itemTemplate}</a>`
-       }
-    `;
+    const itemClass = `item ${this.selected ? 'selected' : ''}`;
+    const ariaCurrent = ifDefined(this.selected ? 'true' : undefined);
+    const role = ifDefined(this.itemRole || undefined);
+    return this.href == ''
+      ? html`<button
+          type="button"
+          class="${itemClass}"
+          role="${role}"
+          aria-current="${ariaCurrent}"
+          @click="${this.select}"
+        >${this.itemTemplate}</button>`
+      : html`<a
+          href="${this.href}"
+          class="${itemClass}"
+          role="${role}"
+          aria-current="${ariaCurrent}"
+          @click="${this.select}"
+          @keydown="${this._onLinkKeydown}"
+        >${this.itemTemplate}</a>`;
   }
 
   get itemTemplate() {
     return html`
-      <article @click='${this.select}' class="${this.selected ? 'selected' : ''}">
-        ${this.icon
-          ? html`<div class="icon">${this.iconElement(this.icon)}</div>`
-          : ''
-        }
-        ${this.iconlibIcon
-          ? html`<div class="icon">${this.renderIconlibIcon(this.iconlibIcon)}</div>`
-          : ''
-        }
-        <div class="line"><slot></slot></div>
-      </article>
+      ${this.icon
+        ? html`<span class="icon">${this.iconElement(this.icon)}</span>`
+        : ''
+      }
+      ${this.iconlibIcon
+        ? html`<span class="icon">${this.renderIconlibIcon(this.iconlibIcon)}</span>`
+        : ''
+      }
+      <span class="line"><slot></slot></span>
     `;
   }
+
+  // A native link is only activated with Enter
+  _onLinkKeydown(e) {
+    if (e.key === ' ') {
+      e.preventDefault();
+      if (!e.repeat) {
+        e.currentTarget.click();
+      }
+    }
+  }
+
+  focus(options) {
+    this.shadowRoot?.querySelector('.item')?.focus(options);
+  }
+
   iconElement(icon) {
     return icons[icon];
   }

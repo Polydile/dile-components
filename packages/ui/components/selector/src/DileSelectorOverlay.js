@@ -21,7 +21,11 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
 
       _displayLabel: { state: true },
 
-      /** Accessible label for the trigger when there is no visible label text */
+      _menuOpened: { state: true },
+
+      /** Accessible text saying that the trigger opens a menu of options. It's the whole accessible name
+       *  when there is no visible label text, and it follows the label text when there is one.
+       *  Set it to translate it, or to an empty string to expose only the label text. */
       triggerAriaLabel: { type: String },
 
       /** Forwarded to the internal dile-menu-overlay */
@@ -56,6 +60,7 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
     this.dynamicLabel = false;
     this.icon = 'ellipsis-vertical';
     this._displayLabel = null;
+    this._menuOpened = false;
     this.triggerAriaLabel = 'Options';
     this.horizontalAlign = 'under_left';
     this.verticalAlign = 'bottom';
@@ -71,6 +76,9 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
         moveTop="${this.moveTop}"
         moveLeft="${this.moveLeft}"
         closeOnClickInside
+        @overlay-opened="${this._onOverlayOpened}"
+        @overlay-ready="${this._onOverlayReady}"
+        @overlay-closed="${this._onOverlayClosed}"
       >
         <span
           slot="trigger"
@@ -78,7 +86,8 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
           role="button"
           tabindex="0"
           aria-haspopup="true"
-          aria-label="${this._displayLabel || this.triggerAriaLabel}"
+          aria-expanded="${this._menuOpened ? 'true' : 'false'}"
+          aria-label="${this._triggerAccessibleName}"
           @keydown="${this._onTriggerKeydown}"
         >
           ${this._displayLabel
@@ -86,8 +95,8 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
             : html`<dile-lucide-icon icon="${this.icon}" rounded></dile-lucide-icon>`
           }
         </span>
-        <div slot="content">
-          <slot></slot>
+        <div slot="content" role="menu" aria-labelledby="trigger" @keydown="${this._onMenuKeydown}">
+          <slot @slotchange="${this._onSlotChange}"></slot>
         </div>
       </dile-menu-overlay>
     `;
@@ -124,10 +133,88 @@ export class DileSelectorOverlay extends DileSelectable(LitElement) {
     this._displayLabel = selectedItem ? selectedItem.textContent.trim() : this.label;
   }
 
+  get _triggerAccessibleName() {
+    if (!this._displayLabel) {
+      return this.triggerAriaLabel;
+    }
+    return !this.triggerAriaLabel || this.triggerAriaLabel === this._displayLabel
+      ? this._displayLabel
+      : `${this._displayLabel}, ${this.triggerAriaLabel}`;
+  }
+
+  get _menu() {
+    return this.shadowRoot.querySelector('dile-menu-overlay');
+  }
+
+  // Children that aren't options (e.g. a separator) and hidden options are skipped.
+  get _focusableItems() {
+    return this.getItems().filter((item) => 'selected' in item && item.getClientRects().length > 0);
+  }
+
+  _onSlotChange() {
+    this.getItems().forEach((item) => {
+      item.itemRole = 'menuitem';
+    });
+  }
+
+  _onOverlayOpened(e) {
+    if (e.target === e.currentTarget) {
+      this._menuOpened = true;
+    }
+  }
+
+  _onOverlayReady(e) {
+    if (e.target === e.currentTarget) {
+      const items = this._focusableItems;
+      (items.find((item) => item.selected) ?? items[0])?.focus();
+    }
+  }
+
+  _onOverlayClosed(e) {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    this._menuOpened = false;
+    // When the menu closes by clicking elsewhere, the focus is already out of here and has to stay there.
+    if (this.matches(':focus-within')) {
+      this.shadowRoot.getElementById('trigger').focus();
+    }
+  }
+
   _onTriggerKeydown(e) {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      e.currentTarget.click();
+      if (!e.repeat) {
+        e.currentTarget.click();
+      }
+    }
+  }
+
+  _onMenuKeydown(e) {
+    if (e.key === 'Tab') {
+      // The focus goes back to the trigger, so the browser moves it from there to the next element of the page.
+      this._menu.close();
+      return;
+    }
+    if (e.altKey || e.ctrlKey || e.metaKey) {
+      return;
+    }
+    if ((e.key === 'Enter' || e.key === ' ') && e.repeat) {
+      // Keeping the key pressed on the trigger must not activate the option that received the focus.
+      e.preventDefault();
+      return;
+    }
+    const items = this._focusableItems;
+    const current = items.findIndex((item) => item.matches(':focus-within'));
+    const nextIndex = {
+      ArrowDown: (current + 1) % items.length,
+      ArrowUp: (current - 1 + items.length) % items.length,
+      Home: 0,
+      End: items.length - 1,
+    }[e.key];
+    if (items[nextIndex]) {
+      e.preventDefault();
+      items[nextIndex].focus();
     }
   }
 }

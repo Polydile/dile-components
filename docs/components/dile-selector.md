@@ -95,7 +95,8 @@ import '@dile/ui/components/selector/dile-selector-item.js';
 - **selected**: makes this option selected. This property also changes when the selected element is this item and reflects its value on the host tag.
 - **icon**: Use an icon, from one of these possible values: "navigate_next", "arrow_forward", "star", "label_important", "add"
 - **iconlibIcon**: Use any icon from the [dile-iconlib](/icons/dile-iconlib/) catalog instead of the fixed `icon` list above. See the example below for details on importing icons.
-- **href**: Optional url to create a link to that url in the selector item
+- **href**: Optional url to create a link to that url in the selector item. Activating the link also selects the item, with the mouse and with the keyboard.
+- **itemRole**: Optional ARIA role for the inner button or link. [dile-selector-overlay](/components/dile-selector-overlay/) sets it to `menuitem`.
 
 Set `iconlibIcon` to the compound `"family.name"` string `dile-iconlib` expects (e.g. `"material.star"`, `"lucide.house"`, `"fontawesome.microsoft"`), and import the specific icon module you use (e.g. `import '@dile/iconlib/material-icons/star.js';`). If the module for the requested icon hasn't been imported, no icon is shown and a warning is logged to the console explaining what to import; if `iconlibIcon` is left unset, no icon is shown either. This property is independent from `icon` above — use whichever fits, or neither.
 
@@ -127,6 +128,15 @@ Custom property | Description | Default
 --dile-selector-selected-icon-color | Defines the icon color | --dile-selector-primary-color or #fff
 --dile-selector-icon-size | Icon size | 20px
 --dile-selector-text-decoration | Only for links when using href | none
+--dile-selector-focus-ring-width | Width of the keyboard focus ring | 2px
+--dile-selector-focus-ring-color | Color of the keyboard focus ring | currentColor
+--dile-selector-focus-ring-offset | Offset of the keyboard focus ring. Negative values draw it inside the item | -2px
+
+## Accessibility
+
+Each `dile-selector-item` is a native `<button>`, or an `<a>` when it has a `href`, so it's a stop in the tab sequence and it's activated with Enter or Space. The selected item is marked with `aria-current`.
+
+To open the options in a menu with arrow key navigation, use [dile-selector-overlay](/components/dile-selector-overlay/).
 
 ## dile-selector demos
 

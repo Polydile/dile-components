@@ -12,7 +12,7 @@ tags: menu
 Web Component to implement a menu user interface, displayed in a overlay layer with a smooth show / hide animation.
 
 - When the user opens the menu, the component close other menus previously opened in the page. 
-- The menu closes when the user do click in other parts of the document.
+- The menu closes when the user do click in other parts of the document, or presses the Escape key.
 
 ## Install
 
@@ -76,6 +76,7 @@ The component offers several properties to configure the way it works.
 
 - **overlay-opened**: dispatched when the overlay opens.
 - **overlay-closed**: dispatched when the overlay closes.
+- **overlay-ready**: dispatched when the opening delay has finished and the content can receive the focus. Use it to move the focus into the menu, instead of `overlay-opened`, which is dispatched before the content is displayed.
 
 ## Style customization
 
@@ -92,6 +93,12 @@ Custom property | Description | Default
 --dile-menu-overlay-box-shadow | Menu overlay box shadow | 0 0 20px rgba(102, 102, 102, 0.5)
 --dile-menu-overlay-padding | Menu layer padding | 1px
 --dile-menu-overlay-transition | Open / Close transition coniguration | ease 0.5s
+
+## Accessibility
+
+- **Escape** closes the opened menu, wherever the focus is. If the focus is inside the menu, it returns to the element that had it before opening. Inside a modal or a drawer, the first Escape only closes the menu.
+- While the menu is closed, its content is `inert`, so it is out of the tab sequence, also during the closing animation.
+- The component doesn't add semantics to your trigger. To be able to open the menu with the keyboard, use a focusable element, like a `<button>`, and add the `aria-haspopup` and `aria-expanded` attributes you need.
 
 ## dile-menu-overlay demos
 
@@ -116,6 +123,22 @@ Custom property | Description | Default
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
+    </ul>
+  </div>
+</dile-menu-overlay>
+```
+
+### Keyboard accessible trigger
+
+With a `<button>` as the trigger, you can open the menu with the keyboard, move through its links with Tab and close it with Escape.
+
+```html:preview
+<dile-menu-overlay>
+  <button slot="trigger" type="button">Open with the keyboard</button>
+  <div slot="content" class="content">
+    <ul>
+      <li><a href="#keyboard-accessible-trigger">Item 1</a></li>
+      <li><a href="#keyboard-accessible-trigger">Item 2</a></li>
     </ul>
   </div>
 </dile-menu-overlay>

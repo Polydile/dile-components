@@ -24,6 +24,12 @@
   <div class="container">
     <h1>dile-selector-overlay component</h1>
 
+    <p>
+      Keyboard: <kbd>Tab</kbd> to reach the trigger, <kbd>Enter</kbd> or <kbd>Space</kbd> to open,
+      arrows, <kbd>Home</kbd> and <kbd>End</kbd> to move, <kbd>Enter</kbd> or <kbd>Space</kbd> to select,
+      <kbd>Escape</kbd> to close.
+    </p>
+
     <h2>Icon only trigger (no label)</h2>
     <dile-selector-overlay id="selector1" selected="1">
       <dile-selector-item>One</dile-selector-item>
@@ -57,6 +63,19 @@
       <dile-selector-item icon="star" name="articles">Articles</dile-selector-item>
       <dile-selector-item icon="star" name="faq">FAQ</dile-selector-item>
       <dile-selector-item icon="star" name="contact">Contact</dile-selector-item>
+    </dile-selector-overlay>
+
+    <h2>Translated accessible text</h2>
+    <p>The accessible name of this trigger is "Idioma, Opciones".</p>
+    <dile-selector-overlay label="Idioma" triggerAriaLabel="Opciones" id="selector6">
+      <dile-selector-item>Español</dile-selector-item>
+      <dile-selector-item>English</dile-selector-item>
+    </dile-selector-overlay>
+
+    <h2>Options as links</h2>
+    <dile-selector-overlay label="Links" id="selector7">
+      <dile-selector-item href="#link-one">Link one</dile-selector-item>
+      <dile-selector-item href="#link-two">Link two</dile-selector-item>
     </dile-selector-overlay>
 
     <h2>Custom icon</h2>

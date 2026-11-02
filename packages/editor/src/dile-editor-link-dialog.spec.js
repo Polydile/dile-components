@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { userEvent } from 'vitest/browser';
 import './dile-editor-link-dialog.js';
 
 describe('dile-editor-link-dialog', () => {
@@ -33,6 +34,19 @@ describe('dile-editor-link-dialog', () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     el.close();
     expect(closed).toBe(true);
+  });
+
+  it('closes with Escape while typing in its inputs', async () => {
+    const el = await renderDialog();
+    let closed = 0;
+    el.menu.addEventListener('overlay-closed', () => { closed++; });
+
+    el.open();
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    el.urlInput.focus();
+    await userEvent.keyboard('{Escape}');
+
+    expect(closed).toBe(1);
   });
 
   it('dispatches accept-link-dialog with the entered url and title', async () => {

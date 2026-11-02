@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { userEvent } from 'vitest/browser';
 import './datepicker.js';
 
 describe('dile-datepicker', () => {
@@ -41,5 +42,17 @@ describe('dile-datepicker', () => {
     await el.updateComplete;
     const calendar = el.shadowRoot.querySelector('dile-calendar');
     expect(calendar.firstDayOfWeek).toBe(1);
+  });
+
+  it('closes the calendar with Escape', async () => {
+    const el = await renderDatepicker('<dile-datepicker name="birthdate" label="Birthdate"></dile-datepicker>');
+    el.openDatepicker();
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    expect(el.opened).toBe(true);
+
+    await userEvent.keyboard('{Escape}');
+
+    expect(el.opened).toBe(false);
+    expect(el.shadowRoot.querySelector('dile-menu-overlay')._overlayClass).toBe('');
   });
 });
