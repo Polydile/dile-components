@@ -20,6 +20,12 @@ export class DileCrudListOptions extends LitElement {
                 --dile-primary-color: var(--dile-crud-action-color, #888);
                 --dile-on-primary-color: var(--dile-on-crud-action-color, #fff);
                 --dile-primary-dark-color: transparent;
+                --dile-button-font-size: var(--dile-crud-list-options-font-size, 0.9rem);
+                --dile-button-font-weight: var(--dile-crud-list-options-font-weight, bold);
+                --dile-button-text-transform: var(--dile-crud-list-options-text-transform, none);
+                --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, 0);
+                --dile-button-padding-y: var(--dile-crud-list-options-padding-y, 0.5rem);
+                --dile-button-padding-x: var(--dile-crud-list-options-padding-x, 0.8rem);
             }
             dile-icon {
                 cursor: pointer;
