@@ -107,12 +107,12 @@ Custom property | Description | Default
 --dile-crud-select-all-checkbox-size | Checkbox icon size in select all | 1.5rem
 --dile-crud-select-all-overlay-checkbox-color | Checkbox icon color in select all overlay menu | #303030
 --dile-crud-data-grid-margin-top | Data grid component margin top | 0.25rem
---dile-crud-list-options-font-size | Font size of list options buttons (Filters, Page, Order) | Inherits from `--dile-button-font-size` or `1rem`
---dile-crud-list-options-font-weight | Font weight of list options buttons | Inherits from `--dile-button-font-weight` or `bold`
---dile-crud-list-options-text-transform | Text transformation of list options buttons | Inherits from `--dile-button-text-transform` or `none`
---dile-crud-list-options-letter-spacing | Letter spacing of list options buttons | Inherits from `--dile-button-letter-spacing` or `0`
---dile-crud-list-options-padding-y | Vertical padding of list options buttons | Inherits from `--dile-button-padding-y` or `0.5rem`
---dile-crud-list-options-padding-x | Horizontal padding of list options buttons | Inherits from `--dile-button-padding-x` or `0.8rem`
+--dile-crud-list-options-font-size | Font size of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-size` or `1rem`
+--dile-crud-list-options-font-weight | Font weight of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-weight` or `bold`
+--dile-crud-list-options-text-transform | Text transformation of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-text-transform` or `none`
+--dile-crud-list-options-letter-spacing | Letter spacing of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-letter-spacing` or `0`
+--dile-crud-list-options-padding-y | Vertical padding of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-padding-y` or `0.5rem`
+--dile-crud-list-options-padding-x | Horizontal padding of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-padding-x` or `0.8rem`
 
 To customize the appearance of the listings, check other CRUD system components such as [dile-list-item](/crud/crud-list-item/) or [dile-chip](/dile-chip/).
 

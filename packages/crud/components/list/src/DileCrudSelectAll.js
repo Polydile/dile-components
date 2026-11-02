@@ -19,6 +19,12 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
       dile-button-icon {
         display: flex;
         align-items: center;
+        --dile-button-font-size: var(--dile-crud-list-options-font-size, 1rem);
+        --dile-button-font-weight: var(--dile-crud-list-options-font-weight, bold);
+        --dile-button-text-transform: var(--dile-crud-list-options-text-transform, none);
+        --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, 0);
+        --dile-button-padding-y: var(--dile-crud-list-options-padding-y, 0.5rem);
+        --dile-button-padding-x: var(--dile-crud-list-options-padding-x, 0.8rem);
       }
 
       dile-button-icon div {
