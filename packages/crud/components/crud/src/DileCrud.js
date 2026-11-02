@@ -77,6 +77,12 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                 --dile-button-background-color: var(--dile-crud-view-switch-background-color, var(--dile-primary-color, #7BB93D));
                 --dile-button-text-color: var(--dile-crud-view-switch-text-color, var(--dile-on-primary-color, #fff));
                 --dile-button-border-color: var(--dile-crud-view-switch-border-color, var(--dile-primary-dark-color, #12354d));
+                --dile-button-font-size: var(--dile-crud-list-options-font-size, var(--dile-button-font-size, 1rem));
+                --dile-button-font-weight: var(--dile-crud-list-options-font-weight, var(--dile-button-font-weight, bold));
+                --dile-button-text-transform: var(--dile-crud-list-options-text-transform, var(--dile-button-text-transform, none));
+                --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, var(--dile-button-letter-spacing, 0));
+                --dile-button-padding-y: var(--dile-crud-list-options-padding-y, var(--dile-button-padding-y, 0.5rem));
+                --dile-button-padding-x: var(--dile-crud-list-options-padding-x, var(--dile-button-padding-x, 0.8rem));
             }
             .view-switch dile-icon {
                 cursor: pointer;
