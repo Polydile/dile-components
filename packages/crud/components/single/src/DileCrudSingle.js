@@ -37,6 +37,22 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       .action-controller {
           margin-left: 0.5rem;
       }
+      .actions dile-button-icon {
+        --dile-button-font-size: var(--dile-crud-list-options-font-size, 1rem);
+        --dile-button-font-weight: var(--dile-crud-list-options-font-weight, bold);
+        --dile-button-text-transform: var(--dile-crud-list-options-text-transform, none);
+        --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, 0);
+        --dile-button-padding-y: var(--dile-crud-list-options-padding-y, 0.5rem);
+        --dile-button-padding-x: var(--dile-crud-list-options-padding-x, 0.8rem);
+      }
+      dile-button-icon.action-controller {
+        --dile-button-font-size: var(--dile-crud-list-options-font-size, 1rem);
+        --dile-button-font-weight: var(--dile-crud-list-options-font-weight, bold);
+        --dile-button-text-transform: var(--dile-crud-list-options-text-transform, none);
+        --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, 0);
+        --dile-button-padding-y: var(--dile-crud-list-options-padding-y, 0.5rem);
+        --dile-button-padding-x: var(--dile-crud-list-options-padding-x, 0.8rem);
+      }
       dile-button.action-controller {
         --dile-button-background-color: var(--dile-crud-direct-action-background-color, var(--dile-button-background-color, var(--dile-primary-color, #7BB93D)));
         --dile-button-text-color: var(--dile-crud-direct-action-text-color, var(--dile-button-text-color, var(--dile-on-primary-color, #fff)));
@@ -44,9 +60,12 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
         --dile-button-hover-background-color: var(--dile-crud-direct-action-hover-background-color, var(--dile-button-hover-background-color, var(--dile-primary-light-color, #f3f3ae)));
         --dile-button-hover-text-color: var(--dile-crud-direct-action-hover-text-color, var(--dile-button-hover-text-color, var(--dile-on-primary-light-color, #303030)));
         --dile-button-hover-border-color: var(--dile-crud-direct-action-hover-border-color, var(--dile-button-hover-border-color, var(--dile-primary-color, #666666)));
-        --dile-button-font-size: var(--dile-crud-direct-action-font-size, var(--dile-button-font-size, 1rem));
-        --dile-button-text-transform: var(--dile-crud-direct-action-text-transform, var(--dile-button-text-transform, none));
-        --dile-button-font-weight: var(--dile-crud-direct-action-font-weight, var(--dile-button-font-weight, bold));
+        --dile-button-font-size: var(--dile-crud-list-options-font-size, var(--dile-crud-direct-action-font-size, var(--dile-button-font-size, 1rem)));
+        --dile-button-font-weight: var(--dile-crud-list-options-font-weight, var(--dile-crud-direct-action-font-weight, var(--dile-button-font-weight, bold)));
+        --dile-button-text-transform: var(--dile-crud-list-options-text-transform, var(--dile-crud-direct-action-text-transform, var(--dile-button-text-transform, none)));
+        --dile-button-letter-spacing: var(--dile-crud-list-options-letter-spacing, 0);
+        --dile-button-padding-y: var(--dile-crud-list-options-padding-y, 0.5rem);
+        --dile-button-padding-x: var(--dile-crud-list-options-padding-x, 0.8rem);
       }
       .statscontainer {
           margin: 0 1rem;

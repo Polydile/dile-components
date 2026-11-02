@@ -102,6 +102,12 @@ Custom property | Description | Default
 --dile-box-selector-item-border | Border for box selector items on hover | 4px solid var(--dile-primary-color, #f3f3ae)
 --dile-crud-action-color | Color for action buttons and icons | #888
 --dile-on-crud-action-color | Text/foreground color for action buttons | #fff
+--dile-crud-list-options-font-size | Font size of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-font-size` or `1rem`
+--dile-crud-list-options-font-weight | Font weight of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-font-weight` or `bold`
+--dile-crud-list-options-text-transform | Text transformation of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-text-transform` or `none`
+--dile-crud-list-options-letter-spacing | Letter spacing of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-letter-spacing` or `0`
+--dile-crud-list-options-padding-y | Vertical padding of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-padding-y` or `0.5rem`
+--dile-crud-list-options-padding-x | Horizontal padding of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-padding-x` or `0.8rem`
 
 The [`dile-crud-detail`](/crud/crud-detail/) component, used internally to display the details of the element, has additional CSS custom properties available for customization.
 
