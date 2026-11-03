@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="../css/style.css" />
         <script type="module">
             import "@dile/ui/components/card/card-slide.js";
+            import "@dile/iconlib/dile-iconlib.js";
+            import "@dile/iconlib/lucide-icons/star.js";
+            import "@dile/iconlib/lucide-icons/heart.js";
+            import "@dile/iconlib/material-icons/settings.js";
             import { arrowRightIcon } from "@dile/icons";
 
             document.addEventListener("DOMContentLoaded", () => {
@@ -97,6 +101,36 @@
                 title="Card with arrow-right icon"
             >
                 This card uses a custom icon instead of the default chevron.
+            </dile-card-slide>
+
+            <h2>Decorative icon (left side)</h2>
+            <p>
+                The decorative icon displays on the left side using the
+                <code>dile-iconlib</code> format <code>family.name</code>. It
+                doesn't rotate when opening/closing.
+            </p>
+            <dile-card-slide
+                title="Card with decorative star"
+                decorativeIcon="lucide.star"
+            >
+                This card has a decorative star icon on the left side. The icon
+                stays in place and doesn't rotate.
+            </dile-card-slide>
+
+            <dile-card-slide
+                title="Card with heart icon"
+                decorativeIcon="lucide.heart"
+                style="--dile-card-slide-decorative-icon-color: #e74c3c;"
+            >
+                This card has a red heart icon with custom styling.
+            </dile-card-slide>
+
+            <dile-card-slide
+                title="Settings"
+                decorativeIcon="material.settings"
+                style="--dile-card-slide-decorative-icon-size: 28px;"
+            >
+                This card uses a Material icon with custom size.
             </dile-card-slide>
 
             <h2>Programmatic control</h2>

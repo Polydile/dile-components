@@ -48,6 +48,7 @@ This component has two slots, inherited from `dile-card`.
 - **title**: Card title, string. The title acts as the toggle trigger and is required for the chevron to appear.
 - **opened**: Boolean. Controls whether the card is expanded. Default: `false`.
 - **icon**: Object. The icon displayed as the toggle indicator. Accepts any icon from `@dile/icons`. Default: `arrowDropDownIcon`.
+- **decorativeIcon**: String. Optional decorative icon on the left side of the title, in the `dile-iconlib` format `family.name` (e.g., `"lucide.star"`, `"material.settings"`). The decorative icon does not rotate when the card opens or closes. Default: `undefined` (no decorative icon).
 
 ## Methods
 
@@ -72,6 +73,8 @@ Inherits all custom properties from `dile-card`, plus the following:
 
 Custom property | Description | Default
 ----------------|-------------|---------
+--dile-card-slide-decorative-icon-color | Decorative icon color | --dile-primary-dark-color or #303030
+--dile-card-slide-decorative-icon-size | Decorative icon size | 24px
 --dile-card-slide-icon-color | Chevron icon color | --dile-primary-color or #303030
 --dile-card-slide-icon-size | Chevron icon size | 32px
 --dile-card-slide-title-padding-bottom | Padding below the title when collapsed | --dile-card-padding-y or 1rem
@@ -186,5 +189,38 @@ All `--dile-card-*` custom properties from `dile-card` are also available.
 </div>
 <dile-card-slide id="prog-card" title="Programmatically controlled card" shadow-lg>
   This card is controlled by the buttons above via <code>open()</code> and <code>close()</code> methods.
+</dile-card-slide>
+```
+
+### Decorative icon (left side)
+
+The decorative icon is optional and displays on the left side of the title using the `dile-iconlib` format `family.name`. It does not rotate when the card opens or closes.
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/dile-iconlib.js';
+  import '@dile/iconlib/lucide-icons/star.js';
+  import '@dile/iconlib/lucide-icons/heart.js';
+  import '@dile/iconlib/material-icons/settings.js';
+</script>
+<style>
+  dile-card-slide {
+    margin: 1.2rem;
+  }
+  .red-icon {
+    --dile-card-slide-decorative-icon-color: #e74c3c;
+  }
+  .large-icon {
+    --dile-card-slide-decorative-icon-size: 28px;
+  }
+</style>
+<dile-card-slide title="Card with decorative star" decorativeIcon="lucide.star">
+  This card has a decorative star icon on the left side that stays in place when opening/closing.
+</dile-card-slide>
+<dile-card-slide title="Red heart" decorativeIcon="lucide.heart" class="red-icon">
+  This card has a red heart icon with custom color styling.
+</dile-card-slide>
+<dile-card-slide title="Settings" decorativeIcon="material.settings" class="large-icon">
+  This card uses a Material icon with custom size.
 </dile-card-slide>
 ```

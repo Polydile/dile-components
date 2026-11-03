@@ -3,16 +3,18 @@ import { DileCard } from './DileCard.js';
 import { DileSlideDown } from '../../../mixins/slide-down/index.js';
 import { arrowDropDownIcon } from '@dile/icons';
 import '@dile/ui/components/icon/icon.js';
+import '@dile/iconlib/dile-iconlib.js';
 
 export class DileCardSlide extends DileSlideDown(DileCard) {
   static get properties() {
     return {
       opened: { type: Boolean },
       icon: { type: Object },
+      decorativeIcon: { type: String },
     }
   }
 
-  static get styles() {
+      static get styles() {
     return [
       ...super.styles,
       css`
@@ -40,6 +42,12 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
           overflow: hidden;
           transition: height 0.5s ease-in;
           -webkit-transition: height 0.5s ease-in;
+        }
+        .decorative-icon {
+          flex-shrink: 0;
+          margin-right: 0.5rem;
+          --dile-icon-size: var(--dile-card-slide-decorative-icon-size, 24px);
+          --dile-icon-color: var(--dile-card-slide-decorative-icon-color, var(--dile-primary-dark-color, #303030));
         }
         dile-icon {
           flex-shrink: 0;
@@ -93,6 +101,7 @@ export class DileCardSlide extends DileSlideDown(DileCard) {
       ? html`
         <div class="card-title" role="heading" aria-level="${this.titleLevel}">
           <button @click="${this.toggle}" class="${this.opened ? 'opened' : ''}" aria-expanded="${this.opened ? 'true' : 'false'}" aria-controls="${this._contentId}">
+            ${this.decorativeIcon ? html`<dile-iconlib class="decorative-icon" icon=${this.decorativeIcon} aria-hidden="true"></dile-iconlib>` : ''}
             <span>${this.title}</span>
             <dile-icon .icon=${this.icon}></dile-icon>
           </button>
