@@ -1,6 +1,6 @@
 {
   "name": "@dile/scanner",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Web Component to scan documents in the browser: edge detection, perspective correction and multipage PDF or JPEG output, powered by scanic and jsPDF",
   "keywords": [
     "scanner",
