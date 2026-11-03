@@ -45,17 +45,13 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
   constructor() {
     super();
     this.sortOptions = [];
-    this._suppressChangeEcho = false;
   }
 
   // Reflects a sort that was already applied elsewhere (e.g. a DataGrid column header
-  // click) without re-dispatching sort-changed. Setting `sortField` below causes the
-  // inner <dile-radio-group> to echo a "changed" event on its own (it can't tell a
-  // programmatic update from a user click), which radioGroupChanged() would otherwise
-  // treat as a real selection and re-derive sortDirection from the option's *static*
-  // configured default — silently overriding whichever direction was actually requested.
+  // click) without re-dispatching sort-changed. The inner <dile-radio-group> will echo a
+  // "changed" event when its value catches up with `sortField`; radioGroupChanged()
+  // ignores it because the value already matches the current `sortField`.
   syncSort(sortField, sortDirection) {
-    this._suppressChangeEcho = true;
     this.sortField = sortField;
     this.sortDirection = sortDirection;
   }
@@ -97,8 +93,11 @@ export class DileCrudSortForm extends DileI18nMixin(LitElement) {
   }
 
   radioGroupChanged(e) {
-    if (this._suppressChangeEcho) {
-      this._suppressChangeEcho = false;
+    // <dile-radio-group> can't tell a user click from a programmatic value update, so it
+    // also fires when its value is synced from `sortField` (via syncSort() or a click on an
+    // order-switch label). Those echoes always carry the current `sortField`; a real radio
+    // click always carries a different one, so this is the only check needed.
+    if (e.detail.value === this.sortField) {
       return;
     }
     this.sortField = e.detail.value;

@@ -82,6 +82,52 @@ describe('dile-crud-sort-form', () => {
     expect(receivedDetail).toEqual({ sortField: 'year', sortDirection: 'desc' });
   });
 
+  it('a radio click right after a syncSort that did not change the field is not swallowed', async () => {
+    // Reproduces the reported bug: DileCrud calls syncSort() after every list sort change,
+    // including those started by this same form. When the field doesn't change the radio
+    // group never echoes, and the old one-shot suppression flag ate the next real click.
+    const el = await createSortForm({
+      sortOptions: [
+        { name: 'name', label: 'Name', direction: 'asc' },
+        { name: 'year', label: 'Year', direction: 'desc' },
+      ],
+      sortField: 'name',
+    });
+    await new Promise(resolve => setTimeout(resolve, 250)); // radio-group initial selection
+    el.syncSort('name', 'asc');
+    await el.updateComplete;
+
+    let receivedDetail = null;
+    el.addEventListener('sort-changed', (e) => { receivedDetail = e.detail; });
+
+    el.shadowRoot.querySelector('dile-radio[value="year"]').shadowRoot.querySelector('article').click();
+    await el.updateComplete;
+
+    expect(el.sortField).toBe('year');
+    expect(receivedDetail).toEqual({ sortField: 'year', sortDirection: 'desc' });
+  });
+
+  it('clicking the label of an inactive option dispatches sort-changed only once', async () => {
+    const el = await createSortForm({
+      sortOptions: [
+        { name: 'name', label: 'Name', direction: 'asc' },
+        { name: 'year', label: 'Year', direction: 'desc' },
+      ],
+      sortField: 'name',
+    });
+    await new Promise(resolve => setTimeout(resolve, 250));
+
+    let dispatchCount = 0;
+    el.addEventListener('sort-changed', () => { dispatchCount++; });
+
+    el.shadowRoot.querySelector('dile-order-switch[name="year"]').shadowRoot.querySelector('a').click();
+    await el.updateComplete;
+    await el.shadowRoot.querySelector('dile-radio-group').updateComplete;
+
+    expect(el.sortField).toBe('year');
+    expect(dispatchCount).toBe(1);
+  });
+
   it('clicking the label of an inactive option switches to it using its own configured direction, without flipping it', async () => {
     const el = await createSortForm({
       sortOptions: [
