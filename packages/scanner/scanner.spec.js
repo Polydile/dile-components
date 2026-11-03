@@ -85,9 +85,9 @@ describe('dile-scanner', () => {
     }
     await waitForPages(el, 3);
     expect(queryAll(el, '.page-number').map((item) => item.textContent.trim())).toEqual([
-      'Page 1',
-      'Page 2',
-      'Page 3',
+      'Page 1 of 3',
+      'Page 2 of 3',
+      'Page 3 of 3',
     ]);
 
     const detail = await save(el);
@@ -191,6 +191,56 @@ describe('dile-scanner', () => {
     expect(await imageSize(detail.pages[1])).toEqual({ width: 900, height: 1200 });
   });
 
+  it('keeps the secondary and remove buttons readable whatever the on-primary color', async () => {
+    const el = await renderScanner('multipage');
+    el.style.setProperty('--dile-on-primary-color', 'rgb(255, 255, 255)');
+    el.open();
+    await el.updateComplete;
+    await scanFiles(el, [await documentFile()]);
+    const textColor = (dileButton) =>
+      getComputedStyle(dileButton.shadowRoot.querySelector('button')).color;
+
+    expect(textColor(button(el, 'x'))).toBe('rgb(48, 48, 48)');
+    expect(getComputedStyle(pageButtons(el, 'trash-2')[0]).color).toBe('rgb(204, 0, 0)');
+    expect(textColor(button(el, 'check'))).toBe('rgb(255, 255, 255)');
+  });
+
+  it('takes its text and surface colors from a dark theme', async () => {
+    const el = await renderScanner('multipage');
+    el.style.setProperty('--dile-background-color', 'rgb(48, 48, 48)');
+    el.style.setProperty('--dile-on-background-color', 'rgb(255, 255, 255)');
+    el.open();
+    await el.updateComplete;
+    await scanFiles(el, [await documentFile()]);
+    const white = 'rgb(255, 255, 255)';
+    const background = (node) => getComputedStyle(node).backgroundColor;
+
+    expect(getComputedStyle(button(el, 'x').shadowRoot.querySelector('button')).color).toBe(white);
+    expect(getComputedStyle(query(el, '.page-number')).color).toBe(white);
+    expect(getComputedStyle(pageButtons(el, 'rotate-cw')[0]).color).toBe(white);
+    expect(background(query(el, '.page'))).toBe('rgb(48, 48, 48)');
+    expect(background(query(el, '.page-header'))).not.toMatch(/^rgb\(2[0-9]{2}, /);
+  });
+
+  it('shows the page count, the position of each page and the size bar', async () => {
+    const el = await openScanner('multipage max-bytes="5242880"');
+    await scanFiles(el, [await documentFile(), await documentFile()]);
+
+    expect(query(el, '.subtitle').textContent.replace(/\s+/g, ' ').trim()).toBe('2 pages scanned');
+    expect(button(el, 'check').textContent.trim()).toBe('Save document (2)');
+    expect(pageButtons(el, 'chevron-left').map((item) => item.disabled)).toEqual([true, false]);
+    const progress = query(el, '.size dile-progress-bar');
+    const sizeText = query(el, '.size-value').textContent.replace(/\s+/g, ' ').trim();
+    expect(sizeText).toMatch(/ of 5 MB$/);
+    expect(Number(progress.value)).toBeGreaterThanOrEqual(0);
+    expect(Number(progress.value)).toBeLessThan(100);
+
+    pageButtons(el, 'trash-2')[0].click();
+    await el.updateComplete;
+    expect(query(el, '.subtitle').textContent.replace(/\s+/g, ' ').trim()).toBe('1 page scanned');
+    expect(pageButtons(el, 'chevron-left')).toHaveLength(0);
+  });
+
   it('goes back to the capture step when the last page is removed', async () => {
     const el = await openScanner('multipage');
     await scanFiles(el, [await documentFile(), await documentFile()]);
@@ -266,7 +316,8 @@ describe('dile-scanner', () => {
     el.addEventListener('dile-document-scanned', scanned);
     await scanFiles(el, [await documentFile()]);
 
-    expect(query(el, '.size').textContent.replace(/\s+/g, ' ').trim()).toMatch(/^\d+ KB of 1 KB$/);
+    expect(query(el, '.size-value').textContent.replace(/\s+/g, ' ').trim()).toMatch(/^\d+ KB of 1 KB$/);
+    expect(query(el, '.size dile-progress-bar').value).toBe(100);
     expect(button(el, 'image').disabled).toBe(true);
     expect(query(el, '.step:not([hidden]) p.message').textContent.trim()).toBe(
       'The document has reached the maximum size. Remove a page to add another one.',

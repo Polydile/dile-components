@@ -2,6 +2,8 @@ import { LitElement, html, css, nothing } from "lit";
 import "@dile/ui/components/modal/modal.js";
 import "@dile/ui/components/button/button.js";
 import "@dile/ui/components/spinner/spinner.js";
+import "@dile/ui/components/progress-bar/progress-bar.js";
+import "@dile/iconlib/dile-iconlib.js";
 import "@dile/iconlib/lucide-icons/camera.js";
 import "@dile/iconlib/lucide-icons/image.js";
 import "@dile/iconlib/lucide-icons/check.js";
@@ -50,8 +52,8 @@ const SIZE_FALLBACKS = [
 // (output="images"). With "multipage" the user can add several pages, reorder
 // them, rotate them, adjust them again and remove them. With "ml-detector"
 // the edges are detected with scanic's neural detector (about 2.2 MB
-// downloaded with gzip the first time) instead of the classical one; off by
-// default.
+// downloaded with gzip the first time the scanner opens) instead of the
+// classical one; off by default.
 //
 // It does not upload anything: when the user saves, it dispatches
 // "dile-document-scanned" with the files and closes. Closing it without saving
@@ -77,6 +79,14 @@ export class DileScanner extends LitElement {
         --dile-modal-border-radius: var(--dile-scanner-modal-border-radius, 15px);
         --dile-modal-content-background-color: var(--dile-background-color, #fff);
         --dile-modal-content-text-color: var(--dile-on-background-color, #303030);
+        /* Grays mixed from the theme background and text colors, so the
+           scanner works with light and dark themes without hardcoded grays. */
+        --_fg: var(--dile-on-background-color, #303030);
+        --_bg: var(--dile-background-color, #fff);
+        --_surface: color-mix(in srgb, var(--_fg) 6%, var(--_bg));
+        --_surface-strong: color-mix(in srgb, var(--_fg) 12%, var(--_bg));
+        --_border: color-mix(in srgb, var(--_fg) 15%, var(--_bg));
+        --_muted: color-mix(in srgb, var(--_fg) 68%, var(--_bg));
       }
       @media (max-width: 600px) {
         :host {
@@ -127,14 +137,39 @@ export class DileScanner extends LitElement {
       }
       @media (max-width: 600px) {
         .footer {
-          justify-content: space-between;
+          display: grid;
+          grid-auto-columns: 1fr;
+          grid-auto-flow: column;
           --dile-button-padding-x: 0.6rem;
           --dile-button-font-size: 0.9rem;
         }
+        .footer dile-button {
+          display: grid;
+        }
       }
+      /* Secondary buttons set their own text color: inheriting
+         --dile-on-primary-color can leave text without contrast on their
+         background. By default they use the theme background and text colors,
+         so they also work with dark themes. Hover keeps the same
+         colors so a theme hover color does not ruin the contrast either. */
       .secondary {
-        --dile-button-background-color: var(--dile-scanner-secondary-button-color, #888);
-        --dile-button-border-color: var(--dile-scanner-secondary-button-color, #888);
+        --dile-button-background-color: var(--dile-scanner-secondary-button-color, var(--_surface-strong));
+        --dile-button-border-color: var(--dile-scanner-secondary-button-color, var(--_surface-strong));
+        --dile-button-text-color: var(--dile-scanner-secondary-button-text-color, var(--_fg));
+        --dile-button-hover-background-color: var(--dile-scanner-secondary-button-color, var(--_surface-strong));
+        --dile-button-hover-border-color: var(--dile-scanner-secondary-button-color, var(--_surface-strong));
+        --dile-button-hover-text-color: var(--dile-scanner-secondary-button-text-color, var(--_fg));
+      }
+      /* Outlined buttons to add pages, lighter than the main action. */
+      .outline {
+        --dile-button-background-color: transparent;
+        --dile-button-hover-background-color: transparent;
+        --dile-button-border-color: var(--dile-scanner-outline-button-color, var(--_fg));
+        --dile-button-hover-border-color: var(--dile-scanner-outline-button-color, var(--_fg));
+        --dile-button-text-color: var(--dile-scanner-outline-button-color, var(--_fg));
+        --dile-button-hover-text-color: var(--dile-scanner-outline-button-color, var(--_fg));
+        --dile-button-border-width: 1px;
+        --dile-button-font-weight: normal;
       }
       .file-input {
         display: none;
@@ -152,53 +187,137 @@ export class DileScanner extends LitElement {
           height: calc(100dvh - 18rem);
         }
       }
+      .subtitle {
+        margin-top: -0.75rem;
+        font-size: 0.9rem;
+        color: var(--dile-scanner-muted-text-color, var(--_muted));
+      }
+      /* Pages in a horizontal scroll area with snap: on a phone each card
+         takes most of the width and the next one peeks out; on wider screens
+         several cards fit side by side. */
       .pages {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        display: flex;
         gap: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0.25rem 0.25rem 0.75rem;
+        margin: 0 -0.25rem;
+        scrollbar-width: thin;
       }
       .page {
+        flex: 0 0 var(--dile-scanner-page-width, min(78%, 250px));
+        scroll-snap-align: center;
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.5rem;
         padding: 0.5rem;
-        border-radius: 0.5rem;
-        background-color: var(--dile-very-light-color, #f4f4f4);
+        border-radius: 0.75rem;
+        background-color: var(--dile-scanner-page-background-color, var(--_bg));
+        border: 1px solid var(--dile-scanner-page-border-color, var(--_border));
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .page-header .page-number {
+        color: var(--_fg);
       }
       .page img {
         width: 100%;
-        height: 170px;
+        height: 200px;
         object-fit: contain;
-        background-color: #fff;
-        border-radius: 0.25rem;
+        padding: 0.5rem;
+        background-color: var(--dile-scanner-page-image-background-color, var(--_surface-strong));
+        border-radius: 0.5rem;
+      }
+      .single .pages {
+        justify-content: center;
       }
       .single .page {
-        max-width: 420px;
-        margin: 0 auto;
-        width: 100%;
+        flex-basis: min(100%, 420px);
       }
       .single .page img {
         height: min(55dvh, 520px);
       }
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+        background-color: var(--dile-scanner-page-header-background-color, var(--_surface));
+        --dile-button-border-radius: 0.4rem;
+        --dile-button-border-width: 0;
+        --dile-button-padding-y: 0.3rem;
+        --dile-button-padding-x: 0.3rem;
+        --dile-button-background-color: var(--dile-scanner-move-button-color, #5f6368);
+        --dile-button-hover-background-color: var(--dile-scanner-move-button-color, #5f6368);
+        --dile-button-text-color: #fff;
+        --dile-button-hover-text-color: #fff;
+        --dile-button-disabled-background-color: transparent;
+        --dile-button-disabled-text-color: var(--_border);
+      }
       .page-number {
-        font-size: 0.85rem;
+        flex: 1;
+        font-size: 0.9rem;
         text-align: center;
       }
       .page-actions {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
         gap: 0.25rem;
-        --dile-button-padding-y: 0.3rem;
-        --dile-button-padding-x: 0.4rem;
       }
-      .page-actions .remove {
-        --dile-button-background-color: var(--dile-alert-error-color, #c00);
-        --dile-button-border-color: var(--dile-alert-error-color, #c00);
+      .page-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.35rem 0.2rem;
+        border: none;
+        border-radius: 0.4rem;
+        background: none;
+        font: inherit;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        color: var(--dile-scanner-page-action-color, var(--_fg));
+        --dile-icon-color: currentColor;
+        --dile-icon-size: 22px;
+      }
+      .page-action:hover {
+        background-color: var(--dile-scanner-page-header-background-color, var(--_surface));
+      }
+      .page-action:focus-visible {
+        outline: 2px solid var(--dile-button-ring-color, #12c9e9);
+      }
+      .page-action.remove {
+        color: var(--dile-scanner-remove-button-color, var(--dile-alert-error-color, #c00));
+        font-weight: bold;
       }
       .size {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
         font-size: 0.85rem;
-        color: var(--dile-secondary-dark-color, #888);
+        --dile-progress-background: var(--dile-scanner-size-track-color, var(--_surface-strong));
+        --dile-progress-bar-background: var(--dile-scanner-size-bar-color, var(--dile-scanner-accent-color, var(--_fg)));
+        --dile-progress-bar-min-height: 6px;
+        --dile-progress-bar-percentage-font-size: 0;
+        --dile-progres-bar-percentage-padding-top: 0;
+        --dile-progres-bar-percentage-padding-right: 0;
+        --dile-progres-bar-percentage-padding-bottom: 0;
+        --dile-progres-bar-percentage-padding-left: 0;
+      }
+      .size.full {
+        --dile-progress-bar-background: var(--dile-alert-error-color, #c00);
+      }
+      .size-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .size-value {
+        color: var(--dile-scanner-muted-text-color, var(--_muted));
       }
       .busy {
         display: flex;
@@ -230,7 +349,7 @@ export class DileScanner extends LitElement {
        * Detects the edges with scanic's neural detector (more robust on hard
        * photos), falling back to the classical one when it finds nothing.
        * Downloads about 2.2 MB with gzip (3.5 MB uncompressed) the first
-       * time it is used.
+       * time the scanner is opened.
        */
       mlDetector: { type: Boolean, attribute: "ml-detector" },
       /**
@@ -266,6 +385,7 @@ export class DileScanner extends LitElement {
     this._adjusting = null;
     this._editor = null;
     this._saved = false;
+    this._scrollToPage = null;
     // Changes on every reset: an async task started before closing or
     // reopening the scanner checks it to discard its result.
     this._session = 0;
@@ -284,13 +404,25 @@ export class DileScanner extends LitElement {
   open() {
     this._reset();
     this._saved = false;
-    preloadEngine();
+    preloadEngine({ ml: this.mlDetector, mlAssetsUrl: this.mlAssetsUrl });
     this._modal.open();
   }
 
   /** Closes the scanner, discarding the pages (dispatches the cancel event). */
   close() {
     this._modal.close();
+  }
+
+  updated() {
+    // Brings a new or moved page into view in the horizontal page list. It
+    // waits while the step is hidden (busy), because a hidden element can't
+    // be scrolled.
+    if (this._scrollToPage === null || this._busy || this._step !== "pages") {
+      return;
+    }
+    const page = this.shadowRoot.querySelector(`.page[data-index="${this._scrollToPage}"]`);
+    this._scrollToPage = null;
+    page?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }
 
   disconnectedCallback() {
@@ -304,6 +436,12 @@ export class DileScanner extends LitElement {
       <dile-modal id="modal" blocking @dile-modal-closed=${this._onModalClosed}>
         <div class="scanner">
           <h2>${labels.title}</h2>
+          ${this._step === "pages" && this.multipage && !this._busy
+            ? html`<p class="subtitle">
+                ${this._pages.length}
+                ${this._pages.length === 1 ? labels.pageScanned : labels.pagesScanned}
+              </p>`
+            : nothing}
           ${this._busy
             ? html`<div class="busy">
                 <dile-spinner active></dile-spinner>
@@ -362,10 +500,11 @@ export class DileScanner extends LitElement {
     `;
   }
 
-  _captureButtons(photoLabel, imageLabel, disabled = false) {
+  _captureButtons(photoLabel, imageLabel, disabled = false, className = "") {
     return html`
       ${this._isTouchDevice
         ? html`<dile-button
+            class=${className}
             icon="lucide.camera"
             ?disabled=${disabled}
             @click=${this._takePhoto}
@@ -373,6 +512,7 @@ export class DileScanner extends LitElement {
           >`
         : nothing}
       <dile-button
+        class=${className}
         icon="lucide.image"
         ?disabled=${disabled}
         @click=${this._chooseImage}
@@ -411,84 +551,97 @@ export class DileScanner extends LitElement {
 
   _pagesTemplate(labels) {
     const limitReached = this._limitReached;
+    const count = this._pages.length;
     return html`
       <div class="${this.multipage ? "" : "single"}">
         <div class="pages">
           ${this._pages.map((page, index) => this._pageTemplate(page, index, labels))}
         </div>
       </div>
-      ${this.maxBytes
-        ? html`<p class="size">
-            ${this._formatSize(this._pagesSize)} ${labels.sizeOf}
-            ${this._formatSize(this.maxBytes)}
-          </p>`
-        : nothing}
+      ${this.maxBytes ? this._sizeTemplate(labels, limitReached) : nothing}
       ${this.multipage && limitReached
         ? html`<p class="message">${labels.sizeLimitReached}</p>`
         : nothing}
       <div class="actions">
         ${this.multipage
-          ? this._captureButtons(labels.addPhoto, labels.addImage, limitReached)
-          : this._captureButtons(labels.retakePhoto, labels.replaceImage)}
+          ? this._captureButtons(labels.addPhoto, labels.addImage, limitReached, "outline")
+          : this._captureButtons(labels.retakePhoto, labels.replaceImage, false, "outline")}
       </div>
       <div class="footer">
         <dile-button class="secondary" icon="lucide.x" @click=${this.close}
           >${labels.cancel}</dile-button
         >
         <dile-button icon="lucide.check" @click=${this._save}
-          >${labels.confirm}</dile-button
+          >${labels.confirm}${this.multipage ? ` (${count})` : ""}</dile-button
         >
       </div>
     `;
   }
 
-  _pageTemplate(page, index, labels) {
-    const isFirst = index === 0;
-    const isLast = index === this._pages.length - 1;
-    const showOrder = this.multipage && this._pages.length > 1;
+  _sizeTemplate(labels, limitReached) {
+    const percent = Math.min(100, Math.round((this._pagesSize / this.maxBytes) * 100));
     return html`
-      <div class="page">
-        <img src=${page.url} alt="${labels.page} ${index + 1}" />
+      <div class="size ${limitReached ? "full" : ""}">
+        <div class="size-row">
+          <span>${labels.documentSize}</span>
+          <span class="size-value"
+            >${this._formatSize(this._pagesSize)} ${labels.sizeOf}
+            ${this._formatSize(this.maxBytes)}</span
+          >
+        </div>
+        <dile-progress-bar value=${percent} aria-hidden="true"></dile-progress-bar>
+      </div>
+    `;
+  }
+
+  _pageTemplate(page, index, labels) {
+    const count = this._pages.length;
+    const showOrder = this.multipage && count > 1;
+    return html`
+      <div class="page" data-index=${index}>
         ${this.multipage
-          ? html`<div class="page-number">${labels.page} ${index + 1}</div>`
+          ? html`<div class="page-header">
+              ${showOrder
+                ? html`<dile-button
+                    icon="lucide.chevron-left"
+                    label=${labels.moveBefore}
+                    title=${labels.moveBefore}
+                    ?disabled=${index === 0}
+                    @click=${() => this._movePage(index, -1)}
+                  ></dile-button>`
+                : nothing}
+              <span class="page-number"
+                >${labels.page} ${index + 1} ${labels.pageOf} ${count}</span
+              >
+              ${showOrder
+                ? html`<dile-button
+                    icon="lucide.chevron-right"
+                    label=${labels.moveAfter}
+                    title=${labels.moveAfter}
+                    ?disabled=${index === count - 1}
+                    @click=${() => this._movePage(index, 1)}
+                  ></dile-button>`
+                : nothing}
+            </div>`
           : nothing}
+        <img src=${page.url} alt="${labels.page} ${index + 1}" />
         <div class="page-actions">
-          ${showOrder
-            ? html`<dile-button
-                icon="lucide.chevron-left"
-                label=${labels.moveBefore}
-                ?disabled=${isFirst}
-                @click=${() => this._movePage(index, -1)}
-              ></dile-button>`
-            : nothing}
-          <dile-button
-            icon="lucide.rotate-cw"
-            label=${labels.rotate}
-            @click=${() => this._rotatePage(index)}
-          ></dile-button>
-          <dile-button
-            icon="lucide.crop"
-            label=${labels.adjust}
-            @click=${() => this._adjustPage(index)}
-          ></dile-button>
+          ${this._pageAction("lucide.rotate-cw", labels.rotate, () => this._rotatePage(index))}
+          ${this._pageAction("lucide.crop", labels.adjust, () => this._adjustPage(index))}
           ${this.multipage
-            ? html`<dile-button
-                class="remove"
-                icon="lucide.trash-2"
-                label=${labels.remove}
-                @click=${() => this._removePage(index)}
-              ></dile-button>`
-            : nothing}
-          ${showOrder
-            ? html`<dile-button
-                icon="lucide.chevron-right"
-                label=${labels.moveAfter}
-                ?disabled=${isLast}
-                @click=${() => this._movePage(index, 1)}
-              ></dile-button>`
+            ? this._pageAction("lucide.trash-2", labels.remove, () => this._removePage(index), "remove")
             : nothing}
         </div>
       </div>
+    `;
+  }
+
+  _pageAction(icon, label, onClick, className = "") {
+    return html`
+      <button type="button" class="page-action ${className}" data-icon=${icon} @click=${onClick}>
+        <dile-iconlib icon=${icon} aria-hidden="true"></dile-iconlib>
+        <span>${label}</span>
+      </button>
     `;
   }
 
@@ -667,6 +820,7 @@ export class DileScanner extends LitElement {
     const pages = [...this._pages];
     if (index === null || index === undefined) {
       pages.push(page);
+      this._scrollToPage = pages.length - 1;
     } else {
       URL.revokeObjectURL(pages[index].url);
       pages[index] = page;
@@ -729,6 +883,7 @@ export class DileScanner extends LitElement {
     const pages = [...this._pages];
     [pages[index], pages[target]] = [pages[target], pages[index]];
     this._pages = pages;
+    this._scrollToPage = target;
   }
 
   _removePage(index) {

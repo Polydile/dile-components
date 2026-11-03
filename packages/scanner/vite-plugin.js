@@ -6,11 +6,19 @@
 //   import { scannerMlAssets } from '@dile/scanner/vite-plugin.js';
 //   export default { plugins: [scannerMlAssets()] };
 //
-//   <dile-scanner ml-detector ml-assets-url="/dile-scanner-ml/"></dile-scanner>
+//   // app code
+//   import { mlAssetsUrl } from 'virtual:dile-scanner-ml';
+//   scanner.mlAssetsUrl = mlAssetsUrl; // "/dile-scanner-ml/0.2.0/"
 //
 // The files are served by the dev server and copied to the build with their
 // original names (scanic expects them together in one folder). They are only
 // downloaded by the browser when the ML detector is actually used.
+//
+// The default folder includes the scanic-ml version, so updating
+// @dile/scanner changes the URL of the files. That way a cache (HTTP or a PWA
+// service worker) never mixes the model of one version with the runtime of
+// another. The "virtual:dile-scanner-ml" module exports the current URL, so
+// the app does not have to write the version by hand.
 import { createRequire } from "node:module";
 import { readFileSync } from "node:fs";
 import { dirname, extname, join } from "node:path";
@@ -21,24 +29,54 @@ export const ML_ASSET_FILES = [
   "ort-wasm-simd-threaded.wasm",
 ];
 
+export const ML_VIRTUAL_MODULE = "virtual:dile-scanner-ml";
+const RESOLVED_VIRTUAL_MODULE = `\0${ML_VIRTUAL_MODULE}`;
+
 const CONTENT_TYPES = {
   ".ort": "application/octet-stream",
   ".mjs": "text/javascript",
   ".wasm": "application/wasm",
 };
 
+function mlPackageJson() {
+  const require = createRequire(import.meta.url);
+  return require.resolve("scanic-ml/package.json");
+}
+
 // Folder of the "scanic-ml" files, resolved from this package so it is the
 // version pinned by @dile/scanner.
 export function mlAssetsDir() {
-  const require = createRequire(import.meta.url);
-  return join(dirname(require.resolve("scanic-ml/package.json")), "dist");
+  return join(dirname(mlPackageJson()), "dist");
 }
 
-export function scannerMlAssets({ path = "dile-scanner-ml" } = {}) {
+// Version of the "scanic-ml" files (e.g. "0.2.0").
+export function mlAssetsVersion() {
+  return JSON.parse(readFileSync(mlPackageJson(), "utf8")).version;
+}
+
+export function scannerMlAssets({
+  path = `dile-scanner-ml/${mlAssetsVersion()}`,
+} = {}) {
   const folder = path.replace(/^\/+|\/+$/g, "");
   const assetsDir = mlAssetsDir();
+  let base = "/";
   return {
     name: "dile-scanner-ml-assets",
+    configResolved(config) {
+      base = config.base.endsWith("/") ? config.base : `${config.base}/`;
+    },
+    resolveId(id) {
+      return id === ML_VIRTUAL_MODULE ? RESOLVED_VIRTUAL_MODULE : null;
+    },
+    load(id) {
+      if (id !== RESOLVED_VIRTUAL_MODULE) {
+        return null;
+      }
+      return [
+        `export const mlAssetsUrl = ${JSON.stringify(`${base}${folder}/`)};`,
+        `export const mlAssetsVersion = ${JSON.stringify(mlAssetsVersion())};`,
+      ].join("\n");
+    },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const prefix = `${server.config.base}${folder}/`;

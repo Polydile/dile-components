@@ -135,7 +135,10 @@ export async function openScanner(attrs) {
 export const query = (el, selector) => el.shadowRoot.querySelector(selector);
 export const queryAll = (el, selector) => [...el.shadowRoot.querySelectorAll(selector)];
 export const button = (el, icon) => query(el, `.step:not([hidden]) dile-button[icon="lucide.${icon}"]`);
-export const pageButtons = (el, icon) => queryAll(el, `.page dile-button[icon="lucide.${icon}"]`);
+// Buttons of the page cards: the move arrows (dile-button in the header) and
+// the actions (native buttons with data-icon).
+export const pageButtons = (el, icon) =>
+  queryAll(el, `.page dile-button[icon="lucide.${icon}"], .page button[data-icon="lucide.${icon}"]`);
 export const pages = (el) => queryAll(el, '.page');
 export const errorMessage = (el) => query(el, '.message.error')?.textContent.trim();
 

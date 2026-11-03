@@ -52,7 +52,7 @@ scanner.open();
 
 1. **Capture**: the user chooses one or more images (several at once with `multipage`). On touch devices (`pointer: coarse`) there is also a "Take photo" button that opens the rear camera. Selected images are processed in a queue: each one goes through the adjustment before the next one.
 2. **Adjust**: the user drags the corners to the edges of the document. "Reset" restores the detected corners and "Use full image" keeps the whole photo.
-3. **Pages**: the user reviews the pages and saves. Without `multipage`, a new image replaces the current page.
+3. **Pages**: the user reviews the pages and saves. With `multipage` the pages are cards in a horizontal list (swipe on a phone, where the next card peeks out; several side by side on wider screens). Each card shows "Page 2 of 3" between the arrows that move it before or after, and the Rotate, Crop and Delete actions. Below, a bar shows the size of the document against `max-bytes`, and the save button shows the number of pages. Without `multipage`, a new image replaces the current page.
 
 Photos are reduced to 3000 px on their longest side when read (iOS limits the area of a canvas and current phone cameras go well beyond it) and the EXIF orientation is applied. HEIC images work in browsers that can decode them (Safari).
 
@@ -121,9 +121,9 @@ The default texts are exported as `DEFAULT_LABELS`, which is useful as a referen
 import { DEFAULT_LABELS } from '@dile/scanner';
 ```
 
-Available keys: `title`, `captureHint`, `takePhoto`, `chooseImage`, `addPhoto`, `addImage`, `retakePhoto`, `replaceImage`, `adjustHint`, `notDetected`, `reset`, `useFullImage`, `accept`, `cancel`, `confirm`, `page`, `rotate`, `adjust`, `moveBefore`, `moveAfter`, `remove`, `processing`, `readError`, `processError`, `sizeLimitReached`, `tooBig`, `sizeOf`, `filenamePrefix`, `topLeftCorner`, `topRightCorner`, `bottomRightCorner`, `bottomLeftCorner`.
+Available keys: `title`, `captureHint`, `takePhoto`, `chooseImage`, `addPhoto`, `addImage`, `retakePhoto`, `replaceImage`, `adjustHint`, `notDetected`, `reset`, `useFullImage`, `accept`, `cancel`, `confirm`, `page`, `pageOf`, `pageScanned`, `pagesScanned`, `documentSize`, `rotate`, `adjust`, `moveBefore`, `moveAfter`, `remove`, `processing`, `readError`, `processError`, `sizeLimitReached`, `tooBig`, `sizeOf`, `filenamePrefix`, `topLeftCorner`, `topRightCorner`, `bottomRightCorner`, `bottomLeftCorner`.
 
-The corner labels are used as the `aria-label` of the editor handles.
+The corner labels are used as the `aria-label` of the editor handles. With `multipage`, the subtitle is the number of pages followed by `pageScanned` or `pagesScanned` ("3 pages scanned"), each card shows `page`, the number, `pageOf` and the total ("Page 2 of 3"), and the save button adds the number of pages to `confirm` ("Save document (3)").
 
 ## ML detector {#ml-detector}
 
@@ -132,7 +132,7 @@ With `ml-detector`, the edges are detected first with scanic's neural detector a
 The ML detector is **optional and off by default**. Its weight depends on whether you use it:
 
 - **Without `ml-detector`** (default): your users download nothing of the ML detector. Its code is in separate chunks of scanic that are never requested.
-- **With `ml-detector`**: the browser downloads about 2.2 MB the first time a photo is processed (not when the scanner opens).
+- **With `ml-detector`**: the browser downloads about 2.2 MB the first time the scanner is opened. The download starts in the background when `open()` is called, so the detector is usually ready when the first photo arrives. If the photo comes first, its detection waits for the download.
 - **In `node_modules`**: 3.5 MB always, because `@dile/scanner` installs `scanic-ml` as a dependency so you can self-host the files. It is only disk space in your project.
 - **In your build**: nothing, unless you add the [Vite plugin](#self-hosting-the-ml-files-with-vite), which copies the 3.5 MB of files to the output folder (not to your JavaScript bundle).
 
@@ -149,7 +149,7 @@ By default they come from jsDelivr (`scanic-ml@0.2.0`, the version scanic 1.7.1 
 
 ### Self-hosting the ML files with Vite {#self-hosting-the-ml-files-with-vite}
 
-Add the `scannerMlAssets()` plugin. It serves the files in the dev server and copies them to the build, with their original names, in the `dile-scanner-ml/` folder:
+Add the `scannerMlAssets()` plugin. It serves the files in the dev server and copies them to the build, with their original names, in a folder that includes the `scanic-ml` version (`dile-scanner-ml/0.2.0/`):
 
 ```javascript
 // vite.config.js
@@ -161,20 +161,33 @@ export default defineConfig({
 });
 ```
 
-Then point the component to that folder:
+Then point the component to that folder. The plugin provides the virtual module `virtual:dile-scanner-ml`, which exports its URL (including Vite's `base`), so you don't have to write the version:
 
-```html
-<dile-scanner ml-detector ml-assets-url="/dile-scanner-ml/"></dile-scanner>
+```javascript
+import { mlAssetsUrl } from 'virtual:dile-scanner-ml';
+
+const scanner = document.querySelector('dile-scanner');
+scanner.mlDetector = true;
+scanner.mlAssetsUrl = mlAssetsUrl; // "/dile-scanner-ml/0.2.0/"
 ```
 
-The folder can be changed with `scannerMlAssets({ path: 'assets/ml' })`. The plugin adds the files (3.5 MB uncompressed) to the build output, but browsers only download them when the ML detector is used. Only add the plugin if you use `ml-detector`.
+The version in the folder means that updating `@dile/scanner` to a release with another `scanic-ml` changes the URL of the files. That way no cache (HTTP or a [PWA service worker](#pwa)) ever mixes the model of one version with the runtime of another.
+
+The module also exports `mlAssetsVersion` (`"0.2.0"`). In `vite.config.js` you can get the version with `mlAssetsVersion()` and the file names with `ML_ASSET_FILES`, both exported by `@dile/scanner/vite-plugin.js`.
+
+The folder can be changed with `scannerMlAssets({ path: 'assets/ml' })`. With a fixed path you can write it in the HTML (`ml-assets-url="/assets/ml/"`), but you lose the version in the URL. The plugin adds the files (3.5 MB uncompressed) to the build output, but browsers only download them when the ML detector is used. Only add the plugin if you use `ml-detector`.
 
 ### Self-hosting the ML files without Vite
 
-Copy the three files from the `scanic-ml` package installed with `@dile/scanner` to a public folder of your site, keeping their names, and use that folder as `ml-assets-url`:
+Copy the three files from the `scanic-ml` package installed with `@dile/scanner` to a public folder of your site, keeping their names, and use that folder as `ml-assets-url`. Include the `scanic-ml` version in the folder name, for the same reason as the Vite plugin:
 
 ```bash
-cp node_modules/scanic-ml/dist/* public/dile-scanner-ml/
+mkdir -p public/dile-scanner-ml/0.2.0
+cp node_modules/scanic-ml/dist/* public/dile-scanner-ml/0.2.0/
+```
+
+```html
+<dile-scanner ml-detector ml-assets-url="/dile-scanner-ml/0.2.0/"></dile-scanner>
 ```
 
 If npm installed it nested, the files are in `node_modules/@dile/scanner/node_modules/scanic-ml/dist/`.
@@ -184,6 +197,50 @@ The server must send the `.mjs` file with a JavaScript content type (`text/javas
 > **Note:** Whatever the way you serve them, enable gzip or brotli compression for these files (many servers don't compress `.wasm` or unknown extensions like `.ort` by default). Without it, the first use of the ML detector downloads 3.5 MB instead of about 2.2 MB.
 
 > **Note:** When building with Vite you will see the warning `new URL("ort.wasm.min.mjs", import.meta.url) doesn't exist at build time`. It is harmless: it comes from scanic's ML loader, which resolves that path at runtime.
+
+## Using it in a PWA {#pwa}
+
+In a PWA you can keep the ML files in the user's device so they are downloaded only once: the first time the scanner is opened, not when the app is installed. Every request of the ML detector (the model and the `.wasm` file with `fetch()`, the `.mjs` file with `import()`) goes through the service worker, so a runtime caching rule is enough.
+
+Example with [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) and the [Vite plugin](#self-hosting-the-ml-files-with-vite):
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+import { scannerMlAssets } from '@dile/scanner/vite-plugin.js';
+
+export default defineConfig({
+  plugins: [
+    scannerMlAssets(),
+    VitePWA({
+      workbox: {
+        // Not precached: they would be downloaded when installing the app.
+        globIgnores: ['**/dile-scanner-ml/**'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/dile-scanner-ml/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'dile-scanner-ml',
+              cacheableResponse: { statuses: [200] },
+              // Keeps only the 3 files of the current version.
+              expiration: { maxEntries: 3 },
+            },
+          },
+        ],
+      },
+    }),
+  ],
+});
+```
+
+- **Don't precache them.** Each file is under 2 MiB, the default size limit of Workbox precaching, so if your `globPatterns` match `.wasm` or `.ort` files the app would download 3.5 MB when it is installed. `globIgnores` avoids it. The default patterns (`js,css,html`) don't match them.
+- **Versions.** The files keep their names between `scanic-ml` versions, but the folder of the Vite plugin includes the version. After an update the new files have new URLs and `maxEntries: 3` removes the old ones from the cache. Without it, a `CacheFirst` rule with fixed URLs would keep serving the old model next to a new runtime.
+- **Offline.** If the user opens the scanner for the first time without network, the ML detector fails and the classical one is used, with no error. The ML files are downloaded again the next time the scanner is opened.
+- **The rest of the scanner.** The JavaScript chunks of scanic and jsPDF (about 43 KB and 129 KB with gzip) are regular chunks of your build, so the default `globPatterns` precache them and the scanner also works offline.
+- **Storage.** Browsers can evict the cache when the device is low on space. To make it less likely you can ask for persistent storage with `navigator.storage.persist()`.
+- With files served from jsDelivr (no `ml-assets-url`) the rule needs the jsDelivr URL instead. Self-hosting them is recommended in a PWA.
 
 ## CSS Custom Properties
 
@@ -196,9 +253,24 @@ Custom property | Description | Default
 --dile-scanner-modal-width | Width of the modal | min(96vw, 900px)
 --dile-scanner-modal-max-height | Maximum height of the modal | 92dvh
 --dile-scanner-modal-border-radius | Border radius of the modal | 15px
---dile-scanner-secondary-button-color | Color of the secondary buttons (Cancel, Reset...) | #888
+--dile-scanner-secondary-button-color | Background color of the secondary buttons (Cancel, Reset...) | A gray mixed from the theme colors
+--dile-scanner-secondary-button-text-color | Text and icon color of the secondary buttons | --dile-on-background-color or #303030
+--dile-scanner-outline-button-color | Border and text color of the outlined buttons (add photo, add image) | --dile-on-background-color or #303030
+--dile-scanner-muted-text-color | Color of the subtitle and the size value | A gray mixed from the theme colors
+--dile-scanner-page-width | Width of each page card in the multipage list | min(78%, 250px)
+--dile-scanner-page-background-color | Background of the page cards | --dile-background-color or #fff
+--dile-scanner-page-border-color | Border of the page cards | A gray mixed from the theme colors
+--dile-scanner-page-image-background-color | Background around the page image | A gray mixed from the theme colors
+--dile-scanner-page-header-background-color | Background of the card header ("Page 2 of 3") | A gray mixed from the theme colors
+--dile-scanner-move-button-color | Background of the arrows that move a page | #5f6368
+--dile-scanner-page-action-color | Color of the Rotate and Crop actions | --dile-on-background-color or #303030
+--dile-scanner-remove-button-color | Color of the Delete action | --dile-alert-error-color or #c00
+--dile-scanner-size-track-color | Track of the size bar | A gray mixed from the theme colors
+--dile-scanner-size-bar-color | Fill of the size bar (the error color when the limit is reached) | --dile-scanner-accent-color or --dile-on-background-color
 
-On screens up to 600 px wide the modal takes the whole screen. The buttons are [dile-button](/components/dile-button/) elements, so they also follow its custom properties.
+On screens up to 600 px wide the modal takes the whole screen. The buttons are [dile-button](/components/dile-button/) elements, so they also follow its custom properties. The secondary and outlined buttons set their own text color (and keep their colors on hover), so they stay readable whatever `--dile-on-primary-color` the theme uses.
+
+**Light and dark themes:** the grays of the scanner (cards, card headers, secondary buttons, size bar track, muted texts) are mixed with `color-mix()` from `--dile-background-color` and `--dile-on-background-color`, so the scanner follows a dark theme that redefines those two variables, with no extra configuration. The size bar is a [dile-progress-bar](/components/dile-progress-bar/).
 
 ## Tips
 
@@ -290,10 +362,14 @@ Returns one JPEG file per page instead of a PDF.
 
 ### ML detector
 
-Detects the edges with the neural detector. The ML files are served from this site with the `scannerMlAssets()` Vite plugin and are only downloaded when the first photo is processed.
+Detects the edges with the neural detector. The ML files are served from this site with the `scannerMlAssets()` Vite plugin and are only downloaded when the scanner is opened for the first time.
 
 ```html:preview
-<scanner-demo ml-detector ml-assets-url="/dile-scanner-ml/"></scanner-demo>
+<scanner-demo id="mlScannerDemo" ml-detector></scanner-demo>
+<script type="module">
+  import { mlAssetsUrl } from 'virtual:dile-scanner-ml';
+  document.getElementById('mlScannerDemo').mlAssetsUrl = mlAssetsUrl;
+</script>
 ```
 
 ### Custom labels
@@ -334,7 +410,8 @@ Detects the edges with the neural detector. The ML files are served from this si
     --dile-scanner-editor-background-color: #2c3e50;
     --dile-scanner-modal-width: min(96vw, 700px);
     --dile-scanner-modal-border-radius: 4px;
-    --dile-scanner-secondary-button-color: #7f8c8d;
+    --dile-scanner-secondary-button-color: #d5dbdb;
+    --dile-scanner-secondary-button-text-color: #2c3e50;
   }
 </style>
 <dile-button id="openStyledScanner">Scan document</dile-button>

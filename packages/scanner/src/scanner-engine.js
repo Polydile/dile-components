@@ -13,11 +13,27 @@ function loadScanic() {
 }
 
 // Starts downloading scanic in the background (e.g. when the scanner opens),
-// so it is ready by the time the first photo arrives.
-export function preloadEngine() {
-  loadScanic().catch(() => {
-    // Ignored here: the error shows up again when the engine is really used.
-  });
+// so it is ready by the time the first photo arrives. With "ml" it also
+// downloads the neural detector files and creates its session, so the first
+// photo does not wait for about 2.2 MB. scanic keeps the session cached by
+// URL (also while it is loading), so detectCorners() reuses it and calling
+// this on every open() downloads nothing again. When it fails (e.g. no
+// network) scanic forgets it, so the next open() or photo tries again.
+// Scanner.initialize() ignores errors itself.
+export function preloadEngine({ ml = false, mlAssetsUrl = "" } = {}) {
+  loadScanic()
+    .then(({ Scanner }) => {
+      if (ml) {
+        return new Scanner({ detector: "ml", ml: mlOptions(mlAssetsUrl) }).initialize();
+      }
+    })
+    .catch(() => {
+      // Ignored here: the error shows up again when the engine is really used.
+    });
+}
+
+function mlOptions(mlAssetsUrl) {
+  return mlAssetsUrl ? { assetBaseUrl: mlAssetsUrl } : {};
 }
 
 // Returns the corners of the document or null when none is found.
@@ -28,7 +44,8 @@ export function preloadEngine() {
 // not as a retry, because on hard photos the classical detector does not
 // always fail: it can return a wrong shape (e.g. a line of text) as if it
 // were the document. The neural detector downloads about 2.2 MB with gzip
-// (3.5 MB uncompressed: model + ONNX runtime) the first time, from jsDelivr
+// (3.5 MB uncompressed: model + ONNX runtime) the first time (when the
+// scanner opens, see preloadEngine), from jsDelivr
 // unless mlAssetsUrl points to a self-hosted copy of the "scanic-ml" package
 // files. When it finds nothing or fails (e.g. no network), the classical
 // detector is used.
@@ -40,7 +57,7 @@ export async function detectCorners(canvas, { ml = false, mlAssetsUrl = "" } = {
       const mlResult = await scanner.scan(canvas, {
         mode: "detect",
         detector: "ml",
-        ml: mlAssetsUrl ? { assetBaseUrl: mlAssetsUrl } : {},
+        ml: mlOptions(mlAssetsUrl),
       });
       if (mlResult.success) {
         return mlResult.corners;

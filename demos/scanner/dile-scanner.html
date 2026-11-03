@@ -9,6 +9,8 @@
   <script type="module">
     import "@dile/scanner/scanner.js";
     import "@dile/ui/components/button/button.js";
+    // URL of the ML files served by the scannerMlAssets() Vite plugin.
+    import { mlAssetsUrl } from "virtual:dile-scanner-ml";
 
     function formatSize(bytes) {
       return `${Math.round(bytes / 1024)} KB`;
@@ -41,6 +43,8 @@
         document.getElementById(button.dataset.result).textContent = 'Scan cancelled.';
       });
     });
+
+    document.getElementById('scannerMl').mlAssetsUrl = mlAssetsUrl;
 
     document.getElementById('scannerEs').labels = {
       title: 'Escanear documento',
@@ -86,7 +90,8 @@
       --dile-scanner-mask-color: rgba(230, 126, 34, 0.25);
       --dile-scanner-editor-background-color: #2c3e50;
       --dile-scanner-modal-width: min(96vw, 700px);
-      --dile-scanner-secondary-button-color: #7f8c8d;
+      --dile-scanner-secondary-button-color: #d5dbdb;
+      --dile-scanner-secondary-button-text-color: #2c3e50;
     }
     .info {
       background: #e8f4f8;
@@ -130,9 +135,9 @@
 
     <div class="demo-section">
       <h2>ML detector</h2>
-      <p>Uses scanic's neural detector. Its files (3.5 MB, about 2.2 MB to download with gzip) are served from this site by the <code>scannerMlAssets()</code> Vite plugin and only downloaded when the first photo is processed.</p>
+      <p>Uses scanic's neural detector. Its files (3.5 MB, about 2.2 MB to download with gzip) are served from this site by the <code>scannerMlAssets()</code> Vite plugin and only downloaded when the scanner is opened for the first time.</p>
       <dile-button data-scanner="scannerMl" data-result="resultMl">Scan document</dile-button>
-      <dile-scanner id="scannerMl" ml-detector ml-assets-url="/dile-scanner-ml/"></dile-scanner>
+      <dile-scanner id="scannerMl" ml-detector></dile-scanner>
       <div id="resultMl" class="result"></div>
     </div>
 
