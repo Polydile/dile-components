@@ -14,6 +14,12 @@ An array of available sort options. Each option should be an object with the fol
 
 The name of the sort field that should be initially selected when the component loads. This value must match one of the `name` values in the `options` array.
 
+`dile-crud-list` applies it to the first request (also when used standalone, without `dile-crud`), unless its `sort` property was already set from outside.
+
+#### `initialSortDirection` (string, optional)
+
+The initial sort direction, `'asc'` or `'desc'`. Defaults to `'desc'`. It is used both for the first request and for the option initially selected in the sort form.
+
 #### Example usage
 
 ```javascript

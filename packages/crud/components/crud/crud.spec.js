@@ -276,6 +276,81 @@ describe('dile-crud sort synchronization', () => {
   });
 });
 
+describe('dile-crud initial sort', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function mountCrud(sort) {
+    const config = new CrudConfigBuilder('https://example.test/api/countries', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch: true,
+        disableSort: false,
+        disableFilter: true,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+      sort,
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+    const list = el.listElement;
+    await list.updateComplete;
+    await list.elservice.updateComplete;
+    const requests = [];
+    const ajax = list.elservice.ajaxget;
+    ajax.generateRequest = () => requests.push({ url: ajax.url, data: ajax.data });
+    return { el, requests };
+  }
+
+  const options = [
+    { name: 'name', label: 'Name', direction: 'asc' },
+    { name: 'population', label: 'Population', direction: 'desc' },
+  ];
+
+  it('sends the configured initial sort in the first (and only) request, matching the sort-form', async () => {
+    const { el, requests } = await mountCrud({ options, initialSortField: 'population', initialSortDirection: 'asc' });
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('population');
+    expect(requests[0].data.sortDirection).toBe('asc');
+    expect(el.sortFormElement.sortField).toBe('population');
+    expect(el.sortFormElement.sortDirection).toBe('asc');
+  });
+
+  it('uses "desc" for both the request and the sort-form when initialSortDirection is not set', async () => {
+    const { el, requests } = await mountCrud({ options, initialSortField: 'name' });
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('name');
+    expect(requests[0].data.sortDirection).toBe('desc');
+    expect(el.sortFormElement.sortDirection).toBe('desc');
+  });
+
+  it('still applies a sort chosen from the sort-form', async () => {
+    const { el, requests } = await mountCrud({ options, initialSortField: 'name' });
+    await wait(300);
+
+    el.sortFormElement.dispatchEvent(new CustomEvent('sort-changed', {
+      detail: { sortField: 'population', sortDirection: 'desc' },
+    }));
+    await wait(300);
+
+    expect(requests).toHaveLength(2);
+    expect(requests[1].data.sortField).toBe('population');
+    expect(requests[1].data.sortDirection).toBe('desc');
+  });
+});
+
 describe('dile-crud list/grid view switch', () => {
   afterEach(() => {
     document.body.innerHTML = '';

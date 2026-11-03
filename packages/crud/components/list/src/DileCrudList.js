@@ -127,9 +127,30 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             this.filters = activeFilters;
         }
 
+        this.applyInitialSort();
+
         if(!this.disableLoadOnStart) {
             this.updateComplete.then( () => this.refresh()); 
         }
+    }
+
+    // Takes the initial sort from config.sort.initialSortField / initialSortDirection so the
+    // first request is already sorted. It must not depend on <dile-crud-sort-form> echoing
+    // its initial value (that echo is intentionally ignored since 2.10.8). The 'desc'
+    // default matches the one DileCrud uses when rendering the sort-form. A sort set from
+    // outside before firstUpdated wins. No request or crud-list-sort-changed is dispatched.
+    applyInitialSort() {
+        const initialSortField = this.config?.sort?.initialSortField;
+        if (this.sort || !initialSortField) {
+            return;
+        }
+        this.sort = {
+            sortField: initialSortField,
+            sortDirection: this.config.sort.initialSortDirection || 'desc',
+        };
+        // Also set it on the service right away (not only via the template binding), so a
+        // manual refresh() issued before the next render already includes it.
+        this.elservice.sort = this.sort;
     }
 
     willUpdate(changedProperties) {

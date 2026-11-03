@@ -44,7 +44,7 @@ Use the component.
 | `pageSize` | `Number` | `10` | The number of items to display per page. Overridden by `config.pageSize.initial` when it is configured. |
 | `keyword` | `String` | `""` | The search keyword used to filter the items in the list. |
 | `isSelectAllActive` | `Boolean` | `false` | Indicates whether the "select all" feature is active. |
-| `sort` | `Object` | `undefined` | The sorting configuration, defining how the items should be ordered. |
+| `sort` | `Object` | `undefined` | The current sort, as `{ sortField, sortDirection }`. If it is not set before the first render, it is initialized from `config.sort.initialSortField` and `config.sort.initialSortDirection` (default `'desc'`), so the first request is already sorted. This initialization does not dispatch `crud-list-sort-changed`. |
 | `actionIds` | `Array` | `[]` | The IDs of the selected items for batch actions. |
 | `filters` | `Array` | `[]` | The filters applied to the list to refine the displayed items. |
 | `belongsTo` | `String` | `undefined` | The name of the parent resource used to scope the listed records (sent to the backend together with `relationId`). It can be changed at any time: the list reloads automatically from the first page. |

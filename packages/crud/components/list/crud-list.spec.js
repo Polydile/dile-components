@@ -453,3 +453,95 @@ describe('dile-crud-list scope changes and page reset', () => {
     expect(requests).toHaveLength(2);
   });
 });
+
+describe('dile-crud-list initial sort from config', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  function buildConfig(sort) {
+    return new CrudConfigBuilder('https://example.test/api/countries', {
+      templates: { item: (item) => html`<span>${item.name}</span>` },
+      sort,
+    }).getConfig();
+  }
+
+  // Mounts the list and intercepts outgoing requests before the (delayed) first one fires.
+  async function mountList(el) {
+    const sortEvents = [];
+    el.addEventListener('crud-list-sort-changed', (e) => sortEvents.push(e.detail));
+    document.body.appendChild(el);
+    await el.updateComplete;
+    await el.elservice.updateComplete;
+    const requests = [];
+    const ajax = el.elservice.ajaxget;
+    ajax.generateRequest = () => requests.push({ url: ajax.url, data: ajax.data });
+    return { requests, sortEvents };
+  }
+
+  it('sends initialSortField and initialSortDirection in the first request', async () => {
+    const el = document.createElement('dile-crud-list');
+    el.config = buildConfig({ options: [], initialSortField: 'name', initialSortDirection: 'asc' });
+    const { requests, sortEvents } = await mountList(el);
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('name');
+    expect(requests[0].data.sortDirection).toBe('asc');
+    expect(el.sort).toEqual({ sortField: 'name', sortDirection: 'asc' });
+    expect(sortEvents).toHaveLength(0);
+  });
+
+  it('defaults the initial direction to "desc" when initialSortDirection is not set', async () => {
+    const el = document.createElement('dile-crud-list');
+    el.config = buildConfig({ options: [], initialSortField: 'name' });
+    const { requests } = await mountList(el);
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('name');
+    expect(requests[0].data.sortDirection).toBe('desc');
+  });
+
+  it('sends no sort when initialSortField is not configured', async () => {
+    const el = document.createElement('dile-crud-list');
+    el.config = buildConfig({ options: [], initialSortField: null });
+    const { requests } = await mountList(el);
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBeUndefined();
+    expect(requests[0].data.sortDirection).toBeUndefined();
+    expect(el.sort).toBeUndefined();
+  });
+
+  it('does not overwrite a sort set from outside before firstUpdated', async () => {
+    const el = document.createElement('dile-crud-list');
+    el.config = buildConfig({ options: [], initialSortField: 'name', initialSortDirection: 'asc' });
+    el.sort = { sortField: 'population', sortDirection: 'desc' };
+    const { requests } = await mountList(el);
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('population');
+    expect(requests[0].data.sortDirection).toBe('desc');
+  });
+
+  it('respects disableLoadOnStart and applies the initial sort to a later manual refresh()', async () => {
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = buildConfig({ options: [], initialSortField: 'name' });
+    const { requests } = await mountList(el);
+    el.elservice.delayTime = 10;
+    await wait(300);
+    expect(requests).toHaveLength(0);
+
+    el.refresh();
+    await wait(50);
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.sortField).toBe('name');
+    expect(requests[0].data.sortDirection).toBe('desc');
+  });
+});
