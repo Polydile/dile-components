@@ -411,6 +411,8 @@ Detects the edges with the neural detector. The ML files are served from this si
     accept: 'Aceptar',
     cancel: 'Cancelar',
     confirm: 'Guardar documento',
+    rotate: 'Rotar',
+    adjust: 'Recortar',
     processing: 'Procesando…',
     filenamePrefix: 'escaneo',
   };
