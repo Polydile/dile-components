@@ -69,6 +69,8 @@ Photos are reduced to 3000 px on their longest side when read (iOS limits the ar
 | `labels` | `Object` | `{}` | Partial object merged with the default texts (see [Labels](#labels)). Property only, no attribute. |
 | `mlDetector` | `Boolean` | `false` | Detects the edges with scanic's neural detector (see [ML detector](#ml-detector)). Exposed via `ml-detector`. |
 | `mlAssetsUrl` | `String` | `""` | Base URL of a self-hosted copy of the `scanic-ml` files. Empty: they are downloaded from jsDelivr. Exposed via `ml-assets-url`. |
+| `mlMaxWait` | `Number` | `5000` | Maximum time in milliseconds a photo waits for the ML detector while it downloads (`0`: no limit). After it, the classical detector is used for that photo and the download goes on (see [Slow connections](#ml-slow-connections)). Exposed via `ml-max-wait`. |
+| `mlFastConnectionOnly` | `Boolean` | `false` | Does not download the ML detector when the browser reports a slow connection, unless it is already cached (see [Slow connections](#ml-slow-connections)). Exposed via `ml-fast-connection-only`. |
 
 ### Size limit
 
@@ -132,7 +134,7 @@ With `ml-detector`, the edges are detected first with scanic's neural detector a
 The ML detector is **optional and off by default**. Its weight depends on whether you use it:
 
 - **Without `ml-detector`** (default): your users download nothing of the ML detector. Its code is in separate chunks of scanic that are never requested.
-- **With `ml-detector`**: the browser downloads about 2.2 MB the first time the scanner is opened. The download starts in the background when `open()` is called, so the detector is usually ready when the first photo arrives. If the photo comes first, its detection waits for the download.
+- **With `ml-detector`**: the browser downloads about 2.2 MB the first time the scanner is opened. The download starts in the background when `open()` is called, so the detector is usually ready when the first photo arrives. If the photo comes first, its detection waits for the download up to `ml-max-wait` (5 seconds by default) and then uses the classical detector (see [Slow connections](#ml-slow-connections)).
 - **In `node_modules`**: 3.5 MB always, because `@dile/scanner` installs `scanic-ml` as a dependency so you can self-host the files. It is only disk space in your project.
 - **In your build**: nothing, unless you add the [Vite plugin](#self-hosting-the-ml-files-with-vite), which copies the 3.5 MB of files to the output folder (not to your JavaScript bundle).
 
@@ -198,6 +200,21 @@ The server must send the `.mjs` file with a JavaScript content type (`text/javas
 
 > **Note:** When building with Vite you will see the warning `new URL("ort.wasm.min.mjs", import.meta.url) doesn't exist at build time`. It is harmless: it comes from scanic's ML loader, which resolves that path at runtime.
 
+### Slow connections {#ml-slow-connections}
+
+Downloading 2.2 MB takes about a second on a fast connection, but from 10 to 45 seconds on a mobile 3G. Two properties keep the user from waiting for it:
+
+- **`ml-max-wait`** (milliseconds, `5000` by default): the longest time a photo waits for the ML detector. When it is not ready by then, that photo uses the classical detector and the user can go on (adjusting the corners if needed). The download is not cancelled: it goes on in the background, so later photos use the ML detector as soon as it is ready and, in a [PWA](#pwa), it stays cached for the next time. `0` waits with no limit.
+- **`ml-fast-connection-only`**: when the browser reports a slow connection (`effectiveType` `slow-2g`, `2g` or `3g`) or the user enabled data saving (`saveData`), the ML files are not downloaded and the classical detector is used. If they are already in the Cache Storage (for example cached by the [service worker of a PWA](#pwa)) they are used anyway, because nothing has to be downloaded. The decision is taken again each time the scanner opens.
+
+```html
+<dile-scanner ml-detector ml-fast-connection-only ml-max-wait="3000"></dile-scanner>
+```
+
+> **Note:** The connection is read from the [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API) (`navigator.connection`), which only Chromium browsers support (Chrome, Edge, Samsung Internet, Chrome for Android). In Safari (including every browser on iOS) and Firefox the connection is unknown, so `ml-fast-connection-only` does not skip the download there: `ml-max-wait` is what protects those users.
+
+> **Note:** Only the Cache Storage can be checked, not the HTTP cache of the browser. Without a service worker that caches the files, `ml-fast-connection-only` skips the ML detector on every slow connection, even if the browser downloaded the files before.
+
 ## Using it in a PWA {#pwa}
 
 In a PWA you can keep the ML files in the user's device so they are downloaded only once: the first time the scanner is opened, not when the app is installed. Every request of the ML detector (the model and the `.wasm` file with `fetch()`, the `.mjs` file with `import()`) goes through the service worker, so a runtime caching rule is enough.
@@ -238,7 +255,8 @@ export default defineConfig({
 - **Don't precache them.** Each file is under 2 MiB, the default size limit of Workbox precaching, so if your `globPatterns` match `.wasm` or `.ort` files the app would download 3.5 MB when it is installed. `globIgnores` avoids it. The default patterns (`js,css,html`) don't match them.
 - **Versions.** The files keep their names between `scanic-ml` versions, but the folder of the Vite plugin includes the version. After an update the new files have new URLs and `maxEntries: 3` removes the old ones from the cache. Without it, a `CacheFirst` rule with fixed URLs would keep serving the old model next to a new runtime.
 - **Offline.** If the user opens the scanner for the first time without network, the ML detector fails and the classical one is used, with no error. The ML files are downloaded again the next time the scanner is opened.
-- **The rest of the scanner.** The JavaScript chunks of scanic and jsPDF (about 43 KB and 129 KB with gzip) are regular chunks of your build, so the default `globPatterns` precache them and the scanner also works offline.
+- **The rest of the scanner.** The JavaScript chunks of scanic and jsPDF (about 43 KB and 129 KB with gzip) are regular chunks of your build, so the default `globPatterns` precache them and the scanner also works offline. If your app does not precache its chunks (empty `globPatterns`, only runtime caching), they are cached by your runtime rule for JavaScript the first time the scanner is used, and the scanner works offline only after that. In that case `globIgnores` is not needed either.
+- **Slow connections.** The cache is what makes `ml-fast-connection-only` useful in a PWA: the first download needs a good connection, but after it the ML detector is used on any connection. See [Slow connections](#ml-slow-connections).
 - **Storage.** Browsers can evict the cache when the device is low on space. To make it less likely you can ask for persistent storage with `navigator.storage.persist()`.
 - With files served from jsDelivr (no `ml-assets-url`) the rule needs the jsDelivr URL instead. Self-hosting them is recommended in a PWA.
 

@@ -53,7 +53,9 @@ const SIZE_FALLBACKS = [
 // them, rotate them, adjust them again and remove them. With "ml-detector"
 // the edges are detected with scanic's neural detector (about 2.2 MB
 // downloaded with gzip the first time the scanner opens) instead of the
-// classical one; off by default.
+// classical one; off by default. A photo waits for that download at most
+// "ml-max-wait" ms, and "ml-fast-connection-only" skips it on slow
+// connections.
 //
 // It does not upload anything: when the user saves, it dispatches
 // "dile-document-scanned" with the files and closes. Closing it without saving
@@ -357,6 +359,19 @@ export class DileScanner extends LitElement {
        * ONNX runtime). Empty: they are downloaded from jsDelivr.
        */
       mlAssetsUrl: { type: String, attribute: "ml-assets-url" },
+      /**
+       * Maximum time in milliseconds a photo waits for the ML detector while
+       * it downloads (0 means no limit). When it is not ready, the classical
+       * detector is used for that photo and the download goes on in the
+       * background.
+       */
+      mlMaxWait: { type: Number, attribute: "ml-max-wait" },
+      /**
+       * Does not download the ML detector when the browser reports a slow
+       * connection (2G, 3G or data saver), unless it is already in the cache
+       * (Cache Storage). The classical detector is used instead.
+       */
+      mlFastConnectionOnly: { type: Boolean, attribute: "ml-fast-connection-only" },
       _step: { type: String, state: true },
       _pages: { type: Array, state: true },
       _busy: { type: Boolean, state: true },
@@ -376,6 +391,8 @@ export class DileScanner extends LitElement {
     this.labels = {};
     this.mlDetector = false;
     this.mlAssetsUrl = "";
+    this.mlMaxWait = 5000;
+    this.mlFastConnectionOnly = false;
     this._step = "capture";
     this._pages = [];
     this._busy = false;
@@ -396,6 +413,15 @@ export class DileScanner extends LitElement {
     return { ...DEFAULT_LABELS, ...this.labels };
   }
 
+  get _engineOptions() {
+    return {
+      ml: this.mlDetector,
+      mlAssetsUrl: this.mlAssetsUrl,
+      mlMaxWait: this.mlMaxWait,
+      mlFastConnectionOnly: this.mlFastConnectionOnly,
+    };
+  }
+
   get _modal() {
     return this.shadowRoot.getElementById("modal");
   }
@@ -404,7 +430,7 @@ export class DileScanner extends LitElement {
   open() {
     this._reset();
     this._saved = false;
-    preloadEngine({ ml: this.mlDetector, mlAssetsUrl: this.mlAssetsUrl });
+    preloadEngine(this._engineOptions);
     this._modal.open();
   }
 
@@ -697,10 +723,7 @@ export class DileScanner extends LitElement {
     }
     try {
       const [corners, sourceBlob] = await Promise.all([
-        detectCorners(canvas, {
-          ml: this.mlDetector,
-          mlAssetsUrl: this.mlAssetsUrl,
-        }).catch(() => null),
+        detectCorners(canvas, this._engineOptions).catch(() => null),
         canvasToBlob(canvas, "image/jpeg", SOURCE_QUALITY),
       ]);
       if (session !== this._session) {
