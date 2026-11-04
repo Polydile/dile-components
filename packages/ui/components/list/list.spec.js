@@ -7,16 +7,31 @@ describe('dile-list', () => {
     document.body.innerHTML = '';
   });
 
-  async function renderList(template) {
+  async function renderList(template, selector = 'dile-list') {
     document.body.innerHTML = template;
-    const el = document.body.querySelector('dile-list');
+    const el = document.body.querySelector(selector);
     await el.updateComplete;
-    const items = el.querySelectorAll('dile-list-item');
+    const items = document.body.querySelectorAll('dile-list-item');
     for (const item of items) {
       await item.updateComplete;
     }
     return el;
   }
+
+  async function settle(el) {
+    await el.updateComplete;
+    for (const item of el.querySelectorAll('dile-list-item')) {
+      await item.updateComplete;
+    }
+  }
+
+  function key(target, keyName, type = 'keydown') {
+    const ev = new KeyboardEvent(type, { key: keyName, bubbles: true, composed: true, cancelable: true });
+    target.dispatchEvent(ev);
+    return ev;
+  }
+
+  const inner = (item) => item.shadowRoot.querySelector('.item');
 
   it('renders default slot content and defaults to role="list"', async () => {
     const el = await renderList(`
@@ -41,25 +56,111 @@ describe('dile-list', () => {
     `);
 
     const items = el.querySelectorAll('dile-list-item');
-    expect(items[0].density).toBe('compact');
-    expect(items[0].clickable).toBe(true);
-    expect(items[0].divider).toBe('inset');
-    expect(items[1].density).toBe('compact');
-    expect(items[1].clickable).toBe(true);
-    expect(items[1].divider).toBe('inset');
+    for (const item of items) {
+      expect(item.density).toBe('compact');
+      expect(item.clickable).toBe(true);
+      expect(item.divider).toBe('inset');
+    }
   });
 
-  it('propagates disabled state to child items', async () => {
+  it('propagates a boolean divider attribute as a full divider', async () => {
+    const el = await renderList(`
+      <dile-list divider>
+        <dile-list-item>Item A</dile-list-item>
+        <dile-list-item>Item B</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+    expect(getComputedStyle(items[0]).borderBottomWidth).toBe('1px');
+    // The last item never shows its divider
+    expect(getComputedStyle(items[1]).borderBottomWidth).toBe('0px');
+  });
+
+  it('does not add dividers when the list does not define them', async () => {
+    const el = await renderList(`
+      <dile-list>
+        <dile-list-item>Item A</dile-list-item>
+        <dile-list-item>Item B</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+    expect(getComputedStyle(items[0]).borderBottomWidth).toBe('0px');
+  });
+
+  it('keeps presentational values defined on the item itself', async () => {
+    const el = await renderList(`
+      <dile-list density="compact" divider="full">
+        <dile-list-item density="spacious" divider="inset">Own values</dile-list-item>
+        <dile-list-item>Inherited values</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+    expect(items[0].density).toBe('spacious');
+    expect(items[0].divider).toBe('inset');
+    expect(getComputedStyle(inner(items[0])).paddingTop).toBe('20px');
+    expect(items[1].density).toBe('compact');
+    expect(items[1].divider).toBe('full');
+  });
+
+  it('propagates and restores the disabled state of child items', async () => {
     const el = await renderList(`
       <dile-list disabled>
         <dile-list-item>Item 1</dile-list-item>
-        <dile-list-item>Item 2</dile-list-item>
+        <dile-list-item disabled>Item 2</dile-list-item>
       </dile-list>
     `);
 
     const items = el.querySelectorAll('dile-list-item');
     expect(items[0].disabled).toBe(true);
     expect(items[1].disabled).toBe(true);
+
+    el.disabled = false;
+    await settle(el);
+    expect(items[0].disabled).toBe(false);
+    // Item 2 was disabled on its own
+    expect(items[1].disabled).toBe(true);
+  });
+
+  it('restores clickable and cascaded values when the list releases them', async () => {
+    const el = await renderList(`
+      <dile-list selection="single" density="compact">
+        <dile-list-item value="a">A</dile-list-item>
+      </dile-list>
+    `);
+    const item = el.querySelector('dile-list-item');
+    expect(item.clickable).toBe(true);
+    expect(item.getAttribute('role')).toBe('option');
+
+    el.selection = 'none';
+    el.density = undefined;
+    await settle(el);
+    expect(item.clickable).toBe(false);
+    expect(item.density).toBe(undefined);
+    expect(item.getAttribute('role')).toBe('listitem');
+    expect(item.hasAttribute('aria-selected')).toBe(false);
+  });
+
+  it('applies cascaded properties to items added dynamically and updates the empty state', async () => {
+    const el = await renderList(`
+      <dile-list clickable density="compact" empty-text="Nothing here"></dile-list>
+    `);
+    const empty = el.shadowRoot.querySelector('.empty-container');
+    expect(empty.hasAttribute('hidden')).toBe(false);
+
+    const item = document.createElement('dile-list-item');
+    item.textContent = 'New';
+    el.appendChild(item);
+    await new Promise((r) => setTimeout(r));
+    await settle(el);
+
+    expect(item.clickable).toBe(true);
+    expect(item.density).toBe('compact');
+    expect(empty.hasAttribute('hidden')).toBe(true);
+
+    item.remove();
+    await new Promise((r) => setTimeout(r));
+    await el.updateComplete;
+    expect(empty.hasAttribute('hidden')).toBe(false);
   });
 
   it('handles single selection mode with role="listbox" and role="option"', async () => {
@@ -73,29 +174,71 @@ describe('dile-list', () => {
     expect(el.getAttribute('role')).toBe('listbox');
     const items = el.querySelectorAll('dile-list-item');
     expect(items[0].getAttribute('role')).toBe('option');
-    expect(items[1].getAttribute('role')).toBe('option');
+    expect(items[0].getAttribute('aria-selected')).toBe('false');
 
     let changeDetail = null;
     el.addEventListener('dile-list-change', (e) => {
       changeDetail = e.detail;
     });
 
-    items[0].dispatchEvent(new CustomEvent('dile-list-item-click', { bubbles: true, composed: true, detail: { item: items[0], value: 'alpha' } }));
-    await el.updateComplete;
+    inner(items[0]).click();
+    await settle(el);
 
     expect(el.value).toBe('alpha');
     expect(items[0].selected).toBe(true);
+    expect(items[0].getAttribute('aria-selected')).toBe('true');
     expect(items[1].selected).toBe(false);
     expect(changeDetail.value).toBe('alpha');
+    expect(changeDetail.selectedItem).toBe(items[0]);
 
-    // Switch selection to beta
-    items[1].dispatchEvent(new CustomEvent('dile-list-item-click', { bubbles: true, composed: true, detail: { item: items[1], value: 'beta' } }));
-    await el.updateComplete;
+    inner(items[1]).click();
+    await settle(el);
 
     expect(el.value).toBe('beta');
     expect(items[0].selected).toBe(false);
     expect(items[1].selected).toBe(true);
     expect(changeDetail.value).toBe('beta');
+  });
+
+  it('does not dispatch dile-list-change when clicking the already selected item', async () => {
+    const el = await renderList(`
+      <dile-list selection="single" value="a">
+        <dile-list-item value="a">A</dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+      </dile-list>
+    `);
+    let count = 0;
+    el.addEventListener('dile-list-change', () => count++);
+    const items = el.querySelectorAll('dile-list-item');
+
+    inner(items[0]).click();
+    await settle(el);
+    expect(count).toBe(0);
+
+    inner(items[1]).click();
+    await settle(el);
+    inner(items[1]).click();
+    await settle(el);
+    expect(count).toBe(1);
+  });
+
+  it('selects with Enter and Space on the focused option', async () => {
+    const el = await renderList(`
+      <dile-list selection="single">
+        <dile-list-item value="a">A</dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+
+    key(items[1], 'Enter');
+    await settle(el);
+    expect(el.value).toBe('b');
+
+    key(items[0], ' ');
+    key(items[0], ' ', 'keyup');
+    await settle(el);
+    expect(el.value).toBe('a');
   });
 
   it('selects item when setting value programmatically in single selection', async () => {
@@ -133,9 +276,9 @@ describe('dile-list', () => {
     expect(el.getAttribute('aria-multiselectable')).toBe('true');
     const items = el.querySelectorAll('dile-list-item');
 
-    items[0].dispatchEvent(new CustomEvent('dile-list-item-click', { bubbles: true, composed: true, detail: { item: items[0], value: 'opt1' } }));
-    items[2].dispatchEvent(new CustomEvent('dile-list-item-click', { bubbles: true, composed: true, detail: { item: items[2], value: 'opt3' } }));
-    await el.updateComplete;
+    inner(items[0]).click();
+    inner(items[2]).click();
+    await settle(el);
 
     expect(items[0].selected).toBe(true);
     expect(items[1].selected).toBe(false);
@@ -143,9 +286,31 @@ describe('dile-list', () => {
     expect(el.value).toEqual(['opt1', 'opt3']);
   });
 
-  it('manages roving tabindex with arrow keys', async () => {
+  it('accepts multiple values as a JSON array or a comma separated attribute', async () => {
+    let el = await renderList(`
+      <dile-list selection="multiple" value='["a", "c"]'>
+        <dile-list-item value="a">A</dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+        <dile-list-item value="c">C</dile-list-item>
+      </dile-list>
+    `);
+    let items = el.querySelectorAll('dile-list-item');
+    expect([...items].map((i) => i.selected)).toEqual([true, false, true]);
+
+    el = await renderList(`
+      <dile-list selection="multiple" value="a, b">
+        <dile-list-item value="a">A</dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+        <dile-list-item value="c">C</dile-list-item>
+      </dile-list>
+    `);
+    items = el.querySelectorAll('dile-list-item');
+    expect([...items].map((i) => i.selected)).toEqual([true, true, false]);
+  });
+
+  it('manages roving tabindex and real focus with arrow keys', async () => {
     const el = await renderList(`
-      <dile-list>
+      <dile-list clickable>
         <dile-list-item value="1">First</dile-list-item>
         <dile-list-item value="2">Second</dile-list-item>
         <dile-list-item value="3" disabled>Third (Disabled)</dile-list-item>
@@ -154,30 +319,111 @@ describe('dile-list', () => {
     `);
 
     const items = el.querySelectorAll('dile-list-item');
-    expect(items[0].itemTabindex).toBe(0);
-    expect(items[1].itemTabindex).toBe(-1);
-    expect(items[2].itemTabindex).toBe(-1);
-    expect(items[3].itemTabindex).toBe(-1);
+    const tabindexes = () => [...items].map((i) => inner(i).getAttribute('tabindex'));
+    expect(tabindexes()).toEqual(['0', '-1', '-1', '-1']);
 
-    // Press ArrowDown -> moves to items[1]
-    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
-    await el.updateComplete;
+    items[0].focus();
+    key(inner(items[0]), 'ArrowDown');
+    await settle(el);
+    expect(tabindexes()).toEqual(['-1', '0', '-1', '-1']);
+    expect(items[1].shadowRoot.activeElement).toBe(inner(items[1]));
 
-    expect(items[0].itemTabindex).toBe(-1);
-    expect(items[1].itemTabindex).toBe(0);
+    // Skips the disabled item
+    key(inner(items[1]), 'ArrowDown');
+    await settle(el);
+    expect(tabindexes()).toEqual(['-1', '-1', '-1', '0']);
+    expect(items[3].shadowRoot.activeElement).toBe(inner(items[3]));
 
-    // Press ArrowDown again -> skips disabled items[2], lands on items[3]
-    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
-    await el.updateComplete;
+    key(inner(items[3]), 'Home');
+    await settle(el);
+    expect(tabindexes()).toEqual(['0', '-1', '-1', '-1']);
 
-    expect(items[1].itemTabindex).toBe(-1);
-    expect(items[3].itemTabindex).toBe(0);
+    key(inner(items[0]), 'End');
+    await settle(el);
+    expect(tabindexes()).toEqual(['-1', '-1', '-1', '0']);
+  });
 
-    // Press Home -> lands back on items[0]
-    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
-    await el.updateComplete;
+  it('moves real focus between options in a listbox and supports select-on-focus', async () => {
+    const el = await renderList(`
+      <dile-list selection="single" select-on-focus>
+        <dile-list-item value="a">A</dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+    expect(items[0].getAttribute('tabindex')).toBe('0');
+    expect(items[1].getAttribute('tabindex')).toBe('-1');
 
-    expect(items[0].itemTabindex).toBe(0);
+    items[0].focus();
+    key(items[0], 'ArrowDown');
+    await settle(el);
+    expect(document.activeElement).toBe(items[1]);
+    expect(el.value).toBe('b');
+    expect(items[1].getAttribute('aria-selected')).toBe('true');
+  });
+
+  it('does not intercept arrow keys when items are not interactive', async () => {
+    const el = await renderList(`
+      <dile-list>
+        <dile-list-item>A</dile-list-item>
+        <dile-list-item>B</dile-list-item>
+      </dile-list>
+    `);
+    const ev = key(inner(el.querySelector('dile-list-item')), 'ArrowDown');
+    expect(ev.defaultPrevented).toBe(false);
+  });
+
+  it('does not intercept navigation keys pressed on controls inside items', async () => {
+    const el = await renderList(`
+      <dile-list selection="single">
+        <dile-list-item value="a">A <input slot="suffix" id="field"></dile-list-item>
+        <dile-list-item value="b">B</dile-list-item>
+      </dile-list>
+    `);
+    const field = el.querySelector('#field');
+    expect(key(field, 'Home').defaultPrevented).toBe(false);
+    expect(key(field, 'ArrowDown').defaultPrevented).toBe(false);
+  });
+
+  it('allows disabling keyboard navigation with navigable="false"', async () => {
+    const el = await renderList(`
+      <dile-list clickable navigable="false">
+        <dile-list-item>A</dile-list-item>
+        <dile-list-item>B</dile-list-item>
+      </dile-list>
+    `);
+    expect(el.navigable).toBe(false);
+    const items = el.querySelectorAll('dile-list-item');
+    expect(inner(items[0]).getAttribute('tabindex')).toBe('0');
+    expect(inner(items[1]).getAttribute('tabindex')).toBe('0');
+    expect(key(inner(items[0]), 'ArrowDown').defaultPrevented).toBe(false);
+
+    el.navigable = true;
+    await settle(el);
+    expect(inner(items[1]).getAttribute('tabindex')).toBe('-1');
+  });
+
+  it('only manages its direct child items, ignoring nested lists', async () => {
+    const el = await renderList(`
+      <dile-list id="outer" selection="single">
+        <dile-list-item value="a">
+          A
+          <dile-list id="inner" selection="single">
+            <dile-list-item value="x">X</dile-list-item>
+          </dile-list>
+        </dile-list-item>
+      </dile-list>
+    `, '#outer');
+    const innerList = el.querySelector('#inner');
+    await innerList.updateComplete;
+    const nestedItem = innerList.querySelector('dile-list-item');
+
+    expect(el.getItems().length).toBe(1);
+
+    inner(nestedItem).click();
+    await settle(el);
+    expect(innerList.value).toBe('x');
+    expect(el.value).toBe(undefined);
   });
 
   it('shows empty state when list has no items', async () => {
@@ -189,6 +435,11 @@ describe('dile-list', () => {
     const emptyContainer = el.shadowRoot.querySelector('.empty-container');
     expect(emptyContainer.hasAttribute('hidden')).toBe(false);
     expect(emptyContainer.textContent).toContain('No records found');
+  });
+
+  it('falls back to a default empty text', async () => {
+    const el = await renderList('<dile-list></dile-list>');
+    expect(el.shadowRoot.querySelector('.empty-container').textContent).toContain('No items available');
   });
 
   it('hides empty state when items are present', async () => {
@@ -214,5 +465,12 @@ describe('dile-list', () => {
     expect(loadingOverlay.hasAttribute('hidden')).toBe(false);
     expect(loadingOverlay.querySelector('dile-spinner')).toBeTruthy();
   });
-});
 
+  it('shows the loading indicator when the list is empty', async () => {
+    const el = await renderList('<dile-list loading></dile-list>');
+    const loadingOverlay = el.shadowRoot.querySelector('.loading-overlay');
+    expect(loadingOverlay.getBoundingClientRect().height).toBeGreaterThan(20);
+    expect(el.getBoundingClientRect().height).toBeGreaterThan(20);
+    expect(el.shadowRoot.querySelector('.empty-container').hasAttribute('hidden')).toBe(true);
+  });
+});

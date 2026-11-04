@@ -13,6 +13,12 @@ describe('dile-list-item', () => {
     return el;
   }
 
+  function key(target, type, key) {
+    const ev = new KeyboardEvent(type, { key, bubbles: true, composed: true, cancelable: true });
+    target.dispatchEvent(ev);
+    return ev;
+  }
+
   it('renders the default slot content', async () => {
     const el = await renderListItem('<dile-list-item>Main Content</dile-list-item>');
     const bodySlot = el.shadowRoot.querySelector('.body slot');
@@ -29,6 +35,27 @@ describe('dile-list-item', () => {
   it('preserves a custom role on the host if provided', async () => {
     const el = await renderListItem('<dile-list-item role="menuitem">Item</dile-list-item>');
     expect(el.getAttribute('role')).toBe('menuitem');
+  });
+
+  it('does not render a divider nor noise attributes by default', async () => {
+    const el = await renderListItem('<dile-list-item>Plain</dile-list-item>');
+    expect(el.hasAttribute('divider')).toBe(false);
+    expect(el.hasAttribute('href')).toBe(false);
+    expect(el.hasAttribute('value')).toBe(false);
+    expect(getComputedStyle(el).borderBottomWidth).toBe('0px');
+  });
+
+  it('renders a full divider with the boolean divider attribute and with divider="full"', async () => {
+    const el = await renderListItem('<dile-list-item divider>Item</dile-list-item>');
+    expect(getComputedStyle(el).borderBottomWidth).toBe('1px');
+
+    el.divider = 'none';
+    await el.updateComplete;
+    expect(getComputedStyle(el).borderBottomWidth).toBe('0px');
+
+    el.divider = 'full';
+    await el.updateComplete;
+    expect(getComputedStyle(el).borderBottomWidth).toBe('1px');
   });
 
   it('hides prefix and suffix containers when empty', async () => {
@@ -107,21 +134,33 @@ describe('dile-list-item', () => {
     expect(el.align).toBe('end');
   });
 
+  it('clamps the body to a numeric lines value', async () => {
+    const el = await renderListItem('<dile-list-item lines="3">Content</dile-list-item>');
+    expect(el.style.getPropertyValue('--_lines')).toBe('3');
+    expect(getComputedStyle(el.shadowRoot.querySelector('.body')).webkitLineClamp).toBe('3');
+
+    el.lines = 'auto';
+    await el.updateComplete;
+    expect(el.style.getPropertyValue('--_lines')).toBe('');
+  });
+
   it('supports body-align attribute and aligns body to left by default', async () => {
     const el = await renderListItem('<dile-list-item>Left Body</dile-list-item>');
     const bodyEl = el.shadowRoot.querySelector('.body');
-    const styleDefault = window.getComputedStyle(bodyEl);
-    expect(styleDefault.textAlign).toBe('left');
+    expect(window.getComputedStyle(bodyEl).textAlign).toBe('left');
 
     el.bodyAlign = 'center';
     await el.updateComplete;
-    const styleCenter = window.getComputedStyle(bodyEl);
-    expect(styleCenter.textAlign).toBe('center');
+    expect(window.getComputedStyle(bodyEl).textAlign).toBe('center');
 
     el.bodyAlign = 'right';
     await el.updateComplete;
-    const styleRight = window.getComputedStyle(bodyEl);
-    expect(styleRight.textAlign).toBe('right');
+    expect(window.getComputedStyle(bodyEl).textAlign).toBe('right');
+  });
+
+  it('uses --dile-list-item-text-align when body-align is not set', async () => {
+    const el = await renderListItem('<dile-list-item style="--dile-list-item-text-align: right">Body</dile-list-item>');
+    expect(window.getComputedStyle(el.shadowRoot.querySelector('.body')).textAlign).toBe('right');
   });
 
   it('renders an accessible interactive element when clickable is true', async () => {
@@ -131,16 +170,21 @@ describe('dile-list-item', () => {
     expect(item.getAttribute('role')).toBe('button');
     expect(item.getAttribute('tabindex')).toBe('0');
 
-    let clicked = false;
     let detail = null;
     el.addEventListener('dile-list-item-click', (e) => {
-      clicked = true;
       detail = e.detail;
     });
 
     item.click();
-    expect(clicked).toBe(true);
     expect(detail.item).toBe(el);
+  });
+
+  it('does not dispatch click events when it is not interactive', async () => {
+    const el = await renderListItem('<dile-list-item>Static</dile-list-item>');
+    let clicked = false;
+    el.addEventListener('dile-list-item-click', () => { clicked = true; });
+    el.shadowRoot.querySelector('.item').click();
+    expect(clicked).toBe(false);
   });
 
   it('activates clickable item with Enter and Space keys', async () => {
@@ -150,11 +194,37 @@ describe('dile-list-item', () => {
     let count = 0;
     el.addEventListener('dile-list-item-click', () => { count++; });
 
-    item.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    key(item, 'keydown', 'Enter');
     expect(count).toBe(1);
 
-    item.dispatchEvent(new KeyboardEvent('keyup', { key: ' ', bubbles: true }));
+    key(item, 'keyup', ' ');
     expect(count).toBe(2);
+  });
+
+  it('prevents page scroll when Space is pressed on a clickable item', async () => {
+    const el = await renderListItem('<dile-list-item clickable>Clickable Item</dile-list-item>');
+    const ev = key(el.shadowRoot.querySelector('.item'), 'keydown', ' ');
+    expect(ev.defaultPrevented).toBe(true);
+  });
+
+  it('ignores keys pressed on controls placed inside the item', async () => {
+    const el = await renderListItem(`
+      <dile-list-item clickable>
+        <input id="field">
+        <span slot="suffix">x</span>
+      </dile-list-item>
+    `);
+    let count = 0;
+    el.addEventListener('dile-list-item-click', () => { count++; });
+    const input = el.querySelector('#field');
+
+    const enter = key(input, 'keydown', 'Enter');
+    const space = key(input, 'keydown', ' ');
+    key(input, 'keyup', ' ');
+
+    expect(count).toBe(0);
+    expect(enter.defaultPrevented).toBe(false);
+    expect(space.defaultPrevented).toBe(false);
   });
 
   it('renders an anchor tag when href is set', async () => {
@@ -168,43 +238,95 @@ describe('dile-list-item', () => {
     expect(anchor.getAttribute('tabindex')).toBe('0');
   });
 
+  it('removes the href of the inner anchor when disabled', async () => {
+    const el = await renderListItem('<dile-list-item href="/dashboard" disabled>Dashboard</dile-list-item>');
+    const anchor = el.shadowRoot.querySelector('a.item');
+    expect(anchor.hasAttribute('href')).toBe(false);
+    expect(anchor.getAttribute('aria-disabled')).toBe('true');
+    expect(anchor.getAttribute('tabindex')).toBe('-1');
+  });
+
   it('respects disabled state by preventing interaction', async () => {
     const el = await renderListItem('<dile-list-item clickable disabled>Disabled Item</dile-list-item>');
     const item = el.shadowRoot.querySelector('.item');
 
     expect(item.getAttribute('aria-disabled')).toBe('true');
     expect(item.getAttribute('tabindex')).toBe('-1');
+    expect(getComputedStyle(el).cursor).toBe('not-allowed');
 
     let clicked = false;
     el.addEventListener('dile-list-item-click', () => { clicked = true; });
 
     item.click();
-    item.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-    item.dispatchEvent(new KeyboardEvent('keyup', { key: ' ', bubbles: true }));
+    key(item, 'keydown', 'Enter');
+    key(item, 'keyup', ' ');
 
     expect(clicked).toBe(false);
   });
 
-  it('sets aria-selected when selected is true', async () => {
-    const el = await renderListItem('<dile-list-item selected>Selected Item</dile-list-item>');
+  it('sets aria-current on the inner element when a standalone item is selected', async () => {
+    const el = await renderListItem('<dile-list-item clickable selected>Selected Item</dile-list-item>');
     const item = el.shadowRoot.querySelector('.item');
 
-    expect(item.getAttribute('aria-selected')).toBe('true');
+    expect(item.getAttribute('aria-current')).toBe('true');
+    expect(item.hasAttribute('aria-selected')).toBe(false);
+  });
+
+  it('acts as a focusable option on the host when role="option"', async () => {
+    const el = await renderListItem('<dile-list-item role="option" clickable selected value="a">Option</dile-list-item>');
+    const inner = el.shadowRoot.querySelector('.item');
+
+    expect(el.getAttribute('aria-selected')).toBe('true');
+    expect(el.getAttribute('tabindex')).toBe('0');
+    expect(inner.hasAttribute('role')).toBe(false);
+    expect(inner.hasAttribute('tabindex')).toBe(false);
+    expect(inner.hasAttribute('aria-current')).toBe(false);
+
+    el.selected = false;
+    el.disabled = true;
+    await el.updateComplete;
+    expect(el.getAttribute('aria-selected')).toBe('false');
+    expect(el.getAttribute('aria-disabled')).toBe('true');
+    expect(el.getAttribute('tabindex')).toBe('-1');
+
+    el.disabled = false;
+    await el.updateComplete;
+    el.focus();
+    expect(document.activeElement).toBe(el);
+
+    let count = 0;
+    el.addEventListener('dile-list-item-click', () => { count++; });
+    key(el, 'keydown', 'Enter');
+    expect(count).toBe(1);
+  });
+
+  it('reacts when its role changes after the first render', async () => {
+    const el = await renderListItem('<dile-list-item clickable>Item</dile-list-item>');
+    el.setAttribute('role', 'option');
+    await el.updateComplete;
+    expect(el.shadowRoot.querySelector('.item').hasAttribute('role')).toBe(false);
+    expect(el.getAttribute('tabindex')).toBe('0');
+
+    el.setAttribute('role', 'listitem');
+    await el.updateComplete;
+    expect(el.shadowRoot.querySelector('.item').getAttribute('role')).toBe('button');
+    expect(el.hasAttribute('tabindex')).toBe(false);
+    expect(el.hasAttribute('aria-selected')).toBe(false);
   });
 
   it('supports value property and includes value in click event', async () => {
-    const el = await renderListItem('<dile-list-item value="profile" clickable>Profile</dile-list-item>');
+    const el = await renderListItem('<dile-list-item value="profile" href="/profile" clickable>Profile</dile-list-item>');
     expect(el.value).toBe('profile');
 
     let detail = null;
     el.addEventListener('dile-list-item-click', (e) => {
       detail = e.detail;
     });
+    // Avoid navigating away from the test page
+    el.shadowRoot.querySelector('.item').addEventListener('click', (e) => e.preventDefault());
 
-    const inner = el.shadowRoot.querySelector('.item');
-    inner.click();
-    expect(detail).toBeTruthy();
-    expect(detail.value).toBe('profile');
+    el.shadowRoot.querySelector('.item').click();
+    expect(detail).toEqual({ item: el, value: 'profile', href: '/profile', selected: false });
   });
 
   it('supports itemTabindex and focus() method', async () => {
@@ -230,19 +352,52 @@ describe('dile-list-item', () => {
 
     let itemClicked = false;
     let buttonClicked = false;
-
-    el.addEventListener('dile-list-item-click', () => {
-      itemClicked = true;
-    });
+    el.addEventListener('dile-list-item-click', () => { itemClicked = true; });
 
     const button = el.querySelector('#btn-action');
-    button.addEventListener('click', () => {
-      buttonClicked = true;
-    });
-
+    button.addEventListener('click', () => { buttonClicked = true; });
     button.click();
 
     expect(buttonClicked).toBe(true);
     expect(itemClicked).toBe(false);
+  });
+
+  it('does not trigger list item click from interactive controls in the prefix or body', async () => {
+    const el = await renderListItem(`
+      <dile-list-item clickable>
+        <input type="checkbox" slot="prefix" id="check">
+        <span>Title <a href="#" id="link">link</a></span>
+      </dile-list-item>
+    `);
+
+    let count = 0;
+    el.addEventListener('dile-list-item-click', () => { count++; });
+
+    el.querySelector('#check').click();
+    const link = el.querySelector('#link');
+    link.addEventListener('click', (e) => e.preventDefault());
+    link.click();
+    expect(count).toBe(0);
+
+    el.querySelector('span:not([slot])').click();
+    expect(count).toBe(1);
+  });
+
+  it('does not trigger the click of a parent item when a nested item is clicked', async () => {
+    document.body.innerHTML = `
+      <dile-list-item clickable id="parent">
+        Parent
+        <dile-list-item clickable id="child">Child</dile-list-item>
+      </dile-list-item>
+    `;
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+    await parent.updateComplete;
+    await child.updateComplete;
+
+    const received = [];
+    parent.addEventListener('dile-list-item-click', (e) => received.push(e.detail.item.id));
+    child.shadowRoot.querySelector('.item').click();
+    expect(received).toEqual(['child']);
   });
 });

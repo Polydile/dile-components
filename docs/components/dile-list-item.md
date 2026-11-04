@@ -89,8 +89,8 @@ Slot | Description
   <dile-list-item divider="inset" clickable>
     <div class="avatar" slot="prefix">ML</div>
     <div>
-      <strong>María López</strong>
-      <p style="margin: 0.2rem 0 0; color: #64748b; font-size: 0.85rem;">Te ha enviado un mensaje</p>
+      <strong>Maria Lopez</strong>
+      <p style="margin: 0.2rem 0 0; color: #64748b; font-size: 0.85rem;">Sent you a message</p>
     </div>
     <span slot="suffix" class="badge">1</span>
   </dile-list-item>
@@ -104,20 +104,20 @@ Slot | Description
 
 Property | Attribute | Type | Default | Description
 ---------|-----------|------|---------|------------
-`density` | `density` | String | `'comfortable'` | Controls vertical padding and gap: `'compact'`, `'comfortable'`, or `'spacious'`.
-`lines` | `lines` | String / Number | `'auto'` | Automatically truncates body text with ellipsis at N lines (`'1'`, `'2'`, or number).
-`align` | `align` | String | `'center'` | Vertical alignment of prefix/suffix relative to content: `'center'`, `'start'`, or `'end'`.
-`bodyAlign` | `body-align` | String | `'left'` | Text alignment of the body content: `'left'`, `'center'`, or `'right'`.
-`divider` | `divider` | String / Boolean | `''` | Bottom separator line: `'full'`, `'inset'`, or boolean (`true` / `""` = full).
+`density` | `density` | String | `undefined` | Controls vertical padding and gap: `'compact'`, `'comfortable'`, or `'spacious'`. When unset, it behaves as `'comfortable'`.
+`lines` | `lines` | String / Number | `undefined` | Automatically truncates body text with ellipsis at N lines (`'1'`, `'2'`, or number). When unset or `'auto'`, text is not truncated.
+`align` | `align` | String | `undefined` | Vertical alignment of prefix/suffix relative to content: `'center'`, `'start'`, or `'end'`. When unset, it behaves as `'center'`.
+`bodyAlign` | `body-align` | String | `undefined` | Text alignment of the body content: `'left'`, `'center'`, or `'right'`. When unset, the `--dile-list-item-text-align` custom property is used (`left` by default).
+`divider` | `divider` | String | `undefined` | Bottom separator line: `'full'`, `'inset'` or `'none'`. The boolean attribute `divider` is the same as `'full'`. When unset, there is no divider.
 `clickable` | `clickable` | Boolean | `false` | Enables interactive button mode (`cursor: pointer`, hover/active states, `role="button"`, `Enter`/`Space` activation).
-`href` | `href` | String | `''` | Destination URL. When defined, renders an accessible native `<a>` tag inside.
+`href` | `href` | String | `undefined` | Destination URL. When defined, renders an accessible native `<a>` tag inside (without `href` while the item is disabled).
 `target` | `target` | String | `undefined` | Target frame for the link (e.g. `'_blank'`).
 `iconPrefix` | `icon-prefix` | String | `''` | `@dile/iconlib` icon identifier for the prefix slot in `"family.name"` format.
-`iconSuffix` *(alias `iconSufix`)* | `icon-suffix` | String | `''` | `@dile/iconlib` icon identifier for the suffix slot in `"family.name"` format.
+`iconSuffix` | `icon-suffix` | String | `''` | `@dile/iconlib` icon identifier for the suffix slot in `"family.name"` format.
 `disabled` | `disabled` | Boolean | `false` | Disables interaction, applies `aria-disabled="true"`, and sets `tabindex="-1"`.
-`selected` | `selected` | Boolean | `false` | Sets `aria-selected="true"` and applies selection highlight styling.
+`selected` | `selected` | Boolean | `false` | Applies selection highlight styling. Exposed as `aria-selected` when the item is an option (inside a list in selection mode), or as `aria-current="true"` otherwise.
 `expanded` | `expanded` | Boolean | `undefined` | Reflects `aria-expanded` when the item acts as a disclosure trigger.
-`value` | `value` | String | `''` | Value associated with the list item (used by `<dile-list>` for selection).
+`value` | `value` | String | `undefined` | Value associated with the list item (used by `<dile-list>` for selection).
 `itemTabindex` | `item-tabindex` | Number | `0` | Inner focusable element `tabindex` (managed by `<dile-list>` for roving tabindex).
 
 ## Density & Alignment
@@ -136,7 +136,7 @@ Property | Attribute | Type | Default | Description
 </div>
 ```
 
-The `align` attribute (`start`, `center`, `end`) sets the **vertical alignment of the prefix and suffix elements** without affecting the body content, which remains aligned to the left:
+The `align` attribute (`start`, `center`, `end`) sets the **vertical alignment of the prefix and suffix elements** without affecting the body content, whose horizontal alignment is controlled separately with `body-align`:
 
 ```html:preview
 <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; max-width: 500px;">
@@ -188,10 +188,17 @@ Truncate text automatically using `lines="1"` or `lines="2"`:
 
 Event | Detail | Description
 ------|--------|------------
-`dile-list-item-click` | `{ item: DileListItem, href: string, selected: boolean }` | Dispatched when an enabled interactive item (`clickable` or `href`) is clicked or activated by keyboard (<kbd>Enter</kbd> / <kbd>Space</kbd>).
+`dile-list-item-click` | `{ item: DileListItem, value: string, href: string, selected: boolean }` | Dispatched when an enabled interactive item (`clickable`, `href`, or an option inside a selection list) is clicked or activated by keyboard (<kbd>Enter</kbd> / <kbd>Space</kbd>).
 
 > [!TIP]
-> **Secondary Action Isolation**: Clicks on interactive controls inside `slot="suffix"` (such as `<button>`, `<input>`, or `<a>`) do **not** trigger `dile-list-item-click` on the parent item.
+> **Secondary Action Isolation**: Clicks and keys on interactive controls placed anywhere inside the item (prefix, body or suffix), such as `<button>`, `<input>`, `<label>`, `<a>`, elements with `tabindex` or an interactive `role`, or nested `<dile-list-item>` elements, do **not** trigger `dile-list-item-click` on the parent item. Those controls keep their own behaviour.
+
+## Accessibility
+
+- By default the host has `role="listitem"`. A `clickable` item renders an inner element with `role="button"` that receives the focus; an item with `href` renders a native link.
+- When the host role is `option` or `menuitem` (assigned automatically by `<dile-list>` in selection mode, or set by you), the host itself becomes the focusable element and carries `aria-selected` (options), `aria-disabled`, `aria-expanded` and `tabindex`.
+- <kbd>Enter</kbd> activates the item. <kbd>Space</kbd> activates it on key release and never scrolls the page.
+- Disabled items are removed from the tab order and expose `aria-disabled="true"`.
 
 ## CSS Shadow Parts
 
@@ -220,21 +227,26 @@ dile-list-item::part(body) {
 Custom Property | Description | Default
 ----------------|-------------|--------
 `--dile-list-item-bg` | Background color | `transparent`
-`--dile-list-item-bg-hover` | Background color on hover | `#f5f5f5`
-`--dile-list-item-bg-active` | Background color on active | `#ebebeb`
+`--dile-list-item-bg-hover` | Background color on hover | `--dile-surface-hover-color` or `#f5f5f5`
+`--dile-list-item-bg-active` | Background color on active | `--dile-surface-active-color` or `#ebebeb`
 `--dile-list-item-bg-selected` | Background color when selected | `#e0f2fe`
 `--dile-list-item-color` | Text color | `inherit`
-`--dile-list-item-selected-text-color` | Text color when selected | `#0369a1`
+`--dile-list-item-selected-text-color` | Text color when selected | `--dile-primary-dark-color` or `#0369a1`
 `--dile-list-item-text-align` | Body text alignment (`left`, `center`, `right`) | `left`
 `--dile-list-item-padding-y` | Vertical padding | `0.75rem` *(varies by density)*
 `--dile-list-item-padding-x` | Horizontal padding | `1rem` *(varies by density)*
 `--dile-list-item-gap` | Gap between slots and content | `0.75rem` *(varies by density)*
-`--dile-list-item-border-radius` *(alias `--item-radius`)* | Border radius | `4px`
+`--dile-list-item-border-radius` | Border radius | `4px`
 `--dile-list-item-divider-color` | Divider border color | `#e5e7eb`
 `--dile-list-item-divider-width` | Divider border width | `1px`
 `--dile-list-item-divider-style` | Divider border style | `solid`
 `--dile-list-item-icon-size` | Size for dile-iconlib icons | `1.25rem`
 `--dile-list-item-icon-color` | Color for dile-iconlib icons | `currentColor`
+`--dile-list-item-selected-icon-color` | Color for dile-iconlib icons when selected | `--dile-list-item-selected-text-color` or `currentColor`
+`--dile-list-item-prefix-align` | Vertical alignment (`align-self`) of the prefix, overriding `align` | *value of `align`*
+`--dile-list-item-suffix-align` | Vertical alignment (`align-self`) of the suffix, overriding `align` | *value of `align`*
+`--dile-list-item-transition-duration` | Duration of background and color transitions | `0.15s`
 `--dile-list-item-disabled-opacity` | Opacity when disabled | `0.5`
 `--dile-list-item-focus-ring-color` | Focus ring outline color | `#0284c7`
 `--dile-list-item-focus-ring-width` | Focus ring outline width | `2px`
+`--dile-list-item-focus-ring-offset` | Focus ring outline offset | `-2px`

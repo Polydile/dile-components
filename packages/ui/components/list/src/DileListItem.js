@@ -2,12 +2,17 @@ import { LitElement, html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '@dile/iconlib/dile-iconlib.js';
 
+const HOST_FOCUS_ROLES = ['option', 'menuitem'];
+const INTERACTIVE_TAGS = ['button', 'input', 'select', 'textarea', 'a', 'label', 'summary', 'dile-list-item'];
+const INTERACTIVE_ROLES = ['button', 'link', 'checkbox', 'switch', 'radio', 'menuitem', 'option', 'tab', 'textbox'];
+
 export class DileListItem extends LitElement {
   static get styles() {
     return css`
       :host {
         display: block;
         box-sizing: border-box;
+        outline: none;
         --_padding-y: var(--dile-list-item-padding-y, 0.75rem);
         --_padding-x: var(--dile-list-item-padding-x, 1rem);
         --_gap: var(--dile-list-item-gap, 0.75rem);
@@ -49,8 +54,6 @@ export class DileListItem extends LitElement {
         --_align: flex-end;
       }
 
-      :host([divider=""]),
-      :host([divider="full"]),
       :host([divider]:not([divider="inset"]):not([divider="none"])) {
         border-bottom: var(--_divider-border);
       }
@@ -61,9 +64,9 @@ export class DileListItem extends LitElement {
         width: 100%;
         margin: 0;
         text-decoration: none;
-        color: var(--dile-list-item-color, var(--dile-list-item-text-color, inherit));
-        background-color: var(--dile-list-item-bg, var(--dile-list-item-background-color, transparent));
-        border-radius: var(--item-radius, var(--dile-list-item-radius, var(--dile-list-item-border-radius, 4px)));
+        color: var(--dile-list-item-color, inherit);
+        background-color: var(--dile-list-item-bg, transparent);
+        border-radius: var(--dile-list-item-border-radius, 4px);
         padding-top: var(--_padding-y);
         padding-bottom: var(--_padding-y);
         padding-left: var(--_padding-x);
@@ -76,7 +79,8 @@ export class DileListItem extends LitElement {
         outline: none;
       }
 
-      .item:focus-visible {
+      .item:focus-visible,
+      :host(:focus-visible) .item {
         outline: var(--dile-list-item-focus-ring-width, 2px) solid var(--dile-list-item-focus-ring-color, #0284c7);
         outline-offset: var(--dile-list-item-focus-ring-offset, -2px);
       }
@@ -89,22 +93,25 @@ export class DileListItem extends LitElement {
 
       :host([clickable]:not([disabled])) .item:hover,
       :host([href]:not([href=""]):not([disabled])) .item:hover {
-        background-color: var(--dile-list-item-bg-hover, var(--dile-list-item-hover-background-color, var(--dile-surface-hover-color, #f5f5f5)));
+        background-color: var(--dile-list-item-bg-hover, var(--dile-surface-hover-color, #f5f5f5));
       }
 
       :host([clickable]:not([disabled])) .item:active,
       :host([href]:not([href=""]):not([disabled])) .item:active {
-        background-color: var(--dile-list-item-bg-active, var(--dile-list-item-active-background-color, var(--dile-surface-active-color, #ebebeb)));
+        background-color: var(--dile-list-item-bg-active, var(--dile-surface-active-color, #ebebeb));
       }
 
       :host([selected]) .item {
-        background-color: var(--dile-list-item-bg-selected, var(--dile-list-item-selected-background-color, #e0f2fe));
+        background-color: var(--dile-list-item-bg-selected, #e0f2fe);
         color: var(--dile-list-item-selected-text-color, var(--dile-primary-dark-color, #0369a1));
       }
 
       :host([disabled]) {
         opacity: var(--dile-list-item-disabled-opacity, 0.5);
         cursor: not-allowed;
+      }
+
+      :host([disabled]) .item {
         pointer-events: none;
       }
 
@@ -151,7 +158,7 @@ export class DileListItem extends LitElement {
         flex: 1 1 auto;
         min-width: 0;
         align-self: center;
-        text-align: var(--dile-list-item-body-text-align, var(--dile-list-item-text-align, left));
+        text-align: var(--dile-list-item-text-align, left);
       }
 
       :host([body-align="left"]) .body {
@@ -217,15 +224,15 @@ export class DileListItem extends LitElement {
       iconPrefix: { type: String, attribute: 'icon-prefix' },
       /** Icon identifier in "family.name" format for suffix */
       iconSuffix: { type: String, attribute: 'icon-suffix' },
-      /** Layout density: "compact", "comfortable", or "spacious" */
+      /** Layout density: "compact", "comfortable", or "spacious". Unset behaves as "comfortable" */
       density: { type: String, reflect: true },
-      /** Line clamping: "1", "2", "auto", or number */
+      /** Line clamping: "1", "2", "auto", or number. Unset behaves as "auto" */
       lines: { type: String, reflect: true },
-      /** Vertical alignment of prefix and suffix: "center", "start", or "end" */
+      /** Vertical alignment of prefix and suffix: "center", "start", or "end". Unset behaves as "center" */
       align: { type: String, reflect: true },
-      /** Text alignment of the body content: "left", "center", or "right" */
+      /** Text alignment of the body content: "left", "center", or "right". Unset uses --dile-list-item-text-align */
       bodyAlign: { type: String, attribute: 'body-align', reflect: true },
-      /** Bottom separator: boolean, "full", or "inset" */
+      /** Bottom separator: boolean attribute (full), "full", "inset" or "none". Unset means no divider */
       divider: { type: String, reflect: true },
       /** Whether item is interactive */
       clickable: { type: Boolean, reflect: true },
@@ -243,6 +250,8 @@ export class DileListItem extends LitElement {
       value: { type: String, reflect: true },
       /** Tabindex for roving tabindex control */
       itemTabindex: { type: Number, attribute: 'item-tabindex' },
+      /** Mirrors the host role attribute so the template reacts to role changes */
+      _hostRole: { attribute: 'role' },
       /** Internal slot states */
       _hasPrefixSlot: { state: true },
       _hasSuffixSlot: { state: true },
@@ -253,28 +262,18 @@ export class DileListItem extends LitElement {
     super();
     this.iconPrefix = '';
     this.iconSuffix = '';
-    this.density = 'comfortable';
-    this.lines = 'auto';
-    this.align = 'center';
-    this.bodyAlign = 'left';
-    this.divider = '';
     this.clickable = false;
-    this.href = '';
     this.disabled = false;
     this.selected = false;
-    this.value = '';
     this.itemTabindex = 0;
     this._hasPrefixSlot = false;
     this._hasSuffixSlot = false;
-  }
+    this._managesHostAria = false;
 
-  // Alias for Spanish spelling convenience
-  get iconSufix() {
-    return this.iconSuffix;
-  }
-
-  set iconSufix(val) {
-    this.iconSuffix = val;
+    this._handleKeyDown = this._handleKeyDown.bind(this);
+    this._handleKeyUp = this._handleKeyUp.bind(this);
+    this.addEventListener('keydown', this._handleKeyDown);
+    this.addEventListener('keyup', this._handleKeyUp);
   }
 
   connectedCallback() {
@@ -282,11 +281,6 @@ export class DileListItem extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
     }
-    this._checkLightDomSlots();
-  }
-
-  firstUpdated(changedProperties) {
-    super.firstUpdated(changedProperties);
     this._checkLightDomSlots();
   }
 
@@ -299,11 +293,55 @@ export class DileListItem extends LitElement {
         this.style.removeProperty('--_lines');
       }
     }
+    this._syncHostAria();
+  }
+
+  /** When the host acts as an option / menuitem it is the focusable, ARIA-bearing element. */
+  _isHostFocusMode() {
+    return HOST_FOCUS_ROLES.includes(this._hostRole);
+  }
+
+  _isInteractive() {
+    return Boolean(this.clickable || this.href || this._isHostFocusMode());
+  }
+
+  _computedTabindex() {
+    if (this.disabled) return -1;
+    return this.itemTabindex !== undefined && this.itemTabindex !== null ? this.itemTabindex : 0;
+  }
+
+  _expandedValue() {
+    return this.expanded !== undefined ? String(Boolean(this.expanded)) : undefined;
+  }
+
+  _syncHostAria() {
+    if (this._isHostFocusMode()) {
+      this.setAttribute('tabindex', String(this._computedTabindex()));
+      if (this._hostRole === 'option') {
+        this.setAttribute('aria-selected', this.selected ? 'true' : 'false');
+      } else {
+        this.removeAttribute('aria-selected');
+      }
+      this._toggleHostAttribute('aria-disabled', this.disabled ? 'true' : undefined);
+      this._toggleHostAttribute('aria-expanded', this._expandedValue());
+      this._managesHostAria = true;
+    } else if (this._managesHostAria) {
+      ['tabindex', 'aria-selected', 'aria-disabled', 'aria-expanded'].forEach((attr) => this.removeAttribute(attr));
+      this._managesHostAria = false;
+    }
+  }
+
+  _toggleHostAttribute(name, value) {
+    if (value === undefined) {
+      this.removeAttribute(name);
+    } else {
+      this.setAttribute(name, value);
+    }
   }
 
   _checkLightDomSlots() {
-    this._hasPrefixSlot = Boolean(this.querySelector('[slot="prefix"], [slot="leading"]'));
-    this._hasSuffixSlot = Boolean(this.querySelector('[slot="suffix"], [slot="trailing"]'));
+    this._hasPrefixSlot = Boolean(this.querySelector(':scope > [slot="prefix"], :scope > [slot="leading"]'));
+    this._hasSuffixSlot = Boolean(this.querySelector(':scope > [slot="suffix"], :scope > [slot="trailing"]'));
   }
 
   _handleSlotChange() {
@@ -311,20 +349,28 @@ export class DileListItem extends LitElement {
   }
 
   focus(options) {
+    if (this._isHostFocusMode()) {
+      super.focus(options);
+      return;
+    }
     const target = this.shadowRoot?.querySelector('.item');
     if (target) {
       target.focus(options);
     } else {
-      super.focus?.(options);
+      super.focus(options);
     }
   }
 
   render() {
     const hasPrefix = Boolean(this._hasPrefixSlot || this.iconPrefix);
     const hasSuffix = Boolean(this._hasSuffixSlot || this.iconSuffix);
-    const currentRole = this.getAttribute('role');
-    const isOptionOrMenuItem = currentRole === 'option' || currentRole === 'menuitem';
-    const computedTabindex = this.disabled ? -1 : (this.itemTabindex !== undefined ? this.itemTabindex : 0);
+    const hostFocus = this._isHostFocusMode();
+    // The inner element carries focus and ARIA state unless the host is an option / menuitem.
+    const innerFocusable = this._isInteractive() && !hostFocus;
+    const tabindex = this._computedTabindex();
+    const innerDisabled = ifDefined(innerFocusable && this.disabled ? 'true' : undefined);
+    const innerCurrent = ifDefined(innerFocusable && this.selected ? 'true' : undefined);
+    const innerExpanded = ifDefined(innerFocusable ? this._expandedValue() : undefined);
 
     const contentTemplate = html`
       <div class="prefix" part="prefix" ?hidden="${!hasPrefix}">
@@ -345,33 +391,15 @@ export class DileListItem extends LitElement {
         <a
           class="item"
           part="item"
-          href="${this.href}"
+          href="${ifDefined(this.disabled ? undefined : this.href)}"
           target="${ifDefined(this.target || undefined)}"
           rel="${ifDefined(this.target === '_blank' ? 'noopener noreferrer' : undefined)}"
-          tabindex="${computedTabindex}"
-          aria-disabled="${ifDefined(this.disabled ? 'true' : undefined)}"
-          aria-selected="${ifDefined(this.selected ? 'true' : undefined)}"
-          aria-expanded="${ifDefined(this.expanded !== undefined ? (this.expanded ? 'true' : 'false') : undefined)}"
+          tabindex="${hostFocus ? -1 : tabindex}"
+          aria-disabled="${innerDisabled}"
+          aria-current="${innerCurrent}"
+          aria-expanded="${innerExpanded}"
           @click="${this._handleItemClick}"
-          @keydown="${this._handleKeyDown}"
         >${contentTemplate}</a>
-      `;
-    }
-
-    if (this.clickable) {
-      return html`
-        <div
-          class="item"
-          part="item"
-          role="${ifDefined(isOptionOrMenuItem ? undefined : 'button')}"
-          tabindex="${computedTabindex}"
-          aria-disabled="${ifDefined(this.disabled ? 'true' : undefined)}"
-          aria-selected="${ifDefined(this.selected ? 'true' : undefined)}"
-          aria-expanded="${ifDefined(this.expanded !== undefined ? (this.expanded ? 'true' : 'false') : undefined)}"
-          @click="${this._handleItemClick}"
-          @keydown="${this._handleKeyDown}"
-          @keyup="${this._handleKeyUp}"
-        >${contentTemplate}</div>
       `;
     }
 
@@ -379,35 +407,57 @@ export class DileListItem extends LitElement {
       <div
         class="item"
         part="item"
-        aria-disabled="${ifDefined(this.disabled ? 'true' : undefined)}"
-        aria-selected="${ifDefined(this.selected ? 'true' : undefined)}"
-        aria-expanded="${ifDefined(this.expanded !== undefined ? (this.expanded ? 'true' : 'false') : undefined)}"
+        role="${ifDefined(innerFocusable ? 'button' : undefined)}"
+        tabindex="${ifDefined(innerFocusable ? tabindex : undefined)}"
+        aria-disabled="${innerDisabled}"
+        aria-current="${innerCurrent}"
+        aria-expanded="${innerExpanded}"
+        @click="${this._handleItemClick}"
       >${contentTemplate}</div>
     `;
   }
 
+  /**
+   * Returns true when the event started on an interactive control placed inside the item
+   * (slotted buttons, inputs, links, nested list items...). Those controls own their events.
+   */
+  _isFromNestedControl(e) {
+    const stop = this.shadowRoot.querySelector('.item');
+    for (const el of e.composedPath()) {
+      if (el === stop || el === this) return false;
+      if (!(el instanceof Element)) continue;
+      const tag = el.localName;
+      const role = el.getAttribute('role');
+      if (
+        INTERACTIVE_TAGS.includes(tag) ||
+        INTERACTIVE_ROLES.includes(role) ||
+        el.isContentEditable ||
+        (el.hasAttribute('tabindex') && el.tabIndex >= 0)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /** True when the event originated on the item's own focus target (host or inner .item). */
+  _isOwnFocusTarget(e) {
+    const origin = e.composedPath()[0];
+    return origin === this || origin === this.shadowRoot?.querySelector('.item');
+  }
+
   _handleItemClick(e) {
+    if (!this._isInteractive()) return;
     if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
       return;
     }
+    if (this._isFromNestedControl(e)) return;
+    this._dispatchItemClick();
+  }
 
-    const path = e.composedPath();
-    const suffixContainer = this.shadowRoot.querySelector('.suffix');
-    const isFromSuffix = suffixContainer && path.includes(suffixContainer);
-
-    const isInteractiveTarget = path.some(el => {
-      if (el === this || el === this.shadowRoot || el === e.currentTarget) return false;
-      const tag = el.tagName ? el.tagName.toLowerCase() : '';
-      const role = el.getAttribute?.('role');
-      return ['button', 'input', 'select', 'textarea', 'a'].includes(tag) || role === 'button' || role === 'link' || role === 'checkbox' || role === 'switch';
-    });
-
-    if (isInteractiveTarget && isFromSuffix) {
-      return;
-    }
-
+  _dispatchItemClick() {
     this.dispatchEvent(new CustomEvent('dile-list-item-click', {
       bubbles: true,
       composed: true,
@@ -421,23 +471,31 @@ export class DileListItem extends LitElement {
   }
 
   _handleKeyDown(e) {
-    if (this.disabled) return;
+    if (this.disabled || !this._isInteractive() || !this._isOwnFocusTarget(e)) return;
     if (e.key === 'Enter') {
       if (!this.href) {
         e.preventDefault();
-        this._handleItemClick(e);
+        this._dispatchItemClick();
+      } else if (e.composedPath()[0] === this) {
+        // Host has focus (option / menuitem mode): the native anchor won't receive the Enter key.
+        e.preventDefault();
+        this.shadowRoot.querySelector('a')?.click();
       }
-    } else if (e.key === ' ' && this.href) {
+    } else if (e.key === ' ') {
+      // Prevent the page from scrolling; activation happens on keyup (button behaviour).
       e.preventDefault();
-      this.shadowRoot.querySelector('a')?.click();
     }
   }
 
   _handleKeyUp(e) {
-    if (this.disabled) return;
-    if (e.key === ' ' && !this.href && this.clickable) {
+    if (this.disabled || !this._isInteractive() || !this._isOwnFocusTarget(e)) return;
+    if (e.key === ' ') {
       e.preventDefault();
-      this._handleItemClick(e);
+      if (this.href) {
+        this.shadowRoot.querySelector('a')?.click();
+      } else {
+        this._dispatchItemClick();
+      }
     }
   }
 }

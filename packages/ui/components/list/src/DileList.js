@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import '../../spinner/spinner.js';
 
+const HOST_FOCUS_ROLES = ['option', 'menuitem'];
+
 export class DileList extends LitElement {
   static get styles() {
     return css`
@@ -19,24 +21,6 @@ export class DileList extends LitElement {
 
       * {
         box-sizing: border-box;
-      }
-
-      :host([density="compact"]) {
-        --dile-list-item-padding-y: 0.375rem;
-        --dile-list-item-padding-x: 0.75rem;
-        --dile-list-item-gap: 0.5rem;
-      }
-
-      :host([density="comfortable"]) {
-        --dile-list-item-padding-y: 0.75rem;
-        --dile-list-item-padding-x: 1rem;
-        --dile-list-item-gap: 0.75rem;
-      }
-
-      :host([density="spacious"]) {
-        --dile-list-item-padding-y: 1.25rem;
-        --dile-list-item-padding-x: 1.25rem;
-        --dile-list-item-gap: 1rem;
       }
 
       :host([borderless]) {
@@ -95,7 +79,8 @@ export class DileList extends LitElement {
         color: var(--dile-list-loading-color, #64748b);
       }
 
-      :host([loading]) .loading-overlay {
+      /* With items, the loader floats over them. Without items it takes its own space. */
+      .loading-overlay.floating {
         position: absolute;
         top: 0;
         left: 0;
@@ -142,9 +127,9 @@ export class DileList extends LitElement {
       clickable: { type: Boolean, reflect: true },
       /** Layout density propagated to items: "compact", "comfortable", or "spacious" */
       density: { type: String, reflect: true },
-      /** Divider style propagated to items: "full", "inset", "none", or boolean */
+      /** Divider style propagated to items: boolean attribute (full), "full", "inset" or "none" */
       divider: { type: String, reflect: true },
-      /** Text clamping lines propagated to items: "1", "2", "auto" */
+      /** Text clamping lines propagated to items: "1", "2", "auto" or number */
       lines: { type: String, reflect: true },
       /** Vertical alignment propagated to items: "start", "center", "end" */
       align: { type: String, reflect: true },
@@ -156,8 +141,16 @@ export class DileList extends LitElement {
       loading: { type: Boolean, reflect: true },
       /** Text for default empty state fallback */
       emptyText: { type: String, attribute: 'empty-text' },
-      /** Whether arrow key keyboard navigation with roving tabindex is enabled */
-      navigable: { type: Boolean, reflect: true },
+      /**
+       * Whether arrow key keyboard navigation with roving tabindex is enabled.
+       * Defaults to true; use navigable="false" in HTML to disable it.
+       */
+      navigable: {
+        type: Boolean,
+        converter: {
+          fromAttribute: (attr) => attr !== 'false',
+        },
+      },
       /** Whether navigating with arrow keys automatically selects the item in single selection */
       selectOnFocus: { type: Boolean, attribute: 'select-on-focus' },
       /** Removes the outer border and border-radius */
@@ -172,11 +165,6 @@ export class DileList extends LitElement {
     this.selection = 'none';
     this.value = undefined;
     this.clickable = false;
-    this.density = '';
-    this.divider = '';
-    this.lines = '';
-    this.align = '';
-    this.bodyAlign = '';
     this.disabled = false;
     this.loading = false;
     this.emptyText = '';
@@ -185,6 +173,8 @@ export class DileList extends LitElement {
     this.borderless = false;
     this._isEmpty = false;
     this._focusedIndex = -1;
+    /** Values the list has imposed on each item, to be able to restore them later */
+    this._cascadeRecords = new WeakMap();
 
     this._onItemClick = this._onItemClick.bind(this);
     this._onKeydown = this._onKeydown.bind(this);
@@ -203,9 +193,6 @@ export class DileList extends LitElement {
     this.addEventListener('dile-list-item-click', this._onItemClick);
     this.addEventListener('keydown', this._onKeydown);
     this.addEventListener('focusin', this._onFocusIn);
-
-    this._observer = new MutationObserver(() => this._handleSlotChange());
-    this._observer.observe(this, { childList: true });
   }
 
   disconnectedCallback() {
@@ -213,14 +200,6 @@ export class DileList extends LitElement {
     this.removeEventListener('dile-list-item-click', this._onItemClick);
     this.removeEventListener('keydown', this._onKeydown);
     this.removeEventListener('focusin', this._onFocusIn);
-    if (this._observer) {
-      this._observer.disconnect();
-    }
-  }
-
-  firstUpdated(changedProperties) {
-    super.firstUpdated(changedProperties);
-    this._handleSlotChange();
   }
 
   updated(changedProperties) {
@@ -251,14 +230,10 @@ export class DileList extends LitElement {
         this.removeAttribute('aria-multiselectable');
       }
       this._syncAriaRoles();
-      this._cascadeProperties();
-    }
-
-    if (changedProperties.has('value')) {
-      this._syncSelectionFromValue();
     }
 
     if (
+      changedProperties.has('selection') ||
       changedProperties.has('disabled') ||
       changedProperties.has('clickable') ||
       changedProperties.has('density') ||
@@ -269,18 +244,32 @@ export class DileList extends LitElement {
     ) {
       this._cascadeProperties();
     }
+
+    if (changedProperties.has('value')) {
+      this._syncSelectionFromValue();
+    }
+
+    if (
+      changedProperties.has('navigable') ||
+      changedProperties.has('selection') ||
+      changedProperties.has('clickable') ||
+      changedProperties.has('disabled')
+    ) {
+      this._updateRovingTabindex();
+    }
   }
 
   /**
-   * Returns all slotted dile-list-item child elements.
+   * Returns the dile-list-item elements that are direct children of the list.
+   * Items of nested lists are not included.
    * @returns {Array<HTMLElement>}
    */
   getItems() {
-    return Array.from(this.querySelectorAll('dile-list-item'));
+    return Array.from(this.children).filter((el) => el.localName === 'dile-list-item');
   }
 
   _getItemValue(item, index) {
-    if (item.value !== undefined && item.value !== '') {
+    if (item.value !== undefined && item.value !== null && item.value !== '') {
       return item.value;
     }
     if (item.id) {
@@ -289,12 +278,16 @@ export class DileList extends LitElement {
     return String(index);
   }
 
+  /** Items that can receive focus: enabled and interactive (clickable, link, option or menuitem). */
+  _isFocusableItem(item) {
+    return (
+      !item.disabled &&
+      Boolean(item.clickable || item.href || HOST_FOCUS_ROLES.includes(item.getAttribute('role')))
+    );
+  }
+
   _handleSlotChange() {
-    const items = this.getItems();
-    const isEmpty = items.length === 0;
-    if (this._isEmpty !== isEmpty) {
-      this._isEmpty = isEmpty;
-    }
+    this._isEmpty = this.getItems().length === 0;
     this._cascadeProperties();
     this._syncAriaRoles();
     this._syncSelectionFromValue();
@@ -302,31 +295,59 @@ export class DileList extends LitElement {
   }
 
   _cascadeProperties() {
-    const items = this.getItems();
-    items.forEach((item) => {
-      const shouldBeClickable = this.clickable || this.selection !== 'none';
-      if (shouldBeClickable && !item.clickable) {
-        item.clickable = true;
-      }
-      if (this.density && item.density !== this.density) {
-        item.density = this.density;
-      }
-      if (this.divider && item.divider !== this.divider) {
-        item.divider = this.divider;
-      }
-      if (this.lines && item.lines !== this.lines) {
-        item.lines = this.lines;
-      }
-      if (this.align && item.align !== this.align) {
-        item.align = this.align;
-      }
-      if (this.bodyAlign && item.bodyAlign !== this.bodyAlign) {
-        item.bodyAlign = this.bodyAlign;
-      }
-      if (this.disabled && !item.disabled) {
-        item.disabled = true;
-      }
+    const shouldBeClickable = this.clickable || this.selection !== 'none';
+    this.getItems().forEach((item) => {
+      // Behavioural properties: the list overrides the item while active.
+      this._cascadeProp(item, 'clickable', shouldBeClickable ? true : undefined, true);
+      this._cascadeProp(item, 'disabled', this.disabled ? true : undefined, true);
+      // Presentational properties: values defined on the item itself take precedence.
+      this._cascadeProp(item, 'density', this.density || undefined);
+      this._cascadeProp(item, 'divider', this.divider ?? undefined);
+      this._cascadeProp(item, 'lines', this.lines || undefined);
+      this._cascadeProp(item, 'align', this.align || undefined);
+      this._cascadeProp(item, 'bodyAlign', this.bodyAlign || undefined);
     });
+  }
+
+  /**
+   * Applies a list-level value to an item, remembering the item's original value so it
+   * can be restored when the list stops imposing it (value === undefined).
+   * @param {HTMLElement} item
+   * @param {string} prop
+   * @param {*} value value to impose, or undefined to release control
+   * @param {boolean} override whether the list value wins over a value defined on the item
+   */
+  _cascadeProp(item, prop, value, override = false) {
+    let record = this._cascadeRecords.get(item);
+    if (!record) {
+      record = {};
+      this._cascadeRecords.set(item, record);
+    }
+    let entry = record[prop];
+
+    // The item value was changed from outside since the list set it: the item takes control.
+    if (entry && item[prop] !== entry.value) {
+      delete record[prop];
+      entry = undefined;
+    }
+
+    if (value === undefined) {
+      if (entry) {
+        item[prop] = entry.original;
+        delete record[prop];
+      }
+      return;
+    }
+
+    if (!entry) {
+      const own = item[prop];
+      if (!override && own !== undefined && own !== null) return;
+      entry = record[prop] = { original: own };
+    }
+    entry.value = value;
+    if (item[prop] !== value) {
+      item[prop] = value;
+    }
   }
 
   _syncAriaRoles() {
@@ -341,7 +362,9 @@ export class DileList extends LitElement {
     this.getItems().forEach((item) => {
       const itemRole = item.getAttribute('role');
       if (!itemRole || itemRole === 'listitem' || itemRole === 'option' || itemRole === 'menuitem') {
-        item.setAttribute('role', childRole);
+        if (itemRole !== childRole) {
+          item.setAttribute('role', childRole);
+        }
       }
     });
   }
@@ -394,11 +417,12 @@ export class DileList extends LitElement {
 
   _onItemClick(e) {
     if (this.disabled || this.loading) return;
-    const item = e.detail?.item || e.target.closest('dile-list-item');
+    const item = e.detail?.item;
     if (!item || item.disabled) return;
 
     const items = this.getItems();
     const idx = items.indexOf(item);
+    // Ignore clicks coming from items that don't belong to this list (e.g. nested lists)
     if (idx === -1) return;
 
     this._focusedIndex = idx;
@@ -407,15 +431,17 @@ export class DileList extends LitElement {
     if (this.selection === 'single') {
       this._selectSingle(item, idx);
     } else if (this.selection === 'multiple') {
-      this._toggleMultiple(item, idx);
+      this._toggleMultiple(item);
     }
   }
 
   _selectSingle(item, idx) {
     const val = this._getItemValue(item, idx);
-    const items = this.getItems();
+    if (item.selected && this.value !== undefined && this.value !== null && String(this.value) === String(val)) {
+      return;
+    }
 
-    items.forEach((i) => {
+    this.getItems().forEach((i) => {
       i.selected = i === item;
     });
 
@@ -446,41 +472,43 @@ export class DileList extends LitElement {
   }
 
   _onFocusIn(e) {
-    const item = e.target.closest('dile-list-item');
-    if (item) {
-      const items = this.getItems();
-      const idx = items.indexOf(item);
-      if (idx !== -1) {
-        this._focusedIndex = idx;
-        this._updateRovingTabindex();
-      }
+    const items = this.getItems();
+    const idx = items.indexOf(e.target);
+    if (idx !== -1) {
+      this._focusedIndex = idx;
+      this._updateRovingTabindex();
     }
   }
 
   _updateRovingTabindex() {
-    if (!this.navigable) return;
     const items = this.getItems();
     if (!items.length) return;
 
-    let activeIdx = this._focusedIndex;
-    if (activeIdx < 0 || activeIdx >= items.length || items[activeIdx].disabled) {
-      const selIdx = items.findIndex((i) => i.selected && !i.disabled);
-      if (selIdx !== -1) {
-        activeIdx = selIdx;
-      } else {
-        const firstEnabled = items.findIndex((i) => !i.disabled);
-        activeIdx = firstEnabled !== -1 ? firstEnabled : 0;
-      }
+    if (!this.navigable) {
+      items.forEach((item) => {
+        item.itemTabindex = 0;
+      });
+      return;
     }
 
-    this._focusedIndex = activeIdx;
-    items.forEach((item, index) => {
-      if (item.disabled) {
-        item.itemTabindex = -1;
-      } else {
-        item.itemTabindex = index === activeIdx ? 0 : -1;
-      }
+    const focusable = items.filter((i) => this._isFocusableItem(i));
+    if (!focusable.length) return;
+
+    let active = items[this._focusedIndex];
+    if (!focusable.includes(active)) {
+      active = focusable.find((i) => i.selected) || focusable[0];
+    }
+
+    this._focusedIndex = items.indexOf(active);
+    items.forEach((item) => {
+      item.itemTabindex = item === active ? 0 : -1;
     });
+  }
+
+  /** Returns the list item whose own focus target (host or inner element) originated the event. */
+  _getEventItem(e, items) {
+    const origin = e.composedPath()[0];
+    return items.find((item) => item === origin || item.shadowRoot?.contains(origin));
   }
 
   _onKeydown(e) {
@@ -488,32 +516,35 @@ export class DileList extends LitElement {
     const navKeys = ['ArrowDown', 'ArrowUp', 'Home', 'End'];
     if (!navKeys.includes(e.key)) return;
 
-    const enabledItems = this.getItems().filter((i) => !i.disabled);
-    if (!enabledItems.length) return;
+    const allItems = this.getItems();
+    // Only handle keys pressed on an item itself, not on controls placed inside items.
+    const currentItem = this._getEventItem(e, allItems);
+    if (!currentItem) return;
+
+    const focusable = allItems.filter((i) => this._isFocusableItem(i));
+    if (!focusable.length) return;
 
     e.preventDefault();
-    const allItems = this.getItems();
-    let currentItem = allItems[this._focusedIndex];
-    let currentEnabledIdx = enabledItems.indexOf(currentItem);
-    if (currentEnabledIdx === -1) currentEnabledIdx = 0;
+    let currentIdx = focusable.indexOf(currentItem);
+    if (currentIdx === -1) currentIdx = 0;
 
-    let nextEnabledIdx;
+    let nextIdx;
     switch (e.key) {
       case 'ArrowDown':
-        nextEnabledIdx = (currentEnabledIdx + 1) % enabledItems.length;
+        nextIdx = (currentIdx + 1) % focusable.length;
         break;
       case 'ArrowUp':
-        nextEnabledIdx = (currentEnabledIdx - 1 + enabledItems.length) % enabledItems.length;
+        nextIdx = (currentIdx - 1 + focusable.length) % focusable.length;
         break;
       case 'Home':
-        nextEnabledIdx = 0;
+        nextIdx = 0;
         break;
       case 'End':
-        nextEnabledIdx = enabledItems.length - 1;
+        nextIdx = focusable.length - 1;
         break;
     }
 
-    const nextItem = enabledItems[nextEnabledIdx];
+    const nextItem = focusable[nextIdx];
     if (nextItem) {
       this._focusedIndex = allItems.indexOf(nextItem);
       this._updateRovingTabindex();
@@ -556,7 +587,7 @@ export class DileList extends LitElement {
         </slot>
       </div>
 
-      <div class="loading-overlay" part="loading" ?hidden="${!this.loading}">
+      <div class="loading-overlay ${this._isEmpty ? '' : 'floating'}" part="loading" ?hidden="${!this.loading}">
         <slot name="loading">
           <dile-spinner active></dile-spinner>
         </slot>
