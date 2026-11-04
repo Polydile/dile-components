@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-list component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/list/list.js";
+    import "@dile/ui/components/list/list-item.js";
+    import "@dile/iconlib/lucide-icons/user.js";
+    import "@dile/iconlib/lucide-icons/chevron-right.js";
+    import "@dile/iconlib/lucide-icons/mail.js";
+    import "@dile/iconlib/lucide-icons/bell.js";
+    import "@dile/iconlib/lucide-icons/settings.js";
+    import "@dile/iconlib/lucide-icons/shield.js";
+    import "@dile/iconlib/lucide-icons/credit-card.js";
+    import "@dile/iconlib/lucide-icons/folder.js";
+    import "@dile/iconlib/lucide-icons/star.js";
+    import "@dile/iconlib/lucide-icons/inbox.js";
+  </script>
+  <style>
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .demo-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .demo-block h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-block p {
+      color: #64748b;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    button.btn {
+      padding: 0.45rem 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    button.btn:hover {
+      background: #f8fafc;
+    }
+
+    .log-panel {
+      margin-top: 0.75rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      background: #f1f5f9;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      color: #334155;
+    }
+
+    .custom-styled {
+      --dile-list-border: 2px dashed #94a3b8;
+      --dile-list-border-radius: 16px;
+      --dile-list-background-color: #faf5ff;
+      --dile-list-box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --dile-list-item-bg-hover: #f3e8ff;
+      --dile-list-item-bg-selected: #e9d5ff;
+      --dile-list-item-selected-text-color: #6b21a8;
+    }
+
+    .badge {
+      background: #ef4444;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-list</h1>
+    <p>The container and orchestrator component for lists, providing layout framing, property propagation,
+      single/multiple selection, roving tabindex keyboard navigation, automatic last divider clipping, and empty/loading
+      states.</p>
+
+    <div class="demo-block">
+      <h2>1. Default Framed List with Auto-Dividers</h2>
+      <p>Notice that child items do not define borders or radii; <code>&lt;dile-list&gt;</code> frames the list and
+        automatically omits the divider on the last item.</p>
+
+      <dile-list divider="full">
+        <dile-list-item icon-prefix="lucide.user" icon-suffix="lucide.chevron-right">
+          Account Profile
+        </dile-list-item>
+        <dile-list-item icon-prefix="lucide.shield" icon-suffix="lucide.chevron-right">
+          Security & Privacy
+        </dile-list-item>
+        <dile-list-item icon-prefix="lucide.credit-card" icon-suffix="lucide.chevron-right">
+          Billing & Subscriptions
+        </dile-list-item>
+      </dile-list>
+    </div>
+
+    <div class="demo-block">
+      <h2>2. Property Cascade: Compact & Clickable</h2>
+      <p>Centralize configuration on <code>&lt;dile-list density="compact" clickable&gt;</code> without repeating
+        attributes on every item.</p>
+
+      <dile-list density="compact" clickable divider="inset">
+        <dile-list-item icon-prefix="lucide.folder">Projects</dile-list-item>
+        <dile-list-item icon-prefix="lucide.star">Starred Documents</dile-list-item>
+        <dile-list-item icon-prefix="lucide.settings">Preferences</dile-list-item>
+      </dile-list>
+    </div>
+
+    <div class="demo-block">
+      <h2>3. Single Selection Mode (Listbox)</h2>
+      <p>Click an option or navigate with <kbd>Tab</kbd> + <kbd>Arrow keys</kbd> + <kbd>Enter</kbd> / <kbd>Space</kbd>.
+        Listen to <code>dile-list-change</code>.</p>
+
+      <dile-list id="single-list" selection="single" value="email" divider="full">
+        <dile-list-item value="email" icon-prefix="lucide.mail">
+          Email Notifications
+        </dile-list-item>
+        <dile-list-item value="push" icon-prefix="lucide.bell">
+          Push Notifications
+        </dile-list-item>
+        <dile-list-item value="inbox" icon-prefix="lucide.inbox">
+          In-App Notifications Only
+        </dile-list-item>
+      </dile-list>
+      <div id="single-log" class="log-panel">Selected: email</div>
+    </div>
+
+    <div class="demo-block">
+      <h2>4. Multiple Selection Mode</h2>
+      <p>Allows selecting multiple options. <code>e.detail.value</code> contains an array of selected values.</p>
+
+      <dile-list id="multi-list" selection="multiple" value="updates,newsletter" divider="full">
+        <dile-list-item value="updates">Product Updates & Features</dile-list-item>
+        <dile-list-item value="newsletter">Weekly Engineering Newsletter</dile-list-item>
+        <dile-list-item value="security">Security Advisories</dile-list-item>
+      </dile-list>
+      <div id="multi-log" class="log-panel">Selected: ["updates", "newsletter"]</div>
+    </div>
+
+    <div class="demo-block">
+      <h2>5. Dynamic Items & Empty State</h2>
+      <p>When all items are removed, <code>&lt;dile-list&gt;</code> automatically surfaces the empty state slot.</p>
+
+      <div class="controls">
+        <button class="btn" id="btn-add">Add Notification</button>
+        <button class="btn" id="btn-remove">Remove Last Notification</button>
+        <button class="btn" id="btn-clear">Clear All</button>
+      </div>
+
+      <dile-list id="dynamic-list" divider="full" empty-text="No notifications right now. You are all caught up!">
+        <dile-list-item icon-prefix="lucide.bell">
+          System maintenance scheduled for tonight
+          <span slot="suffix" class="badge">New</span>
+        </dile-list-item>
+        <dile-list-item icon-prefix="lucide.mail">
+          New comment on pull request #42
+        </dile-list-item>
+      </dile-list>
+    </div>
+
+    <div class="demo-block">
+      <h2>6. Loading State</h2>
+      <p>Toggle the <code>loading</code> attribute to display the loading spinner and overlay while fetching data.</p>
+
+      <div class="controls">
+        <button class="btn" id="btn-toggle-loading">Toggle Loading</button>
+      </div>
+
+      <dile-list id="loading-list" loading divider="full">
+        <dile-list-item icon-prefix="lucide.user">Alice Johnson</dile-list-item>
+        <dile-list-item icon-prefix="lucide.user">Bob Martin</dile-list-item>
+        <dile-list-item icon-prefix="lucide.user">Charlie Davis</dile-list-item>
+      </dile-list>
+    </div>
+
+    <div class="demo-block">
+      <h2>7. Theming & Custom CSS Properties</h2>
+      <p>Customize the frame border, background, shadow, and inner item states via CSS custom properties.</p>
+
+      <dile-list class="custom-styled" selection="single" value="theme-purple" divider="full">
+        <dile-list-item value="theme-purple" icon-prefix="lucide.star">Purple Accent Theme</dile-list-item>
+        <dile-list-item value="theme-modern" icon-prefix="lucide.star">Modern Dashboard Style</dile-list-item>
+      </dile-list>
+    </div>
+  </div>
+
+  <script>
+    // Single selection listener
+    const singleList = document.getElementById('single-list');
+    const singleLog = document.getElementById('single-log');
+    singleList.addEventListener('dile-list-change', (e) => {
+      singleLog.textContent = `Selected: ${e.detail.value}`;
+    });
+
+    // Multiple selection listener
+    const multiList = document.getElementById('multi-list');
+    const multiLog = document.getElementById('multi-log');
+    multiList.addEventListener('dile-list-change', (e) => {
+      multiLog.textContent = `Selected: ${JSON.stringify(e.detail.value)}`;
+    });
+
+    // Dynamic items demo
+    const dynamicList = document.getElementById('dynamic-list');
+    let notificationCount = 1;
+    document.getElementById('btn-add').addEventListener('click', () => {
+      const item = document.createElement('dile-list-item');
+      item.setAttribute('icon-prefix', 'lucide.bell');
+      item.textContent = `Dynamic Notification #${++notificationCount}`;
+      dynamicList.appendChild(item);
+    });
+
+    document.getElementById('btn-remove').addEventListener('click', () => {
+      const last = dynamicList.querySelector('dile-list-item:last-of-type');
+      if (last) last.remove();
+    });
+
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      dynamicList.querySelectorAll('dile-list-item').forEach(item => item.remove());
+    });
+
+    // Loading toggle demo
+    const loadingList = document.getElementById('loading-list');
+    document.getElementById('btn-toggle-loading').addEventListener('click', () => {
+      loadingList.loading = !loadingList.loading;
+    });
+  </script>
+</body>
+
+</html>

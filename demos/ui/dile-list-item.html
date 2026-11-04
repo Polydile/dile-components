@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-list-item component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/list/list-item.js";
+    import "@dile/iconlib/lucide-icons/user.js";
+    import "@dile/iconlib/lucide-icons/chevron-right.js";
+    import "@dile/iconlib/lucide-icons/mail.js";
+    import "@dile/iconlib/lucide-icons/bell.js";
+    import "@dile/iconlib/lucide-icons/settings.js";
+    import "@dile/iconlib/lucide-icons/star.js";
+    import "@dile/iconlib/lucide-icons/folder.js";
+    import "@dile/iconlib/lucide-icons/trash-2.js";
+  </script>
+  <style>
+    .demo-list {
+      background-color: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      overflow: hidden;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #334155;
+      font-size: 0.9rem;
+    }
+    .badge {
+      background-color: #ef4444;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+    }
+    .badge-soft {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    .time {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .text-title {
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+    .text-subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin: 0.15rem 0 0 0;
+    }
+    .action-btn {
+      background: none;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+      color: #334155;
+    }
+    .action-btn:hover {
+      background: #f1f5f9;
+    }
+    .custom-theme {
+      --dile-list-item-bg: #1e293b;
+      --dile-list-item-color: #f8fafc;
+      --dile-list-item-bg-hover: #334155;
+      --dile-list-item-bg-active: #475569;
+      --dile-list-item-bg-selected: #0284c7;
+      --dile-list-item-selected-text-color: #ffffff;
+      --dile-list-item-divider-color: #334155;
+      --dile-list-item-icon-color: #38bdf8;
+      --item-radius: 6px;
+    }
+    .custom-parts::part(prefix) {
+      background-color: #fef3c7;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    .custom-parts::part(body) {
+      font-family: monospace;
+    }
+    .custom-parts::part(suffix) {
+      opacity: 0.8;
+    }
+    #feedback {
+      min-height: 1.5rem;
+      font-weight: 600;
+      color: #0284c7;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>&lt;dile-list-item&gt; Demo</h1>
+    <p>A modular, accessible and versatile Web Component for creating list items with slots, density control, line clamping, icons, and keyboard interactions.</p>
+
+    <div id="feedback"></div>
+
+    <h2>1. Basic and Icon Properties</h2>
+    <p>Using <code>icon-prefix</code> and <code>icon-suffix</code> with <code>@dile/iconlib</code> strings.</p>
+    <div class="demo-list">
+      <dile-list-item icon-prefix="lucide.user" icon-suffix="lucide.chevron-right" divider="full">
+        Profile Settings
+      </dile-list-item>
+      <dile-list-item icon-prefix="lucide.mail" icon-suffix="lucide.chevron-right" divider="full">
+        Email Notifications
+      </dile-list-item>
+      <dile-list-item icon-prefix="lucide.settings" icon-suffix="lucide.chevron-right">
+        Preferences
+      </dile-list-item>
+    </div>
+
+    <h2>2. Modular Slots (Prefix, Content, Suffix)</h2>
+    <p>Rich items with avatars in <code>slot="prefix"</code> and badges, buttons, or timestamps in <code>slot="suffix"</code>.</p>
+    <div class="demo-list">
+      <dile-list-item divider="inset" clickable>
+        <div class="avatar" slot="prefix">ML</div>
+        <div>
+          <div class="text-title">María López</div>
+          <p class="text-subtitle">Te ha enviado un mensaje de bienvenida</p>
+        </div>
+        <span slot="suffix" class="time">10:45</span>
+        <button slot="suffix" class="action-btn" onclick="alert('Secondary action clicked!')">⋮</button>
+      </dile-list-item>
+      <dile-list-item divider="inset" clickable>
+        <div class="avatar" slot="prefix" style="background:#fbcfe8; color:#9d174d;">CG</div>
+        <div>
+          <div class="text-title">Carlos Gómez</div>
+          <p class="text-subtitle">Revisión del pull request #42 completada</p>
+        </div>
+        <span slot="suffix" class="badge">Nuevo</span>
+      </dile-list-item>
+      <dile-list-item clickable>
+        <div class="avatar" slot="prefix" style="background:#bbf7d0; color:#14532d;">AT</div>
+        <div>
+          <div class="text-title">Ana Torres</div>
+          <p class="text-subtitle">Archivo compartido en la carpeta general</p>
+        </div>
+        <span slot="suffix" class="badge-soft">Documento</span>
+      </dile-list-item>
+    </div>
+
+    <h2>3. Layout Density (compact, comfortable, spacious)</h2>
+    <div class="demo-list">
+      <dile-list-item density="compact" icon-prefix="lucide.folder" divider="full">
+        Compact item (small padding and gap)
+      </dile-list-item>
+      <dile-list-item density="comfortable" icon-prefix="lucide.folder" divider="full">
+        Comfortable item (standard default density)
+      </dile-list-item>
+      <dile-list-item density="spacious" icon-prefix="lucide.folder">
+        Spacious item (relaxed padding for touch interfaces)
+      </dile-list-item>
+    </div>
+
+    <h2>4. Line Clamping (lines="1", lines="2", lines="auto")</h2>
+    <div class="demo-list">
+      <dile-list-item lines="1" icon-prefix="lucide.bell" divider="full">
+        <strong>lines="1":</strong> Este es un texto muy largo que excede el ancho disponible del contenedor y por tanto será automáticamente truncado con puntos suspensivos en una sola línea gracias al atributo lines.
+      </dile-list-item>
+      <dile-list-item lines="2" icon-prefix="lucide.bell" divider="full">
+        <strong>lines="2":</strong> Este es un texto explicativo con varias oraciones. Cuando el contenido tiene más de dos renglones, el componente aplica de forma automática la propiedad line-clamp para truncarlo elegantemente al final de la segunda línea sin desbordar el contenedor.
+      </dile-list-item>
+      <dile-list-item lines="auto" icon-prefix="lucide.bell">
+        <strong>lines="auto":</strong> Todo el texto se muestra de forma íntegra sin ningún tipo de límite en la cantidad de líneas, fluyendo verticalmente de acuerdo a la extensión natural de las palabras contenidas.
+      </dile-list-item>
+    </div>
+
+    <h2>5. Alignment (Vertical align for Prefix/Suffix & Horizontal body-align)</h2>
+    <div class="demo-list">
+      <dile-list-item align="start" icon-prefix="lucide.star" icon-suffix="lucide.chevron-right" divider="full">
+        <div>
+          <div class="text-title">align="start"</div>
+          <p class="text-subtitle">El icono prefix y los elementos suffix se alinean verticalmente en la parte superior, mientras que el cuerpo siempre se mantiene alineado a la izquierda.</p>
+        </div>
+      </dile-list-item>
+      <dile-list-item align="center" icon-prefix="lucide.star" icon-suffix="lucide.chevron-right" divider="full">
+        <div>
+          <div class="text-title">align="center" (default)</div>
+          <p class="text-subtitle">El icono prefix y los elementos suffix se alinean al centro vertical respecto al bloque del cuerpo.</p>
+        </div>
+      </dile-list-item>
+      <dile-list-item align="end" icon-prefix="lucide.star" icon-suffix="lucide.chevron-right">
+        <div>
+          <div class="text-title">align="end"</div>
+          <p class="text-subtitle">El icono prefix y los elementos suffix se alinean verticalmente en la parte inferior de la fila.</p>
+        </div>
+      </dile-list-item>
+    </div>
+
+    <p>Alineación horizontal del cuerpo con <code>body-align</code> o CSS <code>--dile-list-item-text-align</code>:</p>
+    <div class="demo-list">
+      <dile-list-item body-align="left" icon-prefix="lucide.mail" icon-suffix="lucide.chevron-right" divider="full">
+        body-align="left" (default)
+      </dile-list-item>
+      <dile-list-item body-align="center" icon-prefix="lucide.mail" icon-suffix="lucide.chevron-right" divider="full">
+        body-align="center"
+      </dile-list-item>
+      <dile-list-item body-align="right" icon-prefix="lucide.mail" icon-suffix="lucide.chevron-right">
+        body-align="right"
+      </dile-list-item>
+    </div>
+
+    <h2>6. Interactive & Navigation Modes (clickable, href, selected, disabled)</h2>
+    <div class="demo-list">
+      <dile-list-item clickable icon-prefix="lucide.user" icon-suffix="lucide.chevron-right" divider="full" id="item-clickable">
+        Clickable Item (press Enter or Space to activate)
+      </dile-list-item>
+      <dile-list-item href="https://dile-components.com" target="_blank" icon-prefix="lucide.mail" icon-suffix="lucide.chevron-right" divider="full">
+        Native Link (Cmd/Ctrl + Click supported)
+      </dile-list-item>
+      <dile-list-item clickable selected icon-prefix="lucide.star" icon-suffix="lucide.chevron-right" divider="full">
+        Selected Item (active highlight)
+      </dile-list-item>
+      <dile-list-item clickable disabled icon-prefix="lucide.trash-2" icon-suffix="lucide.chevron-right">
+        Disabled Item (non-focusable, non-interactive)
+      </dile-list-item>
+    </div>
+
+    <h2>7. Custom Styling (Design Tokens & CSS Parts)</h2>
+    <div class="demo-list custom-theme">
+      <dile-list-item clickable icon-prefix="lucide.folder" icon-suffix="lucide.chevron-right" divider="full">
+        Dark Theme Token Customization
+      </dile-list-item>
+      <dile-list-item clickable selected icon-prefix="lucide.star" icon-suffix="lucide.chevron-right" divider="full">
+        Selected in Dark Theme
+      </dile-list-item>
+      <dile-list-item clickable icon-prefix="lucide.settings" icon-suffix="lucide.chevron-right">
+        Settings Item
+      </dile-list-item>
+    </div>
+
+    <div class="demo-list" style="padding: 0.5rem;">
+      <dile-list-item class="custom-parts" icon-prefix="lucide.star" icon-suffix="lucide.chevron-right">
+        Styled using ::part(prefix), ::part(body), and ::part(suffix)
+      </dile-list-item>
+    </div>
+  </div>
+
+  <script>
+    const feedback = document.getElementById('feedback');
+    document.querySelectorAll('dile-list-item').forEach((item) => {
+      item.addEventListener('dile-list-item-click', (e) => {
+        feedback.textContent = `Event dile-list-item-click dispatched! Target href: ${e.detail.href || 'none'}`;
+        setTimeout(() => { feedback.textContent = ''; }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>
