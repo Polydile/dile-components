@@ -77,10 +77,28 @@ Instead of repeating attributes like `density="compact"` or `clickable` on every
 How the cascade works:
 
 - Only `<dile-list-item>` elements that are **direct children** of the list are managed. Items of a nested `<dile-list>` belong to that nested list.
-- **Presentational properties** (`density`, `divider`, `lines`, `align`, `body-align`): a value defined on the item itself takes precedence over the list value.
+- **Presentational properties** (`density`, `divider`, `lines`, `align`, `body-align`, `icon-prefix`, `icon-suffix`): a value defined on the item itself takes precedence over the list value.
 - **Behavioural properties** (`clickable`, `disabled`): the list value wins while it is active. In selection mode (`single` / `multiple`) items are always clickable.
 - When the list stops imposing a value (e.g. `list.disabled = false`, `selection="none"`, or removing `density`), each item gets back the value it had before.
 - Items added dynamically receive the cascaded values too.
+
+### Shared icons
+
+Use `icon-prefix` and `icon-suffix` on the list to show the same icon in every item. Any item can use a different icon with its own attribute, remove the list icon with an empty attribute (`icon-suffix=""`), or replace it with custom content in `slot="prefix"` / `slot="suffix"`:
+
+```html:preview
+<script type="module">
+  import '@dile/iconlib/lucide-icons/file.js';
+  import '@dile/iconlib/lucide-icons/lock.js';
+</script>
+
+<dile-list icon-prefix="lucide.file" icon-suffix="lucide.chevron-right" clickable divider="full" style="max-width: 480px;">
+  <dile-list-item>Annual report.pdf</dile-list-item>
+  <dile-list-item>Budget.xlsx</dile-list-item>
+  <dile-list-item icon-prefix="lucide.lock">Contracts (private folder)</dile-list-item>
+  <dile-list-item icon-suffix="">Notes.txt (no suffix icon)</dile-list-item>
+</dile-list>
+```
 
 ---
 
@@ -202,6 +220,8 @@ Property | Attribute | Type | Default | Description
 `lines` | `lines` | String | `undefined` | Text line clamping cascaded to items (`'1'`, `'2'`, a number, or `'auto'`).
 `align` | `align` | String | `undefined` | Vertical alignment cascaded to items (`'start'`, `'center'`, `'end'`).
 `bodyAlign` | `body-align` | String | `undefined` | Horizontal text alignment cascaded to items (`'left'`, `'center'`, `'right'`).
+`iconPrefix` | `icon-prefix` | String | `undefined` | `@dile/iconlib` icon (`"family.name"`) cascaded to the prefix of the items.
+`iconSuffix` | `icon-suffix` | String | `undefined` | `@dile/iconlib` icon (`"family.name"`) cascaded to the suffix of the items.
 `disabled` | `disabled` | Boolean | `false` | Disables user interaction for the entire list and its items.
 `loading` | `loading` | Boolean | `false` | Shows loading spinner overlay and sets `aria-busy="true"`.
 `emptyText` | `empty-text` | String | `''` | Message displayed when there are no items in the list. When empty, the text `No items available` is used.

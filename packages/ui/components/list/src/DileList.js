@@ -135,6 +135,10 @@ export class DileList extends LitElement {
       align: { type: String, reflect: true },
       /** Horizontal body alignment propagated to items: "left", "center", "right" */
       bodyAlign: { type: String, attribute: 'body-align', reflect: true },
+      /** Prefix icon ("family.name") propagated to items */
+      iconPrefix: { type: String, attribute: 'icon-prefix' },
+      /** Suffix icon ("family.name") propagated to items */
+      iconSuffix: { type: String, attribute: 'icon-suffix' },
       /** Disabled state for the entire list */
       disabled: { type: Boolean, reflect: true },
       /** Loading state that shows spinner / overlay */
@@ -240,7 +244,9 @@ export class DileList extends LitElement {
       changedProperties.has('divider') ||
       changedProperties.has('lines') ||
       changedProperties.has('align') ||
-      changedProperties.has('bodyAlign')
+      changedProperties.has('bodyAlign') ||
+      changedProperties.has('iconPrefix') ||
+      changedProperties.has('iconSuffix')
     ) {
       this._cascadeProperties();
     }
@@ -300,12 +306,15 @@ export class DileList extends LitElement {
       // Behavioural properties: the list overrides the item while active.
       this._cascadeProp(item, 'clickable', shouldBeClickable ? true : undefined, true);
       this._cascadeProp(item, 'disabled', this.disabled ? true : undefined, true);
-      // Presentational properties: values defined on the item itself take precedence.
+      // Presentational properties: values defined on the item itself take precedence
+      // (an empty icon-prefix="" / icon-suffix="" on an item opts out of the list icon).
       this._cascadeProp(item, 'density', this.density || undefined);
       this._cascadeProp(item, 'divider', this.divider ?? undefined);
       this._cascadeProp(item, 'lines', this.lines || undefined);
       this._cascadeProp(item, 'align', this.align || undefined);
       this._cascadeProp(item, 'bodyAlign', this.bodyAlign || undefined);
+      this._cascadeProp(item, 'iconPrefix', this.iconPrefix || undefined);
+      this._cascadeProp(item, 'iconSuffix', this.iconSuffix || undefined);
     });
   }
 

@@ -102,6 +102,48 @@ describe('dile-list', () => {
     expect(items[1].divider).toBe('full');
   });
 
+  it('propagates icon-prefix and icon-suffix to items, letting items override or remove them', async () => {
+    const el = await renderList(`
+      <dile-list icon-prefix="lucide.user" icon-suffix="lucide.chevron-right">
+        <dile-list-item>Inherited icons</dile-list-item>
+        <dile-list-item icon-prefix="lucide.star">Own prefix icon</dile-list-item>
+        <dile-list-item icon-suffix="">Without suffix icon</dile-list-item>
+      </dile-list>
+    `);
+    const items = el.querySelectorAll('dile-list-item');
+    const icon = (item, part) => item.shadowRoot.querySelector(`.${part} dile-iconlib`)?.getAttribute('icon') ?? null;
+
+    expect(icon(items[0], 'prefix')).toBe('lucide.user');
+    expect(icon(items[0], 'suffix')).toBe('lucide.chevron-right');
+    expect(icon(items[1], 'prefix')).toBe('lucide.star');
+    expect(icon(items[1], 'suffix')).toBe('lucide.chevron-right');
+    expect(icon(items[2], 'prefix')).toBe('lucide.user');
+    expect(icon(items[2], 'suffix')).toBe(null);
+    expect(items[2].shadowRoot.querySelector('.suffix').hasAttribute('hidden')).toBe(true);
+
+    el.iconPrefix = 'lucide.mail';
+    await settle(el);
+    expect(icon(items[0], 'prefix')).toBe('lucide.mail');
+    expect(icon(items[1], 'prefix')).toBe('lucide.star');
+
+    el.iconSuffix = undefined;
+    await settle(el);
+    expect(icon(items[0], 'suffix')).toBe(null);
+    expect(items[0].shadowRoot.querySelector('.suffix').hasAttribute('hidden')).toBe(true);
+  });
+
+  it('lets slotted prefix content take precedence over the list icon', async () => {
+    const el = await renderList(`
+      <dile-list icon-prefix="lucide.user">
+        <dile-list-item><span slot="prefix" id="avatar">AB</span>Custom</dile-list-item>
+      </dile-list>
+    `);
+    const item = el.querySelector('dile-list-item');
+    const assigned = item.shadowRoot.querySelector('slot[name="prefix"]').assignedNodes({ flatten: true });
+    expect(assigned.some((n) => n.id === 'avatar')).toBe(true);
+    expect(assigned.some((n) => n.localName === 'dile-iconlib')).toBe(false);
+  });
+
   it('propagates and restores the disabled state of child items', async () => {
     const el = await renderList(`
       <dile-list disabled>

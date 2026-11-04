@@ -112,8 +112,8 @@ Property | Attribute | Type | Default | Description
 `clickable` | `clickable` | Boolean | `false` | Enables interactive button mode (`cursor: pointer`, hover/active states, `role="button"`, `Enter`/`Space` activation).
 `href` | `href` | String | `undefined` | Destination URL. When defined, renders an accessible native `<a>` tag inside (without `href` while the item is disabled).
 `target` | `target` | String | `undefined` | Target frame for the link (e.g. `'_blank'`).
-`iconPrefix` | `icon-prefix` | String | `''` | `@dile/iconlib` icon identifier for the prefix slot in `"family.name"` format.
-`iconSuffix` | `icon-suffix` | String | `''` | `@dile/iconlib` icon identifier for the suffix slot in `"family.name"` format.
+`iconPrefix` | `icon-prefix` | String | `undefined` | `@dile/iconlib` icon identifier for the prefix slot in `"family.name"` format.
+`iconSuffix` | `icon-suffix` | String | `undefined` | `@dile/iconlib` icon identifier for the suffix slot in `"family.name"` format.
 `disabled` | `disabled` | Boolean | `false` | Disables interaction, applies `aria-disabled="true"`, and sets `tabindex="-1"`.
 `selected` | `selected` | Boolean | `false` | Applies selection highlight styling. Exposed as `aria-selected` when the item is an option (inside a list in selection mode), or as `aria-current="true"` otherwise.
 `expanded` | `expanded` | Boolean | `undefined` | Reflects `aria-expanded` when the item acts as a disclosure trigger.

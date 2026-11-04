@@ -20,6 +20,8 @@
     import "@dile/iconlib/lucide-icons/folder.js";
     import "@dile/iconlib/lucide-icons/star.js";
     import "@dile/iconlib/lucide-icons/inbox.js";
+    import "@dile/iconlib/lucide-icons/file.js";
+    import "@dile/iconlib/lucide-icons/lock.js";
   </script>
   <style>
     body {
@@ -132,7 +134,20 @@
     </div>
 
     <div class="demo-block">
-      <h2>3. Single Selection Mode (Listbox)</h2>
+      <h2>3. Shared Icons</h2>
+      <p>Set <code>icon-prefix</code> / <code>icon-suffix</code> on the list to show the same icon in every item. An item can
+        use its own icon, or remove the list icon with an empty attribute (<code>icon-suffix=""</code>).</p>
+
+      <dile-list icon-prefix="lucide.file" icon-suffix="lucide.chevron-right" clickable divider="full">
+        <dile-list-item>Annual report.pdf</dile-list-item>
+        <dile-list-item>Budget.xlsx</dile-list-item>
+        <dile-list-item icon-prefix="lucide.lock">Contracts (own prefix icon)</dile-list-item>
+        <dile-list-item icon-suffix="">Notes.txt (no suffix icon)</dile-list-item>
+      </dile-list>
+    </div>
+
+    <div class="demo-block">
+      <h2>4. Single Selection Mode (Listbox)</h2>
       <p>Click an option or navigate with <kbd>Tab</kbd> + <kbd>Arrow keys</kbd> + <kbd>Enter</kbd> / <kbd>Space</kbd>.
         Listen to <code>dile-list-change</code>.</p>
 
@@ -151,7 +166,7 @@
     </div>
 
     <div class="demo-block">
-      <h2>4. Multiple Selection Mode</h2>
+      <h2>5. Multiple Selection Mode</h2>
       <p>Allows selecting multiple options. <code>e.detail.value</code> contains an array of selected values.</p>
 
       <dile-list id="multi-list" selection="multiple" value="updates,newsletter" divider="full">
@@ -163,7 +178,7 @@
     </div>
 
     <div class="demo-block">
-      <h2>5. Dynamic Items & Empty State</h2>
+      <h2>6. Dynamic Items & Empty State</h2>
       <p>When all items are removed, <code>&lt;dile-list&gt;</code> automatically surfaces the empty state slot.</p>
 
       <div class="controls">
@@ -184,7 +199,7 @@
     </div>
 
     <div class="demo-block">
-      <h2>6. Loading State</h2>
+      <h2>7. Loading State</h2>
       <p>Toggle the <code>loading</code> attribute to display the loading spinner and overlay while fetching data.</p>
 
       <div class="controls">
@@ -199,7 +214,7 @@
     </div>
 
     <div class="demo-block">
-      <h2>7. Theming & Custom CSS Properties</h2>
+      <h2>8. Theming & Custom CSS Properties</h2>
       <p>Customize the frame border, background, shadow, and inner item states via CSS custom properties.</p>
 
       <dile-list class="custom-styled" selection="single" value="theme-purple" divider="full">

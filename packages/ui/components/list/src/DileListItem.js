@@ -260,8 +260,6 @@ export class DileListItem extends LitElement {
 
   constructor() {
     super();
-    this.iconPrefix = '';
-    this.iconSuffix = '';
     this.clickable = false;
     this.disabled = false;
     this.selected = false;
