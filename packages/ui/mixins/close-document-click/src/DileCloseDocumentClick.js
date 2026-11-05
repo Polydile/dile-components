@@ -28,7 +28,7 @@ export const DileCloseDocumentClick = (SuperClass) =>
           DileCloseDocumentClick.closeDocumentHandler = () => {
             if(DileCloseDocumentClick.elements) {
               for (let ele of DileCloseDocumentClick.elements) {
-                ele.close();
+                ele.closeFromDocumentClick();
               }
             }
           };
@@ -68,6 +68,15 @@ export const DileCloseDocumentClick = (SuperClass) =>
           item.close();
         }
       });
+    }
+
+    /**
+     * Close requested by a click in the document. Calls close() by default.
+     * Override it to ignore these closes in some states, as DileOverlay does
+     * while the overlay is opening.
+     */
+    closeFromDocumentClick() {
+      this.close();
     }
 
     /**

@@ -95,8 +95,11 @@ This mixin also includes a "state" property called "_overlayClass". In order to 
 ## Methods
 
 - **open()**: Use it to open the menu overlay box
-- **close()**: Use it to close the menu overlay box
+- **close()**: Use it to close the menu overlay box. If it is called while the overlay is still opening (`open()` waits 50ms before adding the `opened` class), the opening is cancelled and the overlay stays closed.
 - **toggle()**: Toggles the menu-overlay box
+- **closeFromDocumentClick()**: Close requested by a document click from [DileCloseDocumentClick](/mixins/dile-close-document-click-mixin). It is ignored while the overlay is opening, so the click that opens the overlay does not close it when it reaches the document.
+
+If the component also uses DileCloseDocumentClick, `open()` closes the other overlays of the same type with `closeOthers()`, even if they are still opening.
 
 **Important note**: the trigger does not opens the menu by itself. You must call the ```open()``` or ```toggle()``` method to open the menu when you need. The trigger by default is used only for positioning the menu overlay.
 
@@ -108,8 +111,8 @@ For example, you can use the the ```toogle()``` method as a click handler on the
 
 ## Custom events
 
-- **overlay-opened**: dispatched when the overlay opens.
-- **overlay-closed**: dispatched when the overlay closes.
+- **overlay-opened**: dispatched when the overlay opens. Calling `open()` while the overlay is already opened or opening does not dispatch it again, so every `overlay-opened` is followed by one `overlay-closed`.
+- **overlay-closed**: dispatched when the overlay closes, also when a `close()` cancels an opening in progress.
 
 ## Implementations of DileOverlayMixin
 

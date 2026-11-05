@@ -80,35 +80,63 @@ export const DileOverlay = function(superClass) {
     }
     /**
     * closes the overlay
+    *
+    * An explicit close() while the overlay is still opening (the 50ms delay of open())
+    * cancels the opening, so the overlay ends up closed.
     */
     close() {
-      if(!this._opening && this._overlayClass=='opened') {
+      if(this._opening) {
+        this.cancelDelay();
+        this._opening = false;
+        this._overlayClass = '';
+        this.overlay.style.display = 'none';
+        this._dispatchClosed();
+      } else if(this._overlayClass=='opened') {
         this._overlayClass = '';
         this._removePositionListeners();
         this.cancelDelay();
         this.delayId = setTimeout(() => {
           this.overlay.style.display = 'none'
         }, 500);
-        this.dispatchEvent(new CustomEvent('overlay-closed', {
-        bubbles: true,
-        composed: true,
-      }));
+        this._dispatchClosed();
       }
     }
     /**
-    * opens the overlay
+    * Close requested by a document click (DileCloseDocumentClick). It is ignored while
+    * the overlay is opening, because the same click that opens the overlay bubbles up
+    * to the document.
     */
-    open() {
-      this.dispatchEvent(new CustomEvent('overlay-opened', {
+    closeFromDocumentClick() {
+      if(!this._opening) {
+        this.close();
+      }
+    }
+    _dispatchClosed() {
+      this.dispatchEvent(new CustomEvent('overlay-closed', {
         bubbles: true,
         composed: true,
       }));
+    }
+    /**
+    * opens the overlay
+    *
+    * overlay-opened is only dispatched when the overlay was closed, so every
+    * overlay-opened is paired with one overlay-closed.
+    */
+    open() {
+      if(!this._opening && this._overlayClass != 'opened') {
+        this.dispatchEvent(new CustomEvent('overlay-opened', {
+          bubbles: true,
+          composed: true,
+        }));
+      }
       if(!this._opening) {
         this._opening = true;
         this.updatePosition();
-        if(this.closeAll) {
-          this.closeAll();
-        };
+        // Close the other overlays, even if they are still opening.
+        if(this.closeOthers) {
+          this.closeOthers();
+        }
         this.overlay.style.display = 'block';
         this.cancelDelay();
         this.delayId = setTimeout(() => {

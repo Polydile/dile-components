@@ -320,6 +320,146 @@ describe('dile-select-overlay', () => {
     });
   });
 
+  describe('Closing while opening', () => {
+    const markup = `
+      <dile-select-overlay hideTrigger>
+        <select slot="select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </select>
+      </dile-select-overlay>
+    `;
+
+    function expectClosed(el) {
+      const overlay = el.shadowRoot.getElementById('overlay');
+      expect(overlay.classList.contains('opened')).toBe(false);
+      expect(overlay.style.display).toBe('none');
+      expect(el.opened).toBe(false);
+    }
+
+    it('close() in the same tick as open() cancels the opening', async () => {
+      const el = await renderSelectOverlay(markup);
+      const closedHandler = vi.fn();
+      el.addEventListener('overlay-closed', closedHandler);
+
+      el.open();
+      expect(el.opened).toBe(true);
+      el.close();
+      expect(el.opened).toBe(false);
+
+      await wait(100);
+      await el.updateComplete;
+      expectClosed(el);
+      expect(closedHandler).toHaveBeenCalledTimes(1);
+    });
+
+    it('close() before the 50ms opening delay ends cancels the opening', async () => {
+      const el = await renderSelectOverlay(markup);
+
+      el.open();
+      await wait(20);
+      el.close();
+
+      await wait(100);
+      await el.updateComplete;
+      expectClosed(el);
+    });
+
+    it('ArrowDown then an immediate Enter selects the option and leaves the overlay closed', async () => {
+      const el = await renderSelectOverlay(markup.replace('hideTrigger', 'hideTrigger value="2"'));
+
+      el.open();
+      el.handleExternalKeydown(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+      el.handleExternalKeydown(new KeyboardEvent('keydown', { key: 'Enter' }));
+
+      await wait(100);
+      await el.updateComplete;
+      expect(el.value).toBe('1');
+      expectClosed(el);
+    });
+
+    it('the click that opens the overlay does not close it when it reaches the document', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay>
+          <select slot="select">
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      await open(el);
+
+      expect(el.shadowRoot.getElementById('overlay').classList.contains('opened')).toBe(true);
+    });
+
+    it('opening one overlay closes another opened one', async () => {
+      document.body.innerHTML = `
+        <dile-select-overlay id="first">
+          <select slot="select"><option value="1">Option 1</option></select>
+        </dile-select-overlay>
+        <dile-select-overlay id="second">
+          <select slot="select"><option value="1">Option 1</option></select>
+        </dile-select-overlay>
+      `;
+      const first = document.getElementById('first');
+      const second = document.getElementById('second');
+      await first.updateComplete;
+      await second.updateComplete;
+
+      await open(first);
+      await open(second);
+
+      expect(first.opened).toBe(false);
+      expect(second.opened).toBe(true);
+    });
+
+    it('dispatches overlay-opened only when the overlay was closed, paired with overlay-closed', async () => {
+      const el = await renderSelectOverlay(markup);
+      const events = [];
+      el.addEventListener('overlay-opened', () => events.push('opened'));
+      el.addEventListener('overlay-closed', () => events.push('closed'));
+
+      el.open();
+      el.open(); // while opening
+      await wait(100);
+      el.open(); // already opened
+      await wait(100);
+      el.close();
+      el.open(); // reopened during the closing fade-out
+      el.close(); // cancels that opening
+
+      expect(events).toEqual(['opened', 'closed', 'opened', 'closed']);
+    });
+
+    it('opening one overlay closes another one that is still opening', async () => {
+      document.body.innerHTML = `
+        <dile-select-overlay id="first">
+          <select slot="select"><option value="1">Option 1</option></select>
+        </dile-select-overlay>
+        <dile-select-overlay id="second">
+          <select slot="select"><option value="1">Option 1</option></select>
+        </dile-select-overlay>
+      `;
+      const first = document.getElementById('first');
+      const second = document.getElementById('second');
+      await first.updateComplete;
+      await second.updateComplete;
+
+      first.shadowRoot.getElementById('trigger').click();
+      await wait(20);
+      second.shadowRoot.getElementById('trigger').click();
+      await wait(100);
+      await first.updateComplete;
+      await second.updateComplete;
+
+      expect(first.opened).toBe(false);
+      expect(first.shadowRoot.getElementById('overlay').classList.contains('opened')).toBe(false);
+      expect(first.shadowRoot.getElementById('overlay').style.display).toBe('none');
+      expect(second.opened).toBe(true);
+      expect(second.shadowRoot.getElementById('overlay').classList.contains('opened')).toBe(true);
+    });
+  });
+
   describe('Positioning', () => {
     it('can open a popup wider than a narrow trigger with --dile-select-overlay-min-width', async () => {
       const el = await renderSelectOverlay(`

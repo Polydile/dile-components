@@ -243,12 +243,7 @@ export class DileFloatingMenu extends DileOverlay(DileCloseOnEscPressed(LitEleme
     }
 
     _hideOverlay() {
-        // Closed during the opening delay of DileOverlay, where its close() would be ignored.
-        if (this._opening) {
-            this.cancelDelay();
-            this._opening = false;
-            this._overlayClass = 'opened';
-        }
+        // DileOverlay's close() also cancels an opening still in its delay.
         super.close();
     }
 

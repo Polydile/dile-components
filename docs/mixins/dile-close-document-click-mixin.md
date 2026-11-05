@@ -45,6 +45,8 @@ The mixin also provides two utility methods implemented in your custom elements:
 - **closeAll()**: Close all the elements of this type
 - **closeOthers()**: Close the other items of this type (distinct to this)
 
+`closeAll()` and `closeOthers()` call `close()` on each element. The document click calls `closeFromDocumentClick()` instead, which calls `close()` by default. Override `closeFromDocumentClick()` if your element must ignore document clicks in some state. For example, [DileOverlay](/mixins/dile-overlay-mixin) ignores them while the overlay is opening.
+
 ## Implementatios of DileCloseDocumentClickMixin
 
 Some components that implements DileCloseDocumentClickMixin:
