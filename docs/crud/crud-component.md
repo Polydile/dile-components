@@ -40,7 +40,7 @@ Use the component.
 | `title` | `String` | `undefined` | Title for the crud component. Optional. |
 | `config` | `Object` | `undefined` | The configuration object that customizes the behavior and functionality of the CRUD system. |
 | `actionIds` | `Array` | `[]` | The list of IDs for the items selected for batch operations. |
-| `keyword` | `String` | `undefined` | The search keyword used to filter the items in the CRUD system. |
+| `keyword` | `String` | `""` | The search keyword used to filter the list. If set when the component is mounted, the first request is already filtered and the search box shows the value. Changing it later is equivalent to `setKeyword()`. It is kept in sync with the search box and the keyword filter chip. See [Initial keyword](#initial-keyword). |
 | `belongsTo` | `String` | `undefined` | Indicates the name of the resource to which the records managed by the `dile-crud` component belong in this instance. Changing it reloads the list from the first page. |
 | `relationId` | `String` | `undefined` | The identifier that uniquely identifies the specific resource. Changing it reloads the list from the first page. |
 | `language` | `String` | `"en"` | The feedback messages language. Available `"en"`, `"es"`. Fallback to `"en"`. |
@@ -51,7 +51,7 @@ Use the component.
 
 - **openInsert()**: Opens the form or interface for inserting a new item into the CRUD system.
 - **editItem(id)**: Opens the form or interface to edit the item with the specified `id`.
-- **setKeyword(keyword)**: Sets the search keyword used to filter the items within the list system based on the provided `keyword`.
+- **setKeyword(keyword)**: Sets the `keyword` property, reloads the list from the first page filtered by `keyword` and shows the value in the search box (without triggering a second search).
 - **attachActionId(id)**: Adds the specified `id` to the list of IDs selected for batch actions.
 - **detachActionId(id)**: Removes the specified `id` from the list of IDs selected for batch actions.
 - **removeActionItems(idsArray)**: Removes the items with the specified IDs in `idsArray` from the CRUD system.
@@ -309,6 +309,37 @@ customElements.define('demo-board-game-crud', DemoBoardGameCrud);
 </script>
 <demo-board-game-crud></demo-board-game-crud>
 ```
+
+## Initial keyword {#initial-keyword}
+
+Use the `keyword` property to open the CRUD already filtered. A typical case is a selection modal: the user types part of a product name in an invoice line, clicks a search button, and the catalog opens filtered by that text, with the text already written in the search box.
+
+```javascript
+class InvoiceLine extends LitElement {
+  render() {
+    return html`
+      <input id="concept">
+      <button @click=${this.openCatalog}>Search</button>
+      <dile-modal id="catalogModal">
+        <dile-crud id="catalog" .config=${productsConfig}></dile-crud>
+      </dile-modal>
+    `;
+  }
+
+  openCatalog() {
+    const typed = this.shadowRoot.getElementById('concept').value;
+    // The crud is already mounted inside the modal: setKeyword() (or assigning
+    // the keyword property) reloads the list filtered and updates the search box.
+    this.shadowRoot.getElementById('catalog').setKeyword(typed);
+    this.shadowRoot.getElementById('catalogModal').open();
+  }
+}
+```
+
+If the `dile-crud` is created at the moment the modal opens, pass the keyword in the template (`keyword="${typed}"` or `.keyword=${typed}`). The first list request already includes it; no unfiltered request is made before.
+
+- Removing the keyword chip from the active filters list sets `keyword` to `""` and clears the search box.
+- With `customization.disableKeywordSearch`, the search box is not rendered but `keyword` still filters the list. Use it as a fixed filter set by code; the keyword chip is still shown and the user can remove it.
 
 ## Always Visible Filters {#always-visible-filters}
 

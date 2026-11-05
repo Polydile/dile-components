@@ -139,6 +139,14 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         this.actionIds = [];
         this.filtersAlwaysVisible = false;
         this._viewMode = 'item';
+        this.keyword = '';
+    }
+
+    updated(changedProperties) {
+        super.updated?.(changedProperties);
+        if (changedProperties.has('keyword')) {
+            this.applyKeywordToList(this.keyword ?? '');
+        }
     }
 
     // GETTERS ELEMENTOS
@@ -160,6 +168,9 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     get sortFormElement() {
         return this.shadowRoot.getElementById('elsort');
     }
+    get searchInputElement() {
+        return this.shadowRoot.querySelector('dile-input-search');
+    }
 
     // TEMPLATES
 
@@ -171,7 +182,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                     : ''
                 }
                 ${this.config.customization.disableInsert ? '' : this.insertButtomTemplate}
-                ${this.config.customization.disableKeywordSearch ? '' : html`<dile-input-search @dile-input-search=${this.keywordChanged}></dile-input-search>`}
+                ${this.config.customization.disableKeywordSearch ? '' : html`<dile-input-search .value=${this.keyword ?? ''} @dile-input-search=${this.keywordChanged}></dile-input-search>`}
             </header>
 
             <main>
@@ -427,7 +438,24 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     }
 
     setKeyword(keyword) {
-        this.listElement.setKeyword(keyword);
+        this.keyword = keyword ?? '';
+        this.applyKeywordToList(this.keyword, { force: true });
+    }
+
+    // Moves the keyword into dile-crud-list. Before the list has run its first update it
+    // only receives the value, so its initial load (DileCrudList.firstUpdated → refresh)
+    // is already filtered and no unfiltered request is made. Afterwards it triggers a new
+    // search, unless the list already has that keyword (e.g. updated() after setKeyword()).
+    applyKeywordToList(keyword, { force = false } = {}) {
+        const list = this.shadowRoot?.querySelector('dile-crud-list');
+        if (!list) {
+            return;
+        }
+        if (!list.hasUpdated) {
+            list.keyword = keyword;
+        } else if (force || list.keyword !== keyword) {
+            list.setKeyword(keyword);
+        }
     }
 
     sortFormChanged(e) {
@@ -499,7 +527,13 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
     removeFilter(e) {
         if(e.detail.name == 'keyword') {
-            this.shadowRoot.querySelector('dile-input-search').clear();
+            const searchInput = this.searchInputElement;
+            if (searchInput?.value) {
+                // clear() emits dile-input-search('') → keywordChanged → setKeyword('')
+                searchInput.clear();
+            } else {
+                this.setKeyword('');
+            }
         } else {
             this.filtersElement.removeFilter(e.detail.name);
         }

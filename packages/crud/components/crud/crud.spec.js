@@ -526,3 +526,135 @@ describe('dile-crud scope and refresh', () => {
     expect(requests.at(-1).url).toBe('https://example.test/api/invoices');
   });
 });
+
+describe('dile-crud keyword', () => {
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  // Mounts a dile-crud on a fake endpoint: list requests are intercepted at the
+  // service's dile-ajax, so nothing reaches the network.
+  async function mountCrud({ keyword, disableKeywordSearch = false } = {}) {
+    const config = new CrudConfigBuilder('https://example.test/api/products', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch,
+        disableSort: true,
+        disableFilter: true,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    if (keyword !== undefined) {
+      el.setAttribute('keyword', keyword);
+    }
+    document.body.appendChild(el);
+    await el.updateComplete;
+    const list = el.listElement;
+    await list.updateComplete;
+    await list.elservice.updateComplete;
+    const requests = [];
+    const ajax = list.elservice.ajaxget;
+    ajax.generateRequest = () => requests.push({ url: ajax.url, data: { ...ajax.data } });
+    return { el, list, requests };
+  }
+
+  function searchInput(el) {
+    return el.searchInputElement.shadowRoot.querySelector('input');
+  }
+
+  function keywordChip(list) {
+    return list.shadowRoot
+      .querySelector('dile-crud-filters-list')
+      .shadowRoot.querySelector('dile-crud-filters-list-item[name="keyword"]');
+  }
+
+  it('makes a single, already filtered first request and shows the keyword in the search box', async () => {
+    const { el, requests } = await mountCrud({ keyword: 'abc' });
+    await wait(300);
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('abc');
+    expect(el.searchInputElement.value).toBe('abc');
+    expect(searchInput(el).value).toBe('abc');
+  });
+
+  it('setKeyword() filters the list and updates the search box, with one request', async () => {
+    const { el, list, requests } = await mountCrud();
+    await wait(300);
+    requests.length = 0;
+
+    el.setKeyword('x');
+    expect(el.keyword).toBe('x');
+    await el.updateComplete;
+    await el.searchInputElement.updateComplete;
+    await wait(300);
+
+    expect(list.keyword).toBe('x');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('x');
+    expect(searchInput(el).value).toBe('x');
+  });
+
+  it('changing the keyword property after mount behaves like setKeyword()', async () => {
+    const { el, list, requests } = await mountCrud();
+    await wait(300);
+    requests.length = 0;
+
+    el.keyword = 'dom';
+    await el.updateComplete;
+    await el.searchInputElement.updateComplete;
+    await wait(300);
+
+    expect(list.keyword).toBe('dom');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('dom');
+    expect(searchInput(el).value).toBe('dom');
+  });
+
+  it('removing the keyword chip clears the keyword and the search box', async () => {
+    const { el, list, requests } = await mountCrud({ keyword: 'abc' });
+    await wait(300);
+    requests.length = 0;
+    await list.updateComplete;
+
+    const chip = keywordChip(list);
+    expect(chip).toBeTruthy();
+    chip.shadowRoot.querySelector('dile-chip').shadowRoot.querySelector('dile-icon').click();
+    await el.updateComplete;
+    await el.searchInputElement.updateComplete;
+    await wait(300);
+
+    expect(el.keyword).toBe('');
+    expect(list.keyword).toBe('');
+    expect(el.searchInputElement.value).toBe('');
+    expect(searchInput(el).value).toBe('');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('');
+  });
+
+  it('with disableKeywordSearch, keyword still filters without a search box', async () => {
+    const { el, list, requests } = await mountCrud({ keyword: 'abc', disableKeywordSearch: true });
+    await wait(300);
+
+    expect(el.searchInputElement).toBeNull();
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('abc');
+
+    requests.length = 0;
+    await list.updateComplete;
+    keywordChip(list).shadowRoot.querySelector('dile-chip').shadowRoot.querySelector('dile-icon').click();
+    await el.updateComplete;
+    await wait(300);
+
+    expect(el.keyword).toBe('');
+    expect(requests).toHaveLength(1);
+    expect(requests[0].data.keyword).toBe('');
+  });
+});
