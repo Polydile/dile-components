@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { html } from 'lit';
 import './select-search.js';
 
 describe('dile-select-search', () => {
@@ -313,6 +314,34 @@ describe('dile-select-search', () => {
       `);
 
       expect(el.sourceOptions.map(o => o.icon)).toEqual(['material.star', 'lucide.globe']);
+    });
+  });
+
+  describe('optionRenderer', () => {
+    const PRODUCTS = `
+      <select slot="select">
+        <option value="1" data-price="25,50 €">Mantenimiento web</option>
+        <option value="2" data-price="90,00 €">Hosting anual</option>
+      </select>
+    `;
+
+    it('receives the source option item (with its native element) and keeps selecting by text', async () => {
+      const el = await renderSelectSearch('', PRODUCTS);
+      const calls = [];
+      el.optionRenderer = (item, index) => {
+        calls.push(item);
+        return html`<b>${item.text}</b> <span class="price">${item.element.dataset.price}</span>`;
+      };
+      await typeKeyword(el, 'hosting');
+
+      const option = el.select.shadowRoot.querySelector('[role="option"]');
+      expect(option.querySelector('.price').textContent).toBe('90,00 €');
+      expect(option.getAttribute('aria-label')).toBe('Hosting anual');
+      expect(calls[0].value).toBe('2');
+
+      await selectOption(el, 0);
+      expect(el.value).toBe('2');
+      expect(el.selectedText).toBe('Hosting anual');
     });
   });
 });

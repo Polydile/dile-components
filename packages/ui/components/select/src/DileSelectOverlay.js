@@ -150,6 +150,11 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
       .option[aria-selected="true"] {
         font-weight: var(--dile-select-overlay-selected-font-weight, 600);
       }
+      .option-content {
+        display: block;
+        flex: 1 1 auto;
+        min-width: 0;
+      }
       @media (forced-colors: active) {
         #trigger {
           border-width: var(--dile-input-border-width, 1px);
@@ -185,6 +190,12 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
       /** Suppresses the visible trigger box, letting a parent component drive open()/close()
        *  and forward keyboard events via handleExternalKeydown() while supplying its own visible control. */
       hideTrigger: { type: Boolean, reflect: true },
+      /** Optional custom renderer for the content of each option in the popup:
+       *  `(option, index) => TemplateResult | string`, where `option` is `{ value, text, icon, element }`
+       *  and `element` is the native <option> (useful to read its dataset). The <li role="option">
+       *  itself (ids, aria-selected, highlight, click) is still managed by the component, and the
+       *  trigger, typeahead, accessible name and highlightedText keep using the plain option text. */
+      optionRenderer: { attribute: false },
       _activeIndex: { state: true },
       /** Display text of the currently highlighted option, readable by an external composer. */
       highlightedText: { state: true },
@@ -218,7 +229,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
 
   get options() {
     return this.elselect
-      ? Array.from(this.elselect.options).map(o => ({ value: o.value, text: o.textContent, icon: o.dataset.icon || this.elselect.dataset.icon }))
+      ? Array.from(this.elselect.options).map(o => ({ value: o.value, text: o.textContent, icon: o.dataset.icon || this.elselect.dataset.icon, element: o }))
       : [];
   }
 
@@ -361,18 +372,33 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
     const options = this.options;
     return html`
       <ul id="overlay" class="${this._overlayClass}" role="listbox">
-        ${options.map((opt, index) => html`
+        ${options.map((opt, index) => {
+          const highlighted = index === this._activeIndex;
+          const selected = opt.value === (this.value ?? '');
+          const parts = ['option', highlighted ? 'option-highlighted' : '', selected ? 'option-selected' : ''].filter(Boolean).join(' ');
+          return html`
           <li
             id="${this._optionId(index)}"
             role="option"
-            class="option ${index === this._activeIndex ? 'highlighted' : ''}"
-            aria-selected="${opt.value === (this.value ?? '')}"
+            part="${parts}"
+            class="option ${highlighted ? 'highlighted' : ''}"
+            aria-selected="${selected}"
+            aria-label="${ifDefined(this.optionRenderer ? opt.text.trim() : undefined)}"
             @click="${() => this.selectOption(index)}"
             @mousemove="${() => this._setActiveIndex(index, false)}"
-          >${opt.icon ? html`<span class="option-icon">${this.renderIconlibIcon(opt.icon)}</span>` : ''}${opt.text}</li>
-        `)}
+          >${this.optionContentTemplate(opt, index)}</li>
+        `;
+        })}
       </ul>
     `;
+  }
+
+  /** Content of each <li role="option">: optionRenderer's output when set, icon + text otherwise. */
+  optionContentTemplate(opt, index) {
+    if (typeof this.optionRenderer === 'function') {
+      return html`<span class="option-content" part="option-content">${this.optionRenderer(opt, index)}</span>`;
+    }
+    return html`${opt.icon ? html`<span class="option-icon">${this.renderIconlibIcon(opt.icon)}</span>` : ''}${opt.text}`;
   }
 
   renderIconlibIcon(icon) {

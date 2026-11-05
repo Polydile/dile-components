@@ -11,6 +11,8 @@ import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
 
 const NAVIGATION_KEYS = ['ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', 'Escape', 'Tab'];
+// Parts of the nested dile-select-overlay re-exported to this component's host.
+const OPTION_PARTS = ['option', 'option-highlighted', 'option-selected', 'option-content'];
 
 /**
  * Base class for the searchable members of the select family (dile-select-ajax-overlay,
@@ -158,6 +160,13 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
       /** dile-iconlib "family.name" icon string applied to every option that has no icon of its
        *  own via iconProperty. */
       icon: { type: String },
+      /** Optional custom renderer for the content of each result: `(item, index) => TemplateResult | string`,
+       *  receiving the original data object. The displayProperty text is still used for the accessible
+       *  name, the keyboard announcements and the selected text. */
+      optionRenderer: { attribute: false },
+      /** Space or comma separated extra part names used inside optionRenderer templates, re-exported
+       *  from the nested dile-select-overlay so they can be styled with ::part() from outside. */
+      optionParts: { type: String },
       delay: { type: Number },
       keyword: {
         type: String,
@@ -382,6 +391,8 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
           name="generated-select-field"
           placeholder="${this.placeholder}"
           ?disabled=${this.disabled}
+          exportparts="${this.exportedOptionParts}"
+          .optionRenderer=${this.nestedOptionRenderer}
           @element-changed=${this.doSelected}
         >
           <select slot="select" data-icon="${ifDefined(this.icon)}">
@@ -391,6 +402,39 @@ export class DileSelectSearchableBase extends DileEmmitChange(LitElement) {
           </select>
         </dile-select-overlay>
     `;
+  }
+
+  /** exportparts value for the nested dile-select-overlay: built-in option parts plus optionParts. */
+  get exportedOptionParts() {
+    const extra = (this.optionParts || '').split(/[\s,]+/).filter(Boolean);
+    return [...new Set([...OPTION_PARTS, ...extra])].join(', ');
+  }
+
+  /** Adapts optionRenderer (which receives data items) to the nested overlay's (option, index) signature.
+   *  Cached per optionRenderer so the nested component doesn't see a new function on every render. */
+  get nestedOptionRenderer() {
+    if (typeof this.optionRenderer !== 'function') {
+      return undefined;
+    }
+    if (this._nestedRendererFor !== this.optionRenderer) {
+      const renderer = this.optionRenderer;
+      this._nestedRendererFor = renderer;
+      this._nestedRenderer = (option, index) => {
+        const item = this.findItemForOption(option, index);
+        return item === undefined ? option.text : renderer(item, index);
+      };
+    }
+    return this._nestedRenderer;
+  }
+
+  /** Data item behind an option of the nested overlay: by index (options are generated from
+   *  `data` in order), checked against idProperty, falling back to a search by idProperty. */
+  findItemForOption(option, index) {
+    const byIndex = this.data[index];
+    if (byIndex && String(byIndex[this.idProperty]) === option.value) {
+      return byIndex;
+    }
+    return this.data.find(item => String(item[this.idProperty]) === option.value);
   }
 
   get messageTemplate() {

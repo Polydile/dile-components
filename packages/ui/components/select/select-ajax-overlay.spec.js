@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import { html } from 'lit';
 import './select-ajax-overlay.js';
 
 describe('dile-select-ajax-overlay', () => {
@@ -464,6 +465,85 @@ describe('dile-select-ajax-overlay', () => {
       trigger.click();
       await wait(100);
       expect(el.select.opened).toBe(true);
+    });
+  });
+
+  describe('optionRenderer', () => {
+    const PRODUCTS = [
+      { id: 1, name: 'Mantenimiento web', price: '25,50 €', vat: 21 },
+      { id: 2, name: 'Hosting anual', price: '90,00 €', vat: 21 },
+    ];
+
+    async function renderWithRenderer(renderer, attrs = '') {
+      mockFetch(PRODUCTS);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/products" idProperty="id" displayProperty="name" delay="10" ${attrs}></dile-select-ajax-overlay>
+      `);
+      el.optionRenderer = renderer;
+      await el.updateComplete;
+      return el;
+    }
+
+    const productRenderer = (item, index) => html`
+      <div class="name">${item.name}</div>
+      <div class="meta">${index}: ${item.price} · IVA ${item.vat} %</div>
+    `;
+
+    it('renders each result with the original data item', async () => {
+      const el = await renderWithRenderer(productRenderer);
+      await typeKeyword(el, 'm');
+
+      const options = el.select.shadowRoot.querySelectorAll('[role="option"]');
+      expect(options.length).toBe(2);
+      expect(options[0].querySelector('.name').textContent).toBe('Mantenimiento web');
+      expect(options[1].querySelector('.meta').textContent).toBe('1: 90,00 € · IVA 21 %');
+      expect(options[1].getAttribute('aria-label')).toBe('Hosting anual');
+    });
+
+    it('clicking a custom-rendered result selects it, using the displayProperty as selected text', async () => {
+      const el = await renderWithRenderer(productRenderer);
+      await typeKeyword(el, 'm');
+
+      await selectOption(el, 1);
+
+      expect(el.value).toBe('2');
+      expect(el.selectedText).toBe('Hosting anual');
+    });
+
+    it('keyboard navigation announces the plain text and Enter selects', async () => {
+      const el = await renderWithRenderer(productRenderer);
+      await typeKeyword(el, 'm');
+
+      const input = el.shadowRoot.getElementById('search');
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+      await wait(50);
+      expect(el._liveAnnouncement).toBe('Mantenimiento web');
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+      await el.select.updateComplete;
+      await el.updateComplete;
+
+      expect(el.value).toBe('1');
+      expect(el.selectedText).toBe('Mantenimiento web');
+    });
+
+    it('re-exports the option parts (plus optionParts) from the nested overlay', async () => {
+      const el = await renderWithRenderer(productRenderer, 'optionParts="product-name, product-meta"');
+      await typeKeyword(el, 'm');
+
+      expect(el.select.getAttribute('exportparts')).toBe('option, option-highlighted, option-selected, option-content, product-name, product-meta');
+    });
+
+    it('without optionRenderer the results keep the plain text markup', async () => {
+      mockFetch(PRODUCTS);
+      const el = await renderSelectAjaxOverlay(`
+        <dile-select-ajax-overlay endpoint="/api/products" idProperty="id" displayProperty="name" delay="10"></dile-select-ajax-overlay>
+      `);
+      await typeKeyword(el, 'm');
+
+      const option = el.select.shadowRoot.querySelector('[role="option"]');
+      expect(option.querySelector('.option-content')).toBeNull();
+      expect(option.hasAttribute('aria-label')).toBe(false);
+      expect(option.textContent.trim()).toBe('Mantenimiento web');
     });
   });
 });

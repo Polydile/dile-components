@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import { html } from 'lit';
 import './select-overlay.js';
 import '@dile/iconlib/lucide-icons/house.js';
 import '@dile/iconlib/material-icons/star.js';
@@ -747,6 +748,135 @@ describe('dile-select-overlay', () => {
 
       const data = new FormData(document.getElementById('testForm'));
       expect(data.get('fruit')).toBe('2');
+    });
+  });
+
+  describe('optionRenderer', () => {
+    const PRODUCTS = `
+      <select slot="select">
+        <option value="1" data-price="25,50 €" data-vat="21 %">Mantenimiento web</option>
+        <option value="2" data-price="90,00 €" data-vat="21 %">Hosting anual</option>
+      </select>
+    `;
+
+    async function renderWithRenderer(renderer, attrs = '') {
+      document.body.innerHTML = `<dile-select-overlay ${attrs}>${PRODUCTS}</dile-select-overlay>`;
+      const el = document.body.querySelector('dile-select-overlay');
+      el.optionRenderer = renderer;
+      await el.updateComplete;
+      return el;
+    }
+
+    const productRenderer = (option, index) => html`
+      <strong class="name">${option.text}</strong>
+      <span class="meta">${index}: ${option.element.dataset.price} · IVA ${option.element.dataset.vat}</span>
+    `;
+
+    it('renders the custom content inside each li[role="option"], receiving the native option element', async () => {
+      const el = await renderWithRenderer(productRenderer);
+
+      const options = el.shadowRoot.querySelectorAll('[role="option"]');
+      expect(options.length).toBe(2);
+      expect(options[0].querySelector('.option-content strong.name').textContent).toBe('Mantenimiento web');
+      expect(options[0].querySelector('.meta').textContent).toBe('0: 25,50 € · IVA 21 %');
+      expect(options[1].querySelector('.meta').textContent).toBe('1: 90,00 € · IVA 21 %');
+      // The component still owns the li: ids, aria-selected, parts.
+      expect(options[1].id).toBe(el._optionId(1));
+      expect(options[0].getAttribute('part')).toContain('option');
+    });
+
+    it('accepts a renderer returning a plain string', async () => {
+      const el = await renderWithRenderer((option) => `#${option.value} ${option.text}`);
+      const option = el.shadowRoot.querySelector('[role="option"]');
+      expect(option.textContent.trim()).toBe('#1 Mantenimiento web');
+    });
+
+    it('keeps the plain option text as accessible name, trigger text and highlightedText', async () => {
+      const el = await renderWithRenderer(productRenderer, 'value="2"');
+
+      const options = el.shadowRoot.querySelectorAll('[role="option"]');
+      expect(options[0].getAttribute('aria-label')).toBe('Mantenimiento web');
+      expect(el.shadowRoot.querySelector('.trigger-label').textContent).toBe('Hosting anual');
+
+      const trigger = el.shadowRoot.getElementById('trigger');
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+      await wait(100);
+      await el.updateComplete;
+      expect(el.highlightedText).toBe('Mantenimiento web');
+    });
+
+    it('clicking a custom-rendered option (even on its inner content) selects it', async () => {
+      const el = await renderWithRenderer(productRenderer);
+      await open(el);
+
+      el.shadowRoot.querySelectorAll('[role="option"]')[1].querySelector('.meta').click();
+      await el.updateComplete;
+
+      expect(el.value).toBe('2');
+      expect(el.shadowRoot.getElementById('overlay').classList.contains('opened')).toBe(false);
+    });
+
+    it('keyboard (ArrowDown + Enter) still selects with a custom renderer', async () => {
+      const el = await renderWithRenderer(productRenderer);
+      const trigger = el.shadowRoot.getElementById('trigger');
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+      await wait(100);
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+      await el.updateComplete;
+
+      expect(el.value).toBe('2');
+    });
+
+    it('typeahead matches against the plain option text, not the rendered content', async () => {
+      const el = await renderWithRenderer((option) => html`<span>ZZZ ${option.text}</span>`);
+      const trigger = el.shadowRoot.getElementById('trigger');
+
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'z', bubbles: true }));
+      await el.updateComplete;
+      expect(el.value).not.toBe('2');
+
+      await wait(600);
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'h', bubbles: true }));
+      await el.updateComplete;
+      expect(el.value).toBe('2');
+    });
+
+    it('without optionRenderer keeps the default icon + text markup', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay>
+          <select slot="select">
+            <option value="1" data-icon="lucide.house">Home</option>
+            <option value="2">Other</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      const options = el.shadowRoot.querySelectorAll('[role="option"]');
+      expect(options[0].querySelector('.option-content')).toBeNull();
+      expect(options[0].hasAttribute('aria-label')).toBe(false);
+      expect(options[0].querySelector('.option-icon dile-iconlib')).toBeTruthy();
+      expect(options[0].textContent.trim()).toBe('Home');
+      expect(options[1].children.length).toBe(0);
+      expect(options[1].textContent.trim()).toBe('Other');
+    });
+
+    it('exposes option parts reflecting the highlighted and selected states', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay value="2">
+          <select slot="select">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+          </select>
+        </dile-select-overlay>
+      `);
+      await open(el);
+      el._setActiveIndex(0, false);
+      await el.updateComplete;
+
+      const options = el.shadowRoot.querySelectorAll('[role="option"]');
+      expect(options[0].getAttribute('part')).toBe('option option-highlighted');
+      expect(options[1].getAttribute('part')).toBe('option option-selected');
     });
   });
 });

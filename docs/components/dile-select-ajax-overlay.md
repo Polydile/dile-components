@@ -66,6 +66,8 @@ Same set as [dile-select-ajax](/components/dile-select-ajax/#properties), except
 - **idProperty**: String, the property in each data object used as the unique identifier for the options.
 - **iconProperty**: String, the property in each data object holding a [dile-iconlib](/icons/dile-iconlib/) `family.name` icon string (e.g. `"lucide.house"`), shown next to that option. Leave unset if you don't need per-option icons.
 - **icon**: String, a `family.name` icon string used as the default icon for every option that doesn't have its own via `iconProperty`.
+- **optionRenderer**: Function, `(item, index) => TemplateResult | string` to render custom content for each result, receiving the original data object returned by the endpoint. JavaScript property only. See [Custom option rendering](#custom-option-rendering).
+- **optionParts**: String, extra part names used inside the `optionRenderer` template (space or comma separated), forwarded to the host so they can be styled with `::part()`.
 - **delay**: Number, the debounce delay in milliseconds before making the request to the API endpoint as the user types.
 - **opened**: Boolean, read-only state reflecting whether the results popup is currently open (delegates to the internal `dile-select-overlay`).
 - **keyword**: String, state property that holds the current search keyword entered by the user.
@@ -77,6 +79,36 @@ Same set as [dile-select-ajax](/components/dile-select-ajax/#properties), except
 - **additionalQueryString**: Object with additional query string data to be placed in the request url.
 - **clearSelectionLabel**: String, accessible name of the button that clears the selected option, read by screen readers. Defaults to `"Clear selection"`.
 - **clearSearchLabel**: String, accessible name of the button that clears the text typed in the search field. Defaults to `"Clear search"`.
+
+## Custom option rendering
+
+By default each result shows the `displayProperty` text. Set `optionRenderer` to render richer results with any field of the original data object:
+
+```javascript
+productSelect.optionRenderer = (item, index) => html`
+  <span part="product-name">${item.name}</span>
+  <span part="product-meta">${item.price} € · IVA ${item.vat} %</span>
+`;
+```
+
+```html
+<dile-select-ajax-overlay
+  class="products"
+  endpoint="/api/products"
+  displayProperty="name"
+  optionParts="product-name product-meta"
+></dile-select-ajax-overlay>
+```
+
+```css
+.products::part(option-content) { display: flex; flex-direction: column; }
+.products::part(product-name) { font-weight: 700; }
+.products::part(product-meta) { align-self: flex-end; font-size: 0.8em; color: #666; }
+```
+
+- The item is resolved from the option's position in `data`, checked against `idProperty`.
+- The `displayProperty` text is still used for the accessible name of each result, the live-region announcements and the selected text, so keep it meaningful.
+- The results live in the nested [dile-select-overlay](/components/dile-select-overlay/#custom-option-rendering), which forwards its `option`, `option-highlighted`, `option-selected` and `option-content` parts to this component. Parts declared inside your template are only forwarded if listed in `optionParts`. Inline styles in the template also work.
 
 ## Methods
 

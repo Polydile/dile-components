@@ -77,6 +77,53 @@ As with `dile-selector-item`'s equivalent icon support, you must import the spec
 </dile-select-overlay>
 ```
 
+## Custom option rendering
+
+By default each option in the popup shows its icon (if any) and its text. Set the **optionRenderer** property (JavaScript only, there's no attribute) to render richer content, like a product with its price and VAT:
+
+```javascript
+// (option, index) => TemplateResult | string
+selectOverlay.optionRenderer = (option, index) => html`
+  <span part="product-name">${option.text}</span>
+  <span part="product-meta">${option.element.dataset.price} · IVA ${option.element.dataset.vat} %</span>
+`;
+```
+
+`option` is `{ value, text, icon, element }`, where `element` is the native `<option>`, so you can keep extra data in `data-*` attributes and read it from `element.dataset`. When `optionRenderer` returns content, it replaces the default icon + text (render `option.icon` yourself if you need it).
+
+The renderer only replaces the **content** of each option. The `<li role="option">` element, its id, `aria-selected`, the highlight, the click and the mouse hover are still managed by the component.
+
+> **Note:** keep the `<option>` text representative. The trigger, the typeahead, the `highlightedText` property and the accessible name of each option (an `aria-label` is set with the option text when `optionRenderer` is used) keep using the plain text, not the rendered content.
+
+### Styling the options
+
+The rendered content lives in the component's shadow DOM, so page CSS can't reach it with normal selectors. Use one of these:
+
+- **CSS parts** (recommended). The component exposes these parts:
+  - `option`: each `<li role="option">`. It also gets `option-highlighted` while highlighted and `option-selected` when it's the selected one.
+  - `option-content`: wrapper of the `optionRenderer` output (`display: block`, takes the remaining width). Only present with `optionRenderer`.
+
+  The `part` attributes you add inside your template are also exposed by `dile-select-overlay`, so you can style them with `::part()`:
+
+  ```css
+  dile-select-overlay::part(option-content) {
+    display: flex;
+    flex-direction: column;
+  }
+  dile-select-overlay::part(product-name) {
+    font-weight: 700;
+  }
+  dile-select-overlay::part(product-meta) {
+    align-self: flex-end;
+    font-size: 0.8em;
+    color: #666;
+  }
+  ```
+
+- **Inline styles** in the template (`style="..."`), when you can't add page CSS.
+
+When `dile-select-overlay` is composed inside another component (like [dile-select-search](/components/dile-select-search/#custom-option-rendering) or [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/#custom-option-rendering)), those components forward the parts to their host with `exportparts`.
+
 ## Properties
 
 - **disabled**: To disable the trigger.
@@ -88,6 +135,7 @@ As with `dile-selector-item`'s equivalent icon support, you must import the spec
 - **hideErrorOnInput**: Hide the error message when the user selects a new option.
 - **quietOnStart**: Do not emmit `element-changed` event on component start.
 - **placeholder**: String, empty by default. Text shown on the trigger when no option is selected — most useful when the component is mounted before its options exist yet (e.g. composed by [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/) in static mode).
+- **optionRenderer**: Function, `undefined` by default. `(option, index) => TemplateResult | string` to render custom content for each option in the popup. See [Custom option rendering](#custom-option-rendering).
 - **hideTrigger**: Boolean, `false` by default. When `true`, the visible trigger button is hidden (though still present for popup positioning) and taken out of the tab order. Meant for components that compose `dile-select-overlay` and supply their own visible control — see `highlightedText` and `handleExternalKeydown()` below. [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/) uses this to embed the options popup under its own search field.
 
 ## Methods
@@ -102,7 +150,7 @@ As with `dile-selector-item`'s equivalent icon support, you must import the spec
 These exist to let another component drive `dile-select-overlay` from an external control (used together with `hideTrigger`):
 
 - **handleExternalKeydown(e)**: Runs the exact same keyboard-navigation logic used internally on the trigger (arrow keys, Home/End, Enter, Escape, typeahead) against a `KeyboardEvent` coming from somewhere else, e.g. an external search field.
-- **highlightedText**: Read-only reactive property with the display text of the currently highlighted option, so an external consumer can announce it (e.g. in its own `aria-live` region) without reaching into this component's shadow root.
+- **highlightedText**: Read-only reactive property with the plain display text (never the `optionRenderer` output) of the currently highlighted option, so an external consumer can announce it (e.g. in its own `aria-live` region) without reaching into this component's shadow root.
 
 ## Events
 
@@ -169,6 +217,14 @@ Custom property | Description | Default
 --dile-select-overlay-option-icon-size | Size of an option's `dile-iconlib` icon (trigger and popup) | 16px
 --dile-select-overlay-option-icon-color | Color of an option's `dile-iconlib` icon (trigger and popup) | currentColor
 
+## CSS parts
+
+- **option**: each option in the popup (`<li role="option">`).
+- **option-highlighted**: added to the highlighted option.
+- **option-selected**: added to the selected option.
+- **option-content**: wrapper of the content rendered by `optionRenderer`.
+- Any `part` declared inside the `optionRenderer` template.
+
 ## dile-select-overlay demos
 
 ### Default dile-select-overlay
@@ -202,6 +258,46 @@ class MyComponent extends LitElement {
 customElements.define('my-component-select-overlay', MyComponent);
 </script>
 <my-component-select-overlay></my-component-select-overlay>
+```
+
+### Custom option rendering
+
+```html:preview
+<script type="module">
+import { html } from 'lit';
+
+document.getElementById('productOverlay').optionRenderer = (option) => html`
+  <span part="product-name">${option.text}</span>
+  <span part="product-meta">${option.element.dataset.price} · IVA ${option.element.dataset.vat} %</span>
+`;
+</script>
+<style>
+  .products {
+    max-width: 320px;
+  }
+  .products::part(option-content) {
+    display: flex;
+    flex-direction: column;
+  }
+  .products::part(product-name) {
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .products::part(product-meta) {
+    align-self: flex-end;
+    font-size: 0.8em;
+    color: #666;
+  }
+</style>
+<dile-select-overlay id="productOverlay" class="products" label="Product">
+  <select slot="select">
+    <option value="1" data-price="25,50 €" data-vat="21">Mantenimiento web</option>
+    <option value="2" data-price="90,00 €" data-vat="21">Hosting anual con dominio y certificado SSL incluido</option>
+    <option value="3" data-price="12,00 €" data-vat="10">Curso de iniciación</option>
+  </select>
+</dile-select-overlay>
 ```
 
 ### Disabled

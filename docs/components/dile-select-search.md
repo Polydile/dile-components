@@ -64,10 +64,12 @@ The slotted `<select>` is never displayed: it's only read as the data source. Op
 | `clearSearchLabel` | `String` | `"Clear search"` | Accessible name of the button that clears the text typed in the search field. |
 | `selectedText` | `String` | `undefined` | Text of the selected option. Assigned automatically, read it rather than setting it. |
 | `isSelected` | `Boolean` | `false` | Read-only state, `true` when an option is selected. |
+| `optionRenderer` | `Function` | `undefined` | `(item, index) => TemplateResult \| string` to render custom content for each result. JavaScript property only. See [Custom option rendering](#custom-option-rendering). |
+| `optionParts` | `String` | `undefined` | Extra part names used inside the `optionRenderer` template (space or comma separated), forwarded to the host so they can be styled with `::part()`. |
 
 ## Search customization
 
-By default an option matches when its text contains the keyword anywhere, ignoring case and accents (`"espana"` matches `"España"`). To change it, extend the component and override `filterOption(option, keyword)`. It receives each option as `{ value, text, icon }` and returns a boolean.
+By default an option matches when its text contains the keyword anywhere, ignoring case and accents (`"espana"` matches `"España"`). To change it, extend the component and override `filterOption(option, keyword)`. It receives each option as `{ value, text, icon, element }` (`element` is the slotted native `<option>`) and returns a boolean.
 
 ```javascript
 import { DileSelectSearch } from '@dile/ui/components/select/index.js';
@@ -84,6 +86,31 @@ customElements.define('prefix-select', PrefixSelect);
 ## Option icons
 
 As in [dile-select-overlay](/components/dile-select-overlay/#icons), use a `data-icon` attribute with a [dile-iconlib](/icons/dile-iconlib/) `family.name` icon string in each `<option>`, or in the `<select>` to set a default icon for all options. Remember to import the icons you use.
+
+## Custom option rendering
+
+Set `optionRenderer` to show richer results than the plain option text. It receives each source item `{ value, text, icon, element }` and its index in the current results; `element` is the slotted native `<option>`, so extra data can travel in `data-*` attributes:
+
+```javascript
+searchField.optionRenderer = (item) => html`
+  <span part="product-name">${item.text}</span>
+  <span part="product-meta">${item.element.dataset.price} · IVA ${item.element.dataset.vat} %</span>
+`;
+```
+
+The search, the keyboard announcements, the accessible name of each result and the selected text keep using the plain `<option>` text, so keep it representative.
+
+The results are rendered inside the nested [dile-select-overlay](/components/dile-select-overlay/#custom-option-rendering), which forwards its `option`, `option-highlighted`, `option-selected` and `option-content` parts to this component. Parts you add inside your template must be declared in `optionParts` to be forwarded too:
+
+```html
+<dile-select-search class="products" optionParts="product-name product-meta">...</dile-select-search>
+```
+
+```css
+.products::part(option-content) { display: flex; flex-direction: column; }
+.products::part(product-name) { font-weight: 700; }
+.products::part(product-meta) { align-self: flex-end; font-size: 0.8em; color: #666; }
+```
 
 ## Methods
 
@@ -130,6 +157,39 @@ While there is text in the search field, the clear icon is a real button (reacha
     <option value="+54">+54 Argentina</option>
     <option value="+55">+55 Brasil</option>
     <option value="+1">+1 United States, Canada</option>
+  </select>
+</dile-select-search>
+```
+
+### Custom option rendering
+
+```html:preview
+<script type="module">
+  import { html } from 'lit';
+  document.getElementById('productSearch').optionRenderer = (item) => html`
+    <span part="product-name">${item.text}</span>
+    <span part="product-meta">${item.element.dataset.price} · IVA ${item.element.dataset.vat} %</span>
+  `;
+</script>
+<style>
+  .products-search::part(option-content) {
+    display: flex;
+    flex-direction: column;
+  }
+  .products-search::part(product-name) {
+    font-weight: 700;
+  }
+  .products-search::part(product-meta) {
+    align-self: flex-end;
+    font-size: 0.8em;
+    color: #666;
+  }
+</style>
+<dile-select-search id="productSearch" class="products-search" label="Product" optionParts="product-name product-meta" showAllOnFocus>
+  <select slot="select">
+    <option value="1" data-price="25,50 €" data-vat="21">Mantenimiento web</option>
+    <option value="2" data-price="90,00 €" data-vat="21">Hosting anual</option>
+    <option value="3" data-price="12,00 €" data-vat="10">Curso de iniciación</option>
   </select>
 </dile-select-search>
 ```

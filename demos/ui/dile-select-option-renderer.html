@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom option rendering in the select family demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import { html } from 'lit';
+    import "@dile/ui/components/select/select-overlay.js";
+    import "@dile/ui/components/select/select-search.js";
+
+    // Two-line option: name on top, price and VAT below, aligned to the right.
+    // The parts are styled from this page's CSS with ::part().
+    const productTemplate = (name, price, vat) => html`
+      <span part="product-name">${name}</span>
+      <span part="product-meta">${price} · IVA ${vat} %</span>
+    `;
+
+    // dile-select-overlay receives { value, text, icon, element }; element is the native <option>.
+    document.getElementById('overlay1').optionRenderer = (option) =>
+      productTemplate(option.text, option.element.dataset.price, option.element.dataset.vat);
+
+    // dile-select-search receives its source items: { value, text, icon, element }.
+    document.getElementById('search1').optionRenderer = (item) =>
+      productTemplate(item.text, item.element.dataset.price, item.element.dataset.vat);
+
+    document.querySelectorAll('.products').forEach(el => {
+      el.addEventListener('element-changed', (e) => {
+        document.getElementById('msg').innerText = `${e.target.id} value: ${e.detail.value}`;
+      });
+    });
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+      margin: 10px;
+    }
+    .products {
+      max-width: 320px;
+    }
+    .products::part(option-content) {
+      display: flex;
+      flex-direction: column;
+    }
+    .products::part(product-name) {
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .products::part(product-meta) {
+      align-self: flex-end;
+      font-size: 0.8em;
+      color: #666;
+      font-variant-numeric: tabular-nums;
+    }
+    .products::part(option-highlighted) {
+      background-color: #fde9a6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Custom option rendering (optionRenderer)</h1>
+    <p>
+      <code>optionRenderer</code> replaces the content of each option in the popup. Keyboard navigation,
+      typeahead, the accessible name and the selected text keep using the plain option text.
+    </p>
+
+    <h2>dile-select-overlay</h2>
+    <dile-select-overlay id="overlay1" class="products" name="product" label="Product">
+      <select slot="select">
+        <option value="1" data-price="25,50 €" data-vat="21">Mantenimiento web</option>
+        <option value="2" data-price="90,00 €" data-vat="21">Hosting anual con dominio y certificado SSL incluido</option>
+        <option value="3" data-price="12,00 €" data-vat="10">Curso de iniciación</option>
+      </select>
+    </dile-select-overlay>
+
+    <h2>dile-select-search</h2>
+    <dile-select-search id="search1" class="products" name="product2" label="Product search" optionParts="product-name product-meta" showAllOnFocus>
+      <select slot="select">
+        <option value="1" data-price="25,50 €" data-vat="21">Mantenimiento web</option>
+        <option value="2" data-price="90,00 €" data-vat="21">Hosting anual con dominio y certificado SSL incluido</option>
+        <option value="3" data-price="12,00 €" data-vat="10">Curso de iniciación</option>
+      </select>
+    </dile-select-search>
+
+    <p id="msg"></p>
+  </div>
+</body>
+</html>

@@ -65,6 +65,8 @@ export class DileSelectSearch extends DileSelectSearchableBase {
       value: option.value,
       text: option.textContent.trim(),
       icon: option.dataset.icon || select.dataset.icon,
+      // The native <option>, so an optionRenderer can read its dataset.
+      element: option,
     }));
   }
 
@@ -91,7 +93,7 @@ export class DileSelectSearch extends DileSelectSearchableBase {
    * Template method: decide whether an option matches the keyword.
    * By default it searches the keyword anywhere in the option text, ignoring case and accents.
    * Override it in a subclass to customize the search (e.g. also match option.value).
-   * @param {{value: string, text: string, icon: string}} option
+   * @param {{value: string, text: string, icon: string, element: HTMLOptionElement}} option
    * @param {string} keyword
    * @returns {boolean}
    */

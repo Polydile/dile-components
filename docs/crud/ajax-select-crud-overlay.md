@@ -52,6 +52,28 @@ In addition, `dile-ajax-select-crud-overlay` introduces these additional propert
 - **pageParamName**: String, the name of the parameter used to indicate the page size in the request (corresponding to the `maxResults` property).
 - **getSelectResultList**: Object, a function that takes the full response and returns the list of selected results. This is used to extract the correct data from the JSON response object.
 
+### Custom option rendering
+
+The inherited `optionRenderer` and `optionParts` properties work the same way as in [dile-select-ajax-overlay](/components/dile-select-ajax-overlay/#custom-option-rendering): `optionRenderer` receives each item of the list (after `getSelectResultList` / `resultDataProperty`) and its index.
+
+```javascript
+html`
+  <dile-ajax-select-crud-overlay
+    class="products"
+    endpoint="/api/products"
+    displayProperty="name"
+    optionParts="product-name product-meta"
+    .getSelectResultList=${(response) => response.data}
+    .optionRenderer=${(item) => html`
+      <span part="product-name">${item.name}</span>
+      <span part="product-meta">${item.price} € · IVA ${item.vat} %</span>
+    `}
+  ></dile-ajax-select-crud-overlay>
+`
+```
+
+Style it with `::part(option-content)`, `::part(product-name)`, etc. from the scope where the component is used (e.g. the host component's `static styles`).
+
 ### Custom Events
 
 Refer to the [dile-select-ajax-overlay documentation](/components/dile-select-ajax-overlay/#events) for information about custom events, as `dile-ajax-select-crud-overlay` inherits all events from that component.

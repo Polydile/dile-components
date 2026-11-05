@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import { html } from 'lit';
 import './ajax-select-crud-overlay.js';
 
 describe('dile-ajax-select-crud-overlay', () => {
@@ -181,6 +182,27 @@ describe('dile-ajax-select-crud-overlay', () => {
       `);
 
       expect(el.internals).toBeTruthy();
+    });
+  });
+
+  describe('optionRenderer', () => {
+    it('renders results with the original data item and still selects on click', async () => {
+      mockAxios([{ id: 1, name: 'Mantenimiento web', price: '25,50 €' }]);
+      const el = await renderCrudSelect(`
+        <dile-ajax-select-crud-overlay endpoint="/api/products" idProperty="id" displayProperty="name" delay="10"></dile-ajax-select-crud-overlay>
+      `);
+      el.optionRenderer = (item) => html`<span class="name">${item.name}</span><span class="price">${item.price}</span>`;
+      await typeKeyword(el, 'm');
+
+      const option = el.select.shadowRoot.querySelector('[role="option"]');
+      expect(option.querySelector('.price').textContent).toBe('25,50 €');
+      expect(option.getAttribute('aria-label')).toBe('Mantenimiento web');
+
+      option.click();
+      await el.select.updateComplete;
+      await el.updateComplete;
+      expect(el.value).toBe('1');
+      expect(el.selectedText).toBe('Mantenimiento web');
     });
   });
 });
