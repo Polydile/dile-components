@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileEmmitChange } from '../../../mixins/form/index.js';
 import { labelStyles } from './label-styles.js';
 import { messageStyles } from './message-styles.js';
@@ -21,6 +22,9 @@ export class DileInput extends DileEmmitChange(LitElement) {
         return {
           /** Label to the element */
           label: { type: String },
+
+          /** Accessible name of the input, applied as aria-label only when there is no visible label */
+          accessibleLabel: { type: String },
 
           /** Input type */
           type: { type: String },
@@ -166,6 +170,7 @@ export class DileInput extends DileEmmitChange(LitElement) {
                 type="${this.availableType(this.type)}"
                 id="textField"
                 name="${this.name}"
+                aria-label="${ifDefined(this.inputAriaLabel)}"
                 placeholder="${this.placeholder}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readonly}"
@@ -185,6 +190,11 @@ export class DileInput extends DileEmmitChange(LitElement) {
             ${this.messageTemplate}
           </main>
         `;
+    }
+
+    /** aria-label for the inner input: accessibleLabel, only when there is no visible label */
+    get inputAriaLabel() {
+      return !this.label && this.accessibleLabel ? this.accessibleLabel : undefined;
     }
 
     get messageTemplate() {

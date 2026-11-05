@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileInput } from '../../input/index.js';
 import '@dile/iconlib/dile-iconlib.js';
 import '@dile/ui/components/tooltip/tooltip.js';
@@ -100,6 +101,7 @@ export class DileInputIcon extends DileInput {
         type="${this.availableType(this.type)}"
         id="textField"
         name="${this.name}"
+        aria-label="${ifDefined(this.inputAriaLabel)}"
         placeholder="${this.placeholder}"
         ?disabled="${this.disabled}"
         ?readonly="${this.readonly}"

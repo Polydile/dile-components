@@ -879,4 +879,33 @@ describe('dile-select-overlay', () => {
       expect(options[1].getAttribute('part')).toBe('option option-selected');
     });
   });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel to the combobox and the listbox when there is no label', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay accessiblelabel="VAT" value="21">
+          <select slot="select">
+            <option value="21">21 %</option>
+            <option value="10">10 %</option>
+          </select>
+        </dile-select-overlay>
+      `);
+      expect(el.shadowRoot.getElementById('trigger').getAttribute('aria-label')).toBe('VAT');
+      expect(el.shadowRoot.querySelector('[role="listbox"]').getAttribute('aria-label')).toBe('VAT');
+    });
+
+    it('does not set aria-label when a visible label exists', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay label="VAT" accessiblelabel="Line VAT">
+          <select slot="select">
+            <option value="21">21 %</option>
+          </select>
+        </dile-select-overlay>
+      `);
+      const trigger = el.shadowRoot.getElementById('trigger');
+      expect(trigger.hasAttribute('aria-label')).toBe(false);
+      expect(el.shadowRoot.querySelector('[role="listbox"]').hasAttribute('aria-label')).toBe(false);
+      expect(el.shadowRoot.querySelector('label').getAttribute('for')).toBe(trigger.id);
+    });
+  });
 });

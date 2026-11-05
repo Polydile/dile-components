@@ -53,6 +53,7 @@ Use the component.
 - **disabled**: To disable the select element
 - **errored**: to mark the select element with a error border color
 - **label**: A label
+- **accessibleLabel**: Accessible name of the slotted `<select>` when there is no visible `label` (with `label`, the label text is used). Use it in table-like forms whose labels live in a shared header. An `aria-label` set directly on the `<select>` by the author is kept.
 - **name**: the name of the element.
 - **value**: the value of the option selected
 - **message**: Place a message under the select element
@@ -76,8 +77,9 @@ The `dile-select` component is designed to be fully accessible and compliant wit
 
 The component automatically manages accessibility attributes to ensure screen readers announce all important information:
 
-- **Label Association**: When you provide a `label` attribute, it is automatically associated with the select element using proper `<label for>` binding
-- **Error Announcements**: Error messages are linked to the select via `aria-describedby`, allowing screen readers to announce them along with form validation status
+- **Label Association**: The visible `<label>` lives in the component's shadow DOM, while the `<select>` is slotted from the light DOM, so a `<label for>` binding cannot cross that boundary. The component names the select by applying the `label` text as its `aria-label` (or `accessibleLabel` when there is no visible label). An `aria-label` you set yourself on the `<select>` is never overwritten.
+- **Error Announcements**: The `message` text is applied to the select as `aria-description` (an `aria-describedby` id reference cannot reach the message, which lives in the shadow DOM), so screen readers announce it along with the field. `aria-describedby` is left free for your own help text.
+- **Label Click**: Clicking the visible label focuses the select, like a native `<label for>`.
 - **Invalid State**: When `errored` property is `true`, the select element receives `aria-invalid="true"` to communicate validation errors
 - **Status Updates**: Error messages use `role="status"` and `aria-live="polite"` to announce changes dynamically
 
@@ -112,6 +114,17 @@ The component respects system high-contrast settings and forced-colors mode:
 </dile-select>
 ```
 
+When the label lives in a shared header (table-like forms), use `accessibleLabel` instead, so the select is still named for screen readers:
+
+```html
+<dile-select accessibleLabel="VAT">
+  <select slot="select" name="vat">
+    <option value="21">21 %</option>
+    <option value="10">10 %</option>
+  </select>
+</dile-select>
+```
+
 #### 2. Display Error Messages with Context
 
 When validating, combine the `errored` and `message` properties to provide clear feedback:
@@ -131,7 +144,7 @@ When validating, combine the `errored` and `message` properties to provide clear
 </dile-select>
 ```
 
-Error messages are automatically announced by screen readers and linked to the select via `aria-describedby`.
+Error messages are automatically announced by screen readers: the `message` text is applied to the select as `aria-description`.
 
 #### 3. Disable States
 
@@ -153,16 +166,13 @@ The `aria-disabled` attribute is automatically managed and the disabled state is
 
 #### 4. Provide Help Text (Optional)
 
-For complex selections, provide context before the select:
+For complex selections, provide context before the select. Put `aria-describedby` on the slotted `<select>` (not on `dile-select`), so it references the help text in the same DOM scope:
 
 ```html
 <div>
   <p id="category-help">Choose the category that best describes your request. This helps us route it to the right team.</p>
-  <dile-select 
-    label="Request Category"
-    aria-describedby="category-help"
-  >
-    <select slot="select" name="category">
+  <dile-select label="Request Category">
+    <select slot="select" name="category" aria-describedby="category-help">
       <option value="billing">Billing</option>
       <option value="support">Support</option>
       <option value="other">Other</option>

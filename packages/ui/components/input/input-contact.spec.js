@@ -29,4 +29,18 @@ describe('dile-input-contact', () => {
     expect(el.valid).toBe(false);
     expect(el.errored).toBe(true);
   });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel as aria-label when there is no label', async () => {
+      const el = await renderInputContact('<dile-input-contact email accessiblelabel="Email"></dile-input-contact>');
+      expect(el.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Email');
+    });
+
+    it('does not set aria-label when a visible label exists', async () => {
+      const el = await renderInputContact('<dile-input-contact email label="Email" accessiblelabel="Contact email"></dile-input-contact>');
+      const input = el.shadowRoot.querySelector('input');
+      expect(input.hasAttribute('aria-label')).toBe(false);
+      expect(el.shadowRoot.querySelector('label').getAttribute('for')).toBe(input.id);
+    });
+  });
 });

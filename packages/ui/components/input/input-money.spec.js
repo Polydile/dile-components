@@ -27,4 +27,9 @@ describe('dile-input-money', () => {
 
     expect(el.value).toBe('9.50');
   });
+
+  it('inherits accessibleLabel from dile-input', async () => {
+    const el = await renderInputMoney('<dile-input-money accessiblelabel="Price"></dile-input-money>');
+    expect(el.shadowRoot.querySelector('input').getAttribute('aria-label')).toBe('Price');
+  });
 });

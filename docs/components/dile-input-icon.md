@@ -48,7 +48,7 @@ Use the component.
 
 ## Properties
 
-All properties from [dile-input](/components/dile-input) are available, plus:
+All properties from [dile-input](/components/dile-input) are available (including `accessibleLabel`, applied as `aria-label` to the input when there is no `label`), plus:
 
 - **icon** (String): Icon to display in the button, using `"family.name"` format (e.g., `"lucide.trash-2"`, `"material.delete"`, `"fontawesome.trash"`). If not set, no icon button is rendered. For a complete list of available icons and their exact names, refer to the [dile-iconlib documentation](/icons/dile-iconlib/).
 - **onIconClick** (Function): Optional callback function that receives the component instance when the icon button is clicked. This allows you to access and modify component properties like `value`.

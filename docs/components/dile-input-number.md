@@ -40,7 +40,7 @@ Use the component
 
 ## Properties
 
-The same as [dile-input](/components/dile-input) and:
+The same as [dile-input](/components/dile-input) (including `accessibleLabel`) and:
 
 - **decimalSeparator**: introduces the decimal separator character to display and keep in the input value. Default ".".
 - **allowNegative**: when true allows the minus sign at the beginning of the value. Default true.

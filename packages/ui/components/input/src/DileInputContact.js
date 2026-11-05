@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileInput } from '../../input/index.js';
 
 export class DileInputContact extends DileInput {
@@ -48,6 +49,7 @@ export class DileInputContact extends DileInput {
                 type="${this.availableType(this.type)}"
                 id="textField"
                 name="${this.name}"
+                aria-label="${ifDefined(this.inputAriaLabel)}"
                 placeholder="${this.placeholder}"
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readonly}"

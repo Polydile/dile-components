@@ -64,7 +64,7 @@ When your backend stores the prefix and the number in separate fields, use two f
 
 ## Properties
 
-Besides the [dile-input properties](/components/dile-input/#properties) (`label`, `name`, `value`, `placeholder`, `disabled`, `errored`, `message`, `hideErrorOnInput`...):
+Besides the [dile-input properties](/components/dile-input/#properties) (`label`, `accessibleLabel`, `name`, `value`, `placeholder`, `disabled`, `errored`, `message`, `hideErrorOnInput`...):
 
 | Property | Type | Default | Description |
 | :--- | :--- | :--- | :--- |

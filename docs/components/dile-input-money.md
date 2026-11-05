@@ -36,6 +36,8 @@ Use the component
 ></dile-input-money>
 ```
 
+> **Note:** like every `dile-input` derivative, it supports `accessibleLabel` to give the input an accessible name when there is no visible `label`. See [Labels in table-like forms](/components/dile-input/#labels-in-table-like-forms).
+
 ## Properties
 
 The same as [dile-input](/components/dile-input) and:

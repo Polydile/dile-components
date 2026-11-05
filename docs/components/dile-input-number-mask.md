@@ -70,6 +70,7 @@ Use it in your HTML:
 This component extends `dile-input`, so it inherits many useful properties:
 
 - **name** (String): The form field name attribute
+- **accessibleLabel** (String): Accessible name applied as `aria-label` to the input only when there is no visible `label`
 - **focusOnStart** (Boolean): Automatically focus the input when the component initializes
 - **selectOnFocus** (Boolean): Automatically select all text when the input receives focus
 - **disableAutocomplete** (Boolean): Disable browser autocomplete

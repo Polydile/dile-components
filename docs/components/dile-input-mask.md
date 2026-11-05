@@ -130,6 +130,7 @@ This prevents confusing separators when the user is done entering data, since th
 ### Standard Input Properties
 
 - **label** (String): Text displayed above the input field
+- **accessibleLabel** (String): Accessible name applied as `aria-label` to the input only when there is no visible `label`
 - **placeholder** (String): Hint text shown inside the empty input
 - **disabled** (Boolean): Disables the input field
 - **readonly** (Boolean): Makes the input read-only

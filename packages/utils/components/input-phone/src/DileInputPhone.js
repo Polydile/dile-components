@@ -1,4 +1,5 @@
 import { html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileInput } from '@dile/ui/components/input/index.js';
 import '../../phone-prefix-select/phone-prefix-select.js';
 import {
@@ -129,6 +130,7 @@ export class DileInputPhone extends DileInput {
             inputmode="tel"
             id="textField"
             name="${this.name}"
+            aria-label="${ifDefined(this.inputAriaLabel)}"
             placeholder="${this.placeholder}"
             ?disabled="${this.disabled}"
             ?readonly="${this.readonly}"

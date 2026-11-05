@@ -44,4 +44,27 @@ describe('dile-input', () => {
 
     expect(el.shadowRoot.querySelector('.message span').textContent.trim()).toBe('Required field');
   });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel as aria-label when there is no label', async () => {
+      const el = await renderInput('<dile-input accessiblelabel="Quantity"></dile-input>');
+      const input = el.shadowRoot.querySelector('input');
+      expect(input.getAttribute('aria-label')).toBe('Quantity');
+    });
+
+    it('does not set aria-label when a visible label exists', async () => {
+      const el = await renderInput('<dile-input label="Quantity" accessiblelabel="Line quantity"></dile-input>');
+      const input = el.shadowRoot.querySelector('input');
+      const label = el.shadowRoot.querySelector('label');
+      expect(input.hasAttribute('aria-label')).toBe(false);
+      expect(label.getAttribute('for')).toBe(input.id);
+    });
+
+    it('removes aria-label when a label is set later', async () => {
+      const el = await renderInput('<dile-input accessiblelabel="Quantity"></dile-input>');
+      el.label = 'Quantity';
+      await el.updateComplete;
+      expect(el.shadowRoot.querySelector('input').hasAttribute('aria-label')).toBe(false);
+    });
+  });
 });

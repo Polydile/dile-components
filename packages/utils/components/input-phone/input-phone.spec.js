@@ -342,4 +342,17 @@ describe('dile-input-phone', () => {
       expect(new FormData(document.body.querySelector('form')).get('phone')).toBe('+34600123456');
     });
   });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel as aria-label on the number input when there is no label', async () => {
+      const el = await render('accessiblelabel="Phone"');
+      expect(numberInput(el).getAttribute('aria-label')).toBe('Phone');
+    });
+
+    it('does not set aria-label when a visible label exists', async () => {
+      const el = await render('label="Phone" accessiblelabel="Contact phone"');
+      expect(numberInput(el).hasAttribute('aria-label')).toBe(false);
+      expect(el.shadowRoot.querySelector('label').getAttribute('for')).toBe('textField');
+    });
+  });
 });

@@ -129,6 +129,7 @@ When `dile-select-overlay` is composed inside another component (like [dile-sele
 - **disabled**: To disable the trigger.
 - **errored**: To mark the trigger with an error border color.
 - **label**: A label, associated with the trigger button.
+- **accessibleLabel**: Accessible name applied as `aria-label` to the `role="combobox"` trigger and to the `role="listbox"` popup, only when there is no visible `label`. Without it, a label-less trigger is only announced by its selected text ("21 %"), not by the field it belongs to.
 - **name**: The name of the element.
 - **value**: The value of the option selected.
 - **message**: Place a message under the component.
@@ -173,6 +174,7 @@ These exist to let another component drive `dile-select-overlay` from an externa
 ### Screen Reader Support
 
 - **Label Association**: The `label` attribute is associated with the trigger via `<label for>`.
+- **Labels in a shared header**: When there is no visible `label` (e.g. table-like forms), set `accessibleLabel` to name the trigger and the listbox.
 - **Error Announcements**: Error messages are linked to the trigger via `aria-describedby`.
 - **Invalid State**: When `errored` is `true`, the trigger receives `aria-invalid="true"`.
 - **Status Updates**: Error messages use `role="status"` and `aria-live="polite"`.
@@ -298,6 +300,23 @@ document.getElementById('productOverlay').optionRenderer = (option) => html`
     <option value="3" data-price="12,00 €" data-vat="10">Curso de iniciación</option>
   </select>
 </dile-select-overlay>
+```
+
+### Table form with a shared header
+
+```html:preview
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 0.5rem; align-items: end;">
+  <strong aria-hidden="true">Concept</strong>
+  <strong aria-hidden="true">VAT</strong>
+  <dile-input name="concept1" accessibleLabel="Concept, line 1" value="Web design"></dile-input>
+  <dile-select-overlay accessibleLabel="VAT, line 1" value="21">
+    <select slot="select">
+      <option value="21">21 %</option>
+      <option value="10">10 %</option>
+      <option value="4">4 %</option>
+    </select>
+  </dile-select-overlay>
+</div>
 ```
 
 ### Disabled

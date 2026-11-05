@@ -38,7 +38,7 @@ Use the component
 
 ## Properties
 
-The same as [dile-input](/components/dile-input) and:
+The same as [dile-input](/components/dile-input) (including `accessibleLabel`) and:
 
 - **decimalSeparator**: introduces the decimal separator character. Default ".".
 

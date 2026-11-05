@@ -163,4 +163,27 @@ describe('dile-input-icon', () => {
 
     expect(callback).toHaveBeenCalledTimes(1);
   });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel as aria-label when there is no label', async () => {
+      const el = await renderInputIcon('<dile-input-icon accessiblelabel="Quantity"></dile-input-icon>');
+      const input = el.shadowRoot.querySelector('input');
+      expect(input.getAttribute('aria-label')).toBe('Quantity');
+    });
+
+    it('does not set aria-label when a visible label exists', async () => {
+      const el = await renderInputIcon('<dile-input-icon label="Quantity" accessiblelabel="Line quantity"></dile-input-icon>');
+      const input = el.shadowRoot.querySelector('input');
+      const label = el.shadowRoot.querySelector('label');
+      expect(input.hasAttribute('aria-label')).toBe(false);
+      expect(label.getAttribute('for')).toBe(input.id);
+    });
+
+    it('removes aria-label when a label is set later', async () => {
+      const el = await renderInputIcon('<dile-input-icon accessiblelabel="Quantity"></dile-input-icon>');
+      el.label = 'Quantity';
+      await el.updateComplete;
+      expect(el.shadowRoot.querySelector('input').hasAttribute('aria-label')).toBe(false);
+    });
+  });
 });

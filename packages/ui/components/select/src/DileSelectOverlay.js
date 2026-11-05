@@ -177,6 +177,8 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
   static get properties() {
     return {
       label: { type: String },
+      /** Accessible name of the combobox trigger and the listbox, applied as aria-label only when there is no visible label */
+      accessibleLabel: { type: String },
       value: { type: String },
       name: { type: String, reflect: true },
       disabled: { type: Boolean },
@@ -336,6 +338,11 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
     `;
   }
 
+  /** aria-label for the trigger and the listbox: accessibleLabel, only when there is no visible label */
+  get controlAriaLabel() {
+    return !this.label && this.accessibleLabel ? this.accessibleLabel : undefined;
+  }
+
   get triggerTemplate() {
     const selected = this.selectedOption;
     return html`
@@ -343,6 +350,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         type="button"
         id="trigger"
         role="combobox"
+        aria-label="${ifDefined(this.controlAriaLabel)}"
         aria-haspopup="listbox"
         aria-expanded="${this.opened}"
         aria-controls="overlay"
@@ -371,7 +379,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
   get overlayTemplate() {
     const options = this.options;
     return html`
-      <ul id="overlay" class="${this._overlayClass}" role="listbox">
+      <ul id="overlay" class="${this._overlayClass}" role="listbox" aria-label="${ifDefined(this.controlAriaLabel)}">
         ${options.map((opt, index) => {
           const highlighted = index === this._activeIndex;
           const selected = opt.value === (this.value ?? '');

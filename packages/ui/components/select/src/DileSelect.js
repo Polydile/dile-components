@@ -97,6 +97,8 @@ export class DileSelect extends DileEmmitChange(LitElement) {
   static get properties() {
     return {
       label: { type: String },
+      /** Accessible name of the slotted select when there is no visible label. With label, the label text is used */
+      accessibleLabel: { type: String },
       value: { type: String },
       name: { type: String, reflect: true },
       disabled: { type: Boolean },
@@ -114,7 +116,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     return html`
       <div>
         ${this.label
-          ? html`<label for="${this.selectId}">${this.label}</label>`
+          ? html`<label for="${this.selectId}" @click="${this._focusSelect}">${this.label}</label>`
           : ""
         }
         <div class="select-wrapper">
@@ -159,6 +161,11 @@ export class DileSelect extends DileEmmitChange(LitElement) {
       if (!this.elselect.id) {
         this.elselect.id = this.selectId;
       }
+      // aria-label / aria-description set by the author on the slotted select always win
+      if (this._authorAriaLabel === undefined) {
+        this._authorAriaLabel = this.elselect.hasAttribute("aria-label");
+        this._authorAriaDescription = this.elselect.hasAttribute("aria-description");
+      }
       this.elselect.addEventListener("change", this.changeHandler);
       this.updateSelectA11y();
     }
@@ -194,7 +201,8 @@ export class DileSelect extends DileEmmitChange(LitElement) {
       this.elselect.classList.toggle("disabled", this.disabled);
       this.elselect.setAttribute("aria-disabled", this.disabled);
     }
-    if(changedProperties.has("errored") || changedProperties.has("message")) {
+    if(changedProperties.has("errored") || changedProperties.has("message")
+      || changedProperties.has("label") || changedProperties.has("accessibleLabel")) {
       this.updateSelectA11y();
     }
   }
@@ -205,16 +213,37 @@ export class DileSelect extends DileEmmitChange(LitElement) {
     // Set aria-invalid when errored
     this.elselect.setAttribute("aria-invalid", this.errored);
     
-    // Set aria-describedby when message exists
-    const messageId = this.message ? `${this.selectId}-message` : null;
-    if (messageId) {
-      this.elselect.setAttribute("aria-describedby", messageId);
-    } else {
-      this.elselect.removeAttribute("aria-describedby");
+    // The message lives in the shadow DOM and the select in the light DOM, so an
+    // aria-describedby id reference cannot cross the boundary: use aria-description.
+    // aria-describedby is left to the author (e.g. help text in the light DOM).
+    if (!this._authorAriaDescription) {
+      if (this.message) {
+        this.elselect.setAttribute("aria-description", this.message);
+      } else {
+        this.elselect.removeAttribute("aria-description");
+      }
     }
     
+    // Accessible name. The <label for> lives in the shadow DOM and the select in the
+    // light DOM, so "for" cannot cross the boundary: name the select via aria-label.
+    if (!this._authorAriaLabel) {
+      const accessibleName = this.label || this.accessibleLabel;
+      if (accessibleName) {
+        this.elselect.setAttribute("aria-label", accessibleName);
+      } else {
+        this.elselect.removeAttribute("aria-label");
+      }
+    }
+
     // Update visual state
     this.elselect.classList.toggle("errored", this.errored);
+  }
+
+  // <label for> cannot reach the slotted select, so replicate the native label click
+  _focusSelect() {
+    if (this.elselect && !this.disabled) {
+      this.elselect.focus();
+    }
   }
 
   firstUpdated() {

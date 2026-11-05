@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import './select.js';
 
 describe('dile-select', () => {
@@ -251,7 +251,7 @@ describe('dile-select', () => {
       expect(el.querySelector('select').getAttribute('aria-invalid')).toBe('false');
     });
 
-    it('sets aria-describedby when message exists', async () => {
+    it('sets the message as aria-description of the select when message exists', async () => {
       const el = await renderSelect(`
         <dile-select message="Error message">
           <select slot="select">
@@ -260,11 +260,10 @@ describe('dile-select', () => {
         </dile-select>
       `);
 
-      const messageId = el.shadowRoot.querySelector('.message').id;
-      expect(el.querySelector('select').getAttribute('aria-describedby')).toBe(messageId);
+      expect(el.querySelector('select').getAttribute('aria-description')).toBe('Error message');
     });
 
-    it('removes aria-describedby when message is cleared', async () => {
+    it('updates and removes aria-description when message changes', async () => {
       const el = await renderSelect(`
         <dile-select message="Error message">
           <select slot="select">
@@ -272,11 +271,55 @@ describe('dile-select', () => {
           </select>
         </dile-select>
       `);
+      const select = el.querySelector('select');
+
+      el.message = 'Another error';
+      await el.updateComplete;
+      expect(select.getAttribute('aria-description')).toBe('Another error');
 
       el.message = '';
       await el.updateComplete;
+      expect(select.hasAttribute('aria-description')).toBe(false);
+    });
 
-      expect(el.querySelector('select').hasAttribute('aria-describedby')).toBe(false);
+    it('does not touch an aria-describedby set by the author on the select', async () => {
+      const el = await renderSelect(`
+        <dile-select message="Error message">
+          <select slot="select" aria-describedby="help">
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select>
+      `);
+      const select = el.querySelector('select');
+      el.message = '';
+      await el.updateComplete;
+      expect(select.getAttribute('aria-describedby')).toBe('help');
+    });
+
+    it('focuses the select when the visible label is clicked', async () => {
+      const el = await renderSelect(`
+        <dile-select label="Fruit">
+          <select slot="select">
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select>
+      `);
+      const focusSpy = vi.spyOn(el.querySelector('select'), 'focus');
+      el.shadowRoot.querySelector('label').click();
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not focus a disabled select when the label is clicked', async () => {
+      const el = await renderSelect(`
+        <dile-select label="Fruit" disabled>
+          <select slot="select">
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select>
+      `);
+      const focusSpy = vi.spyOn(el.querySelector('select'), 'focus');
+      el.shadowRoot.querySelector('label').click();
+      expect(focusSpy).not.toHaveBeenCalled();
     });
 
     it('sets aria-disabled attribute when disabled', async () => {
@@ -569,6 +612,61 @@ describe('dile-select', () => {
 
       const data = new FormData(document.getElementById('testForm'));
       expect(data.get('fruit')).toBe('1');
+    });
+  });
+
+  describe('accessibleLabel', () => {
+    it('applies accessibleLabel as aria-label on the slotted select when there is no label', async () => {
+      const el = await renderSelect(`
+        <dile-select accessiblelabel="VAT">
+          <select slot="select">
+            <option value="21">21 %</option>
+          </select>
+        </dile-select>
+      `);
+      expect(el.querySelector('select').getAttribute('aria-label')).toBe('VAT');
+    });
+
+    it('names the select with the visible label, which takes precedence over accessibleLabel', async () => {
+      const el = await renderSelect(`
+        <dile-select label="VAT" accessiblelabel="Line VAT">
+          <select slot="select">
+            <option value="21">21 %</option>
+          </select>
+        </dile-select>
+      `);
+      const select = el.querySelector('select');
+      expect(select.getAttribute('aria-label')).toBe('VAT');
+      expect(el.shadowRoot.querySelector('label').getAttribute('for')).toBe(select.id);
+    });
+
+    it('updates the aria-label when label or accessibleLabel change', async () => {
+      const el = await renderSelect(`
+        <dile-select accessiblelabel="VAT">
+          <select slot="select">
+            <option value="21">21 %</option>
+          </select>
+        </dile-select>
+      `);
+      const select = el.querySelector('select');
+      el.label = 'Tax';
+      await el.updateComplete;
+      expect(select.getAttribute('aria-label')).toBe('Tax');
+      el.label = '';
+      el.accessibleLabel = '';
+      await el.updateComplete;
+      expect(select.hasAttribute('aria-label')).toBe(false);
+    });
+
+    it('keeps an aria-label set directly by the author on the select', async () => {
+      const el = await renderSelect(`
+        <dile-select label="VAT" accessiblelabel="Line VAT">
+          <select slot="select" aria-label="Custom">
+            <option value="21">21 %</option>
+          </select>
+        </dile-select>
+      `);
+      expect(el.querySelector('select').getAttribute('aria-label')).toBe('Custom');
     });
   });
 });

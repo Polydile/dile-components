@@ -36,6 +36,8 @@ Use the component
 ></dile-input-integer>
 ```
 
+> **Note:** like every `dile-input` derivative, it supports `accessibleLabel` to give the input an accessible name when there is no visible `label`. See [Labels in table-like forms](/components/dile-input/#labels-in-table-like-forms).
+
 ## Custom style
 
 By default, this input component aligns the input text to the right. if you want to align to the left you may use ```--dile-input-text-align``` CSS custom property.
