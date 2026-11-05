@@ -73,7 +73,7 @@ These properties are available in all form elements found in the `@dile/ui` form
 ### Methods
 
 - **getData()** Gets the data object represented by the form elements.
-- **setData(data)** Set the values in the form elements using the data object provided in the argument.
+- **setData(data)** Set the values in the form elements using the data object provided in the argument. Keys not present in the data object (`undefined`) are ignored, so partial updates are supported. Keys with a `null` value clear the corresponding element (calling its `clear()` method if it exists, or setting its value to `""`).
 - **clearData()** Clear the form. Try to call a clear() method on all form elements. If this method does not exists only set the value of the element to "". 
 - **resetData()** Set the form elements to it's initial state.
 - **showError(name, error)** Show an error message in the element with the name provided in the argument.

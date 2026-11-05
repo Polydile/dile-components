@@ -69,7 +69,9 @@ export const DileForm = (superclass) => class extends superclass {
             node.value = value;
           }
         }
-      } else if (!isArray && adaptedData[fieldName] !== undefined && adaptedData[fieldName] !== null) {
+      } else if (!isArray && adaptedData[fieldName] === null) {
+        this._clearNode(node);
+      } else if (!isArray && adaptedData[fieldName] !== undefined) {
         if (typeof node.set === "function") {
           node.set(adaptedData[fieldName]);
         } else {
@@ -80,13 +82,15 @@ export const DileForm = (superclass) => class extends superclass {
   }
 
   clearData() {
-    this.allNodeElements.forEach(node => {
-      if (typeof node.clear === "function") {
-        node.clear();
-      } else {
-        node.value = '';
-      }
-    });
+    this.allNodeElements.forEach(node => this._clearNode(node));
+  }
+
+  _clearNode(node) {
+    if (typeof node.clear === "function") {
+      node.clear();
+    } else {
+      node.value = '';
+    }
   }
 
   get allNodeElements() {
@@ -143,11 +147,7 @@ export const DileForm = (superclass) => class extends superclass {
   clearField(name) {
     const node = this.getNodeElement(name);
     if (node) {
-      if (typeof node.clear === "function") {
-        node.clear();
-      } else {
-        node.value = '';
-      }
+      this._clearNode(node);
     }
   }
 
