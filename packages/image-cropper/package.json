@@ -1,0 +1,35 @@
+{
+  "name": "@dile/image-cropper",
+  "version": "0.1.0",
+  "description": "Web Component to crop images in the browser, powered by Cropper.js v2. Cropper.js is lazy loaded only when an image is displayed",
+  "keywords": [
+    "image",
+    "crop",
+    "cropper",
+    "avatar",
+    "Lit",
+    "Web Component"
+  ],
+  "type": "module",
+  "author": "midesweb <miguel@desarrolloweb.com>",
+  "homepage": "https://dile-components.com/",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polydile/dile-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Polydile/dile-components/issues"
+  },
+  "dependencies": {
+    "cropperjs": "^2.3.1",
+    "lit": "^2.7.0 || ^3.0.0"
+  }
+}

@@ -25,6 +25,7 @@
   },
   "homepage": "https://dile-components.com/",
   "dependencies": {
+    "@dile/image-cropper": "^0.1.0",
     "@dile/ui": "^3.19.2",
     "axios": "^1.19.0",
     "lit": "^2.7.0 || ^3.0.0"

@@ -55,10 +55,7 @@ export class DileConfirmedAjaxForm extends DileAjaxForm {
   }
 
   onConfirmAccepted() {
-    // Call the parent's doAction method directly, bypassing our override
-    const formData = this.form.getData();
-    this.ajaxsave.data = formData;
-    this.ajaxsave.generateRequest();
+    this.sendData();
   }
 
   onConfirmCancelled() {

@@ -27,6 +27,19 @@
       minHeight="100"
       maxHeight="4000"
     ></dile-image-uploader>
+
+    <h2>Avatar uploader with crop</h2>
+    <p>Cropper.js is only downloaded when an image is selected in this uploader.</p>
+    <dile-image-uploader
+      id="avatarUploader"
+      endpoint="http://localhost/api/board-games/1/upload-card"
+      language="es"
+      crop
+      cropAspectRatio="1"
+      cropOutputWidth="400"
+      cropOutputHeight="400"
+      cropRound
+    ></dile-image-uploader>
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {

@@ -210,6 +210,14 @@ export class DileAjaxForm extends DileI18nMixin(LitElement) {
 
     doAction() {
         this.feedback.clear();
+        return this.sendData();
+    }
+
+    async sendData() {
+        // Forms can implement an optional async prepareData() to compute data before getData() is called
+        if (typeof this.form.prepareData === 'function') {
+            await this.form.prepareData();
+        }
         this.ajaxsave.data = this.form.getData();
         this.ajaxsave.generateRequest();
     }

@@ -25,6 +25,12 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
       maxWidth: { type: Number },
       minHeight: { type: Number },
       maxHeight: { type: Number },
+      crop: { type: Boolean },
+      cropAspectRatio: { type: Number },
+      cropOutputWidth: { type: Number },
+      cropOutputHeight: { type: Number },
+      cropOutputType: { type: String },
+      cropRound: { type: Boolean },
     };
   }
 
@@ -32,6 +38,8 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
     super();
     this.responseAdapter = new ResponseApiAdapter();
     this.allowedExtensions = ['jpeg', 'jpg', 'png'];
+    this.crop = false;
+    this.cropRound = false;
   }
 
   render() {
@@ -56,6 +64,12 @@ export class DileImageUploader extends DileI18nMixin(LitElement) {
           .maxWidth=${this.maxWidth}
           .minHeight=${this.minHeight}
           .maxHeight=${this.maxHeight}
+          ?crop=${this.crop}
+          .cropAspectRatio=${this.cropAspectRatio}
+          .cropOutputWidth=${this.cropOutputWidth}
+          .cropOutputHeight=${this.cropOutputHeight}
+          .cropOutputType=${this.cropOutputType}
+          ?cropRound=${this.cropRound}
         ></dile-image-uploader-form>
       </dile-ajax-form>
     `;

@@ -50,6 +50,18 @@ All these functionalities are achieved by applying a mixin to the form found in 
 
 You can read the [documentation of the `DileForm` mixin](/mixins/dile-form-mixin/) for more information.
 
+Optionally, the form can implement an async `prepareData()` method. If it exists, `dile-ajax-form` calls it and waits for it to finish before getting the data with `getData()`. This is useful when some value has to be computed asynchronously before sending the form, like the cropped image of [dile-image-uploader](/crud/image-uploader/).
+
+```javascript
+async prepareData() {
+  this.computedValue = await computeSomethingAsync();
+}
+
+adaptDataOut(data) {
+  return { ...data, computed: this.computedValue };
+}
+```
+
 > A [Dile Components CLI](/cli/) command can generate the scaffolding for form components suitable for working with ajax-form. You can find the complete information on the [DileForm mixin](/mixins/dile-form-mixin/) documentation page.
 
 ### Properties
