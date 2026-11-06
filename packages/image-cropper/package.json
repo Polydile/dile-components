@@ -1,6 +1,6 @@
 {
   "name": "@dile/image-cropper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web Component to crop images in the browser, powered by Cropper.js v2. Cropper.js is lazy loaded only when an image is displayed",
   "keywords": [
     "image",
