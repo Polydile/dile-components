@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dile-highlight-mixin demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .demo-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .proxy {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px dashed #d0d7de;
+      border-radius: 12px;
+      background: #f6f8fa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Mixin dile-highlight-mixin demo</h1>
+
+    <div class="demo-actions">
+      <button id="focus-card" type="button">Highlight card</button>
+      <button id="focus-target" type="button">Highlight inner target</button>
+    </div>
+
+    <highlight-card-demo></highlight-card-demo>
+
+    <br>
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+
+  <script type="module">
+    import { LitElement, html, css } from 'lit';
+    import { DileHighlightMixin } from '@dile/ui/mixins/highlight/index.js';
+
+    class HighlightCardDemo extends DileHighlightMixin(LitElement) {
+      static styles = css`
+        :host {
+          display: block;
+          --dile-highlight-color: #2f6fed;
+          --dile-highlight-duration: 1400;
+          margin-top: 1rem;
+          padding: 1.25rem;
+          border: 1px solid #d0d7de;
+          border-radius: 14px;
+          background: white;
+          box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+        }
+
+        .status {
+          display: inline-block;
+          padding: 0.4rem 0.75rem;
+          margin-bottom: 0.9rem;
+          border-radius: 999px;
+          background: #eef4ff;
+          color: #234ca8;
+          font-size: 0.8rem;
+          font-weight: 700;
+        }
+
+        .target {
+          padding: 0.8rem 1rem;
+          border: 1px solid #b9d1ff;
+          border-radius: 10px;
+          background: #f8fbff;
+          font-weight: 600;
+        }
+      `;
+
+      constructor() {
+        super();
+        this._useInnerHighlight = false;
+      }
+
+      get highlightTarget() {
+        return this._useInnerHighlight ? this.shadowRoot.querySelector('.target') : this;
+      }
+
+      highlightInner() {
+        this._useInnerHighlight = true;
+        this.highlight({ scroll: false });
+        this._useInnerHighlight = false;
+      }
+
+      render() {
+        return html`
+          <span class="status">Needs attention</span>
+          <div class="target">This inner block gets the glow</div>
+        `;
+      }
+    }
+
+    customElements.define('highlight-card-demo', HighlightCardDemo);
+
+    const demo = document.querySelector('highlight-card-demo');
+
+    document.getElementById('focus-card').addEventListener('click', () => {
+      demo.highlight();
+    });
+
+    document.getElementById('focus-target').addEventListener('click', () => {
+      demo.highlightInner();
+    });
+  </script>
+</body>
+
+</html>
