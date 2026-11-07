@@ -32,7 +32,9 @@
     <div class="demo-actions">
       <button id="focus-card" type="button">Highlight card</button>
       <button id="focus-target" type="button">Highlight inner target</button>
+      <button id="toggle-reveal" type="button">Reveal and highlight new block</button>
     </div>
+    <p id="status-log">Card has its own box-shadow: it should stay visible during the glow and not jump at the end.</p>
 
     <highlight-card-demo></highlight-card-demo>
 
@@ -49,7 +51,7 @@
         :host {
           display: block;
           --dile-highlight-color: #2f6fed;
-          --dile-highlight-duration: 1400;
+          --dile-highlight-duration: 1.4s;
           margin-top: 1rem;
           padding: 1.25rem;
           border: 1px solid #d0d7de;
@@ -76,27 +78,58 @@
           background: #f8fbff;
           font-weight: 600;
         }
+
+        .revealed {
+          margin-top: 0.9rem;
+          padding: 0.8rem 1rem;
+          border: 1px solid #f3b4b6;
+          border-radius: 10px;
+          background: #fff7f7;
+          box-shadow: 0 4px 10px rgba(229, 72, 77, 0.2);
+          --dile-highlight-color: #e5484d;
+          --dile-highlight-size: 3px;
+        }
       `;
+
+      static properties = {
+        revealed: { type: Boolean },
+      };
 
       constructor() {
         super();
-        this._useInnerHighlight = false;
+        this.revealed = false;
+        this._targetSelector = null;
       }
 
       get highlightTarget() {
-        return this._useInnerHighlight ? this.shadowRoot.querySelector('.target') : this;
+        return this._targetSelector ? this.shadowRoot.querySelector(this._targetSelector) : this;
+      }
+
+      // highlight() reads highlightTarget after awaiting the render, so the selector
+      // must stay set until the returned promise resolves.
+      async highlightPart(selector, options) {
+        this._targetSelector = selector;
+        try {
+          return await this.highlight(options);
+        } finally {
+          this._targetSelector = null;
+        }
       }
 
       highlightInner() {
-        this._useInnerHighlight = true;
-        this.highlight({ scroll: false });
-        this._useInnerHighlight = false;
+        return this.highlightPart('.target', { scroll: false });
+      }
+
+      revealAndHighlight() {
+        this.revealed = true;
+        return this.highlightPart('.revealed', { scroll: { block: 'nearest' } });
       }
 
       render() {
         return html`
           <span class="status">Needs attention</span>
           <div class="target">This inner block gets the glow</div>
+          ${this.revealed ? html`<div class="revealed">Rendered right before highlight() was called</div>` : ''}
         `;
       }
     }
@@ -105,12 +138,25 @@
 
     const demo = document.querySelector('highlight-card-demo');
 
+    const log = document.getElementById('status-log');
+    const report = async (promise) => {
+      const animation = await promise;
+      log.textContent = animation ? 'Highlight running…' : 'Nothing to highlight';
+      await animation?.finished.catch(() => {});
+      if (animation?.playState === 'finished') log.textContent = 'Highlight finished';
+    };
+
     document.getElementById('focus-card').addEventListener('click', () => {
-      demo.highlight();
+      report(demo.highlight());
     });
 
     document.getElementById('focus-target').addEventListener('click', () => {
-      demo.highlightInner();
+      report(demo.highlightInner());
+    });
+
+    document.getElementById('toggle-reveal').addEventListener('click', () => {
+      demo.revealed = false;
+      report(demo.revealAndHighlight());
     });
   </script>
 </body>
