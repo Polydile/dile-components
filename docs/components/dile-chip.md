@@ -34,10 +34,21 @@ Use the component:
 
 - **name**: Name of the chip. This name does not appear in the chip interface. It is useful to identify the chip on a `dile-chip-icon-click` event.
 - **icon**: optional icon for this chip.
+- **iconLabel** (attribute `icon-label`): text describing the icon action, used for its accessible name. Defaults to `"Remove"`. The button is announced as the label followed by the chip text (e.g. "Remove My Chip").
+
+## Methods
+
+- **focus()**: moves the focus to the chip action button.
 
 ## Custom Events
 
-- **dile-chip-icon-click**: this custom event is dispatched when the user clicks on the chip icon.
+- **dile-chip-icon-click**: this custom event is dispatched when the user activates the chip icon, by click or keyboard. The event `detail` is `{ name }`.
+
+## Accessibility
+
+- The icon is rendered inside a native `<button type="button">`, so it is reachable with <kbd>Tab</kbd> and activated with <kbd>Enter</kbd> or <kbd>Space</kbd>. <kbd>Delete</kbd> and <kbd>Backspace</kbd> also activate it, as is common in chip inputs.
+- The SVG icon is hidden from assistive technologies; the button name comes from `iconLabel` plus the chip text. Set `icon-label` when using a custom icon or another language: `<dile-chip icon-label="Quitar">Etiqueta</dile-chip>`.
+- The button shows a visible focus outline and has a 24×24px minimum target size.
 
 ## CSS Custom Properties
 
@@ -52,7 +63,8 @@ Custom property | Description | Default
 --dile-chip-text-color | Color for the text | #303030
 --dile-chip-icon-color | Color for the icon | #303030
 --dile-chip-icon-size | Chip icon size | 16px
---dile-chip-icon-hover-color | Icon color on hover state | #d06060
+--dile-chip-icon-hover-color | Icon color on hover and keyboard focus state | #d06060
+--dile-chip-focus-outline-color | Outline color of the focused icon button | var(--dile-primary-color, #1a73e8)
 --dile-chip-font-size | Chip font size | 1rem
 --dile-chip-font-weight | Chip font weight | bold
 
@@ -66,6 +78,12 @@ Custom property | Description | Default
 </script>
 <dile-chip name="Dile">Dile</dile-chip>
 <dile-chip name="Lit">Lit</dile-chip>
+```
+
+### Custom icon label
+
+```html:preview
+<dile-chip name="es" icon-label="Quitar">Español</dile-chip>
 ```
 
 ### Styled chips
