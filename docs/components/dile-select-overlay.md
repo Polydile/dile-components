@@ -151,7 +151,7 @@ When `dile-select-overlay` is composed inside another component (like [dile-sele
 These exist to let another component drive `dile-select-overlay` from an external control (used together with `hideTrigger`):
 
 - **handleExternalKeydown(e)**: Runs the exact same keyboard-navigation logic used internally on the trigger (arrow keys, Home/End, Enter, Escape, typeahead) against a `KeyboardEvent` coming from somewhere else, e.g. an external search field.
-- **highlightedText**: Read-only reactive property with the plain display text (never the `optionRenderer` output) of the currently highlighted option, so an external consumer can announce it (e.g. in its own `aria-live` region) without reaching into this component's shadow root.
+- **highlightedText**: Read-only reactive property with the plain display text (never the `optionRenderer` output) of the currently highlighted option, so an external consumer can announce it (e.g. in its own `aria-live` region) without reaching into this component's shadow root. Reset to an empty string when the popup closes.
 
 ## Events
 

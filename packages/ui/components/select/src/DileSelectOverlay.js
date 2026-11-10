@@ -569,6 +569,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
   close() {
     super.close();
     this._activeIndex = -1;
+    this.highlightedText = '';
   }
 
   clear() {

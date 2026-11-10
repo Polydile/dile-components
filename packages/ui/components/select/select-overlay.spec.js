@@ -537,6 +537,39 @@ describe('dile-select-overlay', () => {
       expect(el.highlightedText).toBeTruthy();
     });
 
+    it('clears highlightedText when the listbox closes (Escape or close())', async () => {
+      const el = await renderSelectOverlay(`
+        <dile-select-overlay>
+          <select slot="select">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+          </select>
+        </dile-select-overlay>
+      `);
+
+      const trigger = el.shadowRoot.getElementById('trigger');
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+      await wait(100);
+      await el.updateComplete;
+      expect(el.highlightedText).toBeTruthy();
+
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      await wait(600);
+      await el.updateComplete;
+      expect(el.shadowRoot.getElementById('overlay').classList.contains('opened')).toBe(false);
+      expect(el._activeIndex).toBe(-1);
+      expect(el.highlightedText).toBe('');
+
+      trigger.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+      await wait(100);
+      await el.updateComplete;
+      expect(el.highlightedText).toBeTruthy();
+
+      el.close();
+      await el.updateComplete;
+      expect(el.highlightedText).toBe('');
+    });
+
     it('Enter selects the highlighted option and fires element-changed', async () => {
       const el = await renderSelectOverlay(`
         <dile-select-overlay>
