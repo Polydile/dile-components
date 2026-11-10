@@ -48,6 +48,7 @@ You can use this properties to configure the current active page:
 - **attrForSelected** (optional): A string with the attribute name in the page elements to match with "selected" property.
 - **selectorId** (optional): A property to link this component to a selector interface like [dile-tabs](/components/dile-tabs/) or [dile-selector](/components/dile-selector/).   The linked selector component also needs to have a selectorId attribute with the same value.
 - **showDisplay** (optional): A display value to set to the element that is shown. Default is 'block';
+- **tabpanels** (optional): Boolean, `false` by default. Tabs mode: every page gets `role="tabpanel"` (and a generated `id` if it has none). If there is a [dile-tabs](/components/dile-tabs/) with the same `selectorId` in the same DOM scope, each page gets `aria-labelledby` pointing to its `dile-tab`, and each tab is linked to its page as `aria-controls`. Pages and tabs are matched by `attrForSelected` value, or by index.
 
 > If you don't provide a value to attrForSelected property, "selected" will be matched to the index of the children element (selected=0 corresponds to the first page, selected=1 to the second... )
 
@@ -94,6 +95,26 @@ The next example will show the third children, the div element with the H2 headi
 ```
 
 Note in the previous code that you can use any tag as page.
+
+## Methods
+
+- **linkTabs()**: Applies again the tabs mode semantics (or removes them if `tabpanels` is `false`). It runs automatically on start up and when `tabpanels`, `attrForSelected` or `selectorId` change, so call it only if you add or remove tabs or pages later.
+- **initializeExternalPages(htmlElements)**: Replaces the pages with the given HTML string.
+
+## Accessibility
+
+When the pages are the panels of a `dile-tabs`, set the `tabpanels` attribute to follow the [WAI-ARIA tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/):
+
+```html
+<dile-tabs aria-label="Account sections" selectorId="account" selected="0">
+  <dile-tab>Profile</dile-tab>
+  <dile-tab>Billing</dile-tab>
+</dile-tabs>
+<dile-pages tabpanels selectorId="account" selected="0">
+  <section>Profile content</section>
+  <section>Billing content</section>
+</dile-pages>
+```
 
 ## dile-pages demos
 
@@ -152,13 +173,13 @@ customElements.define('my-component', MyComponent);
 
 ### Select pages with tabs
 
-```html:preview¡
+```html:preview
 <dile-tabs selectorId="selector1" selected="0">
   <dile-tab>One</dile-tab>
   <dile-tab>Two</dile-tab>
 </dile-tabs>
 <hr>
-<dile-pages selectorId="selector1">
+<dile-pages tabpanels selectorId="selector1">
   <section name="one">
     <p>
       Page one...

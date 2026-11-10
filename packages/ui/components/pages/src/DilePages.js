@@ -1,5 +1,8 @@
 import { LitElement, html, css } from 'lit';
 
+let idCounter = 0;
+const generateId = (prefix) => `${prefix}-${++idCounter}`;
+
 export class DilePages extends LitElement {
   static get properties() {
     return {
@@ -11,6 +14,8 @@ export class DilePages extends LitElement {
       selectorId: { type: String },
       /** Display to the element that is shown */
       showDisplay: { type: String },
+      /** Tabs mode: marks each page as role="tabpanel" and links it with its dile-tab (same selectorId) */
+      tabpanels: { type: Boolean },
     };
   }
   render() {
@@ -26,6 +31,9 @@ export class DilePages extends LitElement {
     this._pageInitialization();
     this._onSelectorIdChangedHandler = this._onSelectorIdChanged.bind(this);
     this.showDisplay = 'block';
+    this.tabpanels = false;
+    this._ariaPages = new Set();
+    this._ariaTabs = new Set();
   }
 
   static get styles() {
@@ -60,6 +68,7 @@ export class DilePages extends LitElement {
   initializeExternalPages(htmlElements) {
     this.innerHTML = htmlElements;
     this._pageInitialization();
+    this.linkTabs();
   }
 
   /**
@@ -75,6 +84,7 @@ export class DilePages extends LitElement {
     if(this.selectorId) {
       document.addEventListener('dile-selected-changed', this._onSelectorIdChangedHandler);
     }
+    this._linkTabsWhenReady();
   }
 
   disconnectedCallback() {
@@ -96,6 +106,9 @@ export class DilePages extends LitElement {
       this.hidePage(lastSelected, lastAttrForSelected);
     }
     this._showCurrentPage();
+    if (this.hasUpdated && (changedProperties.has('tabpanels') || changedProperties.has('attrForSelected') || changedProperties.has('selectorId'))) {
+      this.linkTabs();
+    }
   }
 
   /**
@@ -174,5 +187,68 @@ export class DilePages extends LitElement {
     if(e.detail.selectorId == this.selectorId) {
       this.selected = e.detail.selected;
     }
+  }
+
+  async _linkTabsWhenReady() {
+    this.linkTabs();
+    const tabs = this._findTabs();
+    if (tabs) {
+      await customElements.whenDefined('dile-tabs');
+      await tabs.updateComplete;
+      this.linkTabs();
+    }
+  }
+
+  _findTabs() {
+    if (!this.selectorId) {
+      return null;
+    }
+    const root = this.getRootNode();
+    return [...root.querySelectorAll('dile-tabs')]
+      .find((tabs) => tabs.selectorId === this.selectorId || tabs.getAttribute('selectorid') === this.selectorId) ?? null;
+  }
+
+  /**
+   * Applies (tabpanels mode) or removes the tab panel semantics on the pages: role="tabpanel",
+   * aria-labelledby pointing to the dile-tab and aria-controls from the tab to the page.
+   *
+   * @return {void}
+   */
+  linkTabs() {
+    this._unlinkTabs();
+    if (!this.tabpanels) {
+      return;
+    }
+    const tabs = this._findTabs();
+    const tabItems = tabs?.hasUpdated ? tabs.getItems() : [];
+    this.pages.forEach((page, index) => {
+      page.setAttribute('role', 'tabpanel');
+      if (!page.id) {
+        page.id = generateId('dile-tabpanel');
+      }
+      this._ariaPages.add(page);
+      const pageValue = this.attrForSelected ? page.getAttribute(this.attrForSelected) : index;
+      const tab = tabItems.find((item, tabIndex) => tabs.getItemValueComputed(item, tabIndex) == pageValue);
+      if (tab) {
+        if (!tab.id) {
+          tab.id = generateId('dile-tab');
+        }
+        page.setAttribute('aria-labelledby', tab.id);
+        tab.controlsElement = page;
+        this._ariaTabs.add(tab);
+      }
+    });
+  }
+
+  _unlinkTabs() {
+    this._ariaPages.forEach((page) => {
+      page.removeAttribute('role');
+      page.removeAttribute('aria-labelledby');
+    });
+    this._ariaTabs.forEach((tab) => {
+      tab.controlsElement = undefined;
+    });
+    this._ariaPages.clear();
+    this._ariaTabs.clear();
   }
 }

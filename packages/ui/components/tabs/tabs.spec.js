@@ -275,4 +275,36 @@ describe('dile-tabs', () => {
       expect(styles.outlineColor).toBe('rgb(255, 0, 0)');
     });
   });
+
+  describe('aria-controls', () => {
+    it('links the inner tab with the panel set by the controls attribute', async () => {
+      document.body.innerHTML = `
+        <div id="panel">Panel</div>
+        <dile-tab controls="panel">One</dile-tab>
+      `;
+      const tab = document.querySelector('dile-tab');
+      await tab.updateComplete;
+
+      const inner = tab.shadowRoot.querySelector('[role="tab"]');
+      expect(inner.ariaControlsElements).toEqual([document.getElementById('panel')]);
+    });
+
+    it('links the inner tab with the controlsElement property', async () => {
+      document.body.innerHTML = `
+        <section>Panel</section>
+        <dile-tab>One</dile-tab>
+      `;
+      const tab = document.querySelector('dile-tab');
+      const panel = document.querySelector('section');
+      tab.controlsElement = panel;
+      await tab.updateComplete;
+
+      const inner = tab.shadowRoot.querySelector('[role="tab"]');
+      expect(inner.ariaControlsElements).toEqual([panel]);
+
+      tab.controlsElement = undefined;
+      await tab.updateComplete;
+      expect(inner.ariaControlsElements).toBe(null);
+    });
+  });
 });

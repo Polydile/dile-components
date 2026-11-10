@@ -52,6 +52,8 @@ Use the component
 - **href**: Optional. When set, the tab renders a native link (`<a>`) pointing to this URL, so clicking it performs a classic browser navigation. The tab keeps exactly the same look as any other tab.
 - **target**: Optional. The `target` attribute for the link (e.g. `_blank`). Only used when `href` is set.
 - **tabbable**: Boolean, `true` by default. If the tab is in the tab sequence of the page. `dile-tabs` manages it, keeping it `true` on only one of its tabs.
+- **controls**: Optional. The id of the panel controlled by the tab, used to link them for assistive technologies (`aria-controls`). The panel must be in the same DOM scope as the tab.
+- **controlsElement**: Optional, property only. The panel element controlled by the tab. Takes precedence over `controls`. `dile-pages` sets it automatically in `tabpanels` mode.
 
 ## More complex example
 
@@ -151,13 +153,30 @@ Arrow Right / Arrow Left | Moves to the next / previous tab, wrapping at the end
 Home / End | Moves to the first / last tab
 Enter / Space | Selects the focused tab and, if it has a `href`, follows the link
 
-Give the group a name with `aria-label`. The component doesn't link the tabs with their panels, because they can be any content:
+Give the group a name with `aria-label`:
 
 ```html
 <dile-tabs aria-label="Account sections" selected="0">
   <dile-tab>Profile</dile-tab>
   <dile-tab>Billing</dile-tab>
 </dile-tabs>
+```
+
+### Linking tabs and panels
+
+The element with the `tab` role is inside the shadow DOM of `dile-tab`, so a regular `aria-controls="id"` can't reach the panel. Use the `controls` attribute (or the `controlsElement` property) instead: the tab links its panel with ARIA element reflection, in the browsers that support it.
+
+When the panels are a `dile-pages` linked by `selectorId`, add its `tabpanels` attribute and the link is done for you: each page gets `role="tabpanel"` and `aria-labelledby` pointing to its tab, and each tab controls its page.
+
+```html
+<dile-tabs aria-label="Account sections" selectorId="account" selected="0">
+  <dile-tab>Profile</dile-tab>
+  <dile-tab>Billing</dile-tab>
+</dile-tabs>
+<dile-pages tabpanels selectorId="account" selected="0">
+  <section>Profile content</section>
+  <section>Billing content</section>
+</dile-pages>
 ```
 
 ## dile-tabs demo
@@ -275,7 +294,7 @@ main.selectionlayout dile-pages h2 {
     <dile-tab icon="label_important" name="about">About</dile-tab>
     <dile-tab icon="label_important" name="contact">Contact</dile-tab>
   </dile-tabs>
-  <dile-pages attrForSelected="name" selectorId="selector" selected="home">
+  <dile-pages tabpanels attrForSelected="name" selectorId="selector" selected="home">
     <div name="home">
       <h2>Homepage</h2>
       <p>I am the home page content...</p>

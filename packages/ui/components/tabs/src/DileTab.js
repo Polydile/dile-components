@@ -10,6 +10,10 @@ export class DileTab  extends DileSelectableItem(LitElement) {
       target: { type: String },
       /** If this tab is in the page tab sequence. dile-tabs keeps it true only on one of its tabs */
       tabbable: { type: Boolean, attribute: false },
+      /** Id of the panel controlled by this tab (resolved in the same DOM scope as the tab) */
+      controls: { type: String },
+      /** Panel element controlled by this tab. Takes precedence over controls */
+      controlsElement: { type: Object, attribute: false },
     };
   }
 
@@ -128,6 +132,23 @@ export class DileTab  extends DileSelectableItem(LitElement) {
         e.currentTarget.click();
       }
     }
+  }
+
+  updated(changedProperties) {
+    super.updated?.(changedProperties);
+    this._updateAriaControls();
+  }
+
+  // The element with role="tab" lives in this shadow root, so an aria-controls IDREF
+  // can't reach the panel. ARIA element reflection can point to elements in an ancestor scope.
+  _updateAriaControls() {
+    const tab = this.shadowRoot?.querySelector('.tab');
+    if (!tab || !('ariaControlsElements' in Element.prototype)) {
+      return;
+    }
+    const panel = this.controlsElement
+      ?? (this.controls ? this.getRootNode().getElementById?.(this.controls) : null);
+    tab.ariaControlsElements = panel ? [panel] : null;
   }
 
   focus(options) {
