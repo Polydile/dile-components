@@ -39,6 +39,7 @@ module.exports = async function(eleventyConfig) {
     { key: "forms", label: "Forms", icon: "lucide.form" },
     { key: "feedback", label: "Feedback", icon: "material.feedback" },
     { key: "icons", label: "Icons", icon: "tabler.icons" },
+    { key: "media", label: "Media", icon: "fontawesome.regular-camera" },
     { key: "utils", label: "Utils", icon: "phosphor.app-window" },
     { key: "menu", label: "Menu", icon: "remixicon.menu-fill" },
     { key: "spinner", label: "Spinner", icon: "phosphor.spinner" },

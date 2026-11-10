@@ -4,7 +4,7 @@ package: '@dile/image-cropper'
 element: '&lt;dile-image-cropper&gt;'
 status: experimental
 summary: Image cropping component powered by Cropper.js v2, lazy loaded on demand, with aspect ratio, round avatar mask and File/Blob/canvas export.
-tags: utils
+tags: media
 ---
 
 # dile-image-cropper

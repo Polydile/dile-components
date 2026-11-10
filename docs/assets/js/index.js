@@ -89,6 +89,7 @@ import '@dile/iconlib/phosphor-icons/app-window.js';
 import '@dile/iconlib/remixicon-icons/menu-fill.js';
 import '@dile/iconlib/phosphor-icons/spinner.js';
 import '@dile/iconlib/phosphor-icons/layout.js';
+import '@dile/iconlib/fontawesome-icons/regular-camera.js';
 
 document.querySelectorAll('.code-preview__button').forEach(button => {
   button.addEventListener('click', () => {

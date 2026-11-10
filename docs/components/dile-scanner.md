@@ -4,7 +4,7 @@ package: '@dile/scanner'
 element: '&lt;dile-scanner&gt;'
 status: experimental
 summary: Document scanner that runs in the browser. Detects the document edges, corrects the perspective and returns a multipage PDF or JPEG images.
-tags: utils, pdf
+tags: media, pdf
 ---
 
 # dile-scanner
