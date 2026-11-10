@@ -821,3 +821,118 @@ describe('dile-crud select_ajax filter chips', () => {
     expect(await chipLabels(el)).toEqual(['Tag: Strategy']);
   });
 });
+
+describe('dile-crud delete confirm message template', () => {
+  const ITEMS = [
+    { id: 1, name: 'VIP', usage_count: 12 },
+    { id: 2, name: 'Newsletter', usage_count: 0 },
+  ];
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  beforeEach(() => {
+    window.axiosInstance = {
+      // The list request never resolves: elements are injected by the test
+      get: vi.fn(() => new Promise(() => {})),
+      delete: vi.fn(() => Promise.resolve({ status: 200, data: { message: 'Deleted' } })),
+    };
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+    delete window.axiosInstance;
+  });
+
+  async function mountCrud(templates = {}) {
+    const config = new CrudConfigBuilder('https://example.test/api/tags', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch: true,
+        disableSort: true,
+        disableFilter: true,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+      templates: {
+        item: (item) => html`<span class="item-name">${item.name}</span>`,
+        ...templates,
+      },
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    document.body.appendChild(el);
+    await el.updateComplete;
+    // Let the initial (pending) list request start before injecting the elements
+    await wait(300);
+    const list = el.listElement;
+    list.elements = ITEMS;
+    list.loading = false;
+    await list.updateComplete;
+    return el;
+  }
+
+  async function clickDelete(el, index) {
+    const listItem = el.listElement.shadowRoot.querySelectorAll('dile-crud-list-item')[index];
+    await listItem.updateComplete;
+    const actions = listItem.shadowRoot.querySelector('dile-crud-item-actions');
+    await actions.updateComplete;
+    actions.shadowRoot.querySelector('dile-button.delete').click();
+    await el.deleteElement.updateComplete;
+  }
+
+  function message(el) {
+    return el.deleteElement.shadowRoot.querySelector('dile-confirm .message');
+  }
+
+  const deleteConfirmMessage = (item) => item.usage_count > 0
+    ? html`The tag <strong>${item.name}</strong> will be removed from ${item.usage_count} items.`
+    : html`The tag <strong>${item.name}</strong> is not used anywhere.`;
+
+  it('keeps null as default and preserves the other templates when defined', () => {
+    const defaults = new CrudConfigBuilder('https://example.test/api/tags', {}).getConfig();
+    expect(defaults.templates.deleteConfirmMessage).toBeNull();
+
+    const custom = new CrudConfigBuilder('https://example.test/api/tags', {
+      templates: { deleteConfirmMessage },
+    }).getConfig();
+    expect(custom.templates.deleteConfirmMessage).toBe(deleteConfirmMessage);
+    expect(typeof custom.templates.formActions).toBe('function');
+    expect(typeof custom.templates.item).toBe('function');
+  });
+
+  it('shows the message computed for the clicked item, and changes with another item', async () => {
+    const el = await mountCrud({ deleteConfirmMessage });
+
+    await clickDelete(el, 0);
+    expect(message(el).querySelector('strong').textContent).toBe('VIP');
+    expect(message(el).textContent.replace(/\s+/g, ' ').trim())
+      .toBe('The tag VIP will be removed from 12 items.');
+
+    el.deleteElement.shadowRoot.querySelector('dile-confirm').cancel();
+    await el.deleteElement.updateComplete;
+
+    await clickDelete(el, 1);
+    expect(message(el).querySelector('strong').textContent).toBe('Newsletter');
+    expect(message(el).textContent.replace(/\s+/g, ' ').trim())
+      .toBe('The tag Newsletter is not used anywhere.');
+  });
+
+  it('uses the default message when no template is configured', async () => {
+    const el = await mountCrud();
+    el.deleteElement.translations = { delete_confirm_message: 'Translated message' };
+    await clickDelete(el, 0);
+    expect(message(el).querySelector('strong')).toBeNull();
+    expect(message(el).textContent.trim()).toBe('Translated message');
+  });
+
+  it('accepting the confirm sends the DELETE request to endpoint/itemId', async () => {
+    const el = await mountCrud({ deleteConfirmMessage });
+    await clickDelete(el, 0);
+    el.deleteElement.shadowRoot.querySelector('dile-confirm').accept();
+    await wait(0);
+
+    expect(window.axiosInstance.delete).toHaveBeenCalledTimes(1);
+    expect(window.axiosInstance.delete.mock.calls[0][0]).toBe('https://example.test/api/tags/1');
+  });
+});

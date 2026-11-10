@@ -203,6 +203,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             <dile-crud-item-delete 
                 id="eldelete"
                 endpoint="${this.config.endpoint}"
+                .confirmMessageTemplate=${this.config.templates.deleteConfirmMessage}
                 @delete-success=${this.deleteSuccess}
                 language="${this.language}"
             ></dile-crud-item-delete>
@@ -550,7 +551,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
     }
 
     itemDeleteRequest(e) {
-        this.deleteElement.delete(e.detail.itemId)
+        this.deleteElement.delete(e.detail.itemId, e.detail.item);
     }
 
     itemRestoreRequest(e) {

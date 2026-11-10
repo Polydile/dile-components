@@ -77,6 +77,9 @@ export const defaultConfig = {
     `,
     relations: () => '',
     formSingleActions: () => '',
+    // Optional. (item) => string | TemplateResult with the confirmation message
+    // shown when deleting an item. If null, the delete_confirm_message translation is used.
+    deleteConfirmMessage: null,
   },
   labels: {
 

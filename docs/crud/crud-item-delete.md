@@ -48,10 +48,26 @@ Use the component.
 - **cancelLabel**: String, the label for the cancel button in the confirmation dialog.
 - **acceptLabel**: String, the label for the accept button in the confirmation dialog.
 - **method**: String, the HTTP method for the request, default is "delete".
+- **confirmMessageTemplate**: Function, optional (property only, no attribute). `(item) => string | TemplateResult` that computes the confirmation message from the item being deleted. It is only used when `delete()` receives an item. A `TemplateResult` is rendered as HTML.
+
+The confirmation message is resolved in this order:
+
+1. `confirmMessageTemplate(item)`, when the function is set and `delete()` received an item.
+2. `confirmMessage`.
+3. The `delete_confirm_message` translation.
+4. `'Are you sure?'`.
 
 ### Methods
 
-- **delete(itemId)**: Performs the delete operation, first displaying a confirmation dialog to the user.
+- **delete(itemId, item = null)**: Performs the delete operation, first displaying a confirmation dialog to the user. The optional `item` is passed to `confirmMessageTemplate` to compute the message; it is cleared after the deletion succeeds or fails, or when the dialog is cancelled. Calling `delete(itemId)` without item works as before.
+
+```javascript
+const deleteElement = document.querySelector('dile-crud-item-delete');
+deleteElement.confirmMessageTemplate = (item) => html`Delete the tag <strong>${item.name}</strong>?`;
+deleteElement.delete(tag.id, tag);
+```
+
+When used inside `dile-crud`, the item is passed automatically and the template is taken from the [`templates.deleteConfirmMessage`](/crud/resource-config/#templates) configuration property.
 
 ### Events
 

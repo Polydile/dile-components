@@ -23,9 +23,10 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
           --dile-confirm-cancel-button-color: var(--neutral-icon-color, #337aad);
           --dile-confirm-cancel-text-button-color: #fff;
       }
-      p {
+      .message {
           text-align: center;
           color: #303030;
+          margin: 1em 0;
       }
     `
   ];
@@ -39,6 +40,8 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
       cancelLabel: { type: String },
       acceptLabel: { type: String },
       method: { type: String },
+      confirmMessageTemplate: { attribute: false },
+      itemToDelete: { state: true },
     };
   }
 
@@ -48,7 +51,8 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
     this.errorEventName = 'delete-error';
     this.responseAdapter = new ResponseApiAdapter();
     this.method = 'delete';
-    this.ITEM_TO_DELETE_
+    this.confirmMessageTemplate = null;
+    this.itemToDelete = null;
   }
 
   firstUpdated() {
@@ -70,8 +74,9 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
           acceptLabel="${this.acceptLabelComputed(this.acceptLabel, this.translations)}"
           id="elconfirm"
           @dile-confirm-accepted=${this.deleteAccepted}
+          @dile-confirm-cancelled=${this.deleteCancelled}
       >
-          <p>${this.confirmMessageComputed(this.confirmMessage, this.translations)}</p>
+          <div class="message">${this.confirmMessageComputed(this.confirmMessage, this.translations, this.confirmMessageTemplate, this.itemToDelete)}</div>
       </dile-confirm>
   `;
   }
@@ -80,9 +85,11 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
     return `${endpoint}/${relatedId}`
   }
 
-  delete(itemId) {
+  delete(itemId, item = null) {
     if(itemId != "" && itemId != undefined) {
       this.relatedId = itemId;
+      // Reactive: the confirm message is re-rendered with this item
+      this.itemToDelete = item;
       this.elconfirm.open();
     } else {
       throw new Error(OPERATION_ITEM_MISSING_ERROR);
@@ -93,7 +100,12 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
     this.ajaxdelete.generateRequest();
   }
 
+  deleteCancelled() {
+    this.itemToDelete = null;
+  }
+
   doSuccessDelete(e) {
+    this.itemToDelete = null;
     let msg = this.computeResponseMessage(e.detail);
     this.dispatchEvent(new CustomEvent(this.successEventName, { 
       bubbles: true, 
@@ -106,6 +118,7 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
   }
   
   doErrorDelete(e) {
+    this.itemToDelete = null;
     let msg = this.computeResponseMessage(e.detail);
     this.dispatchEvent(new CustomEvent(this.errorEventName, { 
       bubbles: true, 
@@ -134,7 +147,10 @@ export class DileCrudItemDelete extends DileI18nMixin(LitElement) {
     return label ? label : translations?.delete_label ? translations.delete_label : 'Delete';
   }
 
-  confirmMessageComputed(message, translations) {
+  confirmMessageComputed(message, translations, template = null, item = null) {
+    if(typeof template === 'function' && item) {
+      return template(item);
+    }
     return message ? message : translations?.delete_confirm_message ? translations.delete_confirm_message : 'Are you sure?';
   }
 }

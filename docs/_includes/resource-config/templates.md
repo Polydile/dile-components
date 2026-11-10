@@ -19,6 +19,7 @@ templates: {
   `,
   relations: () => '',
   formSingleActions: () => '',
+  deleteConfirmMessage: null,
 }
 ```
 
@@ -103,6 +104,22 @@ Renders custom action buttons for a specific item (in addition to standard CRUD 
 - `item` (Object): The resource element
 
 **Returns:** Lit `html` template result
+
+### `deleteConfirmMessage`
+Optional. Computes the message shown in the confirmation dialog when an item is deleted from the list, so it can depend on the item being deleted. When it is `null` (default), the `delete_confirm_message` translation is used.
+
+**Parameters:**
+- `item` (Object): The resource element that is going to be deleted
+
+**Returns:** `String` or Lit `html` template result (HTML such as `<strong>` is rendered)
+
+```javascript
+deleteConfirmMessage: (item) => item.usage_count > 0
+  ? html`The tag <strong>${item.name}</strong> will be removed from ${item.usage_count} items.`
+  : html`The tag <strong>${item.name}</strong> is not used anywhere.`,
+```
+
+This template only affects the deletion of a single item (`dile-crud-item-delete`). Batch deletion keeps using the `delete_confirm_message_plural` translation.
 
 ## Example
 

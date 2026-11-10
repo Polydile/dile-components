@@ -508,3 +508,57 @@ customElements.define('demo-country-crud-view-switch', DemoCountryCrudViewSwitch
 ```
 
 You can customize the button's background, text and border colors, for both the full button and the round icon-only button, with the `--dile-crud-view-switch-*` custom properties documented in the [CSS Custom Properties](#crud-component-css-custom-properties) table above.
+
+## Custom Delete Confirmation Message {#custom-delete-confirmation-message}
+
+When the user deletes an item from the list, `dile-crud` passes the whole item to its internal `dile-crud-item-delete` component. Define `templates.deleteConfirmMessage` in the resource configuration to compute the confirmation message from that item. It receives the item and returns a string or a Lit `html` template, so you can highlight data with tags like `<strong>`.
+
+If the template is not defined, the `delete_confirm_message` translation is used. See [`templates.deleteConfirmMessage`](/crud/resource-config/#templates) for more details.
+
+```html:preview
+<script type="module">
+import { LitElement, html, css } from 'lit';
+
+class DemoCountryCrudDeleteMessage extends LitElement {
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `
+  ];
+
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    // Copy of the countryConfig defined earlier on this page, with a custom delete message
+    const baseConfig = window.countryConfig.getConfig();
+    this.config = {
+      ...baseConfig,
+      templates: {
+        ...baseConfig.templates,
+        deleteConfirmMessage: (country) => country.continent
+          ? html`The country <strong>${country.name}</strong> (${country.continent}) will be deleted.`
+          : html`The country <strong>${country.name}</strong> will be deleted.`,
+      },
+    };
+  }
+
+  render() {
+    return html`
+      <dile-crud
+        title="Countries with custom delete message"
+        .config="${this.config}"
+      ></dile-crud>
+    `;
+  }
+}
+customElements.define('demo-country-crud-delete-message', DemoCountryCrudDeleteMessage);
+</script>
+<demo-country-crud-delete-message></demo-country-crud-delete-message>
+```
