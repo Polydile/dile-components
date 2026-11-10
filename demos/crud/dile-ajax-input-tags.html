@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax-input-tags component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    // Fake Axios instance for the demo: filters a local list by the keyword.
+    const TAGS = [
+      { uuid: "1", name: "Madrid" },
+      { uuid: "2", name: "Málaga" },
+      { uuid: "3", name: "VIP", color: "#fde68a" },
+      { uuid: "4", name: "Wholesale", color: "#bfdbfe" },
+    ];
+    window.axiosInstance = {
+      get: async (url, { params }) => {
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        const keyword = (params.keyword || "").toLowerCase();
+        return { status: 200, data: { data: TAGS.filter((tag) => tag.name.toLowerCase().includes(keyword)) } };
+      },
+    };
+  </script>
+  <script type="module">
+    import '@dile/crud/components/ajax-input-tags/ajax-input-tags.js';
+    const field = document.getElementById('field');
+    field.tags = [];
+    field.addEventListener('dile-input-tags-add', (e) => {
+      field.tags = [...field.tags, e.detail.item ?? { uuid: String(Date.now()), name: e.detail.text }];
+    });
+    field.addEventListener('dile-input-tags-remove', (e) => {
+      field.tags = field.tags.filter((tag) => tag !== e.detail.item);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-ajax-input-tags</h1>
+    <p>This demo uses a fake Axios instance (see the page source). In a real app, save each change on the server before updating <code>tags</code>.</p>
+    <dile-ajax-input-tags
+      id="field"
+      name="tags"
+      label="Tags"
+      endpoint="/api/tags"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+      colorProperty="color"
+      placeholder="Type a tag and press Enter"
+    ></dile-ajax-input-tags>
+  </div>
+</body>
+</html>

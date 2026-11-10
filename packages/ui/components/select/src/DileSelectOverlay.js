@@ -229,6 +229,15 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
     return this._overlayClass === 'opened' || this._opening;
   }
 
+  /**
+   * Whether the options come from the native `<select>` in the "select" slot (the default).
+   * Subclasses that build `options` another way (e.g. dile-color-select, from a `colors`
+   * array) return false, so the slotted `<select>` is not required nor observed.
+   */
+  get usesSelectElement() {
+    return true;
+  }
+
   get options() {
     return this.elselect
       ? Array.from(this.elselect.options).map(o => ({ value: o.value, text: o.textContent, icon: o.dataset.icon || this.elselect.dataset.icon, element: o }))
@@ -241,6 +250,9 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
 
   connectedCallback() {
     super.connectedCallback();
+    if (!this.usesSelectElement) {
+      return;
+    }
     if (!this.elselect) {
       throw new Error('Use dile-select-overlay with a select element in the slot "select"');
     }
@@ -279,6 +291,9 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
   firstUpdated() {
     super.firstUpdated();
     this.quiet = this.quietOnStart;
+    if (!this.elselect) {
+      return;
+    }
     if (this.value) {
       this.elselect.value = this.value;
     } else {
@@ -363,10 +378,7 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         @click="${this._onTriggerClick}"
         @keydown="${this.handleExternalKeydown}"
       >
-        <span class="trigger-text ${selected ? '' : 'placeholder'}">
-          ${selected && selected.icon ? html`<span class="option-icon">${this.renderIconlibIcon(selected.icon)}</span>` : ''}
-          <span class="trigger-label">${selected ? selected.text : this.placeholder}</span>
-        </span>
+        <span class="trigger-text ${selected ? '' : 'placeholder'}">${this.triggerContentTemplate(selected)}</span>
         <span class="arrow-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 448" enable-background="new 0 0 256 448">
             <path d="M255.9 168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2 0-7.9 1.6-11.2 4.8S0 163.8 0 168c0 4.4 1.6 8.2 4.8 11.4l112 112c3.1 3.1 6.8 4.6 11.2 4.6 4.4 0 8.2-1.5 11.4-4.6l112-112c3-3.2 4.5-7 4.5-11.4z"></path>
@@ -399,6 +411,14 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
         })}
       </ul>
     `;
+  }
+
+  /**
+   * Content of the trigger: the selected option (icon + text) or the placeholder. Subclasses
+   * can override it to show the selected option differently (e.g. a color swatch).
+   */
+  triggerContentTemplate(selected) {
+    return html`${selected && selected.icon ? html`<span class="option-icon">${this.renderIconlibIcon(selected.icon)}</span>` : ''}<span class="trigger-label">${selected ? selected.text : this.placeholder}</span>`;
   }
 
   /** Content of each <li role="option">: optionRenderer's output when set, icon + text otherwise. */
@@ -577,6 +597,9 @@ export class DileSelectOverlay extends DileOverlay(DileCloseDocumentClick(DileEm
   }
 
   getOptionByValue(id) {
+    if (!this.elselect) {
+      return undefined;
+    }
     let options = this.elselect.options;
     for (let i = 0; i < options.length; i++) {
       if (options[i].value === id) {

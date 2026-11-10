@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-sortable component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import { LitElement, html, css } from 'lit';
+    import { repeat } from 'lit/directives/repeat.js';
+    import '@dile/ui/components/sortable/sortable.js';
+    import { moveItem } from '@dile/ui/components/sortable/index.js';
+
+    class SortableDemo extends LitElement {
+      static styles = css`
+        .row {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.75rem;
+          margin-bottom: 0.4rem;
+          border-radius: 6px;
+          background-color: #f3f4f6;
+        }
+        .handle {
+          cursor: grab;
+          touch-action: none;
+          padding: 0 0.25rem;
+          font-size: 1.25rem;
+        }
+        .handle:focus-visible {
+          outline: 2px solid #378dca;
+        }
+        dile-sortable {
+          --dile-sortable-dragging-background-color: #fff;
+        }
+      `;
+
+      static properties = {
+        items: { state: true },
+      };
+
+      constructor() {
+        super();
+        this.items = [
+          { id: 1, name: 'Web hosting' },
+          { id: 2, name: 'Domain name' },
+          { id: 3, name: 'Maintenance' },
+          { id: 4, name: 'SSL certificate' },
+        ];
+      }
+
+      render() {
+        return html`
+          <dile-sortable @dile-sortable-change=${(e) => (this.items = moveItem(this.items, e.detail.from, e.detail.to))}>
+            ${repeat(this.items, (item) => item.id, (item) => html`
+              <div class="row">
+                <span class="handle" data-sortable-handle tabindex="0" aria-label="Move ${item.name}">≡</span>
+                ${item.name}
+              </div>
+            `)}
+          </dile-sortable>
+          <p>Order: ${this.items.map((item) => item.id).join(', ')}</p>
+        `;
+      }
+    }
+    customElements.define('sortable-demo', SortableDemo);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-sortable</h1>
+    <p>Drag the rows by their handle, or focus a handle and press Alt + ↑ / Alt + ↓.</p>
+    <sortable-demo></sortable-demo>
+  </div>
+</body>
+</html>

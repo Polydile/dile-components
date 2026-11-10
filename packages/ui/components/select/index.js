@@ -5,3 +5,4 @@ export { DileSelectOverlay } from './src/DileSelectOverlay.js';
 export { DileSelectAjaxOverlay } from './src/DileSelectAjaxOverlay.js';
 export { DileSelectSearch } from './src/DileSelectSearch.js';
 export { DileSelectSearchableBase } from './src/DileSelectSearchableBase.js';
+export { DileColorSelect } from './src/DileColorSelect.js';

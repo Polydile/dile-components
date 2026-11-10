@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-ajax-input-suggestions component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    // Fake Axios instance for the demo: filters a local list by the keyword.
+    const TAGS = [
+      { uuid: "1", name: "Madrid" },
+      { uuid: "2", name: "Málaga" },
+      { uuid: "3", name: "VIP", color: "#fde68a" },
+      { uuid: "4", name: "Wholesale", color: "#bfdbfe" },
+    ];
+    window.axiosInstance = {
+      get: async (url, { params }) => {
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        const keyword = (params.keyword || "").toLowerCase();
+        return { status: 200, data: { data: TAGS.filter((tag) => tag.name.toLowerCase().includes(keyword)) } };
+      },
+    };
+  </script>
+  <script type="module">
+    import '@dile/crud/components/ajax-input-suggestions/ajax-input-suggestions.js';
+    document.getElementById('field').addEventListener('dile-input-suggestions-selected', (e) => {
+      document.getElementById('output').textContent = JSON.stringify(e.detail.item);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-ajax-input-suggestions</h1>
+    <p>This demo uses a fake Axios instance (see the page source). In a real app, configure Axios as explained in the docs.</p>
+    <dile-ajax-input-suggestions
+      id="field"
+      name="tag"
+      label="Tag"
+      endpoint="/api/tags"
+      queryStringVariable="keyword"
+      resultDataProperty="data"
+      minLength="1"
+    ></dile-ajax-input-suggestions>
+    <p>Chosen suggestion: <span id="output">-</span></p>
+  </div>
+</body>
+</html>

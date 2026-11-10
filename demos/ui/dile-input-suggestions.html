@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-suggestions component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/ui/components/input-suggestions/input-suggestions.js';
+    import '@dile/iconlib/lucide-icons/search.js';
+    import '@dile/iconlib/lucide-icons/tag.js';
+
+    const concepts = [
+      { id: 1, name: 'Web hosting' },
+      { id: 2, name: 'Domain name' },
+      { id: 3, name: 'Domain renewal' },
+      { id: 4, name: 'Maintenance' },
+      { id: 5, name: 'Málaga office rent' },
+    ];
+    const simple = document.getElementById('simple');
+    simple.suggestions = concepts;
+    simple.addEventListener('dile-input-suggestions-selected', (e) => {
+      document.getElementById('simpleOutput').textContent = JSON.stringify(e.detail.item);
+    });
+    simple.addEventListener('element-changed', (e) => {
+      document.getElementById('simpleValue').textContent = e.detail.value;
+    });
+
+    const withIcons = document.getElementById('withIcons');
+    withIcons.suggestions = concepts;
+    document.getElementById('searchButton').addEventListener('click', () => {
+      document.getElementById('withIconsOutput').textContent =
+        `Search button clicked with "${withIcons.value}" (here you could open a catalog dialog)`;
+    });
+
+    const fn = document.getElementById('function');
+    fn.suggestions = async (keyword) => {
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      return [1, 2, 3].map((n) => ({ id: n, name: `${keyword} ${n}` }));
+    };
+  </script>
+  <style>
+    .slot-icon {
+      display: flex;
+      --dile-icon-size: 18px;
+      --dile-icon-color: #888;
+    }
+    .slot-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      border: none;
+      border-radius: 4px;
+      background: none;
+      cursor: pointer;
+      --dile-icon-size: 18px;
+      --dile-icon-color: #378dca;
+    }
+    .slot-button:hover,
+    .slot-button:focus-visible {
+      background-color: #eef6ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-suggestions</h1>
+
+    <h2>Suggestions from an array</h2>
+    <p>Type "dom" or "mala" (case and accents are ignored).</p>
+    <dile-input-suggestions id="simple" name="concept" label="Concept" placeholder="Type a concept"></dile-input-suggestions>
+    <p>Value: <span id="simpleValue"></span></p>
+    <p>Chosen suggestion: <span id="simpleOutput">-</span></p>
+
+    <h2>Suggestions from an async function</h2>
+    <dile-input-suggestions id="function" name="free" label="Anything"></dile-input-suggestions>
+
+    <h2>Icons in the prefix and suffix slots</h2>
+    <p>
+      The <code>prefix</code> slot holds a decorative icon (hidden from screen readers) and the
+      <code>suffix</code> slot an icon button with its own accessible name. Both are shown inside the
+      field border.
+    </p>
+    <dile-input-suggestions id="withIcons" name="concept2" label="Concept" placeholder="Type or search a concept">
+      <span slot="prefix" class="slot-icon" aria-hidden="true"><dile-lucide-icon-tag></dile-lucide-icon-tag></span>
+      <button
+        type="button"
+        slot="suffix"
+        id="searchButton"
+        class="slot-button"
+        aria-label="Search in the catalog"
+        title="Search in the catalog"
+      >
+        <dile-lucide-icon-search></dile-lucide-icon-search>
+      </button>
+    </dile-input-suggestions>
+    <p id="withIconsOutput"></p>
+
+    <h2>Disabled</h2>
+    <dile-input-suggestions label="Disabled" disabled value="Fixed text"></dile-input-suggestions>
+
+    <h2>Errored</h2>
+    <dile-input-suggestions label="Errored" errored message="This field is required"></dile-input-suggestions>
+  </div>
+</body>
+</html>

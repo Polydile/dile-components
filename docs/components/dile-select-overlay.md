@@ -153,6 +153,17 @@ These exist to let another component drive `dile-select-overlay` from an externa
 - **handleExternalKeydown(e)**: Runs the exact same keyboard-navigation logic used internally on the trigger (arrow keys, Home/End, Enter, Escape, typeahead) against a `KeyboardEvent` coming from somewhere else, e.g. an external search field.
 - **highlightedText**: Read-only reactive property with the plain display text (never the `optionRenderer` output) of the currently highlighted option, so an external consumer can announce it (e.g. in its own `aria-live` region) without reaching into this component's shadow root. Reset to an empty string when the popup closes.
 
+### Extending dile-select-overlay
+
+Subclasses can reuse the overlay, the keyboard navigation and the accessibility of the component with other sources of options or another look for them. [dile-color-select](/components/dile-color-select/) is built this way.
+
+- **options** (getter): Array of `{ value, text, icon, element }` objects with the available options. By default they are read from the slotted `<select>`; override it to build them from another source (e.g. a property).
+- **usesSelectElement** (getter, default `true`): Whether the options come from the slotted `<select>`. Return `false` when overriding `options`, so the `<select>` is neither required nor observed.
+- **triggerContentTemplate(selected)**: Content of the trigger button: the selected option (icon + text) or the `placeholder` when there is none (`selected` is `undefined`).
+- **optionContentTemplate(option, index)**: Content of each `<li role="option">`: the `optionRenderer` output when set, icon + text otherwise.
+
+Keep the option `text` representative: it is still used for the typeahead, `highlightedText` and the accessible names.
+
 ## Events
 
 - **element-changed**: Dispatched when the value property changes. The detail object carries the `name` and `value` of the element.

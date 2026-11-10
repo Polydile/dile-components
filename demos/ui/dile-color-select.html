@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-color-select component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/ui/components/select/color-select.js';
+
+    const palette = [
+      { value: '#e5e7eb', name: 'Gray' },
+      { value: '#fecaca', name: 'Red' },
+      { value: '#fed7aa', name: 'Orange' },
+      { value: '#fde68a', name: 'Yellow' },
+      { value: '#bbf7d0', name: 'Green' },
+      { value: '#bfdbfe', name: 'Blue' },
+      { value: '#ddd6fe', name: 'Violet' },
+      { value: '#fbcfe8', name: 'Pink' },
+    ];
+    document.querySelectorAll('dile-color-select').forEach((select) => {
+      select.colors = palette;
+    });
+    document.getElementById('withEmpty').addEventListener('element-changed', (e) => {
+      document.getElementById('withEmptyValue').textContent = e.detail.value || '(none)';
+    });
+  </script>
+  <style>
+    dile-color-select.square {
+      --dile-color-select-swatch-border-radius: 2px;
+      --dile-color-select-swatch-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-color-select</h1>
+
+    <h2>With a "no color" option</h2>
+    <dile-color-select id="withEmpty" name="color" label="Tag color" emptyLabel="No color"></dile-color-select>
+    <p>Value: <span id="withEmptyValue">(none)</span></p>
+
+    <h2>With an initial value and placeholder</h2>
+    <dile-color-select name="color2" label="Category color" value="#bbf7d0"></dile-color-select>
+    <dile-color-select name="color3" label="Without value" placeholder="Choose a color"></dile-color-select>
+
+    <h2>Square swatches</h2>
+    <dile-color-select class="square" name="color4" label="Square swatches" value="#fbcfe8"></dile-color-select>
+
+    <h2>Disabled and errored</h2>
+    <dile-color-select name="color5" label="Disabled" value="#fde68a" disabled></dile-color-select>
+    <dile-color-select name="color6" label="Errored" errored message="Choose one of the colors"></dile-color-select>
+  </div>
+</body>
+</html>

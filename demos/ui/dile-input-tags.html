@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-input-tags component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import '@dile/ui/components/input-tags/input-tags.js';
+
+    const field = document.getElementById('tags');
+    field.suggestions = [
+      { name: 'Madrid' },
+      { name: 'Málaga' },
+      { name: 'VIP', color: '#fde68a' },
+      { name: 'Wholesale', color: '#bfdbfe' },
+      { name: 'Late payer', color: '#fecaca' },
+    ];
+    field.tags = [{ name: 'VIP', color: '#fde68a' }];
+    field.addEventListener('dile-input-tags-add', (e) => {
+      field.tags = [...field.tags, e.detail.item ?? { name: e.detail.text }];
+    });
+    field.addEventListener('dile-input-tags-remove', (e) => {
+      field.tags = field.tags.filter((tag) => tag !== e.detail.item);
+    });
+  </script>
+  <style>
+    dile-input-tags {
+      --dile-chip-border-radius: 1rem;
+      --dile-chip-font-size: 0.875rem;
+      --dile-chip-font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-input-tags</h1>
+    <p>
+      Controlled tags editor: this page updates <code>tags</code> when the component emits
+      <code>dile-input-tags-add</code> or <code>dile-input-tags-remove</code>. Tags with a
+      <code>color</code> property use it as background (<code>colorProperty="color"</code>).
+    </p>
+    <dile-input-tags
+      id="tags"
+      name="tags"
+      label="Customer tags"
+      colorProperty="color"
+      placeholder="Type a tag and press Enter"
+    ></dile-input-tags>
+  </div>
+</body>
+</html>
