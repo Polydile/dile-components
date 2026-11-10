@@ -44,21 +44,32 @@ export class DileCrudFiltersList extends LitElement {
 
     filterItemTemplate(filter) {
         if(! filter.hidden && filter.active) {
-            switch(filter.type) {
-                case 'select':
-                    return html`
-                        <dile-crud-filters-list-item name="${filter.name}" label="${this.findLabelInOption(filter)}" ?active="${filter.active}"></dile-crud-filters-list-item>
-                    `;
-                default:
-                    return html`
-                       <dile-crud-filters-list-item name="${filter.name}" label="${filter.label}" ?active="${filter.active}"></dile-crud-filters-list-item>
-                    `
-            }
+            return html`
+                <dile-crud-filters-list-item name="${filter.name}" label="${this.chipLabel(filter)}" ?active="${filter.active}"></dile-crud-filters-list-item>
+            `;
         }
     }
 
+    chipLabel(filter) {
+        let valueLabel;
+        switch(filter.type) {
+            case 'select':
+                valueLabel = this.findLabelInOption(filter);
+                break;
+            case 'select_ajax':
+                valueLabel = filter.valueLabel || '';
+                if (!valueLabel) {
+                    return filter.label;
+                }
+                break;
+            default:
+                return filter.label;
+        }
+        return filter.showLabelInChip && valueLabel ? `${filter.label}: ${valueLabel}` : valueLabel;
+    }
+
     findLabelInOption(filter) {
-        let option = filter.options.find((option) => option.value == filter.value);
+        let option = (filter.options || []).find((option) => option.value == filter.value);
         if(option) {
             return option.label;
         } else {

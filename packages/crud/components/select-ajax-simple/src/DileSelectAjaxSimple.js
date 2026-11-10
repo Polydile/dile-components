@@ -106,6 +106,7 @@ export class DileSelectAjaxSimple extends DileAxios(DileEmmitChange(LitElement))
             if (this.value) {
               this.selectCurrentValue();
             }
+            this.dispatchDataLoaded();
           });
         } else {
           this.registerError();
@@ -122,6 +123,51 @@ export class DileSelectAjaxSimple extends DileAxios(DileEmmitChange(LitElement))
       return json[this.resultDataProperty] ?? [];
     }
     return Array.isArray(json) ? json : [];
+  }
+
+  /**
+   * The item in `data` whose `idProperty` matches the current `value`, or null.
+   */
+  get selectedItem() {
+    if (this.value === undefined || this.value === null || this.value === '') {
+      return null;
+    }
+    return (this.data || []).find(item => String(item[this.idProperty]) === String(this.value)) ?? null;
+  }
+
+  /**
+   * The `displayProperty` of the selected item, or an empty string when unknown.
+   */
+  get selectedLabel() {
+    return this.selectedItem?.[this.displayProperty] ?? '';
+  }
+
+  emmitChange() {
+    this.dispatchEvent(new CustomEvent('element-changed', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        name: this.name,
+        value: this.value,
+        selectedItem: this.selectedItem,
+        selectedLabel: this.selectedLabel,
+      }
+    }));
+  }
+
+  // Notifies that options are available, without emitting a value change
+  dispatchDataLoaded() {
+    this.dispatchEvent(new CustomEvent('dile-select-ajax-data-loaded', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        name: this.name,
+        value: this.value,
+        data: this.data,
+        selectedItem: this.selectedItem,
+        selectedLabel: this.selectedLabel,
+      }
+    }));
   }
 
   registerError() {
@@ -171,6 +217,7 @@ export class DileSelectAjaxSimple extends DileAxios(DileEmmitChange(LitElement))
             : html`
                 <dile-select
                   name="${this.name}"
+                  value="${this.value ?? ''}"
                   ?disabled=${this.disabled}
                   ?errored=${this.errored}
                   message="${this.message || ''}"

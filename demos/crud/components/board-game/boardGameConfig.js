@@ -52,6 +52,7 @@ export const boardGameConfig = new CrudConfigBuilder('https://timer.escuelait.co
       type: 'select_ajax',
       optionLabelField: 'name',
       optionValueField: 'id',
+      showLabelInChip: true,
     }
   ],
   responseAdapter: new BoardGameResponseApiAdapter(),

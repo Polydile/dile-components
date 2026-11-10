@@ -295,6 +295,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                                     class="action-controller"
                                     id="elfilters"
                                     @filters-changed=${this.filtersChanged}
+                                    @filters-display-changed=${this.filtersDisplayChanged}
                                     .filters=${this.config.availableFilters || []}
                                     language="${this.language}"
                                 ></dile-crud-filters>
@@ -369,6 +370,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
             <dile-crud-filters-inline
                 id="elfilters"
                 @filters-changed=${this.filtersChanged}
+                @filters-display-changed=${this.filtersDisplayChanged}
                 .filters=${this.config.availableFilters || []}
                 language="${this.language}"
             ></dile-crud-filters-inline>
@@ -523,6 +525,10 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
     filtersChanged(e) {
         this.listElement.setFilters(e.detail.filters);
+    }
+
+    filtersDisplayChanged() {
+        this.listElement?.refreshFiltersList?.();
     }
 
     removeFilter(e) {

@@ -36,6 +36,16 @@ export class DileCrudFiltersForm extends DileFormChangeDetect(DileForm(LitElemen
         `;
   }
 
+  /**
+   * Returns the label of the option selected in a select_ajax filter field,
+   * or an empty string when it is not known (yet).
+   */
+  getSelectedLabel(name) {
+    const field = Array.from(this.shadowRoot?.querySelectorAll('dile-select-ajax-simple') || [])
+      .find(el => el.name === name);
+    return field?.selectedLabel ?? '';
+  }
+
   getFilterField(filter) {
     if (filter.hidden) {
       return '';

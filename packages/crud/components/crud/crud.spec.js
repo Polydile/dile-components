@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
 import { html } from 'lit';
 import { CrudConfigBuilder } from '../../lib/CrudConfigBuilder.js';
 import './crud.js';
@@ -656,5 +656,168 @@ describe('dile-crud keyword', () => {
     expect(el.keyword).toBe('');
     expect(requests).toHaveLength(1);
     expect(requests[0].data.keyword).toBe('');
+  });
+});
+
+describe('dile-crud select_ajax filter chips', () => {
+  const TAGS = [
+    { id: 1, name: 'Fantasy' },
+    { id: 2, name: 'Strategy' },
+  ];
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  let resolveTags;
+  let listRequests;
+
+  beforeEach(() => {
+    listRequests = 0;
+    const tagsRequest = new Promise((resolve) => { resolveTags = resolve; });
+    window.axiosInstance = {
+      get: vi.fn((url) => {
+        if (url.includes('/api/tags')) {
+          return tagsRequest;
+        }
+        listRequests++;
+        // The list request never resolves: these tests only care about chips
+        return new Promise(() => {});
+      }),
+    };
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+    delete window.axiosInstance;
+  });
+
+  async function mountCrud({ filter = {}, filtersAlwaysVisible = false } = {}) {
+    const config = new CrudConfigBuilder('https://example.test/api/board-games', {
+      customization: {
+        disableInsert: true,
+        disableHelp: true,
+        disableKeywordSearch: true,
+        disableSort: true,
+        disableFilter: false,
+        disablePagination: true,
+        hideCheckboxSelection: true,
+      },
+      availableFilters: [
+        {
+          name: 'tag',
+          label: 'Tag',
+          active: false,
+          value: '',
+          type: 'select_ajax',
+          endpoint: 'https://example.test/api/tags',
+          optionLabelField: 'name',
+          optionValueField: 'id',
+          ...filter,
+        },
+      ],
+    }).getConfig();
+
+    const el = document.createElement('dile-crud');
+    el.config = config;
+    if (filtersAlwaysVisible) {
+      el.filtersAlwaysVisible = true;
+    }
+    document.body.appendChild(el);
+    await el.updateComplete;
+    await wait(0);
+    return el;
+  }
+
+  async function loadTags() {
+    resolveTags({ status: 200, data: { data: TAGS } });
+    await wait(20);
+  }
+
+  function filtersElement(el) {
+    return el.shadowRoot.querySelector('dile-crud-filters, dile-crud-filters-inline');
+  }
+
+  function selectAjax(el) {
+    return filtersElement(el)
+      .shadowRoot.querySelector('dile-crud-filters-form')
+      .shadowRoot.querySelector('dile-select-ajax-simple');
+  }
+
+  async function chipLabels(el) {
+    const list = el.listElement;
+    await list.updateComplete;
+    const filtersList = list.shadowRoot.querySelector('dile-crud-filters-list');
+    await filtersList.updateComplete;
+    const items = Array.from(filtersList.shadowRoot.querySelectorAll('dile-crud-filters-list-item'));
+    await Promise.all(items.map(item => item.updateComplete));
+    return items
+      .filter(item => item.active)
+      .map(item => item.shadowRoot.querySelector('dile-chip').textContent.trim());
+  }
+
+  for (const filtersAlwaysVisible of [false, true]) {
+    const variant = filtersAlwaysVisible ? 'inline filters' : 'dropdown filters';
+
+    it(`shows the selected option label in the chip (${variant})`, async () => {
+      const el = await mountCrud({ filtersAlwaysVisible });
+      await loadTags();
+
+      const field = selectAjax(el);
+      field.value = '2';
+      await field.updateComplete;
+      await wait(0);
+
+      const filter = el.config.availableFilters[0];
+      expect(filter.active).toBe(true);
+      expect(filter.valueLabel).toBe('Strategy');
+      expect(await chipLabels(el)).toEqual(['Strategy']);
+    });
+
+    it(`clears the stored label when the filter is removed (${variant})`, async () => {
+      const el = await mountCrud({ filtersAlwaysVisible });
+      await loadTags();
+
+      const field = selectAjax(el);
+      field.value = '1';
+      await field.updateComplete;
+      await wait(0);
+      expect(await chipLabels(el)).toEqual(['Fantasy']);
+
+      filtersElement(el).removeFilter('tag');
+      await wait(0);
+
+      const filter = el.config.availableFilters[0];
+      expect(filter.active).toBe(false);
+      expect(filter.value).toBe('');
+      expect(filter.valueLabel).toBe('');
+      expect(await chipLabels(el)).toEqual([]);
+    });
+
+    it(`shows the filter label for an initial value and switches to the option label once options load (${variant})`, async () => {
+      const el = await mountCrud({ filter: { active: true, value: '2' }, filtersAlwaysVisible });
+
+      expect(await chipLabels(el)).toEqual(['Tag']);
+      const requestsBeforeLoad = listRequests;
+
+      await loadTags();
+
+      expect(el.config.availableFilters[0].valueLabel).toBe('Strategy');
+      expect(await chipLabels(el)).toEqual(['Strategy']);
+      // Resolving the label must not reload the list
+      expect(listRequests).toBe(requestsBeforeLoad);
+    });
+  }
+
+  it('keeps the filter label when the initial value is not among the loaded options', async () => {
+    const el = await mountCrud({ filter: { active: true, value: '99' } });
+    await loadTags();
+
+    expect(el.config.availableFilters[0].valueLabel || '').toBe('');
+    expect(await chipLabels(el)).toEqual(['Tag']);
+  });
+
+  it('renders "label: value" when showLabelInChip is enabled', async () => {
+    const el = await mountCrud({ filter: { active: true, value: '2', showLabelInChip: true } });
+    await loadTags();
+
+    expect(await chipLabels(el)).toEqual(['Tag: Strategy']);
   });
 });

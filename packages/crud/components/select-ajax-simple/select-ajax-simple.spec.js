@@ -130,4 +130,67 @@ describe('dile-select-ajax-simple', () => {
     expect(label).toBeTruthy();
     expect(label.textContent).toBe('Category');
   });
+
+  it('keeps an initial value after the options are loaded', async () => {
+    const el = await renderEl('<dile-select-ajax-simple endpoint="/api/tags" name="tag" value="2"></dile-select-ajax-simple>');
+
+    expect(el.value).toBe('2');
+    expect(el.shadowRoot.querySelector('select').value).toBe('2');
+  });
+
+  it('exposes selectedItem and selectedLabel matching numeric ids against the string value', async () => {
+    const el = await renderEl('<dile-select-ajax-simple endpoint="/api/tags" name="tag" value="2"></dile-select-ajax-simple>');
+
+    expect(el.selectedItem).toEqual({ id: 2, name: 'Strategy' });
+    expect(el.selectedLabel).toBe('Strategy');
+
+    el.value = '';
+    await el.updateComplete;
+    expect(el.selectedItem).toBeNull();
+    expect(el.selectedLabel).toBe('');
+
+    el.value = '99';
+    await el.updateComplete;
+    expect(el.selectedItem).toBeNull();
+    expect(el.selectedLabel).toBe('');
+  });
+
+  it('includes selectedItem and selectedLabel in the element-changed detail', async () => {
+    const el = await renderEl('<dile-select-ajax-simple endpoint="/api/tags" name="tag"></dile-select-ajax-simple>');
+
+    let detail = null;
+    el.addEventListener('element-changed', (e) => { detail = e.detail; });
+
+    el.value = '1';
+    await el.updateComplete;
+
+    expect(detail.selectedItem).toEqual({ id: 1, name: 'Fantasy' });
+    expect(detail.selectedLabel).toBe('Fantasy');
+  });
+
+  it('dispatches dile-select-ajax-data-loaded with the resolved label, without an extra element-changed', async () => {
+    let resolveRequest;
+    window.axiosInstance = {
+      get: vi.fn().mockReturnValue(new Promise((resolve) => { resolveRequest = resolve; })),
+    };
+    document.body.innerHTML = '<dile-select-ajax-simple endpoint="/api/tags" name="tag" value="2"></dile-select-ajax-simple>';
+    const el = document.body.querySelector('dile-select-ajax-simple');
+    await el.updateComplete;
+
+    const changes = [];
+    let loadedDetail = null;
+    el.addEventListener('element-changed', (e) => changes.push(e.detail));
+    el.addEventListener('dile-select-ajax-data-loaded', (e) => { loadedDetail = e.detail; });
+
+    resolveRequest({ status: 200, data: { data: MOCK_DATA } });
+    await new Promise(resolve => setTimeout(resolve, 10));
+    await el.updateComplete;
+
+    expect(loadedDetail).not.toBeNull();
+    expect(loadedDetail.name).toBe('tag');
+    expect(loadedDetail.value).toBe('2');
+    expect(loadedDetail.selectedLabel).toBe('Strategy');
+    expect(loadedDetail.data).toHaveLength(2);
+    expect(changes).toHaveLength(0);
+  });
 });

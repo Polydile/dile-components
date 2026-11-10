@@ -440,6 +440,14 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.elservice.setPageSize(size);
     }
 
+    /**
+     * Re-renders the active filters chips without reloading the list
+     * (e.g. when the label of a select_ajax filter value becomes known).
+     */
+    refreshFiltersList() {
+        this.shadowRoot.querySelector('dile-crud-filters-list')?.requestUpdate();
+    }
+
     setFilters(filters) {
         this.loading = true;
         this.filters = filters;

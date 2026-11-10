@@ -62,6 +62,8 @@ Use the component.
 - **maxResults**: Number, limit the number of results (passed as a query parameter if `pageParamName` is set).
 - **pageParamName**: String, the name of the query parameter used for pagination/result limits.
 - **additionalQueryString**: Object, additional query parameters to include in the request.
+- **selectedItem**: Object (read-only getter), the loaded item whose `idProperty` matches the current `value`, or `null` if there is no value or the options are not loaded yet / do not contain it.
+- **selectedLabel**: String (read-only getter), the `displayProperty` of `selectedItem`, or `''` when it is unknown.
 
 ## Methods
 
@@ -116,14 +118,20 @@ selectEl.addEventListener('element-changed', (e) => {
 
 The component emits the following events:
 
-- **element-changed**: Fired when the user selects a value. Detail includes:
+- **element-changed**: Fired when the value changes. Detail includes:
   - `name`: The name of the field
   - `value`: The selected value
+  - `selectedItem`: The selected item from the loaded data (or `null`)
+  - `selectedLabel`: The display text of the selected item (or `''`)
+- **dile-select-ajax-data-loaded**: Fired when the options have been loaded from the endpoint. It is not a value change, so it does not trigger form change detection. Detail includes `name`, `value`, `data` (the loaded items), `selectedItem` and `selectedLabel`. Useful to resolve the label of a value that was set before the options arrived.
 
 ```javascript
 const selectEl = document.querySelector('dile-select-ajax-simple');
 selectEl.addEventListener('element-changed', (e) => {
-  console.log(`Selected: ${e.detail.name} = ${e.detail.value}`);
+  console.log(`Selected: ${e.detail.name} = ${e.detail.value} (${e.detail.selectedLabel})`);
+});
+selectEl.addEventListener('dile-select-ajax-data-loaded', (e) => {
+  console.log(`Options loaded, current label: ${e.detail.selectedLabel}`);
 });
 ```
 
@@ -235,6 +243,8 @@ const filters = [
   }
 ];
 ```
+
+When the filter is active, the `dile-crud` filter chip shows the label of the selected option (the `optionLabelField` of the chosen item). Until the options are loaded, or if the value is not among them, the chip shows the filter `label` instead.
 
 ## Example
 
