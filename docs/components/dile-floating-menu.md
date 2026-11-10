@@ -2,7 +2,7 @@
 title: Floating Menu
 package: '@dile/ui'
 element: '&lt;dile-floating-menu&gt;'
-status: stable
+status: experimental
 summary: Fixed floating button that opens an accessible overlay with navigation links or any content. The button content can be replaced through a slot.
 tags: menu
 ---
@@ -14,6 +14,10 @@ Button fixed to a corner of the window that shows and hides an overlay. The over
 The content of the button can also be replaced, which makes this component useful to draw the user's attention to an important matter and explain in the overlay how to solve it.
 
 The overlay is placed with the [DileOverlay mixin](/mixins/dile-overlay-mixin/), so it stays inside the viewport.
+
+## Associated component
+
+[**dile-floating-menu-item**](/components/dile-floating-menu-item/) — Optional complementary component for creating declarative navigation links inside the floating menu. Use it to easily build a list of navigation items with customizable styling.
 
 ## Installation
 
