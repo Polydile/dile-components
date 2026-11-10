@@ -26,32 +26,44 @@ Import the component.
 import '@dile/crud/components/ajax-input-tags/ajax-input-tags.js';
 ```
 
-Use the component, saving each change on the server.
+Use the component in a Lit component, saving each change on the server.
 
 ```javascript
-html`
-  <dile-ajax-input-tags
-    name="tags"
-    label="Tags"
-    endpoint="/api/tags"
-    queryStringVariable="keyword"
-    resultDataProperty="data"
-    colorProperty="color"
-    .additionalQueryString=${{ type: 'customer' }}
-    .tags=${this.tags}
-    @dile-input-tags-add=${this.addTag}
-    @dile-input-tags-remove=${this.removeTag}
-  ></dile-ajax-input-tags>
-`
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import '@dile/crud/components/ajax-input-tags/ajax-input-tags.js';
 
-async addTag(e) {
-  const response = await this.axiosInstance.post(`/api/customers/${this.uuid}/tags`, { name: e.detail.text });
-  this.tags = [...this.tags, response.data.data];
-}
+export class MyCustomersForm extends LitElement {
+  @property() uuid = 'customer-123';
+  @property() tags = [];
+  @property() additionalQueryString = { type: 'customer' };
 
-async removeTag(e) {
-  await this.axiosInstance.delete(`/api/customers/${this.uuid}/tags/${e.detail.item.uuid}`);
-  this.tags = this.tags.filter((tag) => tag !== e.detail.item);
+  render() {
+    return html`
+      <dile-ajax-input-tags
+        name="tags"
+        label="Tags"
+        endpoint="/api/tags"
+        queryStringVariable="keyword"
+        resultDataProperty="data"
+        colorProperty="color"
+        .additionalQueryString=${this.additionalQueryString}
+        .tags=${this.tags}
+        @dile-input-tags-add=${this.addTag}
+        @dile-input-tags-remove=${this.removeTag}
+      ></dile-ajax-input-tags>
+    `;
+  }
+
+  async addTag(e) {
+    const response = await this.axiosInstance.post(`/api/customers/${this.uuid}/tags`, { name: e.detail.text });
+    this.tags = [...this.tags, response.data.data];
+  }
+
+  async removeTag(e) {
+    await this.axiosInstance.delete(`/api/customers/${this.uuid}/tags/${e.detail.item.uuid}`);
+    this.tags = this.tags.filter((tag) => tag !== e.detail.item);
+  }
 }
 ```
 
