@@ -105,6 +105,8 @@ Custom property | Description | Default
 --dile-icon-button-color | Icon color | --dile-on-primary-color or #ffffff
 --dile-button-icon-hover-color | Icon hover color | --dile-on-primary-light-color or #888
 
+`--dile-button-justify-content` and `--dile-button-text-align`, inherited from dile-button, also apply to dile-button-icon, so wide buttons can show their icon and label aligned to the left.
+
 ## dile-button-icon demos
 
 ### Button icon demo

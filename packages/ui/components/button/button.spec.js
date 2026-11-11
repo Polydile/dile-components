@@ -26,6 +26,33 @@ describe('dile-button', () => {
     expect(el.shadowRoot.querySelector('button').disabled).toBe(true);
   });
 
+  it('centers its content by default', async () => {
+    const el = await renderButton('<dile-button>Click me</dile-button>');
+    const style = getComputedStyle(el.shadowRoot.querySelector('button'));
+
+    expect(style.justifyContent).toBe('center');
+    expect(style.textAlign).toBe('center');
+  });
+
+  it('aligns its content with --dile-button-justify-content and --dile-button-text-align', async () => {
+    const el = await renderButton(`
+      <dile-button style="--dile-button-justify-content: flex-start; --dile-button-text-align: start;">Click me</dile-button>
+    `);
+    const style = getComputedStyle(el.shadowRoot.querySelector('button'));
+
+    expect(style.justifyContent).toBe('flex-start');
+    expect(style.textAlign).toBe('start');
+  });
+
+  it('dile-button-icon also honors --dile-button-justify-content', async () => {
+    await import('./button-icon.js');
+    document.body.innerHTML = '<dile-button-icon style="--dile-button-justify-content: flex-start;">Click me</dile-button-icon>';
+    const el = document.body.querySelector('dile-button-icon');
+    await el.updateComplete;
+
+    expect(getComputedStyle(el.shadowRoot.querySelector('button')).justifyContent).toBe('flex-start');
+  });
+
   it('dispatches a click event when enabled', async () => {
     const el = await renderButton('<dile-button>Click me</dile-button>');
     let clicked = false;

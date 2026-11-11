@@ -107,6 +107,10 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
           border-radius: var(--dile-crud-single-sidebar-actions-border-radius, 0.5rem);
           background-color: var(--dile-crud-single-sidebar-actions-background-color, var(--dile-primary-dark-color, #d7d353));
           --dile-button-width: 100%;
+          /* Inherited by every button in the column, including the dile-button-icon
+             rendered by dile-crud-list-options inside dile-crud-actions. */
+          --dile-button-justify-content: var(--dile-crud-single-group-action-justify-content, center);
+          --dile-button-text-align: var(--dile-crud-single-group-action-text-align, center);
       }
       aside.sidebar .action-controller {
           margin-left: 0;
@@ -154,6 +158,8 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
           --dile-button-border-width: var(--dile-crud-single-group-action-border-width, 1px);
           --dile-button-padding-y: var(--dile-crud-single-group-action-padding-y, 0.6rem);
           --dile-button-padding-x: var(--dile-crud-single-group-action-padding-x, 0.8rem);
+          --dile-button-justify-content: var(--dile-crud-single-group-action-justify-content, center);
+          --dile-button-text-align: var(--dile-crud-single-group-action-text-align, center);
       }
       .group-action.variant-primary {
           --dile-button-background-color: var(--dile-crud-single-action-primary-background-color, var(--dile-primary-color, #7BB93D));

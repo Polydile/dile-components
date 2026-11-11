@@ -402,6 +402,34 @@ describe('DileCrudSingle action groups', () => {
     expect(button('Cancel').icon).toBe('');
   });
 
+  it('centers the grouped buttons by default', async () => {
+    const el = await createCrudSingle({ layout: 'sidebar', singleGroups: groups });
+    const button = el.shadowRoot.querySelector('dile-button[name="SendEmail"]');
+    await button.updateComplete;
+    const inner = button.shadowRoot.querySelector('button');
+    expect(getComputedStyle(inner).justifyContent).toBe('center');
+    expect(getComputedStyle(inner).textAlign).toBe('center');
+  });
+
+  it('aligns grouped and direct buttons with --dile-crud-single-group-action-justify-content', async () => {
+    const el = await createCrudSingle({
+      layout: 'sidebar',
+      singleGroups: groups,
+      directSingleActions: ['Loose'],
+    });
+    el.style.setProperty('--dile-crud-single-group-action-justify-content', 'flex-start');
+    el.style.setProperty('--dile-crud-single-group-action-text-align', 'start');
+    const grouped = el.shadowRoot.querySelector('dile-button[name="SendEmail"]');
+    const direct = el.shadowRoot.querySelector('aside.sidebar .actions dile-button.action-controller');
+    await grouped.updateComplete;
+    await direct.updateComplete;
+    for (const button of [grouped, direct]) {
+      const inner = button.shadowRoot.querySelector('button');
+      expect(getComputedStyle(inner).justifyContent).toBe('flex-start');
+      expect(getComputedStyle(inner).textAlign).toBe('start');
+    }
+  });
+
   it('places the groups inside the aside in the sidebar layout', async () => {
     const el = await createCrudSingle({ layout: 'sidebar', singleGroups: groups });
     expect(el.shadowRoot.querySelector('aside.sidebar .action-groups')).not.toBeNull();
@@ -465,6 +493,23 @@ describe('DileCrudSingle full width list actions', () => {
     const trigger = listOptions.shadowRoot.querySelector('div[slot="trigger"]');
     expect(getComputedStyle(button).display).toBe('block');
     expect(Math.round(trigger.getBoundingClientRect().width)).toBe(Math.round(listOptions.getBoundingClientRect().width));
+  });
+
+  it('keeps the list actions button centered by default', async () => {
+    const { listOptions } = await createCrudSingle('sidebar');
+    await listOptions.updateComplete;
+    const inner = listOptions.shadowRoot.querySelector('dile-button-icon').shadowRoot.querySelector('button');
+    expect(getComputedStyle(inner).justifyContent).toBe('center');
+  });
+
+  it('aligns the list actions button with --dile-crud-single-group-action-justify-content in the sidebar layout', async () => {
+    const { el, listOptions } = await createCrudSingle('sidebar');
+    el.style.setProperty('--dile-crud-single-group-action-justify-content', 'flex-start');
+    el.style.setProperty('--dile-crud-single-group-action-text-align', 'start');
+    await listOptions.updateComplete;
+    const inner = listOptions.shadowRoot.querySelector('dile-button-icon').shadowRoot.querySelector('button');
+    expect(getComputedStyle(inner).justifyContent).toBe('flex-start');
+    expect(getComputedStyle(inner).textAlign).toBe('start');
   });
 
   it('keeps the list actions menu compact in the stacked layout', async () => {

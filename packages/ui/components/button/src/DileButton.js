@@ -62,7 +62,8 @@ export class DileButton extends LitElement {
         width: var(--dile-button-width, auto);
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: var(--dile-button-justify-content, center);
+        text-align: var(--dile-button-text-align, center);
         padding-top: var(--dile-button-padding-y, 0.5rem);
         padding-bottom: var(--dile-button-padding-y, 0.5rem);
         padding-right: var(--dile-button-padding-x, 0.8rem);

@@ -24,6 +24,19 @@
 
     <dile-crud-single id="sidebarSingle" relatedId="1" layout="sidebar" language="en"></dile-crud-single>
 
+    <h2>Left-aligned buttons in the sidebar layout</h2>
+
+    <p>
+      With <code>--dile-crud-single-group-action-justify-content: flex-start</code> (and
+      <code>--dile-crud-single-group-action-text-align: start</code> for wrapped labels) every
+      button in the actions column is aligned to the left.
+    </p>
+
+    <dile-crud-single id="leftAlignedSingle" relatedId="1" layout="sidebar" language="en" style="
+      --dile-crud-single-group-action-justify-content: flex-start;
+      --dile-crud-single-group-action-text-align: start;
+    "></dile-crud-single>
+
     <h2>Action groups in the stacked layout</h2>
 
     <dile-crud-single id="stackedSingle" relatedId="1" language="en"></dile-crud-single>
@@ -60,6 +73,7 @@
       };
 
       document.getElementById('sidebarSingle').config = config;
+      document.getElementById('leftAlignedSingle').config = config;
       document.getElementById('stackedSingle').config = config;
     </script>
 

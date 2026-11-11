@@ -91,6 +91,8 @@ Custom property | Description | Default
 --dile-button-padding-x | Horizontal padding | 0.8rem
 --dile-button-border-radius | Button border radius | 2rem
 --dile-button-width | Width of the inner button (use `100%` together with a block-level host to make a full-width button) | auto
+--dile-button-justify-content | Horizontal alignment of the button content (icon + label). Useful in wide buttons, e.g. `flex-start` to align left | center
+--dile-button-text-align | Alignment of the label lines when the text wraps into several lines, e.g. `start` | center
 --dile-button-border-width | Button border width | 3px
 --dile-button-border-color | Button border color (alias) |  --dile-primary-dark-color or #12354d
 --dile-primary-dark-color | Button border color (legacy) | #12354d

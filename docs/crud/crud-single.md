@@ -91,6 +91,14 @@ actions: {
 - `shouldAppear` is respected, and groups without visible actions are not rendered.
 - In the `sidebar` layout the groups appear in the right column, after the actions bar. In the `stacked` layout they appear below the detail, in a responsive grid.
 - Icons are not loaded automatically: import the icon modules you use, as shown above.
+- Buttons are centered by default. To align their icon and label to the left (in the `sidebar` layout this also applies to the edit, direct actions and "Actions" buttons of the column) set these custom properties on an ancestor of `dile-crud-single`:
+
+```css
+dile-crud-single {
+  --dile-crud-single-group-action-justify-content: flex-start;
+  --dile-crud-single-group-action-text-align: start;
+}
+```
 
 More details in the [actions configuration page](/crud/actions-configuration/).
 
@@ -188,6 +196,8 @@ Custom property | Description | Default
 --dile-crud-single-group-action-border-width | Border width of grouped action buttons | 1px
 --dile-crud-single-group-action-padding-y | Vertical padding of grouped action buttons | 0.6rem
 --dile-crud-single-group-action-padding-x | Horizontal padding of grouped action buttons | 0.8rem
+--dile-crud-single-group-action-justify-content | Alignment of the content (icon + label) of the grouped action buttons and, in the `sidebar` layout, of every button in the actions column (edit, direct actions and the batch "Actions" menu). Use `flex-start` to align left | center
+--dile-crud-single-group-action-text-align | Alignment of the label lines when a button text wraps, for the same buttons. Use `start` together with `flex-start` above | center
 --dile-crud-single-action-{variant}-background-color | Background color of grouped buttons for a variant (`primary`, `outline`, `danger`) | primary: var(--dile-primary-color); outline: transparent; danger: light tint of var(--dile-danger-color)
 --dile-crud-single-action-{variant}-text-color | Text and icon color for a variant | primary: var(--dile-on-primary-color); outline: var(--dile-on-background-color); danger: var(--dile-danger-color)
 --dile-crud-single-action-{variant}-border-color | Border color for a variant | primary: var(--dile-primary-color); outline: currentColor; danger: tint of var(--dile-danger-color)
