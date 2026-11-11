@@ -43,6 +43,21 @@ export class DileCrudListOptions extends LitElement {
                     display: none;
                 }
             }
+            /* Full width mode: always the labeled button, stretched to the available width */
+            :host([full-width]) dile-menu-overlay {
+                display: block;
+            }
+            :host([full-width]) div[slot="trigger"] {
+                flex: 1;
+                min-width: 0;
+            }
+            :host([full-width]) dile-button-icon {
+                display: block;
+                --dile-button-width: 100%;
+            }
+            :host([full-width]) dile-icon {
+                display: none;
+            }
         `
     ];
 
@@ -50,7 +65,14 @@ export class DileCrudListOptions extends LitElement {
       return {
         label: { type: String },
         icon: { type: Object },
+        /** Stretch the trigger button to the full available width (the labeled button is always shown). */
+        fullWidth: { type: Boolean, reflect: true, attribute: 'full-width' },
       };
+    }
+
+    constructor() {
+        super();
+        this.fullWidth = false;
     }
 
     render() {

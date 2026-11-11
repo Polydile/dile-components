@@ -59,6 +59,7 @@ export class DileButton extends LitElement {
       }
       button {
         cursor: pointer;
+        width: var(--dile-button-width, auto);
         display: flex;
         align-items: center;
         justify-content: center;

@@ -19,6 +19,7 @@ export class DemoCountrySingle extends LitElement {
   static get properties() {
     return {
       config: { type: Object },
+      layout: { type: String },
     };
   }
 
@@ -33,6 +34,7 @@ export class DemoCountrySingle extends LitElement {
         relatedId="1"
         .config="${this.config}"
         language="en"
+        layout="${this.layout || 'stacked'}"
       ></dile-crud-single>
     `;
   }

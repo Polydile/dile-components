@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-crud-single action groups demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dile/ui/styles/colors.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="axios.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>dile-crud-single component</h1>
+
+    <h2>Action groups in the sidebar layout</h2>
+
+    <p>
+      Actions listed in <code>actions.singleGroups</code> are rendered as blocks of full width buttons,
+      with optional title, icon and variant (<code>primary</code>, <code>outline</code> or <code>danger</code>).
+    </p>
+
+    <dile-crud-single id="sidebarSingle" relatedId="1" layout="sidebar" language="en"></dile-crud-single>
+
+    <h2>Action groups in the stacked layout</h2>
+
+    <dile-crud-single id="stackedSingle" relatedId="1" language="en"></dile-crud-single>
+
+    <script type="module">
+      import './components/country/demo-country-single.js';
+      import { countryConfig } from './components/country/countryConfig.js';
+      // Icons used by the actions must be imported (iconlib is tree-shakable)
+      import '@dile/iconlib/lucide-icons/mail.js';
+      import '@dile/iconlib/lucide-icons/download.js';
+      import '@dile/iconlib/lucide-icons/copy.js';
+      import '@dile/iconlib/lucide-icons/ban.js';
+
+      const baseConfig = countryConfig.getConfig();
+      const log = (message) => (element) => console.log(message, element);
+
+      const config = {
+        ...baseConfig,
+        actions: {
+          ...baseConfig.actions,
+          single: [
+            ...baseConfig.actions.single,
+            { name: 'SendEmail', label: 'Send by email', icon: 'lucide.mail', onClick: log('Send by email') },
+            { name: 'DownloadPdf', label: 'Download PDF', icon: 'lucide.download', variant: 'outline', onClick: log('Download PDF') },
+            { name: 'Duplicate', label: 'Duplicate', icon: 'lucide.copy', variant: 'outline', onClick: log('Duplicate') },
+            { name: 'Archive', label: 'Archive country', icon: 'lucide.ban', destructive: true, onClick: log('Archive') },
+          ],
+          singleGroups: [
+            { title: 'Quick actions', actions: ['SendEmail', 'DownloadPdf', 'SetEurope'] },
+            { actions: ['Duplicate', 'SetAsia'] },
+            { actions: ['Archive'] },
+          ],
+        },
+      };
+
+      document.getElementById('sidebarSingle').config = config;
+      document.getElementById('stackedSingle').config = config;
+    </script>
+
+    <footer><a href="./index.html">Back</a></footer>
+  </div>
+</body>
+
+</html>

@@ -34,6 +34,7 @@ export const defaultConfig = {
     disableHelp: true,
     disableListActionsOnSingleComponent: false,
     disableListWiewSwitch: false,
+    singleLayout: 'stacked',
   },
   responseAdapter: new ResponseApiAdapter(),
   requestAdapter: new RequestApiAdapter(),
@@ -62,6 +63,7 @@ export const defaultConfig = {
     ],
     single: [],
     directSingleActions: [],
+    singleGroups: [],
   },
   templates: {
     item: () => templatePlaceholder('item'),

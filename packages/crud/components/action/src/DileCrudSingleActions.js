@@ -16,13 +16,13 @@ export class DileCrudSingleActions extends DileCrudActions {
       }
       dile-card {
           --dile-card-border: none;
-          margin-bottom: 1.5rem;
+          margin-bottom: var(--dile-crud-single-actions-card-margin-bottom, 1.5rem);
           --dile-card-background-color: var(--dile-secondary-light-color, #beed8e);
           --dile-card-text-color: var(--dile-on-secondary-light-color, #303030);
       }
       .action-list {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: var(--dile-crud-single-actions-columns, 1fr 1fr);
           grid-gap: 1rem;
           align-items: stretch;
       }

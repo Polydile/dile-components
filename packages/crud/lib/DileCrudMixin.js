@@ -21,6 +21,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                 @crud-action-success=${this.actionSuccess}
                 class="action-controller"
                 id="elactions"
+                .fullWidth=${!!this.fullWidthActions}
                 .actionIds=${this.actionIds}
                 endpoint=${this.config.endpoint}
                 .actions=${this.config.actions.list}
@@ -37,6 +38,7 @@ export const DileCrudMixin = (superclass) => class extends superclass {
                 @crud-action-success=${this.actionSuccess}
                 class="action-controller"
                 id="elactions"
+                .fullWidth=${!!this.fullWidthActions}
                 .actionIds=${this.actionIds}
                 endpoint=${this.config.endpoint}
                 .actions=${this.config.actions.list}

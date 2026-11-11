@@ -74,7 +74,17 @@ The properties to define are:
   // This is useful for direct actions that don't require a form dialog (e.g., quick state changes).
   // If onClick is not provided, the standard form-based action interface will be displayed.
   // Example: onClick: (element) => { /* perform action directly */ }
-  onClick: (element) => {}
+  onClick: (element) => {},
+
+  // OPTIONAL: Icon shown in the action button when the action belongs to a group (actions.singleGroups).
+  // Uses the dile-iconlib "family.name" format. Remember to import the icon module,
+  // e.g. import '@dile/iconlib/lucide-icons/mail.js';
+  icon: 'lucide.mail',
+
+  // OPTIONAL: Visual style of the action button when the action belongs to a group (actions.singleGroups).
+  // Available values: 'primary', 'outline', 'danger'.
+  // Default: 'danger' when destructive is true, 'primary' otherwise.
+  variant: 'outline',
 }
 ```
 
@@ -248,6 +258,8 @@ To enable single actions on a resource, define two properties in the resource's 
 
 - **actions.directSingleActions**: An optional array of action names (strings) that should be rendered as standalone buttons in the actions bar, instead of being hidden inside the box-selector. Use this for critical or frequently used actions that must be immediately visible. Actions not listed here continue to appear in the box-selector. If all single actions are listed here, the box-selector is hidden entirely.
 
+- **actions.singleGroups**: An optional array of action groups, rendered as blocks of full-width buttons. Each group is an object with an optional `title` and an `actions` array with the names of the actions in the group. The order of the groups and of the names defines the visual order. Each button uses the `icon` and `variant` of its action. Actions included in a group are removed from the actions bar and from the box-selector, even if they are listed in `directSingleActions`. Unknown names are ignored and groups without visible actions (see `shouldAppear`) are not rendered. See [Action groups in dile-crud-single](/crud/crud-single/#action-groups).
+
 - **templates.formSingleActions**: A template function that renders the appropriate form component for each selected action. This template receives two parameters:
   - `actionName`: The name of the selected action (string).
   - `element`: The data object of the item on which the action is being performed (object).
@@ -293,6 +305,23 @@ templates: {
             <demo-publish-action action="PublishAction" .element=${element}></demo-publish-action>
         </dile-pages>
     `,
+  },
+```
+
+### Single Actions Groups Example
+
+```javascript
+actions: {
+    single: [
+      { name: 'SendEmail', label: 'Send by email', icon: 'lucide.mail', onClick: (element) => sendEmail(element) },
+      { name: 'DownloadPdf', label: 'Download PDF', icon: 'lucide.download', variant: 'outline', onClick: (element) => download(element) },
+      { name: 'SetEurope', label: 'Set Europe as continent' },
+      { name: 'CancelInvoice', label: 'Cancel invoice', destructive: true },
+    ],
+    singleGroups: [
+      { title: 'Quick actions', actions: ['SendEmail', 'DownloadPdf', 'SetEurope'] },
+      { actions: ['CancelInvoice'] },  // a group without title
+    ],
   },
 ```
 

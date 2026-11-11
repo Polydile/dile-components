@@ -39,6 +39,60 @@ Use the component.
 - **element**: Object, the item object containing the details of the record to be displayed.
 - **actionIds**: Array, containing the identifier of the item being managed in the `dile-crud-single` component. This identifier is used to trigger batch actions in the CRUD system. Although this component displays a single record, an array is used for actions, with a single identifier in the array.
 - **language**: String, the interface and feedback messages language. Available 'en', 'es'. Fallback to 'en'.
+- **layout**: String, the visual layout of the component: `'stacked'` or `'sidebar'`. Reflected as an attribute. When not set, the value of `config.customization.singleLayout` is used, and if that is not set either, `'stacked'`. See [Layouts](#layouts).
+
+### Layouts {#layouts}
+
+The component can arrange the record detail and its actions in two ways:
+
+- **`stacked`** (default): the detail on top, then the actions bar (Edit, direct actions and list actions) and, below it, the card with the rest of the single actions.
+- **`sidebar`**: the detail on the left and a column on the right with the actions bar and the actions card stacked vertically. Buttons in the column take the full width (including the "Actions" button that opens the batch actions menu, which always shows its label in this layout) and the actions card shows one action per row. When the component is narrower than `48rem` the column moves below the detail. Relations are always rendered below, at full width.
+
+```html
+<dile-crud-single
+  relatedId="1"
+  layout="sidebar"
+  .config="${this.config}"
+></dile-crud-single>
+```
+
+You can also set the layout for a whole resource in its configuration object, with `customization.singleLayout`:
+
+```javascript
+customization: {
+  singleLayout: 'sidebar',
+},
+```
+
+### Action groups {#action-groups}
+
+Single actions can be organized in blocks of full-width buttons with `actions.singleGroups`. Each group has an optional `title` and the list of action names it contains. Every button can show an `icon` (dile-iconlib `"family.name"` format) and a `variant`: `'primary'`, `'outline'` or `'danger'` (by default `'danger'` for destructive actions and `'primary'` for the rest).
+
+```javascript
+import '@dile/iconlib/lucide-icons/mail.js';
+import '@dile/iconlib/lucide-icons/download.js';
+
+// In the configuration object
+actions: {
+  single: [
+    { name: 'SendEmail', label: 'Send by email', icon: 'lucide.mail', onClick: (element) => sendEmail(element) },
+    { name: 'DownloadPdf', label: 'Download PDF', icon: 'lucide.download', variant: 'outline', onClick: (element) => download(element) },
+    { name: 'CancelInvoice', label: 'Cancel invoice', destructive: true },
+  ],
+  singleGroups: [
+    { title: 'Quick actions', actions: ['SendEmail', 'DownloadPdf'] },
+    { actions: ['CancelInvoice'] },
+  ],
+},
+```
+
+- Clicking a grouped button runs the action exactly as `triggerAction(name)`: it calls `onClick` if defined, or opens the action form otherwise.
+- Grouped actions are removed from the actions bar and from the actions card, even if they are listed in `directSingleActions`. The actions not included in any group keep their usual place.
+- `shouldAppear` is respected, and groups without visible actions are not rendered.
+- In the `sidebar` layout the groups appear in the right column, after the actions bar. In the `stacked` layout they appear below the detail, in a responsive grid.
+- Icons are not loaded automatically: import the icon modules you use, as shown above.
+
+More details in the [actions configuration page](/crud/actions-configuration/).
 
 ### Methods
 
@@ -108,6 +162,38 @@ Custom property | Description | Default
 --dile-crud-list-options-letter-spacing | Letter spacing of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-letter-spacing` or `0`
 --dile-crud-list-options-padding-y | Vertical padding of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-padding-y` or `0.5rem`
 --dile-crud-list-options-padding-x | Horizontal padding of action buttons (Edit, Actions, Run action) | Inherits from `--dile-button-padding-x` or `0.8rem`
+--dile-crud-single-actions-columns | Grid columns of the actions card | `1fr 1fr` (`1fr` in the sidebar layout)
+--dile-crud-single-actions-card-margin-bottom | Bottom margin of the actions card | `1.5rem` (`0` in the sidebar layout)
+--dile-crud-single-sidebar-width | Width of the actions column in the sidebar layout | 18rem
+--dile-crud-single-gap | Gap between the detail and the actions column in the sidebar layout | 1.5rem
+--dile-crud-single-sidebar-gap | Gap between the blocks of the actions column | 1rem
+--dile-crud-single-sidebar-actions-background-color | Background color of the actions bar in the sidebar layout | var(--dile-primary-dark-color, #d7d353)
+--dile-crud-single-sidebar-actions-padding | Padding of the actions bar in the sidebar layout | 1rem
+--dile-crud-single-sidebar-actions-border-radius | Border radius of the actions bar in the sidebar layout | 0.5rem
+--dile-crud-single-groups-min-width | Minimum width of each group column in the stacked layout grid | 16rem
+--dile-crud-single-groups-gap | Gap between action groups | 1rem
+--dile-crud-single-group-background-color | Background color of an action group | var(--dile-background-color, #fff)
+--dile-crud-single-group-text-color | Text color of an action group | var(--dile-on-background-color, #303030)
+--dile-crud-single-group-border | Border of an action group | 1px solid rgba(0, 0, 0, 0.08)
+--dile-crud-single-group-box-shadow | Box shadow of an action group | 0 1px 3px rgba(0, 0, 0, 0.08)
+--dile-crud-single-group-border-radius | Border radius of an action group | 0.5rem
+--dile-crud-single-group-padding | Padding of an action group | 1rem
+--dile-crud-single-group-buttons-gap | Gap between the buttons of a group | 0.6rem
+--dile-crud-single-group-title-font-size | Font size of the group title | 1.25rem
+--dile-crud-single-group-title-font-weight | Font weight of the group title | 400
+--dile-crud-single-group-title-color | Color of the group title | inherit
+--dile-crud-single-group-action-font-size | Font size of grouped action buttons | 1rem
+--dile-crud-single-group-action-font-weight | Font weight of grouped action buttons | normal
+--dile-crud-single-group-action-border-radius | Border radius of grouped action buttons | 0.5rem
+--dile-crud-single-group-action-border-width | Border width of grouped action buttons | 1px
+--dile-crud-single-group-action-padding-y | Vertical padding of grouped action buttons | 0.6rem
+--dile-crud-single-group-action-padding-x | Horizontal padding of grouped action buttons | 0.8rem
+--dile-crud-single-action-{variant}-background-color | Background color of grouped buttons for a variant (`primary`, `outline`, `danger`) | primary: var(--dile-primary-color); outline: transparent; danger: light tint of var(--dile-danger-color)
+--dile-crud-single-action-{variant}-text-color | Text and icon color for a variant | primary: var(--dile-on-primary-color); outline: var(--dile-on-background-color); danger: var(--dile-danger-color)
+--dile-crud-single-action-{variant}-border-color | Border color for a variant | primary: var(--dile-primary-color); outline: currentColor; danger: tint of var(--dile-danger-color)
+--dile-crud-single-action-{variant}-hover-background-color | Hover background color for a variant | primary: var(--dile-primary-dark-color); outline: rgba(0, 0, 0, 0.05); danger: var(--dile-danger-color)
+--dile-crud-single-action-{variant}-hover-text-color | Hover text color for a variant | primary: var(--dile-on-primary-dark-color); outline: var(--dile-on-background-color); danger: var(--dile-on-danger-color)
+--dile-crud-single-action-{variant}-hover-border-color | Hover border color for a variant | primary: var(--dile-primary-dark-color); outline: var(--dile-on-background-color); danger: var(--dile-danger-color)
 
 The [`dile-crud-detail`](/crud/crud-detail/) component, used internally to display the details of the element, has additional CSS custom properties available for customization.
 
@@ -238,4 +324,95 @@ export class DemoCountrySingle extends LitElement {
 customElements.define('demo-country-single', DemoCountrySingle);
 </script>
 <demo-country-single></demo-country-single>
+```
+
+### Crud single with sidebar layout
+
+The same record using `layout="sidebar"`. The `dile-crud-single` element is already registered on the page, so it doesn't need to be imported again.
+
+```html:preview
+<script type="module">
+import { LitElement, html } from 'lit';
+
+export class DemoCountrySingleSidebar extends LitElement {
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    this.config = window.countryConfig.getConfig();
+  }
+
+  render() {
+    return html`
+      <dile-crud-single
+        relatedId="1"
+        layout="sidebar"
+        .config="${this.config}"
+      ></dile-crud-single>
+    `;
+  }
+}
+customElements.define('demo-country-single-sidebar', DemoCountrySingleSidebar);
+</script>
+<demo-country-single-sidebar></demo-country-single-sidebar>
+```
+
+### Crud single with action groups
+
+The sidebar layout with the actions organized in groups, with icons and variants.
+
+```html:preview
+<script type="module">
+import { LitElement, html } from 'lit';
+import '@dile/iconlib/lucide-icons/mail.js';
+import '@dile/iconlib/lucide-icons/download.js';
+import '@dile/iconlib/lucide-icons/ban.js';
+
+export class DemoCountrySingleGroups extends LitElement {
+  static get properties() {
+    return {
+      config: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+    const baseConfig = window.countryConfig.getConfig();
+    const log = (message) => (element) => console.log(message, element);
+    this.config = {
+      ...baseConfig,
+      actions: {
+        ...baseConfig.actions,
+        single: [
+          ...baseConfig.actions.single,
+          { name: 'SendEmail', label: 'Send by email', icon: 'lucide.mail', onClick: log('Send by email') },
+          { name: 'DownloadPdf', label: 'Download PDF', icon: 'lucide.download', variant: 'outline', onClick: log('Download PDF') },
+          { name: 'Archive', label: 'Archive country', icon: 'lucide.ban', destructive: true, onClick: log('Archive') },
+        ],
+        singleGroups: [
+          { title: 'Quick actions', actions: ['SendEmail', 'DownloadPdf', 'SetEurope'] },
+          { actions: ['SetAsia'] },
+          { actions: ['Archive'] },
+        ],
+      },
+    };
+  }
+
+  render() {
+    return html`
+      <dile-crud-single
+        relatedId="1"
+        layout="sidebar"
+        .config="${this.config}"
+      ></dile-crud-single>
+    `;
+  }
+}
+customElements.define('demo-country-single-groups', DemoCountrySingleGroups);
+</script>
+<demo-country-single-groups></demo-country-single-groups>
 ```

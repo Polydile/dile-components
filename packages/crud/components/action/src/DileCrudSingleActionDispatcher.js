@@ -14,6 +14,10 @@ export class DileCrudSingleActionDispatcher extends DileCrudActions {
         --dile-button-hover-text-color: var(--dile-crud-single-action-hover-text-color, var(--dile-on-primary-light-color, #303030));
         --dile-button-hover-border-color: var(--dile-crud-single-action-hover-border-color, var(--dile-primary-color, #666666));
       }
+      :host([full-width]) dile-button.visible {
+        display: block;
+        --dile-button-width: 100%;
+      }
     `
   ];
 

@@ -12,6 +12,10 @@ The `dile-crud-actions` component is responsible for displaying and processing b
 
 Normally, you don't need to use this component on its own, as it is used internally by the `dile-crud` component to handle batch actions. However, we document it because you might want to listen to the custom events it dispatches, in order to display corresponding feedback messages to the user.
 
+### Properties
+
+- **fullWidth**: Boolean, reflected as the `full-width` attribute. When `true`, the "Actions" button that opens the batch actions menu takes the full available width and always shows its label (also on small screens, where the icon-only version is used otherwise). `dile-crud-single` enables it automatically in the `sidebar` layout. Default: `false`.
+
 ### Custom Events
 
 - **crud-action-requested**: This custom event is dispatched when the user requests to open an action form. It fires when clicking on the "Run action" button. The event detail includes the following data:

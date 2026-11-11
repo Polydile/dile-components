@@ -66,6 +66,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       destructive: { type: Boolean, reflect: true },
       responseAdapter: { type: Object },
       loading: { type: Boolean },
+      fullWidth: { type: Boolean, reflect: true, attribute: 'full-width' },
     };
   }
 
@@ -76,6 +77,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     this.selection = 'DeleteAction';
     this.responseAdapter = new ResponseApiAdapter();
     this.loading = false;
+    this.fullWidth = false;
   }
 
   firstUpdated() {
@@ -106,7 +108,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
 
   get actionListTemplate() {
     return html`
-            <dile-crud-list-options .icon="${moreVertIcon}" label="${this.translations.actions_label}" class="${this.actionIds.length > 0 ? 'visible' : 'hide'}">
+            <dile-crud-list-options .fullWidth=${this.fullWidth} .icon="${moreVertIcon}" label="${this.translations.actions_label}" class="${this.actionIds.length > 0 ? 'visible' : 'hide'}">
                 <p>${this.actionIds.length} ${this.actionIds.length == 1 ? this.translations.element_label : this.translations.element_plural_label}</p>
                 <div @element-changed=${this.selectorChanged}>
                     ${this.selectActionsTemplate}
