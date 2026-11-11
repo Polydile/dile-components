@@ -91,6 +91,12 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
       .sidebar-layout main.elcontainer {
           margin-bottom: 0;
           min-width: 0;
+          /* The detail takes the look of the action group cards. These are fallbacks
+             read by dile-crud-detail: the app's --dile-crud-detail-data-* still win. */
+          --dile-crud-single-detail-background-color: var(--dile-crud-single-group-background-color, var(--dile-background-color, #fff));
+          --dile-crud-single-detail-border: var(--dile-crud-single-group-border, 1px solid rgba(0, 0, 0, 0.08));
+          --dile-crud-single-detail-box-shadow: var(--dile-crud-single-group-box-shadow, 0 1px 3px rgba(0, 0, 0, 0.08));
+          --dile-crud-single-detail-border-radius: var(--dile-crud-single-group-border-radius, 0.5rem);
       }
       aside.sidebar {
           display: flex;

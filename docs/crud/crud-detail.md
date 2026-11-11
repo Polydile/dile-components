@@ -63,6 +63,12 @@ Custom property | Description | Default
 --dile-crud-detail-data-padding | Padding of the detail data container | 1rem
 --dile-crud-detail-data-border-top-left-radius | Top left border radius | 0.6rem
 --dile-crud-detail-data-border-top-right-radius | Top right border radius | 0.6rem
+--dile-crud-detail-data-border-bottom-left-radius | Bottom left border radius | 0
+--dile-crud-detail-data-border-bottom-right-radius | Bottom right border radius | 0
+--dile-crud-detail-data-border | Border of the detail data container | none
+--dile-crud-detail-data-box-shadow | Box shadow of the detail data container | none
+
+When the detail is rendered inside the `sidebar` layout of [dile-crud-single](/crud/crud-single/#layouts), the defaults of the background, border, shadow and the four radii change to match the action group cards. Any `--dile-crud-detail-data-*` variable you set still takes precedence.
 
 
 ## Generating detail components with the CLI

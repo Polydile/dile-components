@@ -48,6 +48,8 @@ The component can arrange the record detail and its actions in two ways:
 - **`stacked`** (default): the detail on top, then the actions bar (Edit, direct actions and list actions) and, below it, the card with the rest of the single actions.
 - **`sidebar`**: the detail on the left and a column on the right with the actions bar and the actions card stacked vertically. Buttons in the column take the full width (including the "Actions" button that opens the batch actions menu, which always shows its label in this layout) and the actions card shows one action per row. When the component is narrower than `48rem` the column moves below the detail. Relations are always rendered below, at full width.
 
+In the `sidebar` layout the detail takes the look of the action group cards by default: background, border, box shadow and border radius (in the four corners) come from the `--dile-crud-single-group-*` variables (`--dile-crud-single-group-background-color`, `--dile-crud-single-group-border`, `--dile-crud-single-group-box-shadow` and `--dile-crud-single-group-border-radius`), so changing them restyles the groups and the detail together. If you set any of the [`dile-crud-detail`](/crud/crud-detail/) variables (`--dile-crud-detail-data-background-color`, `--dile-crud-detail-data-border`, `--dile-crud-detail-data-box-shadow`, `--dile-crud-detail-data-border-*-radius`) they take precedence. The `stacked` layout keeps the default detail look.
+
 ```html
 <dile-crud-single
   relatedId="1"

@@ -15,12 +15,18 @@ export class DileCrudDetail extends DileLoading(LitElement) {
             display: block;
             margin-bottom: 0;
         }
+        /* The --dile-crud-single-detail-* variables are the defaults that a parent
+           (dile-crud-single in its sidebar layout) can provide. The public
+           --dile-crud-detail-data-* variables always take precedence over them. */
         .detail-data {
-            background-color: var(--dile-crud-detail-data-background-color, #f5f5f5);
+            background-color: var(--dile-crud-detail-data-background-color, var(--dile-crud-single-detail-background-color, #f5f5f5));
             padding: var(--dile-crud-detail-data-padding, 1rem);
-            border-top-left-radius: var(--dile-crud-detail-data-border-top-left-radius, 0.6rem);
-            border-top-right-radius: var(--dile-crud-detail-data-border-top-right-radius, 0.6rem);
-
+            border: var(--dile-crud-detail-data-border, var(--dile-crud-single-detail-border, none));
+            box-shadow: var(--dile-crud-detail-data-box-shadow, var(--dile-crud-single-detail-box-shadow, none));
+            border-top-left-radius: var(--dile-crud-detail-data-border-top-left-radius, var(--dile-crud-single-detail-border-radius, 0.6rem));
+            border-top-right-radius: var(--dile-crud-detail-data-border-top-right-radius, var(--dile-crud-single-detail-border-radius, 0.6rem));
+            border-bottom-left-radius: var(--dile-crud-detail-data-border-bottom-left-radius, var(--dile-crud-single-detail-border-radius, 0));
+            border-bottom-right-radius: var(--dile-crud-detail-data-border-bottom-right-radius, var(--dile-crud-single-detail-border-radius, 0));
         }
         .detail-data p {
             margin: 0.05rem 0;

@@ -261,6 +261,61 @@ describe('DileCrudSingle layout', () => {
     expect(el.shadowRoot.querySelector('aside.sidebar dile-crud-single-actions')).not.toBeNull();
   });
 
+  async function detailDataStyle(el) {
+    const detail = el.detailElement;
+    await vi.waitFor(() => {
+      if (!detail.shadowRoot.querySelector('.detail-data .item-detail')) throw new Error('not loaded');
+    });
+    return getComputedStyle(detail.shadowRoot.querySelector('.detail-data'));
+  }
+
+  it('keeps the default detail look in the stacked layout', async () => {
+    const style = await detailDataStyle(await createCrudSingle());
+    expect(style.backgroundColor).toBe('rgb(245, 245, 245)');
+    expect(style.borderTopStyle).toBe('none');
+    expect(style.boxShadow).toBe('none');
+    expect(style.borderTopLeftRadius).toBe('9.6px');
+    expect(style.borderBottomLeftRadius).toBe('0px');
+    expect(style.borderBottomRightRadius).toBe('0px');
+  });
+
+  it('gives the detail the action group card look in the sidebar layout', async () => {
+    const style = await detailDataStyle(await createCrudSingle({ layout: 'sidebar' }));
+    expect(style.backgroundColor).toBe('rgb(255, 255, 255)');
+    expect(style.borderTopWidth).toBe('1px');
+    expect(style.borderTopStyle).toBe('solid');
+    expect(style.borderTopColor).toBe('rgba(0, 0, 0, 0.08)');
+    expect(style.boxShadow).toBe('rgba(0, 0, 0, 0.08) 0px 1px 3px 0px');
+    for (const corner of ['TopLeft', 'TopRight', 'BottomLeft', 'BottomRight']) {
+      expect(style[`border${corner}Radius`]).toBe('8px');
+    }
+  });
+
+  it('follows the --dile-crud-single-group-* variables in the sidebar layout', async () => {
+    const el = await createCrudSingle({ layout: 'sidebar' });
+    el.style.setProperty('--dile-crud-single-group-border', '3px dashed rgb(0, 0, 255)');
+    el.style.setProperty('--dile-crud-single-group-border-radius', '12px');
+    const style = await detailDataStyle(el);
+    expect(style.borderTopWidth).toBe('3px');
+    expect(style.borderTopStyle).toBe('dashed');
+    expect(style.borderBottomRightRadius).toBe('12px');
+  });
+
+  it('lets --dile-crud-detail-data-* set from outside win in the sidebar layout', async () => {
+    const el = await createCrudSingle({ layout: 'sidebar' });
+    el.style.setProperty('--dile-crud-detail-data-border', 'none');
+    el.style.setProperty('--dile-crud-detail-data-box-shadow', 'none');
+    el.style.setProperty('--dile-crud-detail-data-background-color', 'rgb(1, 2, 3)');
+    el.style.setProperty('--dile-crud-detail-data-border-bottom-left-radius', '0px');
+    const style = await detailDataStyle(el);
+    expect(style.borderTopStyle).toBe('none');
+    expect(style.boxShadow).toBe('none');
+    expect(style.backgroundColor).toBe('rgb(1, 2, 3)');
+    expect(style.borderBottomLeftRadius).toBe('0px');
+    // Not overridden: still the group card radius
+    expect(style.borderBottomRightRadius).toBe('8px');
+  });
+
   it('triggerAction still works in the sidebar layout', async () => {
     const el = await createCrudSingle({ layout: 'sidebar' });
     const spy = vi.spyOn(el.singleActionsElement, 'triggerAction');
