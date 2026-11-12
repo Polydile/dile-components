@@ -22,6 +22,10 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
     css`
       :host {
           display: block;
+          /* Values received from outside, captured here so inner elements can use
+             them as fallbacks while reassigning the same variables. */
+          --_dile-crud-single-outer-button-text-transform: var(--dile-button-text-transform, none);
+          --_dile-crud-single-outer-list-options-text-transform: var(--dile-crud-list-options-text-transform);
       }
       main.elcontainer {
           margin-bottom: 1.5rem;
@@ -117,6 +121,10 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
              rendered by dile-crud-list-options inside dile-crud-actions. */
           --dile-button-justify-content: var(--dile-crud-single-group-action-justify-content, center);
           --dile-button-text-align: var(--dile-crud-single-group-action-text-align, center);
+          /* Edit, direct actions and the "Actions" menu read --dile-crud-list-options-text-transform.
+             Assigned here (not --dile-button-text-transform) so it does not reach the
+             buttons of the batch actions dropdown or its confirm modal. */
+          --dile-crud-list-options-text-transform: var(--dile-crud-single-group-action-text-transform, var(--_dile-crud-single-outer-list-options-text-transform));
       }
       aside.sidebar .action-controller {
           margin-left: 0;
@@ -166,6 +174,7 @@ export class DileCrudSingle extends DileI18nMixin(DileCrudMixin(LitElement)) {
           --dile-button-padding-x: var(--dile-crud-single-group-action-padding-x, 0.8rem);
           --dile-button-justify-content: var(--dile-crud-single-group-action-justify-content, center);
           --dile-button-text-align: var(--dile-crud-single-group-action-text-align, center);
+          --dile-button-text-transform: var(--dile-crud-single-group-action-text-transform, var(--_dile-crud-single-outer-button-text-transform));
       }
       .group-action.variant-primary {
           --dile-button-background-color: var(--dile-crud-single-action-primary-background-color, var(--dile-primary-color, #7BB93D));

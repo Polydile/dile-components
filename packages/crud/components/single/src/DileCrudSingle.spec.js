@@ -574,3 +574,122 @@ describe('DileCrudSingle full width list actions', () => {
     expect(listOptions.hasAttribute('full-width')).toBe(false);
   });
 });
+
+describe('DileCrudSingle group action text transform', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+    delete window.axiosInstance;
+  });
+
+  async function createCrudSingle({ layout = 'sidebar', style = {} } = {}) {
+    window.axiosInstance = {
+      get: vi.fn(() => Promise.resolve({ status: 200, data: { data: { id: 1 } } })),
+    };
+    const el = document.createElement('dile-crud-single');
+    el.relatedId = '1';
+    el.layout = layout;
+    // Simulates an app theme that sets an uppercase text transform for every button
+    el.style.setProperty('--dile-button-text-transform', 'uppercase');
+    Object.entries(style).forEach(([name, value]) => el.style.setProperty(name, value));
+    el.config = {
+      endpoint: 'https://example.test/api/items',
+      actions: {
+        single: [
+          { name: 'Direct', label: 'Direct' },
+          { name: 'Grouped', label: 'Grouped' },
+        ],
+        directSingleActions: ['Direct'],
+        singleGroups: [{ actions: ['Grouped'] }],
+        list: [{ name: 'ListAction', label: 'List action' }],
+      },
+      customization: { disableEdit: false, disableListActionsOnSingleComponent: false },
+      labels: { startUpdateAction: 'Edit' },
+      templates: {
+        detail: () => html``,
+        formActions: () => html``,
+        formSingleActions: () => html``,
+        relations: () => html``,
+        updateForm: () => html``,
+      },
+      formIds: { updateForm: 'update-form' },
+      responseAdapter: { setResponse: () => {}, getData: () => ({ id: 1 }) },
+      destructiveActionNames: [],
+    };
+    el.element = { id: 1 };
+    document.body.appendChild(el);
+    await el.updateComplete;
+    const root = el.shadowRoot;
+    const crudActions = root.querySelector('dile-crud-actions');
+    await crudActions.updateComplete;
+    const listOptions = crudActions.shadowRoot.querySelector('dile-crud-list-options');
+    await listOptions.updateComplete;
+    const buttons = {
+      edit: root.querySelector('.actions dile-button-icon'),
+      direct: root.querySelector('dile-button.action-controller'),
+      grouped: root.querySelector('dile-button.group-action'),
+      listOptions: listOptions.shadowRoot.querySelector('dile-button-icon'),
+      run: crudActions.shadowRoot.querySelector('dile-crud-list-options > dile-button'),
+    };
+    await Promise.all(Object.values(buttons).map(b => b.updateComplete));
+    const transforms = Object.fromEntries(Object.entries(buttons).map(([key, b]) =>
+      [key, getComputedStyle(b.shadowRoot.querySelector('button')).textTransform]
+    ));
+    return { el, root, crudActions, transforms };
+  }
+
+  it('keeps the current text transforms when the variable is not set', async () => {
+    const { transforms } = await createCrudSingle();
+    expect(transforms).toEqual({
+      edit: 'none',
+      direct: 'none',
+      grouped: 'uppercase',
+      listOptions: 'none',
+      run: 'uppercase',
+    });
+  });
+
+  it('keeps honoring --dile-crud-list-options-text-transform when the variable is not set', async () => {
+    const { transforms } = await createCrudSingle({
+      style: { '--dile-crud-list-options-text-transform': 'capitalize' },
+    });
+    expect(transforms.edit).toBe('capitalize');
+    expect(transforms.direct).toBe('capitalize');
+    expect(transforms.listOptions).toBe('capitalize');
+    expect(transforms.grouped).toBe('uppercase');
+  });
+
+  it('applies the variable to grouped and sidebar column buttons, over the list options one', async () => {
+    const { transforms } = await createCrudSingle({
+      style: {
+        '--dile-crud-single-group-action-text-transform': 'lowercase',
+        '--dile-crud-list-options-text-transform': 'capitalize',
+      },
+    });
+    expect(transforms.edit).toBe('lowercase');
+    expect(transforms.direct).toBe('lowercase');
+    expect(transforms.grouped).toBe('lowercase');
+    expect(transforms.listOptions).toBe('lowercase');
+  });
+
+  it('does not reach the action forms and modals', async () => {
+    const { root, crudActions, transforms } = await createCrudSingle({
+      style: { '--dile-crud-single-group-action-text-transform': 'lowercase' },
+    });
+    // "Run action" button of the batch actions dropdown
+    expect(transforms.run).toBe('uppercase');
+    const inherited = (node) => getComputedStyle(node).getPropertyValue('--dile-button-text-transform').trim();
+    expect(inherited(root.querySelector('dile-crud-single-actions'))).toBe('uppercase');
+    expect(inherited(crudActions.shadowRoot.querySelector('dile-confirm'))).toBe('uppercase');
+  });
+
+  it('only applies to grouped buttons in the stacked layout', async () => {
+    const { transforms } = await createCrudSingle({
+      layout: 'stacked',
+      style: { '--dile-crud-single-group-action-text-transform': 'lowercase' },
+    });
+    expect(transforms.grouped).toBe('lowercase');
+    expect(transforms.edit).toBe('none');
+    expect(transforms.direct).toBe('none');
+    expect(transforms.listOptions).toBe('none');
+  });
+});
