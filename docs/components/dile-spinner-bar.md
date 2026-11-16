@@ -58,7 +58,7 @@ Custom property | Description | Default
   .styled {
     --dile-spinner-bar-height: 10px;
     --dile-spinner-bar-color-1: #11998e;
-    --dile-spinner-bar-color-2: #d4ffeb;
+    --dile-spinner-bar-color-2: #cae1d6;
     --dile-spinner-bar-border-radius: 5px;
     --dile-spinner-bar-animation-time: 1.2s;
   }
@@ -80,7 +80,7 @@ class MyComponent extends LitElement {
       <style>
       .styled {
         --dile-spinner-bar-height: 6px;
-        --dile-spinner-bar-color-1: #f7971e;
+        --dile-spinner-bar-color-1: #f74d1e;
         --dile-spinner-bar-color-2: #ffd200;
         --dile-spinner-bar-border-radius: 3px;
       }
