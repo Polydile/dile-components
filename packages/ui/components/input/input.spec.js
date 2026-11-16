@@ -45,6 +45,18 @@ describe('dile-input', () => {
     expect(el.shadowRoot.querySelector('.message span').textContent.trim()).toBe('Required field');
   });
 
+  it('clearError() removes the message and the errored state', async () => {
+    const el = await renderInput('<dile-input message="Required" errored></dile-input>');
+    expect(el.shadowRoot.querySelector('.message').classList.contains('errored-msg')).toBe(true);
+    expect(el.shadowRoot.querySelector('input').classList.contains('errored')).toBe(true);
+
+    el.clearError();
+    await el.updateComplete;
+
+    expect(el.shadowRoot.querySelector('.message')).toBeNull();
+    expect(el.shadowRoot.querySelector('input').classList.contains('errored')).toBe(false);
+  });
+
   describe('accessibleLabel', () => {
     it('applies accessibleLabel as aria-label when there is no label', async () => {
       const el = await renderInput('<dile-input accessiblelabel="Quantity"></dile-input>');

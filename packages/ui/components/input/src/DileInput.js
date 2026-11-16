@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { DileEmmitChange, DileFieldMessage } from '../../../mixins/form/index.js';
 import { labelStyles } from './label-styles.js';
 import { messageStyles } from './message-styles.js';
 
-export class DileInput extends DileEmmitChange(LitElement) {
+export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
 
     /**
      * Fired when user press enter key.
@@ -41,9 +41,6 @@ export class DileInput extends DileEmmitChange(LitElement) {
           /** Name for this input field */
           name: { type: String, reflect: true },
 
-          /** Has error on this input field */
-          errored: { type: Boolean },
-
           /** Disable the autocomplete of the input field */
           disableAutocomplete: { type: Boolean },
 
@@ -52,9 +49,6 @@ export class DileInput extends DileEmmitChange(LitElement) {
 
           /** Select all content on focus */
           selectOnFocus: { type: Boolean },
-
-          /** Message Displayed */
-          message: { type: String },
 
           /** Text placed on the right side of the input  */
           labelRight: { type: String },
@@ -197,15 +191,6 @@ export class DileInput extends DileEmmitChange(LitElement) {
       return !this.label && this.accessibleLabel ? this.accessibleLabel : undefined;
     }
 
-    get messageTemplate() {
-      return html`
-        ${this.message
-          ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
-          : ''
-        }
-      `
-    }
-
     /**
      * Private method to dispatch events on enter key pressed
      */
@@ -220,11 +205,6 @@ export class DileInput extends DileEmmitChange(LitElement) {
         if (this.hideErrorOnInput && this.errored) {
           this.clearError();
         }
-    }
-
-    clearError() {
-      this.errored = false;
-      this.message = '';
     }
 
     availableType(type) {
