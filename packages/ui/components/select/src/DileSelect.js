@@ -188,13 +188,14 @@ export class DileSelect extends DileEmmitChange(LitElement) {
 
   updated(changedProperties) {
     if(changedProperties.has("value")) {
-      this.elselect.value = this.value;
+      // null/undefined would be stringified and leave the select without a selected option
+      this.elselect.value = this.value ?? '';
       if (this.quiet) {
         this.quiet = false;
       } else {
         this.emmitChange();
       }
-      this.internals.setFormValue(this.value);
+      this.internals.setFormValue(this.value ?? '');
     }
     if(changedProperties.has("disabled")) {
       this.elselect.disabled = this.disabled;
@@ -256,7 +257,7 @@ export class DileSelect extends DileEmmitChange(LitElement) {
   }
 
   clear() {
-    this.value = undefined;
+    this.value = '';
   }
 
   getOptionByValue(id) {

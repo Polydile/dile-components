@@ -63,7 +63,7 @@ Use the component.
 ## Methods
 
 - **quietChange(value)**: Set the value of the select element without emmiting a `element-changed` event.
-- **clear()**: Set the value of the select element to `undefined`.
+- **clear()**: Set the value of the select element to `''`, so the option with an empty value (if any) is selected. Setting `value` to `null` or `undefined` has the same effect on the select element.
 
 ## Events
 

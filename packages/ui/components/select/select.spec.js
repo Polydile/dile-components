@@ -412,7 +412,7 @@ describe('dile-select', () => {
   });
 
   describe('Methods', () => {
-    it('clear() sets value to undefined', async () => {
+    it('clear() sets value to empty string', async () => {
       const el = await renderSelect(`
         <dile-select value="1">
           <select slot="select">
@@ -425,8 +425,48 @@ describe('dile-select', () => {
       el.clear();
       await el.updateComplete;
 
-      expect(el.value).toBeUndefined();
+      expect(el.value).toBe('');
       expect(el.querySelector('select').value).toBe('');
+    });
+
+    it('clear() selects the empty option', async () => {
+      const el = await renderSelect(`
+        <dile-select value="1">
+          <select slot="select">
+            <option value="">Choose...</option>
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select>
+      `);
+
+      el.clear();
+      await el.updateComplete;
+
+      const select = el.querySelector('select');
+      expect(select.value).toBe('');
+      expect(select.selectedIndex).toBe(0);
+    });
+
+    it('selects the empty option when value is set to null or undefined', async () => {
+      const el = await renderSelect(`
+        <dile-select value="1">
+          <select slot="select">
+            <option value="">Choose...</option>
+            <option value="1">Option 1</option>
+          </select>
+        </dile-select>
+      `);
+      const select = el.querySelector('select');
+
+      el.value = null;
+      await el.updateComplete;
+      expect(select.selectedIndex).toBe(0);
+
+      el.value = '1';
+      await el.updateComplete;
+      el.value = undefined;
+      await el.updateComplete;
+      expect(select.selectedIndex).toBe(0);
     });
 
     it('getOptionByValue() returns the correct option', async () => {
