@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dile-scroll-reveal demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .spacer {
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a94a6;
+      border: 1px dashed #d0d7de;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .box {
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    /* Timeline drawn by a trigger element: the line grows when it gets revealed. */
+    .timeline {
+      position: relative;
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #2f6fed;
+      transform-origin: top;
+    }
+
+    .timeline[data-reveal-state="pending"]::before {
+      transform: scaleY(0);
+    }
+
+    .timeline[data-reveal-state="revealed"]::before {
+      transform: scaleY(1);
+      transition: transform 1.6s cubic-bezier(0.45, 0, 0.25, 1) var(--dile-reveal-delay, 0ms);
+    }
+
+    .directions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      --dile-reveal-distance-x: 8rem;
+    }
+
+    .directions .box {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .slow {
+      --dile-reveal-duration: 2.5s;
+      --dile-reveal-distance: 6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <dile-scroll-reveal></dile-scroll-reveal>
+
+  <div class="container">
+    <h1>dile-scroll-reveal demo</h1>
+    <p data-reveal>
+      Elements are revealed while you scroll. This paragraph was already in the viewport, so it is shown without
+      animation. By default the effect only runs at <code>(min-width: 1024px)</code> and never with reduced motion.
+    </p>
+
+    <div class="spacer">Scroll down</div>
+
+    <h2>Loose elements</h2>
+    <p>Elements entering the viewport in the same batch are staggered in document order.</p>
+    <div class="row">
+      <div class="box" data-reveal>One</div>
+      <div class="box" data-reveal>Two</div>
+      <div class="box" data-reveal>Three</div>
+    </div>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <h2>Directions</h2>
+    <p>Narrow boxes with <code>--dile-reveal-distance-x: 8rem</code> so the horizontal entrance is easy to see.</p>
+    <div class="directions">
+      <div class="box" data-reveal="from-left">data-reveal="from-left"</div>
+      <div class="box" data-reveal="from-right">data-reveal="from-right"</div>
+    </div>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <h2>Custom duration and distance</h2>
+    <p>Both boxes start together: compare the default reveal with a slow one that travels further.</p>
+    <div class="compare">
+      <div class="box" data-reveal>Default: 0.7s, 1.75rem</div>
+      <div class="box slow" data-reveal>
+        <code>--dile-reveal-duration: 2.5s</code><br>
+        <code>--dile-reveal-distance: 6rem</code>
+      </div>
+    </div>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <h2>Group with stagger and a trigger line</h2>
+    <div data-reveal-group data-reveal-offset="0.4" data-reveal-stagger="300">
+      <p data-reveal>The group starts when it is 40% up the viewport; children follow each other in time.</p>
+      <ol class="timeline" data-reveal="trigger">
+        <li class="box" data-reveal="from-right">Step 1</li>
+        <li class="box" data-reveal="from-right">Step 2</li>
+        <li class="box" data-reveal="from-right">Step 3</li>
+        <li class="box" data-reveal="from-right">Step 4</li>
+      </ol>
+    </div>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <h2>Per element offset and media</h2>
+    <div class="box" data-reveal data-reveal-offset="0.6">data-reveal-offset="0.6": needs more scroll before appearing.</div>
+    <div class="box" data-reveal data-reveal-media="all">data-reveal-media="all": also animated on small screens.</div>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <h2>Mixin on a component's shadow DOM</h2>
+    <reveal-mixin-demo></reveal-mixin-demo>
+
+    <div class="spacer">The end</div>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+
+  <script type="module">
+    import { LitElement, html, css } from 'lit';
+    import '@dile/ui/components/scroll-reveal/scroll-reveal.js';
+    import { DileScrollRevealMixin, revealStyles } from '@dile/ui/mixins/scroll-reveal/index.js';
+
+    class RevealMixinDemo extends DileScrollRevealMixin(LitElement) {
+      static styles = [
+        revealStyles,
+        css`
+          :host {
+            display: block;
+            --dile-reveal-distance-x: 6rem;
+          }
+          section article {
+            max-width: 320px;
+          }
+          article {
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            background: #eef4ff;
+          }
+        `,
+      ];
+
+      render() {
+        return html`
+          <article data-reveal>The mixin reveals elements inside this component's shadow root.</article>
+          <section data-reveal-group>
+            <article data-reveal="from-left">Grouped 1</article>
+            <article data-reveal="from-left">Grouped 2</article>
+            <article data-reveal="from-left">Grouped 3</article>
+          </section>
+        `;
+      }
+    }
+    customElements.define('reveal-mixin-demo', RevealMixinDemo);
+  </script>
+</body>
+
+</html>
