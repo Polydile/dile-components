@@ -112,6 +112,41 @@ describe('dile-calendar', () => {
     expect(selectedDate instanceof Date).toBe(true);
   });
 
+  it('marks selected and unavailable dates and ignores clicks on unavailable dates', async () => {
+    const el = await renderCalendar('<dile-calendar></dile-calendar>');
+    const selectedDate = new Date(2024, 0, 15);
+    el.centralDate = selectedDate;
+    el.selectedDate = selectedDate;
+    el.minDate = new Date(2024, 0, 10);
+    el.maxDate = new Date(2024, 0, 20);
+    el.disableDates = date => date.getDate() === 16;
+    await el.updateComplete;
+
+    const findDayButton = day => [...el.shadowRoot.querySelectorAll('.calendar__day-button')]
+      .find(button => button.date.getFullYear() === 2024
+        && button.date.getMonth() === 0
+        && button.date.getDate() === day);
+    const selectedButton = findDayButton(15);
+    const beforeMinButton = findDayButton(9);
+    const afterMaxButton = findDayButton(21);
+    const disabledButton = findDayButton(16);
+    let selectionEvents = 0;
+    el.addEventListener('user-selected-date-changed', () => selectionEvents++);
+
+    expect(selectedButton.hasAttribute('selected')).toBe(true);
+    expect(selectedButton.getAttribute('aria-pressed')).toBe('true');
+    expect(beforeMinButton.getAttribute('aria-disabled')).toBe('true');
+    expect(afterMaxButton.getAttribute('aria-disabled')).toBe('true');
+    expect(disabledButton.getAttribute('aria-disabled')).toBe('true');
+
+    beforeMinButton.click();
+    disabledButton.click();
+    await el.updateComplete;
+
+    expect(el.selectedDate).toEqual(selectedDate);
+    expect(selectionEvents).toBe(0);
+  });
+
   it('navigates next and previous months and years', async () => {
     const el = await renderCalendar('<dile-calendar></dile-calendar>');
     el.centralDate = new Date(2026, 5, 15); // June 2026

@@ -1,5 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { formatDate } from '@lion/ui/localize.js';
 import './datepicker.js';
 
 describe('dile-datepicker', () => {
@@ -25,15 +26,16 @@ describe('dile-datepicker', () => {
     const el = await renderDatepicker('<dile-datepicker name="birthdate"></dile-datepicker>');
     const calendar = el.shadowRoot.querySelector('dile-calendar');
     const menu = el.shadowRoot.getElementById('menu');
+    const selectedDate = new Date(2024, 0, 15);
 
     calendar.dispatchEvent(new CustomEvent('user-selected-date-changed', {
-      detail: { selectedDate: new Date(2024, 0, 15) },
+      detail: { selectedDate },
       bubbles: true,
       composed: true,
     }));
     await el.updateComplete;
 
-    expect(el.value).toBeTruthy();
+    expect(el.value).toBe(formatDate(selectedDate));
     expect(menu._overlayClass).toBe('');
   });
 
