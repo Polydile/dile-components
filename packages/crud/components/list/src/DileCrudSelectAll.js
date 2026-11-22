@@ -44,12 +44,26 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
         padding: 0.5rem;
         font-size: 1rem;
       } 
-      /* Same space between options as between the separator line and the text of .clear */
+      /* Native buttons, so they get the focus with Tab and activate with Enter and Space.
+         Same space between options as between the separator line and the text of .clear */
       .option {
         display: flex;
         align-items: center;
+        width: 100%;
+        box-sizing: border-box;
         cursor: pointer;
         margin: 0.75rem 0;
+        padding: 0;
+        border: none;
+        border-radius: 3px;
+        background: none;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+      }
+      .option:focus-visible {
+        outline: 2px solid var(--dile-crud-select-all-focus-outline-color, #2563eb);
+        outline-offset: 2px;
       }
       .option.disabled {
         cursor: default;
@@ -78,10 +92,12 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
       .option:first-child {
         margin-top: 0.25rem;
       }
+      /* A separate element, so the focus outline of .clear doesn't wrap the line */
+      .separator {
+        border-top: 1px solid var(--dile-crud-select-all-separator-color, #ddd);
+      }
       /* The bottom margin plus the padding of .content matches the space above the text */
       .clear {
-        border-top: 1px solid var(--dile-crud-select-all-separator-color, #ddd);
-        padding-top: 0.75rem;
         margin-bottom: 0.25rem;
       }
       .option dile-icon {
@@ -160,11 +176,18 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
   }
 
   // Options over the limit are shown disabled instead of hidden, with the reason just below
-  // their label, so the user knows why they can't select those items.
+  // their label, so the user knows why they can't select those items. They use aria-disabled
+  // instead of disabled so they stay in the tab order and keyboard users can reach that reason.
   optionTemplate(label, count, checked, handler, limitMessage) {
     const disabled = this.exceedsLimit(count);
     return html`
-      <p class="option ${disabled ? 'disabled has-limit' : ''}" aria-disabled=${disabled ? 'true' : 'false'} @click=${disabled ? null : handler}>
+      <button
+        type="button"
+        class="option ${disabled ? 'disabled has-limit' : ''}"
+        aria-pressed=${checked ? 'true' : 'false'}
+        aria-disabled=${disabled ? 'true' : 'false'}
+        @click=${disabled ? null : handler}
+      >
         <dile-icon .icon=${this.selectIcon(checked)} class="drop"></dile-icon>
         <span class="text">
           <span class="label">${label} (${count})</span>
@@ -173,7 +196,7 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
             : ''
           }
         </span>
-      </p>
+      </button>
     `;
   }
 
@@ -181,15 +204,16 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
   get clearSelectionTemplate() {
     const disabled = !(this.selectedCount > 0);
     return html`
-      <p
+      <div class="separator" aria-hidden="true"></div>
+      <button
+        type="button"
         class="option clear ${disabled ? 'disabled' : ''}"
-        role="button"
         aria-disabled=${disabled ? 'true' : 'false'}
         @click=${disabled ? null : this.clearSelection}
       >
         <dile-icon .icon=${closeIcon} class="drop"></dile-icon>
         <span class="label">${this.translations.clear_selection}${disabled ? '' : ` (${this.selectedCount})`}</span>
-      </p>
+      </button>
     `;
   }
 

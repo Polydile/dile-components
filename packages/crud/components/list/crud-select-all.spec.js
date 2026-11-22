@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import { userEvent } from 'vitest/browser';
 import './crud-select-all.js';
 
 async function createSelectAll({ numItems, pageSize = 25, maxBatchActionItems, disablePagination = false, selectedCount = 0 }) {
@@ -111,5 +112,75 @@ describe('dile-crud-select-all limits', () => {
     expect(detail).toEqual({ pageChecked: false, allChecked: false });
     expect(el.allChecked).toBe(false);
     expect(el.mainChecked).toBe(false);
+  });
+});
+
+describe('dile-crud-select-all keyboard access', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  async function openWithKeyboard(el) {
+    const trigger = el.shadowRoot.querySelector('dile-button-icon');
+    await trigger.updateComplete;
+    trigger.shadowRoot.querySelector('button').focus();
+    await userEvent.keyboard('{Enter}');
+    await wait(100);
+  }
+
+  function focusedOption(el) {
+    return el.shadowRoot.activeElement;
+  }
+
+  it('renders the options as native buttons with their checked state', async () => {
+    const el = await createSelectAll({ numItems: 30, maxBatchActionItems: 50 });
+    options(el)[0].click();
+    await el.updateComplete;
+
+    const buttons = [...el.shadowRoot.querySelectorAll('.option')];
+    expect(buttons.map(button => button.tagName)).toEqual(['BUTTON', 'BUTTON', 'BUTTON']);
+    expect(buttons.map(button => button.getAttribute('aria-pressed'))).toEqual(['true', 'false', null]);
+  });
+
+  it('reaches the options with Tab and activates them with Enter and Space', async () => {
+    const el = await createSelectAll({ numItems: 30, maxBatchActionItems: 50, selectedCount: 5 });
+    const details = [];
+    el.addEventListener('crud-select-all', (e) => { details.push(e.detail); });
+
+    await openWithKeyboard(el);
+    await userEvent.keyboard('{Tab}');
+    expect(focusedOption(el)).toBe(options(el)[0]);
+    await userEvent.keyboard('{Enter}');
+
+    await userEvent.keyboard('{Tab}');
+    expect(focusedOption(el)).toBe(options(el)[1]);
+    await userEvent.keyboard(' ');
+
+    await userEvent.keyboard('{Tab}');
+    expect(focusedOption(el)).toBe(el.shadowRoot.querySelector('.clear'));
+    await userEvent.keyboard('{Enter}');
+
+    expect(details).toEqual([
+      { pageChecked: true, allChecked: false },
+      { pageChecked: false, allChecked: true },
+      { pageChecked: false, allChecked: false },
+    ]);
+  });
+
+  it('keeps disabled options focusable, so the limit message is reachable, without selecting', async () => {
+    const el = await createSelectAll({ numItems: 120, maxBatchActionItems: 50 });
+    let dispatched = false;
+    el.addEventListener('crud-select-all', () => { dispatched = true; });
+
+    await openWithKeyboard(el);
+    await userEvent.keyboard('{Tab}');
+    await userEvent.keyboard('{Tab}');
+    expect(focusedOption(el)).toBe(options(el)[1]);
+    await userEvent.keyboard('{Enter}');
+
+    expect(dispatched).toBe(false);
+    expect(el.allChecked).toBeFalsy();
   });
 });

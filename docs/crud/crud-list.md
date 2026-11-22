@@ -74,6 +74,8 @@ Use the component.
 
 The "select all" menu offers to select the items of the current page or all matching items. When there are selected items (`actionIds`), including items checked one by one, its "Clear selection" option shows their count and empties the selection. The option is always visible, disabled while nothing is selected.
 
+The menu is keyboard accessible: open it with <kbd>Enter</kbd> on the "Select" button, move through the options with <kbd>Tab</kbd>, activate them with <kbd>Enter</kbd> or <kbd>Space</kbd> and close it with <kbd>Escape</kbd>. The options are native buttons that announce their checked state with `aria-pressed`. Disabled options use `aria-disabled`, so they stay reachable with <kbd>Tab</kbd> and screen readers can read why they are disabled.
+
 ### Events
 
 - **insert-requested**: This event is dispatched when the list component requests to open the insertion form. This can happen when there are no items in the list, either because the resource is empty or the filtering yields no results, in which case a button may appear to insert new items.
@@ -121,6 +123,7 @@ Custom property | Description | Default
 --dile-crud-select-all-limit-font-size | Font size of the message below an option over the limit in select all overlay menu | 0.8rem
 --dile-crud-select-all-limit-color | Color of the message below an option over the limit in select all overlay menu | inherit
 --dile-crud-select-all-separator-color | Color of the line above the "Clear selection" option in select all overlay menu | #ddd
+--dile-crud-select-all-focus-outline-color | Outline color of the focused option in select all overlay menu | #2563eb
 --dile-crud-data-grid-margin-top | Data grid component margin top | 0.25rem
 --dile-crud-list-options-font-size | Font size of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-size` or `1rem`
 --dile-crud-list-options-font-weight | Font weight of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-weight` or `bold`
