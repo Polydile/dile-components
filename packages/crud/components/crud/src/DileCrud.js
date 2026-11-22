@@ -125,6 +125,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
         title: { type: String },
         config: { type: Object },
         actionIds: { type: Array },
+        batchLimit: { type: Number },
         keyword: { type: String },
         belongsTo: { type: String },
         relationId: { type: String },
@@ -192,6 +193,7 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
                     @item-checkbox-changed=${this.itemCheckboxChanged}
                     @dile-chip-icon-click=${this.removeFilter}
                     @crud-list-all-ids-selected=${this.crudSelectAll}
+                    @crud-list-batch-limit-changed=${this.batchLimitChanged}
                     @crud-list-sort-changed=${this.listSortChanged}
                 >
                     ${this.listTemplate}
@@ -548,6 +550,10 @@ export class DileCrud extends DileI18nMixin(DileCrudMixin(LitElement)) {
 
     crudSelectAll(e) {
         this.actionIds = e.detail.ids;
+    }
+
+    batchLimitChanged(e) {
+        this.batchLimit = e.detail.limit;
     }
 
     itemDeleteRequest(e) {

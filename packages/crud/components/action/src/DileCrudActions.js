@@ -39,6 +39,10 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
         .hide {
             display: none;
         }
+        .limit {
+            color: var(--dile-crud-actions-limit-color, var(--dile-danger-color, #E31E1B));
+            font-size: var(--dile-crud-actions-limit-font-size, 0.875rem);
+        }
         .modalcontainer {
             color: var(--dile-on-background-color, #303030);
         }
@@ -67,6 +71,7 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
       responseAdapter: { type: Object },
       loading: { type: Boolean },
       fullWidth: { type: Boolean, reflect: true, attribute: 'full-width' },
+      maxItems: { type: Number },
     };
   }
 
@@ -110,10 +115,14 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     return html`
             <dile-crud-list-options .fullWidth=${this.fullWidth} .icon="${moreVertIcon}" label="${this.translations.actions_label}" class="${this.actionIds.length > 0 ? 'visible' : 'hide'}">
                 <p>${this.actionIds.length} ${this.actionIds.length == 1 ? this.translations.element_label : this.translations.element_plural_label}</p>
+                ${this.exceedsLimit
+                  ? html`<p class="limit">${this.translations.action_limit_exceeded(this.actionIds.length, this.maxItems)}</p>`
+                  : ''
+                }
                 <div @element-changed=${this.selectorChanged}>
                     ${this.selectActionsTemplate}
                 </div>
-                <dile-button @click=${this.showAction}>${this.translations.run_action_label}</dile-button>
+                <dile-button ?disabled=${this.exceedsLimit} @click=${this.showAction}>${this.translations.run_action_label}</dile-button>
             </dile-crud-list-options>
         `;
   }
@@ -149,6 +158,10 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
     return this.formActionsTemplate(this.selection, this.actionIds);
   }
 
+  get exceedsLimit() {
+    return Number.isFinite(this.maxItems) && this.actionIds.length > this.maxItems;
+  }
+
   setActionIds(items) {
     this.actionIds = items;
   }
@@ -172,6 +185,9 @@ export class DileCrudActions extends DileI18nMixin(LitElement) {
   }
 
   showAction() {
+    if (this.exceedsLimit) {
+      return;
+    }
     this.dispatchEvent(new CustomEvent('crud-action-requested', {
       bubbles: true,
       composed: true,

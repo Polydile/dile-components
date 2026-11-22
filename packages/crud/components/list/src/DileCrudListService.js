@@ -99,6 +99,7 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
     this.config.responseAdapter.setResponse(e.detail);
     let elements = this.config.responseAdapter.getElementList();
     let numItems;
+    let maxIds = null;
     if (this.config.customization.disablePagination) {
       numItems = elements.length;
     } else {
@@ -109,6 +110,7 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
         currentPage: data.result.current_page,
       }
       numItems = data.countItems;
+      maxIds = this.config.responseAdapter.getMaxIds?.() ?? null;
     }
     this.dispatchEvent(new CustomEvent('crud-list-get-success', {
       bubbles: true,
@@ -116,6 +118,7 @@ export class DileCrudListService extends DileI18nMixin(LitElement) {
       detail: {
         elements,
         numItems,
+        maxIds,
         paginationData: this.paginationData,
       }
     }));

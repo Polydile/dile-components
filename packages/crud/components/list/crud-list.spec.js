@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { html } from 'lit';
 import { CrudConfigBuilder } from '../../lib/CrudConfigBuilder.js';
 import './crud-list.js';
@@ -543,5 +543,87 @@ describe('dile-crud-list initial sort from config', () => {
     expect(requests).toHaveLength(1);
     expect(requests[0].data.sortField).toBe('name');
     expect(requests[0].data.sortDirection).toBe('desc');
+  });
+});
+
+describe('dile-crud-list select all', () => {
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  async function createList(configOptions = {}) {
+    const config = new CrudConfigBuilder('https://example.test/api/customers', {
+      customization: { hideCheckboxSelection: false, disablePagination: false },
+      ...configOptions,
+    }).getConfig();
+    const el = document.createElement('dile-crud-list');
+    el.disableLoadOnStart = true;
+    el.config = config;
+    el.language = 'en';
+    el.elements = [{ id: 1 }, { id: 2 }];
+    el.numItems = 3;
+    el.loading = false;
+    document.body.appendChild(el);
+    await vi.waitFor(() => expect(el.translations.select_all_count_changed).toBeTruthy());
+    await el.updateComplete;
+    return el;
+  }
+
+  it('uses the lower of config.maxBatchActionItems and the maxIds of the server', async () => {
+    const el = await createList({ maxBatchActionItems: 100 });
+    expect(el.batchLimit).toBe(100);
+
+    let limit;
+    el.addEventListener('crud-list-batch-limit-changed', (e) => { limit = e.detail.limit; });
+    el.getSuccess({ detail: { elements: el.elements, numItems: 3, maxIds: 50, paginationData: {} } });
+    await el.updateComplete;
+
+    expect(el.batchLimit).toBe(50);
+    expect(limit).toBe(50);
+    expect(el.shadowRoot.querySelector('dile-crud-select-all').maxBatchActionItems).toBe(50);
+  });
+
+  it('sends the sort of the listing when requesting all ids', async () => {
+    const el = await createList();
+    el.sort = { sortField: 'name', sortDirection: 'desc' };
+    el.ajaxgetallids.generateRequest = () => {};
+
+    el.getAllIds();
+
+    expect(el.ajaxgetallids.data).toMatchObject({ sortField: 'name', sortDirection: 'desc' });
+  });
+
+  it('selects the ids when they match the number of items', async () => {
+    const el = await createList();
+    let ids = null;
+    el.addEventListener('crud-list-all-ids-selected', (e) => { ids = e.detail.ids; });
+
+    el.doSuccessGetIds({ detail: { data: [1, 2, 3] } });
+
+    expect(ids).toEqual([1, 2, 3]);
+  });
+
+  it('does not select ids when their number differs from the listing', async () => {
+    const el = await createList();
+    el.elservice.refresh = () => {};
+    const selected = [];
+    let error = null;
+    el.addEventListener('crud-list-all-ids-selected', (e) => selected.push(e.detail.ids));
+    el.addEventListener('crud-select-all-error', (e) => { error = e.detail.msg; });
+
+    el.doSuccessGetIds({ detail: { data: [1, 2] } });
+
+    expect(selected.every(ids => ids.length === 0)).toBe(true);
+    expect(error).toBe('The list changed while you were selecting. Check the items and select them again.');
+  });
+
+  it('reports the server message when all ids cannot be requested', async () => {
+    const el = await createList();
+    let error = null;
+    el.addEventListener('crud-select-all-error', (e) => { error = e.detail.msg; });
+
+    el.doErrorGetIds({ detail: { message: 'The number of items (120) exceeds the maximum allowed (100).' } });
+
+    expect(error).toBe('The number of items (120) exceeds the maximum allowed (100).');
   });
 });

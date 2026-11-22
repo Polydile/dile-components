@@ -34,6 +34,14 @@ export class ResponseApiAdapter {
     return this.response.data;
   }
 
+  /**
+   * Maximum number of ids the server accepts in /allids, sent with paginated listings.
+   * Returns null when the server doesn't send it or has no limit.
+   */
+  getMaxIds() {
+    return this.response.data?.maxIds ?? null;
+  }
+
   getActionResponseMessage() {
     return this.response.message;
   }

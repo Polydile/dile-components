@@ -57,6 +57,8 @@ Here are the methods you can adapt in your custom `responseAdapter` class:
 
 - **getIds()**: Extracts the IDs of elements, used in batch operations. Must return an array of resource Ids. Override this method to customize how IDs are retrieved from the API response. 
 
+- **getMaxIds()**: Returns the maximum number of ids the server accepts for batch operations, read from paginated listing responses (`data.maxIds` by default), or `null`. The list uses the lower of this value and `config.maxBatchActionItems` as the limit of "select all".
+
 - **getActionResponseMessage()**: Return the action response message.
 
 - **getActionResponseActionName()**: Return the action name.

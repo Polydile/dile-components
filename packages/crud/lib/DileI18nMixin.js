@@ -9,6 +9,8 @@ export const DileI18nMixin = (superclass) =>
         error_operation: () => '',
         showing_page_size: () => '',
         current_page: () => '',
+        select_limit_exceeded: () => '',
+        action_limit_exceeded: () => '',
       };
     }
   };

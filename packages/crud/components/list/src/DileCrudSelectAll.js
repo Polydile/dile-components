@@ -49,6 +49,15 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
         align-items: center;
         cursor: pointer;
       }
+      .option.disabled {
+        cursor: default;
+        opacity: 0.6;
+      }
+      .limit {
+        margin: 0 0 0.5rem 0;
+        font-size: var(--dile-crud-select-all-limit-font-size, 0.875rem);
+        color: var(--dile-crud-select-all-limit-color, inherit);
+      }
       .option dile-icon {
         --dile-icon-size: var(--dile-crud-select-all-checkbox-size, 1.5rem);
         --dile-icon-color: var(--dile-crud-select-all-overlay-checkbox-color, #303030);
@@ -88,17 +97,7 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
   }
 
   render() {
-    return html`
-      ${this.shouldShowElementSelection(
-          this.maxBatchActionItems, 
-          this.disablePagination, 
-          this.pageSize, 
-          this.numItems
-        ) 
-        ? this.elementTemplate 
-        : ''
-      }
-    `;
+    return this.elementTemplate;
   }
 
   get elementTemplate() {
@@ -111,26 +110,21 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
           <div slot="content" class="content">
             ${this.disablePagination
               ? ''
-              : html`
-                <p class="option" @click=${this.checkPageItems}>
-                  <dile-icon .icon=${this.selectIcon(this.pageChecked)} class="drop"></dile-icon>
-                  <span>
-                    ${this.translations.all_in_page} 
-                    (${this.pageSize > this.numItems ? this.numItems : this.pageSize})
-                  </span>
-                </p>
-              `
+              : this.optionTemplate(
+                  this.translations.all_in_page,
+                  this.pageItemsCount,
+                  this.pageChecked,
+                  this.checkPageItems
+                )
             }
-            ${this.numItems <= this.maxBatchActionItems
-              ? html`
-                <p class="option" @click=${this.checkAllItems}>
-                  <dile-icon .icon=${this.selectIcon(this.allChecked)} class="drop"></dile-icon>
-                  <span>
-                    ${this.translations.select_matching}
-                    (${this.numItems})
-                  </span>
-                </p>
-              `
+            ${this.optionTemplate(
+              this.translations.select_matching,
+              this.numItems,
+              this.allChecked,
+              this.checkAllItems
+            )}
+            ${this.exceedsLimit(this.numItems)
+              ? html`<p class="limit">${this.translations.select_limit_exceeded(this.numItems, this.maxBatchActionItems)}</p>`
               : ''
             }
           </div>
@@ -138,8 +132,24 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
       `;
   }
 
-  shouldShowElementSelection(maxBatchActionItems, disablePagination, pageSize, numItems) {
-    return disablePagination ? maxBatchActionItems >= numItems : maxBatchActionItems >= pageSize;
+  // Options over the limit are shown disabled instead of hidden, so the user knows why
+  // they can't select everything.
+  optionTemplate(label, count, checked, handler) {
+    const disabled = this.exceedsLimit(count);
+    return html`
+      <p class="option ${disabled ? 'disabled' : ''}" aria-disabled=${disabled ? 'true' : 'false'} @click=${disabled ? null : handler}>
+        <dile-icon .icon=${this.selectIcon(checked)} class="drop"></dile-icon>
+        <span>${label} (${count})</span>
+      </p>
+    `;
+  }
+
+  get pageItemsCount() {
+    return this.pageSize > this.numItems ? this.numItems : this.pageSize;
+  }
+
+  exceedsLimit(count) {
+    return Number.isFinite(this.maxBatchActionItems) && count > this.maxBatchActionItems;
   }
 
   selectIcon(checked) {

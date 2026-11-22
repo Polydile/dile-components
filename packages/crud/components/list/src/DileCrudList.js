@@ -89,6 +89,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         pageSize: { type: Number },
         keyword: { type: String },
         isSelectAllActive: { type: Boolean },
+        maxIds: { type: Number },
         sort: { type: Object },
         actionIds: { type: Array },
         filters: { type: Array },
@@ -111,6 +112,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.delayTime = 200;
         this.delayTimer = null;
         this.isSelectAllActive = false;
+        this.maxIds = null;
         this.loading = true;
         this.disableLoadOnStart = false;
         this.listError = null;
@@ -202,7 +204,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         numItems=${this.numItems}
                         ?disablePagination=${this.config.customization?.disablePagination}
                         language="${this.language}"
-                        maxBatchActionItems=${this.config.maxBatchActionItems}
+                        .maxBatchActionItems=${this.batchLimit}
                     ></dile-crud-select-all>
                   `
                 }
@@ -238,7 +240,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                 method="get"
                 url="${this.allIdsUrl}"
                 @ajax-success="${this.doSuccessGetIds}"
-                @ajax-error="${this.doErrorGet}"
+                @ajax-error="${this.doErrorGetIds}"
                 language="${this.language}"
             ></dile-ajax>
         `;
@@ -338,6 +340,22 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
         this.elements = e.detail.elements;
         this.numItems = e.detail.numItems;
         this.paginationData = e.detail.paginationData;
+        this.maxIds = e.detail.maxIds ?? null;
+        this.dispatchEvent(new CustomEvent('crud-list-batch-limit-changed', {
+            bubbles: true,
+            composed: true,
+            detail: { limit: this.batchLimit }
+        }));
+    }
+
+    /**
+     * Maximum number of items a batch action can receive: the lower of
+     * config.maxBatchActionItems and the maxIds sent by the server with the listing.
+     */
+    get batchLimit() {
+        const limits = [this.config?.maxBatchActionItems, this.maxIds]
+            .filter(limit => Number.isFinite(limit));
+        return limits.length ? Math.min(...limits) : undefined;
     }
 
     computeItemId(element) {
@@ -489,6 +507,13 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
             keyword: this.keyword,
             filters: this.filters,
         }
+        // The server applies the same order as the listing, in case it truncates the ids
+        if (this.sort?.sortField) {
+            data.sortField = this.sort.sortField;
+        }
+        if (this.sort?.sortDirection) {
+            data.sortDirection = this.sort.sortDirection;
+        }
         if (this.belongsTo && this.relationId) {
             data.belongsTo = this.belongsTo;
             data.relationId = this.relationId;
@@ -501,7 +526,28 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
 
     doSuccessGetIds(e) {
         this.config.responseAdapter.setResponse(e.detail);
-        this.dispactSelectAll(this.config.responseAdapter.getIds());
+        const ids = this.config.responseAdapter.getIds();
+        // A different number means the list changed (or the server truncated the ids):
+        // selecting them would apply actions to items the user didn't see.
+        if (!Array.isArray(ids) || ids.length !== this.numItems) {
+            this.selectAllFailed(this.translations.select_all_count_changed);
+            this.refresh();
+            return;
+        }
+        this.dispactSelectAll(ids);
+    }
+
+    doErrorGetIds(e) {
+        this.selectAllFailed(e.detail?.message || this.translations.select_all_error);
+    }
+
+    selectAllFailed(msg) {
+        this.shadowRoot.querySelector('dile-crud-select-all')?.reset();
+        this.dispatchEvent(new CustomEvent('crud-select-all-error', {
+            bubbles: true,
+            composed: true,
+            detail: { msg }
+        }));
     }
 
     onItemsCheckboxChanged(e) {

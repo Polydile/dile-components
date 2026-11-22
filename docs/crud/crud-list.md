@@ -44,6 +44,7 @@ Use the component.
 | `pageSize` | `Number` | `10` | The number of items to display per page. Overridden by `config.pageSize.initial` when it is configured. |
 | `keyword` | `String` | `""` | The search keyword used to filter the items in the list. |
 | `isSelectAllActive` | `Boolean` | `false` | Indicates whether the "select all" feature is active. |
+| `maxIds` | `Number` | `null` | Maximum number of ids accepted by the server, taken from the last listing response (`responseAdapter.getMaxIds()`). |
 | `sort` | `Object` | `undefined` | The current sort, as `{ sortField, sortDirection }`. If it is not set before the first render, it is initialized from `config.sort.initialSortField` and `config.sort.initialSortDirection` (default `'desc'`), so the first request is already sorted. This initialization does not dispatch `crud-list-sort-changed`. |
 | `actionIds` | `Array` | `[]` | The IDs of the selected items for batch actions. |
 | `filters` | `Array` | `[]` | The filters applied to the list to refine the displayed items. |
@@ -63,7 +64,11 @@ Use the component.
 - **setPageSize(size)**: Change the page size, on paginated lists.
 - **setFilters(filters)**: Set the filters of the list element.
 - **getPageIds()**: Get the ids of the selected elements.
-- **getAllIds()**: Get the ids of all elements in the resource. This method will make a request to the web service. When the response is recived the component will execute the `doSuccessGetIds(e)` method, wich select all ids of the list element.
+- **getAllIds()**: Get the ids of all elements in the resource. This method will make a request to the web service with the keyword, filters, sort and `belongsTo`/`relationId` of the list. When the response is received the component executes `doSuccessGetIds(e)`, which selects the ids only if their number matches the number of items of the listing. Otherwise the list changed in the meantime (or the server truncated the ids), so it selects nothing, dispatches `crud-select-all-error` and refreshes the list.
+
+### Getters
+
+- **batchLimit**: The lower of `config.maxBatchActionItems` and `maxIds`, or `undefined` when neither is set. It is the limit used by the "select all" menu and by `dile-crud-actions`.
 
 ### Events
 
@@ -72,7 +77,9 @@ Use the component.
 - **crud-item-edit**: This event is dispatched when the user clicks on the edit icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be edited.
 - **crud-item-delete**: This event is dispatched when the user clicks on the delete icon for an item in the list. The event detail includes a property called `itemId`, which contains the identifier of the item to be deleted.
 - **crud-list-all-ids-selected**: This event is dispatched when one of the controls for selecting multiple items has been activated (either all items on a page or all items in the resource). The event detail contains the list of selected IDs.
-- **crud-list-get-success**: This event is dispatched when the list component has received a set of records from the API server that it will display.
+- **crud-list-get-success**: This event is dispatched when the list component has received a set of records from the API server that it will display. The detail includes `elements`, `numItems`, `maxIds` and `paginationData`.
+- **crud-list-batch-limit-changed**: Dispatched after each listing response, with `{ limit }` (the `batchLimit` getter). `dile-crud` uses it to pass the limit to `dile-crud-actions`.
+- **crud-select-all-error**: Dispatched when "select all matching" fails, with `{ msg }`: the server rejected the request (for example, more items than its limit) or returned a different number of ids than the listing. Listen to it to show the message to the user, as with `crud-action-error`.
 - **crud-list-sort-changed**: This event is dispatched every time `setSort()` is called, whether from a grid column header, the `dile-crud-sort-form` control, or programmatically. The event detail is `{ sortField, sortDirection }`. `dile-crud` listens for this to keep `dile-crud-sort-form` in sync with sorting done from a DataGrid.
 - **crud-pagination-prev**: Dispatched when the previous page button is clicked.
 - **crud-pagination-next**: Dispatched when the next page button is clicked.

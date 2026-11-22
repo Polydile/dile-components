@@ -16,6 +16,8 @@ Normally, you don't need to use this component on its own, as it is used interna
 
 - **fullWidth**: Boolean, reflected as the `full-width` attribute. When `true`, the "Actions" button that opens the batch actions menu takes the full available width and always shows its label (also on small screens, where the icon-only version is used otherwise). `dile-crud-single` enables it automatically in the `sidebar` layout. Default: `false`.
 
+- **maxItems**: Number. Maximum number of selected items an action accepts. When `actionIds` has more, the actions menu shows a warning and the run button is disabled. `dile-crud` sets it from the list's `batchLimit`. Default: `undefined` (no limit).
+
 ### Custom Events
 
 - **crud-action-requested**: This custom event is dispatched when the user requests to open an action form. It fires when clicking on the "Run action" button. The event detail includes the following data:
