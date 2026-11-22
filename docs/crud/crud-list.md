@@ -70,6 +70,10 @@ Use the component.
 
 - **batchLimit**: The lower of `config.maxBatchActionItems` and `maxIds`, or `undefined` when neither is set. It is the limit used by the "select all" menu and by `dile-crud-actions`.
 
+### Select all menu
+
+The "select all" menu offers to select the items of the current page or all matching items. When there are selected items (`actionIds`), including items checked one by one, its "Clear selection" option shows their count and empties the selection. The option is always visible, disabled while nothing is selected.
+
 ### Events
 
 - **insert-requested**: This event is dispatched when the list component requests to open the insertion form. This can happen when there are no items in the list, either because the resource is empty or the filtering yields no results, in which case a button may appear to insert new items.
@@ -113,6 +117,10 @@ Custom property | Description | Default
 --dile-crud-select-all-checkbox-color | Checkbox icon color in select all button | #303030
 --dile-crud-select-all-checkbox-size | Checkbox icon size in select all | 1.5rem
 --dile-crud-select-all-overlay-checkbox-color | Checkbox icon color in select all overlay menu | #303030
+--dile-crud-select-all-overlay-checkbox-disabled-color | Icon color of the disabled options in select all overlay menu | #c0c0c0
+--dile-crud-select-all-limit-font-size | Font size of the message below an option over the limit in select all overlay menu | 0.8rem
+--dile-crud-select-all-limit-color | Color of the message below an option over the limit in select all overlay menu | inherit
+--dile-crud-select-all-separator-color | Color of the line above the "Clear selection" option in select all overlay menu | #ddd
 --dile-crud-data-grid-margin-top | Data grid component margin top | 0.25rem
 --dile-crud-list-options-font-size | Font size of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-size` or `1rem`
 --dile-crud-list-options-font-weight | Font weight of list options buttons (Filters, Page, Order, Grid view, Select all) | Inherits from `--dile-button-font-weight` or `bold`

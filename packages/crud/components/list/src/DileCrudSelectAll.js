@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '@dile/ui/components/button/button-icon.js';
-import { checkboxBlankIcon, arrowDropDownIcon, checkboxCheckedIcon } from '@dile/icons';
+import { checkboxBlankIcon, arrowDropDownIcon, checkboxCheckedIcon, closeIcon } from '@dile/icons';
 import '@dile/ui/components/icon/icon.js';
 import '@dile/ui/components/menu-overlay/menu-overlay.js';
 import { DileI18nMixin } from '../../../lib/DileI18nMixin.js';
@@ -44,19 +44,45 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
         padding: 0.5rem;
         font-size: 1rem;
       } 
+      /* Same space between options as between the separator line and the text of .clear */
       .option {
         display: flex;
         align-items: center;
         cursor: pointer;
+        margin: 0.75rem 0;
       }
       .option.disabled {
         cursor: default;
+      }
+      /* With the limit message below the label, the icon stays next to the first line */
+      .option.has-limit {
+        align-items: flex-start;
+      }
+      .option.disabled .label {
         opacity: 0.6;
       }
+      .option.disabled dile-icon {
+        --dile-icon-color: var(--dile-crud-select-all-overlay-checkbox-disabled-color, #c0c0c0);
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+      }
       .limit {
-        margin: 0 0 0.5rem 0;
-        font-size: var(--dile-crud-select-all-limit-font-size, 0.875rem);
+        margin-top: 0.125rem;
+        font-size: var(--dile-crud-select-all-limit-font-size, 0.8rem);
+        line-height: 1.25;
         color: var(--dile-crud-select-all-limit-color, inherit);
+      }
+      /* The same space above the first option as below the last one (.clear) */
+      .option:first-child {
+        margin-top: 0.25rem;
+      }
+      /* The bottom margin plus the padding of .content matches the space above the text */
+      .clear {
+        border-top: 1px solid var(--dile-crud-select-all-separator-color, #ddd);
+        padding-top: 0.75rem;
+        margin-bottom: 0.25rem;
       }
       .option dile-icon {
         --dile-icon-size: var(--dile-crud-select-all-checkbox-size, 1.5rem);
@@ -87,6 +113,7 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
       numItems: { type: Number },
       disablePagination: { type: Boolean },
       maxBatchActionItems: { type: Number },
+      selectedCount: { type: Number },
     };
   }
 
@@ -94,6 +121,7 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
     super();
     this.checked = false;
     this.disablePagination = false;
+    this.selectedCount = 0;
   }
 
   render() {
@@ -114,32 +142,53 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
                   this.translations.all_in_page,
                   this.pageItemsCount,
                   this.pageChecked,
-                  this.checkPageItems
+                  this.checkPageItems,
+                  this.translations.select_page_limit_exceeded
                 )
             }
             ${this.optionTemplate(
               this.translations.select_matching,
               this.numItems,
               this.allChecked,
-              this.checkAllItems
+              this.checkAllItems,
+              this.translations.select_matching_limit_exceeded
             )}
-            ${this.exceedsLimit(this.numItems)
-              ? html`<p class="limit">${this.translations.select_limit_exceeded(this.numItems, this.maxBatchActionItems)}</p>`
-              : ''
-            }
+            ${this.clearSelectionTemplate}
           </div>
         </dile-menu-overlay>
       `;
   }
 
-  // Options over the limit are shown disabled instead of hidden, so the user knows why
-  // they can't select everything.
-  optionTemplate(label, count, checked, handler) {
+  // Options over the limit are shown disabled instead of hidden, with the reason just below
+  // their label, so the user knows why they can't select those items.
+  optionTemplate(label, count, checked, handler, limitMessage) {
     const disabled = this.exceedsLimit(count);
     return html`
-      <p class="option ${disabled ? 'disabled' : ''}" aria-disabled=${disabled ? 'true' : 'false'} @click=${disabled ? null : handler}>
+      <p class="option ${disabled ? 'disabled has-limit' : ''}" aria-disabled=${disabled ? 'true' : 'false'} @click=${disabled ? null : handler}>
         <dile-icon .icon=${this.selectIcon(checked)} class="drop"></dile-icon>
-        <span>${label} (${count})</span>
+        <span class="text">
+          <span class="label">${label} (${count})</span>
+          ${disabled
+            ? html`<span class="limit">${limitMessage(this.maxBatchActionItems)}</span>`
+            : ''
+          }
+        </span>
+      </p>
+    `;
+  }
+
+  // Always visible so the user knows it exists, disabled while nothing is selected.
+  get clearSelectionTemplate() {
+    const disabled = !(this.selectedCount > 0);
+    return html`
+      <p
+        class="option clear ${disabled ? 'disabled' : ''}"
+        role="button"
+        aria-disabled=${disabled ? 'true' : 'false'}
+        @click=${disabled ? null : this.clearSelection}
+      >
+        <dile-icon .icon=${closeIcon} class="drop"></dile-icon>
+        <span class="label">${this.translations.clear_selection}${disabled ? '' : ` (${this.selectedCount})`}</span>
       </p>
     `;
   }
@@ -191,6 +240,12 @@ export class DileCrudSelectAll  extends DileI18nMixin(LitElement) {
         allChecked: this.allChecked,
       }
     }));
+  }
+
+  // Unchecking both options makes dile-crud-list empty the selection, including the items
+  // checked one by one.
+  clearSelection() {
+    this.reset();
   }
 
   reset() {

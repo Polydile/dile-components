@@ -205,6 +205,7 @@ export class DileCrudList extends DileI18nMixin(DileLoading(LitElement)) {
                         ?disablePagination=${this.config.customization?.disablePagination}
                         language="${this.language}"
                         .maxBatchActionItems=${this.batchLimit}
+                        .selectedCount=${this.actionIds.length}
                     ></dile-crud-select-all>
                   `
                 }

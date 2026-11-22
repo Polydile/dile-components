@@ -626,4 +626,19 @@ describe('dile-crud-list select all', () => {
 
     expect(error).toBe('The number of items (120) exceeds the maximum allowed (100).');
   });
+
+  it('empties the selection, including items checked one by one, from the select all menu', async () => {
+    const el = await createList();
+    el.actionIds = [1, 2];
+    await el.updateComplete;
+    const selectAll = el.shadowRoot.querySelector('dile-crud-select-all');
+    await selectAll.updateComplete;
+    expect(selectAll.selectedCount).toBe(2);
+    let ids = null;
+    el.addEventListener('crud-list-all-ids-selected', (e) => { ids = e.detail.ids; });
+
+    selectAll.shadowRoot.querySelector('.clear').click();
+
+    expect(ids).toEqual([]);
+  });
 });
