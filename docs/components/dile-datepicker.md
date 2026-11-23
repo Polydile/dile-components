@@ -3,15 +3,13 @@ title: Datepicker
 package: '@dile/utils'
 element: '&lt;dile-datepicker&gt;'
 status: stable
-summary: Date input component with integrated calendar picker. Based on lion-calendar with automatic localization and calendar navigation.
+summary: Localized date input with an integrated calendar, direct year selection, and keyboard-accessible navigation.
 tags: forms
 ---
 
 # dile-datepicker
 
-Web Component to create a input date form element with a datepicker, based on the [lion-calendar](https://lion-web.netlify.app/components/calendar/overview/) component and [dile-input-icon](/components/dile-input-icon) element.
-
-> The @lion calendar has more options not implemented yet in this component. However, this component works good for the main use cases. We are accepting contributors ;)
+Web Component to create an input date form element with a datepicker, based on the [lion-calendar](https://lion-web.netlify.app/components/calendar/overview/) component and [dile-input-icon](/components/dile-input-icon) element.
 
 ## Installation
 
@@ -46,6 +44,10 @@ Supports many languages, for example:
 ```html
 <html lang="es">
 ```
+
+## Choosing a year
+
+Select the year shown in the calendar header to enter a year directly. Press **Enter** or leave the field to apply a valid year while keeping the current month; press **Escape** to cancel. An invalid year keeps the editor open so it can be corrected. The calendar supports dates from year 1, so this is useful for dates of birth and other dates far in the past.
 
 ## Properties
 
@@ -96,7 +98,7 @@ Custom property | Description | Default
 --dile-calendar-out-day-text-color | Color customization for days that aren't in the current month | #777
 --dile-calendar-nav-buttons-color | Color for the links to previous/next month and year | #303030
 --dile-calendar-day-size | Size of the calendar day square | Depends on the window size (responsive) from 28px to 36px 
---dile-calendar-navigation-justify-content | Year and month navigation justify content on a flex container | space-between
+--dile-calendar-navigation-justify-content | Alignment of the year and month navigation groups | space-between
 --dile-calendar-navigation-text-size | Year and month navigation font size when window size is more than 400px | 1.1rem
 
 ## Datepicker demos
@@ -104,6 +106,9 @@ Custom property | Description | Default
 ## Datepicker with custom trigger background & hover
 
 ```html:preview
+<script type="module">
+  import '@dile/utils/components/datepicker/datepicker.js';
+</script>
 <style>
   .custom-trigger-bg {
     --dile-datepicker-trigger-color: #4338ca;
@@ -125,6 +130,14 @@ Custom property | Description | Default
 
 ```html:preview
 <dile-datepicker firstDayOfWeek="1" name="datepicker3" id="datepicker3" label="Event date">Styled datepicker</dile-datepicker>
+```
+
+## Date of birth
+
+Click the year in the calendar header and type the desired year. Press **Enter** or leave the field to jump directly to it.
+
+```html:preview
+<dile-datepicker name="birthdate" label="Date of birth"></dile-datepicker>
 ```
 
 ## Disabled datepicker

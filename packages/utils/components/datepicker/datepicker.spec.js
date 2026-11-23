@@ -39,6 +39,37 @@ describe('dile-datepicker', () => {
     expect(menu._overlayClass).toBe('');
   });
 
+  it('jumps to and selects a date before 1970 through the datepicker', async () => {
+    const el = await renderDatepicker('<dile-datepicker name="birthdate"></dile-datepicker>');
+    const calendar = el.shadowRoot.querySelector('dile-calendar');
+    calendar.centralDate = new Date(2026, 0, 15);
+    await calendar.updateComplete;
+
+    calendar.shadowRoot.querySelector('.year-picker-trigger').click();
+    await calendar.updateComplete;
+    const yearInput = calendar.shadowRoot.querySelector('.year-picker-input');
+    yearInput.value = '1940';
+    yearInput.dispatchEvent(new KeyboardEvent('keydown', {
+      key: 'Enter',
+      bubbles: true,
+    }));
+    await calendar.updateComplete;
+    await calendar.updateComplete;
+
+    expect(el.value).toBe('');
+    expect(calendar.centralDate.getFullYear()).toBe(1940);
+
+    const dayButton = [...calendar.shadowRoot.querySelectorAll('.calendar__day-button')]
+      .find(button => button.date.getFullYear() === 1940
+        && button.date.getMonth() === 0
+        && button.date.getDate() === 15);
+    dayButton.click();
+    await el.updateComplete;
+
+    expect(el.value).toBe(formatDate(new Date(1940, 0, 15)));
+    expect(el.opened).toBe(false);
+  });
+
   it('passes firstDayOfWeek to the dile-calendar child', async () => {
     const el = await renderDatepicker('<dile-datepicker name="birthdate" firstDayOfWeek="1"></dile-datepicker>');
     await el.updateComplete;
