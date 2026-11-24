@@ -80,6 +80,7 @@ export class DileMenuOverlay extends DileOverlay(DileCloseDocumentClick(LitEleme
         class="${this._overlayClass}"
         ?inert="${!this._overlayClass && !this._opening}"
         @click="${this.clickHandler}"
+        @keydown="${this._onOverlayKeydown}"
       >
         <slot name="content"></slot>
       </div>
@@ -105,6 +106,22 @@ export class DileMenuOverlay extends DileOverlay(DileCloseDocumentClick(LitEleme
     if (e.key !== 'Escape' || this._overlayClass !== 'opened') {
       return;
     }
+    // A key pressed inside the menu is handled when it bubbles up to the overlay,
+    // so the content can consume it first by calling preventDefault().
+    if (e.composedPath().includes(this.overlay)) {
+      return;
+    }
+    this._closeOnEsc(e);
+  }
+
+  _onOverlayKeydown(e) {
+    if (e.key !== 'Escape' || this._overlayClass !== 'opened' || e.defaultPrevented) {
+      return;
+    }
+    this._closeOnEsc(e);
+  }
+
+  _closeOnEsc(e) {
     // Only the menu closes: a modal or drawer that contains it stays opened until the next Escape.
     e.stopPropagation();
     this.close();

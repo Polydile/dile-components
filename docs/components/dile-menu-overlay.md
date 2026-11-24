@@ -96,7 +96,7 @@ Custom property | Description | Default
 
 ## Accessibility
 
-- **Escape** closes the opened menu, wherever the focus is. If the focus is inside the menu, it returns to the element that had it before opening. Inside a modal or a drawer, the first Escape only closes the menu.
+- **Escape** closes the opened menu, wherever the focus is. If the focus is inside the menu, it returns to the element that had it before opening. Inside a modal or a drawer, the first Escape only closes the menu. When the focus is inside the menu, its content can handle Escape first: if it calls `preventDefault()` on the `keydown` event, the menu stays opened.
 - While the menu is closed, its content is `inert`, so it is out of the tab sequence, also during the closing animation.
 - The component doesn't add semantics to your trigger. To be able to open the menu with the keyboard, use a focusable element, like a `<button>`, and add the `aria-haspopup` and `aria-expanded` attributes you need.
 

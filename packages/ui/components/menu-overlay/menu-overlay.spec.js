@@ -100,6 +100,23 @@ describe('dile-menu-overlay', () => {
       expect(document.activeElement).toBe(other);
     });
 
+    it('stays opened when its content consumes Escape with preventDefault()', async () => {
+      const el = await renderMenuOverlay(markup);
+      const option = document.getElementById('option');
+      option.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') e.preventDefault();
+      }, { once: true });
+
+      el.open();
+      await wait(100);
+      option.focus();
+      await userEvent.keyboard('{Escape}');
+      expect(isOpened(el)).toBe(true);
+
+      await userEvent.keyboard('{Escape}');
+      expect(isOpened(el)).toBe(false);
+    });
+
     it('lets the Escape key through when it is closed', async () => {
       await renderMenuOverlay(markup);
       let received = 0;
