@@ -71,6 +71,14 @@ There is no requirement to have tests for every component in the catalog. Instea
 - Plain unit tests for framework-agnostic helper functions (e.g. `packages/crud/lib/image/*.test.js`, `packages/ui/lib/otp/*.test.js`) continue to use Node's built-in `node:test` runner and are unaffected by this setup.
 - Run component tests with `npm run test:components` (or `npm run test:components:watch` while iterating). See `packages/ui/components/button/button.spec.js` for a reference example.
 
+## Backlog
+
+Pending work for the future lives in the `backlog/` directory, one Markdown file per topic, grouped by folder (see `backlog/README.md`): `component-ideas/`, `accessibility/`, `architecture/`...
+
+- **Write backlog items in English.**
+- Add enough context (problem, affected files, constraints, references) for a new agent to pick up the item without the original conversation.
+- When an item is resolved, delete its file in the same change that implements it.
+
 ## AI Agent workflow
 
 When using AI agents for development tasks:
