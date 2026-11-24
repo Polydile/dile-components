@@ -22,6 +22,39 @@ describe('dile-datetimepicker', () => {
     expect(el.shadowRoot.querySelector('dile-time-picker')).toBeTruthy();
   });
 
+  it('passes minDate, maxDate and disableDates to the dile-calendar child', async () => {
+    const el = await renderDatetimepicker('<dile-datetimepicker minDate="2024-03-10" maxDate="2024-03-20"></dile-datetimepicker>');
+    const disableDates = () => false;
+    el.disableDates = disableDates;
+    await el.updateComplete;
+    const calendar = el.shadowRoot.querySelector('dile-calendar');
+    expect(calendar.minDate.getDate()).toBe(10);
+    expect(calendar.maxDate.getDate()).toBe(20);
+    expect(calendar.disableDates).toBe(disableDates);
+  });
+
+  it('marks the date of its value in the calendar when opened', async () => {
+    const el = await renderDatetimepicker('<dile-datetimepicker value="2024-03-15 10:30:00"></dile-datetimepicker>');
+    el.openDatepicker();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    const calendar = el.shadowRoot.querySelector('dile-calendar');
+    expect(calendar.selectedDate.getFullYear()).toBe(2024);
+    expect(calendar.selectedDate.getMonth()).toBe(2);
+    expect(calendar.selectedDate.getDate()).toBe(15);
+  });
+
+  it('validates the date of its value without rewriting it', async () => {
+    const el = await renderDatetimepicker('<dile-datetimepicker validateDate maxDate="2024-03-10"></dile-datetimepicker>');
+    const input = el.shadowRoot.querySelector('input');
+    input.value = '2024-03-15 10:30:00';
+    input.dispatchEvent(new Event('input'));
+    input.dispatchEvent(new FocusEvent('blur'));
+    await el.updateComplete;
+    expect(el.errored).toBe(true);
+    expect(el.getDateValidation().reason).toBe('afterMax');
+    expect(el.value).toBe('2024-03-15 10:30:00');
+  });
+
   it('renders an accessible accept button with aria-label and type="button"', async () => {
     const el = await renderDatetimepicker('<dile-datetimepicker name="appointment" acceptLabel="Confirm selection"></dile-datetimepicker>');
     const acceptBtn = el.shadowRoot.querySelector('.accept-button');

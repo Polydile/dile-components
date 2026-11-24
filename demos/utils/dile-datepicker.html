@@ -79,11 +79,26 @@
       <dile-datepicker firstDayOfWeek="1" name="datepicker3" id="datepicker3" label="Event date">Styled datepicker</dile-datepicker>
     </p>
 
-    <h2>Date of birth with direct year selection</h2>
+    <h2>Date of birth with month and year selection</h2>
     <p>
-      <dile-datepicker name="birthdate" id="birthdate" label="Date of birth"></dile-datepicker>
+      <dile-datepicker name="birthdate" id="birthdate" label="Date of birth" minYear="1900" maxYear="2026"></dile-datepicker>
     </p>
-    <p>Open the calendar, select the year in its header, and type a year to jump directly to it.</p>
+    <p>Open the calendar and select the month or the year in its header to choose them by scrolling. Years are limited from 1900 to 2026.</p>
+
+    <h2>Another language and narrow weekdays</h2>
+    <p>
+      <dile-datepicker name="spanishdate" id="spanishdate" label="Fecha de nacimiento" locale="es-ES" firstDayOfWeek="1" weekdayHeaderNotation="narrow" validateDate></dile-datepicker>
+    </p>
+    <p>Uses <code>locale="es-ES"</code> (value as DD/MM/YYYY) and <code>weekdayHeaderNotation="narrow"</code>.</p>
+
+    <h2>Limited dates</h2>
+    <p>
+      <dile-datepicker name="workingday" id="workingday" label="Working day of 2026" minDate="2026-01-01" maxDate="2026-12-31" validateDate></dile-datepicker>
+    </p>
+    <p>Only the dates of 2026 can be selected, and weekends are disabled with <code>disableDates</code>. With <code>validateDate</code>, a date typed by hand is checked when leaving the field.</p>
+    <script type="module">
+      document.getElementById('workingday').disableDates = (date) => date.getDay() === 0 || date.getDay() === 6;
+    </script>
 
     <h2>Disabled datepicker</h2>
     <p>

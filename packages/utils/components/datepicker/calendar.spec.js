@@ -65,105 +65,186 @@ describe('dile-calendar', () => {
     expect(unfocusableDays.length).toBeGreaterThan(0);
   });
 
-  it('jumps to a typed year and allows selecting a date before 1970', async () => {
+  async function openMonthYear(el, column = 'year') {
+    el.shadowRoot.querySelector(`.calendar__navigation-toggle--${column}`).click();
+    await el.updateComplete;
+    const monthWheel = el.shadowRoot.querySelector('.month-wheel');
+    const yearWheel = el.shadowRoot.querySelector('.year-wheel');
+    await monthWheel?.updateComplete;
+    await yearWheel?.updateComplete;
+    return { monthWheel, yearWheel };
+  }
+
+  function chooseWheelValue(wheel, value) {
+    const option = [...wheel.shadowRoot.querySelectorAll('[role="option"]')]
+      .find(o => o.textContent.trim() === String(value));
+    option.click();
+  }
+
+  function keydown(target, key) {
+    target.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, composed: true }));
+  }
+
+  it('opens the month and year layer from the header and hides the days', async () => {
     const el = await renderCalendar('<dile-calendar></dile-calendar>');
     el.centralDate = new Date(2026, 0, 15);
     await el.updateComplete;
 
-    el.shadowRoot.querySelector('.year-picker-trigger').click();
-    await el.updateComplete;
-    const yearInput = el.shadowRoot.querySelector('.year-picker-input');
-    expect(yearInput).toBeTruthy();
-    expect(yearInput.getAttribute('aria-label')).toBeTruthy();
+    const yearToggle = el.shadowRoot.querySelector('.calendar__navigation-toggle--year');
+    expect(yearToggle.textContent.trim()).toBe('2026');
+    expect(yearToggle.getAttribute('aria-expanded')).toBe('false');
+    expect(el.shadowRoot.querySelector('.month-year-layer')).toBeNull();
 
-    yearInput.value = '1940';
-    let selectionEvents = 0;
-    el.addEventListener('user-selected-date-changed', () => selectionEvents++);
-    yearInput.dispatchEvent(new KeyboardEvent('keydown', {
-      key: 'Enter',
-      bubbles: true,
-    }));
+    const { monthWheel, yearWheel } = await openMonthYear(el);
+    expect(el.monthYearPickerOpened).toBe(true);
+    expect(yearToggle.getAttribute('aria-expanded')).toBe('true');
+    expect(monthWheel.items).toHaveLength(12);
+    expect(monthWheel.value).toBe(0);
+    expect(yearWheel.value).toBe(2026);
+    expect(el.shadowRoot.activeElement).toBe(yearWheel);
+    expect(getComputedStyle(el.shadowRoot.getElementById('js-content-wrapper')).visibility).toBe('hidden');
+
+    yearToggle.click();
     await el.updateComplete;
+    expect(el.monthYearPickerOpened).toBe(false);
+    expect(el.shadowRoot.querySelector('.month-year-layer')).toBeNull();
+  });
+
+  it('changes month and year from the wheels and allows selecting a date before 1970', async () => {
+    const el = await renderCalendar('<dile-calendar></dile-calendar>');
+    el.centralDate = new Date(2026, 0, 15);
+    await el.updateComplete;
+    let selectionEvents = 0;
+    let wheelEventsOutside = 0;
+    el.addEventListener('user-selected-date-changed', () => selectionEvents++);
+    el.addEventListener('dile-wheel-picker-changed', () => wheelEventsOutside++);
+    el.addEventListener('element-changed', () => wheelEventsOutside++);
+
+    const { monthWheel, yearWheel } = await openMonthYear(el);
+    chooseWheelValue(yearWheel, 1940);
+    await el.updateComplete;
+    chooseWheelValue(monthWheel, monthWheel.items[4].label);
     await el.updateComplete;
 
     expect(el.centralDate.getFullYear()).toBe(1940);
-    expect(el.centralDate.getMonth()).toBe(0);
-    const yearTrigger = el.shadowRoot.querySelector('.year-picker-trigger');
-    expect(yearTrigger.textContent.trim()).toBe('1940');
-    expect(el.shadowRoot.activeElement).toBe(yearTrigger);
+    expect(el.centralDate.getMonth()).toBe(4);
+    expect(el.centralDate.getDate()).toBe(15);
     expect(el.selectedDate).toBeUndefined();
-
-    yearTrigger.dispatchEvent(new KeyboardEvent('keyup', {
-      key: 'Enter',
-      bubbles: true,
-      composed: true,
-    }));
-    await el.updateComplete;
-
     expect(selectionEvents).toBe(0);
+    expect(wheelEventsOutside).toBe(0);
+
+    keydown(yearWheel, 'Enter');
+    await el.updateComplete;
+    expect(el.monthYearPickerOpened).toBe(false);
+    expect(el.shadowRoot.activeElement).toBe(el.shadowRoot.querySelector('.calendar__navigation-toggle--year'));
 
     const dayButton = [...el.shadowRoot.querySelectorAll('.calendar__day-button')]
       .find(button => button.date.getFullYear() === 1940
-        && button.date.getMonth() === 0
+        && button.date.getMonth() === 4
         && button.date.getDate() === 15);
-    expect(dayButton.getAttribute('aria-disabled')).toBe('false');
-
     dayButton.click();
     await el.updateComplete;
     expect(el.selectedDate.getFullYear()).toBe(1940);
   });
 
-  it('cancels the year editor with Escape without changing the displayed year', async () => {
+  it('keeps the day valid when the new month is shorter', async () => {
     const el = await renderCalendar('<dile-calendar></dile-calendar>');
-    el.centralDate = new Date(2026, 0, 15);
+    el.centralDate = new Date(2024, 0, 31);
     await el.updateComplete;
 
-    el.shadowRoot.querySelector('.year-picker-trigger').click();
-    await el.updateComplete;
-    const yearInput = el.shadowRoot.querySelector('.year-picker-input');
-    yearInput.value = '1940';
-    yearInput.dispatchEvent(new KeyboardEvent('keydown', {
-      key: 'Escape',
-      bubbles: true,
-    }));
+    const { monthWheel } = await openMonthYear(el, 'month');
+    expect(el.shadowRoot.activeElement).toBe(monthWheel);
+    chooseWheelValue(monthWheel, monthWheel.items[1].label);
     await el.updateComplete;
 
-    expect(el.centralDate.getFullYear()).toBe(2026);
-    expect(el.shadowRoot.querySelector('.year-picker-input')).toBeNull();
-    expect(el.shadowRoot.querySelector('.year-picker-trigger').textContent.trim()).toBe('2026');
+    expect(el.centralDate.getMonth()).toBe(1);
+    expect(el.centralDate.getDate()).toBe(29);
   });
 
-  it('applies a valid year when the editor loses focus', async () => {
+  it('closes the layer with the accept button', async () => {
     const el = await renderCalendar('<dile-calendar></dile-calendar>');
     el.centralDate = new Date(2026, 0, 15);
     await el.updateComplete;
 
-    el.shadowRoot.querySelector('.year-picker-trigger').click();
-    await el.updateComplete;
-    const yearInput = el.shadowRoot.querySelector('.year-picker-input');
-    yearInput.value = '1940';
-    yearInput.blur();
+    const { yearWheel } = await openMonthYear(el);
+    chooseWheelValue(yearWheel, 2000);
     await el.updateComplete;
 
-    expect(el.centralDate.getFullYear()).toBe(1940);
-    expect(el.centralDate.getMonth()).toBe(0);
-    expect(el.shadowRoot.querySelector('.year-picker-input')).toBeNull();
+    const accept = el.shadowRoot.querySelector('.month-year-accept');
+    expect(accept.getAttribute('aria-label')).toBe('OK');
+    accept.click();
+    await el.updateComplete;
+
+    expect(el.monthYearPickerOpened).toBe(false);
+    expect(el.centralDate.getFullYear()).toBe(2000);
+    expect(el.shadowRoot.activeElement).toBe(el.shadowRoot.querySelector('.calendar__navigation-toggle--year'));
   });
 
-  it('keeps the year editor open when it loses focus with an invalid value', async () => {
+  it('closes the layer with Escape without propagating the key', async () => {
     const el = await renderCalendar('<dile-calendar></dile-calendar>');
+    let escapesOutside = 0;
+    window.addEventListener('keydown', function listener(e) {
+      if (e.key === 'Escape') escapesOutside++;
+    }, { once: true });
+
+    const { monthWheel } = await openMonthYear(el, 'month');
+    keydown(monthWheel, 'Escape');
+    await el.updateComplete;
+
+    expect(el.monthYearPickerOpened).toBe(false);
+    expect(escapesOutside).toBe(0);
+    expect(el.shadowRoot.activeElement).toBe(el.shadowRoot.querySelector('.calendar__navigation-toggle--month'));
+  });
+
+  it('limits the years with minYear, maxYear, minDate and maxDate', async () => {
+    const el = await renderCalendar('<dile-calendar min-year="1900"></dile-calendar>');
+    el.minYear = 1990;
+    el.maxYear = 2030;
     el.centralDate = new Date(2026, 0, 15);
     await el.updateComplete;
 
-    el.shadowRoot.querySelector('.year-picker-trigger').click();
+    let { yearWheel } = await openMonthYear(el);
+    expect(yearWheel.items[0]).toBe(1990);
+    expect(yearWheel.items.at(-1)).toBe(2030);
+
+    el.minDate = new Date(2000, 5, 10);
+    el.maxDate = new Date(2027, 2, 1);
     await el.updateComplete;
-    const yearInput = el.shadowRoot.querySelector('.year-picker-input');
-    yearInput.value = '';
-    yearInput.blur();
+    await yearWheel.updateComplete;
+    expect(yearWheel.items[0]).toBe(2000);
+    expect(yearWheel.items.at(-1)).toBe(2027);
+
+    chooseWheelValue(yearWheel, 2000);
+    await el.updateComplete;
+    const monthWheel = el.shadowRoot.querySelector('.month-wheel');
+    await monthWheel.updateComplete;
+    expect(monthWheel.items[4].disabled).toBe(true);
+    expect(monthWheel.items[5].disabled).toBe(false);
+    expect(el.centralDate >= el.minDate).toBe(true);
+  });
+
+  it('enables the days of years before 1901', async () => {
+    const el = await renderCalendar('<dile-calendar></dile-calendar>');
+    el.centralDate = new Date(1850, 11, 15);
     await el.updateComplete;
 
-    expect(el.centralDate.getFullYear()).toBe(2026);
-    expect(el.shadowRoot.querySelector('.year-picker-input')).toBe(yearInput);
+    const currentMonthDays = [...el.shadowRoot.querySelectorAll('.calendar__day-button')]
+      .filter(button => button.date.getFullYear() === 1850 && button.date.getMonth() === 11);
+    expect(currentMonthDays).toHaveLength(31);
+    expect(currentMonthDays.every(button => button.getAttribute('aria-disabled') === 'false')).toBe(true);
+
+    currentMonthDays[14].click();
+    await el.updateComplete;
+    expect(el.selectedDate.getFullYear()).toBe(1850);
+    expect(el.selectedDate.getDate()).toBe(15);
+  });
+
+  it('uses a range of 100 years around the current year by default', async () => {
+    const el = await renderCalendar('<dile-calendar></dile-calendar>');
+    const { yearWheel } = await openMonthYear(el);
+    const currentYear = new Date().getFullYear();
+    expect(yearWheel.items[0]).toBe(currentYear - 100);
+    expect(yearWheel.items.at(-1)).toBe(currentYear + 100);
   });
 
   it('navigates days with keyboard arrow keys', async () => {
@@ -256,10 +337,10 @@ describe('dile-calendar', () => {
 
     const yearNavigation = el.shadowRoot.querySelector('.calendar__navigation__year');
     expect(getComputedStyle(yearNavigation).display).toBe('flex');
-    const yearTrigger = el.shadowRoot.querySelector('.year-picker-trigger').getBoundingClientRect();
-    const monthHeading = el.shadowRoot.querySelector('.calendar__navigation__month h2').getBoundingClientRect();
-    expect(Math.abs((yearTrigger.top + yearTrigger.bottom) / 2
-      - (monthHeading.top + monthHeading.bottom) / 2)).toBeLessThan(1);
+    const yearToggle = el.shadowRoot.querySelector('.calendar__navigation-toggle--year').getBoundingClientRect();
+    const monthToggle = el.shadowRoot.querySelector('.calendar__navigation-toggle--month').getBoundingClientRect();
+    expect(Math.abs((yearToggle.top + yearToggle.bottom) / 2
+      - (monthToggle.top + monthToggle.bottom) / 2)).toBeLessThan(1);
 
     yearNavigation.querySelector('.calendar__previous-button').click();
     await el.updateComplete;

@@ -98,6 +98,13 @@ export class DileDatetimepicker extends DileDatepicker {
         <dile-calendar 
           class="demo-calendar"
           .firstDayOfWeek="${this.firstDayOfWeek}"
+          .weekdayHeaderNotation="${this.weekdayHeaderNotation}"
+          .locale="${this.locale}"
+          .minYear="${this.minYear}"
+          .maxYear="${this.maxYear}"
+          .minDate="${this._calendarMinDate}"
+          .maxDate="${this._calendarMaxDate}"
+          .disableDates="${this.disableDates}"
           @user-selected-date-changed=${this.showDateHandler} 
         ></dile-calendar>
         <div class="time-area">
@@ -134,7 +141,21 @@ export class DileDatetimepicker extends DileDatepicker {
     let date = formatToIsoOnlyDate(selectedDate);
     let time = this.eltime.value;
     this.value = `${date} ${time}`;
+    if (this.validateDate) {
+      this.validate();
+    }
     this.elmenu.close();
+  }
+
+  dateToValue(date) {
+    return formatToIsoOnlyDate(date);
+  }
+
+  doBlur(e) {
+    // The value includes the time, so it is validated but never rewritten on blur.
+    if (this.validateDate) {
+      this.validate();
+    }
   }
 
   acceptTime() {

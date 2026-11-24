@@ -11,7 +11,7 @@ tags: forms
 
 Extension of [`dile-datepicker`](/components/dile-datepicker/) that adds time selection (hours, minutes, and seconds) to the date picker. Allows selecting both date and time in a single component.
 
-The calendar also supports direct year selection, as described in the [`dile-datepicker` year navigation section](/components/dile-datepicker/#choosing-a-year).
+The calendar also lets you choose the month and year with scrolling columns, and supports the `minYear`, `maxYear`, `minDate`, `maxDate`, `disableDates`, `weekdayHeaderNotation`, `locale`, `validateDate` and `validationMessages` properties, as described in the [`dile-datepicker` month and year section](/components/dile-datepicker/#choosing-month-and-year).
 
 ## Installation
 
