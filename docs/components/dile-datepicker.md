@@ -205,6 +205,29 @@ Custom property | Description | Default
 ## Styled datepicker appears on bottom
 
 ```html:preview
+<style>
+  .styled {
+    --dile-input-label-color: #6d3d6c;
+    --dile-input-label-font-weight: bold;
+    --dile-input-border-radius: 0;
+    --dile-input-border-color: #6d3d6c;
+    --dile-input-border-width: 2px;
+    --dile-input-label-margin-bottom: 0.5rem;
+    --dile-input-line-height: 2.5rem;
+    --dile-input-background-color: #ffc;
+    --dile-input-color: #963;
+    --dile-menu-overlay-background-color: rgb(143, 143, 34);
+    --dile-menu-overlay-color: #fff;
+    --dile-datepicker-trigger-color: #6d3d6c;
+    --dile-calendar-day-background-color: rgb(130, 79, 12);
+    --dile-calendar-today-background-color: rgb(233, 47, 223);
+    --dile-calendar-day-text-color: #fff;
+    --dile-calendar-day-border-radius: 7px;
+    --dile-calendar-nav-buttons-color: #fff;
+    --dile-datepicker-trigger-margin-bottom: 0.1em;
+    --dile-datepicker-trigger-size: 50px;
+  }
+</style>
 <dile-datepicker name="datepicker2" id="datepicker2" class="styled" label="Event date" verticalAlign="bottom">Styled datepicker</dile-datepicker>
 ```
 
