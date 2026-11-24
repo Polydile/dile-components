@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-wheel-picker component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/wheel-picker/wheel-picker.js";
+
+    const months = Array.from({ length: 12 }, (_, i) => ({
+      value: i,
+      label: new Intl.DateTimeFormat(document.documentElement.lang, { month: 'long' }).format(new Date(2000, i, 1)),
+    }));
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: 201 }, (_, i) => currentYear - 100 + i);
+
+    const basic = document.getElementById('basic');
+    basic.items = ['Small', 'Medium', 'Large', 'Extra large', 'XXL'];
+    basic.value = 'Medium';
+
+    const month = document.getElementById('month');
+    month.items = months;
+    month.value = new Date().getMonth();
+
+    const year = document.getElementById('year');
+    year.items = years;
+    year.value = currentYear;
+
+    const output = document.getElementById('month-year-output');
+    const printMonthYear = () => {
+      output.textContent = `${months[month.value].label} ${year.value}`;
+    };
+    printMonthYear();
+    month.addEventListener('dile-wheel-picker-changed', printMonthYear);
+    year.addEventListener('dile-wheel-picker-changed', printMonthYear);
+
+    const withDisabled = document.getElementById('withdisabled');
+    withDisabled.items = [
+      { value: 'mon', label: 'Monday' },
+      { value: 'tue', label: 'Tuesday' },
+      { value: 'wed', label: 'Wednesday', disabled: true },
+      { value: 'thu', label: 'Thursday' },
+      { value: 'fri', label: 'Friday' },
+      { value: 'sat', label: 'Saturday', disabled: true },
+      { value: 'sun', label: 'Sunday', disabled: true },
+    ];
+    withDisabled.value = 'tue';
+
+    const styled = document.getElementById('styled');
+    styled.items = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, '0'));
+    styled.value = '30';
+
+    const disabled = document.getElementById('disabled');
+    disabled.items = ['Red', 'Green', 'Blue'];
+    disabled.value = 'Green';
+
+    document.addEventListener('dile-wheel-picker-changed', (e) => {
+      document.getElementById('log').textContent = `dile-wheel-picker-changed: ${JSON.stringify({ name: e.detail.name, value: e.detail.value })}`;
+    });
+  </script>
+  <style>
+    .month-year {
+      display: flex;
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: #f2f3f7;
+      border-radius: 12px;
+      max-width: 360px;
+    }
+    .month-year dile-wheel-picker {
+      flex: 1;
+    }
+    .styled {
+      --dile-wheel-picker-item-height: 56px;
+      --dile-wheel-picker-font-size: 2rem;
+      --dile-wheel-picker-text-color: #a5b4fc;
+      --dile-wheel-picker-selected-text-color: #312e81;
+      --dile-wheel-picker-band-background-color: #e0e7ff;
+      --dile-wheel-picker-band-border-radius: 16px;
+      --dile-wheel-picker-width: 120px;
+    }
+    #log {
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-wheel-picker component</h1>
+    <p>Scroll, drag (touch), click an item or use the keyboard (arrows, Page Up/Down, Home/End) to select a value.</p>
+    <p id="log">Interact with a picker to see its events.</p>
+
+    <h2>Basic picker</h2>
+    <dile-wheel-picker id="basic" name="size" label="Size"></dile-wheel-picker>
+
+    <h2>Month and year columns</h2>
+    <div class="month-year">
+      <dile-wheel-picker id="month" name="month" label="Month"></dile-wheel-picker>
+      <dile-wheel-picker id="year" name="year" label="Year"></dile-wheel-picker>
+    </div>
+    <p>Selected: <strong id="month-year-output"></strong></p>
+
+    <h2>Disabled items</h2>
+    <dile-wheel-picker id="withdisabled" name="weekday" label="Weekday" visibleItems="3"></dile-wheel-picker>
+
+    <h2>Styled with custom properties</h2>
+    <dile-wheel-picker id="styled" class="styled" name="minutes" label="Minutes"></dile-wheel-picker>
+
+    <h2>Disabled picker</h2>
+    <dile-wheel-picker id="disabled" name="color" label="Color" disabled></dile-wheel-picker>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
