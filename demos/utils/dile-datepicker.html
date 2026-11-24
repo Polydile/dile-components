@@ -100,6 +100,38 @@
       document.getElementById('workingday').disableDates = (date) => date.getDay() === 0 || date.getDay() === 6;
     </script>
 
+    <h2>Validation of typed dates</h2>
+    <p>This field has <code>validateDate</code>: the date typed by hand is validated when leaving the field. It only accepts dates between 01/01/2000 and 12/31/2030 (<code>minDate</code> / <code>maxDate</code>).</p>
+    <p>
+      <dile-datepicker
+        name="validateddate"
+        id="validateddate"
+        label="Validated date"
+        message="Type a date and leave the field (Tab)"
+        minDate="2000-01-01"
+        maxDate="2030-12-31"
+        validateDate
+      ></dile-datepicker>
+    </p>
+    <p>Try these values:</p>
+    <ul>
+      <li><code>abc</code> or <code>02/31/2024</code>: not a valid date.</li>
+      <li><code>12/31/1999</code>: before the minimum date.</li>
+      <li><code>01/01/2031</code>: after the maximum date.</li>
+      <li><code>3/5/2024</code>: valid, rewritten as <code>03/05/2024</code>.</li>
+    </ul>
+    <p>Live result of <code>getDateValidation()</code>: <strong id="validateddate-status">empty</strong></p>
+    <script type="module">
+      const validated = document.getElementById('validateddate');
+      const status = document.getElementById('validateddate-status');
+      validated.addEventListener('element-changed', () => {
+        const result = validated.getDateValidation();
+        status.textContent = !validated.value
+          ? 'empty'
+          : result.valid ? `valid (${validated.value})` : `invalid: ${result.reason}`;
+      });
+    </script>
+
     <h2>Disabled datepicker</h2>
     <p>
       <dile-datepicker name="disabelddatepicker" disabled id="disabelddatepicker">Disabled datepicker</dile-datepicker>

@@ -240,6 +240,20 @@ Click the year in the calendar header and scroll the year column to the desired 
 <dile-datepicker name="birthdate" label="Date of birth" minYear="1900" maxYear="2026"></dile-datepicker>
 ```
 
+## Validation of typed dates
+
+This field has `validateDate` and only accepts dates between 01/01/2000 and 12/31/2030. Type a date and leave the field to validate it: try `abc`, `12/31/1999`, `01/01/2031` or `3/5/2024` (valid, rewritten as `03/05/2024`). The format depends on the page language.
+
+```html:preview
+<dile-datepicker
+  label="Validated date"
+  message="Type a date and leave the field (Tab)"
+  minDate="2000-01-01"
+  maxDate="2030-12-31"
+  validateDate
+></dile-datepicker>
+```
+
 ## Disabled datepicker
 
 ```html:preview
