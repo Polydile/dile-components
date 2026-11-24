@@ -1,5 +1,7 @@
 # Selector de rango de fechas
 
+> **Requisito previo:** antes de implementar este componente hay que sustituir `LionCalendar` por un calendario propio con modo rango. Ver `backlog/architecture/own-calendar.md`, que explica por qué Lion no permite pintar ni anunciar bien un rango y recoge todo el análisis previo.
+
 ## Idea
 
 Un componente de formulario para seleccionar una fecha inicial y una fecha final en un calendario, con soporte para rangos predefinidos y validaciones.
