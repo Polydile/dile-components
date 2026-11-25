@@ -46,18 +46,18 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-vite": "^6.0.0",
     "@vitest/browser": "^5.0.5",
     "@vitest/browser-playwright": "^5.0.5",
+    "jsdom": "^24.0.0",
     "lerna": "^10.0.0",
+    "markdown-it-attrs": "^4.3.1",
     "playwright": "^1.61.1",
     "vite": "^6.4.0",
     "vitest": "^5.0.5"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-vite": "^6.0.0",
     "@reduxjs/toolkit": "^2.8.2",
-    "jsdom": "^24.0.0",
-    "lit": "^2.7.0 || ^3.0.0",
-    "markdown-it-attrs": "^4.3.1"
+    "lit": "^2.7.0 || ^3.0.0"
   }
 }

@@ -27,7 +27,7 @@
   "dependencies": {
     "@dile/image-cropper": "^0.1.1",
     "@dile/ui": "^3.22.1",
-    "axios": "^1.19.0",
+    "axios": "^1.21.1",
     "lit": "^2.7.0 || ^3.0.0"
   },
   "publishConfig": {
