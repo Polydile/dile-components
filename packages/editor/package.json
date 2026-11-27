@@ -33,14 +33,14 @@
     "@dile/icons": "^2.5.2",
     "@dile/ui": "^3.22.1",
     "lit": "^2.7.0 || ^3.0.0",
-    "prosemirror-commands": "^1.6.2",
-    "prosemirror-example-setup": "^1.2.3",
-    "prosemirror-history": "^1.4.1",
-    "prosemirror-keymap": "^1.2.2",
-    "prosemirror-markdown": "1.13.1",
-    "prosemirror-schema-list": "^1.4.1",
-    "prosemirror-state": "^1.4.3",
-    "prosemirror-view": "^1.37.0"
+    "prosemirror-commands": "^1.7.2",
+    "prosemirror-example-setup": "^1.2.4",
+    "prosemirror-history": "^1.5.2",
+    "prosemirror-keymap": "^1.2.3",
+    "prosemirror-markdown": "^1.14.0",
+    "prosemirror-schema-list": "^1.6.1",
+    "prosemirror-state": "^1.4.4",
+    "prosemirror-view": "^1.44.0"
   },
   "gitHead": "63290ee41360dbeb54ac9515347274b9aef653b0"
 }
