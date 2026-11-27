@@ -81,9 +81,12 @@
 
     <h2>Date of birth with month and year selection</h2>
     <p>
-      <dile-datepicker name="birthdate" id="birthdate" label="Date of birth" minYear="1900" maxYear="2026"></dile-datepicker>
+      <dile-datepicker name="birthdate" id="birthdate" label="Date of birth" minDate="1900-01-01" minYear="1900" validateDate></dile-datepicker>
     </p>
-    <p>Open the calendar and select the month or the year in its header to choose them by scrolling. Years are limited from 1900 to 2026.</p>
+    <p>Open the calendar and select the month or the year in its header to choose them by scrolling. Only dates from 01/01/1900 to today can be selected: <code>minDate</code> is set in the markup and <code>maxDate</code> is set to today from JavaScript. <code>minYear="1900"</code> is also needed because, by default, the year column only goes back 100 years.</p>
+    <script type="module">
+      document.getElementById('birthdate').maxDate = new Date();
+    </script>
 
     <h2>Another language and narrow weekdays</h2>
     <p>

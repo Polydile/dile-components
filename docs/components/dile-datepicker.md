@@ -100,6 +100,8 @@ Select the small check button below the columns, select the header again, or pre
 
 The year column shows 100 years before and after the current year by default. Use `minYear` and `maxYear` to change that range. It is always limited by `minDate` / `maxDate` and always includes the year being displayed.
 
+`minYear` and `maxYear` only change the years offered in the year column: they don't disable days, stop the navigation arrows or validate typed dates. To limit the dates that can be selected, use `minDate` and `maxDate`.
+
 ## Properties
 
 This component extends [dile-input-icon](/components/dile-input-icon) and has all dile-input-icon / dile-input properties. 
@@ -111,8 +113,8 @@ In addition, the datepicker has this extra properties:
 - **verticalAlign**: the vertical position of the overlay, default "center" (see [dile-menu-overlay](/components/dile-menu-overlay) component)
 - **moveTop**: position distance to top (see [dile-menu-overlay](/components/dile-menu-overlay) component)
 - **moveLeft**: position distance to left (see [dile-menu-overlay](/components/dile-menu-overlay) component)
-- **minYear**: first year of the year column in the month and year selection. Default: current year - 100.
-- **maxYear**: last year of the year column in the month and year selection. Default: current year + 100.
+- **minYear**: first year of the year column in the month and year selection. It doesn't limit the selectable dates (use `minDate`). Default: current year - 100.
+- **maxYear**: last year of the year column in the month and year selection. It doesn't limit the selectable dates (use `maxDate`). Default: current year + 100.
 - **weekdayHeaderNotation**: notation of the weekday names in the calendar header: `"long"` (Thursday), `"short"` (Thu) or `"narrow"` (T). `"narrow"` is useful on narrow screens. Default: `"short"`.
 - **locale**: language of this datepicker (for example `"es-ES"`), used by the calendar and to write and read the text value. Default: the language of the page (`<html lang>`).
 - **minDate**: first selectable date. Accepts a `Date` object or a `"YYYY-MM-DD"` string (read as a local date). Default: no limit (internally January 1 of year 100).
@@ -257,10 +259,13 @@ Only the dates of 2026 can be selected, and weekends are disabled. With `validat
 
 ## Date of birth
 
-Click the year in the calendar header and scroll the year column to the desired year. This example limits the year column from 1900 to 2026.
+Click the year in the calendar header and scroll the year column to the desired year. Only dates from January 1, 1900 to today can be selected: `minDate` is set in the markup and `maxDate` is set to today from JavaScript, so the limit doesn't get outdated. `minYear="1900"` is also needed because, by default, the year column only goes back 100 years.
 
 ```html:preview
-<dile-datepicker name="birthdate" label="Date of birth" minYear="1900" maxYear="2026"></dile-datepicker>
+<script type="module">
+  document.getElementById('birthdateDatepicker').maxDate = new Date();
+</script>
+<dile-datepicker id="birthdateDatepicker" name="birthdate" label="Date of birth" minDate="1900-01-01" minYear="1900" validateDate></dile-datepicker>
 ```
 
 ## Validation of typed dates
