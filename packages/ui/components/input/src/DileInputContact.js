@@ -1,7 +1,16 @@
-import { LitElement, html, css } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { DileInput } from '../../input/index.js';
+import { html } from 'lit';
+import { DileInput } from './DileInput.js';
+import { FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 
+let deprecationWarned = false;
+
+/**
+ * Input that validates Spanish phone / mobile / fax numbers or an email on blur.
+ *
+ * @deprecated Not maintained and not documented publicly. It will be removed in a future
+ * major version. Use `dile-input-phone` (from `@dile/utils`) for phone numbers and
+ * `dile-input` with `type="email"` plus form validation for emails.
+ */
 export class DileInputContact extends DileInput {
 
     static get properties() {
@@ -20,6 +29,14 @@ export class DileInputContact extends DileInput {
         this.valid = true;
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        if (!deprecationWarned) {
+            deprecationWarned = true;
+            console.warn('dile-input-contact is deprecated and will be removed in a future major version. Use dile-input-phone (@dile/utils) for phone numbers or dile-input type="email" for emails.');
+        }
+    }
+
     firstUpdated() {
         super.firstUpdated();
         if(this.value !== '' && this.value !== undefined) {
@@ -27,48 +44,26 @@ export class DileInputContact extends DileInput {
         }
     }
 
-    render() {
-        return html`
-            <div>
-                ${this.label ? this.renderLabel : ''}
-                ${this.renderInput}
-                ${this.errored && this.messageError != '' ? this.renderMsgError : ''}
-            </div>
-        `;
+    /** Shows messageError while the value is not valid, otherwise the regular message */
+    get messageTemplate() {
+        if (this.showMessageError) {
+            return html`
+                <div id="${FIELD_MESSAGE_ID}" class="message errored-msg"><span>${this.messageError}</span></div>
+            `;
+        }
+        return super.messageTemplate;
     }
 
-    get renderLabel() {
-        return html`
-            <label for="textField">${this.label}</label>
-        `;
+    get showMessageError() {
+        return this.errored && !!this.messageError;
     }
 
-    get renderInput() {
-        return html`
-            <input
-                type="${this.availableType(this.type)}"
-                id="textField"
-                name="${this.name}"
-                aria-label="${ifDefined(this.inputAriaLabel)}"
-                placeholder="${this.placeholder}"
-                ?disabled="${this.disabled}"
-                ?readonly="${this.readonly}"
-                autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-                .value="${this.computeValue(this.value)}"
-                class="${this.errored ? 'errored' : ''}"
-                @keypress="${this._lookForEnter}"
-                @input="${this._input}"
-                @blur="${this._isValidInput}"
-                @focus="${this.doFocus}"
-            >
-            </input>
-        `;
+    get messageDescribedBy() {
+        return this.showMessageError ? FIELD_MESSAGE_ID : super.messageDescribedBy;
     }
 
-    get renderMsgError() {
-        return html`
-            <div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.messageError}</span></div>
-        `;
+    doBlur() {
+        this._isValidInput();
     }
 
     _input(ev) {
@@ -80,6 +75,9 @@ export class DileInputContact extends DileInput {
                 value: this.value
             }
         }));
+        if (this.hideErrorOnInput && this.errored) {
+            this.clearError();
+        }
     }
 
     _isValidInput() {
@@ -105,6 +103,7 @@ export class DileInputContact extends DileInput {
                     this.valid = false;
                 }
             } else if(this.email) {
+                this._isMail = true;
                 if(reMail.test(this.value) || this.value === ""){
                     this.valid = true;
                 }else{
@@ -113,7 +112,6 @@ export class DileInputContact extends DileInput {
             }
         }
         this.errored = !this.valid;
-        console.log("Válido: " + this.valid);
         this.dispatchEvent(
             new CustomEvent('dile-input-contact-blur', {
             bubbles: true,

@@ -25,16 +25,10 @@ export class DileInputMoney extends DileInput {
         this.decimalSeparator = '.';
     }
 
+    /** Normalizes the typed text on blur. The element-changed event is dispatched by DileInput when the value changes */
     doBlur(e) {
-        let num = e.target.value;
-        if(num.length > 0) {
-            num = this.formatMoney(num);
-        }
-        if(num != e.target.value || this.changed) {
-            this.value = num;
-            this.emmitChange();
-            this.changed = false;
-        }
+        const typed = e.target.value;
+        this.value = typed.length > 0 ? this.formatMoney(typed) : typed;
     }
 
     set(value) {
@@ -43,11 +37,11 @@ export class DileInputMoney extends DileInput {
     }
 
     doFormat() {
-        this.value = this.formatMoney(this.value.toString());
+        this.value = this.formatMoney(this.value);
     }
 
     formatMoney(num) {
-        num = num.replace(this.decimalSeparator, '.');
+        num = String(num ?? '').replace(this.decimalSeparator, '.');
         num = parseFloat(num);
         if(isNaN(num)) {
             return '0.00';
@@ -56,18 +50,7 @@ export class DileInputMoney extends DileInput {
         }
     }
 
-    updated(changedProperties) { 
-        super.updated(changedProperties);
-        if(changedProperties.has('value') && this.value) {
-            this.changed = true;
-        }
-    }
-
     computeValue(value) {
-        if(value) {
-            value = value.toString();
-            return value.replace('.', this.decimalSeparator);
-        }
-        return '';
+        return String(value ?? '').replace('.', this.decimalSeparator);
     }
 }

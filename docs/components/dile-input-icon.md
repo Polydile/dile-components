@@ -52,6 +52,7 @@ All properties from [dile-input](/components/dile-input) are available (includin
 
 - **icon** (String): Icon to display in the button, using `"family.name"` format (e.g., `"lucide.trash-2"`, `"material.delete"`, `"fontawesome.trash"`). If not set, no icon button is rendered. For a complete list of available icons and their exact names, refer to the [dile-iconlib documentation](/icons/dile-iconlib/).
 - **onIconClick** (Function): Optional callback function that receives the component instance when the icon button is clicked. This allows you to access and modify component properties like `value`.
+- **iconLabel** (String): Accessible name of the icon button, read by screen readers (e.g. `"Clear field"`). Defaults to the `tooltip` text, or to a generic "Icon action button" when there is no tooltip. Always set it (or `tooltip`) so the button purpose is announced.
 - **tooltip** (String): Optional tooltip text to display on icon hover. If not set, no tooltip is shown.
 - **tooltipPosition** (String): Tooltip position relative to the icon button. Options: `"top"` (default), `"bottom"`, `"left"`, `"right"`.
 - **tooltipFadeIn** (Boolean): Enable fade-in animation for the tooltip. Defaults to `false`.

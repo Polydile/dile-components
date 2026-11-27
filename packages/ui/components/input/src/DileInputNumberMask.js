@@ -16,15 +16,15 @@ export class DileInputNumberMask extends DileInput {
     this.mask = ''; 
     this.maskedValue = '';
     this.content = '';
-    this._keyDownHandler = this.handleKeyDown.bind(this);
   }
 
   firstUpdated() {
     super.firstUpdated();
     this.createMaskController(this.mask);
-    if (this.el) {
-      this.el.addEventListener('keydown', this._keyDownHandler);
-    }
+  }
+
+  doKeydown(e) {
+    this.handleKeyDown(e);
   }
 
   createMaskController(mask) {
@@ -39,16 +39,9 @@ export class DileInputNumberMask extends DileInput {
       this.updateMaskedValue();
     }
     if (changedProperties.has('value')) {
-      this.content = this.value.slice(0, this.maxChars);
+      this.content = String(this.value ?? '').slice(0, this.maxChars);
       this.updateMaskedValue();
     }
-  }
-
-  disconnectedCallback() {
-    if (this.el) {
-      this.el.removeEventListener('keydown', this._keyDownHandler);
-    }
-    super.disconnectedCallback();
   }
 
   updateMaskedValue() {

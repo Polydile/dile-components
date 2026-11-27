@@ -309,6 +309,24 @@ describe('dile-input-mask', () => {
     await el.updateComplete;
     expect(el.maskedValue).toBe('ES');
   });
+
+  it('keeps filtering keys and validating on blur after being moved in the DOM', async () => {
+    const el = await renderInputMask('<dile-input-mask mask="AA-99"></dile-input-mask>');
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    container.appendChild(el);
+    await el.updateComplete;
+
+    const input = el.shadowRoot.querySelector('input');
+    const event = new KeyboardEvent('keydown', { key: '#', cancelable: true, bubbles: true, composed: true });
+    input.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+  });
+
+  it('accepts null values', async () => {
+    const el = await renderInputMask('<dile-input-mask mask="AA-99" value="AB12"></dile-input-mask>');
+    el.value = null;
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('');
+  });
 });
-
-

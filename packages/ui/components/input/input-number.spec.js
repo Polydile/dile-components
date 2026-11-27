@@ -106,4 +106,26 @@ describe('dile-input-number', () => {
     expect(el.value).toBe('8.5');
     expect(input.value).toBe('8,5');
   });
+
+  async function typeAndBlur(el, text) {
+    const events = [];
+    el.addEventListener('element-changed', (e) => events.push(e.detail.value));
+    const input = el.shadowRoot.querySelector('input');
+    input.value = text;
+    input.dispatchEvent(new Event('input'));
+    await el.updateComplete;
+    input.dispatchEvent(new Event('blur'));
+    await el.updateComplete;
+    return events;
+  }
+
+  it('dispatches element-changed once per value change', async () => {
+    const el = await renderInputNumber('<dile-input-number name="n"></dile-input-number>');
+    expect(await typeAndBlur(el, '12')).toEqual(['12']);
+  });
+
+  it('dispatches element-changed on blur when constraints change the value', async () => {
+    const el = await renderInputNumber('<dile-input-number name="n" max="10"></dile-input-number>');
+    expect(await typeAndBlur(el, '12')).toEqual(['12', '10']);
+  });
 });

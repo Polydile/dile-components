@@ -14,33 +14,19 @@ export class DileInputInteger extends DileInput {
         `
     ];
 
-    constructor() {
-        super();
-        this.changed = false;
-    }
-    
+    /** Normalizes the typed text on blur. The element-changed event is dispatched by DileInput when the value changes */
     doBlur(e) {
-        let num = e.target.value;
-        if(num.length > 0) {
-            num = this.formatInteger(num);
-        }
-        if(num != e.target.value || this.changed) {
+        const typed = e.target.value;
+        const num = typed.length > 0 ? this.formatInteger(typed) : typed;
+        if (num !== typed) {
             this.el.value = num;
-            this.value = num;
-            this.emmitChange();
-            this.changed = false;
         }
+        this.value = num;
     }
 
+    /** Returns the integer as a string, or '0' when the text is not a number */
     formatInteger(num) {
-        num = parseInt(num);
-        return isNaN(num) ? '0' : num;
-    }
-
-    updated(changedProperties) { 
-        super.updated(changedProperties);
-        if(changedProperties.has('value') && this.value) {
-            this.changed = true;
-        }
+        num = parseInt(num, 10);
+        return isNaN(num) ? '0' : String(num);
     }
 }

@@ -45,4 +45,31 @@ describe('dile-input-number-mask', () => {
 
     expect(el.maskedValue).toBe('12-3');
   });
+
+  it('keeps filtering keys after being moved in the DOM', async () => {
+    const el = await renderInputNumberMask('<dile-input-number-mask mask="000-000"></dile-input-number-mask>');
+    const pressLetter = () => {
+      const event = new KeyboardEvent('keydown', { key: 'a', cancelable: true, bubbles: true, composed: true });
+      el.shadowRoot.querySelector('input').dispatchEvent(event);
+      return event.defaultPrevented;
+    };
+    expect(pressLetter()).toBe(true);
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    container.appendChild(el);
+    await el.updateComplete;
+    expect(pressLetter()).toBe(true);
+  });
+
+  it('accepts null and numeric values', async () => {
+    const el = await renderInputNumberMask('<dile-input-number-mask mask="000-000"></dile-input-number-mask>');
+    el.value = 123456;
+    await el.updateComplete;
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('123-456');
+    el.value = null;
+    await el.updateComplete;
+    await el.updateComplete;
+    expect(el.maskedValue).toBe('');
+  });
 });

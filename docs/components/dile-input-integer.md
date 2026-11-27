@@ -38,6 +38,12 @@ Use the component
 
 > **Note:** like every `dile-input` derivative, it supports `accessibleLabel` to give the input an accessible name when there is no visible `label`. See [Labels in table-like forms](/components/dile-input/#labels-in-table-like-forms).
 
+## Value and events
+
+The value is normalized to an integer when the input loses focus (`"12.7"` becomes `"12"`, non numeric text becomes `"0"`). The `value` property is always a string.
+
+`element-changed` is dispatched once for each value change: while typing and, only if the normalization changes the value, once more on blur.
+
 ## Custom style
 
 By default, this input component aligns the input text to the right. if you want to align to the left you may use ```--dile-input-text-align``` CSS custom property.

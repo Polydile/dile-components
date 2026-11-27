@@ -200,7 +200,7 @@ export class DileDatepicker extends DileCloseOnEscPressed(DileInputIcon) {
   }
 
   renderIconButton() {
-    if (this.disabled) {
+    if (this.isDisabled) {
       return super.renderIconButton();
     }
     return html`

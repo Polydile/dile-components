@@ -20,17 +20,19 @@ export class DileInputMask extends DileInput {
     this.content = '';
     this.language = 'en';
     this.lazySeparators = false;
-    this._keyDownHandler = this.handleKeyDown.bind(this);
-    this._blurHandler = this.handleBlur.bind(this);
   }
 
   firstUpdated() {
     super.firstUpdated();
     this.createMaskController(this.mask);
-    if (this.el) {
-      this.el.addEventListener('keydown', this._keyDownHandler);
-      this.el.addEventListener('blur', this._blurHandler);
-    }
+  }
+
+  doKeydown(e) {
+    this.handleKeyDown(e);
+  }
+
+  doBlur(e) {
+    this.handleBlur(e);
   }
 
   createMaskController(mask) {
@@ -53,18 +55,10 @@ export class DileInputMask extends DileInput {
       this.updateMaskedValue();
     }
     if (changedProperties.has('value')) {
-      const transformedValue = this.maskController.transformValue(this.value.slice(0, this.maxChars));
+      const transformedValue = this.maskController.transformValue(String(this.value ?? '').slice(0, this.maxChars));
       this.content = transformedValue;
       this.updateMaskedValue();
     }
-  }
-
-  disconnectedCallback() {
-    if (this.el) {
-      this.el.removeEventListener('keydown', this._keyDownHandler);
-      this.el.removeEventListener('blur', this._blurHandler);
-    }
-    super.disconnectedCallback();
   }
 
   updateMaskedValue() {

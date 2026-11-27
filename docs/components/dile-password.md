@@ -38,9 +38,13 @@ Use the component
 ></dile-password>
 ```
 
-Type your password inherits all the properties, events and styles from @dile/dile-input component. So the docs are the same in both components.
+`dile-password` inherits all the properties, events and styles from [dile-input](/components/dile-input) (`readonly`, `accessibleLabel`, `labelRight`, `selectOnFocus`, form integration...). The only difference is that it acts as a password form field.
 
-The only difference between [dile-input](/components/dile-input) and dile-password is that dile-password acts as a password form field.
+Use `autocomplete` to help password managers: `current-password` in login forms, `new-password` in sign up or change password forms.
+
+```html
+<dile-password name="password" label="New password" autocomplete="new-password"></dile-password>
+```
 
 ## Show/Hide Password Toggle
 

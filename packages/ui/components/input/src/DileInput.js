@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { DileEmmitChange, DileFieldMessage } from '../../../mixins/form/index.js';
+import { DileEmmitChange, DileFieldMessage, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import { labelStyles } from './label-styles.js';
 import { messageStyles } from './message-styles.js';
 
@@ -44,6 +44,9 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
           /** Disable the autocomplete of the input field */
           disableAutocomplete: { type: Boolean },
 
+          /** Value of the autocomplete attribute of the input field (e.g. "email", "new-password"). Defaults to "on". Ignored when disableAutocomplete is set */
+          autocomplete: { type: String },
+
           /** ReadOnly attribute */
           readonly: { type: Boolean },
 
@@ -58,6 +61,9 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
 
           /** Set the application focus to this the input component after the initialization */
           focusOnStart: { type: Boolean },
+
+          /** Disabled state inherited from an ancestor fieldset or form */
+          _formDisabled: { state: true },
         };
     }
 
@@ -76,7 +82,19 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
         this.name = '';
         this.type = 'text';
         this.types = ['text', 'password', 'email', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime', 'datetime-local', 'month', 'week'];
+        this._formDisabled = false;
         this.internals = this.attachInternals();
+    }
+
+    /** Called by the browser when the owner form is reset: restores the value of the value attribute */
+    formResetCallback() {
+      this.value = this.getAttribute('value') ?? '';
+      this.clearError();
+    }
+
+    /** Called by the browser when an ancestor fieldset or form is disabled or enabled */
+    formDisabledCallback(disabled) {
+      this._formDisabled = disabled;
     }
 
     firstUpdated() {
@@ -88,7 +106,7 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
     updated(changedProperties) {
       if(changedProperties.has('value')) {
         this.emmitChange();
-        this.internals.setFormValue(this.value);
+        this.internals.setFormValue(this.value ?? '');
       }
     }
 
@@ -156,34 +174,97 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
     render() {
         return html`
           <main>
-            ${this.label
-              ? html`<label for="textField">${this.label}</label>`
-              : ""}
-             <section class="for-input">
-              <input
-                type="${this.availableType(this.type)}"
-                id="textField"
-                name="${this.name}"
-                aria-label="${ifDefined(this.inputAriaLabel)}"
-                placeholder="${this.placeholder}"
-                ?disabled="${this.disabled}"
-                ?readonly="${this.readonly}"
-                autocomplete="${this.disableAutocomplete ? "off" : "on"}"
-                .value="${this.computeValue(this.value)}"
-                class="${this.errored ? 'errored' : ''}"
-                @keypress="${this._lookForEnter}"
-                @input="${this._input}"
-                @blur="${this.doBlur}"
-                @focus="${this.doFocus}"
-              />
-              ${this.labelRight
-                ? html`<span class="labelright">${this.labelRight}</span>`
-                : ''
-              }
+            ${this.labelTemplate}
+            <section class="for-input">
+              ${this.fieldStartTemplate}
+              ${this.inputTemplate}
+              ${this.fieldEndTemplate}
+              ${this.labelRightTemplate}
             </section>
             ${this.messageTemplate}
           </main>
         `;
+    }
+
+    /** Template of the visible label. Override to customize it. */
+    get labelTemplate() {
+      return this.label
+        ? html`<label for="textField">${this.label}</label>`
+        : '';
+    }
+
+    /**
+     * Template of the native input. Subclasses should reuse it instead of copying it,
+     * customizing it through `inputType`, `computeValue()`, `computeAutocomplete()`,
+     * `inputModeValue` and the event handlers (`_input`, `doKeydown`, `doBlur`, `doFocus`).
+     */
+    get inputTemplate() {
+      return html`
+        <input
+          type="${this.inputType}"
+          id="textField"
+          name="${this.name}"
+          inputmode="${ifDefined(this.inputModeValue)}"
+          aria-label="${ifDefined(this.inputAriaLabel)}"
+          aria-invalid="${ifDefined(this.errored ? 'true' : undefined)}"
+          aria-describedby="${ifDefined(this.messageDescribedBy)}"
+          placeholder="${this.placeholder}"
+          ?disabled="${this.isDisabled}"
+          ?readonly="${this.readonly}"
+          autocomplete="${this.computeAutocomplete()}"
+          .value="${this.computeValue(this.value)}"
+          class="${this.errored ? 'errored' : ''}"
+          @keypress="${this._lookForEnter}"
+          @keydown="${this.doKeydown}"
+          @input="${this._input}"
+          @blur="${this.doBlur}"
+          @focus="${this.doFocus}"
+        />
+      `;
+    }
+
+    /** Content placed inside the field row, before the input (e.g. a prefix selector) */
+    get fieldStartTemplate() {
+      return '';
+    }
+
+    /** Content placed inside the field row, after the input (e.g. an action button) */
+    get fieldEndTemplate() {
+      return '';
+    }
+
+    get labelRightTemplate() {
+      return this.labelRight
+        ? html`<span class="labelright">${this.labelRight}</span>`
+        : '';
+    }
+
+    /** Type applied to the native input */
+    get inputType() {
+      return this.availableType(this.type);
+    }
+
+    /** inputmode applied to the native input. Undefined means no attribute. */
+    get inputModeValue() {
+      return undefined;
+    }
+
+    /** Value of the autocomplete attribute of the native input */
+    computeAutocomplete() {
+      if (this.disableAutocomplete) {
+        return 'off';
+      }
+      return this.autocomplete || 'on';
+    }
+
+    /** True when the field is disabled by its own property or by a disabled ancestor fieldset/form */
+    get isDisabled() {
+      return this.disabled || this._formDisabled;
+    }
+
+    /** Id of the element describing the input (the message), if any */
+    get messageDescribedBy() {
+      return this.message ? FIELD_MESSAGE_ID : undefined;
     }
 
     /** aria-label for the inner input: accessibleLabel, only when there is no visible label */
@@ -215,7 +296,12 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
     }
 
     get el() {
-        return this.shadowRoot.querySelector('input');
+        return this.shadowRoot?.querySelector('input') ?? null;
+    }
+
+    /** Hook for the keydown event of the native input */
+    doKeydown() {
+      //
     }
 
     doBlur() {
@@ -229,10 +315,15 @@ export class DileInput extends DileFieldMessage(DileEmmitChange(LitElement)) {
     }
 
     computeValue(value) {
-      return value;
+      return value ?? '';
     }
 
-    focus() {
-      this.el.focus();
+    /** Moves the focus to the native input. Waits for the first render if needed. */
+    focus(options) {
+      if (this.el) {
+        this.el.focus(options);
+      } else {
+        this.updateComplete.then(() => this.el?.focus(options));
+      }
     }
 }

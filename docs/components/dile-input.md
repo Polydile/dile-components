@@ -57,6 +57,7 @@ Use the component
 - **readonly**: when true, is not editable
 - **errored**: when true, the element is marked as error
 - **disableAutocomplete**: when true, the input autocomplete HTML featured is disabled
+- **autocomplete**: value of the native `autocomplete` attribute (`"email"`, `"name"`, `"new-password"`...). Defaults to `"on"`. Ignored when `disableAutocomplete` is set
 - **selectOnFocus**: always select the content of the input on focus
 - **message**: optionally, the input can display a message
 - **labelRight**: text placed on the right side of the input
@@ -75,15 +76,55 @@ In compact forms where the labels are shown once in a shared header (e.g. invoic
 </div>
 ```
 
-All components extending `dile-input` (`dile-input-money`, `dile-input-number`, `dile-input-integer`, `dile-input-percentage`, `dile-input-icon`, `dile-input-mask`, `dile-input-number-mask`, `dile-input-contact`, `dile-input-phone`...) inherit this property.
+All components extending `dile-input` (`dile-input-money`, `dile-input-number`, `dile-input-integer`, `dile-input-percentage`, `dile-input-icon`, `dile-input-mask`, `dile-input-number-mask`, `dile-input-phone`...) inherit this property.
 
 ## Form Integration
 
 This component is a form-associated element, meaning it integrates seamlessly with native HTML forms. The input value is automatically synchronized with the form state.
 
+- **Reset**: when the owner `<form>` is reset, the value goes back to the `value` attribute (or to an empty string when there is no attribute, as native inputs do) and the error is cleared.
+- **Disabled fieldset**: inside a disabled `<fieldset>` (or form), the native input and any button of the component are disabled, without changing the `disabled` property.
+
+These behaviors are inherited by all the components extending `dile-input`.
+
+## Accessibility
+
+- With `label`, the `<label for>` names the input. Without it, use `accessibleLabel`.
+- When `errored` is true, the input gets `aria-invalid="true"`.
+- When there is a `message`, the input is linked to it with `aria-describedby`, so screen readers read the message together with the field.
+
+## Extending dile-input
+
+Components extending `DileInput` should reuse its templates instead of copying the native `<input>`, so they keep the accessibility and form features. The render is built from these getters, which can be overridden:
+
+- **labelTemplate**: the visible label.
+- **fieldStartTemplate**: content before the input, inside the field row (empty by default).
+- **inputTemplate**: the native input. Customize it through `inputType`, `inputModeValue`, `computeValue(value)`, `computeAutocomplete()` and the handlers `_input(e)`, `doKeydown(e)`, `doBlur(e)` and `doFocus(e)`.
+
+Override the handlers instead of adding listeners to the native input in `firstUpdated()`: the template keeps them working when the component is moved in the DOM. `element-changed` is dispatched automatically whenever `value` changes, so handlers only need to set `value`.
+- **fieldEndTemplate**: content after the input, inside the field row, like an action button (empty by default).
+- **labelRightTemplate**: the `labelRight` text.
+- **messageTemplate**: the message (from `DileFieldMessage`).
+
+Use the **isDisabled** getter (true with `disabled` or inside a disabled fieldset) for any extra control.
+
+```javascript
+import { html } from 'lit';
+import { DileInput } from '@dile/ui/components/input/index.js';
+
+class MyCopyInput extends DileInput {
+  get fieldEndTemplate() {
+    return html`<button type="button" ?disabled=${this.isDisabled} @click=${this.copy}>Copy</button>`;
+  }
+  copy() {
+    navigator.clipboard.writeText(this.value);
+  }
+}
+```
+
 ## Useful Methods
 
-- **focus()**: focus the input element
+- **focus()**: focus the input element. Accepts the native focus `options`. Called before the first render, it waits until the input exists
 - **clearError()**: removes the errored state and clears the error message
 
 ## Events

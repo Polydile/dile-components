@@ -59,49 +59,26 @@ export class DilePassword extends DileInput {
     this.passwordVisible = false;
   }
 
-  render() {
-    const inputType = this.passwordVisible ? 'text' : 'password';
-    
-    return html`
-    <div>
-      ${this.label
-        ? html`<label for="textField">${this.label}</label>`
-        : ''
+  get inputType() {
+    return this.passwordVisible ? 'text' : 'password';
+  }
+
+  get fieldEndTemplate() {
+    if (!this.showPasswordToggle) {
+      return '';
+    }
+    return html`<button
+      class="password-toggle-btn"
+      type="button"
+      @click="${this._togglePasswordVisibility}"
+      ?disabled="${this.isDisabled}"
+      aria-label="${this.passwordVisible ? 'Hide password' : 'Show password'}"
+    >
+      ${this.passwordVisible
+        ? html`<dile-lucide-icon-eye></dile-lucide-icon-eye>`
+        : html`<dile-lucide-icon-eye-off></dile-lucide-icon-eye-off>`
       }
-      <section class="for-input">
-        <input
-          type="${inputType}"
-          id="textField"
-          name="${this.name}"
-          placeholder="${this.placeholder}"
-          ?disabled="${this.disabled}"
-          @keypress="${this._lookForEnter}"
-          @input="${this._input}"
-          .value="${this.value}"
-          class="${ this.errored ? 'errored' : '' }"
-        >
-        ${this.showPasswordToggle
-          ? html`<button
-              class="password-toggle-btn"
-              type="button"
-              @click="${this._togglePasswordVisibility}"
-              ?disabled="${this.disabled}"
-              aria-label="${this.passwordVisible ? 'Hide password' : 'Show password'}"
-            >
-              ${this.passwordVisible 
-                ? html`<dile-lucide-icon-eye></dile-lucide-icon-eye>`
-                : html`<dile-lucide-icon-eye-off></dile-lucide-icon-eye-off>`
-              }
-            </button>`
-          : ''
-        }
-      </section>
-      ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
-        : ''
-      }
-    </div>
-    `;
+    </button>`;
   }
 
   _togglePasswordVisibility() {

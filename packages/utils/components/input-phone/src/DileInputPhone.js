@@ -1,5 +1,4 @@
 import { html, css } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileInput } from '@dile/ui/components/input/index.js';
 import '../../phone-prefix-select/phone-prefix-select.js';
 import {
@@ -117,39 +116,21 @@ export class DileInputPhone extends DileInput {
     }
   }
 
-  render() {
-    return html`
-      <main>
-        ${this.label
-          ? html`<label for="textField">${this.label}</label>`
-          : ""}
-        <section class="for-input">
-          ${this.noPrefix ? '' : this.prefixTemplate}
-          <input
-            type="tel"
-            inputmode="tel"
-            id="textField"
-            name="${this.name}"
-            aria-label="${ifDefined(this.inputAriaLabel)}"
-            placeholder="${this.placeholder}"
-            ?disabled="${this.disabled}"
-            ?readonly="${this.readonly}"
-            autocomplete="${this.computeAutocomplete()}"
-            .value="${this._typedNumber}"
-            class="${this.errored ? 'errored' : ''}"
-            @keypress="${this._lookForEnter}"
-            @input="${this._input}"
-            @blur="${this.doBlur}"
-            @focus="${this.doFocus}"
-          />
-          ${this.labelRight
-            ? html`<span class="labelright">${this.labelRight}</span>`
-            : ''
-          }
-        </section>
-        ${this.messageTemplate}
-      </main>
-    `;
+  get fieldStartTemplate() {
+    return this.noPrefix ? '' : this.prefixTemplate;
+  }
+
+  get inputType() {
+    return 'tel';
+  }
+
+  get inputModeValue() {
+    return 'tel';
+  }
+
+  /** The input field shows the number as typed by the user, not the E.164 value */
+  computeValue() {
+    return this._typedNumber;
   }
 
   get prefixTemplate() {
@@ -161,7 +142,7 @@ export class DileInputPhone extends DileInput {
         language="${this.language}"
         priority-countries="${this.priorityCountries}"
         placeholder="${this.prefixPlaceholder || PREFIX_PLACEHOLDERS[this.language] || PREFIX_PLACEHOLDERS.en}"
-        ?disabled=${this.disabled}
+        ?disabled=${this.isDisabled}
         ?errored=${this.errored}
         @dile-phone-prefix-changed=${this.onPrefixChanged}
         @element-changed=${this.stopEvent}

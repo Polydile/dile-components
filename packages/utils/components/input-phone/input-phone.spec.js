@@ -341,6 +341,38 @@ describe('dile-input-phone', () => {
 
       expect(new FormData(document.body.querySelector('form')).get('phone')).toBe('+34600123456');
     });
+
+    it('restores the initial value on form reset', async () => {
+      document.body.innerHTML = '<form><dile-input-phone name="phone" value="+34600123456"></dile-input-phone></form>';
+      const form = document.body.querySelector('form');
+      const el = form.querySelector('dile-input-phone');
+      await el.updateComplete;
+
+      el.value = '+33612345678';
+      await el.updateComplete;
+      form.reset();
+      await el.updateComplete;
+
+      expect(el.value).toBe('+34600123456');
+      expect(numberInput(el).value).toBe('600123456');
+      expect(new FormData(form).get('phone')).toBe('+34600123456');
+    });
+
+    it('disables the prefix selector and the input inside a disabled fieldset', async () => {
+      document.body.innerHTML = '<fieldset disabled><dile-input-phone></dile-input-phone></fieldset>';
+      const el = document.body.querySelector('dile-input-phone');
+      await el.updateComplete;
+
+      expect(el.prefixSelect.disabled).toBe(true);
+      expect(numberInput(el).disabled).toBe(true);
+      expect(numberInput(el).getAttribute('inputmode')).toBe('tel');
+    });
+
+    it('links the message with the number input', async () => {
+      const el = await render('errored message="Wrong phone"');
+      expect(numberInput(el).getAttribute('aria-invalid')).toBe('true');
+      expect(numberInput(el).getAttribute('aria-describedby')).toBe(el.shadowRoot.querySelector('.message').id);
+    });
   });
 
   describe('accessibleLabel', () => {

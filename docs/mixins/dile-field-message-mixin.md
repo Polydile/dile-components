@@ -52,7 +52,21 @@ class MyField extends DileFieldMessage(LitElement) {
 
 ## Getters
 
-- **messageTemplate**: Lit template that renders the message (`<div class="message">`), adding the `errored-msg` class when `errored` is true. Renders nothing when there is no message.
+- **messageTemplate**: Lit template that renders the message (`<div id="field-message" class="message">`), adding the `errored-msg` class when `errored` is true. Renders nothing when there is no message.
+
+## Linking the message with the field
+
+The message element has the id exported as `FIELD_MESSAGE_ID` (`"field-message"`). Use it in `aria-describedby` so screen readers announce the message with the field:
+
+```javascript
+import { DileFieldMessage, FIELD_MESSAGE_ID } from '@dile/ui/mixins/form';
+
+// inside render()
+html`<input
+  aria-invalid=${ifDefined(this.errored ? 'true' : undefined)}
+  aria-describedby=${ifDefined(this.message ? FIELD_MESSAGE_ID : undefined)}
+>`
+```
 
 ## Implementations of DileFieldMessage
 

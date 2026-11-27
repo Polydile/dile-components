@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { DileInput } from '../../input/index.js';
 import '@dile/iconlib/dile-iconlib.js';
 import '@dile/ui/components/tooltip/tooltip.js';
@@ -13,6 +12,8 @@ export class DileInputIcon extends DileInput {
       icon: { type: String },
       /** Callback function that receives the component instance when icon button is clicked */
       onIconClick: { type: Function },
+      /** Accessible name of the icon button. Defaults to the tooltip text */
+      iconLabel: { type: String },
       /** Tooltip text to show on icon hover */
       tooltip: { type: String },
       /** Tooltip position: "top", "bottom", "left", "right" */
@@ -69,52 +70,15 @@ export class DileInputIcon extends DileInput {
     super();
     this.icon = '';
     this.onIconClick = null;
+    this.iconLabel = '';
     this.tooltip = '';
     this.tooltipPosition = 'top';
     this.tooltipFadeIn = false;
     this.tooltipArrow = false;
   }
 
-  render() {
-    return html`
-      <main>
-        ${this.labelTemplate}
-        <section class="for-input">
-          ${this.inputTemplate}
-          ${this.icon ? this.renderIconButton() : ''}
-          ${this.labelRight ? html`<span class="labelright">${this.labelRight}</span>` : ''}
-        </section>
-        ${this.messageTemplate}
-      </main>
-    `;
-  }
-
-  get labelTemplate() {
-    return this.label
-      ? html`<label for="textField">${this.label}</label>`
-      : '';
-  }
-
-  get inputTemplate() {
-    return html`
-      <input
-        type="${this.availableType(this.type)}"
-        id="textField"
-        name="${this.name}"
-        aria-label="${ifDefined(this.inputAriaLabel)}"
-        placeholder="${this.placeholder}"
-        ?disabled="${this.disabled}"
-        ?readonly="${this.readonly}"
-        autocomplete="${this.disableAutocomplete ? 'off' : 'on'}"
-        .value="${this.computeValue(this.value)}"
-        class="${this.errored ? 'errored' : ''}"
-        @keypress="${this._lookForEnter}"
-        @input="${this._input}"
-        @blur="${this.doBlur}"
-        @focus="${this.doFocus}"
-        ?selectonfocus="${this.selectOnFocus}"
-      >
-    `;
+  get fieldEndTemplate() {
+    return this.icon ? this.renderIconButton() : '';
   }
 
   get iconTemplate() {
@@ -126,8 +90,8 @@ export class DileInputIcon extends DileInput {
       class="input-icon-btn"
       type="button"
       @click="${this._handleIconClick}"
-      ?disabled="${this.disabled}"
-      aria-label="Icon action button"
+      ?disabled="${this.isDisabled}"
+      aria-label="${this.iconLabel || this.tooltip || 'Icon action button'}"
     >
       ${this.iconTemplate}
     </button>`;

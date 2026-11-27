@@ -23,36 +23,24 @@ export class DileInputPercentage extends DileInput {
         this.decimalSeparator = '.';
     }
     
+    /** Normalizes the typed text on blur. The element-changed event is dispatched by DileInput when the value changes */
     doBlur(e) {
-        let num = e.target.value;
-        if(num.length > 0) {
-            num = this.formatFloat(num);
-        }
-        if(num != e.target.value || this.changed) {
-            this.value = num;
-            this.emmitChange();
-            this.changed = false;
-        }
+        const typed = e.target.value;
+        this.value = typed.length > 0 ? this.formatFloat(typed) : typed;
     }
 
     doFormat() {
         this.value = this.formatFloat(this.value);
     }
 
+    /** Returns the number as a string with "." as decimal separator, or '0' when the text is not a number */
     formatFloat(num) {
-        num = num.replace(this.decimalSeparator, '.');
-        num = parseFloat(num);
-        return isNaN(num) ? '0' : num;
-    }
-
-    updated(changedProperties) { 
-        super.updated(changedProperties);
-        if(changedProperties.has('value') && this.value) {
-            this.changed = true;
-        }
+        const text = String(num ?? '').replace(this.decimalSeparator, '.');
+        const parsed = parseFloat(text);
+        return isNaN(parsed) ? '0' : String(parsed);
     }
 
     computeValue(value) {
-        return value.toString().replace('.', this.decimalSeparator);
+        return String(value ?? '').replace('.', this.decimalSeparator);
     }
 }

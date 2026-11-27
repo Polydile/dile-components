@@ -13,6 +13,9 @@ import { html } from 'lit';
  *
  */
 
+/** Id of the element rendered by `messageTemplate`, to link it with aria-describedby */
+export const FIELD_MESSAGE_ID = 'field-message';
+
 export const DileFieldMessage = (superclass) => class extends superclass {
 
   static get properties() {
@@ -28,7 +31,7 @@ export const DileFieldMessage = (superclass) => class extends superclass {
   get messageTemplate() {
     return html`
       ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `

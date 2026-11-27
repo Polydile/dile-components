@@ -44,6 +44,17 @@ The same as [dile-input](/components/dile-input) and:
 
 - **decimalSeparator**: introduces the decimal separator character. Default ".".
 
+## Value and events
+
+The value is formatted with two decimals when the input loses focus (`"12"` becomes `"12.00"`), or by calling `doFormat()` or `set(value)`. The `value` property is a string using `.` as decimal separator, while the field shows `decimalSeparator`.
+
+`element-changed` is dispatched once for each value change: while typing and, only if the formatting changes the value, once more on blur.
+
+## Methods
+
+- **doFormat()**: formats the current value with two decimals. Non numeric values become `"0.00"`.
+- **set(value)**: sets the value and formats it.
+
 ## Custom style
 
 By default, this input component aligns the input text to the right. if you want to align to the left you may use ```--dile-input-text-align``` CSS custom property.

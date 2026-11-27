@@ -36,7 +36,6 @@ export class DileInputNumber extends DileInput {
         this.step = 'any';
         this.decimals = null;
         this.normalizeOn = 'input';
-        this.changed = false;
         this.viewValueOnFocus = null;
         this.isInputFocused = false;
     }
@@ -44,6 +43,10 @@ export class DileInputNumber extends DileInput {
     firstUpdated() {
         super.firstUpdated();
         this.syncNativeInputConstraints();
+    }
+
+    get inputModeValue() {
+        return 'decimal';
     }
 
     get safeDecimalSeparator() {
@@ -243,13 +246,8 @@ export class DileInputNumber extends DileInput {
     doBlur(e) {
         this.isInputFocused = false;
         this.viewValueOnFocus = null;
-        const num = this.normalizeAndConstrain(e.target.value);
-
-        if (num !== e.target.value || this.changed) {
-            this.value = num;
-            this.emmitChange();
-            this.changed = false;
-        }
+        // element-changed is dispatched by DileInput when the value changes
+        this.value = this.normalizeAndConstrain(e.target.value);
 
         if (this.normalizeOnBlur) {
             this.el.value = this.computeValue(this.value);
@@ -267,10 +265,6 @@ export class DileInputNumber extends DileInput {
         if (changedProperties.has('normalizeOn') && this.normalizeOn !== this.safeNormalizeOn) {
             this.normalizeOn = this.safeNormalizeOn;
             return;
-        }
-
-        if (changedProperties.has('value') && this.value) {
-            this.changed = true;
         }
 
         if (changedProperties.has('min') || changedProperties.has('max') || changedProperties.has('step') || changedProperties.has('decimals')) {

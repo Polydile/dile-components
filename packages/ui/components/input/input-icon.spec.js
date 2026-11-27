@@ -186,4 +186,26 @@ describe('dile-input-icon', () => {
       expect(el.shadowRoot.querySelector('input').hasAttribute('aria-label')).toBe(false);
     });
   });
+
+  describe('icon button accessible name', () => {
+    it('uses iconLabel, then tooltip, then a generic text', async () => {
+      const el = await renderInputIcon('<dile-input-icon icon="lucide.dot"></dile-input-icon>');
+      const button = () => el.shadowRoot.querySelector('.input-icon-btn');
+      expect(button().getAttribute('aria-label')).toBe('Icon action button');
+
+      el.tooltip = 'Copy value';
+      await el.updateComplete;
+      expect(button().getAttribute('aria-label')).toBe('Copy value');
+
+      el.iconLabel = 'Copy to clipboard';
+      await el.updateComplete;
+      expect(button().getAttribute('aria-label')).toBe('Copy to clipboard');
+    });
+  });
+
+  it('disables the icon button inside a disabled fieldset', async () => {
+    const el = await renderInputIcon('<fieldset disabled><dile-input-icon icon="lucide.dot"></dile-input-icon></fieldset>');
+    expect(el.shadowRoot.querySelector('input').disabled).toBe(true);
+    expect(el.shadowRoot.querySelector('.input-icon-btn').disabled).toBe(true);
+  });
 });
