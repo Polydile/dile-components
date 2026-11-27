@@ -30,7 +30,6 @@
       --dile-calendar-nav-buttons-color: #fff;
       --dile-datepicker-trigger-margin-bottom: 0.1em;
       --dile-datepicker-trigger-size: 50px;
-      --dile-number-picker-icon-color: #fff;
     }
   </style>
 </head>
@@ -52,6 +51,16 @@
       <dile-datetimepicker name="datetimepicker2" id="datetimepicker2" class="styled" label="Event date" verticalAlign="bottom">Styled datetimepicker</dile-datetimepicker>
     </p>
   
+    <h2>With seconds, 15 minutes and 10 seconds steps</h2>
+    <p>
+      <dile-datetimepicker name="datetimepicker4" label="Meeting" showSeconds minuteStep="15" secondStep="10"></dile-datetimepicker>
+    </p>
+
+    <h2>With an ISO 8601 value and minDate</h2>
+    <p>
+      <dile-datetimepicker name="datetimepicker5" label="Delivery" value="2026-12-15T09:30:00Z" minDate="2026-12-01"></dile-datetimepicker>
+    </p>
+
     <h2>Monday as first day</h2>
     <p>
       <dile-datetimepicker firstDayOfWeek="1" name="datetimepicker2" id="datetimepicker2" label="Event date">Styled datetimepicker</dile-datetimepicker>
