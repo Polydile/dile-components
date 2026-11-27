@@ -1,4 +1,5 @@
 import { html, css, LitElement } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { arrowDropUpLargeIcon, arrowDropDownLargeIcon } from '@dile/icons';
 import '../../icon/icon.js'
 
@@ -81,6 +82,8 @@ export class DileNumberPickerElement extends LitElement {
         }
       },
       disabled: { type: Boolean },
+      /** Accessible description of the input, applied as aria-description (e.g. the validation message of the parent field) */
+      accessibleDescription: { type: String },
     };
   }
 
@@ -118,6 +121,8 @@ export class DileNumberPickerElement extends LitElement {
           id="elinput"
           @input=${this._onInput}
           ?disabled=${this.disabled}
+          aria-invalid=${ifDefined(this.errored ? 'true' : undefined)}
+          aria-description=${ifDefined(this.accessibleDescription || undefined)}
         >
         <div class="controls">
           <dile-icon .icon=${arrowDropUpLargeIcon} @click=${this.increment}></dile-icon>

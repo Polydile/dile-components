@@ -44,7 +44,7 @@ Use the component
 | :--- | :--- | :--- | :--- |
 | `name` | `String` | `""` | Name of the input element. |
 | `label` | `String` | `""` | Label text displayed above the drop zone. |
-| `message` | `String` | `""` | Message displayed below the drop zone, typically used for help or error messages. |
+| `message` | `String` | `""` | Message displayed below the drop zone, typically used for help or error messages. It is also the accessible description of the select file button. |
 | `errored` | `Boolean` | `false` | Indicates whether there is an error in the drop zone. |
 | `dropLabel` | `String` | `"Drop here your file"` | Label displayed inside the drop zone, instructing the user to drop a file. |
 | `buttonLabel` | `String` | `"Select file"` | Label of the button shown in the drop zone. |

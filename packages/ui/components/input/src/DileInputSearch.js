@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../icon/icon.js';
 import { searchIcon, clearIcon } from '@dile/icons/index.js';
 
@@ -102,6 +103,8 @@ export class DileInputSearch extends LitElement {
         _hasErrorContent: { state: true },
         /** Accessible name of the input field, read by screen readers. Defaults to name, or to searchButtonLabel. */
         accessibleLabel: { type: String },
+        /** Accessible description of the input, applied as aria-description (e.g. a validation message rendered outside this component) */
+        accessibleDescription: { type: String },
         /** Accessible name of the button when the field is empty */
         searchButtonLabel: { type: String },
         /** Accessible name of the button that clears the field */
@@ -145,7 +148,8 @@ export class DileInputSearch extends LitElement {
                 ?disabled="${this.disabled}"
                 ?readonly="${this.readOnly}"
                 aria-label="${this.accessibleLabel || this.name || this.searchButtonLabel}"
-                ?aria-invalid="${this.errored}"
+                aria-invalid="${ifDefined(this.errored ? 'true' : undefined)}"
+                aria-description="${ifDefined(this.accessibleDescription || undefined)}"
                 aria-describedby="${this.showErrorMessage ? 'error-msg' : null}"
             >
             <button

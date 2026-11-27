@@ -42,6 +42,7 @@ Use the component.
 - **name**: Name for this input search field
 - **errored**: Shows the field in the error state. The content of the `error` slot, if any, is displayed below it.
 - **accessibleLabel**: Accessible name of the input, read by screen readers (`aria-label`). When not set, `name` is used, or `searchButtonLabel` if there is no `name`.
+- **accessibleDescription**: Accessible description of the input (`aria-description`). Useful when the error or help message is rendered outside this component, as `dile-select-ajax` does. When `errored` is set, the input also gets `aria-invalid="true"`.
 - **searchButtonLabel**: Accessible name of the button while the field is empty. Defaults to `"Search"`.
 - **clearButtonLabel**: Accessible name of the button that clears the field. Defaults to `"Clear search"`.
 

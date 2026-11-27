@@ -47,8 +47,8 @@ Use the component
 - **value**: the current code. This property syncs to every box
 - **disabled**: when true, the element is disabled
 - **readonly**: when true, is not editable
-- **errored**: when true, the element is marked as error
-- **message**: optionally, the element can display a message
+- **errored**: when true, the element is marked as error and every box gets `aria-invalid="true"`
+- **message**: optionally, the element can display a message. Every box is linked to it with `aria-describedby`, so screen readers read it on focus
 - **hideErrorOnInput**: when true, the errored state turns off when the user changes the value and the message is cleared
 - **focusOnStart**: when true, set application focus to this component after initialization
 

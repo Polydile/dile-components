@@ -57,8 +57,8 @@ Use the component.
 * **focusOnStart**: When true, the input will get focus automatically after rendering.
 * **name**: Name for the input to use in the form submits.
 * **label**: Label displayed.
-* **message**: Message displayed.
-* **errored**: When `errored` is set to true the component shows an error state.
+* **message**: Message displayed. It is also set as the accessible description (`aria-description`) of the inner input, so screen readers read it on focus.
+* **errored**: When `errored` is set to true the component shows an error state and the inner input gets `aria-invalid="true"`.
 * **hideErrorOnInput**: Removes error state when the user interacts with the element changing it's value.
 
 

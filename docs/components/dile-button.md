@@ -68,6 +68,7 @@ Supported icon families are the ones documented in [dile-iconlib](/icons/dile-ic
 | `iconPosition` | String | `"left"` | Icon placement relative to the label: `"left"` (default) or `"right"`. Exposed via `icon-position` attribute. |
 | `noWrap` | Boolean | `false` | Prevents the label from wrapping into several lines. Exposed via `no-wrap` attribute. |
 | `label` | String | `""` | Accessible name for the button (`aria-label`). **Required for icon-only buttons** (no slotted text), otherwise the button has no accessible name. |
+| `accessibleDescription` | String | `""` | Accessible description of the button (`aria-description`), for example a related validation message. |
 
 When ```type="submit"```, clicking the button submits its closest ancestor ```<form>``` and includes its ```name```/```value``` pair in the submitted data — only for the button that was actually clicked, so you can safely use several submit buttons with different ```name```/```value``` pairs in the same form to distinguish which action was triggered.
 
@@ -76,6 +77,9 @@ When ```type="submit"```, clicking the button submits its closest ancestor ```<f
 - The inner `dile-iconlib` icon is marked `aria-hidden="true"` because it is
   decorative; the accessible name comes from the slotted text or from the
   `label` property.
+- `accessibleDescription` is applied as `aria-description` on the inner native
+  button, so it is read after the accessible name. `dile-drop-file` uses it to
+  announce its message.
 - The native focus ring (`--dile-button-ring-color`) is preserved for keyboard
   users.
 

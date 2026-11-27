@@ -258,4 +258,14 @@ describe('dile-button', () => {
       expect(submitted).toBe(false);
     });
   });
+
+  it('applies accessibleDescription as aria-description on the native button', async () => {
+    const el = await renderButton('<dile-button>Send</dile-button>');
+    const button = el.shadowRoot.querySelector('button');
+    expect(button.hasAttribute('aria-description')).toBe(false);
+
+    el.accessibleDescription = 'Fill in all the fields first';
+    await el.updateComplete;
+    expect(button.getAttribute('aria-description')).toBe('Fill in all the fields first');
+  });
 });

@@ -27,4 +27,21 @@ describe('dile-number-picker', () => {
     expect(label).toBeTruthy();
     expect(label.textContent.trim()).toBe('Quantity');
   });
+
+  it('marks the inner input as invalid and describes it with the message', async () => {
+    const el = await renderNumberPicker('<dile-number-picker errored message="Too many"></dile-number-picker>');
+    const inner = el.shadowRoot.querySelector('dile-number-picker-element');
+    await inner.updateComplete;
+    const input = inner.shadowRoot.querySelector('input');
+
+    expect(input.getAttribute('aria-invalid')).toBe('true');
+    expect(input.getAttribute('aria-description')).toBe('Too many');
+
+    el.errored = false;
+    el.message = '';
+    await el.updateComplete;
+    await inner.updateComplete;
+    expect(input.hasAttribute('aria-invalid')).toBe(false);
+    expect(input.hasAttribute('aria-description')).toBe(false);
+  });
 });

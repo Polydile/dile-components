@@ -211,4 +211,13 @@ describe('dile-drop-file', () => {
       expect(formData.getAll('docs').map(file => file.name)).toEqual(['a.txt', 'b.txt']);
     });
   });
+
+  it('describes the select file button with the message', async () => {
+    const el = await renderDropFile('<dile-drop-file errored message="File too big"></dile-drop-file>');
+    const button = el.shadowRoot.querySelector('dile-button');
+    await button.updateComplete;
+
+    expect(el.shadowRoot.querySelector('.message').id).toBeTruthy();
+    expect(button.shadowRoot.querySelector('button').getAttribute('aria-description')).toBe('File too big');
+  });
 });

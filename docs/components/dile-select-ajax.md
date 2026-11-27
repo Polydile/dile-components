@@ -79,7 +79,7 @@ Use the component.
 - **loading**: Boolean, state property that indicates whether the component is currently loading data from the endpoint.
 - **isSelected**: Boolean, a property that indicates whether an option has been selected.
 - **static**: Boolean, when set to `true`, disables the search functionality and displays all options when the select is initialized.
-- **message**: A custom message to display.
+- **message**: A custom message to display. It is also set as the accessible description (`aria-description`) of the search input or the generated select, and `errored` sets `aria-invalid` on them.
 - **hideErrorOnInput**: Hide error messages and error state if the user interacts with this component.
 - **additionalQueryString**: Object with additional query string data to be placed in the request url.
 

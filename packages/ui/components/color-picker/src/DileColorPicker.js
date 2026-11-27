@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import { DileOverlay } from '../../../mixins/overlay/index.js';
 import { DileCloseDocumentClick } from '../../../mixins/close-document-click/index.js';
 import { DileCloseOnEscPressed } from '../../../mixins/close-on-esc-pressed/index.js';
@@ -308,6 +309,7 @@ export class DileColorPicker extends DileOverlay(
             aria-haspopup="dialog"
             aria-expanded="${this.opened}"
             aria-label="${this.label || 'Color picker'}"
+            aria-describedby="${ifDefined(this.message ? FIELD_MESSAGE_ID : undefined)}"
             @click="${this.toggle}"
             ></button>
         </div>
@@ -361,6 +363,8 @@ export class DileColorPicker extends DileOverlay(
             type="text"
             class="hex-input ${this.errored ? 'errored' : ''}"
             aria-label="Hex color"
+            aria-invalid="${ifDefined(this.errored ? 'true' : undefined)}"
+            aria-describedby="${ifDefined(this.message ? FIELD_MESSAGE_ID : undefined)}"
             maxlength="7"
             spellcheck="false"
             autocomplete="off"
@@ -379,7 +383,7 @@ export class DileColorPicker extends DileOverlay(
   get messageTemplate() {
     return html`
       ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `;

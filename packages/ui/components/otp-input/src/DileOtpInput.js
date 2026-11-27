@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import { labelStyles, messageStyles } from '../../input/index.js';
 import { sanitizeOtpValue } from '../../../lib/otp/sanitizeOtpValue.js';
 
@@ -169,6 +170,8 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
               ?readonly="${this.readonly}"
               .value="${char}"
               class="${this.errored ? 'errored' : ''}"
+              aria-invalid="${ifDefined(this.errored ? 'true' : undefined)}"
+              aria-describedby="${ifDefined(this.message ? FIELD_MESSAGE_ID : undefined)}"
               @input="${(e) => this._onInput(e, index)}"
               @keydown="${(e) => this._onKeydown(e, index)}"
               @keypress="${this._lookForEnter}"
@@ -185,7 +188,7 @@ export class DileOtpInput extends DileEmmitChange(LitElement) {
   get messageTemplate() {
     return html`
       ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `;

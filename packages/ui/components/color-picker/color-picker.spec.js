@@ -130,4 +130,19 @@ describe('dile-color-picker', () => {
     const data = new FormData(document.getElementById('testForm'));
     expect(data.get('color')).toBe('#123456');
   });
+
+  it('links the message to the trigger and marks the hex input as invalid', async () => {
+    const el = await renderColorPicker('<dile-color-picker errored message="Pick a darker color"></dile-color-picker>');
+    const message = el.shadowRoot.querySelector('.message');
+
+    expect(el.shadowRoot.getElementById('trigger').getAttribute('aria-describedby')).toBe(message.id);
+    const hexInput = el.shadowRoot.querySelector('.hex-input');
+    expect(hexInput.getAttribute('aria-invalid')).toBe('true');
+    expect(hexInput.getAttribute('aria-describedby')).toBe(message.id);
+
+    el.clearError();
+    await el.updateComplete;
+    expect(el.shadowRoot.getElementById('trigger').hasAttribute('aria-describedby')).toBe(false);
+    expect(hexInput.hasAttribute('aria-invalid')).toBe(false);
+  });
 });

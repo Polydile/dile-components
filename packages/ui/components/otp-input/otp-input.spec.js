@@ -38,4 +38,21 @@ describe('dile-otp-input', () => {
 
     expect(detail).toEqual({ name: 'code', value: '12' });
   });
+
+  it('sets aria-invalid and links the message with aria-describedby on every box', async () => {
+    const el = await renderOtpInput('<dile-otp-input length="3" errored message="Wrong code"></dile-otp-input>');
+    const message = el.shadowRoot.querySelector('.message');
+
+    el.shadowRoot.querySelectorAll('input').forEach((box) => {
+      expect(box.getAttribute('aria-invalid')).toBe('true');
+      expect(box.getAttribute('aria-describedby')).toBe(message.id);
+    });
+
+    el.clearError();
+    await el.updateComplete;
+    el.shadowRoot.querySelectorAll('input').forEach((box) => {
+      expect(box.hasAttribute('aria-invalid')).toBe(false);
+      expect(box.hasAttribute('aria-describedby')).toBe(false);
+    });
+  });
 });

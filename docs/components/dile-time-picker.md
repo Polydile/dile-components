@@ -36,8 +36,8 @@ Use the component.
 * **value**: `String`. Full time in `HH:MM:SS` format. Default is `"00:00:00"`.
 * **label**: `String`. Label displayed above the time picker.
 * **disabled**: `Boolean`. Disables user interaction.
-* **message**: `String`. Help or error message displayed below the picker.
-* **errored**: `Boolean`. Displays the component in error state.
+* **message**: `String`. Help or error message displayed below the picker. It is also set as the accessible description (`aria-description`) of the hours, minutes and seconds inputs.
+* **errored**: `Boolean`. Displays the component in error state and sets `aria-invalid="true"` on the inner inputs.
 * **hideErrorOnInput**: `Boolean`. Clears the error when the user changes the value.
 * **focusOnStart**: `Boolean`. Sets focus on the hours field when the component is rendered.
 * **name**: `String`. Name of the field, useful for form integration.

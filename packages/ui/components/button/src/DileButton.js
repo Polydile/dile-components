@@ -27,6 +27,8 @@ export class DileButton extends LitElement {
       noWrap: { type: Boolean, reflect: true, attribute: 'no-wrap' },
       /** Accessible name for the button. Required when the button only shows an icon. */
       label: { type: String },
+      /** Accessible description of the button, applied as aria-description (e.g. a related validation message). */
+      accessibleDescription: { type: String },
       _hasText: { type: Boolean, state: true },
     };
   }
@@ -175,6 +177,7 @@ export class DileButton extends LitElement {
         type=${this.type || "button"}
         aria-label=${ifDefined(this._computedAriaLabel)}
         aria-busy=${ifDefined(this.loading ? 'true' : undefined)}
+        aria-description=${ifDefined(this.accessibleDescription || undefined)}
       >
         ${showIcon && this.iconPosition !== 'right' ? this.iconTemplate : ''}
         <slot @slotchange=${this._onSlotChange}></slot>

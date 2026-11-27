@@ -46,8 +46,8 @@ Use the component
 - **value**: the current color, as a 6-digit hex string (e.g. `#3366ff`). Defaults to `#000000`. A 3-digit shorthand (e.g. `#36f`) is accepted and automatically normalized to its 6-digit form.
 - **disabled**: when true, the element is disabled
 - **readonly**: when true, is not editable
-- **errored**: when true, the element is marked as error
-- **message**: optionally, the element can display a message
+- **errored**: when true, the element is marked as error and the hex input gets `aria-invalid="true"`
+- **message**: optionally, the element can display a message. The trigger button and the hex input are linked to it with `aria-describedby`
 - **hideErrorOnInput**: when true, the errored state turns off when the user changes the value and the message is cleared
 - **focusOnStart**: when true, set application focus to this component after initialization
 

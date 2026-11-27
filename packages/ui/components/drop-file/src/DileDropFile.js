@@ -4,7 +4,7 @@ import '../file-preview.js';
 import '../../button/button.js';
 import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 
 export class DileDropFile extends DileEmmitChange(LitElement) {
   static styles = [
@@ -136,7 +136,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   get messageTemplate() {
     return html`
       ${this.message 
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `
@@ -145,7 +145,7 @@ export class DileDropFile extends DileEmmitChange(LitElement) {
   get dropLabelTemplate() {
     return html`
       <p>${this.dropLabel}</p>
-      <p><dile-button>${this.buttonLabel}</dile-button></p>
+      <p><dile-button .accessibleDescription=${this.message || undefined}>${this.buttonLabel}</dile-button></p>
     `
   }
 

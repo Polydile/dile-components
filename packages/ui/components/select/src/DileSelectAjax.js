@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '../../input/input-search.js';
 import '../../spinner/spinner-horizontal.js';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import '../select.js';
 import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
@@ -201,6 +201,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         id="result"
         ?errored=${this.errored}
         ?disabled=${this.disabled}
+        .accessibleDescription=${this.message || undefined}
         value="${this.selectedText}"
         readOnly
         @dile-input-search-cleared=${this.onClearSelected}
@@ -217,6 +218,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
         label="${this.label}"
         ?errored=${this.errored}
         ?disabled=${this.disabled}
+        .accessibleDescription=${this.message || undefined}
         @focus=${this.onFocus}
         @dile-input-search=${this.onTextInput}
         delay="${this.delay}"
@@ -272,7 +274,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
           name="generated-select-field"
           ?errored=${this.errored}
         >
-          <select slot="select">
+          <select slot="select" aria-description=${this.message || ''}>
             <option value="">${this.selectDefaultPlaceholder}</option>
             ${this.data.map(item => html`
               <option value="${item[this.idProperty]}">${item[this.displayProperty]}</option>
@@ -285,7 +287,7 @@ export class DileSelectAjax  extends DileEmmitChange(LitElement) {
   get messageTemplate() {
     return html`
       ${this.message
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `

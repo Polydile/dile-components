@@ -88,4 +88,17 @@ describe('dile-input-search', () => {
     await new Promise((resolve) => setTimeout(resolve, 30));
     expect(detail).toEqual({ keyword: 'lit' });
   });
+
+  it('sets aria-invalid only when errored and applies accessibleDescription', async () => {
+    const el = await renderInputSearch('<dile-input-search></dile-input-search>');
+    const input = el.shadowRoot.querySelector('input');
+    expect(input.hasAttribute('aria-invalid')).toBe(false);
+    expect(input.hasAttribute('aria-description')).toBe(false);
+
+    el.errored = true;
+    el.accessibleDescription = 'Choose a country';
+    await el.updateComplete;
+    expect(input.getAttribute('aria-invalid')).toBe('true');
+    expect(input.getAttribute('aria-description')).toBe('Choose a country');
+  });
 });

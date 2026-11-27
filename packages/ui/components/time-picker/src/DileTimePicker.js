@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import '../../number-picker/number-picker-element.js';
 import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
@@ -62,6 +62,7 @@ export class DileTimePicker extends DileEmmitChange(LitElement) {
             .value=${this._hours}
             ?disabled=${this.disabled}
             ?errored=${this.errored}
+            .accessibleDescription=${this.message || undefined}
             ?focusOnStart=${this.focusOnStart}
             @dile-number-picker-value-changed=${this._changeHours}
           ></dile-number-picker-element>
@@ -74,6 +75,7 @@ export class DileTimePicker extends DileEmmitChange(LitElement) {
             .value=${this._minutes}
             ?disabled=${this.disabled}
             ?errored=${this.errored}
+            .accessibleDescription=${this.message || undefined}
             @dile-number-picker-value-changed=${this._changeMinutes}
           ></dile-number-picker-element>
           <dile-number-picker-element
@@ -85,6 +87,7 @@ export class DileTimePicker extends DileEmmitChange(LitElement) {
             .value=${this._seconds}
             ?disabled=${this.disabled}
             ?errored=${this.errored}
+            .accessibleDescription=${this.message || undefined}
             @dile-number-picker-value-changed=${this._changeSeconds}
           ></dile-number-picker-element>
         </section>
@@ -96,7 +99,7 @@ export class DileTimePicker extends DileEmmitChange(LitElement) {
   get messageTemplate() {
     return html`
       ${this.message 
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `

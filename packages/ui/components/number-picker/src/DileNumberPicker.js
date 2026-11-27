@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DileEmmitChange } from '../../../mixins/form/index.js';
+import { DileEmmitChange, FIELD_MESSAGE_ID } from '../../../mixins/form/index.js';
 import '../number-picker-element.js';
 import { labelStyles } from '../../input/src/label-styles.js';
 import { messageStyles } from '../../input/src/message-styles.js';
@@ -81,6 +81,7 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
                 @dile-number-picker-value-changed=${this.valueChanged}
                 ?focusOnStart=${this.focusOnStart}
                 ?errored=${this.errored}
+                .accessibleDescription=${this.message || undefined}
                 min=${this._numericMin(this.min)}
                 max=${this._numericMax(this.max)}
                 ?disabled=${this.disabled}
@@ -98,7 +99,7 @@ export class DileNumberPicker extends DileEmmitChange(LitElement) {
   get messageTemplate() {
     return html`
       ${this.message 
-        ? html`<div class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
+        ? html`<div id="${FIELD_MESSAGE_ID}" class="message ${this.errored ? 'errored-msg' : ''}"><span>${this.message}</span></div>`
         : ''
       }
     `
