@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dile-form-group component demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module">
+    import "@dile/ui/components/form-group/form-group.js";
+    import "@dile/ui/components/input/input.js";
+    import "@dile/ui/components/select/select.js";
+    import "@dile/ui/components/textarea/textarea.js";
+    import "@dile/ui/components/checkbox/checkbox.js";
+  </script>
+  <style>
+    .resizable {
+      resize: horizontal;
+      overflow: auto;
+      border: 1px dashed #bbb;
+      padding: 0.75rem;
+      max-width: 100%;
+      width: 760px;
+    }
+    .styled {
+      --dile-form-group-border: 2px solid #8ac;
+      --dile-form-group-border-radius: 1rem;
+      --dile-form-group-background-color: #f2f8fc;
+      --dile-form-group-label-color: #246;
+      --dile-form-group-label-font-weight: 700;
+      --dile-form-group-padding: 1.25rem 1.5rem;
+    }
+    .wide-left {
+      --dile-form-group-split-columns: 2fr 1fr;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>dile-form-group component</h1>
+    <p>Drag the bottom-right corner of the dashed boxes to see the columns collapse when the group is narrower than its breakpoint.</p>
+
+    <h2>Default (line variant, one column)</h2>
+    <dile-form-group label="Account">
+      <dile-input label="Email" name="email"></dile-input>
+      <dile-input label="Username" name="username"></dile-input>
+    </dile-form-group>
+
+    <h2>Two columns with description and full-width item</h2>
+    <div class="resizable">
+      <dile-form-group label="Personal data" description="As it will appear on your invoices." columns="2" breakpoint="520">
+        <dile-input label="First name" name="firstName"></dile-input>
+        <dile-input label="Last name" name="lastName"></dile-input>
+        <dile-input label="Phone" name="phone"></dile-input>
+        <dile-select label="Country" name="country">
+          <select slot="select">
+            <option value="es">Spain</option>
+            <option value="mx">Mexico</option>
+            <option value="ar">Argentina</option>
+          </select>
+        </dile-select>
+        <dile-textarea label="Notes" name="notes" data-span="full"></dile-textarea>
+      </dile-form-group>
+    </div>
+
+    <h2>Three columns, box variant</h2>
+    <div class="resizable">
+      <dile-form-group label="Address" variant="box" columns="3" breakpoint="640">
+        <dile-input label="Street" name="street" data-span="2"></dile-input>
+        <dile-input label="Number" name="number"></dile-input>
+        <dile-input label="City" name="city"></dile-input>
+        <dile-input label="Postal code" name="zip"></dile-input>
+        <dile-input label="Province" name="province"></dile-input>
+      </dile-form-group>
+    </div>
+
+    <h2>Left / right slots</h2>
+    <div class="resizable">
+      <dile-form-group label="Shipping" class="wide-left">
+        <dile-input slot="left" label="Address" name="shippingAddress"></dile-input>
+        <dile-input slot="left" label="City" name="shippingCity"></dile-input>
+        <dile-input slot="left" label="Postal code" name="shippingZip"></dile-input>
+        <dile-input slot="right" label="Contact phone" name="shippingPhone"></dile-input>
+        <dile-checkbox slot="right" name="gift">This is a gift</dile-checkbox>
+        <dile-textarea label="Delivery instructions" name="instructions"></dile-textarea>
+      </dile-form-group>
+    </div>
+
+    <h2>Plain variant with custom label slot</h2>
+    <dile-form-group variant="plain" columns="2">
+      <h3 slot="label">Password</h3>
+      <dile-input type="password" label="New password" name="password"></dile-input>
+      <dile-input type="password" label="Repeat password" name="password2"></dile-input>
+    </dile-form-group>
+
+    <h2>Styled</h2>
+    <dile-form-group class="styled" label="Preferences" variant="box" columns="2">
+      <dile-input label="Display name" name="displayName"></dile-input>
+      <dile-input label="Website" name="website"></dile-input>
+    </dile-form-group>
+
+    <footer><a href="../index.html">Back</a></footer>
+  </div>
+</body>
+</html>
